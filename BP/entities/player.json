@@ -9,7 +9,7 @@
       "properties": {
         "morphing_bracelet:entity": {
           "type": "int",
-          "range": [ 0, 80 ],
+          "range": [ 0, 81 ],
           "default": 0,
           "client_sync": true
         },
@@ -46,7 +46,7 @@
         // Old player properties. Kept for backward compatibility :)
         "morph:entity": {
           "type": "int",
-          "range": [ -1, 80 ],
+          "range": [ -1, 81 ],
           "default": -1
         },
         "morph:color": {
@@ -7817,6 +7817,59 @@
           ]
         }
       },
+      "morph:night_fury": {
+        "minecraft:attack": {
+          "damage": 7
+        },
+        "minecraft:breathable": {
+          "suffocate_time": 0,
+          "total_supply": 15
+        },
+        "minecraft:collision_box": {
+          "height": 1.6,
+          "width": 1.6
+        },
+        "minecraft:damage_sensor": {
+          "triggers": {
+            "deals_damage": "no",
+            "on_damage": {
+              "filters": {
+                "test": "has_damage",
+                "value": "fall"
+              }
+            }
+          }
+        },
+        "minecraft:game_event_movement_tracking": {
+          "emit_flap": true
+        },
+        "minecraft:health": {
+          "max": 30,
+          "value": 30
+        },
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "cause": "lava",
+              "damage_per_tick": 4,
+              "filters": {
+                "operator": "==",
+                "test": "in_lava",
+                "subject": "self",
+                "value": true
+              }
+            }
+          ]
+        },
+        "minecraft:type_family": {
+          "family": [
+            "night_fury",
+            "dragon",
+            "mob",
+            "morphed"
+          ]
+        }
+      },
       "morphing_bracelet:default_component_values": {
         "minecraft:attack": {
           "damage": 1
@@ -8686,6 +8739,12 @@
                 "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 80 },
                 "remove": {
                   "component_groups": [ "morph:breeze" ]
+                }
+              },
+              {
+                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 81 },
+                "remove": {
+                  "component_groups": [ "morph:night_fury" ]
                 }
               }
             ]
@@ -11972,6 +12031,15 @@
             },
             "queue_command": {
               "command": "tag @s remove \"components.minecraft:breeze\""
+            }
+          },
+          {
+            "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:night_fury" },
+            "add": {
+              "component_groups": [ "morph:night_fury" ]
+            },
+            "queue_command": {
+              "command": "tag @s remove \"components.minecraft:night_fury\""
             }
           }
         ]

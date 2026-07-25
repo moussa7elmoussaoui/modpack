@@ -101,11 +101,12 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
       itemStack.lockMode = ItemLockMode.inventory;
       itemStack.keepOnDeath = true;
       itemStack.setDynamicProperty("isAttachedToMorph", true);
+      const entityTypeDefinition = EntityTypes.get(entityType);
       itemStack.setLore([{ rawtext: [
         { text: "§r§7" },
         { translate: "morph.item.attached_to" },
         { text: " " },
-        { translate: EntityTypes.get(entityType).localizationKey },
+        entityTypeDefinition === undefined ? { text: "Night Fury" } : { translate: entityTypeDefinition.localizationKey },
         { text: "§r" }
       ]}]);
 

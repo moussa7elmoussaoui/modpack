@@ -1,0 +1,54 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.night_fury.move": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": [ "night_fury_idle" ],
+          "blend_transition": 0.15,
+          "transitions": [
+            { "flying": "!query.is_on_ground && !query.is_sleeping" },
+            { "running": "query.is_on_ground && query.modified_move_speed > 0.16 && !query.is_sleeping" },
+            { "walking": "query.is_on_ground && query.modified_move_speed > 0.03 && !query.is_sleeping" }
+          ]
+        },
+        "walking": {
+          "animations": [ "night_fury_walk" ],
+          "blend_transition": 0.15,
+          "transitions": [
+            { "flying": "!query.is_on_ground && !query.is_sleeping" },
+            { "running": "query.is_on_ground && query.modified_move_speed > 0.18 && !query.is_sleeping" },
+            { "idle": "!query.is_on_ground || query.modified_move_speed <= 0.02 || query.is_sleeping" }
+          ]
+        },
+        "running": {
+          "animations": [ "night_fury_run" ],
+          "blend_transition": 0.12,
+          "transitions": [
+            { "flying": "!query.is_on_ground && !query.is_sleeping" },
+            { "walking": "query.is_on_ground && query.modified_move_speed <= 0.12 && query.modified_move_speed > 0.03 && !query.is_sleeping" },
+            { "idle": "!query.is_on_ground || query.modified_move_speed <= 0.02 || query.is_sleeping" }
+          ]
+        },
+        "flying": {
+          "animations": [ "night_fury_flap" ],
+          "blend_transition": 0.12,
+          "transitions": [
+            { "hovering": "!query.is_on_ground && query.modified_move_speed <= 0.03 && !query.is_sleeping" },
+            { "walking": "query.is_on_ground && query.modified_move_speed > 0.03 && !query.is_sleeping" },
+            { "idle": "query.is_on_ground || query.is_sleeping" }
+          ]
+        },
+        "hovering": {
+          "animations": [ "night_fury_hover" ],
+          "blend_transition": 0.12,
+          "transitions": [
+            { "flying": "!query.is_on_ground && query.modified_move_speed > 0.05 && !query.is_sleeping" },
+            { "idle": "query.is_on_ground || query.is_sleeping" }
+          ]
+        }
+      }
+    }
+  }
+}

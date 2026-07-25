@@ -1616,6 +1616,9 @@ const morphs = {
   },
   "minecraft:breeze": {
     items: [{ id: "morphing_bracelet:wind_charge" }]
+  },
+  "minecraft:night_fury": {
+    items: [{ id: "morphing_bracelet:night_fury_fireball" }]
   }
 };
 

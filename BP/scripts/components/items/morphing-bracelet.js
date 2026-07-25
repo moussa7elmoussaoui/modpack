@@ -22,7 +22,8 @@ export default {
       const entityType = morphId.slice(0, bracketStart);
       const properties = morphId.slice(bracketStart + 1, bracketEnd);
 
-      const iconPath = `textures/morph_icons/${entityType.replace(":", "/")}${properties.length === 0 ? "" : `/${properties}`}`;
+      const iconEntityType = entityType === "minecraft:night_fury" ? "minecraft:bat" : entityType;
+      const iconPath = `textures/morph_icons/${iconEntityType.replace(":", "/")}${properties.length === 0 ? "" : `/${properties}`}`;
       morphMenu.button(morphId, iconPath);
     }
 
@@ -108,35 +109,16 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
 
   if (!(damagingEntity?.typeId === PLAYER_ENTITY_TYPE && isBraceletOwner(damagingEntity))) return;
 
-  if (deadEntity.typeId in morphs) {
+  const secretMorph = getSecretMorph(deadEntity);
+  if (secretMorph !== undefined) {
+    giveKilledMobMorphToPlayer(damagingEntity, deadEntity, secretMorph);
+  } else if (deadEntity.typeId in morphs) {
     if (deadEntity.typeId === PLAYER_ENTITY_TYPE) return;
   
     const morph = deadEntity.getMorph();
     if (morph === undefined) return;
 
-    const isSuccessful = giveMorphToPlayer(damagingEntity, morph);
-    if (!isSuccessful) return;
-
-    const { location: damagerLocation } = damagingEntity;
-    const headLocation = deadEntity.getHeadLocation();
-
-    const particleVariables = new MolangVariableMap();
-    const particleDirection = {
-      x: damagerLocation.x - headLocation.x,
-      y: (damagerLocation.y + 0.5) - headLocation.y,
-      z: damagerLocation.z - headLocation.z
-    };
-    particleVariables.setVector3("variable.direction", particleDirection);
-    particleVariables.setFloat("variable.distance",
-      Math.sqrt(
-        particleDirection.x ** 2 +
-        particleDirection.y ** 2 +
-        particleDirection.z ** 2
-      )
-    );
-
-    deadEntity.dimension.spawnParticle("morphing_bracelet:soul_orb_particle", headLocation, particleVariables);
-    damagingEntity.dimension.playSound("beacon.activate", damagerLocation);
+    giveKilledMobMorphToPlayer(damagingEntity, deadEntity, morph);
   } else {
     const unavailableMobsCollected = JSON.parse(damagingEntity.getDynamicProperty("unavailableMobsCollected") ?? "[]");
 
@@ -151,6 +133,38 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
     damagingEntity.sendMessage([{ text: "§7" }, { translate: message }, { text: "§r" }]);
   }
 });
+
+function getSecretMorph(deadEntity) {
+  if (deadEntity.typeId === "minecraft:bat" && deadEntity.nameTag === "night_fury") {
+    return new Morph("minecraft:night_fury");
+  }
+}
+
+function giveKilledMobMorphToPlayer(player, deadEntity, morph) {
+  const isSuccessful = giveMorphToPlayer(player, morph);
+  if (!isSuccessful) return;
+
+  const { location: damagerLocation } = player;
+  const headLocation = deadEntity.getHeadLocation();
+
+  const particleVariables = new MolangVariableMap();
+  const particleDirection = {
+    x: damagerLocation.x - headLocation.x,
+    y: (damagerLocation.y + 0.5) - headLocation.y,
+    z: damagerLocation.z - headLocation.z
+  };
+  particleVariables.setVector3("variable.direction", particleDirection);
+  particleVariables.setFloat("variable.distance",
+    Math.sqrt(
+      particleDirection.x ** 2 +
+      particleDirection.y ** 2 +
+      particleDirection.z ** 2
+    )
+  );
+
+  deadEntity.dimension.spawnParticle("morphing_bracelet:soul_orb_particle", headLocation, particleVariables);
+  player.dimension.playSound("beacon.activate", damagerLocation);
+}
 
 function giveMorphToPlayer(player, morph) {
   if (!(player instanceof Player)) throw new TypeError("Expected 'player' argument to be an instance of Player");

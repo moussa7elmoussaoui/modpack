@@ -1,6 +1,6 @@
 import { world, system } from "@minecraft/server";
 
-const canFly = [ 10, 17, 37, 40, 42, 45, 49, 51, 54, 77 ];
+const canFly = [ 10, 17, 37, 40, 42, 45, 49, 51, 54, 77, 81 ];
 const canFloat = [ 4 ];
 const canGlideInfinitely = [ 77 ];
 
