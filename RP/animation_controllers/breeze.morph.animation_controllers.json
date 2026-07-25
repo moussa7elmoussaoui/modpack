@@ -1,0 +1,109 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.breeze.move": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "moving": "query.modified_move_speed > 0.1 && query.vertical_speed == 0 && !query.is_gliding && variable.swim_amount <= 0.0"
+            }
+          ]
+        },
+        "moving": {
+          "animations": [ "breeze_slide" ],
+          "transitions": [
+            {
+              "default": "query.modified_move_speed < 0.1 || query.is_gliding || variable.swim_amount > 0.0"
+            }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    },
+    "controller.animation.morph.breeze.move_sounds": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [ "breeze_whirl_sound" ],
+          "transitions": [
+            {
+              "moving": "query.modified_move_speed > 0.1 && query.vertical_speed == 0 && !query.is_gliding && variable.swim_amount <= 0.0"
+            }
+          ]
+        },
+        "moving": {
+          "sound_effects": [
+            {
+              "effect": "breeze_slide"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "query.modified_move_speed < 0.1 || query.is_gliding || variable.swim_amount > 0.0"
+            }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    },
+    "controller.animation.morph.breeze.ground_particles": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "idling": "!query.is_moving && query.is_on_ground && query.vertical_speed > -2 && !query.is_riding" },
+            { "moving": "query.is_moving && query.is_on_ground && query.vertical_speed > -2 && !query.is_riding" }
+          ]
+        },
+        "idling": {
+          "animations": [ "breeze_idle_ground_particles" ],
+          "transitions": [
+            { "default": "!query.is_on_ground || query.is_riding" },
+            { "moving": "query.is_moving && query.is_on_ground && !query.is_riding" }
+          ]
+        },
+        "moving": {
+          "animations": [ "breeze_slide_ground_particles" ],
+          "transitions": [
+            { "default": "!query.is_on_ground || query.is_riding" },
+            { "idling": "!query.is_moving && query.is_on_ground && !query.is_riding" }
+          ]
+        }
+      }
+    },
+    "controller.animation.morph.breeze.jump": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "jump": "variable.breeze_jump_time > 0.0" }
+          ]
+        },
+        "jump": {
+          "animations": [ "breeze_jump" ],
+          "transitions": [
+            { "default": "variable.breeze_jump_time <= 0.0" }
+          ]
+        }
+      }
+    },
+    "controller.animation.morph.breeze.jump_effects": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "jump": "variable.breeze_jump_time > 0.0" }
+          ]
+        },
+        "jump": {
+          "animations": [ "breeze_jump_effects" ],
+          "transitions": [
+            { "default": "variable.breeze_jump_time <= 0.0" }
+          ]
+        }
+      }
+    }
+  }
+}

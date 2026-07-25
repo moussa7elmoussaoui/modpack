@@ -1,0 +1,50 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.shulker.peek": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "open": "query.target_x_rotation <= 22.5 && !query.is_crawling && query.property('morphing_bracelet:entity') == 67"
+            },
+            {
+              "close": "(query.target_x_rotation > 22.5 || query.is_crawling) && query.property('morphing_bracelet:entity') == 67"
+            }
+          ]
+        },
+        "open": {
+          "on_entry": [
+            "/playsound mob.shulker.open @a ~ ~ ~"
+          ],
+          "transitions": [
+            {
+              "close": "query.target_x_rotation > 22.5 || query.is_crawling"
+            },
+            {
+              "default": "query.property('morphing_bracelet:entity') != 67"
+            }
+          ]
+        },
+        "close": {
+          "on_entry": [
+            "/playsound mob.shulker.close @a ~ ~ ~",
+            "/effect @s resistance 1000000 3 true"
+          ],
+          "on_exit": [
+            "/effect @s resistance 0"
+          ],
+          "transitions": [
+            {
+              "open": "query.target_x_rotation <= 22.5 && !query.is_crawling"
+            },
+            {
+              "default": "query.property('morphing_bracelet:entity') != 67"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

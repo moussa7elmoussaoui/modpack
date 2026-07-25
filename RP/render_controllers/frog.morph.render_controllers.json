@@ -1,0 +1,15 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.morph.frog": {
+			"arrays": {
+				"textures": {
+					"Array.skins": [ "Texture.frog_temperate", "Texture.frog_cold", "Texture.frog_warm" ]
+				}
+			},
+			"geometry": "Geometry.frog",
+			"materials": [ { "*": "Material.frog" } ],
+			"textures": [ "Array.skins[query.variant]" ]
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+    "controller.animation.morph.vindicator.base": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true,
+          "transitions": [
+            {
+              "melee_attack": "query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_axe', 'minecraft:is_sword') && !(query.blocking && (query.get_equipped_item_name == 'shield' || query.get_equipped_item_name('off_hand') == 'shield'))"
+            }
+          ]
+        },
+        "melee_attack": {
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true,
+          "animations": [ "vindicator_attack" ],
+          "transitions": [
+            {
+              "default": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_axe', 'minecraft:is_sword') || (query.blocking && (query.get_equipped_item_name == 'shield' || query.get_equipped_item_name('off_hand') == 'shield'))"
+            }
+          ]
+        }
+      }
+    }
+	}
+}

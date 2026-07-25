@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.bee.drip": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "dripping": "query.property('morphing_bracelet:entity') == 40 && query.property('minecraft:has_nectar')"
+            }
+          ]
+        },
+        "dripping": {
+          "particle_effects": [
+            {
+              "effect": "bee_nectar_dripping"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "query.property('morphing_bracelet:entity') != 40 || !query.property('minecraft:has_nectar')"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

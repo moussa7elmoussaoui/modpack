@@ -1,0 +1,42 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "morphing_bracelet:blue_wither_skull",
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": true
+      }
+    },
+    "components": {
+      "minecraft:cooldown": {
+        "category": "morphing_bracelet:blue_wither_skull",
+        "duration": 2.5
+      },
+      "minecraft:glint": {
+        "value": true
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "morphing_bracelet:blue_wither_skull"
+        }
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "morphing_bracelet:infinite_projectile": {
+        "launch_power": 0.6,
+        "projectile_entity": "minecraft:wither_skull_dangerous",
+        "shoot_sound": {
+          "sound": "mob.wither.shoot",
+          "volume": 3.0
+        },
+        "spawn_offset": [ 0.0, 0.1, 0.0 ],
+        "use_sound": {
+          "pitch": [ 0.83, 1.25 ],
+          "sound": "random.bow"
+        }
+      }
+    }
+  }
+}

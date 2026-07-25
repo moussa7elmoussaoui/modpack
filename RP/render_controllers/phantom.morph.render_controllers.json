@@ -1,0 +1,15 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.phantom": {
+      "arrays": {
+        "materials": {
+          "Array.materials": [ "Material.phantom", "Material.phantom_invisible" ]
+        }
+      },
+      "geometry": "Geometry.phantom",
+      "materials": [ { "*": "Array.materials[query.is_invisible]" } ],
+      "textures": [ "Texture.phantom" ]
+    }
+  }
+}

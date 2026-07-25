@@ -1,0 +1,110 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.armadillo.walk": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [{ "walking": "variable.armadillo_walking" }],
+          "blend_transition": 0.2
+        },
+        "walking": {
+          "animations": [
+            {
+              "armadillo_walk": "math.min(1.4, math.lerp(0.2, 2.4, query.modified_move_speed)) && !query.is_baby",
+              "armadillo_baby_walk": "math.min(1.4, math.lerp(0.2, 2.4, query.modified_move_speed)) && query.is_baby"
+            }
+          ],
+          "transitions": [{ "default": "!variable.armadillo_walking" }],
+          "blend_transition": 0.2
+        }
+      }
+    },
+    "controller.animation.morph.armadillo.roll_up": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [{ "roll_up": "variable.armadillo_is_rolled_up" }],
+          "blend_transition": 0.2
+        },
+        "roll_up": {
+          "animations": [
+            {
+              "armadillo_roll_up": "!query.is_baby",
+              "armadillo_baby_roll_up": "query.is_baby"
+            }
+          ],
+          "transitions": [
+            {
+              "rolled_up": "variable.armadillo_is_rolled_up && query.any_animation_finished"
+            },
+            { "unroll_fast": "!variable.armadillo_is_rolled_up" }
+          ],
+          "blend_transition": 0.2
+        },
+        "rolled_up": {
+          "animations": [
+            {
+              "armadillo_rolled_up": "!query.is_baby",
+              "armadillo_baby_rolled_up": "query.is_baby"
+            }
+          ],
+          "transitions": [
+            { "unroll_fast": "!variable.armadillo_is_rolled_up" }
+          ],
+          "blend_transition": 0.2
+        },
+        "unroll_fast": {
+          "animations": [
+            {
+              "armadillo_unroll_fast": "!query.is_baby",
+              "armadillo_baby_unroll_fast": "query.is_baby"
+            }
+          ],
+          "transitions": [ { "default": "query.any_animation_finished" } ],
+          "blend_transition": 0.2
+        }
+      }
+    },
+    "controller.animation.morph.armadillo.roll_up_sounds": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [{ "roll_up": "variable.armadillo_is_rolled_up" }],
+          "blend_transition": 0.2
+        },
+        "roll_up": {
+          "animations": [
+            {
+              "armadillo_roll_up_sounds": "!query.is_baby",
+              "armadillo_baby_roll_up_sounds": "query.is_baby"
+            }
+          ],
+          "transitions": [
+            {
+              "rolled_up": "variable.armadillo_is_rolled_up && query.any_animation_finished"
+            },
+            { "unroll_fast": "!variable.armadillo_is_rolled_up" }
+          ],
+          "blend_transition": 0.2
+        },
+        "rolled_up": {
+          "transitions": [
+            { "unroll_fast": "!variable.armadillo_is_rolled_up" }
+          ],
+          "blend_transition": 0.2
+        },
+        "unroll_fast": {
+          "animations": [
+            {
+              "armadillo_unroll_fast_sound": "!query.is_baby",
+              "armadillo_baby_unroll_fast_sound": "query.is_baby"
+            }
+          ],
+          "transitions": [ { "default": "query.any_animation_finished" } ],
+          "blend_transition": 0.2
+        }
+      }
+    }
+  }
+}

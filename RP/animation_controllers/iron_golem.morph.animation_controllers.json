@@ -1,0 +1,72 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.morph.iron_golem.arm_movement" : {
+			"initial_state" : "default",
+			"states" : {
+				"attack" : {
+					"animations" : [ "iron_golem_attack" ],
+					"transitions" : [
+						{
+							"default" : "!query.is_sprinting && query.all_animations_finished"
+						},
+						{
+							"has_target" : "query.is_sprinting && query.all_animations_finished"
+						}
+					]
+				},
+				"default" : {
+					"animations" : [ "iron_golem_move" ],
+					"transitions" : [
+						{
+							"attack" : "variable.attack_time > 0.0"
+						},
+						{
+							"has_target" : "query.is_sprinting && !query.is_gliding"
+						}
+					]
+				},
+				"has_target" : {
+					"animations" : [ "iron_golem_move_to_target" ],
+					"transitions" : [
+						{
+							"attack" : "variable.attack_time > 0.0"
+						},
+						{
+							"default" : "!query.is_sprinting || query.is_gliding"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.morph.iron_golem.move" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"animations" : [
+						{
+							"iron_golem_walk" : "query.modified_move_speed"
+						}
+					],
+					"transitions" : [
+						{
+							"has_target" : "query.is_sprinting && !query.is_gliding"
+						}
+					]
+				},
+				"has_target" : {
+					"animations" : [
+						{
+							"iron_golem_walk_to_target" : "query.modified_move_speed"
+						}
+					],
+					"transitions" : [
+						{
+							"default" : "!query.is_sprinting || query.is_gliding"
+						}
+					]
+				}
+			}
+		}
+	}
+}

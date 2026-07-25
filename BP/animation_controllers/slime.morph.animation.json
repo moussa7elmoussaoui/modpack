@@ -1,0 +1,88 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.slime.jumping": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "on_ground": "query.is_on_ground && query.property('morphing_bracelet:entity') == 43"
+            },
+            {
+              "on_air": "!query.is_on_ground && query.property('morphing_bracelet:entity') == 43"
+            }
+          ]
+        },
+        "on_ground": {
+          "transitions": [
+            {
+              "big_jump": "query.is_jumping && query.variant > 1"
+            },
+            {
+              "small_jump": "query.is_jumping && query.variant <= 1"
+            },
+            {
+              "on_air": "!query.is_on_ground"
+            },
+            {
+              "default": "query.property('morphing_bracelet:entity') != 43"
+            }
+          ]
+        },
+        "on_air": {
+          "transitions": [
+            {
+              "land": "!query.is_jumping && query.is_on_ground && query.variant >= 4"
+            },
+            {
+              "on_ground": "query.is_on_ground && (query.variant < 4 || (query.is_jumping && query.variant >= 4))"
+            },
+            {
+              "default": "query.property('morphing_bracelet:entity') != 43"
+            }
+          ]
+        },
+        "big_jump": {
+          "on_entry": [
+            "/playsound mob.slime.big @a ~ ~ ~ 1.0 0.80"
+          ],
+          "transitions": [
+            {
+              "on_air": "!query.is_on_ground"
+            },
+            {
+              "default": "query.property('morphing_bracelet:entity') != 43"
+            }
+          ]
+        },
+        "small_jump": {
+          "on_entry": [
+            "/playsound mob.slime.small @a ~ ~ ~ 1.0 0.80"
+          ],
+          "transitions": [
+            {
+              "on_air": "!query.is_on_ground"
+            },
+            {
+              "default": "query.property('morphing_bracelet:entity') != 43"
+            }
+          ]
+        },
+        "land": {
+          "on_entry": [
+            "/playsound mob.slime.big @a ~ ~ ~ 1.0 0.80"
+          ],
+          "transitions": [
+            {
+              "on_ground": "query.is_on_ground"
+            },
+            {
+              "default": "query.property('morphing_bracelet:entity') != 43"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

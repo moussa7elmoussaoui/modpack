@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "morphing_bracelet:teleporter",
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": true
+      }
+    },
+    "components": {
+      "minecraft:cooldown": {
+        "category": "morphing_bracelet:teleporter",
+        "duration": 0.5
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "morphing_bracelet:teleporter"
+        }
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "morphing_bracelet:teleport_on_use": {
+        "fade_duration": 0.25,
+        "teleport_sound": {
+          "sound": "mob.endermen.portal"
+        }
+      }
+    }
+  }
+}

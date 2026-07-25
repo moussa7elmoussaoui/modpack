@@ -1,0 +1,24 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.bee": {
+      "arrays": {
+        "textures": {
+          "array.skins": [
+            "texture.bee",
+            "texture.bee_nectar"
+          ],
+          "array.baby_skins": [
+            "texture.bee_baby",
+            "texture.bee_baby_nectar"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.bee_baby : Geometry.bee",
+      "materials": [{ "*": "Material.bee" }],
+      "textures": [
+        "query.is_baby ? array.baby_skins[query.property('minecraft:has_nectar')] : array.skins[query.property('minecraft:has_nectar')]"
+      ]
+    }
+  }
+}

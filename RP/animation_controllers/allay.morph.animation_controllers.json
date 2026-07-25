@@ -1,0 +1,50 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.morph.allay.general": {
+			"initial_state": "idling",
+			"states": {
+				"idling": {
+					"animations": [	"allay_idle" ],
+					"transitions": [
+						{ "flying": "query.modified_move_speed > 0.2 && !query.is_gliding && !query.is_swimming && !query.is_crawling"}
+					],
+					"blend_transition": 0.2
+				},
+				"flying": {
+					"animations": [ "allay_fly" ],
+					"transitions": [
+						{ "idling": "query.modified_move_speed < 0.2 || query.is_gliding || query.is_swimming || query.is_crawling"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.morph.allay.look_at_target": {
+			"initial_state": "default",
+			"states" : {
+				"default": {
+					"animations": [ "allay_look_at_target_default" ],
+					"transitions": [
+						{ "gliding": "query.is_gliding" },
+						{ "swimming": "query.is_swimming || query.is_crawling" }
+					]
+				},
+				"gliding": {
+					"animations": [ "allay_look_at_target_gliding" ],
+					"transitions": [
+						{ "swimming": "query.is_swimming || query.is_crawling" },
+						{ "default": "!query.is_gliding" }
+					]
+				},
+				"swimming": {
+					"animations": [ "allay_look_at_target_swimming" ],
+					"transitions": [
+						{ "gliding": "query.is_gliding" },
+						{ "default": "!query.is_swimming && !query.is_crawling" }
+					]
+				}
+			}
+		}
+	}
+}

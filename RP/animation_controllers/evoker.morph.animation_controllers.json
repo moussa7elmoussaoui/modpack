@@ -1,0 +1,55 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.morph.evoker.general" : {
+			"initial_state" : "default",
+			"states" : {
+				"casting" : {
+					"animations" : [ "evoker_casting" ],
+					"transitions" : [
+						{
+							"default" : "!query.is_powered"
+						}
+					]
+				},
+				"default" : {
+					"animations" : [ "evoker_general" ],
+					"transitions" : [
+						{
+							"casting" : "query.is_powered"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.morph.evoker.general_particles" : {
+			"initial_state" : "default",
+			"states" : {
+				"casting" : {
+					"particle_effects" : [
+						{
+							"effect" : "evoker_spell",
+							"locator" : "evoker_left_hand"
+						},
+						{
+							"effect" : "evoker_spell",
+							"locator" : "evoker_right_hand"
+						}
+					],
+					"transitions" : [
+						{
+							"default" : "!variable.is_third_person || query.property('morphing_bracelet:entity') != 57 || !query.is_powered"
+						}
+					]
+				},
+				"default" : {
+					"transitions" : [
+						{
+							"casting" : "variable.is_third_person && query.property('morphing_bracelet:entity') == 57 && query.is_powered"
+						}
+					]
+				}
+			}
+		}
+	}
+}

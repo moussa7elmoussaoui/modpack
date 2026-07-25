@@ -1,0 +1,40 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "morphing_bracelet:evoker_fangs",
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": true
+      }
+    },
+    "components": {
+      "minecraft:cooldown": {
+        "category": "morphing_bracelet:evoker_fangs",
+        "duration": 5.0
+      },
+      "minecraft:glint": {
+        "value": true
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "morphing_bracelet:evoker_fangs"
+        }
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "morphing_bracelet:summon_fangs_on_use": {
+        "cast_duration": 2.0,
+        "cast_sound": {
+          "pitch": [ 0.80, 1.20 ],
+          "sound": "mob.evocation_illager.cast_spell",
+          "volume": 1.0
+        },
+        "fang_count": 16,
+        "start_event": "morph:evoker_start_casting",
+        "stop_event": "morph:evoker_stop_casting"
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.morph.wolf.leg_default": {
+      "loop": true,
+      "bones": {
+        "leg0": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17) * 80.22 * query.modified_move_speed - this",
+            0.0,
+            0.0
+          ]
+        },
+        "leg1": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17 + 180) * 80.22 * query.modified_move_speed - this",
+            0.0,
+            0.0
+          ]
+        },
+        "leg2": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17 + 180) * 80.22 * query.modified_move_speed - this",
+            0.0,
+            0.0
+          ]
+        },
+        "leg3": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17) * 80.22 * query.modified_move_speed - this",
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "animation.morph.wolf.setup": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "position": [ "-this", "10 - this", "2.0 - this" ],
+          "rotation": [ "90 - this", 0.0, 0.0 ]
+        },
+        "leg0": {
+          "position": [ "-2.5 - this", "8 - this", "7 - this" ]
+        },
+        "leg1": {
+          "position": [ "0.5 - this", "8 - this", "7 - this" ]
+        },
+        "leg2": {
+          "position": [ "-2.5 - this", "8 - this", "-4 - this" ]
+        },
+        "leg3": {
+          "position": [ "0.5 - this", "8 - this", "-4 - this" ]
+        },
+        "tail": {
+          "position": [ "-1.0 - this", "12 - this", "8.0 - this" ]
+        },
+        "upperbody": {
+          "position": [ "-1.0 - this", "10 - this", "-3.0 - this" ],
+          "rotation": [ "90 - this", 0.0, 0.0 ]
+        }
+      }
+    },
+    "animation.morph.wolf.sitting": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "position": [ "-this", "6 - this", "-this" ],
+          "rotation": [ "45.0 - this", 0.0, 0.0 ]
+        },
+        "leg0": {
+          "position": [ "-2.5 - this", "2 - this", "2 - this" ],
+          "rotation": [ "270 - this", 0.0, 0.0 ]
+        },
+        "leg1": {
+          "position": [ "0.5 - this", "2 - this", "2 - this" ],
+          "rotation": [ "270 - this", 0.0, 0.0 ]
+        },
+        "leg2": {
+          "position": [ "-2.49 - this", "7 - this", "-4 - this" ],
+          "rotation": [ "333 - this", 0.0, 0.0 ]
+        },
+        "leg3": {
+          "position": [ "0.51 - this", "7 - this", "-4 - this" ],
+          "rotation": [ "333 - this", 0.0, 0.0 ]
+        },
+        "tail": {
+          "position": [ "-1.0 - this", "3 - this", "6.0 - this" ]
+        },
+        "upperbody": {
+          "position": [ "-1.0 - this", "8 - this", "-3.0 - this" ],
+          "rotation": [ "72 - this", "-this", 0.0 ]
+        }
+      }
+    },
+    "animation.morph.wolf.baby_sitting": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [ -45, 0, 0 ],
+          "position": [ 0, -2, -1 ]
+        },
+        "leg0": {
+          "rotation": [ -90, 0, 180 ],
+          "position": [ 0, -3.35, -2.5 ]
+        },
+        "leg1": {
+          "rotation": [ -90, 0, 0 ],
+          "position": [ 0, -3.35, -2.5 ]
+        },
+        "leg2": {
+          "rotation": [ -35, 0, 0 ],
+          "position": [ 0, -0.7, 0 ]
+        },
+        "leg3": {
+          "rotation": [ -35, 0, 0 ],
+          "position": [ 0, -0.7, 0 ]
+        },
+        "tail": {
+          "rotation": [ 5, 0, 0 ],
+          "position": [ 0, -3.7, -1 ]
+        },
+        "upperbody": {
+          "rotation": [ "72 - this", "-this", 0 ],
+          "position": [ "-1.0 - this", "-16 - this", "-3.0 - this" ]
+        }
+      }
+    },
+    "animation.morph.wolf.sleeping": {
+      "loop": true,
+      "bones": {
+        "_head": {
+          "position": [ 0.0, 0.0, -2.0 ],
+          "rotation": [ "90.0 - this", "-this", "-this" ]
+        },
+        "root": {
+          "position": [ "6.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 6.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 10.5, "6.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 6.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+          "rotation": [ -180.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+        }
+      }
+    },
+    "animation.morph.wolf.tail_default": {
+      "loop": true,
+      "bones": {
+        "tail": {
+          "rotation": [
+            "(query.is_tamed ? (query.health * 1.85 + 25.0) : 36.0) - this",
+            "math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed * 80.22 - this",
+            0.0
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "morphing_bracelet:metamorphing_bracelet",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "frame_0": "textures/models/metamorphing_bracelet_0",
+        "frame_1": "textures/models/metamorphing_bracelet_1",
+        "frame_2": "textures/models/metamorphing_bracelet_2",
+        "frame_3": "textures/models/metamorphing_bracelet_3"
+      },
+      "geometry": {
+        "default": "geometry.morphing_bracelet"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.is_visible = context.item_slot == 'main_hand' && (query.is_owner_identifier_any('minecraft:player') ? query.property('morphing_bracelet:entity') == 0 || context.owning_entity -> variable.show_items : true);"
+        ]
+      },
+      "render_controllers": [ "controller.render.morphing_bracelet" ]
+    }
+  }
+}

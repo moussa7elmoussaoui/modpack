@@ -1,0 +1,180 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.morph.strider.look_at_target.default": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "relative_to": {
+            "rotation": "entity"
+          },
+          "rotation": [ "query.target_x_rotation", "query.target_y_rotation", 0.0 ]
+        }
+      }
+    },
+    "animation.morph.strider.look_at_target.gliding": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [ -45.0, "query.target_y_rotation", 0.0 ]
+        }
+      }
+    },
+    "animation.morph.strider.look_at_target.swimming": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [ "math.lerp(query.target_x_rotation, -45.0, variable.swim_amount)", "query.target_y_rotation", 0.0 ]
+        }
+      }
+    },
+    "animation.morph.strider.walk": {
+      "loop": true,
+      "bones": {
+        "right_leg": {
+          "rotation": [ "Math.sin(query.modified_distance_moved * variable.strider_speed * 0.5 + 180) * 114.592 * variable.strider_animation_speed", 0, "10 * Math.cos(query.modified_distance_moved * variable.strider_speed * 0.5f + 180) * variable.strider_animation_speed" ],
+          "position": [ 0, "-2 * Math.sin(query.modified_distance_moved * variable.strider_speed * 0.5) * 2 * variable.strider_animation_speed", 0 ]
+        },
+        "left_leg": {
+          "rotation": [ "Math.sin(query.modified_distance_moved * variable.strider_speed * 0.5) * 114.592 * variable.strider_animation_speed", 0, "10 * Math.cos(query.modified_distance_moved * variable.strider_speed * 0.5f) * variable.strider_animation_speed" ],
+          "position": [ 0, "-2 * Math.sin(query.modified_distance_moved * variable.strider_speed * 0.5 + 180) * 2 * variable.strider_animation_speed", 0 ]
+        },
+        "body": {
+          "rotation": [ 0, 0, "5.72958 * Math.sin(query.modified_distance_moved * variable.strider_speed) * 4 * variable.strider_animation_speed" ],
+          "position": [ 0, "-2 * Math.cos(query.modified_distance_moved * variable.strider_speed) * 2 * variable.strider_animation_speed", 0 ]
+        },
+        "bristle1": {
+          "rotation": [ 0, 0, "variable.strider_bristle_flow * 74.4845" ]
+        },
+        "bristle2": {
+          "rotation": [ 0, 0, "variable.strider_bristle_flow * 68.7549" ]
+        },
+        "bristle3": {
+          "rotation": [ 0, 0, "variable.strider_bristle_flow * 34.3775" ]
+        },
+        "bristle3": {
+          "rotation": [ 0, 0, "variable.strider_bristle_flow * 34.3775" ]
+        },
+        "bristle4": {
+          "rotation": [ 0, 0, "variable.strider_bristle_flow * 68.7549" ]
+        },
+        "bristle5": {
+          "rotation": [ 0, 0, "variable.strider_bristle_flow * 74.4845" ]
+        }
+      }
+    },
+    "animation.morph.strider.bristle_flow": {
+      "loop": true,
+      "bones": {
+        "bristle0": {
+          "rotation": [ 0, 0, "2.864789 * variable.strider_bristle_range_mod * Math.sin(query.life_time * 20 * variable.strider_bristle_speed_mod * -22.9183)" ]
+        },
+        "bristle1": {
+          "rotation": [ 0, 0, "5.72958 * variable.strider_bristle_range_mod * Math.sin(query.life_time * 20 * variable.strider_bristle_speed_mod * 11.4592)" ]
+        },
+        "bristle2": {
+          "rotation": [ 0, 0, "5.72958 * variable.strider_bristle_range_mod * Math.sin(query.life_time * 20 * variable.strider_bristle_speed_mod * 22.9183)" ]
+        },
+        "bristle3": {
+          "rotation": [ 0, 0, "5.72958 * variable.strider_bristle_range_mod * Math.sin(query.life_time * 20 * variable.strider_bristle_speed_mod * 22.9183)" ]
+        },
+        "bristle4": {
+          "rotation": [ 0, 0, "5.72958 * variable.strider_bristle_range_mod * Math.sin(query.life_time * 20 * variable.strider_bristle_speed_mod * 11.4592)" ]
+        },
+        "bristle5": {
+          "rotation": [ 0, 0, "2.864789 * variable.strider_bristle_range_mod * Math.sin(query.life_time * 20 * variable.strider_bristle_speed_mod * -22.9183)" ]
+        }
+      }
+    },
+    "animation.morph.strider.baby.walk": {
+      "loop": true,
+      "animation_length": 61,
+      "bones": {
+        "right_leg": {
+          "rotation": [
+            "Math.sin(query.modified_distance_moved * variable.strider_speed * 0.5 + 180) * 114.592 * variable.strider_animation_speed",
+            0,
+            "10 * Math.cos(query.modified_distance_moved * variable.strider_speed * 0.5f + 180) * variable.strider_animation_speed"
+          ],
+          "position": {
+            "0.0": [ 0, "0.4-1 * Math.sin(query.modified_distance_moved * variable.strider_speed * 0.5) * 1 * variable.strider_animation_speed", 0 ],
+            "43.875": [ 0, "1-1 * Math.sin(query.modified_distance_moved * variable.strider_speed * 0.5) * 1 * variable.strider_animation_speed", 0 ]
+          }
+        },
+        "left_leg": {
+          "rotation": [
+            "Math.sin(query.modified_distance_moved * variable.strider_speed * 0.5) * 114.592 * variable.strider_animation_speed",
+            0,
+            "10 * Math.cos(query.modified_distance_moved * variable.strider_speed * 0.5f) * variable.strider_animation_speed"
+          ],
+          "position": {
+            "0.0": [ 0, "0.4-1 * Math.sin(query.modified_distance_moved * variable.strider_speed * 0.5 + 180) * 1 * variable.strider_animation_speed", 0 ],
+            "43.875": [ 0, "1-1 * Math.sin(query.modified_distance_moved * variable.strider_speed * 0.5 + 180) * 1 * variable.strider_animation_speed", 0 ]
+          }
+        },
+        "body": {
+          "rotation": [ 0, 0, "3 * Math.sin(query.modified_distance_moved * variable.strider_speed) * 4 * variable.strider_animation_speed" ],
+          "position": [ 0, "-0.2-0.5 * Math.cos(query.modified_distance_moved * variable.strider_speed) * 1 * variable.strider_animation_speed", 0 ]
+        }
+      }
+    },
+    "animation.morph.strider.baby.bristle_flow": {
+      "loop": true,
+      "animation_length": 0.75,
+      "bones": {
+        "bristle0": {
+          "rotation": [ "-52.5-4 * variable.strider_bristle_range_mod * Math.sin(query.life_time * 20 * variable.strider_bristle_speed_mod * -22.9183)", 0, 0 ]
+        },
+        "bristle1": {
+          "rotation": [ "-35-5 * variable.strider_bristle_range_mod * Math.sin(query.life_time * 20 * variable.strider_bristle_speed_mod * 22.9183)", 0, 0 ]
+        },
+        "bristle2": {
+          "rotation": [ "-10-7 * variable.strider_bristle_range_mod * Math.sin(query.life_time * 20 * variable.strider_bristle_speed_mod * 22.9183)", 0, 0 ]
+        }
+      }
+    },
+    "animation.morph.strider.sleeping": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [ "30.0 - this", "-this", "-this" ]
+        },
+        "root": {
+          "position": [ "20.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 20.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 0.0, "20.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 20.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+          "rotation": [ -90.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+        }
+      }
+    },
+    "animation.morph.strider.swimming": {
+      "loop": true,
+      "bones": {
+        "left_leg": {
+          "rotation": [ "math.lerp(0.0, math.cos(query.life_time * 390.0 + 180.0) * 34.3776, variable.swim_amount) - this", -0.1, -0.1 ]
+        },
+        "right_leg": {
+          "rotation": [ "math.lerp(0.0, math.cos(query.life_time * 390.0) * 34.3776, variable.swim_amount) - this", 0.1, 0.1 ]
+        },
+        "root": {
+          "position": [ 0.0, "(math.sin(query.target_x_rotation) * 14.0 + 5.0) * variable.swim_amount", "(math.cos(query.target_x_rotation) * 14.0) * variable.swim_amount" ],
+          "rotation": [ "variable.swim_amount * (90 + query.target_x_rotation)", 0.0, 0.0 ]
+        }
+      }
+    },
+    "animation.morph.strider.crawling": {
+      "anim_time_update": "query.modified_distance_moved / 15.0",
+      "loop": true,
+      "bones": {
+        "left_leg": {
+          "rotation": [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 30.0 + 180.0) * 34.3776, variable.swim_amount) - this", -0.1, -0.1 ]
+        },
+        "right_leg": {
+          "rotation": [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 30.0) * 34.3776, variable.swim_amount) - this", 0.1, 0.1 ]
+        },
+        "root": {
+          "position": [ 0.0, "5.0 * variable.swim_amount", "14.0 * variable.swim_amount" ],
+          "rotation": [ "variable.swim_amount * 90", 0.0, 0.0 ]
+        }
+      }
+    }
+  }
+}

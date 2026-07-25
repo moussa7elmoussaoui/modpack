@@ -1,0 +1,20 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.zombie_horse": {
+      "part_visibility": [
+        { "Saddle": "query.is_saddled" },
+        { "Bit*": "query.is_saddled" },
+        { "Bridle": "query.is_saddled" },
+        { "Reins*": "query.is_saddled && query.has_rider" },
+        { "Bag*": false },
+        { "MuleEar*": false }
+      ],
+      "geometry": "query.is_baby ? Geometry.zombie_horse_baby : Geometry.zombie_horse",
+      "materials": [{ "*": "Material.zombie_horse" }],
+      "textures": [
+        "query.is_baby ? Texture.zombie_horse_baby : Texture.zombie_horse"
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.polar_bear": {
+      "geometry": "query.is_baby ? Geometry.polar_bear_baby : Geometry.polar_bear",
+      "materials": [ { "*": "Material.polar_bear" } ],
+      "textures": [ "query.is_baby ? Texture.polar_bear_baby : Texture.polar_bear" ]
+    }
+  }
+}

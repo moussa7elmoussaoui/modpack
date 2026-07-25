@@ -1,0 +1,13 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.armor.player": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "variable.is_enchanted ? Material.enchanted : Material.default" } ],
+      "textures": [ "variable.has_trim ? variable.trim_path : Texture.default", "Texture.enchanted" ],
+      "part_visibility": [
+        { "*": "query.has_property('morphing_bracelet:entity') ? (query.any(query.property('morphing_bracelet:entity'), 0, 3, 15, 25, 31, 79) || (query.any(query.property('morphing_bracelet:entity'), 1, 11, 13, 19, 21, 35) && !query.is_baby)) : 1.0" }
+      ]
+    }
+  }
+}

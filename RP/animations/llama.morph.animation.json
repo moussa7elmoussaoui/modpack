@@ -1,0 +1,28 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.llama.setup" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"rotation" : [ "-this", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.llama.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ 0.0, "5.5 * query.is_baby", "5.0 * query.is_baby" ]
+				},
+				"_head" : {
+					"rotation" : [ "90.0 - this", "-this", "-this" ]
+				},
+				"root" : {
+					"position" : [ "13.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 13.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 15.0, "13.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 13.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ -180.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		}
+	}
+}

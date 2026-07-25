@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.morph.squid.move": {
+      "anim_time_update": "query.modified_distance_moved",
+      "loop": true,
+      "bones": {
+        "body": { "position": [ 0.0, 0.0, 1.8 ] },
+        "root": { "position": [ 0.0, "query.is_baby ? 3 : 7.5", 0.0 ] },
+        "tentacle1": { "rotation": [ "variable.squid_tentacle_angle - this", "90.0 - this", 0.0 ] },
+        "tentacle2": { "rotation": [ "variable.squid_tentacle_angle - this", "45.0 - this", 0.0 ] },
+        "tentacle3": { "rotation": [ "variable.squid_tentacle_angle - this", "0.0 - this", 0.0 ] },
+        "tentacle4": { "rotation": [ "variable.squid_tentacle_angle - this", "-45.0 - this", 0.0 ] },
+        "tentacle5": { "rotation": [ "variable.squid_tentacle_angle - this", "-90.0 - this", 0.0 ] },
+        "tentacle6": { "rotation": [ "variable.squid_tentacle_angle - this", "-135.0 - this", 0.0 ] },
+        "tentacle7": { "rotation": [ "variable.squid_tentacle_angle - this", "-180.0 - this", 0.0 ] },
+        "tentacle8": { "rotation": [ "variable.squid_tentacle_angle - this", "-225.0 - this", 0.0 ] }
+      }
+    },
+    "animation.morph.squid.rotate": {
+      "anim_time_update": "query.modified_distance_moved",
+      "loop": true,
+      "bones": {
+        "body": { "rotation": [ 0.0, "variable.squid_swim_rotation", 0.0 ] },
+        "root": { "rotation": [ "(90.0 * !query.is_gliding) + (variable.squid_is_swimming ? math.atan(query.position_delta(1)) * -7.0 : 0.0)", "variable.squid_is_swimming ? -90.0 + math.atan2(query.position_delta(2), query.position_delta(0)) - query.body_y_rotation : query.is_sleeping ? 0.0 : query.target_y_rotation", 0.0 ] }
+      }
+    },
+		"animation.morph.squid.sleeping": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"position": [ "math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -3.0, "math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation": [ 0.0, "90.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		}
+  }
+}

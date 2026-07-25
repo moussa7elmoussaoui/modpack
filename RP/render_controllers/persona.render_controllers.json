@@ -1,0 +1,175 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.persona_animated_face.first_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_face",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "Texture.animated_face" ],
+      "part_visibility": [
+        { "*": false },
+        { "rightArm": "(query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map' || query.equipped_item_any_tag('slot.weapon.mainhand', 'morphing_bracelet:morphing_bracelets')) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightSleeve": "(query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map' || query.equipped_item_any_tag('slot.weapon.mainhand', 'morphing_bracelet:morphing_bracelets')) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftArm": "((query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftSleeve": "((query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "variable.use_blinking_animation ? variable.is_blinking * 0.5 : Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_face)/variable.animation_frames_face" ],
+        "scale": [ 1.0, 1.0 ]
+      }
+    },
+    "controller.render.persona_animated_32x32.first_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_32x32",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "Texture.animated_32x32" ],
+      "part_visibility": [
+        { "*": false },
+        { "rightArm": "(query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map' || query.equipped_item_any_tag('slot.weapon.mainhand', 'morphing_bracelet:morphing_bracelets')) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightSleeve": "(query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map' || query.equipped_item_any_tag('slot.weapon.mainhand', 'morphing_bracelet:morphing_bracelets')) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftArm": "((query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftSleeve": "((query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_32x32)/variable.animation_frames_32x32" ],
+        "scale": [ 1.0, 1.0 ]
+      }
+    },
+    "controller.render.persona_animated_128x128.first_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_128x128",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "Texture.animated_128x128" ],
+      "part_visibility": [
+        { "*": false },
+        { "rightArm": "(query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map' || query.equipped_item_any_tag('slot.weapon.mainhand', 'morphing_bracelet:morphing_bracelets')) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightSleeve": "(query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map' || query.equipped_item_any_tag('slot.weapon.mainhand', 'morphing_bracelet:morphing_bracelets')) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftArm": "((query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftSleeve": "((query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))) && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_128x128)/variable.animation_frames_128x128" ],
+        "scale": [ 1.0, 1.0 ]
+      }
+    },
+    "controller.render.persona_animated_face.third_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_face",
+      "materials": [ { "*": "query.is_spectator ? Material.spectator : Material.animated" } ],
+      "textures": [ "Texture.animated_face" ],
+      "part_visibility": [
+        { "*": "!query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "head": "variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0" },
+        { "hat": "variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0" },
+        { "helmet": "variable.helmet_layer_visible && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftLegging": "variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightLegging": "variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftBoot": "variable.boot_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightBoot": "variable.boot_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftSock": "variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightSock": "variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "bodyArmor": "variable.chest_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftArmArmor": "variable.chest_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightArmArmor": "variable.chest_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "belt": "variable.chest_layer_visible && variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "cape": "query.has_cape && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "variable.use_blinking_animation ? variable.is_blinking * 0.5 : Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_face)/variable.animation_frames_face" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      }
+    },
+    "controller.render.persona_animated_32x32.third_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_32x32",
+      "materials": [ { "*": "query.is_spectator ? Material.spectator : Material.animated" } ],
+      "textures": [ "Texture.animated_32x32" ],
+      "part_visibility": [
+        { "*": "!query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "head": "variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0" },
+        { "hat": "variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0" },
+        { "helmet": "variable.helmet_layer_visible && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftLegging": "variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightLegging": "variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftBoot": "variable.boot_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightBoot": "variable.boot_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftSock": "variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightSock": "variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "bodyArmor": "variable.chest_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftArmArmor": "variable.chest_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightArmArmor": "variable.chest_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "belt": "variable.chest_layer_visible && variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "cape": "query.has_cape && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_32x32)/variable.animation_frames_32x32" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      }
+    },
+    "controller.render.persona_animated_128x128.third_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_128x128",
+      "materials": [ { "*": "query.is_spectator ? Material.spectator : Material.animated" } ],
+      "textures": [ "Texture.animated_128x128" ],
+      "part_visibility": [
+        { "*": "!query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "head": "variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0" },
+        { "hat": "variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0" },
+        { "helmet": "variable.helmet_layer_visible && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftLegging": "variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightLegging": "variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftBoot": "variable.boot_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightBoot": "variable.boot_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftSock": "variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightSock": "variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "bodyArmor": "variable.chest_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "leftArmArmor": "variable.chest_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "rightArmArmor": "variable.chest_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "belt": "variable.chest_layer_visible && variable.leg_layer_visible && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" },
+        { "cape": "query.has_cape && !query.is_spectator && (variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0)" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_128x128)/variable.animation_frames_128x128" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      }
+    },
+    "controller.render.player.map.persona": {
+      "arrays": {
+        "geometries": {
+          "Array.geos": [ "Geometry.default", "Geometry.animated_face" ]
+        }
+      },
+      "geometry": "Array.geos[query.is_persona_or_premium_skin]",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "Texture.animated_face" ],
+      "part_visibility": [
+        { "*": false },
+        { "head": true },
+        { "hat": true },
+        { "helmet": true }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "variable.is_blinking * 0.5" ],
+        "scale": [ 1.0, 1.0 ]
+      }
+    }
+  }
+}

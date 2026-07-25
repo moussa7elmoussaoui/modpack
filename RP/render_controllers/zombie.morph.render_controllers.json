@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.zombie": {
+      "geometry": "query.is_baby ? Geometry.zombie_baby : Geometry.zombie",
+      "materials": [{ "*": "Material.zombie" }],
+      "textures": ["query.is_baby ? Texture.zombie_baby : Texture.zombie"]
+    }
+  }
+}

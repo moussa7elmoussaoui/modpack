@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.frog.high_jump": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "frog.high_jump.stop"
+          ],
+          "transitions": [
+            {
+              "high_jump": "query.is_sneaking && query.is_on_ground && query.property('morphing_bracelet:entity') == 56"
+            }
+          ]
+        },
+        "high_jump": {
+          "animations": [
+            "frog.high_jump"
+          ],
+          "transitions": [
+            {
+              "jumped": "query.is_jumping"
+            },
+            {
+              "default": "!query.is_sneaking || !query.is_on_ground || query.property('morphing_bracelet:entity') != 56"
+            }
+          ]
+        },
+        "jumped": {
+          "on_entry": [
+            "/event entity @s morph:frog_jumping",
+            "/playsound mob.frog.jump_to_block @a ~ ~ ~"
+          ],
+          "transitions": [
+            {
+              "default": "!query.is_sneaking || !query.is_on_ground || query.property('morphing_bracelet:entity') != 56"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

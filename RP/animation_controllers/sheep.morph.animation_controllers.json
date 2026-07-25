@@ -1,0 +1,27 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.morph.sheep.grazing" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"transitions" : [
+						{
+							"grazing" : "query.is_powered"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"grazing" : {
+					"animations" : [ "sheep_grazing" ],
+					"transitions" : [
+						{
+							"default" : "!query.is_powered"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

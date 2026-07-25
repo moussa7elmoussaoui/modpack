@@ -1,0 +1,59 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.morph.panda.move" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"transitions" : [
+						{
+							"sitting" : "query.is_sneaking && query.ground_speed < 0.5"
+						},
+						{
+							"lying" : "query.is_sleeping"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"lying" : {
+					"animations" : [
+						{
+							"panda_lying": "!query.is_baby"
+						},
+						{
+							"panda_baby_lying": "query.is_baby"
+						}
+					],
+					"transitions" : [
+						{
+							"default" : "!query.is_sleeping"
+						},
+						{
+							"sitting" : "query.is_sneaking && query.ground_speed < 0.5"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"sitting" : {
+					"animations" : [
+						{
+							"panda_sitting": "!query.is_baby"
+						},
+						{
+							"panda_baby_sitting": "query.is_baby"
+						}
+					],
+					"transitions" : [
+						{
+							"default" : "!query.is_sneaking || query.ground_speed >= 0.5"
+						},
+						{
+							"lying" : "query.is_sleeping"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

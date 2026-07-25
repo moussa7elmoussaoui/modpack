@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "morphing_bracelet:soul_glass_bottle"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "# #",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "morphing_bracelet:soul_glass"
+      }
+    },
+	  "unlock": [
+      {
+        "item": "morphing_bracelet:soul_glass"
+      }
+    ],
+    "result": {
+      "item": "morphing_bracelet:soul_glass_bottle"
+    }
+  }
+}

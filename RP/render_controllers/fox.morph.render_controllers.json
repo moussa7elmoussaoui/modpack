@@ -1,0 +1,27 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.fox": {
+      "arrays": {
+        "textures": {
+          "Array.skins": ["Texture.fox_red", "Texture.fox_arctic"],
+          "Array.baby_skins": ["Texture.fox_baby_red", "Texture.fox_baby_arctic"],
+          "Array.baby_sleep": [
+            "Texture.fox_baby_sleep_red",
+            "Texture.fox_baby_sleep_arctic"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.fox_baby : Geometry.fox",
+      "part_visibility": [
+        { "leg*": "!query.is_sleeping" },
+        { "_head": "(!query.is_sleeping && !query.is_baby) || query.is_baby" },
+        { "head_sleeping": "query.is_sleeping && !query.is_baby" }
+      ],
+      "materials": [{ "*": "Material.fox" }],
+      "textures": [
+        "query.is_baby ? query.is_sleeping ? Array.baby_sleep[query.variant] : Array.baby_skins[query.variant] : Array.skins[query.variant]"
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.wolf.sitting": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": ["wolf_leg_default"],
+          "transitions": [
+            {
+              "sitting": "query.is_sneaking && query.ground_speed < 0.5"
+            }
+          ]
+        },
+        "sitting": {
+          "animations": [
+            { "wolf_sitting": "!query.is_baby" },
+            { "wolf_baby_sitting": "query.is_baby" }
+          ],
+          "transitions": [
+            {
+              "default": "!query.is_sneaking || query.ground_speed >= 0.5"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

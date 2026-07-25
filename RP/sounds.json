@@ -1,0 +1,47 @@
+{
+   "entity_sounds" : {
+      "entities" : {
+         "player" : {
+            "events" : {
+               "death" : "",
+               "death.in.water" : "",
+               "hurt" : "",
+               "hurt.in.water" : ""
+            },
+            "variants" : {
+               "key" : "query.property('morphing_bracelet:entity') == 69 ? 'minecraft:warden' : query.property('morphing_bracelet:entity') == 80 ? 'minecraft:breeze' : 'default'",
+               "map" : {
+                  "default": {
+                  },
+                  "minecraft:warden": {
+                     "events" : {
+                        "heartbeat" : {
+                           "pitch" : 1.0,
+                           "sound" : "mob.warden.heartbeat",
+                           "volume" : 5.0
+                        }
+                     }
+                  },
+                  "minecraft:breeze": {
+                     "events" : {
+                        "reflect" : {
+                           "pitch" : 1.0,
+                           "sound" : "mob.breeze.deflect",
+                           "volume" : 1.0
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   },
+   "individual_event_sounds" : {
+      "events" : {
+         "block.sweet_berry_bush.hurt" : "",
+         "mob.player.hurt_drown" : "",
+         "mob.player.hurt_freeze" : "",
+         "mob.player.hurt_on_fire" : ""
+      }
+   }
+}

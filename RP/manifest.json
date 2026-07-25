@@ -1,0 +1,27 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "pack.description",
+        "name": "pack.name",
+        "uuid": "f601f51f-e87c-45a6-ad47-7c156825de21",
+        "pack_scope": "world",
+        "version": [ 0, 3, 2 ],
+        "min_engine_version": [ 1, 26, 30 ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "580cac88-8ee1-4e79-b1e8-5dbfa7248630",
+            "version": [0, 0, 1]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "110e29d6-6669-4ef8-a01e-22231760e1e5",
+            "version": [ 0, 3, 2 ]
+        }
+    ],
+    "metadata": {
+        "authors": [ "CookieDookie145" ]
+    }
+}

@@ -1,0 +1,43 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.morph.horse.move" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"transitions" : [
+						{
+							"sprinting" : "query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava"
+						}
+					]
+				},
+				"sprinting" : {
+					"on_entry" : [
+						"variable.horse_speed = (query.property('morphing_bracelet:entity') == 71 ? 0.23625 : query.any(query.property('morphing_bracelet:entity'), 72, 73) ? 0.1225 : query.property('morphing_bracelet:entity') == 74 ? 0.14 : query.property('morphing_bracelet:entity') == 75 ? 0.1925 : 0.1) / 0.1;"
+					],
+					"on_exit" : [
+						"variable.horse_speed = 1.0;"
+					],
+					"transitions" : [
+						{
+							"jumping" : "query.is_jumping && !query.is_in_water && !query.is_in_lava"
+						},
+						{
+							"default" : "!query.is_sprinting || !query.is_on_ground || query.is_in_water || query.is_in_lava"
+						}
+					]
+				},
+				"jumping" : {
+					"on_entry" : [
+						"variable.horse_stand_time = 1.0;"
+					],
+					"transitions" : [
+						{
+							"default" : "1.0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

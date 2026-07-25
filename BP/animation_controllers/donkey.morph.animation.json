@@ -1,0 +1,73 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.donkey.gallop": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "walking": "!(query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava) && !query.is_baby && query.property('morphing_bracelet:entity') == 72"
+            },
+            {
+              "galloping": "query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava && !query.is_baby && query.property('morphing_bracelet:entity') == 72"
+            }
+          ]
+        },
+        "walking": {
+          "on_entry": [
+            "@s morph:donkey_walking"
+          ],
+          "transitions": [
+            {
+              "galloping": "query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava"
+            },
+            {
+              "default": "query.is_baby || query.property('morphing_bracelet:entity') != 72"
+            }
+          ]
+        },
+        "galloping": {
+          "on_entry": [
+            "@s morph:donkey_galloping",
+            "/effect @s jump_boost 1000000 0 true"
+          ],
+          "on_exit": [
+            "/effect @s jump_boost 0"
+          ],
+          "transitions": [
+            {
+              "jumping": "query.is_jumping"
+            },
+            {
+              "walking": "!(query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava)"
+            },
+            {
+              "default": "query.is_baby || query.property('morphing_bracelet:entity') != 72"
+            }
+          ]
+        },
+        "jumping": {
+          "on_entry": [
+            "/playsound mob.horse.jump @a ~ ~ ~ 0.4 1.0",
+            "/effect @s jump_boost 1000000 0 true"
+          ],
+          "on_exit": [
+            "/effect @s jump_boost 0"
+          ],
+          "transitions": [
+            {
+              "galloping": "query.is_on_ground && query.is_sprinting && !query.is_in_water && !query.is_in_lava"
+            },
+            {
+              "walking": "(query.is_on_ground && !query.is_sprinting) || query.is_in_water || query.is_in_lava"
+            },
+            {
+              "default": "query.is_baby || query.property('morphing_bracelet:entity') != 72"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

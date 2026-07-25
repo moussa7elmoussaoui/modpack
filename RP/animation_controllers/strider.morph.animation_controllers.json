@@ -1,0 +1,43 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.morph.strider.look_at_target" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"animations" : [ "strider_look_at_target_default" ],
+					"transitions" : [
+						{
+							"gliding" : "query.is_gliding"
+						},
+						{
+							"swimming" : "query.is_swimming || query.is_crawling"
+						}
+					]
+				},
+				"gliding" : {
+					"animations" : [ "strider_look_at_target_gliding" ],
+					"transitions" : [
+						{
+							"swimming" : "query.is_swimming || query.is_crawling"
+						},
+						{
+							"default" : "!query.is_gliding"
+						}
+					]
+				},
+				"swimming" : {
+					"animations" : [ "strider_look_at_target_swimming" ],
+					"transitions" : [
+						{
+							"gliding" : "query.is_gliding"
+						},
+						{
+							"default" : "!query.is_swimming && !query.is_crawling"
+						}
+					]
+				}
+			}
+		}
+	}
+}

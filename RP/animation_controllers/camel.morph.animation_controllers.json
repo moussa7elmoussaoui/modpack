@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.camel.general": {
+      "initial_state": "idling",
+      "states": {
+        "idling": {
+          "transitions": [
+            { "moving": "variable.camel_moving" }
+          ],
+          "blend_transition": 0.5
+        },
+        "moving": {
+          "animations": [
+            {
+              "camel_moving": "math.min(1.0, math.lerp(0.4, 1.25, query.modified_move_speed)) && !query.is_baby",
+              "camel_baby_moving": "math.min(1.0, math.lerp(0.4, 1.25, query.modified_move_speed)) && query.is_baby"
+            }
+          ],
+          "transitions": [
+            { "idling": "!variable.camel_moving" }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    }
+  }
+}

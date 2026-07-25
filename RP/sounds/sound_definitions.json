@@ -1,0 +1,48 @@
+{
+   "format_version" : "1.20.20",
+   "sound_definitions" : {
+      "mob.enderdragon.quiet_flap" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "name" : "sounds/mob/enderdragon/wings1",
+               "volume" : 0.35
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings2",
+               "volume" : 0.35
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings3",
+               "volume" : 0.35
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings4",
+               "volume" : 0.35
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings5",
+               "volume" : 0.35
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings6",
+               "volume" : 0.35
+            }
+         ],
+         "subtitle" : "subtitles.entity.ender_dragon.flap"
+      },
+      "mob.player.morph" : {
+         "category" : "player",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            "sounds/mob/player/morph/morph1",
+            "sounds/mob/player/morph/morph2"
+         ],
+         "subtitle" : "subtitles.entity.player.morph"
+      }
+   }
+}

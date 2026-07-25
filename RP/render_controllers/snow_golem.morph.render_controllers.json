@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.snow_golem": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [ "Texture.snow_golem" ]
+        }
+      },
+      "geometry": "Geometry.snow_golem",
+      "materials": [
+        { "*": "Material.snow_golem" }
+      ],
+      "textures": [ "Array.skins[0]" ]
+    }
+  }
+}

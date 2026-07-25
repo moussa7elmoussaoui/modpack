@@ -1,0 +1,23 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.morph.frog.high_jump": {
+      "loop": false,
+      "animation_length": 0.6,
+      "timeline": {
+        "0.5": [
+          "/effect @s jump_boost 1000000 7 true"
+        ]
+      }
+    },
+    "animation.morph.frog.high_jump.stop": {
+      "loop": false,
+      "animation_length": 0.6,
+      "timeline": {
+        "0.5": [
+          "/effect @s jump_boost 0"
+        ]
+      }
+    }
+  }
+}

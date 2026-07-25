@@ -1,0 +1,47 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "morphing_bracelet:fireball",
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": true
+      }
+    },
+    "components": {
+      "minecraft:cooldown": {
+        "category": "morphing_bracelet:fireball",
+        "duration": 2.0
+      },
+      "minecraft:glint": {
+        "value": true
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "fireball"
+        }
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "morphing_bracelet:infinite_projectile": {
+        "launch_power": 1.6,
+        "projectile_entity": "minecraft:fireball",
+        "shoot_delay": 1.0,
+        "shoot_event": "morph:ghast_stop_shooting",
+        "shoot_sound": {
+          "pitch": [ 0.8, 1.2 ],
+          "sound": "mob.ghast.fireball",
+          "volume": 0.7
+        },
+        "spawn_offset": [ 0.0, 1.5, 0.0 ], // Temporary for now. If you are seeing this, then I just forgot to remove it lol
+        "use_event": "morph:ghast_start_shooting",
+        "use_sound": {
+          "pitch": [ 0.8, 1.2 ],
+          "sound": "mob.ghast.charge",
+          "volume": 5.0
+        }
+      }
+    }
+  }
+}

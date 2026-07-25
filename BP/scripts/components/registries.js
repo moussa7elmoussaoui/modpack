@@ -1,0 +1,25 @@
+import convertBlock from "./blocks/convert-block";
+import durabilityDamageOnHit from "./items/durability-damage-on-hit";
+import effectNearbyPlayers from "./items/effect-nearby-players";
+import infiniteProjectile from "./items/infinite-projectile";
+import metamorphingBracelet from "./items/metamorphing-bracelet";
+import morphingBracelet from "./items/morphing-bracelet";
+import morphStorage from "./items/morph-storage";
+import sonicBoom from "./items/sonic-boom";
+import summonFangsOnUse from "./items/summon-fangs-on-use";
+import teleportOnUse from "./items/teleport-on-use";
+
+export default {
+  blocks: [ convertBlock ],
+  items: [
+    durabilityDamageOnHit,
+    effectNearbyPlayers,
+    infiniteProjectile,
+    metamorphingBracelet,
+    morphingBracelet,
+    morphStorage,
+    sonicBoom,
+    summonFangsOnUse,
+    teleportOnUse
+  ]
+};

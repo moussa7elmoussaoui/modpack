@@ -1,0 +1,43 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "morphing_bracelet:wind_charge",
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": true
+      }
+    },
+    "components": {
+      "minecraft:cooldown": {
+        "category": "morphing_bracelet:wind_charge",
+        "duration": 1.125
+      },
+      "minecraft:glint": {
+        "value": true
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "wind_charge"
+        }
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "morphing_bracelet:infinite_projectile": {
+        "launch_power": 0.7,
+        "projectile_entity": "minecraft:breeze_wind_charge_projectile",
+        "shoot_delay": 0.75,
+        "shoot_sound": {
+          "pitch": [ 1.0, 1.2 ],
+          "sound": "mob.breeze.shoot",
+          "volume": 1.5
+        },
+        "use_animation": "animation.morph.breeze.shoot",
+        "use_sound": {
+          "sound": "mob.breeze.inhale"
+        }
+      }
+    }
+  }
+}
