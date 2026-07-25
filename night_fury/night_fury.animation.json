@@ -1,11 +1,11 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"nightfury.walk": {
+		"animation.night_fury.walk": {
 			"loop": true,
 			"animation_length": 3.52,
 			"bones": {
-				"leftWingArmM": {
+				"left_wing_arm_membrane": {
 					"rotation": [
 						0,
 						-10,
@@ -17,63 +17,63 @@
 						0.8
 					]
 				},
-				"leftWingArm": {
+				"left_wing_arm": {
 					"rotation": [
 						0,
 						-50,
 						0
 					]
 				},
-				"leftWingFArmM": {
+				"left_wing_forearm_membrane": {
 					"position": [
 						-16,
 						0,
 						0
 					]
 				},
-				"leftWFHalf": {
+				"left_wing_forearm_half": {
 					"rotation": [
 						-5,
 						-35,
 						0
 					]
 				},
-				"leftWFa": {
+				"left_wing_finger_a": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFb": {
+				"left_wing_finger_b": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFc": {
+				"left_wing_finger_c": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFd": {
+				"left_wing_finger_d": {
 					"rotation": [
 						0,
 						-7.5,
 						0
 					]
 				},
-				"righWingFarm2": {
+				"left_wing_forearm": {
 					"rotation": [
 						0,
 						32.5,
 						0
 					]
 				},
-				"rightWingArmM": {
+				"right_wing_arm_membrane": {
 					"rotation": [
 						0,
 						10,
@@ -85,119 +85,119 @@
 						0.8
 					]
 				},
-				"rightWingArm": {
+				"right_wing_arm": {
 					"rotation": [
 						0,
 						50,
 						0
 					]
 				},
-				"rightWingFArmM": {
+				"right_wing_forearm_membrane": {
 					"position": [
 						16,
 						0,
 						0
 					]
 				},
-				"rightWFHalf": {
+				"right_wing_forearm_half": {
 					"rotation": [
 						-5,
 						35,
 						0
 					]
 				},
-				"rightWFa": {
+				"right_wing_finger_a": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFb": {
+				"right_wing_finger_b": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFc": {
+				"right_wing_finger_c": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFd": {
+				"right_wing_finger_d": {
 					"rotation": [
 						0,
 						7.5,
 						0
 					]
 				},
-				"righWingFarm3": {
+				"right_wing_forearm": {
 					"rotation": [
 						0,
 						-32.5,
 						0
 					]
 				},
-				"leftHipWingA": {
+				"left_hip_wing_a": {
 					"rotation": [
 						-0.07673,
 						-9.96156,
 						0.88045
 					]
 				},
-				"leftHipWingB": {
+				"left_hip_wing_b": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"leftHipWingC": {
+				"left_hip_wing_c": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"rightHipWingA": {
+				"right_hip_wing_a": {
 					"rotation": [
 						-0.07673,
 						9.96156,
 						-0.88045
 					]
 				},
-				"rightHipWingB": {
+				"right_hip_wing_b": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"rightHipWingC": {
+				"right_hip_wing_c": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"Chest": {
+				"body": {
 					"position": [
 						0,
 						"0.3+math.sin(query.anim_time * 600 + 150) * 0.6",
 						0
 					]
 				},
-				"NeckBase": {
+				"neck_base": {
 					"rotation": [
 						"math.sin(query.anim_time * 600 + 50)",
 						0,
 						0
 					]
 				},
-				"Neck": {
+				"neck": {
 					"rotation": [
 						"math.sin(query.anim_time * 600 + 100)",
 						0,
@@ -211,56 +211,56 @@
 						0
 					]
 				},
-				"Tail1": {
+				"tail_01": {
 					"rotation": [
 						"math.sin(query.anim_time * 600 - 25)",
 						"math.sin(query.anim_time * 300) * 2",
 						0
 					]
 				},
-				"Tail3": {
+				"tail_03": {
 					"rotation": [
 						"2.5+math.sin(query.anim_time * 600 - 75) * 1.5",
 						"math.sin(query.anim_time * 300 - 50) * 4",
 						0
 					]
 				},
-				"Tail4": {
+				"tail_04": {
 					"rotation": [
 						"2.5+math.sin(query.anim_time * 600 - 100) * 2",
 						"math.sin(query.anim_time * 300 - 75) * 5",
 						0
 					]
 				},
-				"Tail5": {
+				"tail_05": {
 					"rotation": [
 						"math.sin(query.anim_time * 600 - 150) * 3",
 						"math.sin(query.anim_time * 300 - 125) * 7",
 						0
 					]
 				},
-				"Tail6": {
+				"tail_06": {
 					"rotation": [
 						0,
 						"math.sin(query.anim_time * 100 - 150) * 3",
 						0
 					]
 				},
-				"leftTailWing": {
+				"left_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"-15+math.sin(query.anim_time * 600 - 100) * 6"
 					]
 				},
-				"rightTailWing": {
+				"right_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"15+math.sin(query.anim_time * 600 - 125) * 6"
 					]
 				},
-				"leftArm": {
+				"left_front_arm": {
 					"rotation": [
 						"math.sin(query.anim_time * 300) * -20",
 						0,
@@ -272,7 +272,7 @@
 						0
 					]
 				},
-				"rightArm": {
+				"right_front_arm": {
 					"rotation": [
 						"math.sin(query.anim_time * 300) * 20",
 						0,
@@ -284,7 +284,7 @@
 						0
 					]
 				},
-				"leftThigh": {
+				"left_hind_thigh": {
 					"rotation": [
 						"math.sin(query.anim_time * 300) * 20",
 						0,
@@ -296,7 +296,7 @@
 						0
 					]
 				},
-				"rightThigh": {
+				"right_hind_thigh": {
 					"rotation": [
 						"math.sin(query.anim_time * 300) * -20",
 						0,
@@ -308,70 +308,70 @@
 						0
 					]
 				},
-				"fightWFdTip2": {
+				"left_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						-10
 					]
 				},
-				"fightWFdTip3": {
+				"right_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						10
 					]
 				},
-				"leftFArm": {
+				"left_front_forearm": {
 					"rotation": [
 						"math.sin(query.anim_time * 300 + 100) * -20",
 						0,
 						0
 					]
 				},
-				"leftFrontFeet": {
+				"left_front_foot": {
 					"rotation": [
 						"3+math.sin(query.anim_time * 300 + 250) * -20",
 						0,
 						0
 					]
 				},
-				"rightFArm": {
+				"right_front_forearm": {
 					"rotation": [
 						"math.sin(query.anim_time * 300 + 100) * 20",
 						0,
 						0
 					]
 				},
-				"rightFrontFeet": {
+				"right_front_foot": {
 					"rotation": [
 						"3+math.sin(query.anim_time * 300 + 250) * 20",
 						0,
 						0
 					]
 				},
-				"leftLeg": {
+				"left_hind_leg": {
 					"rotation": [
 						"math.sin(query.anim_time * 300 + 100) * 20",
 						0,
 						0
 					]
 				},
-				"leftBackPaw": {
+				"left_hind_paw": {
 					"rotation": [
 						"5+math.sin(query.anim_time * 300 + 250) * 20",
 						0,
 						0
 					]
 				},
-				"rightLeg": {
+				"right_hind_leg": {
 					"rotation": [
 						"math.sin(query.anim_time * 300 + 100) * -20",
 						0,
 						0
 					]
 				},
-				"rightBackPaw": {
+				"right_hind_paw": {
 					"rotation": [
 						"5+math.sin(query.anim_time * 300 + 250) * -20",
 						0,
@@ -380,11 +380,11 @@
 				}
 			}
 		},
-		"nightfury.run": {
+		"animation.night_fury.run": {
 			"loop": true,
 			"animation_length": 3.6,
 			"bones": {
-				"leftWingArmM": {
+				"left_wing_arm_membrane": {
 					"rotation": [
 						0,
 						-10,
@@ -396,63 +396,63 @@
 						0.8
 					]
 				},
-				"leftWingArm": {
+				"left_wing_arm": {
 					"rotation": [
 						0,
 						-50,
 						0
 					]
 				},
-				"leftWingFArmM": {
+				"left_wing_forearm_membrane": {
 					"position": [
 						-16,
 						0,
 						0
 					]
 				},
-				"leftWFHalf": {
+				"left_wing_forearm_half": {
 					"rotation": [
 						0,
 						0,
 						"math.sin(query.anim_time * 600 - 50) * -10"
 					]
 				},
-				"leftWFa": {
+				"left_wing_finger_a": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFb": {
+				"left_wing_finger_b": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFc": {
+				"left_wing_finger_c": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFd": {
+				"left_wing_finger_d": {
 					"rotation": [
 						0,
 						-7.5,
 						0
 					]
 				},
-				"righWingFarm2": {
+				"left_wing_forearm": {
 					"rotation": [
 						0,
 						32.5,
 						0
 					]
 				},
-				"rightWingArmM": {
+				"right_wing_arm_membrane": {
 					"rotation": [
 						0,
 						10,
@@ -464,105 +464,105 @@
 						0.8
 					]
 				},
-				"rightWingArm": {
+				"right_wing_arm": {
 					"rotation": [
 						0,
 						50,
 						0
 					]
 				},
-				"rightWingFArmM": {
+				"right_wing_forearm_membrane": {
 					"position": [
 						16,
 						0,
 						0
 					]
 				},
-				"rightWFHalf": {
+				"right_wing_forearm_half": {
 					"rotation": [
 						0,
 						0,
 						"math.sin(query.anim_time * 600 - 50) * 10"
 					]
 				},
-				"rightWFa": {
+				"right_wing_finger_a": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFb": {
+				"right_wing_finger_b": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFc": {
+				"right_wing_finger_c": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFd": {
+				"right_wing_finger_d": {
 					"rotation": [
 						0,
 						7.5,
 						0
 					]
 				},
-				"righWingFarm3": {
+				"right_wing_forearm": {
 					"rotation": [
 						0,
 						-32.5,
 						0
 					]
 				},
-				"leftHipWingA": {
+				"left_hip_wing_a": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftHipWingB": {
+				"left_hip_wing_b": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"leftHipWingC": {
+				"left_hip_wing_c": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"rightHipWingA": {
+				"right_hip_wing_a": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightHipWingB": {
+				"right_hip_wing_b": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"rightHipWingC": {
+				"right_hip_wing_c": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"Chest": {
+				"body": {
 					"rotation": [
 						"math.sin(query.anim_time * 600) * 4",
 						0,
@@ -574,14 +574,14 @@
 						0
 					]
 				},
-				"NeckBase": {
+				"neck_base": {
 					"rotation": [
 						"math.sin(query.anim_time * 600 + 50)*6",
 						0,
 						0
 					]
 				},
-				"Neck": {
+				"neck": {
 					"rotation": [
 						"math.sin(query.anim_time * 600 + 100)*6",
 						0,
@@ -595,56 +595,56 @@
 						0
 					]
 				},
-				"Tail1": {
+				"tail_01": {
 					"rotation": [
 						"2.5+math.sin(query.anim_time * 600 - 50)*8",
 						"math.sin(query.anim_time * 300) * 3",
 						0
 					]
 				},
-				"Tail3": {
+				"tail_03": {
 					"rotation": [
 						"math.sin(query.anim_time * 600 + 200) * 10",
 						"math.sin(query.anim_time * 300 - 100) * 8",
 						0
 					]
 				},
-				"Tail4": {
+				"tail_04": {
 					"rotation": [
 						"2.5+math.sin(query.anim_time * 600 - 100) * 2",
 						"math.sin(query.anim_time * 300 - 150) * 5",
 						0
 					]
 				},
-				"Tail5": {
+				"tail_05": {
 					"rotation": [
 						"-2.5+math.sin(query.anim_time * 600 - 200) * 6",
 						"math.sin(query.anim_time * 300 - 200) * 7",
 						0
 					]
 				},
-				"Tail6": {
+				"tail_06": {
 					"rotation": [
 						0,
 						"math.sin(query.anim_time * 100 - 150) * 3",
 						0
 					]
 				},
-				"leftTailWing": {
+				"left_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"-15+math.sin(query.anim_time * 600 - 100) * 6"
 					]
 				},
-				"rightTailWing": {
+				"right_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"15+math.sin(query.anim_time * 600 - 125) * 6"
 					]
 				},
-				"leftArm": {
+				"left_front_arm": {
 					"rotation": [
 						"math.sin(query.anim_time * 600) * -45",
 						0,
@@ -656,7 +656,7 @@
 						0
 					]
 				},
-				"rightArm": {
+				"right_front_arm": {
 					"rotation": [
 						"math.sin(query.anim_time * 600-100) * 45",
 						0,
@@ -668,7 +668,7 @@
 						0
 					]
 				},
-				"leftThigh": {
+				"left_hind_thigh": {
 					"rotation": [
 						"math.sin(query.anim_time * 600+100) * 35",
 						0,
@@ -680,7 +680,7 @@
 						0
 					]
 				},
-				"rightThigh": {
+				"right_hind_thigh": {
 					"rotation": [
 						"math.sin(query.anim_time * 600) * -35",
 						0,
@@ -692,84 +692,84 @@
 						0
 					]
 				},
-				"fightWFdTip2": {
+				"left_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						"-10+math.sin(query.anim_time * 600 - 100) * 15"
 					]
 				},
-				"fightWFdTip3": {
+				"right_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						"10+math.sin(query.anim_time * 600 - 100) * -15"
 					]
 				},
-				"leftFArm": {
+				"left_front_forearm": {
 					"rotation": [
 						"math.sin(query.anim_time * 600 + 100) * -25",
 						0,
 						0
 					]
 				},
-				"leftFrontFeet": {
+				"left_front_foot": {
 					"rotation": [
 						"3+math.sin(query.anim_time * 600 + 250) * -35",
 						0,
 						0
 					]
 				},
-				"rightFArm": {
+				"right_front_forearm": {
 					"rotation": [
 						"math.sin(query.anim_time * 600) * 25",
 						0,
 						0
 					]
 				},
-				"rightFrontFeet": {
+				"right_front_foot": {
 					"rotation": [
 						"3+math.sin(query.anim_time * 600 + 150) * 35",
 						0,
 						0
 					]
 				},
-				"leftLeg": {
+				"left_hind_leg": {
 					"rotation": [
 						"math.sin(query.anim_time * 600 + 200) * 20",
 						0,
 						0
 					]
 				},
-				"leftBackPaw": {
+				"left_hind_paw": {
 					"rotation": [
 						"5+math.sin(query.anim_time * 600 + 500) * -25",
 						0,
 						0
 					]
 				},
-				"rightLeg": {
+				"right_hind_leg": {
 					"rotation": [
 						"math.sin(query.anim_time * 600 + 100) * -20",
 						0,
 						0
 					]
 				},
-				"rightBackPaw": {
+				"right_hind_paw": {
 					"rotation": [
 						"5+math.sin(query.anim_time * 600 + 250) * -25",
 						0,
 						0
 					]
 				},
-				"Jaw": {
+				"jaw": {
 					"rotation": [
 						0,
 						0,
 						0
 					]
 				},
-				"Tail2": {
+				"tail_02": {
 					"rotation": [
 						5,
 						0,
@@ -778,11 +778,11 @@
 				}
 			}
 		},
-		"nightfury.idle": {
+		"animation.night_fury.idle": {
 			"loop": true,
 			"animation_length": 3.52,
 			"bones": {
-				"leftWingArmM": {
+				"left_wing_arm_membrane": {
 					"rotation": [
 						0,
 						-10,
@@ -794,63 +794,63 @@
 						0.8
 					]
 				},
-				"leftWingArm": {
+				"left_wing_arm": {
 					"rotation": [
 						0,
 						-50,
 						0
 					]
 				},
-				"leftWingFArmM": {
+				"left_wing_forearm_membrane": {
 					"position": [
 						-16,
 						0,
 						0
 					]
 				},
-				"leftWFHalf": {
+				"left_wing_forearm_half": {
 					"rotation": [
 						-5,
 						-37.5,
 						0
 					]
 				},
-				"leftWFa": {
+				"left_wing_finger_a": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFb": {
+				"left_wing_finger_b": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFc": {
+				"left_wing_finger_c": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFd": {
+				"left_wing_finger_d": {
 					"rotation": [
 						0,
 						-7.5,
 						0
 					]
 				},
-				"righWingFarm2": {
+				"left_wing_forearm": {
 					"rotation": [
 						0,
 						32.5,
 						0
 					]
 				},
-				"rightWingArmM": {
+				"right_wing_arm_membrane": {
 					"rotation": [
 						0,
 						10,
@@ -862,119 +862,119 @@
 						0.8
 					]
 				},
-				"rightWingArm": {
+				"right_wing_arm": {
 					"rotation": [
 						0,
 						50,
 						0
 					]
 				},
-				"rightWingFArmM": {
+				"right_wing_forearm_membrane": {
 					"position": [
 						16,
 						0,
 						0
 					]
 				},
-				"rightWFHalf": {
+				"right_wing_forearm_half": {
 					"rotation": [
 						-5,
 						37.5,
 						0
 					]
 				},
-				"rightWFa": {
+				"right_wing_finger_a": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFb": {
+				"right_wing_finger_b": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFc": {
+				"right_wing_finger_c": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFd": {
+				"right_wing_finger_d": {
 					"rotation": [
 						0,
 						7.5,
 						0
 					]
 				},
-				"righWingFarm3": {
+				"right_wing_forearm": {
 					"rotation": [
 						0,
 						-32.5,
 						0
 					]
 				},
-				"leftHipWingA": {
+				"left_hip_wing_a": {
 					"rotation": [
 						-0.07673,
 						-9.96156,
 						0.88045
 					]
 				},
-				"leftHipWingB": {
+				"left_hip_wing_b": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"leftHipWingC": {
+				"left_hip_wing_c": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"rightHipWingA": {
+				"right_hip_wing_a": {
 					"rotation": [
 						-0.07673,
 						9.96156,
 						-0.88045
 					]
 				},
-				"rightHipWingB": {
+				"right_hip_wing_b": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"rightHipWingC": {
+				"right_hip_wing_c": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"Chest": {
+				"body": {
 					"position": [
 						0,
 						"math.sin(query.anim_time * 200) * 0.2",
 						0
 					]
 				},
-				"NeckBase": {
+				"neck_base": {
 					"rotation": [
 						"math.sin(query.anim_time * 200 + 50)",
 						0,
 						0
 					]
 				},
-				"Neck": {
+				"neck": {
 					"rotation": [
 						"math.sin(query.anim_time * 200 + 100)",
 						0,
@@ -988,98 +988,98 @@
 						0
 					]
 				},
-				"Tail1": {
+				"tail_01": {
 					"rotation": [
 						"math.sin(query.anim_time * 200 - 25)",
 						"math.sin(query.anim_time * 100)",
 						0
 					]
 				},
-				"Tail2": {
+				"tail_02": {
 					"rotation": [
 						0,
 						"math.sin(query.anim_time * 100 - 25) * 2",
 						0
 					]
 				},
-				"Tail3": {
+				"tail_03": {
 					"rotation": [
 						"2.5+math.sin(query.anim_time * 200 - 75) * 1.5",
 						"math.sin(query.anim_time * 100 - 50) * 3",
 						0
 					]
 				},
-				"Tail4": {
+				"tail_04": {
 					"rotation": [
 						"2.5+math.sin(query.anim_time * 200 - 100) * 2",
 						"math.sin(query.anim_time * 100 - 75) * 4",
 						0
 					]
 				},
-				"Tail5": {
+				"tail_05": {
 					"rotation": [
 						0,
 						"math.sin(query.anim_time * 100 - 125) * 6",
 						"math.sin(query.anim_time * 100 - 150) * 8"
 					]
 				},
-				"Tail6": {
+				"tail_06": {
 					"rotation": [
 						0,
 						"math.sin(query.anim_time * 100 - 150) * 3",
 						0
 					]
 				},
-				"leftTailWing": {
+				"left_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"-15+math.sin(query.anim_time * 100 - 100) * 6"
 					]
 				},
-				"rightTailWing": {
+				"right_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"15+math.sin(query.anim_time * 100 - 125) * 6"
 					]
 				},
-				"leftArm": {
+				"left_front_arm": {
 					"position": [
 						0,
 						"-math.sin(query.anim_time * 200) * 0.2",
 						0
 					]
 				},
-				"rightArm": {
+				"right_front_arm": {
 					"position": [
 						0,
 						"-math.sin(query.anim_time * 200) * 0.2",
 						0
 					]
 				},
-				"leftThigh": {
+				"left_hind_thigh": {
 					"position": [
 						0,
 						"-math.sin(query.anim_time * 200) * 0.2",
 						0
 					]
 				},
-				"rightThigh": {
+				"right_hind_thigh": {
 					"position": [
 						0,
 						"-math.sin(query.anim_time * 200) * 0.2",
 						0
 					]
 				},
-				"fightWFdTip2": {
+				"left_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						-10
 					]
 				},
-				"fightWFdTip3": {
+				"right_wing_tip": {
 					"rotation": [
 						0,
 						0,
@@ -1088,11 +1088,11 @@
 				}
 			}
 		},
-		"nightfury.sit": {
+		"animation.night_fury.sit": {
 			"loop": true,
 			"animation_length": 1.76,
 			"bones": {
-				"Chest": {
+				"body": {
 					"rotation": [
 						-38.5,
 						0,
@@ -1104,7 +1104,7 @@
 						0
 					]
 				},
-				"leftWingArmM": {
+				"left_wing_arm_membrane": {
 					"rotation": [
 						25,
 						-22.5,
@@ -1116,70 +1116,70 @@
 						0.8
 					]
 				},
-				"leftWingArm": {
+				"left_wing_arm": {
 					"rotation": [
 						0,
 						-47.5,
 						0
 					]
 				},
-				"leftWingFArmM": {
+				"left_wing_forearm_membrane": {
 					"position": [
 						-16,
 						0,
 						0
 					]
 				},
-				"leftWFHalf": {
+				"left_wing_forearm_half": {
 					"rotation": [
 						-2.5,
 						-52.5,
 						0
 					]
 				},
-				"leftWFa": {
+				"left_wing_finger_a": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFb": {
+				"left_wing_finger_b": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFc": {
+				"left_wing_finger_c": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFd": {
+				"left_wing_finger_d": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"fightWFdTip2": {
+				"left_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						-7.5
 					]
 				},
-				"righWingFarm2": {
+				"left_wing_forearm": {
 					"rotation": [
 						0,
 						35,
 						0
 					]
 				},
-				"rightWingArmM": {
+				"right_wing_arm_membrane": {
 					"rotation": [
 						25,
 						22.5,
@@ -1191,77 +1191,77 @@
 						0.8
 					]
 				},
-				"rightWingArm": {
+				"right_wing_arm": {
 					"rotation": [
 						0,
 						50,
 						0
 					]
 				},
-				"rightWingFArmM": {
+				"right_wing_forearm_membrane": {
 					"position": [
 						16,
 						0,
 						0
 					]
 				},
-				"rightWFHalf": {
+				"right_wing_forearm_half": {
 					"rotation": [
 						-2.5,
 						47.5,
 						0
 					]
 				},
-				"rightWFa": {
+				"right_wing_finger_a": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFb": {
+				"right_wing_finger_b": {
 					"rotation": [
 						0,
 						12.5,
 						0
 					]
 				},
-				"rightWFc": {
+				"right_wing_finger_c": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFd": {
+				"right_wing_finger_d": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"fightWFdTip3": {
+				"right_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						7.5
 					]
 				},
-				"righWingFarm3": {
+				"right_wing_forearm": {
 					"rotation": [
 						0,
 						-32.5,
 						0
 					]
 				},
-				"NeckBase": {
+				"neck_base": {
 					"rotation": [
 						"7.5+math.sin(query.anim_time * 200 + 75) * 0.5",
 						0,
 						0
 					]
 				},
-				"Neck": {
+				"neck": {
 					"rotation": [
 						"25+math.sin(query.anim_time * 200 + 100) * 0.5",
 						0,
@@ -1275,7 +1275,7 @@
 						0
 					]
 				},
-				"Tail1": {
+				"tail_01": {
 					"rotation": [
 						62.5,
 						30,
@@ -1287,112 +1287,112 @@
 						0
 					]
 				},
-				"leftHipWingA": {
+				"left_hip_wing_a": {
 					"rotation": [
 						0,
 						-5,
 						0
 					]
 				},
-				"leftHipWingB": {
+				"left_hip_wing_b": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"leftHipWingC": {
+				"left_hip_wing_c": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"rightHipWingA": {
+				"right_hip_wing_a": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightHipWingB": {
+				"right_hip_wing_b": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"rightHipWingC": {
+				"right_hip_wing_c": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"Tail2": {
+				"tail_02": {
 					"rotation": [
 						2.5,
 						10,
 						0
 					]
 				},
-				"Tail3": {
+				"tail_03": {
 					"rotation": [
 						-2.5,
 						"50+math.sin(query.anim_time * 200 - 50) * 0.5",
 						0
 					]
 				},
-				"Tail4": {
+				"tail_04": {
 					"rotation": [
 						-7.5,
 						"42.5+math.sin(query.anim_time * 200 - 100)",
 						0
 					]
 				},
-				"Tail5": {
+				"tail_05": {
 					"rotation": [
 						-10,
 						"32.5+math.sin(query.anim_time * 200 - 150) * 2",
 						0
 					]
 				},
-				"leftTailWing": {
+				"left_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"7.5+math.sin(query.anim_time * 200 - 250) * 2"
 					]
 				},
-				"rightTailWing": {
+				"right_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"7.5+math.sin(query.anim_time * 200 - 300) * -3"
 					]
 				},
-				"leftArm": {
+				"left_front_arm": {
 					"rotation": [
 						"40+math.sin(query.anim_time * 200 - 50)",
 						0,
 						10
 					]
 				},
-				"leftFArm": {
+				"left_front_forearm": {
 					"rotation": [
 						"-35+math.sin(query.anim_time * 200 - 100)",
 						0,
 						0
 					]
 				},
-				"leftFrontFeet": {
+				"left_front_foot": {
 					"rotation": [
 						"70+math.sin(query.anim_time * 200 + 50) * 3",
 						0,
 						0
 					]
 				},
-				"rightArm": {
+				"right_front_arm": {
 					"rotation": [
 						17.5,
 						0,
@@ -1404,21 +1404,21 @@
 						0
 					]
 				},
-				"rightFArm": {
+				"right_front_forearm": {
 					"rotation": [
 						25,
 						0,
 						0
 					]
 				},
-				"rightFrontFeet": {
+				"right_front_foot": {
 					"rotation": [
 						-5,
 						0,
 						0
 					]
 				},
-				"leftThigh": {
+				"left_hind_thigh": {
 					"rotation": [
 						-50,
 						-10,
@@ -1430,28 +1430,28 @@
 						0
 					]
 				},
-				"leftShin": {
+				"left_hind_shin": {
 					"rotation": [
 						22.5,
 						0,
 						0
 					]
 				},
-				"leftLeg": {
+				"left_hind_leg": {
 					"rotation": [
 						-7.5,
 						0,
 						0
 					]
 				},
-				"leftBackPaw": {
+				"left_hind_paw": {
 					"rotation": [
 						92.5,
 						0,
 						0
 					]
 				},
-				"rightThigh": {
+				"right_hind_thigh": {
 					"rotation": [
 						-50,
 						7.5,
@@ -1463,21 +1463,21 @@
 						0
 					]
 				},
-				"rightShin": {
+				"right_hind_shin": {
 					"rotation": [
 						35,
 						0,
 						0
 					]
 				},
-				"rightLeg": {
+				"right_hind_leg": {
 					"rotation": [
 						-20,
 						0,
 						0
 					]
 				},
-				"rightBackPaw": {
+				"right_hind_paw": {
 					"rotation": [
 						100,
 						0,
@@ -1486,11 +1486,11 @@
 				}
 			}
 		},
-		"nightfury.sleep": {
+		"animation.night_fury.sleep": {
 			"loop": true,
 			"animation_length": 3.52,
 			"bones": {
-				"Chest": {
+				"body": {
 					"rotation": [
 						-7.5,
 						0,
@@ -1502,7 +1502,7 @@
 						0
 					]
 				},
-				"leftWingArmM": {
+				"left_wing_arm_membrane": {
 					"rotation": [
 						2.5,
 						-5,
@@ -1514,70 +1514,70 @@
 						0.8
 					]
 				},
-				"leftWingArm": {
+				"left_wing_arm": {
 					"rotation": [
 						0,
 						-50,
 						0
 					]
 				},
-				"leftWingFArmM": {
+				"left_wing_forearm_membrane": {
 					"position": [
 						-16,
 						0,
 						0
 					]
 				},
-				"leftWFHalf": {
+				"left_wing_forearm_half": {
 					"rotation": [
 						-5,
 						-30,
 						-2.5
 					]
 				},
-				"leftWFa": {
+				"left_wing_finger_a": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFb": {
+				"left_wing_finger_b": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFc": {
+				"left_wing_finger_c": {
 					"rotation": [
 						0,
 						-10,
 						0
 					]
 				},
-				"leftWFd": {
+				"left_wing_finger_d": {
 					"rotation": [
 						0,
 						-7.5,
 						0
 					]
 				},
-				"fightWFdTip2": {
+				"left_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						-2.5
 					]
 				},
-				"righWingFarm2": {
+				"left_wing_forearm": {
 					"rotation": [
 						0,
 						32.5,
 						0
 					]
 				},
-				"rightWingArmM": {
+				"right_wing_arm_membrane": {
 					"rotation": [
 						0,
 						12.5,
@@ -1589,77 +1589,77 @@
 						0.8
 					]
 				},
-				"rightWingArm": {
+				"right_wing_arm": {
 					"rotation": [
 						0,
 						47.5,
 						0
 					]
 				},
-				"rightWingFArmM": {
+				"right_wing_forearm_membrane": {
 					"position": [
 						16,
 						0,
 						0
 					]
 				},
-				"rightWFHalf": {
+				"right_wing_forearm_half": {
 					"rotation": [
 						-7.5,
 						32.5,
 						7.5
 					]
 				},
-				"rightWFa": {
+				"right_wing_finger_a": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFb": {
+				"right_wing_finger_b": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFc": {
+				"right_wing_finger_c": {
 					"rotation": [
 						0,
 						10,
 						0
 					]
 				},
-				"rightWFd": {
+				"right_wing_finger_d": {
 					"rotation": [
 						0,
 						7.5,
 						0
 					]
 				},
-				"fightWFdTip3": {
+				"right_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						5
 					]
 				},
-				"righWingFarm3": {
+				"right_wing_forearm": {
 					"rotation": [
 						0,
 						-35,
 						0
 					]
 				},
-				"NeckBase": {
+				"neck_base": {
 					"rotation": [
 						"5+math.sin(query.anim_time * 200 + 25) * 0.5",
 						-22.5,
 						0
 					]
 				},
-				"Neck": {
+				"neck": {
 					"rotation": [
 						"25+math.sin(query.anim_time * 200 + 50) * 0.5",
 						-22.5,
@@ -1673,35 +1673,35 @@
 						0
 					]
 				},
-				"leftHorn3": {
+				"left_horn_03": {
 					"rotation": [
 						0,
 						17.5,
 						0
 					]
 				},
-				"leftHorn2": {
+				"left_horn_02": {
 					"rotation": [
 						0,
 						17.5,
 						0
 					]
 				},
-				"leftEye": {
+				"left_eye": {
 					"rotation": [
 						0,
 						0,
 						180
 					]
 				},
-				"rightEye": {
+				"right_eye": {
 					"rotation": [
 						0,
 						0,
 						-180
 					]
 				},
-				"rightEar": {
+				"right_ear": {
 					"rotation": {
 						"0.88": [
 							0,
@@ -1720,7 +1720,7 @@
 						]
 					}
 				},
-				"Tail1": {
+				"tail_01": {
 					"rotation": [
 						15,
 						52.5,
@@ -1732,91 +1732,91 @@
 						0
 					]
 				},
-				"leftHipWingA": {
+				"left_hip_wing_a": {
 					"rotation": [
 						0,
 						-5,
 						0
 					]
 				},
-				"leftHipWingB": {
+				"left_hip_wing_b": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"leftHipWingC": {
+				"left_hip_wing_c": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"rightHipWingA": {
+				"right_hip_wing_a": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"rightHipWingB": {
+				"right_hip_wing_b": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"rightHipWingC": {
+				"right_hip_wing_c": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"Tail2": {
+				"tail_02": {
 					"rotation": [
 						0,
 						12.5,
 						2.5
 					]
 				},
-				"Tail3": {
+				"tail_03": {
 					"rotation": [
 						-2.5,
 						45,
 						10
 					]
 				},
-				"Tail4": {
+				"tail_04": {
 					"rotation": [
 						-5,
 						"40+math.sin(query.anim_time * 100 - 50) * 0.7",
 						0
 					]
 				},
-				"Tail5": {
+				"tail_05": {
 					"rotation": [
 						"-8+math.sin(query.anim_time * 200 - 25) * 1",
 						"35+math.sin(query.anim_time * 100 - 100) * 0.5",
 						0
 					]
 				},
-				"leftTailWing": {
+				"left_tail_wing": {
 					"rotation": [
 						-1,
 						0,
 						"30+math.sin(query.anim_time * 200 - 50) * 1.5"
 					]
 				},
-				"rightTailWing": {
+				"right_tail_wing": {
 					"rotation": [
 						-1,
 						0,
 						"-22.5+math.sin(query.anim_time * 200 - 50) * -1.5"
 					]
 				},
-				"leftArm": {
+				"left_front_arm": {
 					"rotation": [
 						-95,
 						-15,
@@ -1828,21 +1828,21 @@
 						0
 					]
 				},
-				"leftFArm": {
+				"left_front_forearm": {
 					"rotation": [
 						35,
 						0,
 						0
 					]
 				},
-				"leftFrontFeet": {
+				"left_front_foot": {
 					"rotation": [
 						80,
 						0,
 						0
 					]
 				},
-				"rightArm": {
+				"right_front_arm": {
 					"rotation": [
 						-95,
 						-7.5,
@@ -1854,21 +1854,21 @@
 						0
 					]
 				},
-				"rightFArm": {
+				"right_front_forearm": {
 					"rotation": [
 						32.5,
 						0,
 						0
 					]
 				},
-				"rightFrontFeet": {
+				"right_front_foot": {
 					"rotation": [
 						80,
 						0,
 						0
 					]
 				},
-				"leftThigh": {
+				"left_hind_thigh": {
 					"rotation": [
 						-75,
 						-17.5,
@@ -1880,14 +1880,14 @@
 						0
 					]
 				},
-				"leftBackPaw": {
+				"left_hind_paw": {
 					"rotation": [
 						100,
 						0,
 						0
 					]
 				},
-				"rightThigh": {
+				"right_hind_thigh": {
 					"rotation": [
 						-75,
 						5,
@@ -1899,21 +1899,21 @@
 						0
 					]
 				},
-				"rightShin": {
+				"right_hind_shin": {
 					"rotation": [
 						15,
 						0,
 						0
 					]
 				},
-				"rightLeg": {
+				"right_hind_leg": {
 					"rotation": [
 						-10,
 						0,
 						0
 					]
 				},
-				"rightBackPaw": {
+				"right_hind_paw": {
 					"rotation": [
 						97.5,
 						0,
@@ -1922,11 +1922,11 @@
 				}
 			}
 		},
-		"nightfury.flap": {
+		"animation.night_fury.flap": {
 			"loop": true,
 			"animation_length": 2.4,
 			"bones": {
-				"Chest": {
+				"body": {
 					"rotation": [
 						"math.sin(query.anim_time * 300 + 150) * 3",
 						0,
@@ -1938,126 +1938,126 @@
 						0
 					]
 				},
-				"leftWingArmM": {
+				"left_wing_arm_membrane": {
 					"rotation": [
 						"1+math.sin(query.anim_time * 300 + 30) * -2",
 						"-6+math.sin(query.anim_time * 300) * -4",
 						"-10+math.sin(query.anim_time * 300) * -50"
 					]
 				},
-				"leftWingFArmM": {
+				"left_wing_forearm_membrane": {
 					"rotation": [
 						0,
 						0,
 						"5+math.sin(query.anim_time * 300 - 100) * -30"
 					]
 				},
-				"leftWFHalf": {
+				"left_wing_forearm_half": {
 					"rotation": [
 						0,
 						0,
 						"30+math.sin(query.anim_time * 300 - 150) * -45"
 					]
 				},
-				"leftWFa": {
+				"left_wing_finger_a": {
 					"rotation": [
 						0,
 						"-4+math.sin(query.anim_time * 300 - 150) * 5",
 						0
 					]
 				},
-				"leftWFb": {
+				"left_wing_finger_b": {
 					"rotation": [
 						0,
 						"-5+math.sin(query.anim_time * 300 - 150) * 6",
 						0
 					]
 				},
-				"leftWFc": {
+				"left_wing_finger_c": {
 					"rotation": [
 						0,
 						"-5+math.sin(query.anim_time * 300 - 150) * 6",
 						0
 					]
 				},
-				"leftWFd": {
+				"left_wing_finger_d": {
 					"rotation": [
 						0,
 						"-5+math.sin(query.anim_time * 300 - 150) * 6",
 						0
 					]
 				},
-				"fightWFdTip2": {
+				"left_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						"-10+math.sin(query.anim_time * 300) * -30"
 					]
 				},
-				"rightWingArmM": {
+				"right_wing_arm_membrane": {
 					"rotation": [
 						"1+math.sin(query.anim_time * 300 + 30) * -2",
 						"6+math.sin(query.anim_time * 300) * 4",
 						"10+math.sin(query.anim_time * 300) * 50"
 					]
 				},
-				"rightWingFArmM": {
+				"right_wing_forearm_membrane": {
 					"rotation": [
 						0,
 						0,
 						"-5+math.sin(query.anim_time * 300 - 100) * 30"
 					]
 				},
-				"rightWFHalf": {
+				"right_wing_forearm_half": {
 					"rotation": [
 						0,
 						0,
 						"-30+math.sin(query.anim_time * 300 - 150) * 45"
 					]
 				},
-				"rightWFa": {
+				"right_wing_finger_a": {
 					"rotation": [
 						0,
 						"4+math.sin(query.anim_time * 300 - 150) * -5",
 						0
 					]
 				},
-				"rightWFb": {
+				"right_wing_finger_b": {
 					"rotation": [
 						0,
 						"5+math.sin(query.anim_time * 300 - 150) * -6",
 						0
 					]
 				},
-				"rightWFc": {
+				"right_wing_finger_c": {
 					"rotation": [
 						0,
 						"5+math.sin(query.anim_time * 300 - 150) * -6",
 						0
 					]
 				},
-				"rightWFd": {
+				"right_wing_finger_d": {
 					"rotation": [
 						0,
 						"5+math.sin(query.anim_time * 300 - 150) * -6",
 						0
 					]
 				},
-				"fightWFdTip3": {
+				"right_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						"10+math.sin(query.anim_time * 300) * 30"
 					]
 				},
-				"NeckBase": {
+				"neck_base": {
 					"rotation": [
 						"2.5+math.sin(query.anim_time * 300 + 170) * -4",
 						0,
 						0
 					]
 				},
-				"Neck": {
+				"neck": {
 					"rotation": [
 						"15+math.sin(query.anim_time * 300 + 110) * 3",
 						0,
@@ -2071,154 +2071,154 @@
 						0
 					]
 				},
-				"Tail1": {
+				"tail_01": {
 					"rotation": [
 						"-2+math.sin(query.anim_time * 300 + 100) * 4",
 						"math.sin(query.anim_time * 150) * 2",
 						0
 					]
 				},
-				"leftHipWingA": {
+				"left_hip_wing_a": {
 					"rotation": [
 						0,
 						0,
 						"3+math.sin(query.anim_time * 300 + 50) * -15"
 					]
 				},
-				"leftHipWingB": {
+				"left_hip_wing_b": {
 					"rotation": [
 						0,
 						"-10+math.sin(query.anim_time * 300) * 3",
 						0
 					]
 				},
-				"leftHipWingC": {
+				"left_hip_wing_c": {
 					"rotation": [
 						0,
 						-2.5,
 						0
 					]
 				},
-				"rightHipWingA": {
+				"right_hip_wing_a": {
 					"rotation": [
 						0,
 						0,
 						"-3+math.sin(query.anim_time * 300 + 50) * 15"
 					]
 				},
-				"rightHipWingB": {
+				"right_hip_wing_b": {
 					"rotation": [
 						0,
 						"10+math.sin(query.anim_time * 300) * -3",
 						0
 					]
 				},
-				"rightHipWingC": {
+				"right_hip_wing_c": {
 					"rotation": [
 						0,
 						2.5,
 						0
 					]
 				},
-				"Tail3": {
+				"tail_03": {
 					"rotation": [
 						"math.sin(query.anim_time * 300 + 50) * 6",
 						"math.sin(query.anim_time * 150 - 50) * 2",
 						0
 					]
 				},
-				"Tail4": {
+				"tail_04": {
 					"rotation": [
 						"math.sin(query.anim_time * 300) * 8",
 						0,
 						0
 					]
 				},
-				"Tail5": {
+				"tail_05": {
 					"rotation": [
 						"math.sin(query.anim_time * 300 - 50) * 12",
 						0,
 						0
 					]
 				},
-				"leftTailWing": {
+				"left_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"math.sin(query.anim_time * 300 - 70) * -15"
 					]
 				},
-				"rightTailWing": {
+				"right_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"math.sin(query.anim_time * 300 - 70) * 15"
 					]
 				},
-				"leftArm": {
+				"left_front_arm": {
 					"rotation": [
 						72.5,
 						-5,
 						27.5
 					]
 				},
-				"leftFrontFeet": {
+				"left_front_foot": {
 					"rotation": [
 						80,
 						0,
 						0
 					]
 				},
-				"rightArm": {
+				"right_front_arm": {
 					"rotation": [
 						75,
 						5,
 						-25
 					]
 				},
-				"rightFrontFeet": {
+				"right_front_foot": {
 					"rotation": [
 						77.5,
 						0,
 						0
 					]
 				},
-				"leftThigh": {
+				"left_hind_thigh": {
 					"rotation": [
 						55,
 						0,
 						0
 					]
 				},
-				"leftShin": {
+				"left_hind_shin": {
 					"rotation": [
 						10,
 						0,
 						0
 					]
 				},
-				"leftLeg": {
+				"left_hind_leg": {
 					"rotation": [
 						-5,
 						0,
 						0
 					]
 				},
-				"leftBackPaw": {
+				"left_hind_paw": {
 					"rotation": [
 						97.5,
 						0,
 						0
 					]
 				},
-				"rightThigh": {
+				"right_hind_thigh": {
 					"rotation": [
 						57,
 						0,
 						0
 					]
 				},
-				"rightBackPaw": {
+				"right_hind_paw": {
 					"rotation": [
 						97.5,
 						0,
@@ -2227,11 +2227,11 @@
 				}
 			}
 		},
-		"nightfury.hover": {
+		"animation.night_fury.hover": {
 			"loop": true,
 			"animation_length": 2.4,
 			"bones": {
-				"Chest": {
+				"body": {
 					"rotation": [
 						"-30+math.sin(query.anim_time * 300 + 150) * 3",
 						0,
@@ -2243,126 +2243,126 @@
 						0
 					]
 				},
-				"leftWingArmM": {
+				"left_wing_arm_membrane": {
 					"rotation": [
 						"1+math.sin(query.anim_time * 300 + 30) * -2",
 						"-6+math.sin(query.anim_time * 300) * -4",
 						"-10+math.sin(query.anim_time * 300) * -65"
 					]
 				},
-				"leftWingFArmM": {
+				"left_wing_forearm_membrane": {
 					"rotation": [
 						0,
 						0,
 						"5+math.sin(query.anim_time * 300 - 100) * -30"
 					]
 				},
-				"leftWFHalf": {
+				"left_wing_forearm_half": {
 					"rotation": [
 						0,
 						0,
 						"30+math.sin(query.anim_time * 300 - 150) * -45"
 					]
 				},
-				"leftWFa": {
+				"left_wing_finger_a": {
 					"rotation": [
 						0,
 						"-4+math.sin(query.anim_time * 300 - 150) * 5",
 						0
 					]
 				},
-				"leftWFb": {
+				"left_wing_finger_b": {
 					"rotation": [
 						0,
 						"-5+math.sin(query.anim_time * 300 - 150) * 6",
 						0
 					]
 				},
-				"leftWFc": {
+				"left_wing_finger_c": {
 					"rotation": [
 						0,
 						"-5+math.sin(query.anim_time * 300 - 150) * 6",
 						0
 					]
 				},
-				"leftWFd": {
+				"left_wing_finger_d": {
 					"rotation": [
 						0,
 						"-5+math.sin(query.anim_time * 300 - 150) * 6",
 						0
 					]
 				},
-				"fightWFdTip2": {
+				"left_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						"-10+math.sin(query.anim_time * 300) * -30"
 					]
 				},
-				"rightWingArmM": {
+				"right_wing_arm_membrane": {
 					"rotation": [
 						"1+math.sin(query.anim_time * 300 + 30) * -2",
 						"6+math.sin(query.anim_time * 300) * 4",
 						"10+math.sin(query.anim_time * 300) * 65"
 					]
 				},
-				"rightWingFArmM": {
+				"right_wing_forearm_membrane": {
 					"rotation": [
 						0,
 						0,
 						"-5+math.sin(query.anim_time * 300 - 100) * 30"
 					]
 				},
-				"rightWFHalf": {
+				"right_wing_forearm_half": {
 					"rotation": [
 						0,
 						0,
 						"-30+math.sin(query.anim_time * 300 - 150) * 45"
 					]
 				},
-				"rightWFa": {
+				"right_wing_finger_a": {
 					"rotation": [
 						0,
 						"4+math.sin(query.anim_time * 300 - 150) * -5",
 						0
 					]
 				},
-				"rightWFb": {
+				"right_wing_finger_b": {
 					"rotation": [
 						0,
 						"5+math.sin(query.anim_time * 300 - 150) * -6",
 						0
 					]
 				},
-				"rightWFc": {
+				"right_wing_finger_c": {
 					"rotation": [
 						0,
 						"5+math.sin(query.anim_time * 300 - 150) * -6",
 						0
 					]
 				},
-				"rightWFd": {
+				"right_wing_finger_d": {
 					"rotation": [
 						0,
 						"5+math.sin(query.anim_time * 300 - 150) * -6",
 						0
 					]
 				},
-				"fightWFdTip3": {
+				"right_wing_tip": {
 					"rotation": [
 						0,
 						0,
 						"10+math.sin(query.anim_time * 300) * 30"
 					]
 				},
-				"NeckBase": {
+				"neck_base": {
 					"rotation": [
 						"10+math.sin(query.anim_time * 300 + 170) * -4",
 						0,
 						0
 					]
 				},
-				"Neck": {
+				"neck": {
 					"rotation": [
 						"30+math.sin(query.anim_time * 300 + 110) * 3",
 						0,
@@ -2376,154 +2376,154 @@
 						0
 					]
 				},
-				"Tail1": {
+				"tail_01": {
 					"rotation": [
 						"-14.5+math.sin(query.anim_time * 300 + 100) * 6",
 						"math.sin(query.anim_time * 150) * 2",
 						0
 					]
 				},
-				"leftHipWingA": {
+				"left_hip_wing_a": {
 					"rotation": [
 						0,
 						0,
 						"3+math.sin(query.anim_time * 300 + 50) * -15"
 					]
 				},
-				"leftHipWingB": {
+				"left_hip_wing_b": {
 					"rotation": [
 						0,
 						"-10+math.sin(query.anim_time * 300) * 3",
 						0
 					]
 				},
-				"leftHipWingC": {
+				"left_hip_wing_c": {
 					"rotation": [
 						0,
 						-15,
 						0
 					]
 				},
-				"rightHipWingA": {
+				"right_hip_wing_a": {
 					"rotation": [
 						0,
 						0,
 						"-3+math.sin(query.anim_time * 300 + 50) * 15"
 					]
 				},
-				"rightHipWingB": {
+				"right_hip_wing_b": {
 					"rotation": [
 						0,
 						"10+math.sin(query.anim_time * 300) * -3",
 						0
 					]
 				},
-				"rightHipWingC": {
+				"right_hip_wing_c": {
 					"rotation": [
 						0,
 						15,
 						0
 					]
 				},
-				"Tail3": {
+				"tail_03": {
 					"rotation": [
 						"-15+math.sin(query.anim_time * 300 + 50) * 6",
 						"math.sin(query.anim_time * 150 - 50) * 2",
 						0
 					]
 				},
-				"Tail4": {
+				"tail_04": {
 					"rotation": [
 						"-5+math.sin(query.anim_time * 300) * 8",
 						0,
 						0
 					]
 				},
-				"Tail5": {
+				"tail_05": {
 					"rotation": [
 						"math.sin(query.anim_time * 300 - 50) * 12",
 						0,
 						0
 					]
 				},
-				"leftTailWing": {
+				"left_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"math.sin(query.anim_time * 300 - 70) * -15"
 					]
 				},
-				"rightTailWing": {
+				"right_tail_wing": {
 					"rotation": [
 						0,
 						0,
 						"math.sin(query.anim_time * 300 - 70) * 15"
 					]
 				},
-				"leftArm": {
+				"left_front_arm": {
 					"rotation": [
 						72.5,
 						-5,
 						27.5
 					]
 				},
-				"leftFrontFeet": {
+				"left_front_foot": {
 					"rotation": [
 						80,
 						0,
 						0
 					]
 				},
-				"rightArm": {
+				"right_front_arm": {
 					"rotation": [
 						75,
 						5,
 						-25
 					]
 				},
-				"rightFrontFeet": {
+				"right_front_foot": {
 					"rotation": [
 						77.5,
 						0,
 						0
 					]
 				},
-				"leftThigh": {
+				"left_hind_thigh": {
 					"rotation": [
 						25,
 						0,
 						0
 					]
 				},
-				"leftShin": {
+				"left_hind_shin": {
 					"rotation": [
 						10,
 						0,
 						0
 					]
 				},
-				"leftLeg": {
+				"left_hind_leg": {
 					"rotation": [
 						-5,
 						0,
 						0
 					]
 				},
-				"leftBackPaw": {
+				"left_hind_paw": {
 					"rotation": [
 						97.5,
 						0,
 						0
 					]
 				},
-				"rightThigh": {
+				"right_hind_thigh": {
 					"rotation": [
 						29.5,
 						0,
 						0
 					]
 				},
-				"rightBackPaw": {
+				"right_hind_paw": {
 					"rotation": [
 						97.5,
 						0,
@@ -2532,11 +2532,11 @@
 				}
 			}
 		},
-		"nightfury.bite": {
+		"animation.night_fury.bite": {
 			"loop": true,
 			"animation_length": 0.66667,
 			"bones": {
-				"NeckBase": {
+				"neck_base": {
 					"rotation": {
 						"0.0": [
 							0,
@@ -2587,7 +2587,7 @@
 						]
 					}
 				},
-				"Neck": {
+				"neck": {
 					"rotation": {
 						"0.0": [
 							0,
@@ -2667,7 +2667,7 @@
 						]
 					}
 				},
-				"Jaw": {
+				"jaw": {
 					"rotation": {
 						"0.0": [
 							0,
@@ -2693,11 +2693,11 @@
 				}
 			}
 		},
-		"nightfury.breath": {
+		"animation.night_fury.breath": {
 			"loop": true,
 			"animation_length": 0.58333,
 			"bones": {
-				"NeckBase": {
+				"neck_base": {
 					"rotation": {
 						"0.0": [
 							0,
@@ -2748,7 +2748,7 @@
 						1
 					]
 				},
-				"Neck": {
+				"neck": {
 					"rotation": {
 						"0.0": [
 							0,
@@ -2823,7 +2823,7 @@
 						]
 					}
 				},
-				"Jaw": {
+				"jaw": {
 					"rotation": {
 						"0.0": [
 							0,
@@ -2847,7 +2847,7 @@
 						]
 					}
 				},
-				"leftEar": {
+				"left_ear": {
 					"rotation": {
 						"0.0": [
 							0,
@@ -2866,7 +2866,7 @@
 						]
 					}
 				},
-				"rightEar": {
+				"right_ear": {
 					"rotation": {
 						"0.0": [
 							0,
