@@ -3,7 +3,7 @@
 	"animations": {
 		"animation.night_fury.walk": {
 			"loop": true,
-			"animation_length": 3.52,
+			"animation_length": 3.6,
 			"bones": {
 				"left_wing_arm_membrane": {
 					"rotation": [
@@ -780,7 +780,7 @@
 		},
 		"animation.night_fury.idle": {
 			"loop": true,
-			"animation_length": 3.52,
+			"animation_length": 3.6,
 			"bones": {
 				"left_wing_arm_membrane": {
 					"rotation": [
@@ -1090,7 +1090,7 @@
 		},
 		"animation.night_fury.sit": {
 			"loop": true,
-			"animation_length": 1.76,
+			"animation_length": 1.8,
 			"bones": {
 				"body": {
 					"rotation": [
@@ -1488,7 +1488,7 @@
 		},
 		"animation.night_fury.sleep": {
 			"loop": true,
-			"animation_length": 3.52,
+			"animation_length": 3.6,
 			"bones": {
 				"body": {
 					"rotation": [
