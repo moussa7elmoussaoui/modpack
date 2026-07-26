@@ -56,3 +56,6 @@ import "old-scripts/mobs/bee.js";
 import "old-scripts/mobs/frog.js";
 import "old-scripts/mobs/enderDragon.js";
 import "old-scripts/mobs/breeze.js";
+
+// WAILA addon integration
+import "./waila/main.js";

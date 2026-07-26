@@ -1,38 +1,46 @@
-action.hint.exit.console.player=Press :_input_key.sneak: to dismount
-action.hint.exit.player=Tap sneak to dismount
-action.hint.exit.scheme.player=Tap dismount to dismount
-
-commands.morph.description=Morphs a player into a specified mob.
-commands.morph.success=Morphed successfully
-
-death.attack.noStinger=%1$s felt the sting of sacrifice
-
-item.morphing_bracelet:blue_wither_skull=Blue Wither Skull
-item.morphing_bracelet:dragon_fireball=Dragon Fireball
-item.morphing_bracelet:evoker_fangs=Evoker Fangs
-item.morphing_bracelet:fireball=Fireball
-item.morphing_bracelet:guardian_curse=Guardian Curse
-item.morphing_bracelet:llama_spit=Llama Spit
-item.morphing_bracelet:morphing_bracelet=Morphing Bracelet
-item.morphing_bracelet:small_fireball=Small Fireball
-item.morphing_bracelet:snowball=Snowball
-item.morphing_bracelet:sonic_boom=Sonic Boom
-item.morphing_bracelet:soul_glass_bottle=Soul Glass Bottle
-item.morphing_bracelet:soul_in_a_bottle=Soul in a Bottle
-item.morphing_bracelet:teleporter=Teleporter
-item.morphing_bracelet:wind_charge=Wind Charge
-item.morphing_bracelet:wither_skull=Wither Skull
-
-morph.menu.title=Morph Menu
-morph.bee.dying=Dying in §c%ss§r
-morph.item.attached_to=Attached to:
-morph.shulker.invalid_location=This location is invalid, make sure you are standing on a solid block!
-morph.unavailable.modded=Mobs from other add-ons are not supported in this add-on.
-morph.unavailable.vanilla=This mob is currently in development and has not been added yet.
-
-pack.description=This add-on gives players the ability to morph into different mobs using Morphing Bracelet (Resource Pack, 26.30+)
 pack.name=Morphing Bracelet [BETA]
+pack.description=This add-on gives players the ability to morph into different mobs using Morphing Bracelet (Resource Pack, 26.30+)
 
-subtitles.entity.player.morph=Player morphs
-
-tile.morphing_bracelet:soul_glass.name=Soul Glass
+# WAILA Addon Translations
+waila.settings.title=WAILA Settings
+waila.settings.title_for=WAILA Settings for %s
+waila.settings.submit=Save Changes
+waila.settings.footer.self_adjusting=§7This adjusts how WAILA behaves for you.§r
+waila.settings.footer.other_player=§7Editing WAILA settings for %s.§r
+waila.settings.category.general=GENERAL
+waila.settings.category.displayContent=DISPLAY CONTENT
+waila.settings.isEnabled.label=Enable Overlay
+waila.settings.displayPosition.label=Overlay Position
+waila.settings.displayPositionWhenSneaking.label=Position While Sneaking
+waila.settings.displayPositionWhenSneaking.description=Override the overlay anchor when you are sneaking.
+waila.settings.blockStatesVisibility.label=Block States
+waila.settings.effectiveToolVisibility.label=Effective Tool
+waila.settings.containerInventoryVisibility.label=Container Inventory §g(Experimental)§r
+waila.settings.containerInventoryVisibility.description=Displays contents of containers in the overlay. May behave unexpectedly.
+waila.settings.entityTagsVisibility.label=Entity Tags
+waila.settings.entityHealthVisibility.label=Entity Health
+waila.settings.alwaysDisplayEntityIntHealth.label=Always Show Integer Health
+waila.settings.alwaysDisplayEntityIntHealth.description=Displays entity health as an integer value instead.
+waila.settings.entityEffectsVisibility.label=Entity Effects
+waila.settings.packAuthorVisibility.label=Pack Author
+waila.settings.displayPosition.option.unchanged=No Change
+waila.settings.displayPosition.option.top_left=Top Left
+waila.settings.displayPosition.option.top_middle=Top Middle
+waila.settings.displayPosition.option.top_right=Top Right
+waila.settings.displayPosition.option.left_middle=Left Middle
+waila.settings.displayPosition.option.center=Center
+waila.settings.displayPosition.option.right_middle=Right Middle
+waila.settings.displayPosition.option.bottom_left=Bottom Left
+waila.settings.displayPosition.option.bottom_middle=Bottom Middle
+waila.settings.displayPosition.option.bottom_right=Bottom Right
+waila.settings.whenToShow.option.always=Always
+waila.settings.whenToShow.option.when_not_sneaking=Only When Not Sneaking
+waila.settings.whenToShow.option.when_sneaking=Only When Sneaking
+waila.settings.whenToShow.option.never=Never
+waila.settings.experimental.containerInventory.title=Enable Container Inventory Preview?
+waila.settings.experimental.containerInventory.body=Showing container contents may temporarily move items into placeholder slots and can behave unexpectedly. Continue?
+waila.settings.experimental.confirm=Enable Anyway
+waila.settings.experimental.cancel=Go Back
+waila.settings.feedback.updatedSelf=Updated your WAILA settings.
+waila.settings.feedback.updatedByOther=Your WAILA settings were updated by %s.
+waila.settings.feedback.updatedOther=Updated %s's WAILA settings.
