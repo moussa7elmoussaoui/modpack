@@ -52,7 +52,6 @@
         "is_pushable": true,
         "is_pushable_by_piston": true
       }
-    },
-    "events": null
+    }
   }
 }
