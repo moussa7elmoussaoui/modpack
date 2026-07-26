@@ -43,7 +43,6 @@
           "client_sync": true
         },
 
-        // Old player properties. Kept for backward compatibility :)
         "morph:entity": {
           "type": "int",
           "range": [ -1, 81 ],
