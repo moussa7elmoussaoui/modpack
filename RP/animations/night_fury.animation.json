@@ -3,7 +3,7 @@
 	"animations": {
 		"animation.night_fury.walk": {
 			"loop": true,
-			"anim_time_update": "query.modified_distance_moved * 0.18",
+			"anim_time_update": "query.modified_distance_moved * 0.12",
 			"animation_length": 3.6,
 			"bones": {
 				"left_wing_arm_membrane": {
