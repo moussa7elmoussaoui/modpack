@@ -639,7 +639,7 @@
         "night_fury": "geometry.night_fury"
       },
       "scripts": {
-        "scale": "(variable.map_face_icon || variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0) ? 0.9375 : (query.any(query.property('morphing_bracelet:entity'), 1, 2, 4, 6, 8, 11, 12, 13, 14, 19, 20, 21, 24, 26, 29, 30, 32, 34, 35, 36, 39, 40, 44, 50, 62, 71, 74, 75) && query.is_baby ? 2.0 : query.any(query.property('morphing_bracelet:entity'), 14, 27, 47, 57, 60) ? 0.9375 : query.any(query.property('morphing_bracelet:entity'), 18, 64) && query.is_baby ? (1 / 0.4) : query.property('morphing_bracelet:entity') == 33 ? 0.7 : query.property('morphing_bracelet:entity') == 37 ? 2.0 : query.property('morphing_bracelet:entity') == 38 && query.is_baby ? (1 / 0.65) : query.property('morphing_bracelet:entity') == 46 && query.is_baby ? (1 / 0.16) : query.property('morphing_bracelet:entity') == 48 ? (query.is_baby ? (1 / 0.4) : (1 / 0.6)) : query.property('morphing_bracelet:entity') == 49 && query.is_in_ui ? 0.5 : query.property('morphing_bracelet:entity') == 52 ? (query.is_baby ? 2.0 : 1.2) : query.property('morphing_bracelet:entity') == 65 && !query.is_in_ui ? 2.35 : query.any(query.property('morphing_bracelet:entity'), 68, 76) && query.is_baby ? (1 / 0.45) : query.property('morphing_bracelet:entity') == 72 ? (query.is_baby ? 2.0 : 0.87) : query.property('morphing_bracelet:entity') == 73 ? (query.is_baby ? 2.0 : 0.92) : query.property('morphing_bracelet:entity') == 77 && !query.is_sleeping && query.is_in_ui ? 0.25 : query.property('morphing_bracelet:entity') == 78 && query.is_baby ? (1 / 0.6) : query.property('morphing_bracelet:entity') == 81 ? 0.4 : 1.0) * !variable.is_first_person",
+        "scale": "(variable.map_face_icon || variable.is_paperdoll || query.property('morphing_bracelet:entity') == 0) ? 0.9375 : (query.any(query.property('morphing_bracelet:entity'), 1, 2, 4, 6, 8, 11, 12, 13, 14, 19, 20, 21, 24, 26, 29, 30, 32, 34, 35, 36, 39, 40, 44, 50, 62, 71, 74, 75) && query.is_baby ? 2.0 : query.any(query.property('morphing_bracelet:entity'), 14, 27, 47, 57, 60) ? 0.9375 : query.any(query.property('morphing_bracelet:entity'), 18, 64) && query.is_baby ? (1 / 0.4) : query.property('morphing_bracelet:entity') == 33 ? 0.7 : query.property('morphing_bracelet:entity') == 37 ? 2.0 : query.property('morphing_bracelet:entity') == 38 && query.is_baby ? (1 / 0.65) : query.property('morphing_bracelet:entity') == 46 && query.is_baby ? (1 / 0.16) : query.property('morphing_bracelet:entity') == 48 ? (query.is_baby ? (1 / 0.4) : (1 / 0.6)) : query.property('morphing_bracelet:entity') == 49 && query.is_in_ui ? 0.5 : query.property('morphing_bracelet:entity') == 52 ? (query.is_baby ? 2.0 : 1.2) : query.property('morphing_bracelet:entity') == 65 && !query.is_in_ui ? 2.35 : query.any(query.property('morphing_bracelet:entity'), 68, 76) && query.is_baby ? (1 / 0.45) : query.property('morphing_bracelet:entity') == 72 ? (query.is_baby ? 2.0 : 0.87) : query.property('morphing_bracelet:entity') == 73 ? (query.is_baby ? 2.0 : 0.92) : query.property('morphing_bracelet:entity') == 77 && !query.is_sleeping && query.is_in_ui ? 0.25 : query.property('morphing_bracelet:entity') == 78 && query.is_baby ? (1 / 0.6) : query.property('morphing_bracelet:entity') == 81 ? 0.48 : 1.0) * !variable.is_first_person",
         "initialize": [
           "variable.is_holding_right = 0.0;",
           "variable.is_blinking = 0.0;",
@@ -1079,7 +1079,8 @@
           { "bat_resting": "variable.is_third_person && query.property('morphing_bracelet:entity') == 10 && (query.is_on_ground || query.is_sleeping)" },
           { "bat_flying": "variable.is_third_person && query.property('morphing_bracelet:entity') == 10 && !query.is_on_ground && !query.is_sleeping" },
           { "bat_sleeping": "variable.is_third_person && query.property('morphing_bracelet:entity') == 10 && query.is_sleeping" },
-          { "night_fury_move": "variable.is_third_person && query.property('morphing_bracelet:entity') == 81 && !query.is_sleeping" },
+          { "night_fury_move": "variable.is_third_person && query.property('morphing_bracelet:entity') == 81 && (!query.is_sneaking || query.ground_speed >= 0.5) && !query.is_sleeping" },
+          { "night_fury_sitting_controller": "variable.is_third_person && query.property('morphing_bracelet:entity') == 81 && !query.is_sleeping" },
           { "night_fury_sleep": "variable.is_third_person && query.property('morphing_bracelet:entity') == 81 && query.is_sleeping" },
           { "night_fury_bite": "variable.is_third_person && query.property('morphing_bracelet:entity') == 81 && query.get_equipped_item_name != 'night_fury_fireball' && !query.is_sleeping" },
           { "fox_setup": "variable.is_third_person && query.property('morphing_bracelet:entity') == 12" },
@@ -1469,9 +1470,11 @@
         "night_fury_run": "animation.night_fury.run",
         "night_fury_flap": "animation.night_fury.flap",
         "night_fury_hover": "animation.night_fury.hover",
+        "night_fury_sit": "animation.night_fury.sit",
         "night_fury_sleep": "animation.night_fury.sleep",
         "night_fury_bite": "controller.animation.morph.night_fury.bite",
-        "night_fury_breath": "animation.night_fury.breath",
+        "night_fury_bite_anim": "animation.night_fury.bite",
+        "night_fury_sitting_controller": "controller.animation.morph.night_fury.sitting",
         "night_fury_move": "controller.animation.morph.night_fury.move",
         "fox_setup": "animation.morph.fox.setup",
         "fox_sleep": "animation.morph.fox.sleep",

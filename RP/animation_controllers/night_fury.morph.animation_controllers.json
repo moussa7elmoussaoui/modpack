@@ -9,8 +9,8 @@
           "blend_transition": 0.15,
           "transitions": [
             { "flying": "!query.is_on_ground && !query.is_sleeping" },
-            { "running": "query.is_on_ground && query.modified_move_speed > 0.16 && !query.is_sleeping" },
-            { "walking": "query.is_on_ground && query.modified_move_speed > 0.03 && !query.is_sleeping" }
+            { "running": "query.is_on_ground && query.is_sprinting && query.modified_move_speed > 0.03 && !query.is_sleeping" },
+            { "walking": "query.is_on_ground && !query.is_sprinting && query.modified_move_speed > 0.03 && !query.is_sleeping" }
           ]
         },
         "walking": {
@@ -18,7 +18,7 @@
           "blend_transition": 0.15,
           "transitions": [
             { "flying": "!query.is_on_ground && !query.is_sleeping" },
-            { "running": "query.is_on_ground && query.modified_move_speed > 0.18 && !query.is_sleeping" },
+            { "running": "query.is_on_ground && query.is_sprinting && query.modified_move_speed > 0.03 && !query.is_sleeping" },
             { "idle": "!query.is_on_ground || query.modified_move_speed <= 0.02 || query.is_sleeping" }
           ]
         },
@@ -27,7 +27,7 @@
           "blend_transition": 0.12,
           "transitions": [
             { "flying": "!query.is_on_ground && !query.is_sleeping" },
-            { "walking": "query.is_on_ground && query.modified_move_speed <= 0.12 && query.modified_move_speed > 0.03 && !query.is_sleeping" },
+            { "walking": "query.is_on_ground && !query.is_sprinting && query.modified_move_speed > 0.03 && !query.is_sleeping" },
             { "idle": "!query.is_on_ground || query.modified_move_speed <= 0.02 || query.is_sleeping" }
           ]
         },
@@ -50,6 +50,22 @@
         }
       }
     },
+    "controller.animation.morph.night_fury.sitting": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "sitting": "query.is_sneaking && query.ground_speed < 0.5" }
+          ]
+        },
+        "sitting": {
+          "animations": [ "night_fury_sit" ],
+          "transitions": [
+            { "default": "!query.is_sneaking || query.ground_speed >= 0.5" }
+          ]
+        }
+      }
+    },
     "controller.animation.morph.night_fury.bite": {
       "initial_state": "default",
       "states": {
@@ -59,7 +75,7 @@
           ]
         },
         "biting": {
-          "animations": [ "night_fury_bite" ],
+          "animations": [ "night_fury_bite_anim" ],
           "transitions": [
             { "default": "query.all_animations_finished" }
           ]

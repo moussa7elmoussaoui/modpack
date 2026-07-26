@@ -7826,8 +7826,8 @@
           "total_supply": 15
         },
         "minecraft:collision_box": {
-          "height": 1.6,
-          "width": 1.6
+          "height": 1.0,
+          "width": 1.0
         },
         "minecraft:damage_sensor": {
           "triggers": {
