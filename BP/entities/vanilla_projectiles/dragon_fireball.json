@@ -28,7 +28,6 @@
         "power": 1.3,
         "inertia": 1,
         "on_hit": {
-          "impact_damage": null,
           "remove_on_hit": {},
           "spawn_aoe_cloud": {
             "affect_owner": false,

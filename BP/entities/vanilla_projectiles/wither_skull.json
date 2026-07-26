@@ -35,7 +35,6 @@
               "target": "self"
             }
           },
-          "impact_damage": null,
           "mob_effect": {
             "amplifier": 1,
             "durationhard": 800,
