@@ -21,6 +21,7 @@
             "version": [ 0, 3, 2 ]
         }
     ],
+    "capabilities": [ "pbr" ],
     "metadata": {
         "authors": [ "CookieDookie145" ]
     }
