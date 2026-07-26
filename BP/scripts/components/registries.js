@@ -2,7 +2,6 @@ import convertBlock from "./blocks/convert-block";
 import durabilityDamageOnHit from "./items/durability-damage-on-hit";
 import effectNearbyPlayers from "./items/effect-nearby-players";
 import infiniteProjectile from "./items/infinite-projectile";
-import metamorphingBracelet from "./items/metamorphing-bracelet";
 import morphingBracelet from "./items/morphing-bracelet";
 import morphStorage from "./items/morph-storage";
 import sonicBoom from "./items/sonic-boom";
@@ -15,7 +14,6 @@ export default {
     durabilityDamageOnHit,
     effectNearbyPlayers,
     infiniteProjectile,
-    metamorphingBracelet,
     morphingBracelet,
     morphStorage,
     sonicBoom,

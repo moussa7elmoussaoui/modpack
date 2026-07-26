@@ -18,9 +18,6 @@
     "morphing_bracelet:llama_spit": {
       "textures": "textures/items/llama_spit"
     },
-    "morphing_bracelet:metamorphing_bracelet": {
-      "textures": "textures/items/metamorphing_bracelet"
-    },
     "morphing_bracelet:morphing_bracelet": {
       "textures": "textures/items/morphing_bracelet"
     },
