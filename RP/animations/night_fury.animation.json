@@ -2533,7 +2533,6 @@
 			}
 		},
 		"animation.night_fury.bite": {
-			"loop": true,
 			"animation_length": 0.66667,
 			"bones": {
 				"neck_base": {

@@ -49,6 +49,22 @@
           ]
         }
       }
+    },
+    "controller.animation.morph.night_fury.bite": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "biting": "variable.attack_time > 0.0" }
+          ]
+        },
+        "biting": {
+          "animations": [ "night_fury_bite" ],
+          "transitions": [
+            { "default": "query.all_animations_finished" }
+          ]
+        }
+      }
     }
   }
 }
