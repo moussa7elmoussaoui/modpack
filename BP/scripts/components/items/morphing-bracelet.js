@@ -5,7 +5,7 @@ import { Morph } from "../../morph/classes";
 import { morphEvents } from "../../morph/entity-methods";
 import { namespace } from "../../utils/namespace";
 
-const IDENTIFIER = "dark7mc";
+const IDENTIFIER = "morphing_bracelet";
 
 export default {
   id: IDENTIFIER,
