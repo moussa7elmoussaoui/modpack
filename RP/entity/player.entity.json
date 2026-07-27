@@ -921,7 +921,7 @@
           "  variable.horse_head_x_rot = (query.target_x_rotation + (query.modified_move_speed > 0.2 ? (math.cos(query.modified_distance_moved * variable.horse_speed * 11.46) * 11.46 * query.modified_move_speed + query.modified_move_speed * 11.46) : 0.0)) * !query.is_gliding;",
           "  variable.horse_leg_stand_factor = math.cos((query.modified_distance_moved * variable.horse_speed * 38.38) + 180.0);",
           "  variable.horse_leg_x_rot_anim = variable.horse_leg_stand_factor * 45.8 * query.modified_move_speed;",
-          "  variable.horse_stand_time = (variable.horse_stand_time ?? 0.0) > 0.0 && !query.is_in_water && !query.is_in_lava ? variable.horse_stand_time - variable.delta_time : 0.0;", // A reminder to re-add '!query.is_on_ground' after the backend code for the horse's sprint-jumping ability has been migrated to the script API.
+          "  variable.horse_stand_time = (variable.horse_stand_time ?? 0.0) > 0.0 && !query.is_in_water && !query.is_in_lava ? variable.horse_stand_time - variable.delta_time : 0.0;",
           "  variable.horse_stand_anim_unblended = math.clamp((variable.horse_stand_anim_unblended ?? 0.0) + (variable.delta_time * 4.0) * (variable.horse_stand_time > 0.0 ? 1.0 : -1.0), 0.0, 1.0);",
           "  variable.horse_stand_anim = math.hermite_blend(variable.horse_stand_anim_unblended);",
           "} : ",
