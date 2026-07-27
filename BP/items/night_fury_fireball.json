@@ -6,7 +6,8 @@
       "menu_category": {
         "category": "none",
         "is_hidden_in_commands": true
-      }
+      },
+      "item_name": "item.morphing_bracelet:night_fury_fireball"
     },
     "components": {
       "minecraft:cooldown": {
