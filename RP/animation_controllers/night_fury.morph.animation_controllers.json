@@ -1,67 +1,77 @@
 {
   "format_version": "1.10.0",
   "animation_controllers": {
-    "controller.animation.morph.night_fury.move": {
+    "controller.animation.morph.night_fury.locomotion": {
       "initial_state": "idle",
       "states": {
         "idle": {
           "animations": [ "night_fury_idle" ],
           "blend_transition": 0.15,
           "transitions": [
-            { "flying": "!query.is_on_ground && !query.is_sleeping" },
+            { "flying": "!query.is_on_ground && query.modified_move_speed > 0.02 && !query.is_sleeping" },
+            { "hovering": "!query.is_on_ground && query.modified_move_speed <= 0.02 && !query.is_sleeping" },
             { "running": "query.is_on_ground && query.is_sprinting && query.modified_move_speed > 0.03 && !query.is_sleeping" },
-            { "walking": "query.is_on_ground && !query.is_sprinting && query.modified_move_speed > 0.03 && !query.is_sleeping" }
+            { "walking": "query.is_on_ground && !query.is_sprinting && query.modified_move_speed > 0.03 && !query.is_sleeping" },
+            { "sitting": "query.is_sneaking && query.ground_speed < 0.5 && !query.is_sleeping" },
+            { "sleeping": "query.is_sleeping" }
           ]
         },
         "walking": {
           "animations": [ "night_fury_walk" ],
           "blend_transition": 0.15,
           "transitions": [
-            { "flying": "!query.is_on_ground && !query.is_sleeping" },
+            { "flying": "!query.is_on_ground && query.modified_move_speed > 0.02 && !query.is_sleeping" },
+            { "hovering": "!query.is_on_ground && query.modified_move_speed <= 0.02 && !query.is_sleeping" },
             { "running": "query.is_on_ground && query.is_sprinting && query.modified_move_speed > 0.03 && !query.is_sleeping" },
-            { "idle": "!query.is_on_ground || query.modified_move_speed <= 0.02 || query.is_sleeping" }
+            { "idle": "query.is_on_ground && query.modified_move_speed <= 0.02 && !query.is_sleeping" },
+            { "sitting": "query.is_sneaking && query.ground_speed < 0.5 && !query.is_sleeping" },
+            { "sleeping": "query.is_sleeping" }
           ]
         },
         "running": {
           "animations": [ "night_fury_run" ],
           "blend_transition": 0.12,
           "transitions": [
-            { "flying": "!query.is_on_ground && !query.is_sleeping" },
+            { "flying": "!query.is_on_ground && query.modified_move_speed > 0.02 && !query.is_sleeping" },
+            { "hovering": "!query.is_on_ground && query.modified_move_speed <= 0.02 && !query.is_sleeping" },
             { "walking": "query.is_on_ground && !query.is_sprinting && query.modified_move_speed > 0.03 && !query.is_sleeping" },
-            { "idle": "!query.is_on_ground || query.modified_move_speed <= 0.02 || query.is_sleeping" }
+            { "idle": "query.is_on_ground && query.modified_move_speed <= 0.02 && !query.is_sleeping" },
+            { "sitting": "query.is_sneaking && query.ground_speed < 0.5 && !query.is_sleeping" },
+            { "sleeping": "query.is_sleeping" }
           ]
         },
         "flying": {
           "animations": [ "night_fury_flap" ],
           "blend_transition": 0.12,
           "transitions": [
-            { "hovering": "!query.is_on_ground && query.modified_move_speed <= 0.03 && !query.is_sleeping" },
+            { "hovering": "!query.is_on_ground && query.modified_move_speed <= 0.02 && !query.is_sleeping" },
             { "walking": "query.is_on_ground && query.modified_move_speed > 0.03 && !query.is_sleeping" },
-            { "idle": "query.is_on_ground || query.is_sleeping" }
+            { "idle": "query.is_on_ground && query.modified_move_speed <= 0.02 && !query.is_sleeping" },
+            { "sleeping": "query.is_sleeping" }
           ]
         },
         "hovering": {
           "animations": [ "night_fury_hover" ],
           "blend_transition": 0.12,
           "transitions": [
-            { "flying": "!query.is_on_ground && query.modified_move_speed > 0.05 && !query.is_sleeping" },
-            { "idle": "query.is_on_ground || query.is_sleeping" }
-          ]
-        }
-      }
-    },
-    "controller.animation.morph.night_fury.sitting": {
-      "initial_state": "default",
-      "states": {
-        "default": {
-          "transitions": [
-            { "sitting": "query.is_sneaking && query.ground_speed < 0.5" }
+            { "flying": "!query.is_on_ground && query.modified_move_speed > 0.02 && !query.is_sleeping" },
+            { "idle": "query.is_on_ground && !query.is_sleeping" },
+            { "sleeping": "query.is_sleeping" }
           ]
         },
         "sitting": {
           "animations": [ "night_fury_sit" ],
+          "blend_transition": 0.15,
           "transitions": [
-            { "default": "!query.is_sneaking || query.ground_speed >= 0.5" }
+            { "idle": "(!query.is_sneaking || query.ground_speed >= 0.5) && !query.is_sleeping" },
+            { "sleeping": "query.is_sleeping" }
+          ]
+        },
+        "sleeping": {
+          "animations": [ "night_fury_sleep" ],
+          "blend_transition": 0.3,
+          "transitions": [
+            { "idle": "!query.is_sleeping" }
           ]
         }
       }
@@ -71,7 +81,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "biting": "variable.attack_time > 0.0" }
+            { "biting": "variable.attack_time > 0.0 && query.get_equipped_item_name != 'night_fury_fireball' && !query.is_sleeping" }
           ]
         },
         "biting": {
