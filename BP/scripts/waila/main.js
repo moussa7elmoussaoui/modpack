@@ -2536,14 +2536,24 @@ function Et(u, t, e) {
   }
 }
 function _e() {
-  ;(He.beforeEvents.startup.subscribe((u) => {
-    ;(rr(u.itemComponentRegistry, u.blockComponentRegistry),
-      er(u.customCommandRegistry),
-      Ge(u))
-  }),
-    qe.afterEvents.worldLoad.subscribe((u) => {
-      Xe(u)
-    }))
+  // Check if startup registries were already provided by the host addon (dynamic import after startup)
+  const registries = globalThis.__wailaStartupRegistries;
+  if (registries) {
+    // Startup event already fired, register immediately
+    rr(registries.itemComponentRegistry, registries.blockComponentRegistry);
+    er(registries.customCommandRegistry);
+    Ge(registries);
+  } else {
+    // Normal case: subscribe to startup event
+    He.beforeEvents.startup.subscribe((u) => {
+      rr(u.itemComponentRegistry, u.blockComponentRegistry);
+      er(u.customCommandRegistry);
+      Ge(u);
+    });
+  }
+  qe.afterEvents.worldLoad.subscribe((u) => {
+    Xe(u);
+  });
 }
 function rr(u, t) {
   ;(Je(u), tr(t))
