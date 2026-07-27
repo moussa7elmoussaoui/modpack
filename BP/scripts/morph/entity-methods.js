@@ -11,7 +11,7 @@ Entity.prototype.getMorph = function() {
   let entityType;
 
   if (this instanceof Player) {
-    entityType = morphEntityTypes[this.getProperty("morphing_bracelet:entity")];
+    entityType = morphEntityTypes[this.getProperty("dark7mc:entity")];
   } else {
     entityType = this.typeId;
     if (!(entityType in morphs)) return;
@@ -57,15 +57,15 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   morph = eventOptions.morph;
   const { entityType, properties } = morph;
 
-  this.triggerEvent("morphing_bracelet:clear_components");
-  this.setProperty("morphing_bracelet:entity", morphEntityTypes.indexOf(entityType));
+  this.triggerEvent("dark7mc:clear_components");
+  this.setProperty("dark7mc:entity", morphEntityTypes.indexOf(entityType));
   
   const baseTag = `components.${entityType}`;
   this.addTag(baseTag);
   for (const [key, value] of Object.entries(properties)) {
     this.addTag(`${baseTag}.${key}=${value}`);
   }
-  this.triggerEvent("morphing_bracelet:add_components");
+  this.triggerEvent("dark7mc:add_components");
 
   const health = this.getComponent("minecraft:health");
   const previousHealth = { currentValue: health.currentValue, defaultValue: health.defaultValue };
@@ -81,7 +81,7 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   if (showEffects) {
     const { dimension } = this;
     dimension.playSound("mob.player.morph", this.location);
-    dimension.spawnParticle("morphing_bracelet:morphing_clouds_particle", this.getAABB().center);
+    dimension.spawnParticle("dark7mc:morphing_clouds_particle", this.getAABB().center);
     this.playAnimation("animation.morph.squeeze");
   }
 

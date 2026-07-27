@@ -14,24 +14,24 @@ system.runInterval(() => {
 
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
-    if (player.getProperty("morphing_bracelet:entity") == 3 || player.getProperty("morphing_bracelet:entity") == 41) {
+    if (player.getProperty("dark7mc:entity") == 3 || player.getProperty("dark7mc:entity") == 41) {
       player.runCommand('replaceitem entity @s slot.inventory 8 arrow 1 0 {"item_lock":{"mode":"lock_in_slot"},"keep_on_death":{}}');
       system.runTimeout(() => {
-        if (player.getProperty("morphing_bracelet:entity") != 3 && player.getProperty("morphing_bracelet:entity") != 41) {
+        if (player.getProperty("dark7mc:entity") != 3 && player.getProperty("dark7mc:entity") != 41) {
           player.runCommand("replaceitem entity @s slot.inventory 8 air");
         };
       }, 5);
-    } else if (player.getProperty("morphing_bracelet:entity") == 25) {
+    } else if (player.getProperty("dark7mc:entity") == 25) {
       player.runCommand('replaceitem entity @s slot.inventory 8 arrow 1 19 {"item_lock":{"mode":"lock_in_slot"},"keep_on_death":{}}');
       system.runTimeout(() => {
-        if (player.getProperty("morphing_bracelet:entity") != 25) {
+        if (player.getProperty("dark7mc:entity") != 25) {
           player.runCommand("replaceitem entity @s slot.inventory 8 air");
         };
       }, 5);
-    } else if (player.getProperty("morphing_bracelet:entity") == 79) {
+    } else if (player.getProperty("dark7mc:entity") == 79) {
       player.runCommand('replaceitem entity @s slot.inventory 8 arrow 1 26 {"item_lock":{"mode":"lock_in_slot"},"keep_on_death":{}}');
       system.runTimeout(() => {
-        if (player.getProperty("morphing_bracelet:entity") != 79) {
+        if (player.getProperty("dark7mc:entity") != 79) {
           player.runCommand("replaceitem entity @s slot.inventory 8 air");
         };
       }, 5);

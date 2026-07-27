@@ -2,7 +2,7 @@
   "format_version": "1.21.90",
   "minecraft:item": {
     "description": {
-      "identifier": "morphing_bracelet:evoker_fangs",
+      "identifier": "dark7mc:evoker_fangs",
       "menu_category": {
         "category": "none",
         "is_hidden_in_commands": true
@@ -10,7 +10,7 @@
     },
     "components": {
       "minecraft:cooldown": {
-        "category": "morphing_bracelet:evoker_fangs",
+        "category": "dark7mc:evoker_fangs",
         "duration": 5.0
       },
       "minecraft:glint": {
@@ -18,13 +18,13 @@
       },
       "minecraft:icon": {
         "textures": {
-          "default": "morphing_bracelet:evoker_fangs"
+          "default": "dark7mc:evoker_fangs"
         }
       },
       "minecraft:max_stack_size": {
         "value": 1
       },
-      "morphing_bracelet:summon_fangs_on_use": {
+      "dark7mc:summon_fangs_on_use": {
         "cast_duration": 2.0,
         "cast_sound": {
           "pitch": [ 0.80, 1.20 ],

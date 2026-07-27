@@ -29,7 +29,7 @@ const dragonImmune = [
 
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
-    if (player.getProperty("morphing_bracelet:entity") == 77 && world.gameRules.mobGriefing) {
+    if (player.getProperty("dark7mc:entity") == 77 && world.gameRules.mobGriefing) {
       let blocksDestroyed = player.dimension.fillBlocks(new BlockVolume({ x: player.location.x - 5, y: player.location.y - 1, z: player.location.z - 5 }, { x: player.location.x + 5, y: player.location.y + 3, z: player.location.z + 5 }), "minecraft:air", { blockFilter: { excludeTypes: dragonImmune } }).getCapacity();
       for (let i = 0; i < ((blocksDestroyed / 121) * 16); i++) {
         player.dimension.spawnParticle("minecraft:dragon_destroy_block", { x: player.location.x + ((Math.random() * 8) - 4), y: player.location.y + (Math.random() * 2), z: player.location.z + ((Math.random() * 8) - 4) });

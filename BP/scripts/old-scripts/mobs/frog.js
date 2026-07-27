@@ -2,7 +2,7 @@ import { world, system } from "@minecraft/server";
 
 world.afterEvents.entityHitEntity.subscribe(data => {
   const { damagingEntity, hitEntity } = data;
-  if (damagingEntity.typeId == "minecraft:player" && damagingEntity.getProperty("morphing_bracelet:entity") == 56) {
+  if (damagingEntity.typeId == "minecraft:player" && damagingEntity.getProperty("dark7mc:entity") == 56) {
     if (hitEntity.id == "minecraft:player") {
       hitEntity.runCommand(`damage @s 2 entity_attack entity ${damagingEntity.name}`);
     } else if (!damagingEntity.hasTag("morph:frog.cannot_tongue")) {

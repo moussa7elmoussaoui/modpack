@@ -2,7 +2,7 @@
   "format_version": "1.10.0",
   "minecraft:attachable": {
     "description": {
-      "identifier": "morphing_bracelet:morphing_bracelet",
+      "identifier": "dark7mc:morphing_bracelet",
       "materials": {
         "default": "entity_emissive_alpha"
       },
@@ -17,7 +17,7 @@
       },
       "scripts": {
         "pre_animation": [
-          "variable.is_visible = context.item_slot == 'main_hand' && (query.is_owner_identifier_any('minecraft:player') ? query.property('morphing_bracelet:entity') == 0 || context.owning_entity -> variable.show_items : true);"
+          "variable.is_visible = context.item_slot == 'main_hand' && (query.is_owner_identifier_any('minecraft:player') ? query.property('dark7mc:entity') == 0 || context.owning_entity -> variable.show_items : true);"
         ]
       },
       "render_controllers": [ "controller.render.morphing_bracelet" ]

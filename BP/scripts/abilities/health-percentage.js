@@ -26,7 +26,7 @@ system.runInterval(() => {
   for (const player of world.getPlayers()) {
     if (player.getGameMode() === GameMode.Creative) continue;
 
-    const entityType = morphEntityTypes[player.getProperty("morphing_bracelet:entity")];
+    const entityType = morphEntityTypes[player.getProperty("dark7mc:entity")];
     if (!ENTITY_TYPES.includes(entityType)) continue;
 
     const healthComponent = player.getComponent("minecraft:health");

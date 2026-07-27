@@ -9,7 +9,7 @@
                "hurt.in.water" : ""
             },
             "variants" : {
-               "key" : "query.property('morphing_bracelet:entity') == 69 ? 'minecraft:warden' : query.property('morphing_bracelet:entity') == 80 ? 'minecraft:breeze' : 'default'",
+               "key" : "query.property('dark7mc:entity') == 69 ? 'minecraft:warden' : query.property('dark7mc:entity') == 80 ? 'minecraft:breeze' : 'default'",
                "map" : {
                   "default": {
                   },

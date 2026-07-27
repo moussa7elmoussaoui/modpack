@@ -2,7 +2,7 @@
   "format_version": "1.21.90",
   "minecraft:item": {
     "description": {
-      "identifier": "morphing_bracelet:blue_wither_skull",
+      "identifier": "dark7mc:blue_wither_skull",
       "menu_category": {
         "category": "none",
         "is_hidden_in_commands": true
@@ -10,7 +10,7 @@
     },
     "components": {
       "minecraft:cooldown": {
-        "category": "morphing_bracelet:blue_wither_skull",
+        "category": "dark7mc:blue_wither_skull",
         "duration": 2.5
       },
       "minecraft:glint": {
@@ -18,13 +18,13 @@
       },
       "minecraft:icon": {
         "textures": {
-          "default": "morphing_bracelet:blue_wither_skull"
+          "default": "dark7mc:blue_wither_skull"
         }
       },
       "minecraft:max_stack_size": {
         "value": 1
       },
-      "morphing_bracelet:infinite_projectile": {
+      "dark7mc:infinite_projectile": {
         "launch_power": 0.6,
         "projectile_entity": "minecraft:wither_skull_dangerous",
         "shoot_sound": {

@@ -2,7 +2,7 @@
   "format_version": "1.21.90",
   "minecraft:item": {
     "description": {
-      "identifier": "morphing_bracelet:wind_charge",
+      "identifier": "dark7mc:wind_charge",
       "menu_category": {
         "category": "none",
         "is_hidden_in_commands": true
@@ -10,7 +10,7 @@
     },
     "components": {
       "minecraft:cooldown": {
-        "category": "morphing_bracelet:wind_charge",
+        "category": "dark7mc:wind_charge",
         "duration": 1.125
       },
       "minecraft:glint": {
@@ -24,7 +24,7 @@
       "minecraft:max_stack_size": {
         "value": 1
       },
-      "morphing_bracelet:infinite_projectile": {
+      "dark7mc:infinite_projectile": {
         "launch_power": 0.7,
         "projectile_entity": "minecraft:breeze_wind_charge_projectile",
         "shoot_delay": 0.75,

@@ -7,10 +7,10 @@
         "default": {
           "transitions": [
             {
-              "walking": "!(query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava) && !query.is_baby && query.property('morphing_bracelet:entity') == 75"
+              "walking": "!(query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava) && !query.is_baby && query.property('dark7mc:entity') == 75"
             },
             {
-              "galloping": "query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava && !query.is_baby && query.property('morphing_bracelet:entity') == 75"
+              "galloping": "query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava && !query.is_baby && query.property('dark7mc:entity') == 75"
             }
           ]
         },
@@ -23,7 +23,7 @@
               "galloping": "query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava"
             },
             {
-              "default": "query.is_baby || query.property('morphing_bracelet:entity') != 75"
+              "default": "query.is_baby || query.property('dark7mc:entity') != 75"
             }
           ]
         },
@@ -43,7 +43,7 @@
               "walking": "!(query.is_sprinting && query.is_on_ground && !query.is_in_water && !query.is_in_lava)"
             },
             {
-              "default": "query.is_baby || query.property('morphing_bracelet:entity') != 75"
+              "default": "query.is_baby || query.property('dark7mc:entity') != 75"
             }
           ]
         },
@@ -63,7 +63,7 @@
               "walking": "(query.is_on_ground && !query.is_sprinting) || query.is_in_water || query.is_in_lava"
             },
             {
-              "default": "query.is_baby || query.property('morphing_bracelet:entity') != 75"
+              "default": "query.is_baby || query.property('dark7mc:entity') != 75"
             }
           ]
         }

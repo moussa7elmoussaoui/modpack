@@ -1,4 +1,4 @@
-const NAMESPACE = "morphing_bracelet";
+const NAMESPACE = "dark7mc";
 
 export const namespace = {
   value: NAMESPACE,

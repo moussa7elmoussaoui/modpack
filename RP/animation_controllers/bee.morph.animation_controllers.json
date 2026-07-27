@@ -7,7 +7,7 @@
         "default": {
           "transitions": [
             {
-              "dripping": "query.property('morphing_bracelet:entity') == 40 && query.property('minecraft:has_nectar')"
+              "dripping": "query.property('dark7mc:entity') == 40 && query.property('minecraft:has_nectar')"
             }
           ]
         },
@@ -19,7 +19,7 @@
           ],
           "transitions": [
             {
-              "default": "query.property('morphing_bracelet:entity') != 40 || !query.property('minecraft:has_nectar')"
+              "default": "query.property('dark7mc:entity') != 40 || !query.property('minecraft:has_nectar')"
             }
           ]
         }

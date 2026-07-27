@@ -37,7 +37,7 @@ const duration = {};
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
     if (duration[player.id] == undefined) { duration[player.id] = { nectarCollection: 0, noStinger: 200 }; };
-    if (player.getProperty("morphing_bracelet:entity") == 40 && player.location.y >= player.dimension.heightRange.min && player.location.y <= player.dimension.heightRange.max) {
+    if (player.getProperty("dark7mc:entity") == 40 && player.location.y >= player.dimension.heightRange.min && player.location.y <= player.dimension.heightRange.max) {
       const block = player.dimension.getBlock(player.location);
       if (!player.getProperty("minecraft:has_nectar") && player.isSneaking && flowers.includes(block.typeId)) {
         if (duration[player.id].nectarCollection >= 1) {
@@ -47,7 +47,7 @@ system.runInterval(() => {
         } else { duration[player.id].nectarCollection += 1/200; };
       } else if (duration[player.id].nectarCollection > 0) { duration[player.id].nectarCollection = 0; };
     } else if (duration[player.id].nectarCollection > 0) { duration[player.id].nectarCollection = 0; };
-    if (player.getProperty("morphing_bracelet:entity") == 40 && player.getComponent("minecraft:mark_variant").value == 1) {
+    if (player.getProperty("dark7mc:entity") == 40 && player.getComponent("minecraft:mark_variant").value == 1) {
       if (player.getGameMode() == "Creative") { player.triggerEvent("morph:bee_has_stinger"); }
       else {
         if (duration[player.id].noStinger > 0) {
@@ -72,7 +72,7 @@ system.runInterval(() => {
 world.beforeEvents.playerInteractWithBlock.subscribe(data => {
   const { block, isFirstEvent, player } = data;
   system.run(() => {
-    if (isFirstEvent && player.getProperty("morphing_bracelet:entity") == 40 && player.getProperty("minecraft:has_nectar") && (block.typeId == "minecraft:bee_nest" || block.typeId == "minecraft:beehive")) {
+    if (isFirstEvent && player.getProperty("dark7mc:entity") == 40 && player.getProperty("minecraft:has_nectar") && (block.typeId == "minecraft:bee_nest" || block.typeId == "minecraft:beehive")) {
       player.triggerEvent("morph:bee_no_nectar");
       block.setPermutation(block.permutation.withState("honey_level", block.permutation.getState("honey_level") < 5 ? block.permutation.getState("honey_level") + 1 : block.permutation.getState("honey_level") + 0));
       block.dimension.playSound("block.beehive.enter", block.location);

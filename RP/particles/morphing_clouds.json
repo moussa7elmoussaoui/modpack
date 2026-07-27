@@ -2,7 +2,7 @@
   "format_version": "1.10.0",
   "particle_effect": {
     "description": {
-      "identifier": "morphing_bracelet:morphing_clouds_particle",
+      "identifier": "dark7mc:morphing_clouds_particle",
       "basic_render_parameters": {
         "material": "particles_add",
         "texture": "textures/particle/morphing_clouds"

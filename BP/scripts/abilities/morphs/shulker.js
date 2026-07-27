@@ -35,7 +35,7 @@ morphEvents.afterMorph.subscribe(({ morph, player, previousMorph }) => {
 
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
-    if (morphEntityTypes[player.getProperty("morphing_bracelet:entity")] !== ENTITY_TYPE) continue;
+    if (morphEntityTypes[player.getProperty("dark7mc:entity")] !== ENTITY_TYPE) continue;
 
     const location = player.location;
     const block = player.dimension.getBlock(location);

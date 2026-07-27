@@ -5,7 +5,7 @@ import { Morph } from "../../morph/classes";
 import { morphEvents } from "../../morph/entity-methods";
 import { namespace } from "../../utils/namespace";
 
-const IDENTIFIER = "morphing_bracelet";
+const IDENTIFIER = "dark7mc";
 
 export default {
   id: IDENTIFIER,
@@ -162,7 +162,7 @@ function giveKilledMobMorphToPlayer(player, deadEntity, morph) {
     )
   );
 
-  deadEntity.dimension.spawnParticle("morphing_bracelet:soul_orb_particle", headLocation, particleVariables);
+  deadEntity.dimension.spawnParticle("dark7mc:soul_orb_particle", headLocation, particleVariables);
   player.dimension.playSound("beacon.activate", damagerLocation);
 }
 

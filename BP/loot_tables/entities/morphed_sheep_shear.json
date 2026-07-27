@@ -5,7 +5,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 0
                 }
             ],
@@ -31,7 +31,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 1
                 }
             ],
@@ -57,7 +57,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 2
                 }
             ],
@@ -83,7 +83,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 3
                 }
             ],
@@ -109,7 +109,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 4
                 }
             ],
@@ -135,7 +135,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 5
                 }
             ],
@@ -161,7 +161,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 6
                 }
             ],
@@ -187,7 +187,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 7
                 }
             ],
@@ -213,7 +213,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 8
                 }
             ],
@@ -239,7 +239,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 9
                 }
             ],
@@ -265,7 +265,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 10
                 }
             ],
@@ -291,7 +291,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 11
                 }
             ],
@@ -317,7 +317,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 12
                 }
             ],
@@ -343,7 +343,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 13
                 }
             ],
@@ -369,7 +369,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 14
                 }
             ],
@@ -395,7 +395,7 @@
             "conditions": [
                 {
                     "condition": "int_property",
-                    "domain": "morphing_bracelet:color",
+                    "domain": "dark7mc:color",
                     "value": 15
                 }
             ],

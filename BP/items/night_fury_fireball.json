@@ -2,16 +2,16 @@
   "format_version": "1.21.90",
   "minecraft:item": {
     "description": {
-      "identifier": "morphing_bracelet:night_fury_fireball",
+      "identifier": "dark7mc:night_fury_fireball",
       "menu_category": {
         "category": "none",
         "is_hidden_in_commands": true
       },
-      "item_name": "item.morphing_bracelet:night_fury_fireball"
+      "item_name": "item.dark7mc:night_fury_fireball"
     },
     "components": {
       "minecraft:cooldown": {
-        "category": "morphing_bracelet:night_fury_fireball",
+        "category": "dark7mc:night_fury_fireball",
         "duration": 1.0
       },
       "minecraft:glint": {
@@ -25,7 +25,7 @@
       "minecraft:max_stack_size": {
         "value": 1
       },
-      "morphing_bracelet:infinite_projectile": {
+      "dark7mc:infinite_projectile": {
         "launch_power": 1.6,
         "projectile_entity": "minecraft:small_fireball",
         "shoot_animation": "animation.night_fury.breath",

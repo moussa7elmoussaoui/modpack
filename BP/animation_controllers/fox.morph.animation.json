@@ -10,7 +10,7 @@
           ],
           "transitions": [
             {
-              "attack": "query.is_sneaking && query.is_on_ground && query.property('morphing_bracelet:entity') == 12"
+              "attack": "query.is_sneaking && query.is_on_ground && query.property('dark7mc:entity') == 12"
             }
           ]
         },
@@ -20,7 +20,7 @@
           ],
           "transitions": [
             {
-              "default": "!query.is_sneaking || !query.is_on_ground || query.property('morphing_bracelet:entity') != 12"
+              "default": "!query.is_sneaking || !query.is_on_ground || query.property('dark7mc:entity') != 12"
             }
           ]
         }

@@ -6,8 +6,8 @@ commands.morph.description=Morph into a mob
 commands.morph.success=Successfully morphed
 
 # Item Names
-item.morphing_bracelet:morphing_bracelet=Morphing Bracelet
-item.morphing_bracelet:night_fury_fireball=Night Fury Fireball
+item.dark7mc:morphing_bracelet=Morphing Bracelet
+item.dark7mc:night_fury_fireball=Night Fury Fireball
 
 # WAILA Addon Translations
 waila.settings.title=WAILA Settings

@@ -7,7 +7,7 @@
 				"default": {
                     "transitions": [
                         {
-                            "particles": "variable.is_third_person && query.property('morphing_bracelet:entity') == 51 && !query.is_sleeping"
+                            "particles": "variable.is_third_person && query.property('dark7mc:entity') == 51 && !query.is_sleeping"
                         }
                     ]
 				},
@@ -24,7 +24,7 @@
 					],
                     "transitions": [
                         {
-                            "default": "!variable.is_third_person || query.property('morphing_bracelet:entity') != 51 || query.is_sleeping"
+                            "default": "!variable.is_third_person || query.property('dark7mc:entity') != 51 || query.is_sleeping"
                         }
                     ]
 				}

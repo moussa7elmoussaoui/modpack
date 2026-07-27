@@ -43,7 +43,7 @@ function isTouchingWall(dimension, AABB) {
 
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
-    const entityType = morphEntityTypes[player.getProperty("morphing_bracelet:entity")];
+    const entityType = morphEntityTypes[player.getProperty("dark7mc:entity")];
     if (!ENTITY_TYPES.includes(entityType)) continue;
 
     if (!isTouchingWall(player.dimension, player.getAABB())) continue;

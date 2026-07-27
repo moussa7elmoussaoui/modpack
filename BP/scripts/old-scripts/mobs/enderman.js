@@ -2,7 +2,7 @@ import { world, system } from "@minecraft/server";
 
 world.afterEvents.projectileHitEntity.subscribe(data => {
   const entity = data.getEntityHit().entity;
-  if (entity.typeId == "minecraft:player" && entity.getProperty("morphing_bracelet:entity") == 9) {
+  if (entity.typeId == "minecraft:player" && entity.getProperty("dark7mc:entity") == 9) {
     for (let i = 0; i < 1000; i++) {
       const location = { x: range([entity.location.x + 4, entity.location.x - 4]), y: entity.location.y + 4, z: range([entity.location.z + 4, entity.location.z - 4]) };
       if (entity.dimension.getBlockBelow(location) != undefined) {

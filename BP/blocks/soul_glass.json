@@ -2,7 +2,7 @@
   "format_version": "1.26.0",
   "minecraft:block": {
     "description": {
-      "identifier": "morphing_bracelet:soul_glass",
+      "identifier": "dark7mc:soul_glass",
       "menu_category": {
         "category": "construction",
         "group": "minecraft:itemGroup.name.glass"
@@ -17,7 +17,7 @@
       },
       "minecraft:geometry": {
         "identifier": "geometry.soul_glass",
-        "culling": "morphing_bracelet:soul_glass"
+        "culling": "dark7mc:soul_glass"
       },
       "minecraft:light_dampening": 0,
       "minecraft:light_emission": 5,
@@ -28,7 +28,7 @@
           "ambient_occlusion": false,
           "face_dimming": false,
           "render_method": "blend",
-          "texture": "morphing_bracelet:soul_glass"
+          "texture": "dark7mc:soul_glass"
         }
       },
       "minecraft:precipitation_interactions": {

@@ -11,7 +11,7 @@ const ENTITY_TYPES = [
 world.afterEvents.projectileHitBlock.subscribe(({ projectile, source }) => {
   if (projectile.typeId !== "minecraft:arrow" || !(source instanceof Player)) return;
 
-  const entityType = morphEntityTypes[source.getProperty("morphing_bracelet:entity")];
+  const entityType = morphEntityTypes[source.getProperty("dark7mc:entity")];
   if (!ENTITY_TYPES.includes(entityType)) return;
 
   projectile.remove();

@@ -1,26 +1,26 @@
 export const renamedItems = {
-  "morph:blue_wither_skull": "morphing_bracelet:blue_wither_skull",
-  "morph:dragon_fireball": "morphing_bracelet:dragon_fireball",
-  "morph:evoker_fangs": "morphing_bracelet:evoker_fangs",
-  "morph:fireball": "morphing_bracelet:fireball",
-  "morph:guardian_curse": "morphing_bracelet:guardian_curse",
-  "morph:llama_spit": "morphing_bracelet:llama_spit",
-  "morph:morphing_bracelet": "morphing_bracelet:morphing_bracelet",
-  "morph:scroll_of_souls": "morphing_bracelet:soul_glass_bottle",
-  "morph:scroll_of_souls.filled": "morphing_bracelet:soul_in_a_bottle",
-  "morph:small_fireball": "morphing_bracelet:small_fireball",
-  "morph:snowball": "morphing_bracelet:snowball",
-  "morph:sonic_boom": "morphing_bracelet:sonic_boom",
-  "morph:soul_glass": "morphing_bracelet:soul_glass",
-  "morph:teleportation": "morphing_bracelet:teleporter",
-  "morph:wind_charge": "morphing_bracelet:wind_charge",
-  "morph:wither_skull": "morphing_bracelet:wither_skull"
+  "morph:blue_wither_skull": "dark7mc:blue_wither_skull",
+  "morph:dragon_fireball": "dark7mc:dragon_fireball",
+  "morph:evoker_fangs": "dark7mc:evoker_fangs",
+  "morph:fireball": "dark7mc:fireball",
+  "morph:guardian_curse": "dark7mc:guardian_curse",
+  "morph:llama_spit": "dark7mc:llama_spit",
+  "morph:morphing_bracelet": "dark7mc:morphing_bracelet",
+  "morph:scroll_of_souls": "dark7mc:soul_glass_bottle",
+  "morph:scroll_of_souls.filled": "dark7mc:soul_in_a_bottle",
+  "morph:small_fireball": "dark7mc:small_fireball",
+  "morph:snowball": "dark7mc:snowball",
+  "morph:sonic_boom": "dark7mc:sonic_boom",
+  "morph:soul_glass": "dark7mc:soul_glass",
+  "morph:teleportation": "dark7mc:teleporter",
+  "morph:wind_charge": "dark7mc:wind_charge",
+  "morph:wither_skull": "dark7mc:wither_skull"
 };
 
 export const renamedProperties = {
-  "morph:entity": { newProperty: "morphing_bracelet:entity", defaultValue: -1 },
-  "morph:color": { newProperty: "morphing_bracelet:color", defaultValue: 0 },
-  "morph:color2": { newProperty: "morphing_bracelet:color2", defaultValue: 0 }
+  "morph:entity": { newProperty: "dark7mc:entity", defaultValue: -1 },
+  "morph:color": { newProperty: "dark7mc:color", defaultValue: 0 },
+  "morph:color2": { newProperty: "dark7mc:color2", defaultValue: 0 }
 };
 
 export const morphDataV1 = {

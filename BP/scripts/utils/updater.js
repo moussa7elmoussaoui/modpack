@@ -49,7 +49,7 @@ function updateItem(inventory, slot, itemStack) {
     itemStack.setDynamicProperty("isAttachedToMorph", true);
   }
   
-  if (itemStack.hasComponent("morphing_bracelet:morphing_bracelet")) {
+  if (itemStack.hasComponent("dark7mc:morphing_bracelet")) {
     const version = itemStack.getDynamicProperty("version") ?? 0;
 
     if (version < 1) {
@@ -72,7 +72,7 @@ function updateItem(inventory, slot, itemStack) {
       itemStack.setDynamicProperty("version", 2);
       inventory.setItem(slot, itemStack);
     }
-  } else if (itemStack.hasComponent("morphing_bracelet:morph_storage")) {
+  } else if (itemStack.hasComponent("dark7mc:morph_storage")) {
     const version = itemStack.getDynamicProperty("version") ?? 0;
 
     if (version < 1) {

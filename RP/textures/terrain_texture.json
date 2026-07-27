@@ -1,8 +1,8 @@
 {
-  "resource_pack_name": "morphing_bracelet",
+  "resource_pack_name": "dark7mc",
   "texture_name": "atlas.terrain",
   "texture_data": {
-    "morphing_bracelet:soul_glass": {
+    "dark7mc:soul_glass": {
       "textures": "textures/blocks/soul_glass"
     }
   }

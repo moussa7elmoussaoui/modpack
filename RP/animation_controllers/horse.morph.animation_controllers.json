@@ -13,7 +13,7 @@
 				},
 				"sprinting" : {
 					"on_entry" : [
-						"variable.horse_speed = (query.property('morphing_bracelet:entity') == 71 ? 0.23625 : query.any(query.property('morphing_bracelet:entity'), 72, 73) ? 0.1225 : query.property('morphing_bracelet:entity') == 74 ? 0.14 : query.property('morphing_bracelet:entity') == 75 ? 0.1925 : 0.1) / 0.1;"
+						"variable.horse_speed = (query.property('dark7mc:entity') == 71 ? 0.23625 : query.any(query.property('dark7mc:entity'), 72, 73) ? 0.1225 : query.property('dark7mc:entity') == 74 ? 0.14 : query.property('dark7mc:entity') == 75 ? 0.1925 : 0.1) / 0.1;"
 					],
 					"on_exit" : [
 						"variable.horse_speed = 1.0;"

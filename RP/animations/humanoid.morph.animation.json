@@ -219,10 +219,10 @@
             "loop": true,
             "bones": {
                 "leftarm": {
-                    "rotation": [ "variable.is_holding_left && !query.equipped_item_any_tag('slot.weapon.offhand', 'morphing_bracelet:morphing_bracelets') ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
+                    "rotation": [ "variable.is_holding_left && !query.equipped_item_any_tag('slot.weapon.offhand', 'dark7mc:morphing_bracelets') ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
                 },
                 "rightarm": {
-                    "rotation": [ "variable.is_holding_right && !query.equipped_item_any_tag('slot.weapon.mainhand', 'morphing_bracelet:morphing_bracelets') ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
+                    "rotation": [ "variable.is_holding_right && !query.equipped_item_any_tag('slot.weapon.mainhand', 'dark7mc:morphing_bracelets') ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
                 }
             }
         },

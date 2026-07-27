@@ -2,26 +2,26 @@
   "format_version": "1.21.90",
   "minecraft:item": {
     "description": {
-      "identifier": "morphing_bracelet:soul_glass_bottle",
+      "identifier": "dark7mc:soul_glass_bottle",
       "menu_category": {
         "category": "items"
       }
     },
     "components": {
       "minecraft:cooldown": {
-        "category": "morphing_bracelet:soul_glass_bottle",
+        "category": "dark7mc:soul_glass_bottle",
         "duration": 0.5
       },
       "minecraft:icon": {
         "textures": {
-          "default": "morphing_bracelet:soul_glass_bottle"
+          "default": "dark7mc:soul_glass_bottle"
         }
       },
       "minecraft:max_stack_size": {
         "value": 1
       },
-      "morphing_bracelet:morph_storage": {
-        "item_converts_to": "morphing_bracelet:soul_in_a_bottle",
+      "dark7mc:morph_storage": {
+        "item_converts_to": "dark7mc:soul_in_a_bottle",
         "on_use_action": "store"
       }
     }

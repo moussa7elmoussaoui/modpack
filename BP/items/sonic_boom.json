@@ -2,7 +2,7 @@
   "format_version": "1.21.90",
   "minecraft:item": {
     "description": {
-      "identifier": "morphing_bracelet:sonic_boom",
+      "identifier": "dark7mc:sonic_boom",
       "menu_category": {
         "category": "none",
         "is_hidden_in_commands": true
@@ -10,7 +10,7 @@
     },
     "components": {
       "minecraft:cooldown": {
-        "category": "morphing_bracelet:sonic_boom",
+        "category": "dark7mc:sonic_boom",
         "duration": 3.7
       },
       "minecraft:glint": {
@@ -18,13 +18,13 @@
       },
       "minecraft:icon": {
         "textures": {
-          "default": "morphing_bracelet:sonic_boom"
+          "default": "dark7mc:sonic_boom"
         }
       },
       "minecraft:max_stack_size": {
         "value": 1
       },
-      "morphing_bracelet:sonic_boom": {
+      "dark7mc:sonic_boom": {
         "attack_damage": 10,
         "attack_distance": 30.0,
         "attack_particles": "minecraft:sonic_explosion",

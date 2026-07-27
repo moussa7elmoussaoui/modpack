@@ -7,14 +7,14 @@ const canGlideInfinitely = [ 77 ];
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
     if (!player.isGliding) {
-      if (canFly.includes(player.getProperty("morphing_bracelet:entity"))) {
+      if (canFly.includes(player.getProperty("dark7mc:entity"))) {
         if (player.isJumping) { player.addEffect("levitation", 5, { amplifier: 5, showParticles: false }); }
         else { player.removeEffect("levitation"); };
         player.addEffect("slow_falling", 5, { showParticles: false });
-      } else if (canFloat.includes(player.getProperty("morphing_bracelet:entity"))) {
+      } else if (canFloat.includes(player.getProperty("dark7mc:entity"))) {
         player.addEffect("slow_falling", 5, { showParticles: false });
       };
-    } else if (canGlideInfinitely.includes(player.getProperty("morphing_bracelet:entity")) && player.getRotation().x < 0) {
+    } else if (canGlideInfinitely.includes(player.getProperty("dark7mc:entity")) && player.getRotation().x < 0) {
       player.addEffect("slow_falling", 5, { showParticles: false });
     };
   };

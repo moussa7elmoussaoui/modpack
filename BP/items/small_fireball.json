@@ -2,7 +2,7 @@
   "format_version": "1.21.90",
   "minecraft:item": {
     "description": {
-      "identifier": "morphing_bracelet:small_fireball",
+      "identifier": "dark7mc:small_fireball",
       "menu_category": {
         "category": "none",
         "is_hidden_in_commands": true
@@ -10,7 +10,7 @@
     },
     "components": {
       "minecraft:cooldown": {
-        "category": "morphing_bracelet:small_fireball",
+        "category": "dark7mc:small_fireball",
         "duration": 0.5
       },
       "minecraft:glint": {
@@ -24,7 +24,7 @@
       "minecraft:max_stack_size": {
         "value": 1
       },
-      "morphing_bracelet:infinite_projectile": {
+      "dark7mc:infinite_projectile": {
         "launch_power": 1.3,
         "projectile_entity": "minecraft:small_fireball",
         "shoot_sound": {

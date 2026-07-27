@@ -1,4 +1,4 @@
-// The order of the mobs in the object determines the numerical value of the 'morphing_bracelet:entity' property.
+// The order of the mobs in the object determines the numerical value of the 'dark7mc:entity' property.
 
 const morphs = {
   "minecraft:player": {},
@@ -77,7 +77,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 0 }
+                { property: "dark7mc:color", method: "get", value: 0 }
               ]
             },
             isMob: {
@@ -99,7 +99,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 1 }
+                { property: "dark7mc:color", method: "get", value: 1 }
               ]
             },
             isMob: {
@@ -116,7 +116,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 2 }
+                { property: "dark7mc:color", method: "get", value: 2 }
               ]
             },
             isMob: {
@@ -133,7 +133,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 3 }
+                { property: "dark7mc:color", method: "get", value: 3 }
               ]
             },
             isMob: {
@@ -150,7 +150,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 4 }
+                { property: "dark7mc:color", method: "get", value: 4 }
               ]
             },
             isMob: {
@@ -167,7 +167,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 5 }
+                { property: "dark7mc:color", method: "get", value: 5 }
               ]
             },
             isMob: {
@@ -184,7 +184,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 6 }
+                { property: "dark7mc:color", method: "get", value: 6 }
               ]
             },
             isMob: {
@@ -201,7 +201,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 7 }
+                { property: "dark7mc:color", method: "get", value: 7 }
               ]
             },
             isMob: {
@@ -218,7 +218,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 8 }
+                { property: "dark7mc:color", method: "get", value: 8 }
               ]
             },
             isMob: {
@@ -235,7 +235,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 9 }
+                { property: "dark7mc:color", method: "get", value: 9 }
               ]
             },
             isMob: {
@@ -252,7 +252,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 10 }
+                { property: "dark7mc:color", method: "get", value: 10 }
               ]
             },
             isMob: {
@@ -269,7 +269,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 11 }
+                { property: "dark7mc:color", method: "get", value: 11 }
               ]
             },
             isMob: {
@@ -286,7 +286,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 12 }
+                { property: "dark7mc:color", method: "get", value: 12 }
               ]
             },
             isMob: {
@@ -303,7 +303,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 13 }
+                { property: "dark7mc:color", method: "get", value: 13 }
               ]
             },
             isMob: {
@@ -320,7 +320,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 14 }
+                { property: "dark7mc:color", method: "get", value: 14 }
               ]
             },
             isMob: {
@@ -337,7 +337,7 @@ const morphs = {
             isPlayer: {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 15 }
+                { property: "dark7mc:color", method: "get", value: 15 }
               ]
             },
             isMob: {
@@ -373,7 +373,7 @@ const morphs = {
     }
   },
   "minecraft:enderman": {
-    items: [{ id: "morphing_bracelet:teleporter" }]
+    items: [{ id: "dark7mc:teleporter" }]
   },
   "minecraft:bat": {},
   "minecraft:zombie_pigman": {
@@ -448,10 +448,10 @@ const morphs = {
         { value: "true", condition: { component: "minecraft:is_sheared", method: "has", operator: "==" } }
       ]
     },
-    items: [{ id: "morphing_bracelet:snowball" }]
+    items: [{ id: "dark7mc:snowball" }]
   },
   "minecraft:blaze": {
-    items: [{ id: "morphing_bracelet:small_fireball" }]
+    items: [{ id: "dark7mc:small_fireball" }]
   },
   "minecraft:cat": {
     properties: {
@@ -632,7 +632,7 @@ const morphs = {
         { value: "gray", condition: { component: "minecraft:variant", method: "get", value: 3 } }
       ]
     },
-    items: [{ id: "morphing_bracelet:llama_spit" }]
+    items: [{ id: "dark7mc:llama_spit" }]
   },
   "minecraft:cave_spider": {},
   "minecraft:mooshroom": {
@@ -702,8 +702,8 @@ const morphs = {
   },
   "minecraft:wither": {
     items: [
-      { id: "morphing_bracelet:wither_skull" },
-      { id: "morphing_bracelet:blue_wither_skull" }
+      { id: "dark7mc:wither_skull" },
+      { id: "dark7mc:blue_wither_skull" }
     ]
   },
   "minecraft:dolphin": {
@@ -889,7 +889,7 @@ const morphs = {
     }
   },
   "minecraft:ghast": {
-    items: [{ id: "morphing_bracelet:fireball" }]
+    items: [{ id: "dark7mc:fireball" }]
   },
   "minecraft:glow_squid": {
     properties: {
@@ -945,7 +945,7 @@ const morphs = {
     }
   },
   "minecraft:evocation_illager": {
-    items: [{ id: "morphing_bracelet:evoker_fangs" }]
+    items: [{ id: "dark7mc:evoker_fangs" }]
   },
   "minecraft:tadpole": {},
   "minecraft:endermite": {},
@@ -972,7 +972,7 @@ const morphs = {
         { value: "gray", condition: { component: "minecraft:variant", method: "get", value: 3 } }
       ]
     },
-    items: [{ id: "morphing_bracelet:llama_spit" }]
+    items: [{ id: "dark7mc:llama_spit" }]
   },
   "minecraft:guardian": {},
   "minecraft:panda": {
@@ -1001,7 +1001,7 @@ const morphs = {
     }
   },
   "minecraft:elder_guardian": {
-    items: [{ id: "morphing_bracelet:guardian_curse" }]
+    items: [{ id: "dark7mc:guardian_curse" }]
   },
   "minecraft:tropicalfish": {
     properties: {
@@ -1013,8 +1013,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 1 },
                 { component: "minecraft:mark_variant", method: "get", value: 1 },
-                { property: "morphing_bracelet:color", method: "get", value: 1 },
-                { property: "morphing_bracelet:color2", method: "get", value: 7 }
+                { property: "dark7mc:color", method: "get", value: 1 },
+                { property: "dark7mc:color2", method: "get", value: 7 }
               ]
             },
             isMob: {
@@ -1034,8 +1034,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 1 },
                 { component: "minecraft:mark_variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 7 },
-                { property: "morphing_bracelet:color2", method: "get", value: 7 }
+                { property: "dark7mc:color", method: "get", value: 7 },
+                { property: "dark7mc:color2", method: "get", value: 7 }
               ]
             },
             isMob: {
@@ -1055,8 +1055,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 1 },
-                { property: "morphing_bracelet:color", method: "get", value: 7 },
-                { property: "morphing_bracelet:color2", method: "get", value: 3 }
+                { property: "dark7mc:color", method: "get", value: 7 },
+                { property: "dark7mc:color2", method: "get", value: 3 }
               ]
             },
             isMob: {
@@ -1076,8 +1076,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 4 },
-                { property: "morphing_bracelet:color", method: "get", value: 0 },
-                { property: "morphing_bracelet:color2", method: "get", value: 7 }
+                { property: "dark7mc:color", method: "get", value: 0 },
+                { property: "dark7mc:color2", method: "get", value: 7 }
               ]
             },
             isMob: {
@@ -1097,8 +1097,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 1 },
-                { property: "morphing_bracelet:color", method: "get", value: 11 },
-                { property: "morphing_bracelet:color2", method: "get", value: 7 }
+                { property: "dark7mc:color", method: "get", value: 11 },
+                { property: "dark7mc:color2", method: "get", value: 7 }
               ]
             },
             isMob: {
@@ -1118,8 +1118,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 1 },
-                { property: "morphing_bracelet:color2", method: "get", value: 0 }
+                { property: "dark7mc:color", method: "get", value: 1 },
+                { property: "dark7mc:color2", method: "get", value: 0 }
               ]
             },
             isMob: {
@@ -1139,8 +1139,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 5 },
-                { property: "morphing_bracelet:color", method: "get", value: 6 },
-                { property: "morphing_bracelet:color2", method: "get", value: 3 }
+                { property: "dark7mc:color", method: "get", value: 6 },
+                { property: "dark7mc:color2", method: "get", value: 3 }
               ]
             },
             isMob: {
@@ -1160,8 +1160,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 1 },
                 { component: "minecraft:mark_variant", method: "get", value: 3 },
-                { property: "morphing_bracelet:color", method: "get", value: 10 },
-                { property: "morphing_bracelet:color2", method: "get", value: 4 }
+                { property: "dark7mc:color", method: "get", value: 10 },
+                { property: "dark7mc:color2", method: "get", value: 4 }
               ]
             },
             isMob: {
@@ -1181,8 +1181,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 1 },
                 { component: "minecraft:mark_variant", method: "get", value: 5 },
-                { property: "morphing_bracelet:color", method: "get", value: 0 },
-                { property: "morphing_bracelet:color2", method: "get", value: 14 }
+                { property: "dark7mc:color", method: "get", value: 0 },
+                { property: "dark7mc:color2", method: "get", value: 14 }
               ]
             },
             isMob: {
@@ -1202,8 +1202,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 5 },
-                { property: "morphing_bracelet:color", method: "get", value: 0 },
-                { property: "morphing_bracelet:color2", method: "get", value: 4 }
+                { property: "dark7mc:color", method: "get", value: 0 },
+                { property: "dark7mc:color2", method: "get", value: 4 }
               ]
             },
             isMob: {
@@ -1223,8 +1223,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 1 },
                 { component: "minecraft:mark_variant", method: "get", value: 2 },
-                { property: "morphing_bracelet:color", method: "get", value: 0 },
-                { property: "morphing_bracelet:color2", method: "get", value: 7 }
+                { property: "dark7mc:color", method: "get", value: 0 },
+                { property: "dark7mc:color2", method: "get", value: 7 }
               ]
             },
             isMob: {
@@ -1244,8 +1244,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 1 },
                 { component: "minecraft:mark_variant", method: "get", value: 5 },
-                { property: "morphing_bracelet:color", method: "get", value: 0 },
-                { property: "morphing_bracelet:color2", method: "get", value: 1 }
+                { property: "dark7mc:color", method: "get", value: 0 },
+                { property: "dark7mc:color2", method: "get", value: 1 }
               ]
             },
             isMob: {
@@ -1265,8 +1265,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 3 },
-                { property: "morphing_bracelet:color", method: "get", value: 9 },
-                { property: "morphing_bracelet:color2", method: "get", value: 6 }
+                { property: "dark7mc:color", method: "get", value: 9 },
+                { property: "dark7mc:color2", method: "get", value: 6 }
               ]
             },
             isMob: {
@@ -1286,8 +1286,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 4 },
-                { property: "morphing_bracelet:color", method: "get", value: 5 },
-                { property: "morphing_bracelet:color2", method: "get", value: 3 }
+                { property: "dark7mc:color", method: "get", value: 5 },
+                { property: "dark7mc:color2", method: "get", value: 3 }
               ]
             },
             isMob: {
@@ -1307,8 +1307,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 1 },
                 { component: "minecraft:mark_variant", method: "get", value: 4 },
-                { property: "morphing_bracelet:color", method: "get", value: 14 },
-                { property: "morphing_bracelet:color2", method: "get", value: 0 }
+                { property: "dark7mc:color", method: "get", value: 14 },
+                { property: "dark7mc:color2", method: "get", value: 0 }
               ]
             },
             isMob: {
@@ -1328,8 +1328,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 2 },
-                { property: "morphing_bracelet:color", method: "get", value: 7 },
-                { property: "morphing_bracelet:color2", method: "get", value: 14 }
+                { property: "dark7mc:color", method: "get", value: 7 },
+                { property: "dark7mc:color2", method: "get", value: 14 }
               ]
             },
             isMob: {
@@ -1349,8 +1349,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 1 },
                 { component: "minecraft:mark_variant", method: "get", value: 3 },
-                { property: "morphing_bracelet:color", method: "get", value: 14 },
-                { property: "morphing_bracelet:color2", method: "get", value: 0 }
+                { property: "dark7mc:color", method: "get", value: 14 },
+                { property: "dark7mc:color2", method: "get", value: 0 }
               ]
             },
             isMob: {
@@ -1370,8 +1370,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 1 },
                 { component: "minecraft:mark_variant", method: "get", value: 0 },
-                { property: "morphing_bracelet:color", method: "get", value: 0 },
-                { property: "morphing_bracelet:color2", method: "get", value: 4 }
+                { property: "dark7mc:color", method: "get", value: 0 },
+                { property: "dark7mc:color2", method: "get", value: 4 }
               ]
             },
             isMob: {
@@ -1391,8 +1391,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 1 },
-                { property: "morphing_bracelet:color", method: "get", value: 14 },
-                { property: "morphing_bracelet:color2", method: "get", value: 0 }
+                { property: "dark7mc:color", method: "get", value: 14 },
+                { property: "dark7mc:color2", method: "get", value: 0 }
               ]
             },
             isMob: {
@@ -1412,8 +1412,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 1 },
-                { property: "morphing_bracelet:color", method: "get", value: 7 },
-                { property: "morphing_bracelet:color2", method: "get", value: 0 }
+                { property: "dark7mc:color", method: "get", value: 7 },
+                { property: "dark7mc:color2", method: "get", value: 0 }
               ]
             },
             isMob: {
@@ -1433,8 +1433,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 1 },
                 { component: "minecraft:mark_variant", method: "get", value: 1 },
-                { property: "morphing_bracelet:color", method: "get", value: 4 },
-                { property: "morphing_bracelet:color2", method: "get", value: 4 }
+                { property: "dark7mc:color", method: "get", value: 4 },
+                { property: "dark7mc:color2", method: "get", value: 4 }
               ]
             },
             isMob: {
@@ -1454,8 +1454,8 @@ const morphs = {
               and: [
                 { component: "minecraft:variant", method: "get", value: 0 },
                 { component: "minecraft:mark_variant", method: "get", value: 3 },
-                { property: "morphing_bracelet:color", method: "get", value: 9 },
-                { property: "morphing_bracelet:color2", method: "get", value: 4 }
+                { property: "dark7mc:color", method: "get", value: 9 },
+                { property: "dark7mc:color2", method: "get", value: 4 }
               ]
             },
             isMob: {
@@ -1511,7 +1511,7 @@ const morphs = {
     }
   },
   "minecraft:warden": {
-    items: [{ id: "morphing_bracelet:sonic_boom" }]
+    items: [{ id: "dark7mc:sonic_boom" }]
   },
   "minecraft:pufferfish": {},
   "minecraft:horse": {
@@ -1595,7 +1595,7 @@ const morphs = {
     }
   },
   "minecraft:ender_dragon": {
-    items: [{ id: "morphing_bracelet:dragon_fireball" }]
+    items: [{ id: "dark7mc:dragon_fireball" }]
   },
   "minecraft:armadillo": {
     properties: {
@@ -1615,10 +1615,10 @@ const morphs = {
     items: [{ id: "minecraft:bow" }]
   },
   "minecraft:breeze": {
-    items: [{ id: "morphing_bracelet:wind_charge" }]
+    items: [{ id: "dark7mc:wind_charge" }]
   },
   "minecraft:night_fury": {
-    items: [{ id: "morphing_bracelet:night_fury_fireball" }]
+    items: [{ id: "dark7mc:night_fury_fireball" }]
   }
 };
 

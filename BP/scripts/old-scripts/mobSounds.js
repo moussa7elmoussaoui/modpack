@@ -4,7 +4,7 @@ import sounds from "../data/sounds";
 world.afterEvents.entityHurt.subscribe(data => {
   const { hurtEntity, damageSource } = data;
   if (hurtEntity.typeId == "minecraft:player") {
-    const mobSound = sounds[hurtEntity.getProperty("morphing_bracelet:entity")];
+    const mobSound = sounds[hurtEntity.getProperty("dark7mc:entity")];
     const sound = {
       pitch: (Array.isArray(mobSound.pitch) ? range(mobSound.pitch): mobSound.pitch) + (hurtEntity.getComponent("minecraft:is_baby") ? 0.5: 0),
       volume: mobSound.volume
@@ -36,7 +36,7 @@ world.afterEvents.entityHurt.subscribe(data => {
 world.afterEvents.entityDie.subscribe(data => {
   const { deadEntity, damageSource } = data;
   if (deadEntity.typeId == "minecraft:player") {
-    const mobSound = sounds[deadEntity.getProperty("morphing_bracelet:entity")];
+    const mobSound = sounds[deadEntity.getProperty("dark7mc:entity")];
     const sound = {
       pitch: (Array.isArray(mobSound.pitch) ? range(mobSound.pitch): mobSound.pitch) + (deadEntity.getComponent("minecraft:is_baby") ? 0.5: 0),
       volume: mobSound.volume

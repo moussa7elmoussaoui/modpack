@@ -7,10 +7,10 @@
         "default": {
           "transitions": [
             {
-              "open": "query.target_x_rotation <= 22.5 && !query.is_crawling && query.property('morphing_bracelet:entity') == 67"
+              "open": "query.target_x_rotation <= 22.5 && !query.is_crawling && query.property('dark7mc:entity') == 67"
             },
             {
-              "close": "(query.target_x_rotation > 22.5 || query.is_crawling) && query.property('morphing_bracelet:entity') == 67"
+              "close": "(query.target_x_rotation > 22.5 || query.is_crawling) && query.property('dark7mc:entity') == 67"
             }
           ]
         },
@@ -23,7 +23,7 @@
               "close": "query.target_x_rotation > 22.5 || query.is_crawling"
             },
             {
-              "default": "query.property('morphing_bracelet:entity') != 67"
+              "default": "query.property('dark7mc:entity') != 67"
             }
           ]
         },
@@ -40,7 +40,7 @@
               "open": "query.target_x_rotation <= 22.5 && !query.is_crawling"
             },
             {
-              "default": "query.property('morphing_bracelet:entity') != 67"
+              "default": "query.property('dark7mc:entity') != 67"
             }
           ]
         }

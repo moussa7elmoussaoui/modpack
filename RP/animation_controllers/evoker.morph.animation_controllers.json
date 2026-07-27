@@ -38,14 +38,14 @@
 					],
 					"transitions" : [
 						{
-							"default" : "!variable.is_third_person || query.property('morphing_bracelet:entity') != 57 || !query.is_powered"
+							"default" : "!variable.is_third_person || query.property('dark7mc:entity') != 57 || !query.is_powered"
 						}
 					]
 				},
 				"default" : {
 					"transitions" : [
 						{
-							"casting" : "variable.is_third_person && query.property('morphing_bracelet:entity') == 57 && query.is_powered"
+							"casting" : "variable.is_third_person && query.property('dark7mc:entity') == 57 && query.is_powered"
 						}
 					]
 				}

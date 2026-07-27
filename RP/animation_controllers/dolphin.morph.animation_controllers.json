@@ -7,7 +7,7 @@
                 "default": {
                     "transitions": [
                         {
-                            "particles": "query.property('morphing_bracelet:entity') == 38 && !query.is_sleeping"
+                            "particles": "query.property('dark7mc:entity') == 38 && !query.is_sleeping"
                         }
                     ]
                 },
@@ -20,7 +20,7 @@
                     ],
                     "transitions": [
                         {
-                            "default": "query.property('morphing_bracelet:entity') != 38 || query.is_sleeping"
+                            "default": "query.property('dark7mc:entity') != 38 || query.is_sleeping"
                         }
                     ]
                 }

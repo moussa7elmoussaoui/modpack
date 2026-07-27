@@ -10,7 +10,7 @@
           ],
           "transitions": [
             {
-              "high_jump": "query.is_sneaking && query.is_on_ground && query.property('morphing_bracelet:entity') == 56"
+              "high_jump": "query.is_sneaking && query.is_on_ground && query.property('dark7mc:entity') == 56"
             }
           ]
         },
@@ -23,7 +23,7 @@
               "jumped": "query.is_jumping"
             },
             {
-              "default": "!query.is_sneaking || !query.is_on_ground || query.property('morphing_bracelet:entity') != 56"
+              "default": "!query.is_sneaking || !query.is_on_ground || query.property('dark7mc:entity') != 56"
             }
           ]
         },
@@ -34,7 +34,7 @@
           ],
           "transitions": [
             {
-              "default": "!query.is_sneaking || !query.is_on_ground || query.property('morphing_bracelet:entity') != 56"
+              "default": "!query.is_sneaking || !query.is_on_ground || query.property('dark7mc:entity') != 56"
             }
           ]
         }

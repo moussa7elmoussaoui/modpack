@@ -6,7 +6,7 @@ const duration = {};
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
     if (duration[player.id] == undefined) { duration[player.id] = 0; };
-    if (player.getProperty("morphing_bracelet:entity") == 36) {
+    if (player.getProperty("dark7mc:entity") == 36) {
       if (player.isSneaking && player.isOnGround) {
         duration[player.id] += 1/20;
         progressBar(player, duration[player.id]);
@@ -19,7 +19,7 @@ system.runInterval(() => {
         duration[player.id] = 0;
         progressBar(player, duration[player.id]);
       };
-    } else if (player.getProperty("morphing_bracelet:entity") == 40 && player.location.y >= player.dimension.heightRange.min && player.location.y <= player.dimension.heightRange.max) {
+    } else if (player.getProperty("dark7mc:entity") == 40 && player.location.y >= player.dimension.heightRange.min && player.location.y <= player.dimension.heightRange.max) {
       if (!player.getProperty("minecraft:has_nectar") && player.isSneaking && (getFlowers().includes(player.dimension.getBlock(player.location).typeId))) {
         duration[player.id] += 1/200;
         progressBar(player, duration[player.id], 10);
@@ -27,7 +27,7 @@ system.runInterval(() => {
         duration[player.id] = 0;
         if (!player.getProperty("minecraft:has_nectar")) { progressBar(player, duration[player.id], 10); };
       };
-    } else if (player.getProperty("morphing_bracelet:entity") == 56) {
+    } else if (player.getProperty("dark7mc:entity") == 56) {
       if (player.isSneaking && player.isOnGround) {
         duration[player.id] += 1/10;
         progressBar(player, duration[player.id]);

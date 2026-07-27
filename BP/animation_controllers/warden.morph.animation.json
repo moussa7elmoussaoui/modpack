@@ -7,10 +7,10 @@
         "default": {
           "transitions": [
             {
-              "normal": "!query.is_sprinting && query.property('morphing_bracelet:entity') == 69"
+              "normal": "!query.is_sprinting && query.property('dark7mc:entity') == 69"
             },
             {
-              "sprinting": "query.is_sprinting && query.property('morphing_bracelet:entity') == 69"
+              "sprinting": "query.is_sprinting && query.property('dark7mc:entity') == 69"
             }
           ]
         },
@@ -23,7 +23,7 @@
               "sprinting": "query.is_sprinting"
             },
             {
-              "default": "query.property('morphing_bracelet:entity') != 69"
+              "default": "query.property('dark7mc:entity') != 69"
             }
           ]
         },
@@ -36,7 +36,7 @@
               "normal": "!query.is_sprinting"
             },
             {
-              "default": "query.property('morphing_bracelet:entity') != 69"
+              "default": "query.property('dark7mc:entity') != 69"
             }
           ]
         }

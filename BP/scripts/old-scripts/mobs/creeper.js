@@ -5,7 +5,7 @@ const explosion = {};
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
     if (explosion[player.id] == undefined) { explosion[player.id] = { duration: 0, hasExploded: false }; };
-    if (player.getProperty("morphing_bracelet:entity") == 5) {
+    if (player.getProperty("dark7mc:entity") == 5) {
       if (player.isSneaking) {
         if (!explosion[player.id].hasExploded) {
           if (explosion[player.id].duration == 0) { player.dimension.playSound("random.fuse", player.location, { pitch: 0.5 }) };

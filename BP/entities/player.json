@@ -7,19 +7,19 @@
       "is_summonable": false,
       "spawn_category": "creature",
       "properties": {
-        "morphing_bracelet:entity": {
+        "dark7mc:entity": {
           "type": "int",
           "range": [ 0, 81 ],
           "default": 0,
           "client_sync": true
         },
-        "morphing_bracelet:color": {
+        "dark7mc:color": {
           "type": "int",
           "range": [ 0, 15 ],
           "default": 0,
           "client_sync": true
         },
-        "morphing_bracelet:color2": {
+        "dark7mc:color2": {
           "type": "int",
           "range": [ 0, 15 ],
           "default": 0,
@@ -668,11 +668,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 0 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 0 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "white_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.0"
+                "event": "dark7mc:color.0"
               },
               "use_item": true,
               "swing": true,
@@ -681,11 +681,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 1 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 1 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "orange_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.1"
+                "event": "dark7mc:color.1"
               },
               "use_item": true,
               "swing": true,
@@ -694,11 +694,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 2 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 2 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "magenta_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.2"
+                "event": "dark7mc:color.2"
               },
               "use_item": true,
               "swing": true,
@@ -707,11 +707,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 3 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 3 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "light_blue_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.3"
+                "event": "dark7mc:color.3"
               },
               "use_item": true,
               "swing": true,
@@ -720,11 +720,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 4 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 4 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "yellow_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.4"
+                "event": "dark7mc:color.4"
               },
               "use_item": true,
               "swing": true,
@@ -733,11 +733,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 5 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 5 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "lime_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.5"
+                "event": "dark7mc:color.5"
               },
               "use_item": true,
               "swing": true,
@@ -746,11 +746,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 6 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 6 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "pink_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.6"
+                "event": "dark7mc:color.6"
               },
               "use_item": true,
               "swing": true,
@@ -759,11 +759,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 7 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 7 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "gray_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.7"
+                "event": "dark7mc:color.7"
               },
               "use_item": true,
               "swing": true,
@@ -772,11 +772,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 8 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 8 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "light_gray_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.8"
+                "event": "dark7mc:color.8"
               },
               "use_item": true,
               "swing": true,
@@ -785,11 +785,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 9 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 9 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "cyan_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.9"
+                "event": "dark7mc:color.9"
               },
               "use_item": true,
               "swing": true,
@@ -798,11 +798,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 10 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 10 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "purple_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.10"
+                "event": "dark7mc:color.10"
               },
               "use_item": true,
               "swing": true,
@@ -811,11 +811,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 11 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 11 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "blue_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.11"
+                "event": "dark7mc:color.11"
               },
               "use_item": true,
               "swing": true,
@@ -824,11 +824,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 12 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 12 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "brown_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.12"
+                "event": "dark7mc:color.12"
               },
               "use_item": true,
               "swing": true,
@@ -837,11 +837,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 13 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 13 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "green_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.13"
+                "event": "dark7mc:color.13"
               },
               "use_item": true,
               "swing": true,
@@ -850,11 +850,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 14 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 14 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "red_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.14"
+                "event": "dark7mc:color.14"
               },
               "use_item": true,
               "swing": true,
@@ -863,11 +863,11 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 15 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 15 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "black_dye" },
                   { "test": "has_component", "operator": "!=", "value": "minecraft:is_sheared" }
                 ],
-                "event": "morphing_bracelet:color.15"
+                "event": "dark7mc:color.15"
               },
               "use_item": true,
               "swing": true,
@@ -1799,10 +1799,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 0 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 0 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "white_dye" }
                 ],
-                "event": "morphing_bracelet:color.0"
+                "event": "dark7mc:color.0"
               },
               "use_item": true,
               "swing": true,
@@ -1811,10 +1811,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 1 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 1 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "orange_dye" }
                 ],
-                "event": "morphing_bracelet:color.1"
+                "event": "dark7mc:color.1"
               },
               "use_item": true,
               "swing": true,
@@ -1823,10 +1823,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 2 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 2 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "magenta_dye" }
                 ],
-                "event": "morphing_bracelet:color.2"
+                "event": "dark7mc:color.2"
               },
               "use_item": true,
               "swing": true,
@@ -1835,10 +1835,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 3 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 3 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "light_blue_dye" }
                 ],
-                "event": "morphing_bracelet:color.3"
+                "event": "dark7mc:color.3"
               },
               "use_item": true,
               "swing": true,
@@ -1847,10 +1847,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 4 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 4 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "yellow_dye" }
                 ],
-                "event": "morphing_bracelet:color.4"
+                "event": "dark7mc:color.4"
               },
               "use_item": true,
               "swing": true,
@@ -1859,10 +1859,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 5 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 5 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "lime_dye" }
                 ],
-                "event": "morphing_bracelet:color.5"
+                "event": "dark7mc:color.5"
               },
               "use_item": true,
               "swing": true,
@@ -1871,10 +1871,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 6 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 6 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "pink_dye" }
                 ],
-                "event": "morphing_bracelet:color.6"
+                "event": "dark7mc:color.6"
               },
               "use_item": true,
               "swing": true,
@@ -1883,10 +1883,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 7 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 7 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "gray_dye" }
                 ],
-                "event": "morphing_bracelet:color.7"
+                "event": "dark7mc:color.7"
               },
               "use_item": true,
               "swing": true,
@@ -1895,10 +1895,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 8 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 8 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "light_gray_dye" }
                 ],
-                "event": "morphing_bracelet:color.8"
+                "event": "dark7mc:color.8"
               },
               "use_item": true,
               "swing": true,
@@ -1907,10 +1907,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 9 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 9 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "cyan_dye" }
                 ],
-                "event": "morphing_bracelet:color.9"
+                "event": "dark7mc:color.9"
               },
               "use_item": true,
               "swing": true,
@@ -1919,10 +1919,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 10 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 10 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "purple_dye" }
                 ],
-                "event": "morphing_bracelet:color.10"
+                "event": "dark7mc:color.10"
               },
               "use_item": true,
               "swing": true,
@@ -1931,10 +1931,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 11 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 11 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "blue_dye" }
                 ],
-                "event": "morphing_bracelet:color.11"
+                "event": "dark7mc:color.11"
               },
               "use_item": true,
               "swing": true,
@@ -1943,10 +1943,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 12 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 12 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "brown_dye" }
                 ],
-                "event": "morphing_bracelet:color.12"
+                "event": "dark7mc:color.12"
               },
               "use_item": true,
               "swing": true,
@@ -1955,10 +1955,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 13 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 13 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "green_dye" }
                 ],
-                "event": "morphing_bracelet:color.13"
+                "event": "dark7mc:color.13"
               },
               "use_item": true,
               "swing": true,
@@ -1967,10 +1967,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 14 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 14 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "red_dye" }
                 ],
-                "event": "morphing_bracelet:color.14"
+                "event": "dark7mc:color.14"
               },
               "use_item": true,
               "swing": true,
@@ -1979,10 +1979,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 15 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 15 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "black_dye" }
                 ],
-                "event": "morphing_bracelet:color.15"
+                "event": "dark7mc:color.15"
               },
               "use_item": true,
               "swing": true,
@@ -2196,10 +2196,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 0 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 0 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "white_dye" }
                 ],
-                "event": "morphing_bracelet:color.0"
+                "event": "dark7mc:color.0"
               },
               "use_item": true,
               "swing": true,
@@ -2208,10 +2208,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 1 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 1 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "orange_dye" }
                 ],
-                "event": "morphing_bracelet:color.1"
+                "event": "dark7mc:color.1"
               },
               "use_item": true,
               "swing": true,
@@ -2220,10 +2220,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 2 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 2 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "magenta_dye" }
                 ],
-                "event": "morphing_bracelet:color.2"
+                "event": "dark7mc:color.2"
               },
               "use_item": true,
               "swing": true,
@@ -2232,10 +2232,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 3 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 3 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "light_blue_dye" }
                 ],
-                "event": "morphing_bracelet:color.3"
+                "event": "dark7mc:color.3"
               },
               "use_item": true,
               "swing": true,
@@ -2244,10 +2244,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 4 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 4 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "yellow_dye" }
                 ],
-                "event": "morphing_bracelet:color.4"
+                "event": "dark7mc:color.4"
               },
               "use_item": true,
               "swing": true,
@@ -2256,10 +2256,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 5 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 5 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "lime_dye" }
                 ],
-                "event": "morphing_bracelet:color.5"
+                "event": "dark7mc:color.5"
               },
               "use_item": true,
               "swing": true,
@@ -2268,10 +2268,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 6 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 6 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "pink_dye" }
                 ],
-                "event": "morphing_bracelet:color.6"
+                "event": "dark7mc:color.6"
               },
               "use_item": true,
               "swing": true,
@@ -2280,10 +2280,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 7 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 7 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "gray_dye" }
                 ],
-                "event": "morphing_bracelet:color.7"
+                "event": "dark7mc:color.7"
               },
               "use_item": true,
               "swing": true,
@@ -2292,10 +2292,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 8 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 8 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "light_gray_dye" }
                 ],
-                "event": "morphing_bracelet:color.8"
+                "event": "dark7mc:color.8"
               },
               "use_item": true,
               "swing": true,
@@ -2304,10 +2304,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 9 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 9 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "cyan_dye" }
                 ],
-                "event": "morphing_bracelet:color.9"
+                "event": "dark7mc:color.9"
               },
               "use_item": true,
               "swing": true,
@@ -2316,10 +2316,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 10 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 10 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "purple_dye" }
                 ],
-                "event": "morphing_bracelet:color.10"
+                "event": "dark7mc:color.10"
               },
               "use_item": true,
               "swing": true,
@@ -2328,10 +2328,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 11 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 11 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "blue_dye" }
                 ],
-                "event": "morphing_bracelet:color.11"
+                "event": "dark7mc:color.11"
               },
               "use_item": true,
               "swing": true,
@@ -2340,10 +2340,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 12 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 12 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "brown_dye" }
                 ],
-                "event": "morphing_bracelet:color.12"
+                "event": "dark7mc:color.12"
               },
               "use_item": true,
               "swing": true,
@@ -2352,10 +2352,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 13 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 13 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "green_dye" }
                 ],
-                "event": "morphing_bracelet:color.13"
+                "event": "dark7mc:color.13"
               },
               "use_item": true,
               "swing": true,
@@ -2364,10 +2364,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 14 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 14 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "red_dye" }
                 ],
-                "event": "morphing_bracelet:color.14"
+                "event": "dark7mc:color.14"
               },
               "use_item": true,
               "swing": true,
@@ -2376,10 +2376,10 @@
             {
               "on_interact": {
                 "filters": [
-                  { "test": "int_property", "domain": "morphing_bracelet:color", "operator": "!=", "value": 15 },
+                  { "test": "int_property", "domain": "dark7mc:color", "operator": "!=", "value": 15 },
                   { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "black_dye" }
                 ],
-                "event": "morphing_bracelet:color.15"
+                "event": "dark7mc:color.15"
               },
               "use_item": true,
               "swing": true,
@@ -7869,7 +7869,7 @@
           ]
         }
       },
-      "morphing_bracelet:default_component_values": {
+      "dark7mc:default_component_values": {
         "minecraft:attack": {
           "damage": 1
         },
@@ -7897,12 +7897,12 @@
       }
     },
     "events": {
-      "morphing_bracelet:clear_components": {
+      "dark7mc:clear_components": {
         "sequence": [
           {
             "first_valid": [
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 0 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 0 },
                 "remove": {
                   "component_groups": [
                     "morph:player",
@@ -7913,7 +7913,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 1 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 1 },
                 "remove": {
                   "component_groups": [
                     "morph:zombie",
@@ -7923,7 +7923,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 2 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 2 },
                 "remove": {
                   "component_groups": [
                     "morph:cow",
@@ -7933,7 +7933,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 3 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 3 },
                 "remove": {
                   "component_groups": [
                     "morph:skeleton",
@@ -7943,7 +7943,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 4 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 4 },
                 "remove": {
                   "component_groups": [
                     "morph:chicken",
@@ -7953,13 +7953,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 5 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 5 },
                 "remove": {
                   "component_groups": [ "morph:creeper", "morph:creeper_charged" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 6 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 6 },
                 "remove": {
                   "component_groups": [
                     "morph:sheep",
@@ -7972,13 +7972,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 7 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 7 },
                 "remove": {
                   "component_groups": [ "morph:spider" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 8 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 8 },
                 "remove": {
                   "component_groups": [
                     "morph:pig",
@@ -7988,20 +7988,20 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 9 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 9 },
                 "remove": {
                   "component_groups": [ "morph:enderman" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 10 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 10 },
                 "remove": {
                   "component_groups": [ "morph:bat" ]
                 },
                 "queue_command": { "command": "effect @s night_vision 0" }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 11 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 11 },
                 "remove": {
                   "component_groups": [
                     "morph:zombified_piglin",
@@ -8011,7 +8011,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 12 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 12 },
                 "remove": {
                   "component_groups": [
                     "morph:fox",
@@ -8025,7 +8025,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 13 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 13 },
                 "remove": {
                   "component_groups": [
                     "morph:drowned",
@@ -8035,7 +8035,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 14 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 14 },
                 "remove": {
                   "component_groups": [
                     "morph:villager",
@@ -8052,25 +8052,25 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 15 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 15 },
                 "remove": {
                   "component_groups": [ "morph:wither_skeleton" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 16 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 16 },
                 "remove": {
                   "component_groups": [ "morph:snow_golem", "morph:snow_golem_sheared" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 17 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 17 },
                 "remove": {
                   "component_groups": [ "morph:blaze" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 18 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 18 },
                 "remove": {
                   "component_groups": [
                     "morph:cat",
@@ -8093,7 +8093,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 19 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 19 },
                 "remove": {
                   "component_groups": [
                     "morph:husk",
@@ -8103,7 +8103,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 20 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 20 },
                 "remove": {
                   "component_groups": [
                     "morph:wolf",
@@ -8124,7 +8124,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 21 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 21 },
                 "remove": {
                   "component_groups": [
                     "morph:piglin",
@@ -8136,7 +8136,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 22 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 22 },
                 "remove": {
                   "component_groups": [
                     "morph:salmon",
@@ -8147,13 +8147,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 23 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 23 },
                 "remove": {
                   "component_groups": [ "morph:iron_golem" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 24 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 24 },
                 "remove": {
                   "component_groups": [
                     "morph:axolotl",
@@ -8168,13 +8168,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 25 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 25 },
                 "remove": {
                   "component_groups": [ "morph:stray" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 26 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 26 },
                 "remove": {
                   "component_groups": [
                     "morph:ocelot",
@@ -8184,19 +8184,19 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 27 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 27 },
                 "remove": {
                   "component_groups": [ "morph:vindicator" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 28 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 28 },
                 "remove": {
                   "component_groups": [ "morph:cod" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 29 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 29 },
                 "remove": {
                   "component_groups": [
                     "morph:hoglin",
@@ -8208,7 +8208,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 30 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 30 },
                 "remove": {
                   "component_groups": [
                     "morph:squid",
@@ -8218,7 +8218,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 31 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 31 },
                 "remove": {
                   "component_groups": [
                     "morph:piglin_brute",
@@ -8228,7 +8228,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 32 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 32 },
                 "remove": {
                   "component_groups": [
                     "morph:llama",
@@ -8242,13 +8242,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 33 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 33 },
                 "remove": {
                   "component_groups": [ "morph:cave_spider" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 34 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 34 },
                 "remove": {
                   "component_groups": [
                     "morph:mooshroom",
@@ -8260,7 +8260,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 35 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 35 },
                 "remove": {
                   "component_groups": [
                     "morph:zombie_villager",
@@ -8278,7 +8278,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 36 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 36 },
                 "remove": {
                   "component_groups": [
                     "morph:goat",
@@ -8290,13 +8290,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 37 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 37 },
                 "remove": {
                   "component_groups": [ "morph:wither" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 38 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 38 },
                 "remove": {
                   "component_groups": [
                     "morph:dolphin",
@@ -8308,7 +8308,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 39 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 39 },
                 "remove": {
                   "component_groups": [
                     "morph:zoglin",
@@ -8318,7 +8318,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 40 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 40 },
                 "remove": {
                   "component_groups": [
                     "morph:bee",
@@ -8331,13 +8331,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 41 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 41 },
                 "remove": {
                   "component_groups": [ "morph:pillager" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 42 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 42 },
                 "remove": {
                   "component_groups": [
                     "morph:parrot",
@@ -8350,7 +8350,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 43 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 43 },
                 "remove": {
                   "component_groups": [
                     "morph:slime",
@@ -8361,7 +8361,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 44 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 44 },
                 "remove": {
                   "component_groups": [
                     "morph:strider",
@@ -8373,13 +8373,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 45 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 45 },
                 "remove": {
                   "component_groups": [ "morph:vex" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 46 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 46 },
                 "remove": {
                   "component_groups": [
                     "morph:turtle",
@@ -8389,13 +8389,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 47 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 47 },
                 "remove": {
                   "component_groups": [ "morph:witch" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 48 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 48 },
                 "remove": {
                   "component_groups": [
                     "morph:rabbit",
@@ -8412,13 +8412,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 49 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 49 },
                 "remove": {
                   "component_groups": [ "morph:ghast", "morph:ghast_shooting" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 50 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 50 },
                 "remove": {
                   "component_groups": [
                     "morph:glow_squid",
@@ -8428,13 +8428,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 51 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 51 },
                 "remove": {
                   "component_groups": [ "morph:phantom" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 52 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 52 },
                 "remove": {
                   "component_groups": [
                     "morph:polar_bear",
@@ -8444,7 +8444,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 53 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 53 },
                 "remove": {
                   "component_groups": [
                     "morph:magma_cube",
@@ -8455,19 +8455,19 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 54 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 54 },
                 "remove": {
                   "component_groups": [ "morph:allay" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 55 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 55 },
                 "remove": {
                   "component_groups": [ "morph:ravager" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 56 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 56 },
                 "remove": {
                   "component_groups": [
                     "morph:frog",
@@ -8479,37 +8479,37 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 57 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 57 },
                 "remove": {
                   "component_groups": [ "morph:evoker", "morph:evoker_casting" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 58 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 58 },
                 "remove": {
                   "component_groups": [ "morph:tadpole" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 59 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 59 },
                 "remove": {
                   "component_groups": [ "morph:endermite" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 60 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 60 },
                 "remove": {
                   "component_groups": [ "morph:wandering_trader" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 61 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 61 },
                 "remove": {
                   "component_groups": [ "morph:silverfish" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 62 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 62 },
                 "remove": {
                   "component_groups": [
                     "morph:trader_llama",
@@ -8523,13 +8523,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 63 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 63 },
                 "remove": {
                   "component_groups": [ "morph:guardian" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 64 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 64 },
                 "remove": {
                   "component_groups": [
                     "morph:panda",
@@ -8545,13 +8545,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 65 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 65 },
                 "remove": {
                   "component_groups": [ "morph:elder_guardian" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 66 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 66 },
                 "remove": {
                   "component_groups": [
                     "morph:tropical_fish",
@@ -8567,7 +8567,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 67 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 67 },
                 "remove": {
                   "component_groups": [
                     "morph:shulker",
@@ -8592,7 +8592,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 68 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 68 },
                 "remove": {
                   "component_groups": [
                     "morph:sniffer",
@@ -8602,7 +8602,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 69 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 69 },
                 "remove": {
                   "component_groups": [
                     "morph:warden",
@@ -8615,7 +8615,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 70 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 70 },
                 "remove": {
                   "component_groups": [
                     "morph:pufferfish",
@@ -8629,7 +8629,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 71 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 71 },
                 "remove": {
                   "component_groups": [
                     "morph:horse",
@@ -8653,7 +8653,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 72 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 72 },
                 "remove": {
                   "component_groups": [
                     "morph:donkey",
@@ -8665,7 +8665,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 73 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 73 },
                 "remove": {
                   "component_groups": [
                     "morph:mule",
@@ -8677,7 +8677,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 74 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 74 },
                 "remove": {
                   "component_groups": [
                     "morph:skeleton_horse",
@@ -8689,7 +8689,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 75 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 75 },
                 "remove": {
                   "component_groups": [
                     "morph:zombie_horse",
@@ -8701,7 +8701,7 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 76 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 76 },
                 "remove": {
                   "component_groups": [
                     "morph:camel",
@@ -8711,13 +8711,13 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 77 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 77 },
                 "remove": {
                   "component_groups": [ "morph:ender_dragon" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 78 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 78 },
                 "remove": {
                   "component_groups": [
                     "morph:armadillo",
@@ -8729,19 +8729,19 @@
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 79 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 79 },
                 "remove": {
                   "component_groups": [ "morph:bogged", "morph:bogged_sheared" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 80 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 80 },
                 "remove": {
                   "component_groups": [ "morph:breeze" ]
                 }
               },
               {
-                "filters": { "test": "int_property", "subject": "self", "domain": "morphing_bracelet:entity", "operator": "equals", "value": 81 },
+                "filters": { "test": "int_property", "subject": "self", "domain": "dark7mc:entity", "operator": "equals", "value": 81 },
                 "remove": {
                   "component_groups": [ "morph:night_fury" ]
                 }
@@ -8750,14 +8750,14 @@
           },
           {
             "add": {
-              "component_groups": [ "morphing_bracelet:default_component_values" ]
+              "component_groups": [ "dark7mc:default_component_values" ]
             },
             "remove": {
-              "component_groups": [ "morphing_bracelet:default_component_values" ]
+              "component_groups": [ "dark7mc:default_component_values" ]
             },
             "set_property": {
-              "morphing_bracelet:color": 0,
-              "morphing_bracelet:color2": 0,
+              "dark7mc:color": 0,
+              "dark7mc:color2": 0,
               "minecraft:climate_variant": "temperate",
               "minecraft:has_nectar": false,
               "minecraft:armadillo_state": "unrolled"
@@ -8765,7 +8765,7 @@
           }
         ]
       },
-      "morphing_bracelet:add_components": {
+      "dark7mc:add_components": {
         "first_valid": [
           {
             "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:player" },
@@ -9006,7 +9006,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=white" },
                 "set_property": {
-                  "morphing_bracelet:color": 0
+                  "dark7mc:color": 0
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=white\""
@@ -9015,7 +9015,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=orange" },
                 "set_property": {
-                  "morphing_bracelet:color": 1
+                  "dark7mc:color": 1
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=orange\""
@@ -9024,7 +9024,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=magenta" },
                 "set_property": {
-                  "morphing_bracelet:color": 2
+                  "dark7mc:color": 2
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=magenta\""
@@ -9033,7 +9033,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=light_blue" },
                 "set_property": {
-                  "morphing_bracelet:color": 3
+                  "dark7mc:color": 3
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=light_blue\""
@@ -9042,7 +9042,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=yellow" },
                 "set_property": {
-                  "morphing_bracelet:color": 4
+                  "dark7mc:color": 4
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=yellow\""
@@ -9051,7 +9051,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=lime" },
                 "set_property": {
-                  "morphing_bracelet:color": 5
+                  "dark7mc:color": 5
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=lime\""
@@ -9060,7 +9060,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=pink" },
                 "set_property": {
-                  "morphing_bracelet:color": 6
+                  "dark7mc:color": 6
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=pink\""
@@ -9069,7 +9069,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=gray" },
                 "set_property": {
-                  "morphing_bracelet:color": 7
+                  "dark7mc:color": 7
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=gray\""
@@ -9078,7 +9078,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=light_gray" },
                 "set_property": {
-                  "morphing_bracelet:color": 8
+                  "dark7mc:color": 8
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=light_gray\""
@@ -9087,7 +9087,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=cyan" },
                 "set_property": {
-                  "morphing_bracelet:color": 9
+                  "dark7mc:color": 9
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=cyan\""
@@ -9096,7 +9096,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=purple" },
                 "set_property": {
-                  "morphing_bracelet:color": 10
+                  "dark7mc:color": 10
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=purple\""
@@ -9105,7 +9105,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=blue" },
                 "set_property": {
-                  "morphing_bracelet:color": 11
+                  "dark7mc:color": 11
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=blue\""
@@ -9114,7 +9114,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=brown" },
                 "set_property": {
-                  "morphing_bracelet:color": 12
+                  "dark7mc:color": 12
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=brown\""
@@ -9123,7 +9123,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=green" },
                 "set_property": {
-                  "morphing_bracelet:color": 13
+                  "dark7mc:color": 13
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=green\""
@@ -9132,7 +9132,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=red" },
                 "set_property": {
-                  "morphing_bracelet:color": 14
+                  "dark7mc:color": 14
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=red\""
@@ -9141,7 +9141,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:sheep.color=black" },
                 "set_property": {
-                  "morphing_bracelet:color": 15
+                  "dark7mc:color": 15
                 },
                 "queue_command": {
                   "command": "tag @s remove \"components.minecraft:sheep.color=black\""
@@ -9535,7 +9535,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:cat.tame=true" },
                 "set_property": {
-                  "morphing_bracelet:color": 14
+                  "dark7mc:color": 14
                 },
                 "add": {
                   "component_groups": [ "morph:cat_tame" ]
@@ -9717,7 +9717,7 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:wolf.tame=true" },
                 "set_property": {
-                  "morphing_bracelet:color": 14
+                  "dark7mc:color": 14
                 },
                 "add": {
                   "component_groups": [ "morph:wolf_tame" ]
@@ -11158,8 +11158,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=anemone" },
                 "set_property": {
-                  "morphing_bracelet:color": 1,
-                  "morphing_bracelet:color2": 7
+                  "dark7mc:color": 1,
+                  "dark7mc:color2": 7
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_b", "morph:tropical_fish_pattern_2" ]
@@ -11171,8 +11171,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=black_tang" },
                 "set_property": {
-                  "morphing_bracelet:color": 7,
-                  "morphing_bracelet:color2": 7
+                  "dark7mc:color": 7,
+                  "dark7mc:color2": 7
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_b", "morph:tropical_fish_pattern_1" ]
@@ -11184,8 +11184,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=blue_dory" },
                 "set_property": {
-                  "morphing_bracelet:color": 7,
-                  "morphing_bracelet:color2": 3
+                  "dark7mc:color": 7,
+                  "dark7mc:color2": 3
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_2" ]
@@ -11197,8 +11197,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=butterfly_fish" },
                 "set_property": {
-                  "morphing_bracelet:color": 0,
-                  "morphing_bracelet:color2": 7
+                  "dark7mc:color": 0,
+                  "dark7mc:color2": 7
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_5" ]
@@ -11210,8 +11210,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=cichlid" },
                 "set_property": {
-                  "morphing_bracelet:color": 11,
-                  "morphing_bracelet:color2": 7
+                  "dark7mc:color": 11,
+                  "dark7mc:color2": 7
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_2" ]
@@ -11223,8 +11223,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=clownfish" },
                 "set_property": {
-                  "morphing_bracelet:color": 1,
-                  "morphing_bracelet:color2": 0
+                  "dark7mc:color": 1,
+                  "dark7mc:color2": 0
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_1" ]
@@ -11236,8 +11236,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=cotton_candy_betta" },
                 "set_property": {
-                  "morphing_bracelet:color": 6,
-                  "morphing_bracelet:color2": 3
+                  "dark7mc:color": 6,
+                  "dark7mc:color2": 3
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_6" ]
@@ -11249,8 +11249,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=dottyback" },
                 "set_property": {
-                  "morphing_bracelet:color": 10,
-                  "morphing_bracelet:color2": 4
+                  "dark7mc:color": 10,
+                  "dark7mc:color2": 4
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_b", "morph:tropical_fish_pattern_4" ]
@@ -11262,8 +11262,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=emperor_red_snapper" },
                 "set_property": {
-                  "morphing_bracelet:color": 0,
-                  "morphing_bracelet:color2": 14
+                  "dark7mc:color": 0,
+                  "dark7mc:color2": 14
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_b", "morph:tropical_fish_pattern_6" ]
@@ -11275,8 +11275,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=goatfish" },
                 "set_property": {
-                  "morphing_bracelet:color": 0,
-                  "morphing_bracelet:color2": 4
+                  "dark7mc:color": 0,
+                  "dark7mc:color2": 4
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_6" ]
@@ -11288,8 +11288,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=moorish_idol" },
                 "set_property": {
-                  "morphing_bracelet:color": 0,
-                  "morphing_bracelet:color2": 7
+                  "dark7mc:color": 0,
+                  "dark7mc:color2": 7
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_b", "morph:tropical_fish_pattern_3" ]
@@ -11301,8 +11301,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=ornate_butterfly" },
                 "set_property": {
-                  "morphing_bracelet:color": 0,
-                  "morphing_bracelet:color2": 1
+                  "dark7mc:color": 0,
+                  "dark7mc:color2": 1
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_b", "morph:tropical_fish_pattern_6" ]
@@ -11314,8 +11314,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=parrotfish" },
                 "set_property": {
-                  "morphing_bracelet:color": 9,
-                  "morphing_bracelet:color2": 6
+                  "dark7mc:color": 9,
+                  "dark7mc:color2": 6
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_4" ]
@@ -11327,8 +11327,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=queen_angel_fish" },
                 "set_property": {
-                  "morphing_bracelet:color": 5,
-                  "morphing_bracelet:color2": 3
+                  "dark7mc:color": 5,
+                  "dark7mc:color2": 3
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_5" ]
@@ -11340,8 +11340,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=red_cichlid" },
                 "set_property": {
-                  "morphing_bracelet:color": 14,
-                  "morphing_bracelet:color2": 0
+                  "dark7mc:color": 14,
+                  "dark7mc:color2": 0
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_b", "morph:tropical_fish_pattern_5" ]
@@ -11353,8 +11353,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=red_lipped_blenny" },
                 "set_property": {
-                  "morphing_bracelet:color": 7,
-                  "morphing_bracelet:color2": 14
+                  "dark7mc:color": 7,
+                  "dark7mc:color2": 14
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_3" ]
@@ -11366,8 +11366,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=red_snapper" },
                 "set_property": {
-                  "morphing_bracelet:color": 14,
-                  "morphing_bracelet:color2": 0
+                  "dark7mc:color": 14,
+                  "dark7mc:color2": 0
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_b", "morph:tropical_fish_pattern_4" ]
@@ -11379,8 +11379,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=threadfin" },
                 "set_property": {
-                  "morphing_bracelet:color": 0,
-                  "morphing_bracelet:color2": 4
+                  "dark7mc:color": 0,
+                  "dark7mc:color2": 4
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_b", "morph:tropical_fish_pattern_1" ]
@@ -11392,8 +11392,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=tomato_clown" },
                 "set_property": {
-                  "morphing_bracelet:color": 14,
-                  "morphing_bracelet:color2": 0
+                  "dark7mc:color": 14,
+                  "dark7mc:color2": 0
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_2" ]
@@ -11405,8 +11405,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=triggerfish" },
                 "set_property": {
-                  "morphing_bracelet:color": 7,
-                  "morphing_bracelet:color2": 0
+                  "dark7mc:color": 7,
+                  "dark7mc:color2": 0
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_2" ]
@@ -11418,8 +11418,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=yellow_tang" },
                 "set_property": {
-                  "morphing_bracelet:color": 4,
-                  "morphing_bracelet:color2": 4
+                  "dark7mc:color": 4,
+                  "dark7mc:color2": 4
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_b", "morph:tropical_fish_pattern_2" ]
@@ -11431,8 +11431,8 @@
               {
                 "filters": { "test": "has_tag", "subject": "self", "operator": "equals", "value": "components.minecraft:tropicalfish.species=yellowtail_parrot" },
                 "set_property": {
-                  "morphing_bracelet:color": 9,
-                  "morphing_bracelet:color2": 4
+                  "dark7mc:color": 9,
+                  "dark7mc:color2": 4
                 },
                 "add": {
                   "component_groups": [ "morph:tropical_fish_type_a", "morph:tropical_fish_pattern_4" ]
@@ -13400,38 +13400,38 @@
         }
       },
 
-      "morphing_bracelet:color.0": { "set_property": { "morphing_bracelet:color": 0 } },
-      "morphing_bracelet:color.1": { "set_property": { "morphing_bracelet:color": 1 } },
-      "morphing_bracelet:color.2": { "set_property": { "morphing_bracelet:color": 2 } },
-      "morphing_bracelet:color.3": { "set_property": { "morphing_bracelet:color": 3 } },
-      "morphing_bracelet:color.4": { "set_property": { "morphing_bracelet:color": 4 } },
-      "morphing_bracelet:color.5": { "set_property": { "morphing_bracelet:color": 5 } },
-      "morphing_bracelet:color.6": { "set_property": { "morphing_bracelet:color": 6 } },
-      "morphing_bracelet:color.7": { "set_property": { "morphing_bracelet:color": 7 } },
-      "morphing_bracelet:color.8": { "set_property": { "morphing_bracelet:color": 8 } },
-      "morphing_bracelet:color.9": { "set_property": { "morphing_bracelet:color": 9 } },
-      "morphing_bracelet:color.10": { "set_property": { "morphing_bracelet:color": 10 } },
-      "morphing_bracelet:color.11": { "set_property": { "morphing_bracelet:color": 11 } },
-      "morphing_bracelet:color.12": { "set_property": { "morphing_bracelet:color": 12 } },
-      "morphing_bracelet:color.13": { "set_property": { "morphing_bracelet:color": 13 } },
-      "morphing_bracelet:color.14": { "set_property": { "morphing_bracelet:color": 14 } },
-      "morphing_bracelet:color.15": { "set_property": { "morphing_bracelet:color": 15 } },
-      "morphing_bracelet:color2.0": { "set_property": { "morphing_bracelet:color2": 0 } },
-      "morphing_bracelet:color2.1": { "set_property": { "morphing_bracelet:color2": 1 } },
-      "morphing_bracelet:color2.2": { "set_property": { "morphing_bracelet:color2": 2 } },
-      "morphing_bracelet:color2.3": { "set_property": { "morphing_bracelet:color2": 3 } },
-      "morphing_bracelet:color2.4": { "set_property": { "morphing_bracelet:color2": 4 } },
-      "morphing_bracelet:color2.5": { "set_property": { "morphing_bracelet:color2": 5 } },
-      "morphing_bracelet:color2.6": { "set_property": { "morphing_bracelet:color2": 6 } },
-      "morphing_bracelet:color2.7": { "set_property": { "morphing_bracelet:color2": 7 } },
-      "morphing_bracelet:color2.8": { "set_property": { "morphing_bracelet:color2": 8 } },
-      "morphing_bracelet:color2.9": { "set_property": { "morphing_bracelet:color2": 9 } },
-      "morphing_bracelet:color2.10": { "set_property": { "morphing_bracelet:color2": 10 } },
-      "morphing_bracelet:color2.11": { "set_property": { "morphing_bracelet:color2": 11 } },
-      "morphing_bracelet:color2.12": { "set_property": { "morphing_bracelet:color2": 12 } },
-      "morphing_bracelet:color2.13": { "set_property": { "morphing_bracelet:color2": 13 } },
-      "morphing_bracelet:color2.14": { "set_property": { "morphing_bracelet:color2": 14 } },
-      "morphing_bracelet:color2.15": { "set_property": { "morphing_bracelet:color2": 15 } },
+      "dark7mc:color.0": { "set_property": { "dark7mc:color": 0 } },
+      "dark7mc:color.1": { "set_property": { "dark7mc:color": 1 } },
+      "dark7mc:color.2": { "set_property": { "dark7mc:color": 2 } },
+      "dark7mc:color.3": { "set_property": { "dark7mc:color": 3 } },
+      "dark7mc:color.4": { "set_property": { "dark7mc:color": 4 } },
+      "dark7mc:color.5": { "set_property": { "dark7mc:color": 5 } },
+      "dark7mc:color.6": { "set_property": { "dark7mc:color": 6 } },
+      "dark7mc:color.7": { "set_property": { "dark7mc:color": 7 } },
+      "dark7mc:color.8": { "set_property": { "dark7mc:color": 8 } },
+      "dark7mc:color.9": { "set_property": { "dark7mc:color": 9 } },
+      "dark7mc:color.10": { "set_property": { "dark7mc:color": 10 } },
+      "dark7mc:color.11": { "set_property": { "dark7mc:color": 11 } },
+      "dark7mc:color.12": { "set_property": { "dark7mc:color": 12 } },
+      "dark7mc:color.13": { "set_property": { "dark7mc:color": 13 } },
+      "dark7mc:color.14": { "set_property": { "dark7mc:color": 14 } },
+      "dark7mc:color.15": { "set_property": { "dark7mc:color": 15 } },
+      "dark7mc:color2.0": { "set_property": { "dark7mc:color2": 0 } },
+      "dark7mc:color2.1": { "set_property": { "dark7mc:color2": 1 } },
+      "dark7mc:color2.2": { "set_property": { "dark7mc:color2": 2 } },
+      "dark7mc:color2.3": { "set_property": { "dark7mc:color2": 3 } },
+      "dark7mc:color2.4": { "set_property": { "dark7mc:color2": 4 } },
+      "dark7mc:color2.5": { "set_property": { "dark7mc:color2": 5 } },
+      "dark7mc:color2.6": { "set_property": { "dark7mc:color2": 6 } },
+      "dark7mc:color2.7": { "set_property": { "dark7mc:color2": 7 } },
+      "dark7mc:color2.8": { "set_property": { "dark7mc:color2": 8 } },
+      "dark7mc:color2.9": { "set_property": { "dark7mc:color2": 9 } },
+      "dark7mc:color2.10": { "set_property": { "dark7mc:color2": 10 } },
+      "dark7mc:color2.11": { "set_property": { "dark7mc:color2": 11 } },
+      "dark7mc:color2.12": { "set_property": { "dark7mc:color2": 12 } },
+      "dark7mc:color2.13": { "set_property": { "dark7mc:color2": 13 } },
+      "dark7mc:color2.14": { "set_property": { "dark7mc:color2": 14 } },
+      "dark7mc:color2.15": { "set_property": { "dark7mc:color2": 15 } },
 
       "morph:drop_item": {
         "drop_item": {

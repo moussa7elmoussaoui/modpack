@@ -2,10 +2,10 @@
   "format_version": "1.16",
   "minecraft:recipe_furnace": {
     "description": {
-      "identifier": "morphing_bracelet:soul_glass"
+      "identifier": "dark7mc:soul_glass"
     },
     "tags": [ "furnace" ],
     "input": "minecraft:soul_sand",
-    "output": "morphing_bracelet:soul_glass"
+    "output": "dark7mc:soul_glass"
   }
 }
