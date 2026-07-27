@@ -14,8 +14,6 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, customCommandRe
   for (const itemComponent of components.items) { itemComponentRegistry.registerCustomComponent(namespace.toNamespacedId(itemComponent.id), itemComponent); }
   for (const commandEnum of commands.enums) { customCommandRegistry.registerEnum(commandEnum.name, commandEnum.values); }
   for (const command of commands.commands) { customCommandRegistry.registerCommand(command.definition, command.callback); }
-  // Store startup registries for WAILA addon which loads dynamically after startup event
-  globalThis.__wailaStartupRegistries = { blockComponentRegistry, customCommandRegistry, itemComponentRegistry };
 });
 
 const humanMorph = new Morph("minecraft:player");
@@ -60,7 +58,4 @@ import "old-scripts/mobs/enderDragon.js";
 import "old-scripts/mobs/breeze.js";
 
 // WAILA addon integration
-// Using dynamic import to prevent WAILA errors from breaking the morph addon
-import("./waila/main.js").catch(error => {
-  console.warn(`§e[WAILA] Failed to load WAILA addon: ${error}`);
-});
+import "./waila/main.js";

@@ -5800,7 +5800,7 @@ function W(u, t) {
 function se(u, t) {
   return u === 'unchanged' ? t : u
 }
-_e()
+try { _e(); } catch (e) { console.warn("§e[WAILA] Initialization error: " + e); }
 /**
  *
  * @author
