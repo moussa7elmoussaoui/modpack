@@ -6,8 +6,7 @@
       "menu_category": {
         "category": "none",
         "is_hidden_in_commands": true
-      },
-      "item_name": "item.dark7mc:night_fury_fireball"
+      }
     },
     "components": {
       "minecraft:cooldown": {
