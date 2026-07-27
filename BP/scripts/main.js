@@ -58,4 +58,7 @@ import "old-scripts/mobs/enderDragon.js";
 import "old-scripts/mobs/breeze.js";
 
 // WAILA addon integration
-import "./waila/main.js";
+// Using dynamic import to prevent WAILA errors from breaking the morph addon
+import("./waila/main.js").catch(error => {
+  console.warn(`§e[WAILA] Failed to load WAILA addon: ${error}`);
+});
