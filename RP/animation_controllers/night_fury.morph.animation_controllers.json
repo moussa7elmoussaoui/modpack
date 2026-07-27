@@ -81,7 +81,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "biting": "variable.attack_time > 0.0 && query.get_equipped_item_name != 'night_fury_fireball' && !query.is_sleeping" }
+            { "biting": "variable.attack_time > 0.0 && !query.is_sleeping" }
           ]
         },
         "biting": {
