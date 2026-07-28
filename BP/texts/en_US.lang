@@ -1,12 +1,9 @@
 pack.description=This add-on gives players the ability to morph into different mobs using Morphing Bracelet (Behavior Pack, 26.30+)
 pack.name=Morphing Bracelet [BETA]
-# Command Translations
 commands.morph.description=Morph into a mob
 commands.morph.success=Successfully morphed
-# Item Names
 item.dark7mc:morphing_bracelet=Morphing Bracelet
 item.dark7mc:night_fury_fireball=Night Fury Fireball
-# WAILA Addon Translations
 waila.settings.title=WAILA Settings
 waila.settings.title_for=WAILA Settings for %s
 waila.settings.submit=Apply
