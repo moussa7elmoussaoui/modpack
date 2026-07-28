@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.night_fury.walk": {
+		"animation.morph.night_fury.walk": {
 			"loop": true,
 			"anim_time_update": "query.modified_distance_moved * 0.12",
 			"animation_length": 3.6,
@@ -381,7 +381,7 @@
 				}
 			}
 		},
-		"animation.night_fury.run": {
+		"animation.morph.night_fury.run": {
 			"loop": true,
 			"anim_time_update": "query.modified_distance_moved * 0.08",
 			"animation_length": 3.6,
@@ -780,7 +780,7 @@
 				}
 			}
 		},
-		"animation.night_fury.idle": {
+		"animation.morph.night_fury.idle": {
 			"loop": true,
 			"animation_length": 3.6,
 			"bones": {
@@ -1090,7 +1090,7 @@
 				}
 			}
 		},
-		"animation.night_fury.sit": {
+		"animation.morph.night_fury.sit": {
 			"loop": true,
 			"animation_length": 1.8,
 			"bones": {
@@ -1488,7 +1488,7 @@
 				}
 			}
 		},
-		"animation.night_fury.sleep": {
+		"animation.morph.night_fury.sleep": {
 			"loop": true,
 			"animation_length": 3.6,
 			"bones": {
@@ -1924,7 +1924,7 @@
 				}
 			}
 		},
-		"animation.night_fury.flap": {
+		"animation.morph.night_fury.flap": {
 			"loop": true,
 			"animation_length": 2.4,
 			"bones": {
@@ -2229,7 +2229,7 @@
 				}
 			}
 		},
-		"animation.night_fury.hover": {
+		"animation.morph.night_fury.hover": {
 			"loop": true,
 			"animation_length": 2.4,
 			"bones": {
@@ -2534,7 +2534,7 @@
 				}
 			}
 		},
-		"animation.night_fury.bite": {
+		"animation.morph.night_fury.bite": {
 			"animation_length": 0.6667,
 			"bones": {
 				"neck_base": {
@@ -2694,7 +2694,7 @@
 				}
 			}
 		},
-		"animation.night_fury.breath": {
+		"animation.morph.night_fury.breath": {
 			"loop": true,
 			"animation_length": 0.58333,
 			"bones": {

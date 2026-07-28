@@ -27,13 +27,13 @@
       "dark7mc:infinite_projectile": {
         "launch_power": 1.6,
         "projectile_entity": "minecraft:small_fireball",
-        "shoot_animation": "animation.night_fury.breath",
+        "shoot_animation": "animation.morph.night_fury.breath",
         "shoot_sound": {
           "pitch": [ 0.8, 1.2 ],
           "sound": "mob.blaze.shoot"
         },
         "spawn_offset": [ 0.0, 0.4, 0.0 ],
-        "use_animation": "animation.night_fury.breath"
+        "use_animation": "animation.morph.night_fury.breath"
       }
     }
   }

@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.night_fury",
+				"identifier": "geometry.morph.night_fury",
 				"texture_width": 256,
 				"texture_height": 192,
 				"visible_bounds_width": 19,
