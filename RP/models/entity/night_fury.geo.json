@@ -3690,7 +3690,7 @@
 					]
 				},
 				{
-					"name": "head",
+					"name": "_head",
 					"parent": "head_rot",
 					"pivot": [
 						0,
@@ -3775,7 +3775,7 @@
 				},
 				{
 					"name": "left_horn_03",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						5.025,
 						20.60207,
@@ -3807,7 +3807,7 @@
 				},
 				{
 					"name": "right_horn_03",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						-5.025,
 						20.60207,
@@ -3840,7 +3840,7 @@
 				},
 				{
 					"name": "left_horn_02",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						5,
 						22.85207,
@@ -3872,7 +3872,7 @@
 				},
 				{
 					"name": "right_horn_02",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						-5,
 						22.85207,
@@ -3905,7 +3905,7 @@
 				},
 				{
 					"name": "left_horn_01",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						1,
 						25.10207,
@@ -3937,7 +3937,7 @@
 				},
 				{
 					"name": "right_horn_01",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						-1,
 						25.10207,
@@ -3970,7 +3970,7 @@
 				},
 				{
 					"name": "head_muzzle",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						0,
 						20.07707,
@@ -4072,7 +4072,7 @@
 				},
 				{
 					"name": "left_eye_socket",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						5,
 						20.07707,
@@ -4132,7 +4132,7 @@
 				},
 				{
 					"name": "right_eye_socket",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						-5,
 						20.07707,
@@ -4194,7 +4194,7 @@
 				},
 				{
 					"name": "jaw",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						0,
 						20.10207,
@@ -4291,7 +4291,7 @@
 				},
 				{
 					"name": "left_ear",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						3.55,
 						25.10207,
@@ -4323,7 +4323,7 @@
 				},
 				{
 					"name": "right_ear",
-					"parent": "head",
+					"parent": "_head",
 					"pivot": [
 						-3.55,
 						25.10207,
