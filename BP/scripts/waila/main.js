@@ -2794,10 +2794,10 @@ var G = class G {
     ;((this.major = e), (this.minor = r), (this.patch = i), (this.version = t))
   }
   saveToWorld() {
-    ve.setDynamicProperty('dark7mc:version', this.version)
+    ve.setDynamicProperty('dark7mc:waila_version', this.version)
   }
   static onWorldLoad() {
-    let t = ve.getDynamicProperty('dark7mc:version'),
+    let t = ve.getDynamicProperty('dark7mc:waila_version'),
       e = G.get(),
       r = typeof t == 'string' ? G.compareTo(t) : -1,
       i = {
@@ -2851,7 +2851,7 @@ var G = class G {
 var Tt = G,
   ht = class {
     constructor() {
-      a(this, 'name', 'dark7mc:version')
+      a(this, 'name', 'dark7mc:waila_version')
       a(
         this,
         'description',
@@ -2940,7 +2940,7 @@ var Se = [
   'minecraft:waxed_weathered_copper_chest',
   'minecraft:waxed_oxidized_copper_chest',
 ]
-var At = 'dark7mc:paused',
+var At = 'dark7mc:waila_paused',
   Ct = class {
     constructor(t) {
       this.clearUi = t
@@ -3002,7 +3002,7 @@ var At = 'dark7mc:paused',
       }
     }
   }
-var Gt = 'dark7mc:old_log',
+var Gt = 'dark7mc:waila_old_log',
   xt = class {
     isDuplicate(t, e) {
       return t.getDynamicProperty(Gt) === e
@@ -3098,8 +3098,8 @@ import {
   ItemLockMode as Jt,
   ItemStack as Qt,
 } from '@minecraft/server'
-var te = 'dark7mc:inventory_item_holder_slots',
-  Te = 'dark7mc:inventory_item_backups',
+var te = 'dark7mc:waila_inventory_item_holder_slots',
+  Te = 'dark7mc:waila_inventory_item_backups',
   fr = '_chunk_',
   Ae = 32760,
   Dt = 16,
