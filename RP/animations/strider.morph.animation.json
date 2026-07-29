@@ -52,9 +52,6 @@
         "bristle3": {
           "rotation": [ 0, 0, "variable.strider_bristle_flow * 34.3775" ]
         },
-        "bristle3": {
-          "rotation": [ 0, 0, "variable.strider_bristle_flow * 34.3775" ]
-        },
         "bristle4": {
           "rotation": [ 0, 0, "variable.strider_bristle_flow * 68.7549" ]
         },
