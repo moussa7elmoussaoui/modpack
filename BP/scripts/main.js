@@ -59,3 +59,6 @@ import "old-scripts/mobs/breeze.js";
 
 // WAILA addon integration
 import "./waila/main.js";
+
+// Speedometer addon integration
+import "./speedometer/index.js";
