@@ -2893,22 +2893,22 @@
 			"bones": {
 				"_head": {
 					"rotation": [
-						"math.clamp(query.target_x_rotation, -30, 30) * 0.6 * !query.is_gliding",
-						"math.clamp(query.target_y_rotation, -35, 35) * 0.6",
+						"math.clamp(query.target_x_rotation, -45, 45) * 0.6 * !query.is_gliding",
+						"math.clamp(query.target_y_rotation, -50, 50) * 0.6",
 						0
 					]
 				},
 				"neck": {
 					"rotation": [
-						"math.clamp(query.target_x_rotation, -30, 30) * 0.25 * !query.is_gliding",
-						"math.clamp(query.target_y_rotation, -35, 35) * 0.25",
+						"math.clamp(query.target_x_rotation, -45, 45) * 0.25 * !query.is_gliding",
+						"math.clamp(query.target_y_rotation, -50, 50) * 0.25",
 						0
 					]
 				},
 				"neck_base": {
 					"rotation": [
-						"math.clamp(query.target_x_rotation, -30, 30) * 0.15 * !query.is_gliding",
-						"math.clamp(query.target_y_rotation, -35, 35) * 0.15",
+						"math.clamp(query.target_x_rotation, -45, 45) * 0.15 * !query.is_gliding",
+						"math.clamp(query.target_y_rotation, -50, 50) * 0.15",
 						0
 					]
 				}

@@ -1012,7 +1012,7 @@
 
           { "show_items": "variable.is_third_person && query.property('dark7mc:entity') != 0" },
           { "look_at_target_y": "variable.is_third_person && (query.any(query.property('dark7mc:entity'), 10, 22, 28, 40, 43, 49, 51, 53, 56, 58, 59, 61, 66, 70, 77) || (query.property('dark7mc:entity') == 4 && query.is_baby)) && !query.is_sleeping && !query.is_gliding" },
-          { "vertical_gliding": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 2, 4, 6, 7, 8, 10, 12, 18, 20, 22, 24, 26, 28, 29, 32, 33, 34, 36, 38, 39, 40, 42, 43, 46, 48, 49, 51, 52, 53, 55, 56, 58, 59, 61, 62, 63, 64, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 77, 78) && query.is_gliding" },
+          { "vertical_gliding": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 2, 4, 6, 7, 8, 10, 12, 18, 20, 22, 24, 26, 28, 29, 32, 33, 34, 36, 38, 39, 40, 42, 43, 46, 48, 49, 51, 52, 53, 55, 56, 58, 59, 61, 62, 63, 64, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 77, 78, 81) && query.is_gliding" },
           { "common_look_at_target_controller": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 5, 14, 16, 17, 23, 47, 57, 60, 80) && !query.is_sleeping" },
           { "common_look_at_target_vertical_gliding_controller": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 2, 4, 6, 8, 12, 18, 20, 24, 26, 32, 34, 42, 46, 48, 52, 55, 62, 63, 64, 65, 68) && !query.is_sleeping" },
           { "humanoid_base_pose.morph": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 11, 35, 41)" },
