@@ -43,7 +43,6 @@ world.afterEvents.entityDie.subscribe(({ deadEntity }) => {
 // The add-on's scripts are gradually being reworked. This line separates the updated code of 'main.js' above from the legacy code below.
 
 import "old-scripts/abilityIndicator.js";
-import "old-scripts/flyingAbility.js";
 import "old-scripts/foodEaten.js";
 import "old-scripts/itemAbilities.js";
 import "old-scripts/mobSounds.js";
