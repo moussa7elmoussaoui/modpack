@@ -8874,7 +8874,7 @@
       "dark7mc:clear_components": {
         "sequence": [
           {
-            "run_command": {
+            "queue_command": {
               "command": "event entity @s morph:reset"
             }
           },

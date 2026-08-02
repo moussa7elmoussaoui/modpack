@@ -1469,6 +1469,8 @@
         "night_fury_run": "animation.morph.night_fury.run",
         "night_fury_flap": "animation.morph.night_fury.flap",
         "night_fury_hover": "animation.morph.night_fury.hover",
+        "night_fury_glide": "animation.morph.night_fury.glide",
+        "night_fury_dive": "animation.morph.night_fury.dive",
         "night_fury_sit": "animation.morph.night_fury.sit",
         "night_fury_sleep": "animation.morph.night_fury.sleep",
         "night_fury_locomotion": "controller.animation.morph.night_fury.locomotion",
