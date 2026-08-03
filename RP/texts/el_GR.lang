@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Επιστροφή
 waila.settings.feedback.updatedSelf=Ενημερώθηκαν οι ρυθμίσεις WAILA.
 waila.settings.feedback.updatedByOther=Οι ρυθμίσεις WAILA ενημερώθηκαν από τον %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Ενημερώθηκαν οι ρυθμίσεις WAILA του %s.	## %s is where the player name would be
+
+commands.morph.description=Μεταμόρφωση σε πλάσμα
+commands.morph.success=Μεταμορφωθήκατε επιτυχώς

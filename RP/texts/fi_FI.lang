@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Mene takaisin
 waila.settings.feedback.updatedSelf=WAILA-asetuksesi päivitettiin.
 waila.settings.feedback.updatedByOther=WAILA-asetuksesi päivitettiin pelaajan %s toimesta.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Päivitettiin pelaajan %s WAILA-asetukset.	## %s is where the player name would be
+
+commands.morph.description=Muutu olennoksi
+commands.morph.success=Muunnuit onnistuneesti

@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=돌아가기
 waila.settings.feedback.updatedSelf=WAILA 설정을 업데이트했습니다.
 waila.settings.feedback.updatedByOther=WAILA 설정이 %s에 의해 업데이트되었습니다.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=%s의 WAILA 설정을 업데이트했습니다.	## %s is where the player name would be
+
+commands.morph.description=몹으로 변신
+commands.morph.success=변신에 성공했습니다

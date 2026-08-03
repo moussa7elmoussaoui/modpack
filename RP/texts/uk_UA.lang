@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Повернутися
 waila.settings.feedback.updatedSelf=Ваші налаштування WAILA оновлено.
 waila.settings.feedback.updatedByOther=Ваші налаштування WAILA було оновлено %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Оновлено налаштування WAILA %s.	## %s is where the player name would be
+
+commands.morph.description=Перетворення на істоту
+commands.morph.success=Успішне перетворення

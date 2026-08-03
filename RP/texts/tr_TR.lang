@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Geri Dön
 waila.settings.feedback.updatedSelf=WAILA ayarlarınız güncellendi.
 waila.settings.feedback.updatedByOther=WAILA ayarlarınız %s tarafından güncellendi.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=%s'nin WAILA ayarları güncellendi.	## %s is where the player name would be
+
+commands.morph.description=Bir yaratığa dönüşme
+commands.morph.success=Başarıyla dönüştünüz

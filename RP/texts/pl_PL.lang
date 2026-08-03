@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Wróć
 waila.settings.feedback.updatedSelf=Zaktualizowano ustawienia WAILA.
 waila.settings.feedback.updatedByOther=Twoje ustawienia WAILA zostały zaktualizowane przez %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Zaktualizowano ustawienia WAILA %s.	## %s is where the player name would be
+
+commands.morph.description=Przemiana w stworzenie
+commands.morph.success=Pomyślnie przemieniono

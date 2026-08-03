@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Jít Zpět
 waila.settings.feedback.updatedSelf=Nastavení WAILA bylo aktualizováno.
 waila.settings.feedback.updatedByOther=Vaše nastavení WAILA bylo aktualizováno uživatelem %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Aktualizováno nastavení WAILA uživatele %s.	## %s is where the player name would be
+
+commands.morph.description=Proměna v bytost
+commands.morph.success=Úspěšně jste se proměnili

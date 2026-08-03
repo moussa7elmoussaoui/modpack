@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=返回
 waila.settings.feedback.updatedSelf=已更新您的 WAILA 设置。
 waila.settings.feedback.updatedByOther=您的 WAILA 设置已由 %s 更新。	## %s is where the player name would be
 waila.settings.feedback.updatedOther=已更新 %s 的 WAILA 设置。	## %s is where the player name would be
+
+commands.morph.description=变身为生物
+commands.morph.success=变身成功

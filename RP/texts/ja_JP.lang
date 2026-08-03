@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=戻る
 waila.settings.feedback.updatedSelf=WAILAの設定を更新しました。
 waila.settings.feedback.updatedByOther=あなたのWAILAの設定は%sによって更新されました。	## %s is where the player name would be
 waila.settings.feedback.updatedOther=%sのWAILA設定を更新しました。	## %s is where the player name would be
+
+commands.morph.description=生物に変身する
+commands.morph.success=変身に成功しました

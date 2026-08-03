@@ -46,3 +46,6 @@ waila.settings.experimental.cancel=Go Back
 waila.settings.feedback.updatedSelf=Updated your WAILA settings.
 waila.settings.feedback.updatedByOther=Your WAILA settings were updated by %s.
 waila.settings.feedback.updatedOther=Updated %s's WAILA settings.
+
+commands.morph.description=Morph into a mob
+commands.morph.success=Successfully morphed

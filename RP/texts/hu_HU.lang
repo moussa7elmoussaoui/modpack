@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Vissza
 waila.settings.feedback.updatedSelf=A WAILA beállításaid frissítve.
 waila.settings.feedback.updatedByOther=A WAILA beállításaidat frissítette: %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=%s WAILA beállításai frissítve.	## %s is where the player name would be
+
+commands.morph.description=Átváltozás lénnyé
+commands.morph.success=Sikeresen átváltoztál

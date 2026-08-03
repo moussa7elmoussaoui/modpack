@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Kembali
 waila.settings.feedback.updatedSelf=Pengaturan WAILA Anda telah diperbarui.
 waila.settings.feedback.updatedByOther=Pengaturan WAILA Anda telah diperbarui oleh %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Pengaturan WAILA %s telah diperbarui.	## %s is where the player name would be
+
+commands.morph.description=Berubah menjadi makhluk
+commands.morph.success=Berhasil berubah

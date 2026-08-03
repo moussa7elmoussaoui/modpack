@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Ga Terug
 waila.settings.feedback.updatedSelf=Je WAILA-instellingen zijn bijgewerkt.
 waila.settings.feedback.updatedByOther=Je WAILA-instellingen zijn bijgewerkt door %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=%s's WAILA-instellingen zijn bijgewerkt.	## %s is where the player name would be
+
+commands.morph.description=Verander in een wezen
+commands.morph.success=Succesvol veranderd

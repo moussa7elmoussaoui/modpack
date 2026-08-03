@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Gå tilbake
 waila.settings.feedback.updatedSelf=Oppdaterte WAILA-innstillingene dine.
 waila.settings.feedback.updatedByOther=WAILA-innstillingene dine ble oppdatert av %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Oppdaterte %ss WAILA-innstillinger.	## %s is where the player name would be
+
+commands.morph.description=Forvandle deg til et vesen
+commands.morph.success=Du ble forvandlet

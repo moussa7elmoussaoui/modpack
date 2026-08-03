@@ -43,3 +43,6 @@ waila.settings.experimental.cancel=Voltar
 waila.settings.feedback.updatedSelf=As tuas definições do WAILA foram atualizadas.
 waila.settings.feedback.updatedByOther=As tuas definições do WAILA foram atualizadas por %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=As definições do WAILA de %s foram atualizadas.	## %s is where the player name would be
+
+commands.morph.description=Transformar-te numa criatura
+commands.morph.success=Transformação bem-sucedida
