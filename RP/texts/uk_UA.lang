@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Колекція аддонів, об'єднаних в один модпак від DARK7MC.
+
+item.dark7mc:morphing_bracelet=Браслет метаморфози
+item.dark7mc:night_fury_fireball=Вогняна куля Нічної люті
+item.dark7mc:dragon_fireball=Вогняна куля дракона
+item.dark7mc:evoker_fangs=Ікла заклинателя
+item.dark7mc:fireball=Вогняна куля
+item.dark7mc:guardian_curse=Прокляття вартового
+item.dark7mc:llama_spit=Плювок лами
+item.dark7mc:small_fireball=Мала вогняна куля
+item.dark7mc:snowball=Сніжок
+item.dark7mc:sonic_boom=Звуковий бум
+item.dark7mc:soul_glass_bottle=Скляна пляшка душі
+item.dark7mc:soul_in_a_bottle=Душа в пляшці
+item.dark7mc:teleporter=Телепортер
+item.dark7mc:wind_charge=Заряд вітру
+item.dark7mc:wither_skull=Череп візера
+item.dark7mc:blue_wither_skull=Синій череп візера
 
 waila.settings.title=Налаштування WAILA
 waila.settings.title_for=Налаштування WAILA для %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=Ваші налаштування WAILA он
 waila.settings.feedback.updatedByOther=Ваші налаштування WAILA було оновлено %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Оновлено налаштування WAILA %s.	## %s is where the player name would be
 
-commands.morph.description=Перетворення на істоту
+morph.menu.title=Меню перетворення
+morph.item.attached_to=Прикріплено до:
+morph.shulker.invalid_location=Це місце недійсне, переконайтеся, що ви стоїте на твердому блоці!
+morph.bee.dying=Помирає через §c%ss§r
+morph.unavailable.vanilla=Ця істота в розробці і ще не додана.
+morph.unavailable.modded=Істоти з інших аддонів не підтримуються в цьому аддоні.
+death.attack.noStinger=%1$s відчув жало жертви
+
+subtitles.entity.player.morph=Гравець перетворюється
+tile.dark7mc:soul_glass.name=Скло душі
+
+commands.morph.description=Перетворює гравця на вказану істоту.
 commands.morph.success=Успішне перетворення
+
+commands.waila.description=Показує налаштування WAILA
+commands.waila.runOnPlayer=Цю команду може виконати лише гравець
+commands.waila.noTargets=Жодна ціль не відповідає селектору.
+commands.waila.selectOne=Виберіть лише одного гравця для редагування його налаштувань WAILA.
+commands.waila.noPermission=У вас немає дозволу редагувати налаштування WAILA інших гравців.
+commands.waila.success=Інтерфейс WAILA показано для %s

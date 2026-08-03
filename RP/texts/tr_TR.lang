@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=DARK7MC tarafından tek bir modpack'te birleştirilen eklenti koleksiyonu.
+
+item.dark7mc:morphing_bracelet=Dönüşüm bilekliği
+item.dark7mc:night_fury_fireball=Gece Öfkesi Ateş Topu
+item.dark7mc:dragon_fireball=Ejderha Ateş Topu
+item.dark7mc:evoker_fangs=Çağırıcı Dişleri
+item.dark7mc:fireball=Ateş topu
+item.dark7mc:guardian_curse=Muhafız laneti
+item.dark7mc:llama_spit=Lama tükürüğü
+item.dark7mc:small_fireball=Küçük ateş topu
+item.dark7mc:snowball=Kartopu
+item.dark7mc:sonic_boom=Sonik Patlama
+item.dark7mc:soul_glass_bottle=Ruh cam şişesi
+item.dark7mc:soul_in_a_bottle=Şişedeki ruh
+item.dark7mc:teleporter=Işınlayıcı
+item.dark7mc:wind_charge=Rüzgar yükü
+item.dark7mc:wither_skull=Wither kafatası
+item.dark7mc:blue_wither_skull=Mavi wither kafatası
 
 waila.settings.title=WAILA Ayarları
 waila.settings.title_for=%s için WAILA Ayarları	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=WAILA ayarlarınız güncellendi.
 waila.settings.feedback.updatedByOther=WAILA ayarlarınız %s tarafından güncellendi.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=%s'nin WAILA ayarları güncellendi.	## %s is where the player name would be
 
-commands.morph.description=Bir yaratığa dönüşme
+morph.menu.title=Dönüşüm Menüsü
+morph.item.attached_to=Bağlı:
+morph.shulker.invalid_location=Bu konum geçersiz, sağlam bir blok üzerinde durduğundan emin ol!
+morph.bee.dying=§c%ss§r içinde ölüyor
+morph.unavailable.vanilla=Bu yaratık geliştirme aşamasındadır ve henüz eklenmemiştir.
+morph.unavailable.modded=Diğer eklentilerdeki yaratıklar bu eklentide desteklenmez.
+death.attack.noStinger=%1$s fedakarlığın iğnesini hissetti
+
+subtitles.entity.player.morph=Oyuncu dönüşüyor
+tile.dark7mc:soul_glass.name=Ruh Camı
+
+commands.morph.description=Bir oyuncuyu belirtilen bir yaratığa dönüştürür.
 commands.morph.success=Başarıyla dönüştünüz
+
+commands.waila.description=WAILA seçeneklerini gösterir
+commands.waila.runOnPlayer=Bu komut yalnızca bir oyuncu tarafından çalıştırılabilir
+commands.waila.noTargets=Seçiciyle eşleşen hedef yok.
+commands.waila.selectOne=WAILA ayarlarını düzenlemek için yalnızca bir oyuncu seçin.
+commands.waila.noPermission=Diğer oyuncuların WAILA ayarlarını düzenleme izniniz yok.
+commands.waila.success=%s için WAILA arayüzü gösterildi

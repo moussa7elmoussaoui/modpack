@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=由DARK7MC合併為一個整合包的附加元件集合。
+
+item.dark7mc:morphing_bracelet=變身手環
+item.dark7mc:night_fury_fireball=夜煞火球
+item.dark7mc:dragon_fireball=龍火球
+item.dark7mc:evoker_fangs=喚魔者尖牙
+item.dark7mc:fireball=火球
+item.dark7mc:guardian_curse=深海守衛詛咒
+item.dark7mc:llama_spit=羊駝口水
+item.dark7mc:small_fireball=小火球
+item.dark7mc:snowball=雪球
+item.dark7mc:sonic_boom=音爆
+item.dark7mc:soul_glass_bottle=靈魂玻璃瓶
+item.dark7mc:soul_in_a_bottle=瓶中靈魂
+item.dark7mc:teleporter=傳送器
+item.dark7mc:wind_charge=風彈
+item.dark7mc:wither_skull=凋零骷髏頭
+item.dark7mc:blue_wither_skull=藍色凋零骷髏頭
 
 waila.settings.title=WAILA設定
 waila.settings.title_for=WAILA針對 %s 的設定	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=已更新您的WAILA設定。
 waila.settings.feedback.updatedByOther=您的WAILA設定已由 %s 更新。	## %s is where the player name would be
 waila.settings.feedback.updatedOther=已更新 %s 的WAILA設定。	## %s is where the player name would be
 
-commands.morph.description=變身為生物
+morph.menu.title=變身選單
+morph.item.attached_to=附加於:
+morph.shulker.invalid_location=此位置無效，請確保你站在實心方塊上！
+morph.bee.dying=§c%ss§r 後死亡
+morph.unavailable.vanilla=此生物正在開發中，尚未加入。
+morph.unavailable.modded=此附加包不支援其他附加包中的生物。
+death.attack.noStinger=%1$s 感受到了犧牲之刺
+
+subtitles.entity.player.morph=玩家變身
+tile.dark7mc:soul_glass.name=靈魂玻璃
+
+commands.morph.description=將玩家變身為指定的生物。
 commands.morph.success=變身成功
+
+commands.waila.description=顯示 WAILA 選項
+commands.waila.runOnPlayer=此指令只能由玩家執行
+commands.waila.noTargets=沒有目標與選擇器相符。
+commands.waila.selectOne=請只選擇一個玩家來編輯其 WAILA 設定。
+commands.waila.noPermission=您沒有權限編輯其他玩家的 WAILA 設定。
+commands.waila.success=已為 %s 顯示 WAILA 介面

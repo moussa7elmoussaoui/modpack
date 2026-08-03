@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=DARK7MC가 하나의 모드팩으로 병합한 애드온 모음입니다.
+
+item.dark7mc:morphing_bracelet=변신 팔찌
+item.dark7mc:night_fury_fireball=나이트 퓨리 파이어볼
+item.dark7mc:dragon_fireball=드래곤 파이어볼
+item.dark7mc:evoker_fangs=소환사 송곳니
+item.dark7mc:fireball=파이어볼
+item.dark7mc:guardian_curse=가디언의 저주
+item.dark7mc:llama_spit=라마 침
+item.dark7mc:small_fireball=작은 파이어볼
+item.dark7mc:snowball=눈덩이
+item.dark7mc:sonic_boom=소닉 붐
+item.dark7mc:soul_glass_bottle=영혼 유리병
+item.dark7mc:soul_in_a_bottle=병 속의 영혼
+item.dark7mc:teleporter=순간이동기
+item.dark7mc:wind_charge=바람 충전
+item.dark7mc:wither_skull=위더 해골
+item.dark7mc:blue_wither_skull=파란 위더 해골
 
 waila.settings.title=WAILA 설정
 waila.settings.title_for=WAILA 설정 - %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=WAILA 설정을 업데이트했습니다.
 waila.settings.feedback.updatedByOther=WAILA 설정이 %s에 의해 업데이트되었습니다.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=%s의 WAILA 설정을 업데이트했습니다.	## %s is where the player name would be
 
-commands.morph.description=몹으로 변신
+morph.menu.title=변신 메뉴
+morph.item.attached_to=부착 대상:
+morph.shulker.invalid_location=이 위치는 유효하지 않습니다. 단단한 블록 위에 서 있는지 확인하세요!
+morph.bee.dying=§c%ss§r 후 사망
+morph.unavailable.vanilla=이 몹은 개발 중이며 아직 추가되지 않았습니다.
+morph.unavailable.modded=다른 애드온의 몹은 이 애드온에서 지원되지 않습니다.
+death.attack.noStinger=%1$s이(가) 희생의 침을 느꼈습니다
+
+subtitles.entity.player.morph=플레이어가 변신
+tile.dark7mc:soul_glass.name=영혼 유리
+
+commands.morph.description=플레이어를 지정된 몹으로 변신시킵니다.
 commands.morph.success=변신에 성공했습니다
+
+commands.waila.description=WAILA 옵션을 표시합니다
+commands.waila.runOnPlayer=이 명령은 플레이어만 실행할 수 있습니다
+commands.waila.noTargets=선택기와 일치하는 대상이 없습니다.
+commands.waila.selectOne=WAILA 설정을 편집할 플레이어를 한 명만 선택하세요.
+commands.waila.noPermission=다른 플레이어의 WAILA 설정을 편집할 권한이 없습니다.
+commands.waila.success=%s 에게 WAILA UI를 표시했습니다

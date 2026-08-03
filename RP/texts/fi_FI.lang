@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Kokoelma addoneita, jotka on yhdistetty yhdeksi modpackiksi DARK7MC:n toimesta.
+
+item.dark7mc:morphing_bracelet=Muodonmuutosranneke
+item.dark7mc:night_fury_fireball=Yöraivon tulipallo
+item.dark7mc:dragon_fireball=Lohikäärmeen tulipallo
+item.dark7mc:evoker_fangs=Manaajan hampaat
+item.dark7mc:fireball=Tulipallo
+item.dark7mc:guardian_curse=Vartijan kirous
+item.dark7mc:llama_spit=Laaman sylki
+item.dark7mc:small_fireball=Pieni tulipallo
+item.dark7mc:snowball=Lumipallo
+item.dark7mc:sonic_boom=Sonic boom
+item.dark7mc:soul_glass_bottle=Sielulasipullo
+item.dark7mc:soul_in_a_bottle=Sielu pullossa
+item.dark7mc:teleporter=Teleportteri
+item.dark7mc:wind_charge=Tuulivaraus
+item.dark7mc:wither_skull=Witherin kallo
+item.dark7mc:blue_wither_skull=Sininen witherin kallo
 
 waila.settings.title=WAILA-asetukset
 waila.settings.title_for=WAILA-asetukset pelaajalle %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=WAILA-asetuksesi päivitettiin.
 waila.settings.feedback.updatedByOther=WAILA-asetuksesi päivitettiin pelaajan %s toimesta.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Päivitettiin pelaajan %s WAILA-asetukset.	## %s is where the player name would be
 
-commands.morph.description=Muutu olennoksi
+morph.menu.title=Muodonmuutosvalikko
+morph.item.attached_to=Liitetty:
+morph.shulker.invalid_location=Tämä sijainti on virheellinen, varmista että seisot kiinteällä lohkolla!
+morph.bee.dying=Kuolee §c%ss§r kuluttua
+morph.unavailable.vanilla=Tämä olento on kehitteillä eikä sitä ole vielä lisätty.
+morph.unavailable.modded=Muiden lisäosien olennot eivät ole tuettuja tässä lisäosassa.
+death.attack.noStinger=%1$s tunsi uhrauksen piston
+
+subtitles.entity.player.morph=Pelaaja muuttuu
+tile.dark7mc:soul_glass.name=Sielulasi
+
+commands.morph.description=Muuttaa pelaajan määrättyyn olentoon.
 commands.morph.success=Muunnuit onnistuneesti
+
+commands.waila.description=Näyttää WAILA-asetukset
+commands.waila.runOnPlayer=Tämän komennon voi suorittaa vain pelaaja
+commands.waila.noTargets=Mikään kohde ei vastannut valitsinta.
+commands.waila.selectOne=Valitse vain yksi pelaaja muokataksesi hänen WAILA-asetuksiaan.
+commands.waila.noPermission=Sinulla ei ole oikeutta muokata muiden pelaajien WAILA-asetuksia.
+commands.waila.success=WAILA-käyttöliittymä näytetty pelaajalle %s

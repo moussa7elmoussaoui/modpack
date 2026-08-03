@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Eine Sammlung von Addons, die von DARK7MC zu einem Modpack zusammengeführt wurden.
+
+item.dark7mc:morphing_bracelet=Morphing-Armband
+item.dark7mc:night_fury_fireball=Nachtfury-Feuerball
+item.dark7mc:dragon_fireball=Drachenfeuerball
+item.dark7mc:evoker_fangs=Evoker-Fänge
+item.dark7mc:fireball=Feuerball
+item.dark7mc:guardian_curse=Wächterfluch
+item.dark7mc:llama_spit=Lama-Spucke
+item.dark7mc:small_fireball=Kleiner Feuerball
+item.dark7mc:snowball=Schneeball
+item.dark7mc:sonic_boom=Schallstoß
+item.dark7mc:soul_glass_bottle=Seelenglasflasche
+item.dark7mc:soul_in_a_bottle=Seele in einer Flasche
+item.dark7mc:teleporter=Teleporter
+item.dark7mc:wind_charge=Windladung
+item.dark7mc:wither_skull=Wither-Schädel
+item.dark7mc:blue_wither_skull=Blauer Wither-Schädel
 
 waila.settings.title=WAILA Einstellungen
 waila.settings.title_for=WAILA Einstellungen für %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=Deine WAILA Einstellungen wurden aktualisier
 waila.settings.feedback.updatedByOther=Deine WAILA Einstellungen wurden von %s aktualisiert.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Die WAILA Einstellungen von %s wurden aktualisiert.	## %s is where the player name would be
 
-commands.morph.description=Verwandlung in eine Kreatur
+morph.menu.title=Morph-Menü
+morph.item.attached_to=Angehängt an:
+morph.shulker.invalid_location=Dieser Ort ist ungültig, stelle sicher, dass du auf einem festen Block stehst!
+morph.bee.dying=Stirbt in §c%ss§r
+morph.unavailable.vanilla=Diese Kreatur ist noch in Entwicklung und wurde noch nicht hinzugefügt.
+morph.unavailable.modded=Kreaturen aus anderen Add-ons werden in diesem Add-on nicht unterstützt.
+death.attack.noStinger=%1$s spürte den Stich der Aufopferung
+
+subtitles.entity.player.morph=Spieler verwandelt sich
+tile.dark7mc:soul_glass.name=Seelenglas
+
+commands.morph.description=Verwandelt einen Spieler in eine bestimmte Kreatur.
 commands.morph.success=Erfolgreich verwandelt
+
+commands.waila.description=Zeigt die WAILA-Optionen
+commands.waila.runOnPlayer=Dieser Befehl kann nur von einem Spieler ausgeführt werden
+commands.waila.noTargets=Keine Ziele stimmten mit dem Selektor überein.
+commands.waila.selectOne=Bitte wähle nur einen Spieler aus, für den WAILA-Einstellungen bearbeitet werden sollen.
+commands.waila.noPermission=Du hast keine Berechtigung, die WAILA-Einstellungen anderer Spieler zu bearbeiten.
+commands.waila.success=WAILA-Oberfläche für %s angezeigt

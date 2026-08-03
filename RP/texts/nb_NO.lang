@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=En samling av addons som er slått sammen til én modpack av DARK7MC.
+
+item.dark7mc:morphing_bracelet=Forvandlingsarmbånd
+item.dark7mc:night_fury_fireball=Nattfury-ildkule
+item.dark7mc:dragon_fireball=Drage-ildkule
+item.dark7mc:evoker_fangs=Evoker-tenner
+item.dark7mc:fireball=Ildkule
+item.dark7mc:guardian_curse=Vokterens forbannelse
+item.dark7mc:llama_spit=Lamaspytt
+item.dark7mc:small_fireball=Liten ildkule
+item.dark7mc:snowball=Snøball
+item.dark7mc:sonic_boom=Sonic boom
+item.dark7mc:soul_glass_bottle=Sjeleglassflaske
+item.dark7mc:soul_in_a_bottle=Sjel i en flaske
+item.dark7mc:teleporter=Teleporter
+item.dark7mc:wind_charge=Vindladning
+item.dark7mc:wither_skull=Wither-hodeskalle
+item.dark7mc:blue_wither_skull=Blå wither-hodeskalle
 
 waila.settings.title=WAILA-innstillinger
 waila.settings.title_for=WAILA-innstillinger for %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=Oppdaterte WAILA-innstillingene dine.
 waila.settings.feedback.updatedByOther=WAILA-innstillingene dine ble oppdatert av %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Oppdaterte %ss WAILA-innstillinger.	## %s is where the player name would be
 
-commands.morph.description=Forvandle deg til et vesen
+morph.menu.title=Forvandlingsmeny
+morph.item.attached_to=Festet til:
+morph.shulker.invalid_location=Denne plasseringen er ugyldig, sørg for at du står på en solid blokk!
+morph.bee.dying=Dør om §c%ss§r
+morph.unavailable.vanilla=Dette vesenet er under utvikling og er ennå ikke lagt til.
+morph.unavailable.modded=Vesener fra andre tillegg støttes ikke i dette tillegget.
+death.attack.noStinger=%1$s følte offerets brodd
+
+subtitles.entity.player.morph=Spiller forvandler seg
+tile.dark7mc:soul_glass.name=Sjeleglass
+
+commands.morph.description=Forvandler en spiller til et bestemt vesen.
 commands.morph.success=Du ble forvandlet
+
+commands.waila.description=Viser WAILA-alternativene
+commands.waila.runOnPlayer=Denne kommandoen kan bare utføres av en spiller
+commands.waila.noTargets=Ingen mål samsvarte med markøren.
+commands.waila.selectOne=Velg bare én spiller for å redigere deres WAILA-innstillinger.
+commands.waila.noPermission=Du har ikke tillatelse til å redigere andre spilleres WAILA-innstillinger.
+commands.waila.success=WAILA-grensesnitt vist for %s

@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Addonok gyűjteménye, amelyeket DARK7MC egyetlen modpackba egyesített.
+
+item.dark7mc:morphing_bracelet=Átváltoztató karkötő
+item.dark7mc:night_fury_fireball=Éjszakai Fúria tűzgömbje
+item.dark7mc:dragon_fireball=Sárkány tűzgömb
+item.dark7mc:evoker_fangs=Idéző agyarai
+item.dark7mc:fireball=Tűzgömb
+item.dark7mc:guardian_curse=Őrző átka
+item.dark7mc:llama_spit=Láma köpés
+item.dark7mc:small_fireball=Kis tűzgömb
+item.dark7mc:snowball=Hógolyó
+item.dark7mc:sonic_boom=Hangrobbanás
+item.dark7mc:soul_glass_bottle=Léleküveg palack
+item.dark7mc:soul_in_a_bottle=Lélek a palackban
+item.dark7mc:teleporter=Teleporter
+item.dark7mc:wind_charge=Széllökés
+item.dark7mc:wither_skull=Wither koponya
+item.dark7mc:blue_wither_skull=Kék wither koponya
 
 waila.settings.title=WAILA Beállítások
 waila.settings.title_for=WAILA beállítások: %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=A WAILA beállításaid frissítve.
 waila.settings.feedback.updatedByOther=A WAILA beállításaidat frissítette: %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=%s WAILA beállításai frissítve.	## %s is where the player name would be
 
-commands.morph.description=Átváltozás lénnyé
+morph.menu.title=Átváltozás menü
+morph.item.attached_to=Hozzácsatolva:
+morph.shulker.invalid_location=Ez a hely érvénytelen, győződj meg róla, hogy szilárd blokkon állsz!
+morph.bee.dying=Meghal §c%ss§r múlva
+morph.unavailable.vanilla=Ez a lény fejlesztés alatt áll, és még nem lett hozzáadva.
+morph.unavailable.modded=Más kiegészítők lényei nem támogatottak ebben a kiegészítőben.
+death.attack.noStinger=%1$s érezte az áldozat fullánkját
+
+subtitles.entity.player.morph=A játékos átváltozik
+tile.dark7mc:soul_glass.name=Léleküveg
+
+commands.morph.description=Egy játékost egy megadott lénnyé változtat.
 commands.morph.success=Sikeresen átváltoztál
+
+commands.waila.description=Megjeleníti a WAILA beállításokat
+commands.waila.runOnPlayer=Ezt a parancsot csak játékos hajthatja végre
+commands.waila.noTargets=Egyetlen cél sem egyezett a kiválasztóval.
+commands.waila.selectOne=Csak egy játékost válassz a WAILA beállításainak szerkesztéséhez.
+commands.waila.noPermission=Nincs jogosultságod más játékosok WAILA beállításainak szerkesztéséhez.
+commands.waila.success=WAILA felület megjelenítve: %s

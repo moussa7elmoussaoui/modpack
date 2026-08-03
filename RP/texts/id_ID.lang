@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Kumpulan addon yang digabungkan menjadi satu modpack oleh DARK7MC.
+
+item.dark7mc:morphing_bracelet=Gelang metamorfosis
+item.dark7mc:night_fury_fireball=Bola api Night Fury
+item.dark7mc:dragon_fireball=Bola api naga
+item.dark7mc:evoker_fangs=Taring Evoker
+item.dark7mc:fireball=Bola api
+item.dark7mc:guardian_curse=Kutukan penjaga
+item.dark7mc:llama_spit=Ludah Llama
+item.dark7mc:small_fireball=Bola api kecil
+item.dark7mc:snowball=Bola salju
+item.dark7mc:sonic_boom=Ledakan Sonik
+item.dark7mc:soul_glass_bottle=Botol kaca jiwa
+item.dark7mc:soul_in_a_bottle=Jiwa di dalam botol
+item.dark7mc:teleporter=Teleporter
+item.dark7mc:wind_charge=Muatan Angin
+item.dark7mc:wither_skull=Tengkorak wither
+item.dark7mc:blue_wither_skull=Tengkorak wither biru
 
 waila.settings.title=Pengaturan WAILA
 waila.settings.title_for=Pengaturan WAILA untuk %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=Pengaturan WAILA Anda telah diperbarui.
 waila.settings.feedback.updatedByOther=Pengaturan WAILA Anda telah diperbarui oleh %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Pengaturan WAILA %s telah diperbarui.	## %s is where the player name would be
 
-commands.morph.description=Berubah menjadi makhluk
+morph.menu.title=Menu metamorfosis
+morph.item.attached_to=Terpasang pada:
+morph.shulker.invalid_location=Lokasi ini tidak valid, pastikan kamu berdiri di atas blok padat!
+morph.bee.dying=Mati dalam §c%ss§r
+morph.unavailable.vanilla=Makhluk ini sedang dalam pengembangan dan belum ditambahkan.
+morph.unavailable.modded=Makhluk dari add-on lain tidak didukung dalam add-on ini.
+death.attack.noStinger=%1$s merasakan sengatan pengorbanan
+
+subtitles.entity.player.morph=Pemain berubah
+tile.dark7mc:soul_glass.name=Kaca Jiwa
+
+commands.morph.description=Mengubah pemain menjadi makhluk yang ditentukan.
 commands.morph.success=Berhasil berubah
+
+commands.waila.description=Menampilkan opsi WAILA
+commands.waila.runOnPlayer=Perintah ini hanya dapat dijalankan oleh pemain
+commands.waila.noTargets=Tidak ada target yang cocok dengan pemilih.
+commands.waila.selectOne=Pilih hanya satu pemain untuk mengedit pengaturan WAILA mereka.
+commands.waila.noPermission=Kamu tidak memiliki izin untuk mengedit pengaturan WAILA pemain lain.
+commands.waila.success=Antarmuka WAILA ditampilkan untuk %s

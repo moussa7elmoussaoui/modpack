@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Una raccolta di addon fusi in un unico modpack da DARK7MC.
+
+item.dark7mc:morphing_bracelet=Bracciale di metamorfosi
+item.dark7mc:night_fury_fireball=Palla di fuoco della Furia Notturna
+item.dark7mc:dragon_fireball=Palla di fuoco del drago
+item.dark7mc:evoker_fangs=Zanne dell'evocatore
+item.dark7mc:fireball=Palla di fuoco
+item.dark7mc:guardian_curse=Maledizione del guardiano
+item.dark7mc:llama_spit=Sputo di lama
+item.dark7mc:small_fireball=Piccola palla di fuoco
+item.dark7mc:snowball=Palla di neve
+item.dark7mc:sonic_boom=Boom sonico
+item.dark7mc:soul_glass_bottle=Boccia di vetro dell'anima
+item.dark7mc:soul_in_a_bottle=Anima in una bottiglia
+item.dark7mc:teleporter=Teletrasportatore
+item.dark7mc:wind_charge=Carica di vento
+item.dark7mc:wither_skull=Teschio del wither
+item.dark7mc:blue_wither_skull=Teschio del wither blu
 
 waila.settings.title=Impostazioni WAILA
 waila.settings.title_for=Impostazioni WAILA per %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=Impostazioni WAILA aggiornate.
 waila.settings.feedback.updatedByOther=Le tue impostazioni WAILA sono state aggiornate da %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Impostazioni WAILA di %s aggiornate.	## %s is where the player name would be
 
-commands.morph.description=Trasformati in una creatura
-commands.morph.success=Trasformazione riuscita
+morph.menu.title=Menu di metamorfosi
+morph.item.attached_to=Collegato a:
+morph.shulker.invalid_location=Questa posizione non è valida, assicurati di essere su un blocco solido!
+morph.bee.dying=Muore in §c%ss§r
+morph.unavailable.vanilla=Questa creatura è in sviluppo e non è stata ancora aggiunta.
+morph.unavailable.modded=Le creature di altri add-on non sono supportate in questo add-on.
+death.attack.noStinger=%1$s ha sentito il pungiglione del sacrificio
+
+subtitles.entity.player.morph=Il giocatore si trasforma
+tile.dark7mc:soul_glass.name=Vetro dell'anima
+
+commands.morph.description=Trasforma un giocatore in una creatura specificata.
+commands.morph.success=Trasformato con successo
+
+commands.waila.description=Mostra le opzioni di WAILA
+commands.waila.runOnPlayer=Questo comando può essere eseguito solo da un giocatore
+commands.waila.noTargets=Nessun bersaglio corrisponde al selettore.
+commands.waila.selectOne=Seleziona un solo giocatore per modificare le sue impostazioni WAILA.
+commands.waila.noPermission=Non hai il permesso di modificare le impostazioni WAILA di altri giocatori.
+commands.waila.success=Interfaccia WAILA mostrata per %s

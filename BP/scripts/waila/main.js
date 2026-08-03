@@ -5564,7 +5564,7 @@ var D = class {
 var H = class {
   constructor() {
     a(this, 'name', H.NAMESPACE + ':waila')
-    a(this, 'description', 'Shows the WAILA options')
+    a(this, 'description', 'commands.waila.description')
     a(this, 'permissionLevel', Ne.Any)
     a(this, 'cheatsRequired', !1)
     a(this, 'optionalParameters', [{ name: 'player', type: Nr.PlayerSelector }])
@@ -5574,21 +5574,19 @@ var H = class {
     return !r || !r.isValid || !(r instanceof zr)
       ? {
           status: ft.Failure,
-          message: 'This command can only be run on a player',
+          message: 'commands.waila.runOnPlayer',
         }
       : e && e.length === 0
-        ? { status: ft.Failure, message: 'No targets matched the selector.' }
+        ? { status: ft.Failure, message: 'commands.waila.noTargets' }
         : e && e.length > 1
           ? {
               status: ft.Failure,
-              message:
-                'Please select only one player to edit WAILA settings for.',
+              message: 'commands.waila.selectOne',
             }
           : e && e?.[0].id !== r.id && r.commandPermissionLevel < Ne.Admin
             ? {
                 status: ft.Failure,
-                message:
-                  "You do not have permission to edit other players' WAILA settings.",
+                message: 'commands.waila.noPermission',
               }
             : (Wr.run(() => {
                 Ut.showUI(r, e?.[0])
@@ -5596,7 +5594,10 @@ var H = class {
               H.log.info(
                 `Displayed to: ${r.name}, editing: ${e?.[0].name ?? 'self'}`,
               ),
-              { status: ft.Success, message: `WAILA UI shown for ${r.name}` })
+              {
+                status: ft.Success,
+                message: { translate: 'commands.waila.success', with: [r.name] },
+              })
   }
 }
 ;(a(H, 'NAMESPACE', D.NAMESPACE),

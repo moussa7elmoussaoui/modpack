@@ -1,8 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=A collection of addons merged into one modpack by DARK7MC.
 
 item.dark7mc:morphing_bracelet=Morphing Bracelet
 item.dark7mc:night_fury_fireball=Night Fury Fireball
+item.dark7mc:dragon_fireball=Dragon Fireball
+item.dark7mc:evoker_fangs=Evoker Fangs
+item.dark7mc:fireball=Fireball
+item.dark7mc:guardian_curse=Guardian Curse
+item.dark7mc:llama_spit=Llama Spit
+item.dark7mc:small_fireball=Small Fireball
+item.dark7mc:snowball=Snowball
+item.dark7mc:sonic_boom=Sonic Boom
+item.dark7mc:soul_glass_bottle=Soul Glass Bottle
+item.dark7mc:soul_in_a_bottle=Soul in a Bottle
+item.dark7mc:teleporter=Teleporter
+item.dark7mc:wind_charge=Wind Charge
+item.dark7mc:wither_skull=Wither Skull
+item.dark7mc:blue_wither_skull=Blue Wither Skull
 
 waila.settings.title=WAILA Settings
 waila.settings.title_for=WAILA Settings for %s
@@ -47,5 +61,23 @@ waila.settings.feedback.updatedSelf=Updated your WAILA settings.
 waila.settings.feedback.updatedByOther=Your WAILA settings were updated by %s.
 waila.settings.feedback.updatedOther=Updated %s's WAILA settings.
 
-commands.morph.description=Morph into a mob
-commands.morph.success=Successfully morphed
+morph.menu.title=Morph Menu
+morph.item.attached_to=Attached to:
+morph.shulker.invalid_location=This location is invalid, make sure you are standing on a solid block!
+morph.bee.dying=Dying in §c%ss§r
+morph.unavailable.vanilla=This mob is currently in development and has not been added yet.
+morph.unavailable.modded=Mobs from other add-ons are not supported in this add-on.
+death.attack.noStinger=%1$s felt the sting of sacrifice
+
+subtitles.entity.player.morph=Player morphs
+tile.dark7mc:soul_glass.name=Soul Glass
+
+commands.morph.description=Morphs a player into a specified mob.
+commands.morph.success=Morphed successfully
+
+commands.waila.description=Shows the WAILA options
+commands.waila.runOnPlayer=This command can only be run on a player
+commands.waila.noTargets=No targets matched the selector.
+commands.waila.selectOne=Please select only one player to edit WAILA settings for.
+commands.waila.noPermission=You do not have permission to edit other players' WAILA settings.
+commands.waila.success=WAILA UI shown for %s

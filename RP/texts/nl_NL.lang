@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Een verzameling addons samengevoegd tot één modpack door DARK7MC.
+
+item.dark7mc:morphing_bracelet=Metamorfose-armband
+item.dark7mc:night_fury_fireball=Nachtfurië-vuurbal
+item.dark7mc:dragon_fireball=Drakenvuurbal
+item.dark7mc:evoker_fangs=Oproepershoektanden
+item.dark7mc:fireball=Vuurbal
+item.dark7mc:guardian_curse=Vloek van de bewaker
+item.dark7mc:llama_spit=Lamaspuug
+item.dark7mc:small_fireball=Kleine vuurbal
+item.dark7mc:snowball=Sneeuwbal
+item.dark7mc:sonic_boom=Sonicboom
+item.dark7mc:soul_glass_bottle=Zielenglazen fles
+item.dark7mc:soul_in_a_bottle=Ziel in een fles
+item.dark7mc:teleporter=Teleporter
+item.dark7mc:wind_charge=Windlading
+item.dark7mc:wither_skull=Wither-schedel
+item.dark7mc:blue_wither_skull=Blauwe wither-schedel
 
 waila.settings.title=WAILA Instellingen
 waila.settings.title_for=WAILA-instellingen voor %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=Je WAILA-instellingen zijn bijgewerkt.
 waila.settings.feedback.updatedByOther=Je WAILA-instellingen zijn bijgewerkt door %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=%s's WAILA-instellingen zijn bijgewerkt.	## %s is where the player name would be
 
-commands.morph.description=Verander in een wezen
+morph.menu.title=Morfmenu
+morph.item.attached_to=Bevestigd aan:
+morph.shulker.invalid_location=Deze locatie is ongeldig, zorg dat je op een stevig blok staat!
+morph.bee.dying=Sterft over §c%ss§r
+morph.unavailable.vanilla=Dit wezen is in ontwikkeling en is nog niet toegevoegd.
+morph.unavailable.modded=Wezens uit andere add-ons worden niet ondersteund in deze add-on.
+death.attack.noStinger=%1$s voelde de steek van opoffering
+
+subtitles.entity.player.morph=Speler verandert
+tile.dark7mc:soul_glass.name=Zielenglas
+
+commands.morph.description=Verandert een speler in een opgegeven wezen.
 commands.morph.success=Succesvol veranderd
+
+commands.waila.description=Toont de WAILA-opties
+commands.waila.runOnPlayer=Dit commando kan alleen door een speler worden uitgevoerd
+commands.waila.noTargets=Geen doelen kwamen overeen met de selector.
+commands.waila.selectOne=Selecteer slechts één speler om de WAILA-instellingen te bewerken.
+commands.waila.noPermission=Je hebt geen toestemming om de WAILA-instellingen van andere spelers te bewerken.
+commands.waila.success=WAILA-interface getoond voor %s

@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Колекция от добавки, обединени в един модпак от DARK7MC.
+
+item.dark7mc:morphing_bracelet=Трансформираща гривна
+item.dark7mc:night_fury_fireball=Огнена топка на Нощна фурия
+item.dark7mc:dragon_fireball=Драконова огнена топка
+item.dark7mc:evoker_fangs=Зъби на призовавач
+item.dark7mc:fireball=Огнена топка
+item.dark7mc:guardian_curse=Проклятие на пазителя
+item.dark7mc:llama_spit=Лама плюнка
+item.dark7mc:small_fireball=Малка огнена топка
+item.dark7mc:snowball=Снежна топка
+item.dark7mc:sonic_boom=Звуков бум
+item.dark7mc:soul_glass_bottle=Стъклена бутилка за душа
+item.dark7mc:soul_in_a_bottle=Душа в бутилка
+item.dark7mc:teleporter=Телепортер
+item.dark7mc:wind_charge=Вятърен заряд
+item.dark7mc:wither_skull=Череп на уидър
+item.dark7mc:blue_wither_skull=Син череп на уидър
 
 waila.settings.title=Настройки на WAILA
 waila.settings.title_for=Настройки на WAILA за %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=Актуализирани са вашите
 waila.settings.feedback.updatedByOther=Вашите WAILA настройки бяха актуализирани от %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Актуализирани са WAILA настройките на %s.	## %s is where the player name would be
 
-commands.morph.description=Превръщане в същество
+morph.menu.title=Меню за превръщане
+morph.item.attached_to=Прикрепено към:
+morph.shulker.invalid_location=Това място е невалидно, уверете се, че стоите върху твърд блок!
+morph.bee.dying=Умира след §c%ss§r
+morph.unavailable.vanilla=Това същество е в процес на разработка и все още не е добавено.
+morph.unavailable.modded=Същества от други добавки не се поддържат в тази добавка.
+death.attack.noStinger=%1$s усети жилото на жертвата
+
+subtitles.entity.player.morph=Играчът се превръща
+tile.dark7mc:soul_glass.name=Стъкло на душата
+
+commands.morph.description=Превръща играч в определено същество.
 commands.morph.success=Успешно се превърнахте
+
+commands.waila.description=Показва опциите на WAILA
+commands.waila.runOnPlayer=Тази команда може да се изпълнява само от играч
+commands.waila.noTargets=Нито една цел не съвпадна със селектора.
+commands.waila.selectOne=Изберете само един играч, за да редактирате неговите WAILA настройки.
+commands.waila.noPermission=Нямате разрешение да редактирате WAILA настройките на други играчи.
+commands.waila.success=WAILA интерфейсът е показан за %s

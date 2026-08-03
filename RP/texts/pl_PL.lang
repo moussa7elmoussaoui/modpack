@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Kolekcja addonów połączonych w jeden modpack przez DARK7MC.
+
+item.dark7mc:morphing_bracelet=Bransoleta metamorfozy
+item.dark7mc:night_fury_fireball=Kula ognia Nocnej Furii
+item.dark7mc:dragon_fireball=Smocza kula ognia
+item.dark7mc:evoker_fangs=Kły przywoływacza
+item.dark7mc:fireball=Kula ognia
+item.dark7mc:guardian_curse=Klątwa strażnika
+item.dark7mc:llama_spit=Ślina lamy
+item.dark7mc:small_fireball=Mała kula ognia
+item.dark7mc:snowball=Śnieżka
+item.dark7mc:sonic_boom=Soniczny boom
+item.dark7mc:soul_glass_bottle=Szklana butelka duszy
+item.dark7mc:soul_in_a_bottle=Dusza w butelce
+item.dark7mc:teleporter=Teleporter
+item.dark7mc:wind_charge=Podmuch wiatru
+item.dark7mc:wither_skull=Czaszka withera
+item.dark7mc:blue_wither_skull=Niebieska czaszka withera
 
 waila.settings.title=Ustawienia WAILA
 waila.settings.title_for=Ustawienia WAILA dla %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=Zaktualizowano ustawienia WAILA.
 waila.settings.feedback.updatedByOther=Twoje ustawienia WAILA zostały zaktualizowane przez %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Zaktualizowano ustawienia WAILA %s.	## %s is where the player name would be
 
-commands.morph.description=Przemiana w stworzenie
+morph.menu.title=Menu metamorfozy
+morph.item.attached_to=Dołączone do:
+morph.shulker.invalid_location=Ta lokalizacja jest nieprawidłowa, upewnij się, że stoisz na stałym bloku!
+morph.bee.dying=Umiera za §c%ss§r
+morph.unavailable.vanilla=To stworzenie jest w trakcie rozwoju i nie zostało jeszcze dodane.
+morph.unavailable.modded=Stworzenia z innych dodatków nie są obsługiwane w tym dodatku.
+death.attack.noStinger=%1$s poczuł żądło poświęcenia
+
+subtitles.entity.player.morph=Gracz się przemienia
+tile.dark7mc:soul_glass.name=Szklana dusza
+
+commands.morph.description=Zamienia gracza w określone stworzenie.
 commands.morph.success=Pomyślnie przemieniono
+
+commands.waila.description=Pokazuje opcje WAILA
+commands.waila.runOnPlayer=Ta komenda może być wykonana tylko przez gracza
+commands.waila.noTargets=Żaden cel nie pasuje do selektora.
+commands.waila.selectOne=Wybierz tylko jednego gracza, aby edytować jego ustawienia WAILA.
+commands.waila.noPermission=Nie masz uprawnień do edytowania ustawień WAILA innych graczy.
+commands.waila.success=Interfejs WAILA pokazany dla %s

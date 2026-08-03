@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=DARK7MCによって1つのmodpackに統合されたアドオンのコレクション。
+
+item.dark7mc:morphing_bracelet=モーフィングブレスレット
+item.dark7mc:night_fury_fireball=ナイトフューリーの火球
+item.dark7mc:dragon_fireball=ドラゴンの火球
+item.dark7mc:evoker_fangs=エヴォーカーの牙
+item.dark7mc:fireball=火球
+item.dark7mc:guardian_curse=ガーディアンの呪い
+item.dark7mc:llama_spit=ラマの唾
+item.dark7mc:small_fireball=小さな火球
+item.dark7mc:snowball=雪玉
+item.dark7mc:sonic_boom=ソニックブーム
+item.dark7mc:soul_glass_bottle=ソウルガラス瓶
+item.dark7mc:soul_in_a_bottle=瓶の中の魂
+item.dark7mc:teleporter=テレポーター
+item.dark7mc:wind_charge=ウインドチャージ
+item.dark7mc:wither_skull=ウィザーの頭蓋骨
+item.dark7mc:blue_wither_skull=青いウィザーの頭蓋骨
 
 waila.settings.title=WAILAの設定
 waila.settings.title_for=WAILAの設定（%s）	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=WAILAの設定を更新しました。
 waila.settings.feedback.updatedByOther=あなたのWAILAの設定は%sによって更新されました。	## %s is where the player name would be
 waila.settings.feedback.updatedOther=%sのWAILA設定を更新しました。	## %s is where the player name would be
 
-commands.morph.description=生物に変身する
+morph.menu.title=モーフメニュー
+morph.item.attached_to=装着先:
+morph.shulker.invalid_location=この場所は無効です。固体ブロックの上に立っていることを確認してください！
+morph.bee.dying=あと§c%ss§rで死亡
+morph.unavailable.vanilla=このモブは開発中で、まだ追加されていません。
+morph.unavailable.modded=他のアドオンのモブはこのアドオンではサポートされていません。
+death.attack.noStinger=%1$sは犠牲の針を感じた
+
+subtitles.entity.player.morph=プレイヤーが変身
+tile.dark7mc:soul_glass.name=ソウルガラス
+
+commands.morph.description=指定したモブにプレイヤーを変身させます。
 commands.morph.success=変身に成功しました
+
+commands.waila.description=WAILAのオプションを表示します
+commands.waila.runOnPlayer=このコマンドはプレイヤーのみが実行できます
+commands.waila.noTargets=セレクターに一致するターゲットがありません。
+commands.waila.selectOne=WAILA設定を編集するプレイヤーを1人だけ選択してください。
+commands.waila.noPermission=他のプレイヤーのWAILA設定を編集する権限がありません。
+commands.waila.success=%s にWAILA UIを表示しました

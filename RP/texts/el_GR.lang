@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Μια συλλογή addons συγχωνευμένα σε ένα modpack από τον DARK7MC.
+
+item.dark7mc:morphing_bracelet=Βραχιόλι μεταμόρφωσης
+item.dark7mc:night_fury_fireball=Πύρινη σφαίρα της Νυχτερινής Μανίας
+item.dark7mc:dragon_fireball=Πύρινη σφαίρα δράκου
+item.dark7mc:evoker_fangs=Κυνόδοντες εξορκιστή
+item.dark7mc:fireball=Πύρινη σφαίρα
+item.dark7mc:guardian_curse=Κατάρα φρουρού
+item.dark7mc:llama_spit=Σάλιο λάμα
+item.dark7mc:small_fireball=Μικρή πύρινη σφαίρα
+item.dark7mc:snowball=Χιονόμπαλα
+item.dark7mc:sonic_boom=Ηχητική έκρηξη
+item.dark7mc:soul_glass_bottle=Γυάλινο μπουκάλι ψυχής
+item.dark7mc:soul_in_a_bottle=Ψυχή σε μπουκάλι
+item.dark7mc:teleporter=Τηλεμεταφορέας
+item.dark7mc:wind_charge=Φορτίο ανέμου
+item.dark7mc:wither_skull=Κρανίο wither
+item.dark7mc:blue_wither_skull=Μπλε κρανίο wither
 
 waila.settings.title=Ρυθμίσεις WAILA
 waila.settings.title_for=Ρυθμίσεις WAILA για %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=Ενημερώθηκαν οι ρυθμίσε
 waila.settings.feedback.updatedByOther=Οι ρυθμίσεις WAILA ενημερώθηκαν από τον %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Ενημερώθηκαν οι ρυθμίσεις WAILA του %s.	## %s is where the player name would be
 
-commands.morph.description=Μεταμόρφωση σε πλάσμα
+morph.menu.title=Μενού μεταμόρφωσης
+morph.item.attached_to=Προσαρτημένο σε:
+morph.shulker.invalid_location=Αυτή η τοποθεσία δεν είναι έγκυρη, βεβαιωθείτε ότι στέκεστε σε συμπαγές μπλοκ!
+morph.bee.dying=Πεθαίνει σε §c%ss§r
+morph.unavailable.vanilla=Αυτό το πλάσμα είναι υπό ανάπτυξη και δεν έχει προστεθεί ακόμα.
+morph.unavailable.modded=Πλάσματα από άλλα add-ons δεν υποστηρίζονται σε αυτό το add-on.
+death.attack.noStinger=Ο/Η %1$s ένιωσε το κεντρί της θυσίας
+
+subtitles.entity.player.morph=Ο παίκτης μεταμορφώνεται
+tile.dark7mc:soul_glass.name=Γυαλί ψυχής
+
+commands.morph.description=Μεταμορφώνει έναν παίκτη σε καθορισμένο πλάσμα.
 commands.morph.success=Μεταμορφωθήκατε επιτυχώς
+
+commands.waila.description=Εμφανίζει τις επιλογές WAILA
+commands.waila.runOnPlayer=Αυτή η εντολή μπορεί να εκτελεστεί μόνο από παίκτη
+commands.waila.noTargets=Κανένας στόχος δεν ταιριάζει με τον επιλογέα.
+commands.waila.selectOne=Επιλέξτε μόνο έναν παίκτη για να επεξεργαστείτε τις ρυθμίσεις WAILA του.
+commands.waila.noPermission=Δεν έχετε άδεια να επεξεργαστείτε τις ρυθμίσεις WAILA άλλων παικτών.
+commands.waila.success=Η διεπαφή WAILA εμφανίστηκε για %s

@@ -1,5 +1,22 @@
-pack.name=DARK7MC Modpack
+pack.name=DARK7MC Modpack [RP]
 pack.description=Kolekcia addonov spojených do jedného modpacku od DARK7MC.
+
+item.dark7mc:morphing_bracelet=Náramok premeny
+item.dark7mc:night_fury_fireball=Ohnivá guľa Nočnej zúrivosti
+item.dark7mc:dragon_fireball=Dračia ohnivá guľa
+item.dark7mc:evoker_fangs=Tesáky vyvolávača
+item.dark7mc:fireball=Ohnivá guľa
+item.dark7mc:guardian_curse=Strážcova kliatba
+item.dark7mc:llama_spit=Laminé pľuvance
+item.dark7mc:small_fireball=Malá ohnivá guľa
+item.dark7mc:snowball=Snehová guľa
+item.dark7mc:sonic_boom=Sonický tresk
+item.dark7mc:soul_glass_bottle=Fľaša zo skla duší
+item.dark7mc:soul_in_a_bottle=Duša vo fľaši
+item.dark7mc:teleporter=Teleportér
+item.dark7mc:wind_charge=Veterný náboj
+item.dark7mc:wither_skull=Witherská lebka
+item.dark7mc:blue_wither_skull=Modrá witherská lebka
 
 waila.settings.title=Nastavenia WAILA
 waila.settings.title_for=Nastavenia WAILA pre %s	## %s is where the player name would be
@@ -44,5 +61,23 @@ waila.settings.feedback.updatedSelf=Aktualizovali ste nastavenia WAILA.
 waila.settings.feedback.updatedByOther=Vaše nastavenia WAILA boli aktualizované používateľom %s.	## %s is where the player name would be
 waila.settings.feedback.updatedOther=Aktualizované nastavenia WAILA používateľa %s.	## %s is where the player name would be
 
-commands.morph.description=Premena na stvorenie
+morph.menu.title=Ponuka premien
+morph.item.attached_to=Pripojené k:
+morph.shulker.invalid_location=Toto miesto je neplatné, uisti sa, že stojíš na pevnom bloku!
+morph.bee.dying=Umiera o §c%ss§r
+morph.unavailable.vanilla=Toto stvorenie je vo vývoji a ešte nebolo pridané.
+morph.unavailable.modded=Stvorenia z iných doplnkov nie sú podporované v tomto doplnku.
+death.attack.noStinger=%1$s pocítil žihadlo obete
+
+subtitles.entity.player.morph=Hráč sa premieňa
+tile.dark7mc:soul_glass.name=Sklo duší
+
+commands.morph.description=Premení hráča na určené stvorenie.
 commands.morph.success=Úspešne ste sa premenili
+
+commands.waila.description=Zobrazuje možnosti WAILA
+commands.waila.runOnPlayer=Tento príkaz môže spustiť iba hráč
+commands.waila.noTargets=Žiadny cieľ nezodpovedá selektoru.
+commands.waila.selectOne=Vyberte iba jedného hráča na úpravu jeho nastavení WAILA.
+commands.waila.noPermission=Nemáte oprávnenie upravovať nastavenia WAILA iných hráčov.
+commands.waila.success=Rozhranie WAILA zobrazené pre %s
