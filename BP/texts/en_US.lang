@@ -1,5 +1,5 @@
-pack.description=This add-on gives players the ability to morph into different mobs using Morphing Bracelet (Behavior Pack, 26.30+)
-pack.name=Morphing Bracelet [BETA]
+pack.description=A collection of addons merged into one modpack by DARK7MC.
+pack.name=DARK7MC Modpack
 commands.morph.description=Morph into a mob
 commands.morph.success=Successfully morphed
 item.dark7mc:morphing_bracelet=Morphing Bracelet

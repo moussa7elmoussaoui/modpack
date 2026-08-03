@@ -1,5 +1,5 @@
-pack.name=§7[v5.1]§r WAILA [RP]	## WAILA stands for "What Am I Looking At" (pronounced "why-la"). When translating, retain the "WAILA" acronym as is.
-pack.description=Бачте, на що ви дивитесь, як це відображається в HUD. Створено r4isen1920.
+pack.name=DARK7MC Modpack
+pack.description=Колекція аддонів, об'єднаних в один модпак від DARK7MC.
 
 waila.settings.title=Налаштування WAILA
 waila.settings.title_for=Налаштування WAILA для %s	## %s is where the player name would be
