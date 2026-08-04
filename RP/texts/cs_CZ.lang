@@ -81,3 +81,4 @@ commands.waila.noTargets=Žádný cíl neodpovídá selektoru.
 commands.waila.selectOne=Vyberte pouze jednoho hráče pro úpravu jeho nastavení WAILA.
 commands.waila.noPermission=Nemáte oprávnění upravovat nastavení WAILA jiných hráčů.
 commands.waila.success=Rozhraní WAILA zobrazeno pro %s
+commands.waila.version=WAILA běží na %s! (commit: %s)

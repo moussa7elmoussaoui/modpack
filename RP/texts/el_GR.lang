@@ -81,3 +81,4 @@ commands.waila.noTargets=Κανένας στόχος δεν ταιριάζει �
 commands.waila.selectOne=Επιλέξτε μόνο έναν παίκτη για να επεξεργαστείτε τις ρυθμίσεις WAILA του.
 commands.waila.noPermission=Δεν έχετε άδεια να επεξεργαστείτε τις ρυθμίσεις WAILA άλλων παικτών.
 commands.waila.success=Η διεπαφή WAILA εμφανίστηκε για %s
+commands.waila.version=Το WAILA τρέχει σε %s! (commit: %s)

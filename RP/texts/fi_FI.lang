@@ -81,3 +81,4 @@ commands.waila.noTargets=Mikään kohde ei vastannut valitsinta.
 commands.waila.selectOne=Valitse vain yksi pelaaja muokataksesi hänen WAILA-asetuksiaan.
 commands.waila.noPermission=Sinulla ei ole oikeutta muokata muiden pelaajien WAILA-asetuksia.
 commands.waila.success=WAILA-käyttöliittymä näytetty pelaajalle %s
+commands.waila.version=WAILA käynnissä versiolla %s! (commit: %s)

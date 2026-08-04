@@ -81,3 +81,4 @@ commands.waila.noTargets=Inga mål matchade markören.
 commands.waila.selectOne=Välj endast en spelare för att redigera deras WAILA-inställningar.
 commands.waila.noPermission=Du har inte behörighet att redigera andra spelares WAILA-inställningar.
 commands.waila.success=WAILA-gränssnitt visas för %s
+commands.waila.version=WAILA körs på %s! (commit: %s)

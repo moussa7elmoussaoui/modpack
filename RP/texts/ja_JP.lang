@@ -81,3 +81,4 @@ commands.waila.noTargets=セレクターに一致するターゲットがあり�
 commands.waila.selectOne=WAILA設定を編集するプレイヤーを1人だけ選択してください。
 commands.waila.noPermission=他のプレイヤーのWAILA設定を編集する権限がありません。
 commands.waila.success=%s にWAILA UIを表示しました
+commands.waila.version=WAILAは%sで実行中です！(commit: %s)

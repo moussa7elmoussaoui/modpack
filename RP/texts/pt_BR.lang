@@ -81,3 +81,4 @@ commands.waila.noTargets=Nenhum alvo correspondeu ao seletor.
 commands.waila.selectOne=Selecione apenas um jogador para editar as configurações do WAILA.
 commands.waila.noPermission=Você não tem permissão para editar as configurações do WAILA de outros jogadores.
 commands.waila.success=Interface do WAILA mostrada para %s
+commands.waila.version=WAILA está rodando em %s! (commit: %s)

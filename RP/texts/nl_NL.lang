@@ -81,3 +81,4 @@ commands.waila.noTargets=Geen doelen kwamen overeen met de selector.
 commands.waila.selectOne=Selecteer slechts één speler om de WAILA-instellingen te bewerken.
 commands.waila.noPermission=Je hebt geen toestemming om de WAILA-instellingen van andere spelers te bewerken.
 commands.waila.success=WAILA-interface getoond voor %s
+commands.waila.version=WAILA draait op %s! (commit: %s)

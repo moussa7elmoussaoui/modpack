@@ -81,3 +81,4 @@ commands.waila.noTargets=Tidak ada target yang cocok dengan pemilih.
 commands.waila.selectOne=Pilih hanya satu pemain untuk mengedit pengaturan WAILA mereka.
 commands.waila.noPermission=Kamu tidak memiliki izin untuk mengedit pengaturan WAILA pemain lain.
 commands.waila.success=Antarmuka WAILA ditampilkan untuk %s
+commands.waila.version=WAILA berjalan pada %s! (commit: %s)

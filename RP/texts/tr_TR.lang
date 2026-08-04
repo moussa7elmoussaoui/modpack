@@ -81,3 +81,4 @@ commands.waila.noTargets=Seçiciyle eşleşen hedef yok.
 commands.waila.selectOne=WAILA ayarlarını düzenlemek için yalnızca bir oyuncu seçin.
 commands.waila.noPermission=Diğer oyuncuların WAILA ayarlarını düzenleme izniniz yok.
 commands.waila.success=%s için WAILA arayüzü gösterildi
+commands.waila.version=WAILA %s üzerinde çalışıyor! (commit: %s)

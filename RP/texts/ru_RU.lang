@@ -81,3 +81,4 @@ commands.waila.noTargets=Ни одна цель не соответствует 
 commands.waila.selectOne=Выберите только одного игрока для редактирования настроек WAILA.
 commands.waila.noPermission=У вас нет разрешения редактировать настройки WAILA других игроков.
 commands.waila.success=Интерфейс WAILA показан для %s
+commands.waila.version=WAILA работает на %s! (commit: %s)

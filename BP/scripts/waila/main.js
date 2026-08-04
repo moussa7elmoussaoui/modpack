@@ -2860,8 +2860,14 @@ var Tt = G,
       a(this, 'permissionLevel', nr.Any)
     }
     run(t) {
-      let e = `WAILA is running on ${Tt.get().version}! (commit: ${ot.github.commit})`
-      return { status: sr.Success, message: e }
+      let { sourceEntity: r } = t
+      if (r?.isValid) {
+        r.sendMessage({
+          translate: 'commands.waila.version',
+          with: [Tt.get().version, ot.github.commit],
+        })
+      }
+      return { status: sr.Success }
     }
   }
 ;(q([Et], ht.prototype, 'run', 1), (ht = q([kt], ht)))
@@ -5799,7 +5805,7 @@ function W(u, t) {
 function se(u, t) {
   return u === 'unchanged' ? t : u
 }
-try { _e(); } catch (e) { console.warn("§e[WAILA] Initialization error: " + e); }
+_e();
 /**
  *
  * @author

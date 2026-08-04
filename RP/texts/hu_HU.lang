@@ -81,3 +81,4 @@ commands.waila.noTargets=Egyetlen cél sem egyezett a kiválasztóval.
 commands.waila.selectOne=Csak egy játékost válassz a WAILA beállításainak szerkesztéséhez.
 commands.waila.noPermission=Nincs jogosultságod más játékosok WAILA beállításainak szerkesztéséhez.
 commands.waila.success=WAILA felület megjelenítve: %s
+commands.waila.version=A WAILA fut: %s! (commit: %s)
