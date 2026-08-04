@@ -82,3 +82,4 @@ commands.waila.selectOne=Vyberte pouze jednoho hráče pro úpravu jeho nastaven
 commands.waila.noPermission=Nemáte oprávnění upravovat nastavení WAILA jiných hráčů.
 commands.waila.success=Rozhraní WAILA zobrazeno pro %s
 commands.waila.version=WAILA běží na %s! (commit: %s)
+commands.waila_version.description=Zobrazuje aktuální verzi WAILA Add-On.

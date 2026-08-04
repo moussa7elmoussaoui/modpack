@@ -82,3 +82,4 @@ commands.waila.selectOne=请只选择一个玩家来编辑其 WAILA 设置。
 commands.waila.noPermission=您没有权限编辑其他玩家的 WAILA 设置。
 commands.waila.success=已为 %s 显示 WAILA 界面
 commands.waila.version=WAILA 正在 %s 上运行！(commit: %s)
+commands.waila_version.description=显示 WAILA 附加包的当前版本。

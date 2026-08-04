@@ -82,3 +82,4 @@ commands.waila.selectOne=Please select only one player to edit WAILA settings fo
 commands.waila.noPermission=You do not have permission to edit other players' WAILA settings.
 commands.waila.success=WAILA UI shown for %s
 commands.waila.version=WAILA is running on %s! (commit: %s)
+commands.waila_version.description=Displays the current version of the WAILA Add-On.

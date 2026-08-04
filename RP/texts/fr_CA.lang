@@ -82,3 +82,4 @@ commands.waila.selectOne=Veuillez sélectionner un seul joueur pour modifier ses
 commands.waila.noPermission=Vous n'avez pas la permission de modifier les paramètres WAILA d'autres joueurs.
 commands.waila.success=Interface WAILA affichée pour %s
 commands.waila.version=WAILA fonctionne sur %s ! (commit : %s)
+commands.waila_version.description=Affiche la version actuelle de l'add-on WAILA.

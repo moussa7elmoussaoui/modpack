@@ -2852,11 +2852,7 @@ var Tt = G,
   ht = class {
     constructor() {
       a(this, 'name', 'dark7mc:waila_version')
-      a(
-        this,
-        'description',
-        'Displays the current version of the WAILA Add-On.',
-      )
+      a(this, 'description', 'commands.waila_version.description')
       a(this, 'permissionLevel', nr.Any)
     }
     run(t) {

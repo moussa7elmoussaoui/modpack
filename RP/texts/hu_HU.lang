@@ -82,3 +82,4 @@ commands.waila.selectOne=Csak egy játékost válassz a WAILA beállításainak 
 commands.waila.noPermission=Nincs jogosultságod más játékosok WAILA beállításainak szerkesztéséhez.
 commands.waila.success=WAILA felület megjelenítve: %s
 commands.waila.version=A WAILA fut: %s! (commit: %s)
+commands.waila_version.description=Megjeleníti a WAILA kiegészítő aktuális verzióját.

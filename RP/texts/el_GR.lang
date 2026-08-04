@@ -82,3 +82,4 @@ commands.waila.selectOne=Επιλέξτε μόνο έναν παίκτη για 
 commands.waila.noPermission=Δεν έχετε άδεια να επεξεργαστείτε τις ρυθμίσεις WAILA άλλων παικτών.
 commands.waila.success=Η διεπαφή WAILA εμφανίστηκε για %s
 commands.waila.version=Το WAILA τρέχει σε %s! (commit: %s)
+commands.waila_version.description=Εμφανίζει την τρέχουσα έκδοση του WAILA Add-On.

@@ -82,3 +82,4 @@ commands.waila.selectOne=WAILA設定を編集するプレイヤーを1人だけ�
 commands.waila.noPermission=他のプレイヤーのWAILA設定を編集する権限がありません。
 commands.waila.success=%s にWAILA UIを表示しました
 commands.waila.version=WAILAは%sで実行中です！(commit: %s)
+commands.waila_version.description=WAILAアドオンの現在のバージョンを表示します。

@@ -82,3 +82,4 @@ commands.waila.selectOne=Изберете само един играч, за д�
 commands.waila.noPermission=Нямате разрешение да редактирате WAILA настройките на други играчи.
 commands.waila.success=WAILA интерфейсът е показан за %s
 commands.waila.version=WAILA работи на %s! (commit: %s)
+commands.waila_version.description=Показва текущата версия на WAILA Add-On.
