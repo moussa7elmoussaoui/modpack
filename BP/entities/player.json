@@ -1359,7 +1359,7 @@
         "minecraft:environment_sensor": {
           "triggers": [
             {
-              "event": "morph:bat_night_vision"
+              "event": "morph:night_vision"
             },
             {
               "event": "morph:fly"
@@ -8838,6 +8838,9 @@
         "minecraft:environment_sensor": {
           "triggers": [
             {
+              "event": "morph:night_vision"
+            },
+            {
               "event": "morph:fly"
             }
           ]
@@ -10284,6 +10287,9 @@
                   "component_groups": [
                     "morph:night_fury"
                   ]
+                },
+                "queue_command": {
+                  "command": "effect @s night_vision 0"
                 }
               }
             ]
@@ -16099,7 +16105,7 @@
           }
         ]
       },
-      "morph:bat_night_vision": {
+      "morph:night_vision": {
         "queue_command": {
           "command": "effect @s night_vision 11 0 true"
         }
