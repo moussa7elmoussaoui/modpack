@@ -5594,10 +5594,8 @@ var H = class {
               H.log.info(
                 `Displayed to: ${r.name}, editing: ${e?.[0].name ?? 'self'}`,
               ),
-              {
-                status: ft.Success,
-                message: { translate: 'commands.waila.success', with: [r.name] },
-              })
+              r.sendMessage({ translate: 'commands.waila.success', with: [r.name] }),
+              { status: ft.Success })
   }
 }
 ;(a(H, 'NAMESPACE', D.NAMESPACE),
