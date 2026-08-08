@@ -1,0 +1,89 @@
+﻿Compiled from "AIDragonRide.java"
+public class com.GACMD.isleofberk.entity.AI.flight.player.AIDragonRide extends com.GACMD.isleofberk.entity.AI.flight.ADragonBaseBaseFlyingRideableGoal {
+  net.minecraft.world.entity.LivingEntity owner;
+
+  public com.GACMD.isleofberk.entity.AI.flight.player.AIDragonRide(com.GACMD.isleofberk.entity.base.dragon.ADragonBaseFlyingRideable);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokespecial #11                 // Method com/GACMD/isleofberk/entity/AI/flight/ADragonBaseBaseFlyingRideableGoal."<init>":(Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;)V
+         5: aload_0
+         6: aload_1
+         7: invokevirtual #17                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.m_142480_:()Lnet/minecraft/world/entity/LivingEntity;
+        10: putfield      #19                 // Field owner:Lnet/minecraft/world/entity/LivingEntity;
+        13: return
+
+  public boolean m_8036_();
+    Code:
+         0: aload_0
+         1: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+         4: invokevirtual #31                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.m_20160_:()Z
+         7: ireturn
+
+  public boolean m_8045_();
+    Code:
+         0: aload_0
+         1: invokespecial #34                 // Method com/GACMD/isleofberk/entity/AI/flight/ADragonBaseBaseFlyingRideableGoal.m_8045_:()Z
+         4: ireturn
+
+  public void m_8037_();
+    Code:
+         0: bipush        6
+         2: istore_1
+         3: aload_0
+         4: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+         7: invokevirtual #40                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.getInAirTicksVehicle:()I
+        10: iload_1
+        11: if_icmpgt     24
+        14: aload_0
+        15: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+        18: invokevirtual #43                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.isGoingUp:()Z
+        21: ifeq          35
+        24: aload_0
+        25: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+        28: iconst_1
+        29: invokevirtual #47                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.setIsFlying:(Z)V
+        32: goto          43
+        35: aload_0
+        36: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+        39: iconst_0
+        40: invokevirtual #47                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.setIsFlying:(Z)V
+        43: aload_0
+        44: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+        47: invokevirtual #43                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.isGoingUp:()Z
+        50: ifeq          61
+        53: aload_0
+        54: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+        57: iload_1
+        58: invokevirtual #51                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.setInAirTicksVehicle:(I)V
+        61: aload_0
+        62: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+        65: invokevirtual #54                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.isFlying:()Z
+        68: ifne          81
+        71: aload_0
+        72: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+        75: invokevirtual #57                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.isDragonOnGround:()Z
+        78: ifne          97
+        81: aload_0
+        82: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+        85: aload_0
+        86: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+        89: invokevirtual #40                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.getInAirTicksVehicle:()I
+        92: iconst_1
+        93: iadd
+        94: invokevirtual #51                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.setInAirTicksVehicle:(I)V
+        97: aload_0
+        98: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+       101: invokevirtual #57                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.isDragonOnGround:()Z
+       104: ifeq          115
+       107: aload_0
+       108: getfield      #28                 // Field dragon:Lcom/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable;
+       111: iconst_0
+       112: invokevirtual #51                 // Method com/GACMD/isleofberk/entity/base/dragon/ADragonBaseFlyingRideable.setInAirTicksVehicle:(I)V
+       115: return
+
+  public boolean m_183429_();
+    Code:
+         0: iconst_1
+         1: ireturn
+}
