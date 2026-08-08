@@ -1,26 +1,22 @@
 {
-	"format_version" : "1.10.0",
-	"animation_controllers" : {
-		"controller.animation.morph.ravager.head_movement" : {
-			"initial_state" : "default",
-			"states" : {
-				"biting" : {
-					"animations" : [ "ravager_biting" ],
-					"transitions" : [
-						{
-							"default" : "query.all_animations_finished || query.is_sleeping"
-						}
-					]
-				},
-				"default" : {
-					"animations" : [ "ravager_idle_mouth" ],
-					"transitions" : [
-						{
-							"biting" : "variable.attack_time > 0.0 && !query.is_sleeping"
-						}
-					]
-				}
-			}
-		}
-	}
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.ravager.head_movement": {
+      "initial_state": "default",
+      "states": {
+        "biting": {
+          "animations": [ "ravager_biting" ],
+          "transitions": [
+            { "default": "query.all_animations_finished || query.is_sleeping" }
+          ]
+        },
+        "default": {
+          "animations": [ "ravager_idle_mouth" ],
+          "transitions": [
+            { "biting": "variable.attack_time > 0.0 && !query.is_sleeping" }
+          ]
+        }
+      }
+    }
+  }
 }

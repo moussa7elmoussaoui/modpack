@@ -6,21 +6,15 @@
       "states": {
         "default": {
           "transitions": [
-            {
-              "dripping": "query.property('dark7mc:entity') == 40 && query.property('minecraft:has_nectar')"
-            }
+            { "dripping": "query.property('dark7mc:entity') == 40 && query.property('minecraft:has_nectar')" }
           ]
         },
         "dripping": {
           "particle_effects": [
-            {
-              "effect": "bee_nectar_dripping"
-            }
+            { "effect": "bee_nectar_dripping" }
           ],
           "transitions": [
-            {
-              "default": "query.property('dark7mc:entity') != 40 || !query.property('minecraft:has_nectar')"
-            }
+            { "default": "query.property('dark7mc:entity') != 40 || !query.property('minecraft:has_nectar')" }
           ]
         }
       }

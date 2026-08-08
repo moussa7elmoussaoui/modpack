@@ -6,18 +6,12 @@
       "states": {
         "default": {
           "animations": [
-            {
-              "fox_baby_walk": "query.modified_move_speed * query.is_baby"
-            }
+            { "fox_baby_walk": "query.modified_move_speed * query.is_baby" }
           ],
           "blend_transition": 0.1,
           "transitions": [
-            {
-              "sleep": "query.is_sleeping"
-            },
-            {
-              "wiggle": "query.is_sneaking && query.is_on_ground && !query.is_in_water"
-            }
+            { "sleep": "query.is_sleeping" },
+            { "wiggle": "query.is_sneaking && query.is_on_ground && !query.is_in_water" }
           ]
         },
         "pounce": {
@@ -26,14 +20,10 @@
               "fox_pounce": "!query.is_baby",
               "fox_baby_pounce": "query.is_baby"
             },
-            {
-              "fox_baby_walk": "query.modified_move_speed * query.is_baby"
-            }
+            { "fox_baby_walk": "query.modified_move_speed * query.is_baby" }
           ],
           "transitions": [
-            {
-              "default": "query.is_on_ground || query.is_in_water"
-            }
+            { "default": "query.is_on_ground || query.is_in_water" }
           ]
         },
         "sleep": {
@@ -42,15 +32,11 @@
               "fox_sleep": "!query.is_baby",
               "fox_baby_sleep": "query.is_baby"
             },
-            {
-              "fox_baby_walk": "query.modified_move_speed * query.is_baby"
-            }
+            { "fox_baby_walk": "query.modified_move_speed * query.is_baby" }
           ],
           "blend_transition": 0.2,
           "transitions": [
-            {
-              "default": "!query.is_sleeping"
-            }
+            { "default": "!query.is_sleeping" }
           ]
         },
         "wiggle": {
@@ -59,18 +45,12 @@
               "fox_wiggle": "!query.is_baby",
               "fox_baby_wiggle": "query.is_baby"
             },
-            {
-              "fox_baby_walk": "query.modified_move_speed * query.is_baby"
-            }
+            { "fox_baby_walk": "query.modified_move_speed * query.is_baby" }
           ],
           "blend_transition": 0.2,
           "transitions": [
-            {
-              "default": "!query.is_sneaking || query.is_in_water"
-            },
-            {
-              "pounce": "!query.is_on_ground"
-            }
+            { "default": "!query.is_sneaking || query.is_in_water" },
+            { "pounce": "!query.is_on_ground" }
           ]
         }
       }

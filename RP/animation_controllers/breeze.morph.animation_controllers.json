@@ -6,17 +6,13 @@
       "states": {
         "default": {
           "transitions": [
-            {
-              "moving": "query.modified_move_speed > 0.1 && query.vertical_speed == 0 && !query.is_gliding && variable.swim_amount <= 0.0"
-            }
+            { "moving": "query.modified_move_speed > 0.1 && query.vertical_speed == 0 && !query.is_gliding && variable.swim_amount <= 0.0" }
           ]
         },
         "moving": {
           "animations": [ "breeze_slide" ],
           "transitions": [
-            {
-              "default": "query.modified_move_speed < 0.1 || query.is_gliding || variable.swim_amount > 0.0"
-            }
+            { "default": "query.modified_move_speed < 0.1 || query.is_gliding || variable.swim_amount > 0.0" }
           ],
           "blend_transition": 0.2
         }
@@ -28,21 +24,15 @@
         "default": {
           "animations": [ "breeze_whirl_sound" ],
           "transitions": [
-            {
-              "moving": "query.modified_move_speed > 0.1 && query.vertical_speed == 0 && !query.is_gliding && variable.swim_amount <= 0.0"
-            }
+            { "moving": "query.modified_move_speed > 0.1 && query.vertical_speed == 0 && !query.is_gliding && variable.swim_amount <= 0.0" }
           ]
         },
         "moving": {
           "sound_effects": [
-            {
-              "effect": "breeze_slide"
-            }
+            { "effect": "breeze_slide" }
           ],
           "transitions": [
-            {
-              "default": "query.modified_move_speed < 0.1 || query.is_gliding || variable.swim_amount > 0.0"
-            }
+            { "default": "query.modified_move_speed < 0.1 || query.is_gliding || variable.swim_amount > 0.0" }
           ],
           "blend_transition": 0.2
         }

@@ -1,31 +1,27 @@
 {
-	"format_version" : "1.10.0",
-	"animation_controllers" : {
-		"controller.animation.morph.turtle.move" : {
-			"initial_state" : "swimming",
-			"states" : {
-				"swimming" : {
-					"animations" : [
-						{
-							"turtle_move": "!query.is_baby",
-							"turtle_move_baby": "query.is_baby"
-						}
-					],
-					"transitions" : [
-						{
-							"walking" : "!query.is_in_water"
-						}
-					]
-				},
-				"walking" : {
-					"animations" : [ "turtle_ground_move" ],
-					"transitions" : [
-						{
-							"swimming" : "query.is_in_water"
-						}
-					]
-				}
-			}
-		}
-	}
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.turtle.move": {
+      "initial_state": "swimming",
+      "states": {
+        "swimming": {
+          "animations": [
+            {
+              "turtle_move": "!query.is_baby",
+              "turtle_move_baby": "query.is_baby"
+            }
+          ],
+          "transitions": [
+            { "walking": "!query.is_in_water" }
+          ]
+        },
+        "walking": {
+          "animations": [ "turtle_ground_move" ],
+          "transitions": [
+            { "swimming": "query.is_in_water" }
+          ]
+        }
+      }
+    }
+  }
 }

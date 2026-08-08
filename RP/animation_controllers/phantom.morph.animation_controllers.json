@@ -1,34 +1,30 @@
 {
-	"format_version": "1.10.0",
-	"animation_controllers": {
-		"controller.animation.morph.phantom.particles": {
-			"initial_state": "default",
-			"states": {
-				"default": {
-                    "transitions": [
-                        {
-                            "particles": "variable.is_third_person && query.property('dark7mc:entity') == 51 && !query.is_sleeping"
-                        }
-                    ]
-				},
-				"particles": {
-					"particle_effects": [
-						{
-							"effect": "phantom_wing_dust",
-							"locator": "phantom_left_wing"
-						},
-						{
-							"effect": "phantom_wing_dust",
-							"locator": "phantom_right_wing"
-						}
-					],
-                    "transitions": [
-                        {
-                            "default": "!variable.is_third_person || query.property('dark7mc:entity') != 51 || query.is_sleeping"
-                        }
-                    ]
-				}
-			}
-		}
-	}
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.phantom.particles": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "particles": "variable.is_third_person && query.property('dark7mc:entity') == 51 && !query.is_sleeping" }
+          ]
+        },
+        "particles": {
+          "particle_effects": [
+            {
+              "effect": "phantom_wing_dust",
+              "locator": "phantom_left_wing"
+            },
+            {
+              "effect": "phantom_wing_dust",
+              "locator": "phantom_right_wing"
+            }
+          ],
+          "transitions": [
+            { "default": "!variable.is_third_person || query.property('dark7mc:entity') != 51 || query.is_sleeping" }
+          ]
+        }
+      }
+    }
+  }
 }

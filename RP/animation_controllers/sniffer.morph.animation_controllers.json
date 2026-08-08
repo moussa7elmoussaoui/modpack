@@ -1,27 +1,21 @@
 {
-  "format_version" : "1.10.0",
+  "format_version": "1.10.0",
   "animation_controllers": {
     "controller.animation.morph.sniffer.walk": {
       "initial_state": "default",
       "states": {
         "default": {
           "transitions": [
-            {
-              "walking": "query.modified_move_speed"
-            }
+            { "walking": "query.modified_move_speed" }
           ],
           "blend_transition": 0.2
         },
         "walking": {
           "animations": [
-            {
-              "sniffer_walk": "math.min(1.0, query.modified_move_speed * 10)"
-            }
+            { "sniffer_walk": "math.min(1.0, query.modified_move_speed * 10)" }
           ],
           "transitions": [
-            {
-              "default": "query.modified_move_speed < 0"
-            }
+            { "default": "query.modified_move_speed < 0" }
           ],
           "blend_transition": 0.2
         }
@@ -32,23 +26,17 @@
       "states": {
         "default": {
           "transitions": [
-            {
-              "sniffsniff": "query.modified_move_speed > 0.005 && !query.is_sleeping"
-            }
+            { "sniffsniff": "query.modified_move_speed > 0.005 && !query.is_sleeping" }
           ],
           "blend_transition": 0.2
         },
         "sniffsniff": {
           "animations": [
             "sniffer_sniffsniff",
-            {
-              "sniffer_sniffsniff_sound": "!query.is_in_ui"
-            }
+            { "sniffer_sniffsniff_sound": "!query.is_in_ui" }
           ],
           "transitions": [
-            {
-              "default": "query.modified_move_speed < 0.005 || query.is_sleeping"
-            }
+            { "default": "query.modified_move_speed < 0.005 || query.is_sleeping" }
           ],
           "blend_transition": 0.2
         }

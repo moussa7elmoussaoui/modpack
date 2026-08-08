@@ -1,43 +1,31 @@
 {
-	"format_version" : "1.10.0",
-	"animation_controllers" : {
-		"controller.animation.morph.parrot.move" : {
-			"initial_state" : "standing",
-			"states" : {
-				"flying" : {
-					"animations" : [ "parrot_moving", "parrot_flying" ],
-					"transitions" : [
-						{
-							"standing" : "variable.parrot_state == 1"
-						},
-						{
-							"sitting" : "variable.parrot_state == 2"
-						}
-					]
-				},
-				"sitting" : {
-					"animations" : [ "parrot_sitting" ],
-					"transitions" : [
-						{
-							"flying" : "variable.parrot_state == 0"
-						},
-						{
-							"standing" : "variable.parrot_state == 1"
-						}
-					]
-				},
-				"standing" : {
-					"animations" : [ "parrot_moving", "parrot_standing" ],
-					"transitions" : [
-						{
-							"flying" : "variable.parrot_state == 0"
-						},
-						{
-							"sitting" : "variable.parrot_state == 2"
-						}
-					]
-				}
-			}
-		}
-	}
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.parrot.move": {
+      "initial_state": "standing",
+      "states": {
+        "flying": {
+          "animations": [ "parrot_moving", "parrot_flying" ],
+          "transitions": [
+            { "standing": "variable.parrot_state == 1" },
+            { "sitting": "variable.parrot_state == 2" }
+          ]
+        },
+        "sitting": {
+          "animations": [ "parrot_sitting" ],
+          "transitions": [
+            { "flying": "variable.parrot_state == 0" },
+            { "standing": "variable.parrot_state == 1" }
+          ]
+        },
+        "standing": {
+          "animations": [ "parrot_moving", "parrot_standing" ],
+          "transitions": [
+            { "flying": "variable.parrot_state == 0" },
+            { "sitting": "variable.parrot_state == 2" }
+          ]
+        }
+      }
+    }
+  }
 }

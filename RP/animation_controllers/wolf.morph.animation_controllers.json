@@ -5,11 +5,9 @@
       "initial_state": "default",
       "states": {
         "default": {
-          "animations": ["wolf_leg_default"],
+          "animations": [ "wolf_leg_default" ],
           "transitions": [
-            {
-              "sitting": "query.is_sneaking && query.ground_speed < 0.5"
-            }
+            { "sitting": "query.is_sneaking && query.ground_speed < 0.5" }
           ]
         },
         "sitting": {
@@ -18,9 +16,7 @@
             { "wolf_baby_sitting": "query.is_baby" }
           ],
           "transitions": [
-            {
-              "default": "!query.is_sneaking || query.ground_speed >= 0.5"
-            }
+            { "default": "!query.is_sneaking || query.ground_speed >= 0.5" }
           ]
         }
       }

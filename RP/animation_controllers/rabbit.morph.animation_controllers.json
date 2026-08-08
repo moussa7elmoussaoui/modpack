@@ -1,8 +1,8 @@
 {
-	"format_version" : "1.10.0",
-	"animation_controllers" : {
-		"controller.animation.morph.rabbit.general" : {
-			"initial_state" : "default",
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.rabbit.general": {
+      "initial_state": "default",
       "states": {
         "default": {
           "transitions": [
@@ -15,9 +15,7 @@
             { "default": "!variable.rabbit_moving && query.all_animations_finished" },
             { "moving": "variable.rabbit_moving" }
           ],
-          "animations": [
-            "rabbit_idle_head_tilt"
-          ]
+          "animations": [ "rabbit_idle_head_tilt" ]
         },
         "moving": {
           "transitions": [
@@ -30,6 +28,6 @@
           "blend_transition": 0.2
         }
       }
-		}
-	}
+    }
+  }
 }
