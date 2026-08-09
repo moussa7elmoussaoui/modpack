@@ -142,6 +142,16 @@
           ]
         }
       }
+    },
+    "controller.animation.morph.night_fury.tail": {
+      "initial_state": "active",
+      "states": {
+        "active": {
+          "animations": [ "night_fury_tail_steer" ],
+          "blend_transition": 0.2,
+          "transitions": []
+        }
+      }
     }
   }
 }

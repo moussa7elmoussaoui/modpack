@@ -3404,550 +3404,62 @@
 				}
 			}
 		},
-		"animation.morph.night_fury.tailrot0": {
+		"animation.morph.night_fury.tail_steer": {
 			"loop": true,
 			"bones": {
 				"root_rotation": {
 					"rotation": [
 						0,
 						0,
-						0
+						"((v.nf_seg0*math.lerp(-15.0, -7.5, v.nf_u0) + v.nf_seg1*math.lerp(-7.5, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, 7.5, v.nf_u2) + v.nf_seg3*math.lerp(7.5, 15.0, v.nf_u3)) * (1.0 - v.nf_gs))"
 					]
 				},
 				"neck_01_rot": {
 					"rotation": [
 						0,
-						0,
-						0
+						"(v.nf_seg0*math.lerp(10.0, 2.5, v.nf_u0) + v.nf_seg1*math.lerp(2.5, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, -2.5, v.nf_u2) + v.nf_seg3*math.lerp(-2.5, -10.0, v.nf_u3))",
+						"((v.nf_seg0*math.lerp(5.0, 2.5, v.nf_u0) + v.nf_seg1*math.lerp(2.5, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, -2.5, v.nf_u2) + v.nf_seg3*math.lerp(-2.5, -5.0, v.nf_u3)) * (1.0 - v.nf_gs))"
 					]
 				},
 				"neck_02_rot": {
 					"rotation": [
 						0,
-						0,
-						0
+						"(v.nf_seg0*math.lerp(2.5, 2.5, v.nf_u0) + v.nf_seg1*math.lerp(2.5, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, -2.5, v.nf_u2) + v.nf_seg3*math.lerp(-2.5, -2.5, v.nf_u3))",
+						"((v.nf_seg0*math.lerp(5.0, 0.0, v.nf_u0) + v.nf_seg1*math.lerp(0.0, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, -5.0, v.nf_u2) + v.nf_seg3*math.lerp(-5.0, -5.0, v.nf_u3)) * (1.0 - v.nf_gs))"
 					]
 				},
 				"head_rot": {
 					"rotation": [
 						0,
-						0,
+						"(v.nf_seg0*math.lerp(5.0, 5.0, v.nf_u0) + v.nf_seg1*math.lerp(5.0, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, -5.0, v.nf_u2) + v.nf_seg3*math.lerp(-5.0, -5.0, v.nf_u3))",
 						0
 					]
 				},
 				"tail_01_rot": {
 					"rotation": [
 						0,
-						0,
-						0
+						"(v.nf_seg0*math.lerp(-10.0, -5.0, v.nf_u0) + v.nf_seg1*math.lerp(-5.0, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, 5.0, v.nf_u2) + v.nf_seg3*math.lerp(5.0, 10.0, v.nf_u3))",
+						"((v.nf_seg0*math.lerp(5.0, 5.0, v.nf_u0) + v.nf_seg1*math.lerp(5.0, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, -5.0, v.nf_u2) + v.nf_seg3*math.lerp(-5.0, -5.0, v.nf_u3)) * (1.0 - v.nf_gs))"
 					]
 				},
 				"tail_03_rot": {
 					"rotation": [
 						0,
-						0,
-						0
+						"(v.nf_seg0*math.lerp(-10.0, -5.0, v.nf_u0) + v.nf_seg1*math.lerp(-5.0, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, 5.0, v.nf_u2) + v.nf_seg3*math.lerp(5.0, 10.0, v.nf_u3))",
+						"((v.nf_seg0*math.lerp(5.0, 5.0, v.nf_u0) + v.nf_seg1*math.lerp(5.0, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, -2.5, v.nf_u2) + v.nf_seg3*math.lerp(-2.5, -5.0, v.nf_u3)) * (1.0 - v.nf_gs))"
 					]
 				},
 				"tail_04_rot": {
 					"rotation": [
 						0,
-						0,
+						"(v.nf_seg0*math.lerp(-15.0, -5.0, v.nf_u0) + v.nf_seg1*math.lerp(-5.0, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, 5.0, v.nf_u2) + v.nf_seg3*math.lerp(5.0, 15.0, v.nf_u3))",
 						0
 					]
 				},
 				"tail_05_rot": {
 					"rotation": [
 						0,
-						0,
-						0
-					]
-				}
-			}
-		},
-		"animation.morph.night_fury.tailrotleft1": {
-			"loop": true,
-			"bones": {
-				"root_rotation": {
-					"rotation": [
-						0,
-						0,
-						0
-					]
-				},
-				"neck_01_rot": {
-					"rotation": [
-						0,
-						-2.5,
-						0
-					]
-				},
-				"neck_02_rot": {
-					"rotation": [
-						0,
-						-2.5,
-						0
-					]
-				},
-				"head_rot": {
-					"rotation": [
-						0,
-						-5,
-						0
-					]
-				},
-				"tail_01_rot": {
-					"rotation": [
-						0,
-						5,
-						0
-					]
-				},
-				"tail_03_rot": {
-					"rotation": [
-						0,
-						5,
-						0
-					]
-				},
-				"tail_04_rot": {
-					"rotation": [
-						0,
-						5,
-						0
-					]
-				},
-				"tail_05_rot": {
-					"rotation": [
-						0,
-						5,
-						0
-					]
-				}
-			}
-		},
-		"animation.morph.night_fury.tailrotleft1f": {
-			"loop": true,
-			"bones": {
-				"root_rotation": {
-					"rotation": [
-						0,
-						0,
-						7.5
-					]
-				},
-				"neck_01_rot": {
-					"rotation": [
-						0,
-						-2.5,
-						-2.5
-					]
-				},
-				"neck_02_rot": {
-					"rotation": [
-						0,
-						-2.5,
-						-5
-					]
-				},
-				"head_rot": {
-					"rotation": [
-						0,
-						-5,
-						0
-					]
-				},
-				"tail_01_rot": {
-					"rotation": [
-						0,
-						5,
-						-5
-					]
-				},
-				"tail_03_rot": {
-					"rotation": [
-						0,
-						5,
-						-2.5
-					]
-				},
-				"tail_04_rot": {
-					"rotation": [
-						0,
-						5,
-						0
-					]
-				},
-				"tail_05_rot": {
-					"rotation": [
-						0,
-						5,
-						0
-					]
-				}
-			}
-		},
-		"animation.morph.night_fury.tailrotright1": {
-			"loop": true,
-			"bones": {
-				"root_rotation": {
-					"rotation": [
-						0,
-						0,
-						0
-					]
-				},
-				"neck_01_rot": {
-					"rotation": [
-						0,
-						2.5,
-						0
-					]
-				},
-				"neck_02_rot": {
-					"rotation": [
-						0,
-						2.5,
-						0
-					]
-				},
-				"head_rot": {
-					"rotation": [
-						0,
-						5,
-						0
-					]
-				},
-				"tail_01_rot": {
-					"rotation": [
-						0,
-						-5,
-						0
-					]
-				},
-				"tail_03_rot": {
-					"rotation": [
-						0,
-						-5,
-						0
-					]
-				},
-				"tail_04_rot": {
-					"rotation": [
-						0,
-						-5,
-						0
-					]
-				},
-				"tail_05_rot": {
-					"rotation": [
-						0,
-						-5,
-						0
-					]
-				}
-			}
-		},
-		"animation.morph.night_fury.tailrotright1f": {
-			"loop": true,
-			"bones": {
-				"root_rotation": {
-					"rotation": [
-						0,
-						0,
-						-7.5
-					]
-				},
-				"neck_01_rot": {
-					"rotation": [
-						0,
-						2.5,
-						2.5
-					]
-				},
-				"neck_02_rot": {
-					"rotation": [
-						0,
-						2.5,
-						0
-					]
-				},
-				"head_rot": {
-					"rotation": [
-						0,
-						5,
-						0
-					]
-				},
-				"tail_01_rot": {
-					"rotation": [
-						0,
-						-5,
-						5
-					]
-				},
-				"tail_03_rot": {
-					"rotation": [
-						0,
-						-5,
-						5
-					]
-				},
-				"tail_04_rot": {
-					"rotation": [
-						0,
-						-5,
-						0
-					]
-				},
-				"tail_05_rot": {
-					"rotation": [
-						0,
-						-5,
-						0
-					]
-				}
-			}
-		},
-		"animation.morph.night_fury.tailrotleft2": {
-			"loop": true,
-			"bones": {
-				"root_rotation": {
-					"rotation": [
-						0,
-						0,
-						0
-					]
-				},
-				"neck_01_rot": {
-					"rotation": [
-						0,
-						-10,
-						0
-					]
-				},
-				"neck_02_rot": {
-					"rotation": [
-						0,
-						-2.5,
-						0
-					]
-				},
-				"head_rot": {
-					"rotation": [
-						0,
-						-5,
-						0
-					]
-				},
-				"tail_01_rot": {
-					"rotation": [
-						0,
-						10,
-						0
-					]
-				},
-				"tail_03_rot": {
-					"rotation": [
-						0,
-						10,
-						0
-					]
-				},
-				"tail_04_rot": {
-					"rotation": [
-						0,
-						15,
-						0
-					]
-				},
-				"tail_05_rot": {
-					"rotation": [
-						0,
-						15,
-						0
-					]
-				}
-			}
-		},
-		"animation.morph.night_fury.tailrotleft2f": {
-			"loop": true,
-			"bones": {
-				"root_rotation": {
-					"rotation": [
-						0,
-						0,
-						15
-					]
-				},
-				"neck_01_rot": {
-					"rotation": [
-						0,
-						-10,
-						-5
-					]
-				},
-				"neck_02_rot": {
-					"rotation": [
-						0,
-						-2.5,
-						-5
-					]
-				},
-				"head_rot": {
-					"rotation": [
-						0,
-						-5,
-						0
-					]
-				},
-				"tail_01_rot": {
-					"rotation": [
-						0,
-						10,
-						-5
-					]
-				},
-				"tail_03_rot": {
-					"rotation": [
-						0,
-						10,
-						-5
-					]
-				},
-				"tail_04_rot": {
-					"rotation": [
-						0,
-						15,
-						0
-					]
-				},
-				"tail_05_rot": {
-					"rotation": [
-						0,
-						15,
-						0
-					]
-				}
-			}
-		},
-		"animation.morph.night_fury.tailrotright2": {
-			"loop": true,
-			"bones": {
-				"root_rotation": {
-					"rotation": [
-						0,
-						0,
-						0
-					]
-				},
-				"neck_01_rot": {
-					"rotation": [
-						0,
-						10,
-						0
-					]
-				},
-				"neck_02_rot": {
-					"rotation": [
-						0,
-						2.5,
-						0
-					]
-				},
-				"head_rot": {
-					"rotation": [
-						0,
-						5,
-						0
-					]
-				},
-				"tail_01_rot": {
-					"rotation": [
-						0,
-						-10,
-						0
-					]
-				},
-				"tail_03_rot": {
-					"rotation": [
-						0,
-						-10,
-						0
-					]
-				},
-				"tail_04_rot": {
-					"rotation": [
-						0,
-						-15,
-						0
-					]
-				},
-				"tail_05_rot": {
-					"rotation": [
-						0,
-						-15,
-						0
-					]
-				}
-			}
-		},
-		"animation.morph.night_fury.tailrotright2f": {
-			"loop": true,
-			"bones": {
-				"root_rotation": {
-					"rotation": [
-						0,
-						0,
-						-15
-					]
-				},
-				"neck_01_rot": {
-					"rotation": [
-						0,
-						10,
-						5
-					]
-				},
-				"neck_02_rot": {
-					"rotation": [
-						0,
-						2.5,
-						5
-					]
-				},
-				"head_rot": {
-					"rotation": [
-						0,
-						5,
-						0
-					]
-				},
-				"tail_01_rot": {
-					"rotation": [
-						0,
-						-10,
-						5
-					]
-				},
-				"tail_03_rot": {
-					"rotation": [
-						0,
-						-10,
-						5
-					]
-				},
-				"tail_04_rot": {
-					"rotation": [
-						0,
-						-15,
-						0
-					]
-				},
-				"tail_05_rot": {
-					"rotation": [
-						0,
-						-15,
+						"(v.nf_seg0*math.lerp(-15.0, -5.0, v.nf_u0) + v.nf_seg1*math.lerp(-5.0, 0.0, v.nf_u1) + v.nf_seg2*math.lerp(0.0, 5.0, v.nf_u2) + v.nf_seg3*math.lerp(5.0, 15.0, v.nf_u3))",
 						0
 					]
 				}
