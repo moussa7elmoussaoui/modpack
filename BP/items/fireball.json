@@ -34,7 +34,7 @@
           "sound": "mob.ghast.fireball",
           "volume": 0.7
         },
-        "spawn_offset": [ 0.0, 1.5, 0.0 ], // Temporary for now. If you are seeing this, then I just forgot to remove it lol
+        "spawn_offset": [ 0.0, 1.5, 0.0 ],
         "use_event": "morph:ghast_start_shooting",
         "use_sound": {
           "pitch": [ 0.8, 1.2 ],

@@ -39,7 +39,7 @@
         ],
         "priority": 1
       },
-      "minecraft:behavior.random_swim": { // Randomly selects points to go to, even in water
+      "minecraft:behavior.random_swim": {
         "interval": 0,
         "xz_dist": 16,
         "priority": 3,
@@ -126,7 +126,7 @@
         "sway_amplitude": 0
       },
       "minecraft:nameable": {},
-      "minecraft:navigation.generic": { // Allows the mob to go through water
+      "minecraft:navigation.generic": {
         "can_breach": false,
         "can_walk": false,
         "can_path_over_water": false,

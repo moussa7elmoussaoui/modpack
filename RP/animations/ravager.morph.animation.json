@@ -2,7 +2,7 @@
 	"format_version" : "1.8.0",
 	"animations" : {
 		"animation.morph.ravager.biting" : {
-			"animation_length" : 0.75, // Value must be the same with the 'variable.ravager_bite_anim_duration'
+			"animation_length" : 0.75,
 			"bones" : {
 				"mouth" : {
 					"rotation" : [ "math.sin(math.min(query.anim_time / (variable.ravager_bite_anim_duration / 2.0f), 1.0f) * 180.0f) * 40.0f", 0.0, 0.0 ]

@@ -4,7 +4,7 @@
         "animation.player.cape": {
             "loop": true,
             "bones": {
-                "cape": { // For some reason, adding the vanilla dragon model file to the player entity causes issues with the cape's position.
+                "cape": {
                     "position": [ 0.0, "variable.cape_y_offset + (variable.cape_y_offset == -4.0 ? 4.0 : 0.0)", 0.0 ],
                     "rotation": [ "math.lerp(0.0, -126.0, query.cape_flap_amount) - 6.0", 0.0, 0.0 ]
                 }
