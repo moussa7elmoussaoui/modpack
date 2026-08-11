@@ -81,8 +81,7 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   if (showEffects) {
     const { dimension } = this;
     dimension.playSound("mob.player.morph", this.location);
-    dimension.spawnParticle("dark7mc:morphing_clouds_particle", this.getAABB().center);
-    this.playAnimation("animation.morph.squeeze");
+    dimension.spawnEntity("dark7mc:morph_transform_vfx", this.location);
   }
 
   const inventory = this.getComponent("minecraft:inventory").container;
