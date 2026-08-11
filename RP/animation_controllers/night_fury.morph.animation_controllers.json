@@ -13,51 +13,54 @@
             { "gliding": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
             { "hovering": "!query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
             { "flying": "!query.is_on_ground" },
-            { "running": "query.modified_move_speed > 0.28" },
-            { "walking": "query.modified_move_speed > 0.08 && query.modified_move_speed <= 0.28" },
-            { "sitting": "query.is_sneaking && query.ground_speed <= 0.3" }
+            { "running": "query.is_on_ground && query.ground_speed > 2.5" },
+            { "walking": "query.is_on_ground && query.ground_speed >= 0.1 && query.ground_speed <= 2.5" },
+            { "sitting": "query.is_on_ground && query.is_sneaking && query.ground_speed < 0.1" }
           ]
         },
         "walking": {
+          "on_entry": [ "variable.walk_enter_time = query.life_time;" ],
           "animations": [ "night_fury_walk" ],
           "blend_transition": 0.2,
           "transitions": [
             { "sleeping": "query.is_sleeping" },
-            { "diving": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
-            { "gliding": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
-            { "hovering": "!query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
-            { "flying": "!query.is_on_ground" },
-            { "running": "query.modified_move_speed > 0.28" },
-            { "sitting": "query.is_sneaking && query.ground_speed <= 0.3" },
-            { "idle": "query.is_on_ground && query.modified_move_speed <= 0.08" }
+            { "diving": "(query.life_time - variable.walk_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
+            { "gliding": "(query.life_time - variable.walk_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
+            { "hovering": "(query.life_time - variable.walk_enter_time > 0.3) && !query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
+            { "flying": "(query.life_time - variable.walk_enter_time > 0.3) && !query.is_on_ground" },
+            { "running": "(query.life_time - variable.walk_enter_time > 0.3) && query.is_on_ground && query.ground_speed > 2.5" },
+            { "sitting": "(query.life_time - variable.walk_enter_time > 0.3) && query.is_on_ground && query.is_sneaking && query.ground_speed < 0.1" },
+            { "idle": "(query.life_time - variable.walk_enter_time > 0.3) && query.is_on_ground && query.ground_speed < 0.1" }
           ]
         },
         "running": {
+          "on_entry": [ "variable.run_enter_time = query.life_time;" ],
           "animations": [ "night_fury_run" ],
           "blend_transition": 0.2,
           "transitions": [
             { "sleeping": "query.is_sleeping" },
-            { "diving": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
-            { "gliding": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
-            { "hovering": "!query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
-            { "flying": "!query.is_on_ground" },
-            { "walking": "query.modified_move_speed > 0.08 && query.modified_move_speed <= 0.28" },
-            { "sitting": "query.is_sneaking && query.ground_speed <= 0.3" },
-            { "idle": "query.is_on_ground && query.modified_move_speed <= 0.08" }
+            { "diving": "(query.life_time - variable.run_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
+            { "gliding": "(query.life_time - variable.run_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
+            { "hovering": "(query.life_time - variable.run_enter_time > 0.3) && !query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
+            { "flying": "(query.life_time - variable.run_enter_time > 0.3) && !query.is_on_ground" },
+            { "walking": "(query.life_time - variable.run_enter_time > 0.3) && query.is_on_ground && query.ground_speed >= 0.1 && query.ground_speed <= 2.5" },
+            { "sitting": "(query.life_time - variable.run_enter_time > 0.3) && query.is_on_ground && query.is_sneaking && query.ground_speed < 0.1" },
+            { "idle": "(query.life_time - variable.run_enter_time > 0.3) && query.is_on_ground && query.ground_speed < 0.1" }
           ]
         },
         "flying": {
+          "on_entry": [ "variable.fly_enter_time = query.life_time;" ],
           "animations": [ "night_fury_flap" ],
           "blend_transition": 0.2,
           "transitions": [
             { "sleeping": "query.is_sleeping" },
-            { "diving": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
-            { "gliding": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
-            { "hovering": "!query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
-            { "running": "query.is_on_ground && query.modified_move_speed > 0.28" },
-            { "walking": "query.is_on_ground && query.modified_move_speed > 0.08 && query.modified_move_speed <= 0.28" },
-            { "sitting": "query.is_on_ground && query.is_sneaking && query.ground_speed <= 0.3" },
-            { "idle": "query.is_on_ground" }
+            { "diving": "(query.life_time - variable.fly_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
+            { "gliding": "(query.life_time - variable.fly_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
+            { "hovering": "(query.life_time - variable.fly_enter_time > 0.3) && !query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
+            { "running": "(query.life_time - variable.fly_enter_time > 0.3) && query.is_on_ground && query.ground_speed > 2.5" },
+            { "walking": "(query.life_time - variable.fly_enter_time > 0.3) && query.is_on_ground && query.ground_speed >= 0.1 && query.ground_speed <= 2.5" },
+            { "sitting": "(query.life_time - variable.fly_enter_time > 0.3) && query.is_on_ground && query.is_sneaking && query.ground_speed < 0.1" },
+            { "idle": "(query.life_time - variable.fly_enter_time > 0.3) && query.is_on_ground" }
           ]
         },
         "hovering": {
@@ -66,41 +69,43 @@
           "blend_transition": 0.2,
           "transitions": [
             { "sleeping": "query.is_sleeping" },
-            { "diving": "!query.is_on_ground && (query.life_time - variable.hover_enter_time > 0.3) && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
-            { "gliding": "!query.is_on_ground && (query.life_time - variable.hover_enter_time > 0.3) && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
-            { "flying": "!query.is_on_ground && (query.life_time - variable.hover_enter_time > 0.3) && (query.ground_speed >= 0.1 || math.abs(query.vertical_speed) > 0.02)" },
-            { "running": "query.is_on_ground && query.modified_move_speed > 0.28" },
-            { "walking": "query.is_on_ground && query.modified_move_speed > 0.08 && query.modified_move_speed <= 0.28" },
-            { "sitting": "query.is_on_ground && query.is_sneaking && query.ground_speed <= 0.3" },
-            { "idle": "query.is_on_ground" }
+            { "diving": "(query.life_time - variable.hover_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
+            { "gliding": "(query.life_time - variable.hover_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
+            { "flying": "(query.life_time - variable.hover_enter_time > 0.3) && !query.is_on_ground && (query.ground_speed >= 0.1 || math.abs(query.vertical_speed) > 0.02)" },
+            { "running": "(query.life_time - variable.hover_enter_time > 0.3) && query.is_on_ground && query.ground_speed > 2.5" },
+            { "walking": "(query.life_time - variable.hover_enter_time > 0.3) && query.is_on_ground && query.ground_speed >= 0.1 && query.ground_speed <= 2.5" },
+            { "sitting": "(query.life_time - variable.hover_enter_time > 0.3) && query.is_on_ground && query.is_sneaking && query.ground_speed < 0.1" },
+            { "idle": "(query.life_time - variable.hover_enter_time > 0.3) && query.is_on_ground" }
           ]
         },
         "gliding": {
+          "on_entry": [ "variable.glide_enter_time = query.life_time;" ],
           "animations": [ "night_fury_glide" ],
           "blend_transition": 0.2,
           "transitions": [
             { "sleeping": "query.is_sleeping" },
-            { "diving": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
-            { "hovering": "!query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
-            { "flying": "!query.is_on_ground && (query.ground_speed < 10.0 || !query.is_sprinting || query.vertical_speed <= -0.1 || query.vertical_speed > 0.1)" },
-            { "running": "query.is_on_ground && query.modified_move_speed > 0.28" },
-            { "walking": "query.is_on_ground && query.modified_move_speed > 0.08 && query.modified_move_speed <= 0.28" },
-            { "sitting": "query.is_on_ground && query.is_sneaking && query.ground_speed <= 0.3" },
-            { "idle": "query.is_on_ground" }
+            { "diving": "(query.life_time - variable.glide_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
+            { "hovering": "(query.life_time - variable.glide_enter_time > 0.3) && !query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
+            { "flying": "(query.life_time - variable.glide_enter_time > 0.3) && !query.is_on_ground && (query.ground_speed < 10.0 || !query.is_sprinting || query.vertical_speed <= -0.1 || query.vertical_speed > 0.1)" },
+            { "running": "(query.life_time - variable.glide_enter_time > 0.3) && query.is_on_ground && query.ground_speed > 2.5" },
+            { "walking": "(query.life_time - variable.glide_enter_time > 0.3) && query.is_on_ground && query.ground_speed >= 0.1 && query.ground_speed <= 2.5" },
+            { "sitting": "(query.life_time - variable.glide_enter_time > 0.3) && query.is_on_ground && query.is_sneaking && query.ground_speed < 0.1" },
+            { "idle": "(query.life_time - variable.glide_enter_time > 0.3) && query.is_on_ground" }
           ]
         },
         "diving": {
+          "on_entry": [ "variable.dive_enter_time = query.life_time;" ],
           "animations": [ "night_fury_dive" ],
           "blend_transition": 0.2,
           "transitions": [
             { "sleeping": "query.is_sleeping" },
-            { "gliding": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
-            { "hovering": "!query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
-            { "flying": "!query.is_on_ground && (query.ground_speed < 10.0 || !query.is_sprinting || query.vertical_speed > -0.1)" },
-            { "running": "query.is_on_ground && query.modified_move_speed > 0.28" },
-            { "walking": "query.is_on_ground && query.modified_move_speed > 0.08 && query.modified_move_speed <= 0.28" },
-            { "sitting": "query.is_on_ground && query.is_sneaking && query.ground_speed <= 0.3" },
-            { "idle": "query.is_on_ground" }
+            { "gliding": "(query.life_time - variable.dive_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
+            { "hovering": "(query.life_time - variable.dive_enter_time > 0.3) && !query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
+            { "flying": "(query.life_time - variable.dive_enter_time > 0.3) && !query.is_on_ground && (query.ground_speed < 10.0 || !query.is_sprinting || query.vertical_speed > -0.1)" },
+            { "running": "(query.life_time - variable.dive_enter_time > 0.3) && query.is_on_ground && query.ground_speed > 2.5" },
+            { "walking": "(query.life_time - variable.dive_enter_time > 0.3) && query.is_on_ground && query.ground_speed >= 0.1 && query.ground_speed <= 2.5" },
+            { "sitting": "(query.life_time - variable.dive_enter_time > 0.3) && query.is_on_ground && query.is_sneaking && query.ground_speed < 0.1" },
+            { "idle": "(query.life_time - variable.dive_enter_time > 0.3) && query.is_on_ground" }
           ]
         },
         "sitting": {
@@ -109,13 +114,13 @@
           "blend_transition": 0.2,
           "transitions": [
             { "sleeping": "query.is_sleeping" },
-            { "diving": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
-            { "gliding": "!query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
-            { "hovering": "!query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
-            { "flying": "!query.is_on_ground" },
-            { "running": "(query.life_time - variable.sit_enter_time > 0.15) && query.modified_move_speed > 0.28" },
-            { "walking": "(query.life_time - variable.sit_enter_time > 0.15) && query.modified_move_speed > 0.08 && query.modified_move_speed <= 0.28" },
-            { "idle": "(query.life_time - variable.sit_enter_time > 0.15) && (!query.is_sneaking || query.ground_speed > 0.5)" }
+            { "diving": "(query.life_time - variable.sit_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= -0.1" },
+            { "gliding": "(query.life_time - variable.sit_enter_time > 0.3) && !query.is_on_ground && query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed > -0.1 && query.vertical_speed <= 0.1" },
+            { "hovering": "(query.life_time - variable.sit_enter_time > 0.3) && !query.is_on_ground && query.ground_speed < 0.1 && math.abs(query.vertical_speed) <= 0.02" },
+            { "flying": "(query.life_time - variable.sit_enter_time > 0.3) && !query.is_on_ground" },
+            { "running": "(query.life_time - variable.sit_enter_time > 0.3) && query.is_on_ground && query.ground_speed > 2.5" },
+            { "walking": "(query.life_time - variable.sit_enter_time > 0.3) && query.is_on_ground && query.ground_speed >= 0.1 && query.ground_speed <= 2.5" },
+            { "idle": "(query.life_time - variable.sit_enter_time > 0.3) && !query.is_sneaking" }
           ]
         },
         "sleeping": {
