@@ -163,6 +163,18 @@ function giveKilledMobMorphToPlayer(player, deadEntity, morph) {
   );
 
   deadEntity.dimension.spawnParticle("dark7mc:soul_orb_particle", headLocation, particleVariables);
+  const orbImpactLocation = {
+    x: damagerLocation.x,
+    y: damagerLocation.y + 0.5,
+    z: damagerLocation.z
+  };
+  const orbImpactDimension = player.dimension;
+
+  // The soul orb has a 0.5-second lifetime, so this burst fires as it reaches the player.
+  system.runTimeout(() => {
+    orbImpactDimension.spawnParticle("dark7mc:morph_unlock_burst", orbImpactLocation);
+  }, 10);
+
   player.dimension.playSound("beacon.activate", damagerLocation);
 }
 
