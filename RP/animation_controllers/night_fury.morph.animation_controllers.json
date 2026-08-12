@@ -120,7 +120,7 @@
             { "flying": "(query.life_time - variable.sit_enter_time > 0.3) && !query.is_on_ground" },
             { "running": "(query.life_time - variable.sit_enter_time > 0.3) && query.is_on_ground && query.ground_speed > 2.5" },
             { "walking": "(query.life_time - variable.sit_enter_time > 0.3) && query.is_on_ground && query.ground_speed >= 0.1 && query.ground_speed <= 2.5" },
-            { "idle": "(query.life_time - variable.sit_enter_time > 0.3) && !query.is_sneaking" }
+            { "idle": "(query.life_time - variable.sit_enter_time > 0.3) && query.is_on_ground && !query.is_sneaking" }
           ]
         },
         "sleeping": {
