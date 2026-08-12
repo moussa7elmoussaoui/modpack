@@ -32,7 +32,9 @@
           "pitch": [ 0.8, 1.2 ],
           "sound": "mob.blaze.shoot"
         },
-        "spawn_offset": [ 0.0, 0.4, 0.0 ],
+        "spawn_offset": [ 0.0, 0.0, 0.0 ],
+        "forward_distance": 1.4,
+        "drop": 1.2,
         "use_animation": "animation.morph.night_fury.breath"
       }
     }

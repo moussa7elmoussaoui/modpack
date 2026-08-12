@@ -13,20 +13,31 @@ export default {
     system.runTimeout(() => {
       const launchPower = params.launch_power;
       const spawnOffset = params.spawn_offset;
+      const headLocation = source.getHeadLocation();
+      const viewDirection = source.getViewDirection();
+
+      const forwardDistance = params.forward_distance ?? 0;
+      const drop = params.drop ?? 0;
+
+      const baseLocation = spawnOffset === undefined ? headLocation : {
+        x: headLocation.x + spawnOffset[0],
+        y: headLocation.y + spawnOffset[1],
+        z: headLocation.z + spawnOffset[2]
+      };
 
       const projectile = source.dimension.spawnEntity(
         params.projectile_entity,
-        spawnOffset === undefined ? source.getHeadLocation() : {
-          x: source.getHeadLocation().x + spawnOffset[0],
-          y: source.getHeadLocation().y + spawnOffset[1],
-          z: source.getHeadLocation().z + spawnOffset[2]
+        {
+          x: baseLocation.x + viewDirection.x * forwardDistance,
+          y: baseLocation.y + viewDirection.y * forwardDistance - drop,
+          z: baseLocation.z + viewDirection.z * forwardDistance
         }
       ).getComponent("minecraft:projectile");
       projectile.owner = source;
       projectile.shoot({
-        x: source.getViewDirection().x * launchPower,
-        y: source.getViewDirection().y * launchPower,
-        z: source.getViewDirection().z * launchPower
+        x: viewDirection.x * launchPower,
+        y: viewDirection.y * launchPower,
+        z: viewDirection.z * launchPower
       });
 
       paramsUtil.optional(params.shoot_event, (parameter) => { source.triggerEvent(parameter); });
