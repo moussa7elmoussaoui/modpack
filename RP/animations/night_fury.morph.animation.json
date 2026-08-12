@@ -3490,6 +3490,14 @@
 					]
 				}
 			}
+		},
+		"animation.morph.night_fury.ui_scale": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"scale": 0.4
+				}
+			}
 		}
 	}
 }
