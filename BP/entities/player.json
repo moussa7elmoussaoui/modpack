@@ -8792,7 +8792,7 @@
           "total_supply": 15
         },
         "minecraft:collision_box": {
-          "width": 1.2,
+          "width": 1.0,
           "height": 0.6
         },
         "minecraft:damage_sensor": {
@@ -8813,20 +8813,6 @@
           "max": 30,
           "value": 30
         },
-        "minecraft:hurt_on_condition": {
-          "damage_conditions": [
-            {
-              "cause": "lava",
-              "damage_per_tick": 4,
-              "filters": {
-                "operator": "==",
-                "test": "in_lava",
-                "subject": "self",
-                "value": true
-              }
-            }
-          ]
-        },
         "minecraft:type_family": {
           "family": [
             "night_fury",
@@ -8842,6 +8828,9 @@
             },
             {
               "event": "morph:fly"
+            },
+            {
+              "event": "morph:fire_immune"
             }
           ]
         }
