@@ -22,8 +22,7 @@ export default {
       const entityType = morphId.slice(0, bracketStart);
       const properties = morphId.slice(bracketStart + 1, bracketEnd);
 
-      const iconEntityType = entityType === "minecraft:night_fury" ? "minecraft:bat" : entityType;
-      const iconPath = `textures/morph_icons/${iconEntityType.replace(":", "/")}${properties.length === 0 ? "" : `/${properties}`}`;
+      const iconPath = `textures/morph_icons/${entityType.replace(":", "/")}${properties.length === 0 ? "" : `/${properties}`}`;
       morphMenu.button(morphId, iconPath);
     }
 

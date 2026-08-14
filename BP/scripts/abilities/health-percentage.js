@@ -1,6 +1,7 @@
 import { GameMode, HudElement, HudVisibility, system, world } from "@minecraft/server";
 import { morphEntityTypes } from "../data/morphs";
 import { morphEvents } from "../morph/entity-methods";
+import { setSegment } from "../actionbar";
 
 const ENTITY_TYPES = [
   "minecraft:wither",
@@ -24,14 +25,19 @@ morphEvents.afterMorph.subscribe(({ morph, player, previousMorph }) => {
 
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
-    if (player.getGameMode() === GameMode.Creative) continue;
+    setSegment(player, "hp", {
+      priority: 0,
+      getLine: () => {
+        if (player.getGameMode() === GameMode.Creative) return null;
 
-    const entityType = morphEntityTypes[player.getProperty("dark7mc:entity")];
-    if (!ENTITY_TYPES.includes(entityType)) continue;
+        const entityType = morphEntityTypes[player.getProperty("dark7mc:entity")];
+        if (!ENTITY_TYPES.includes(entityType)) return null;
 
-    const healthComponent = player.getComponent("minecraft:health");
-    const healthPercentage = Math.ceil(healthComponent.currentValue) / Math.ceil(healthComponent.defaultValue);
+        const healthComponent = player.getComponent("minecraft:health");
+        const healthPercentage = Math.ceil(healthComponent.currentValue) / Math.ceil(healthComponent.defaultValue);
 
-    player.onScreenDisplay.setActionBar(`${HEALTH_SYMBOL} ${(healthPercentage * 100).toFixed(1)}%`);
+        return `${HEALTH_SYMBOL} §c${(healthPercentage * 100).toFixed(1)}%`;
+      }
+    });
   }
 });

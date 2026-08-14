@@ -1,4 +1,5 @@
 import { system, world } from "@minecraft/server";
+import { setSegment } from "../actionbar";
 export var UnitTagValue;
 (function (UnitTagValue) {
     UnitTagValue["MetersPerSecond"] = "ms";
@@ -37,42 +38,23 @@ function displaySpeed(speedMs, unitValue) {
     }
 }
 
-// Per-segment visibility (default: all enabled unless the ":off" tag is present)
-const SEGMENT_OFF_TAGS = {
-    horizontal: "dark7mc:speedo:off:h",
-    vertical: "dark7mc:speedo:off:v",
-    total: "dark7mc:speedo:off:t"
-};
+function registerSpeedometer() {
+    for (const player of world.getPlayers()) {
+        setSegment(player, "speedometer", {
+            priority: 1,
+            getLine: () => {
+                if (!player.hasTag("dark7mc:speedometer")) return null;
 
-function isSegmentEnabled(player, segment) {
-    return !player.hasTag(SEGMENT_OFF_TAGS[segment]);
-}
+                const unitValue = getUnitValue(player);
+                const unitText = getUnitText(unitValue);
+                const velocity = player.getVelocity();
+                const total = Math.hypot(velocity.x, velocity.y, velocity.z) * 20;
 
-function displaySpeedometer() {
-    for (const player of world.getPlayers({ tags: ["dark7mc:speedometer"] })) {
-        const unitValue = getUnitValue(player);
-        const unitText = getUnitText(unitValue);
-        const velocity = player.getVelocity();
-
-        const segments = [];
-        if (isSegmentEnabled(player, "horizontal")) {
-            const horizontal = Math.hypot(velocity.x, velocity.z) * 20;
-            segments.push(`§7H §f${displaySpeed(horizontal, unitValue)} §8${unitText}`);
-        }
-        if (isSegmentEnabled(player, "vertical")) {
-            const vertical = velocity.y * 20;
-            segments.push(`§7V §f${displaySpeed(vertical, unitValue)} §8${unitText}`);
-        }
-        if (isSegmentEnabled(player, "total")) {
-            const total = Math.hypot(velocity.x, velocity.y, velocity.z) * 20;
-            segments.push(`§7T §f${displaySpeed(total, unitValue)} §8${unitText}`);
-        }
-
-        if (segments.length === 0) continue;
-
-        player.onScreenDisplay.setActionBar(segments.join("   §8│§r   "));
+                return `\uE200 §e${displaySpeed(total, unitValue)} §7${unitText}`;
+            }
+        });
     }
 }
 
-system.runInterval(displaySpeedometer);
+system.runInterval(registerSpeedometer);
 export { getUnitValue };
