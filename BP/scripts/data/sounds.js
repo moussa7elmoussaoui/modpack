@@ -719,5 +719,14 @@ export default [
     death: "mob.breeze.death",
     volume: 1.0,
     pitch: 1.0
+  },
+  {
+    hurt: {
+      sound: "mob.polarbear.hurt",
+      volume: 0.50
+    },
+    death: "mob.polarbear.death",
+    volume: 0.80,
+    pitch: [ 0.80, 1.20 ]
   }
 ];
