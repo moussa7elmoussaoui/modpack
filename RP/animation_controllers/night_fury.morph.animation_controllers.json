@@ -5,6 +5,7 @@
       "initial_state": "idle",
       "states": {
         "idle": {
+          "on_entry": [ "variable.is_wingbeat_active = 0.0;" ],
           "animations": [ "night_fury_idle" ],
           "blend_transition": 0.2,
           "transitions": [
@@ -19,7 +20,7 @@
           ]
         },
         "walking": {
-          "on_entry": [ "variable.walk_enter_time = query.life_time;" ],
+          "on_entry": [ "variable.walk_enter_time = query.life_time;", "variable.is_wingbeat_active = 0.0;" ],
           "animations": [ "night_fury_walk" ],
           "blend_transition": 0.2,
           "transitions": [
@@ -34,7 +35,7 @@
           ]
         },
         "running": {
-          "on_entry": [ "variable.run_enter_time = query.life_time;" ],
+          "on_entry": [ "variable.run_enter_time = query.life_time;", "variable.is_wingbeat_active = 0.0;" ],
           "animations": [ "night_fury_run" ],
           "blend_transition": 0.2,
           "transitions": [
@@ -49,7 +50,7 @@
           ]
         },
         "flying": {
-          "on_entry": [ "variable.fly_enter_time = query.life_time;" ],
+          "on_entry": [ "variable.fly_enter_time = query.life_time;", "variable.wingbeat_start = variable.is_wingbeat_active ? variable.wingbeat_start : query.life_time;", "variable.is_wingbeat_active = 1.0;" ],
           "animations": [ "night_fury_flap" ],
           "blend_transition": 0.2,
           "transitions": [
@@ -64,7 +65,7 @@
           ]
         },
         "hovering": {
-          "on_entry": [ "variable.hover_enter_time = query.life_time;" ],
+          "on_entry": [ "variable.hover_enter_time = query.life_time;", "variable.wingbeat_start = variable.is_wingbeat_active ? variable.wingbeat_start : query.life_time;", "variable.is_wingbeat_active = 1.0;" ],
           "animations": [ "night_fury_hover" ],
           "blend_transition": 0.2,
           "transitions": [
@@ -79,7 +80,7 @@
           ]
         },
         "gliding": {
-          "on_entry": [ "variable.glide_enter_time = query.life_time;" ],
+          "on_entry": [ "variable.glide_enter_time = query.life_time;", "variable.is_wingbeat_active = 0.0;" ],
           "animations": [ "night_fury_glide" ],
           "blend_transition": 0.2,
           "transitions": [
@@ -94,7 +95,7 @@
           ]
         },
         "diving": {
-          "on_entry": [ "variable.dive_enter_time = query.life_time;" ],
+          "on_entry": [ "variable.dive_enter_time = query.life_time;", "variable.is_wingbeat_active = 0.0;" ],
           "animations": [ "night_fury_dive" ],
           "blend_transition": 0.2,
           "transitions": [
@@ -109,7 +110,7 @@
           ]
         },
         "sitting": {
-          "on_entry": [ "variable.sit_enter_time = query.life_time;" ],
+          "on_entry": [ "variable.sit_enter_time = query.life_time;", "variable.is_wingbeat_active = 0.0;" ],
           "animations": [ "night_fury_sit" ],
           "blend_transition": 0.2,
           "transitions": [
@@ -124,6 +125,7 @@
           ]
         },
         "sleeping": {
+          "on_entry": [ "variable.is_wingbeat_active = 0.0;" ],
           "animations": [ "night_fury_sleep" ],
           "blend_transition": 0.3,
           "transitions": [

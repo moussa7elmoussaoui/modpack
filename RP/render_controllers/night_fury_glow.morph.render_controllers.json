@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.night_fury.glow": {
+      "geometry": "Geometry.night_fury",
+      "materials": [ { "*": "Material.night_fury_glow" } ],
+      "textures": [ "Texture.night_fury_glow" ],
+      "ignore_lighting": true,
+      "color": {
+        "r": "query.is_in_ui ? 1.0 : this",
+        "g": "query.is_in_ui ? 1.0 : this",
+        "b": "query.is_in_ui ? 1.0 : this",
+        "a": "query.is_in_ui ? 1.0 : this"
+      }
+    }
+  }
+}

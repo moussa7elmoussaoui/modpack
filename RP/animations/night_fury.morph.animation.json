@@ -1927,6 +1927,7 @@
 		"animation.morph.night_fury.flap": {
 			"loop": true,
 			"animation_length": 2.4,
+			"anim_time_update": "math.mod(query.life_time - variable.wingbeat_start, 2.4)",
 			"bones": {
 				"body": {
 					"rotation": [
@@ -2232,6 +2233,7 @@
 		"animation.morph.night_fury.hover": {
 			"loop": true,
 			"animation_length": 2.4,
+			"anim_time_update": "math.mod(query.life_time - variable.wingbeat_start, 2.4)",
 			"bones": {
 				"body": {
 					"rotation": [
@@ -3497,6 +3499,24 @@
 				"root": {
 					"scale": 0.4
 				}
+			}
+		},
+		"animation.morph.night_fury.flap_sound": {
+			"loop": true,
+			"animation_length": 2.4,
+			"anim_time_update": "math.mod(query.life_time - variable.wingbeat_start, 2.4)",
+			"sound_effects": {
+				"0.60": { "effect": "night_fury_flap" },
+				"1.80": { "effect": "night_fury_flap" }
+			}
+		},
+		"animation.morph.night_fury.quiet_flap_sound": {
+			"loop": true,
+			"animation_length": 2.4,
+			"anim_time_update": "math.mod(query.life_time - variable.wingbeat_start, 2.4)",
+			"sound_effects": {
+				"0.60": { "effect": "night_fury_quiet_flap" },
+				"1.80": { "effect": "night_fury_quiet_flap" }
 			}
 		}
 	}
