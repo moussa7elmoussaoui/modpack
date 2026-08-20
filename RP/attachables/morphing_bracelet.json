@@ -7,10 +7,10 @@
         "default": "entity_emissive_alpha"
       },
       "textures": {
-        "frame_0": "textures/models/morphing_bracelet_0",
-        "frame_1": "textures/models/morphing_bracelet_1",
-        "frame_2": "textures/models/morphing_bracelet_2",
-        "frame_3": "textures/models/morphing_bracelet_3"
+        "frame_0": "textures/models/morphing_bracelet/morphing_bracelet_0",
+        "frame_1": "textures/models/morphing_bracelet/morphing_bracelet_1",
+        "frame_2": "textures/models/morphing_bracelet/morphing_bracelet_2",
+        "frame_3": "textures/models/morphing_bracelet/morphing_bracelet_3"
       },
       "geometry": {
         "default": "geometry.morphing_bracelet"
