@@ -9,12 +9,13 @@
           "$title_panel": "common_dialogs.standard_title_label",
           "$title_size": [ "100% - 15px", 10 ],
           "$title_max_size": [ "100% - 15px", 10 ],
-          "size": [ 320, 256 ],
+          "size": [ 320, 224 ],
           "offset": [ -22, 0 ],
           "$text_name": "#title_text",
           "$title_text_binding_type": "none",
           "$child_control": "morph_menu.long_form_panel",
-          "layer": 2
+          "layer": 2,
+          "$custom_background": "morph_menu.menu_background"
         }
       },
       {
@@ -23,7 +24,8 @@
           "size": [ 96, 96 ],
           "offset": [ 178, -40 ],
           "$child_control": "morph_menu.player_renderer_panel",
-          "layer": 1
+          "layer": 1,
+          "$custom_background": "morph_menu.player_renderer_background"
         }
       }
     ],
@@ -89,8 +91,7 @@
       }
     ]
   },
-
-  "long_form_scrolling_content": {
+"long_form_scrolling_content": {
     "type": "stack_panel",
     "size": [ "100%", "100%c" ],
     "orientation": "vertical",
@@ -145,7 +146,8 @@
   "dynamic_button": {
     "type": "panel",
     "size": [ 48, 48 ],
-    "controls":[
+    "$player_model_texture": "textures/morph_icons/minecraft/player",
+    "controls": [
       {
         "panel_name": {
           "type": "panel",
@@ -166,7 +168,7 @@
                 "layer": 2,
                 "size": [ 32, 32 ],
                 "offset": [ 0, 0 ],
-                "bindings":  [
+                "bindings": [
                   {
                     "binding_name": "#form_button_texture",
                     "binding_name_override": "#texture",
@@ -181,7 +183,7 @@
                   },
                   {
                     "binding_type": "view",
-                    "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+                    "source_property_name": "(not ((#texture = '') or (#texture = 'loading') or (#texture = $player_model_texture)))",
                     "target_property_name": "#visible"
                   }
                 ]
@@ -201,6 +203,38 @@
                   }
                 ]
               }
+            }
+          ]
+        }
+      },
+{
+        "player_model": {
+          "type": "custom",
+          "renderer": "paper_doll_renderer",
+          "camera_tilt_degrees": -30,
+          "layer": 2,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "rotation": "custom_y",
+          "property_bag": {
+            "#custom_rot_y": 45.0
+          },
+          "size": [ "85%", "85%" ],
+          "offset": [ 0, -6 ],
+          "animation_reset_name": "screen_animation_reset",
+          "anims": [
+            "@common.screen_exit_size_animation_push",
+            "@common.screen_exit_size_animation_pop",
+            "@common.screen_entrance_size_animation_push",
+            "@common.screen_entrance_size_animation_pop"
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "image",
+              "resolve_sibling_scope": true,
+              "source_property_name": "(#texture = $player_model_texture)",
+              "target_property_name": "#visible"
             }
           ]
         }
@@ -226,5 +260,13 @@
         }
       }
     ]
+  },
+
+  "menu_background@common.dialog_background_hollow_common": {
+    "texture": "textures/ui/morph_menu_background"
+  },
+
+  "player_renderer_background@common.dialog_background_hollow_common": {
+    "texture": "textures/ui/player_renderer_morph_menu_background"
   }
 }
