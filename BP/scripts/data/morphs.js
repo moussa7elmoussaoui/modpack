@@ -1619,7 +1619,8 @@ const morphs = {
   },
   "minecraft:night_fury": {
     items: [{ id: "dark7mc:night_fury_fireball" }]
-  }
+  },
+  "minecraft:creaking": {}
 };
 
 export default morphs;

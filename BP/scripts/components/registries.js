@@ -1,4 +1,5 @@
 import convertBlock from "./blocks/convert-block";
+import creakingHeart from "./blocks/creaking-heart";
 import durabilityDamageOnHit from "./items/durability-damage-on-hit";
 import effectNearbyPlayers from "./items/effect-nearby-players";
 import infiniteProjectile from "./items/infinite-projectile";
@@ -9,7 +10,7 @@ import summonFangsOnUse from "./items/summon-fangs-on-use";
 import teleportOnUse from "./items/teleport-on-use";
 
 export default {
-  blocks: [ convertBlock ],
+  blocks: [ convertBlock, creakingHeart ],
   items: [
     durabilityDamageOnHit,
     effectNearbyPlayers,

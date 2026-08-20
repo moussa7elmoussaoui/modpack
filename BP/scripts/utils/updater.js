@@ -94,7 +94,7 @@ function updateItem(inventory, slot, itemStack) {
   }
 }
 
-function renameItemTypeId(itemStack, identifier) {
+export function renameItemTypeId(itemStack, identifier) {
   const newItemStack = new ItemStack(identifier);
 
   newItemStack.amount = itemStack.amount;
