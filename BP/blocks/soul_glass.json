@@ -9,6 +9,12 @@
       }
     },
     "components": {
+      "minecraft:chest_obstruction": {
+        "obstruction_rule": "never"
+      },
+      "minecraft:instrument_sound": {
+        "up": "note.hat"
+      },
       "minecraft:destructible_by_explosion": {
         "explosion_resistance": 1.5
       },

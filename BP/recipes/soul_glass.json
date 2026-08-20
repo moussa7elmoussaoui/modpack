@@ -5,6 +5,11 @@
       "identifier": "dark7mc:soul_glass"
     },
     "tags": [ "furnace" ],
+    "unlock": [
+      {
+        "item": "minecraft:soul_sand"
+      }
+    ],
     "input": "minecraft:soul_sand",
     "output": "dark7mc:soul_glass"
   }
