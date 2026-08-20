@@ -1,6 +1,6 @@
 import { EntityTypes, ItemStack } from "@minecraft/server";
 import morphs from "../../data/morphs";
-import { Morph } from "../../morph/classes";
+import { Morph } from "../../morph/class";
 
 const PLAYER_ENTITY_TYPE = "minecraft:player";
 

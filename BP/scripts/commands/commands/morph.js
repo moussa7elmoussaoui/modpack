@@ -1,5 +1,5 @@
 import { system } from "@minecraft/server";
-import { Morph } from "../../morph/classes";
+import { Morph } from "../../morph/class";
 import { namespace } from "../../utils/namespace";
 import morphEnum from "../enums/morph";
 

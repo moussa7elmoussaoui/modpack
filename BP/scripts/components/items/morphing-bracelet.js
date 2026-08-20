@@ -1,7 +1,7 @@
 import { Entity, GameMode, ItemStack, MolangVariableMap, Player, system, world } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 import morphs from "../../data/morphs";
-import { Morph } from "../../morph/classes";
+import { Morph } from "../../morph/class";
 import { morphEvents } from "../../morph/entity-methods";
 import { namespace } from "../../utils/namespace";
 

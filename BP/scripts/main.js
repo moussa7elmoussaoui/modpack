@@ -3,7 +3,7 @@ import { uiManager } from "@minecraft/server-ui";
 import "./abilities/index";
 import commands from "./commands/registries";
 import components from "./components/registries";
-import { Morph } from "./morph/classes";
+import { Morph } from "./morph/class";
 import "./morph/entity-methods";
 import "./utils/is-solid";
 import { namespace } from "./utils/namespace";

@@ -1,5 +1,5 @@
 import { Entity, EntityTypes, ItemLockMode, ItemStack, Player, system } from "@minecraft/server";
-import { Morph } from "./classes";
+import { Morph } from "./class";
 import { evaluateCondition } from "./condition-evaluator";
 import morphs, { morphEntityTypes } from "../data/morphs";
 

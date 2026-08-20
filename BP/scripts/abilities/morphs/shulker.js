@@ -1,6 +1,6 @@
 import { InputPermissionCategory, system, world } from "@minecraft/server";
 import { morphEntityTypes } from "../../data/morphs";
-import { Morph } from "../../morph/classes";
+import { Morph } from "../../morph/class";
 import { morphEvents } from "../../morph/entity-methods";
 
 const ENTITY_TYPE = "minecraft:shulker";
