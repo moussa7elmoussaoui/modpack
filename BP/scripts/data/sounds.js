@@ -728,5 +728,10 @@ export default [
     death: "mob.polarbear.death",
     volume: 0.80,
     pitch: [ 0.80, 1.20 ]
+  },
+  {
+    death: "",
+    volume: 1.0,
+    pitch: 1.0
   }
 ];
