@@ -1,6 +1,10 @@
 pack.name=DARK7MC Modpack [RP]
 pack.description=Uma coleção de addons fundidos num modpack por DARK7MC.
 
+action.hint.exit.console.player=Prima :_input_key.sneak: para desmontar
+action.hint.exit.player=Toque em agachar para desmontar
+action.hint.exit.scheme.player=Toque em desmontar para desmontar
+
 item.dark7mc:morphing_bracelet=Bracelete de metamorfose
 item.dark7mc:night_fury_fireball=Bola de fogo da Fúria da Noite
 item.dark7mc:dragon_fireball=Bola de fogo de dragão

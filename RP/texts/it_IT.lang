@@ -1,6 +1,10 @@
 pack.name=DARK7MC Modpack [RP]
 pack.description=Una raccolta di addon fusi in un unico modpack da DARK7MC.
 
+action.hint.exit.console.player=Premi :_input_key.sneak: per scendere
+action.hint.exit.player=Tocca furtività per scendere
+action.hint.exit.scheme.player=Tocca scendi per scendere
+
 item.dark7mc:morphing_bracelet=Bracciale di metamorfosi
 item.dark7mc:night_fury_fireball=Palla di fuoco della Furia Notturna
 item.dark7mc:dragon_fireball=Palla di fuoco del drago

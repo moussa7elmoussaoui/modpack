@@ -1,6 +1,10 @@
 pack.name=DARK7MC Modpack [RP]
 pack.description=Kolekcia addonov spojených do jedného modpacku od DARK7MC.
 
+action.hint.exit.console.player=Stlačením :_input_key.sneak: zosadnete
+action.hint.exit.player=Ťuknutím na plíženie zosadnete
+action.hint.exit.scheme.player=Ťuknutím na zosadnutie zosadnete
+
 item.dark7mc:morphing_bracelet=Náramok premeny
 item.dark7mc:night_fury_fireball=Ohnivá guľa Nočnej zúrivosti
 item.dark7mc:dragon_fireball=Dračia ohnivá guľa

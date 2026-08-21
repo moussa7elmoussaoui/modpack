@@ -1,6 +1,10 @@
 pack.name=DARK7MC Modpack [RP]
 pack.description=Addonok gyűjteménye, amelyeket DARK7MC egyetlen modpackba egyesített.
 
+action.hint.exit.console.player=Nyomd meg a(z) :_input_key.sneak: gombot a leszálláshoz
+action.hint.exit.player=Koppints a lopakodásra a leszálláshoz
+action.hint.exit.scheme.player=Koppints a leszállásra a leszálláshoz
+
 item.dark7mc:morphing_bracelet=Átváltoztató karkötő
 item.dark7mc:night_fury_fireball=Éjszakai Fúria tűzgömbje
 item.dark7mc:dragon_fireball=Sárkány tűzgömb

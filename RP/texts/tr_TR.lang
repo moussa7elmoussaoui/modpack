@@ -1,6 +1,10 @@
 pack.name=DARK7MC Modpack [RP]
 pack.description=DARK7MC tarafından tek bir modpack'te birleştirilen eklenti koleksiyonu.
 
+action.hint.exit.console.player=İnmek için :_input_key.sneak: tuşuna bas
+action.hint.exit.player=İnmek için gizlice yürüye dokun
+action.hint.exit.scheme.player=İnmek için inmeye dokun
+
 item.dark7mc:morphing_bracelet=Dönüşüm bilekliği
 item.dark7mc:night_fury_fireball=Gece Öfkesi Ateş Topu
 item.dark7mc:dragon_fireball=Ejderha Ateş Topu

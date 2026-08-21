@@ -1,6 +1,10 @@
 pack.name=DARK7MC Modpack [RP]
 pack.description=由DARK7MC合併為一個整合包的附加元件集合。
 
+action.hint.exit.console.player=按下 :_input_key.sneak: 下坐騎
+action.hint.exit.player=點擊潛行下坐騎
+action.hint.exit.scheme.player=點擊下坐騎下坐騎
+
 item.dark7mc:morphing_bracelet=變身手環
 item.dark7mc:night_fury_fireball=夜煞火球
 item.dark7mc:dragon_fireball=龍火球

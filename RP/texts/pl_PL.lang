@@ -1,6 +1,10 @@
 pack.name=DARK7MC Modpack [RP]
 pack.description=Kolekcja addonów połączonych w jeden modpack przez DARK7MC.
 
+action.hint.exit.console.player=Naciśnij :_input_key.sneak:, aby zejść
+action.hint.exit.player=Dotknij skradania, aby zejść
+action.hint.exit.scheme.player=Dotknij zejścia, aby zejść
+
 item.dark7mc:morphing_bracelet=Bransoleta metamorfozy
 item.dark7mc:night_fury_fireball=Kula ognia Nocnej Furii
 item.dark7mc:dragon_fireball=Smocza kula ognia

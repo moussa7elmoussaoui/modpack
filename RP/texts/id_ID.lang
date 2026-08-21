@@ -1,6 +1,10 @@
 pack.name=DARK7MC Modpack [RP]
 pack.description=Kumpulan addon yang digabungkan menjadi satu modpack oleh DARK7MC.
 
+action.hint.exit.console.player=Tekan :_input_key.sneak: untuk turun
+action.hint.exit.player=Ketuk menyelinap untuk turun
+action.hint.exit.scheme.player=Ketuk turun untuk turun
+
 item.dark7mc:morphing_bracelet=Gelang metamorfosis
 item.dark7mc:night_fury_fireball=Bola api Night Fury
 item.dark7mc:dragon_fireball=Bola api naga

@@ -67,6 +67,10 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   }
   this.triggerEvent("dark7mc:add_components");
 
+  if (entityType !== "minecraft:player" && (this.isSneaking || this.isSleeping) && this.hasComponent("minecraft:rideable")) {
+    this.triggerEvent("morph:block_riding");
+  }
+
   const health = this.getComponent("minecraft:health");
   const previousHealth = { currentValue: health.currentValue, defaultValue: health.defaultValue };
   system.runTimeout(() => 
@@ -114,6 +118,25 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   }, 1);
 
   callListeners(afterListeners, eventOptions);
+  return true;
+};
+
+Player.prototype.refreshMorphComponents = function() {
+  const morph = this.getMorph();
+  if (morph === undefined) return false;
+
+  this.addTag("morph:refresh_components");
+  this.triggerEvent("dark7mc:clear_components");
+  this.setProperty("dark7mc:entity", morphEntityTypes.indexOf(morph.entityType));
+
+  const baseTag = `components.${morph.entityType}`;
+  this.addTag(baseTag);
+  for (const [key, value] of Object.entries(morph.properties)) {
+    this.addTag(`${baseTag}.${key}=${value}`);
+  }
+  this.triggerEvent("dark7mc:add_components");
+  system.runTimeout(() => this.removeTag("morph:refresh_components"), 1);
+
   return true;
 };
 

@@ -1,6 +1,10 @@
 pack.name=DARK7MC Modpack [RP]
 pack.description=Een verzameling addons samengevoegd tot één modpack door DARK7MC.
 
+action.hint.exit.console.player=Druk op :_input_key.sneak: om af te stappen
+action.hint.exit.player=Tik op sluipen om af te stappen
+action.hint.exit.scheme.player=Tik op afstappen om af te stappen
+
 item.dark7mc:morphing_bracelet=Metamorfose-armband
 item.dark7mc:night_fury_fireball=Nachtfurië-vuurbal
 item.dark7mc:dragon_fireball=Drakenvuurbal

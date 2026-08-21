@@ -1,6 +1,10 @@
 pack.name=DARK7MC Modpack [RP]
 pack.description=Колекция от добавки, обединени в един модпак от DARK7MC.
 
+action.hint.exit.console.player=Натиснете :_input_key.sneak:, за да слезете
+action.hint.exit.player=Докоснете „крадене“, за да слезете
+action.hint.exit.scheme.player=Докоснете „слизане“, за да слезете
+
 item.dark7mc:morphing_bracelet=Трансформираща гривна
 item.dark7mc:night_fury_fireball=Огнена топка на Нощна фурия
 item.dark7mc:dragon_fireball=Драконова огнена топка

@@ -5,6 +5,7 @@ import commands from "./commands/registries";
 import components from "./components/registries";
 import { Morph } from "./morph/class";
 import "./morph/entity-methods";
+import "./abilities/block-morph-riding";
 import "./utils/is-solid";
 import { namespace } from "./utils/namespace";
 import "./utils/updater";

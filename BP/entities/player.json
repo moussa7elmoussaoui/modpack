@@ -189,6 +189,12 @@
             "minecraft:pushable_by_block": {}
         },
         "component_groups": {
+            "morph:riding_blocked": {
+                "minecraft:rideable": {
+                    "seat_count": 0,
+                    "seats": []
+                }
+            },
             "morph:player": {
                 "minecraft:attack": {
                     "damage": 1
@@ -9063,6 +9069,13 @@
             }
         },
         "events": {
+            "morph:block_riding": {
+                "add": {
+                    "component_groups": [
+                        "morph:riding_blocked"
+                    ]
+                }
+            },
             "dark7mc:clear_components": {
                 "sequence": [
                     {
@@ -18137,10 +18150,20 @@
                 "sequence": [
                     {
                         "filters": {
-                            "test": "has_ability",
-                            "subject": "self",
-                            "operator": "equals",
-                            "value": "mayfly"
+                            "all_of": [
+                                {
+                                    "test": "has_ability",
+                                    "subject": "self",
+                                    "operator": "equals",
+                                    "value": "mayfly"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "subject": "self",
+                                    "operator": "not",
+                                    "value": "morph:refresh_components"
+                                }
+                            ]
                         },
                         "queue_command": {
                             "command": "execute unless entity @s[m=creative] unless entity @s[m=spectator] run ability @s mayfly false"
