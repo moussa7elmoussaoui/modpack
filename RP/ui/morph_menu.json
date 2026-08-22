@@ -240,6 +240,33 @@
         }
       },
       {
+        "badge": {
+          "type": "label",
+          "size": [ 26, 14 ],
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "offset": [ -3, -1 ],
+          "layer": 5,
+          "color": [ 1, 1, 1 ],
+          "text": "#badge_text",
+          "text_alignment": "right",
+          "font_scale_factor": 1.2,
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_name_override": "#badge_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not (#badge_text = ''))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
         "form_button@common.button": {
           "$pressed_button_name": "button.form_button_click",
           "size": [ 48, 48 ],

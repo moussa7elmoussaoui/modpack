@@ -18,31 +18,39 @@ export default {
 };
 
 function showMorphMenu(source, itemSlot, itemStack, morphIds) {
-  const variantsByEntity = new Map();
+  const variantsByAge = new Map();
 
   for (const morphId of morphIds) {
     const entityType = parseEntityType(morphId);
-    if (!variantsByEntity.has(entityType)) variantsByEntity.set(entityType, []);
-    variantsByEntity.get(entityType).push(morphId);
+    const ageKey = getAgeKey(morphId);
+    const groupKey = `${entityType}${ageKey}`;
+
+    if (!variantsByAge.has(groupKey)) variantsByAge.set(groupKey, { entityType, ageKey, variants: [] });
+    variantsByAge.get(groupKey).variants.push(morphId);
   }
 
-  const sortedEntries = [...variantsByEntity.entries()].sort(([a], [b]) => {
-    if (a === PLAYER_ENTITY_TYPE) return -1;
-    if (b === PLAYER_ENTITY_TYPE) return 1;
-    return a.localeCompare(b);
+  const sortedEntries = [...variantsByAge.values()].sort((a, b) => {
+    if (a.entityType === PLAYER_ENTITY_TYPE) return -1;
+    if (b.entityType === PLAYER_ENTITY_TYPE) return 1;
+
+    const entityCompare = a.entityType.localeCompare(b.entityType);
+    if (entityCompare !== 0) return entityCompare;
+
+    return agePriority(a.ageKey) - agePriority(b.ageKey);
   });
 
   const morphMenu = new ActionFormData().title("morph.menu.title");
-  for (const [, variants] of sortedEntries) {
+  for (const { variants } of sortedEntries) {
     const sortedVariants = [...variants].sort();
     const firstMorphId = sortedVariants[0];
-    morphMenu.button(firstMorphId, getMorphIconPath(firstMorphId));
+    const buttonText = sortedVariants.length >= 2 ? String(sortedVariants.length) : "";
+    morphMenu.button(buttonText, getMorphIconPath(firstMorphId));
   }
 
   morphMenu.show(source).then(({ canceled, selection }) => {
     if (canceled) return;
 
-    const [, variants] = sortedEntries[selection];
+    const { variants } = sortedEntries[selection];
     if (variants.length === 1) {
       applyMorphSelection(source, itemSlot, itemStack, variants[0]);
       return;
@@ -57,7 +65,7 @@ function showMorphMenu(source, itemSlot, itemStack, morphIds) {
 function showVariantMenu(source, itemSlot, itemStack, morphIds, sortedVariants) {
   const variantMenu = new ActionFormData().title("morph.menu.title");
   for (const morphId of sortedVariants) {
-    variantMenu.button(morphId, getMorphIconPath(morphId));
+    variantMenu.button("", getMorphIconPath(morphId));
   }
 
   variantMenu.show(source).then(({ canceled, selection }) => {
@@ -104,6 +112,23 @@ function getMorphIconPath(morphId) {
   const properties = morphId.slice(bracketStart + 1, bracketEnd);
 
   return `textures/morph_icons/${entityType.replace(":", "/")}${properties.length === 0 ? "" : `/${properties}`}`;
+}
+
+const AGE_PRIORITIES = { adult: 0, wooly_adult: 0, sheared_adult: 1, baby: 2 };
+
+function getAgeKey(morphId) {
+  const bracketStart = morphId.indexOf("[");
+  const bracketEnd = morphId.indexOf("]", bracketStart);
+  const properties = morphId.slice(bracketStart + 1, bracketEnd);
+
+  for (const property of properties.split(",")) {
+    if (property.startsWith("age=")) return property.slice(4);
+  }
+  return "";
+}
+
+function agePriority(ageKey) {
+  return AGE_PRIORITIES[ageKey] ?? 3;
 }
 
 const namespacedId = namespace.toNamespacedId(IDENTIFIER);
