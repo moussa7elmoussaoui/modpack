@@ -12,45 +12,99 @@ export default {
   onUse: ({ itemStack, source }) => {
     const itemSlot = source.getComponent("minecraft:inventory").container.getSlot(source.selectedSlotIndex);
     const morphIds = JSON.parse(itemStack.getDynamicProperty("morphs"));
-    
-    const morphMenu = new ActionFormData().title("morph.menu.title");
 
-    for (const morphId of morphIds) {
-      const bracketStart = morphId.indexOf("[");
-      const bracketEnd = morphId.indexOf("]", bracketStart);
-
-      const entityType = morphId.slice(0, bracketStart);
-      const properties = morphId.slice(bracketStart + 1, bracketEnd);
-
-      const iconPath = `textures/morph_icons/${entityType.replace(":", "/")}${properties.length === 0 ? "" : `/${properties}`}`;
-      morphMenu.button(morphId, iconPath);
-    }
-
-    morphMenu.show(source).then(({ canceled, selection }) => {
-      if (canceled) return;
-
-      const currentMorph = source.getMorph();
-      const selectedMorph = Morph.parse(morphIds[selection]);
-      if (currentMorph.equals(selectedMorph)) return;
-
-      const soulSwitch = itemStack.hasMorph(currentMorph);
-      const isMorphingSuccessful = source.setMorph(selectedMorph, { soulSwitch });
-      if (!isMorphingSuccessful) return;
-      
-      itemStack.removeMorph(selectedMorph);
-      if (!soulSwitch) itemStack.addMorph(currentMorph);
-
-      if (source.getGameMode() === GameMode.Creative) { itemSlot.setItem(itemStack); }
-      else if (itemStack.getComponent("minecraft:durability").maxDurability - 1 > itemStack.getComponent("minecraft:durability").damage) {
-        itemStack.getComponent("minecraft:durability").damage++;
-        itemSlot.setItem(itemStack);
-      } else {
-        itemSlot.setItem(undefined);
-        source.dimension.playSound("respawn_anchor.deplete", source.location, { volume: 1.0, pitch: (Math.random() * 0.4) + 0.8 });
-      }
-    });
+    showMorphMenu(source, itemSlot, itemStack, morphIds);
   }
 };
+
+function showMorphMenu(source, itemSlot, itemStack, morphIds) {
+  const variantsByEntity = new Map();
+
+  for (const morphId of morphIds) {
+    const entityType = parseEntityType(morphId);
+    if (!variantsByEntity.has(entityType)) variantsByEntity.set(entityType, []);
+    variantsByEntity.get(entityType).push(morphId);
+  }
+
+  const sortedEntries = [...variantsByEntity.entries()].sort(([a], [b]) => {
+    if (a === PLAYER_ENTITY_TYPE) return -1;
+    if (b === PLAYER_ENTITY_TYPE) return 1;
+    return a.localeCompare(b);
+  });
+
+  const morphMenu = new ActionFormData().title("morph.menu.title");
+  for (const [, variants] of sortedEntries) {
+    const sortedVariants = [...variants].sort();
+    const firstMorphId = sortedVariants[0];
+    morphMenu.button(firstMorphId, getMorphIconPath(firstMorphId));
+  }
+
+  morphMenu.show(source).then(({ canceled, selection }) => {
+    if (canceled) return;
+
+    const [, variants] = sortedEntries[selection];
+    if (variants.length === 1) {
+      applyMorphSelection(source, itemSlot, itemStack, variants[0]);
+      return;
+    }
+
+    system.runTimeout(() => {
+      showVariantMenu(source, itemSlot, itemStack, morphIds, [...variants].sort());
+    }, 1);
+  });
+}
+
+function showVariantMenu(source, itemSlot, itemStack, morphIds, sortedVariants) {
+  const variantMenu = new ActionFormData().title("morph.menu.title");
+  for (const morphId of sortedVariants) {
+    variantMenu.button(morphId, getMorphIconPath(morphId));
+  }
+
+  variantMenu.show(source).then(({ canceled, selection }) => {
+    if (canceled) {
+      system.runTimeout(() => showMorphMenu(source, itemSlot, itemStack, morphIds), 1);
+      return;
+    }
+
+    applyMorphSelection(source, itemSlot, itemStack, sortedVariants[selection]);
+  });
+}
+
+function applyMorphSelection(source, itemSlot, itemStack, morphId) {
+  const currentMorph = source.getMorph();
+  const selectedMorph = Morph.parse(morphId);
+  if (currentMorph.equals(selectedMorph)) return;
+
+  const soulSwitch = itemStack.hasMorph(currentMorph);
+  const isMorphingSuccessful = source.setMorph(selectedMorph, { soulSwitch });
+  if (!isMorphingSuccessful) return;
+
+  itemStack.removeMorph(selectedMorph);
+  if (!soulSwitch) itemStack.addMorph(currentMorph);
+
+  if (source.getGameMode() === GameMode.Creative) { itemSlot.setItem(itemStack); }
+  else if (itemStack.getComponent("minecraft:durability").maxDurability - 1 > itemStack.getComponent("minecraft:durability").damage) {
+    itemStack.getComponent("minecraft:durability").damage++;
+    itemSlot.setItem(itemStack);
+  } else {
+    itemSlot.setItem(undefined);
+    source.dimension.playSound("respawn_anchor.deplete", source.location, { volume: 1.0, pitch: (Math.random() * 0.4) + 0.8 });
+  }
+}
+
+function parseEntityType(morphId) {
+  return morphId.slice(0, morphId.indexOf("["));
+}
+
+function getMorphIconPath(morphId) {
+  const bracketStart = morphId.indexOf("[");
+  const bracketEnd = morphId.indexOf("]", bracketStart);
+
+  const entityType = morphId.slice(0, bracketStart);
+  const properties = morphId.slice(bracketStart + 1, bracketEnd);
+
+  return `textures/morph_icons/${entityType.replace(":", "/")}${properties.length === 0 ? "" : `/${properties}`}`;
+}
 
 const namespacedId = namespace.toNamespacedId(IDENTIFIER);
 
