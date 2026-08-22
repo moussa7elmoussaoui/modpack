@@ -26,9 +26,12 @@ world.afterEvents.worldLoad.subscribe(() => {
 });
 
 world.afterEvents.playerSpawn.subscribe(({ initialSpawn, player }) => {
-  if (!initialSpawn || player.getDynamicProperty("isInitialized") === true) return;
-  player.setMorph(humanMorph, { showEffects: false });
-  player.setDynamicProperty("isInitialized", true);
+  if (initialSpawn && player.getDynamicProperty("isInitialized") !== true) {
+    player.setMorph(humanMorph, { showEffects: false });
+    player.setDynamicProperty("isInitialized", true);
+  }
+
+  player.refreshMorphNameTag();
 });
 
 world.afterEvents.playerGameModeChange.subscribe(({ player, toGameMode }) => {

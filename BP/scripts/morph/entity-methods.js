@@ -44,6 +44,13 @@ function callListeners(listeners, options) {
   }
 }
 
+Player.prototype.refreshMorphNameTag = function(entityType = morphEntityTypes[this.getProperty("dark7mc:entity")]) {
+  if (entityType === undefined) return false;
+
+  this.nameTag = entityType === "minecraft:player" ? this.name : "";
+  return true;
+};
+
 // This code will be further improved :)
 Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = true } = {}) {
   if (!(morph instanceof Morph)) throw new TypeError("Expected argument to be an instance of Morph");
@@ -80,7 +87,7 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   this.getComponent("minecraft:rideable")?.ejectRiders();
   this.getComponent("minecraft:riding")?.entityRidingOn.getComponent("minecraft:rideable")?.ejectRider(this);
 
-  this.nameTag = entityType === "minecraft:player" ? this.name : "";
+  this.refreshMorphNameTag(entityType);
 
   if (showEffects) {
     const { dimension } = this;
