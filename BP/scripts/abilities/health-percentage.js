@@ -23,6 +23,15 @@ morphEvents.afterMorph.subscribe(({ morph, player, previousMorph }) => {
   );
 });
 
+world.afterEvents.playerSpawn.subscribe(({ player }) => {
+  if (!ENTITY_TYPES.includes(morphEntityTypes[player.getProperty("dark7mc:entity")])) return;
+
+  player.onScreenDisplay.setHudVisibility(
+    HudVisibility.Hide,
+    [ HudElement.Health, HudElement.Armor ]
+  );
+});
+
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
     setSegment(player, "hp", {
