@@ -51,9 +51,11 @@ function updateItem(inventory, slot, itemStack) {
   
   if (itemStack.hasComponent("dark7mc:morphing_bracelet")) {
     const version = itemStack.getDynamicProperty("version") ?? 0;
+    const rawMorphs = itemStack.getDynamicProperty("morphs");
+    if (typeof rawMorphs !== "string" || rawMorphs.trim().length === 0) return;
 
     if (version < 1) {
-      const morphs = [...new Set(JSON.parse(itemStack.getDynamicProperty("morphs")).map(morph => {
+      const morphs = [...new Set(JSON.parse(rawMorphs).map(morph => {
         if (morph in morphDataV1) return morphDataV1[morph];
         return morph;
       }))];

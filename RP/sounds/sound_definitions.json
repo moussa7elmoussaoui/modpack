@@ -47,23 +47,59 @@
       "mob.nightfury.flap" : {
          "category" : "hostile",
          "sounds" : [
-            { "name" : "sounds/mob/enderdragon/wings1", "volume" : 1.5 },
-            { "name" : "sounds/mob/enderdragon/wings2", "volume" : 1.5 },
-            { "name" : "sounds/mob/enderdragon/wings3", "volume" : 1.5 },
-            { "name" : "sounds/mob/enderdragon/wings4", "volume" : 1.5 },
-            { "name" : "sounds/mob/enderdragon/wings5", "volume" : 1.5 },
-            { "name" : "sounds/mob/enderdragon/wings6", "volume" : 1.5 }
+            {
+               "name" : "sounds/mob/enderdragon/wings1",
+               "volume" : 1.5
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings2",
+               "volume" : 1.5
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings3",
+               "volume" : 1.5
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings4",
+               "volume" : 1.5
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings5",
+               "volume" : 1.5
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings6",
+               "volume" : 1.5
+            }
          ]
       },
       "mob.nightfury.quiet_flap" : {
          "category" : "hostile",
          "sounds" : [
-            { "name" : "sounds/mob/enderdragon/wings1", "volume" : 0.3 },
-            { "name" : "sounds/mob/enderdragon/wings2", "volume" : 0.3 },
-            { "name" : "sounds/mob/enderdragon/wings3", "volume" : 0.3 },
-            { "name" : "sounds/mob/enderdragon/wings4", "volume" : 0.3 },
-            { "name" : "sounds/mob/enderdragon/wings5", "volume" : 0.3 },
-            { "name" : "sounds/mob/enderdragon/wings6", "volume" : 0.3 }
+            {
+               "name" : "sounds/mob/enderdragon/wings1",
+               "volume" : 0.3
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings2",
+               "volume" : 0.3
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings3",
+               "volume" : 0.3
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings4",
+               "volume" : 0.3
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings5",
+               "volume" : 0.3
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings6",
+               "volume" : 0.3
+            }
          ]
       }
    }
