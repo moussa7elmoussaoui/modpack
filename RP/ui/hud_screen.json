@@ -1,4 +1,8 @@
 {
+	"hud_actionbar_text/actionbar_message": {
+		"shadow": false
+	},
+
 	"hud_title_text": {
 		"modifications": [
 			{
