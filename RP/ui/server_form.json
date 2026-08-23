@@ -31,7 +31,7 @@
           },
           {
             "binding_type": "view",
-            "source_property_name": "(not (#title_text = 'morph.menu.title'))",
+            "source_property_name": "((#title_text != 'morph.menu.title') and (#title_text != 'morph.menu.player') and (#title_text != 'morph.menu.variant'))",
             "target_property_name": "#visible"
           }
         ]

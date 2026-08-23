@@ -35,7 +35,7 @@
       },
       {
         "binding_type": "view",
-        "source_property_name": "(#title_text = 'morph.menu.title')",
+        "source_property_name": "((#title_text = 'morph.menu.title') or (#title_text = 'morph.menu.player') or (#title_text = 'morph.menu.variant'))",
         "target_property_name": "#visible"
       }
     ]
@@ -77,6 +77,29 @@
     "anchor_to": "top_left",
     "controls": [
       {
+        "player_scrolling_panel@common.scrolling_panel": {
+          "anchor_to": "top_left",
+          "anchor_from": "top_left",
+          "$show_background": false,
+          "size": [ "100%", "100%" ],
+          "$scrolling_content": "morph_menu.player_scrolling_content",
+          "$scroll_size": [ 5, "100% - 4px" ],
+          "$scrolling_pane_size": [ "100%", "100%" ],
+          "$scrolling_pane_offset": [ 2, 0 ],
+          "$scroll_bar_right_padding_size": [ 0, 0 ],
+          "bindings": [
+            {
+              "binding_name": "#title_text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#title_text = 'morph.menu.player')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
         "scrolling_panel@common.scrolling_panel": {
           "anchor_to": "top_left",
           "anchor_from": "top_left",
@@ -86,7 +109,17 @@
           "$scroll_size": [ 5, "100% - 4px" ],
           "$scrolling_pane_size": [ "100% - 4px", "100%" ],
           "$scrolling_pane_offset": [ 2, 0 ],
-          "$scroll_bar_right_padding_size": [ 0, 0 ]
+          "$scroll_bar_right_padding_size": [ 0, 0 ],
+          "bindings": [
+            {
+              "binding_name": "#title_text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "((#title_text = 'morph.menu.title') or (#title_text = 'morph.menu.variant'))",
+              "target_property_name": "#visible"
+            }
+          ]
         }
       }
     ]
@@ -143,10 +176,135 @@
     ]
   },
 
+  "player_scrolling_content": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "orientation": "vertical",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "top_padding": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "wrapping_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "player_dynamic_buttons_panel@morph_menu.player_dynamic_buttons_panel": {}
+            }
+          ]
+        }
+      },
+      {
+        "bottom_padding": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      }
+    ]
+  },
+
+  "player_dynamic_buttons_panel": {
+    "type": "grid",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "grid_rescaling_type": "horizontal",
+    "grid_item_template": "morph_menu.player_dynamic_button",
+    "collection_name": "form_buttons",
+    "bindings": [
+      {
+        "binding_name": "#form_button_length",
+        "binding_name_override": "#maximum_grid_items"
+      }
+    ]
+  },
+
+  "player_dynamic_button": {
+    "type": "panel",
+    "size": [ 48, 48 ],
+    "controls": [
+      {
+        "image": {
+          "type": "image",
+          "layer": 2,
+          "size": [ 32, 32 ],
+          "offset": [ 0, 1 ],
+          "bindings": [
+            {
+              "binding_name": "#form_button_texture",
+              "binding_name_override": "#texture",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_name": "#form_button_texture_file_system",
+              "binding_name_override": "#texture_file_system",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            }
+          ]
+        }
+      },
+      {
+        "player_name": {
+          "type": "label",
+          "size": [ 26, 14 ],
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "offset": [ -3, -1 ],
+          "layer": 5,
+          "color": [ 1, 1, 1 ],
+          "text": "#player_name_text",
+          "text_alignment": "right",
+          "font_scale_factor": 1.2,
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_name_override": "#player_name_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not (#player_name_text = ''))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "form_button@common.button": {
+          "$pressed_button_name": "button.form_button_click",
+          "size": [ 48, 48 ],
+          "controls": [
+            {
+              "hover@common.focus_border_white": {}
+            },
+            {
+              "pressed@common.focus_border_white": {}
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "form_buttons"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
   "dynamic_button": {
     "type": "panel",
     "size": [ 48, 48 ],
-    "$player_model_texture": "textures/morph_icons/minecraft/player",
+    "$player_model_texture": "__player_paper_doll__",
     "controls": [
       {
         "panel_name": {

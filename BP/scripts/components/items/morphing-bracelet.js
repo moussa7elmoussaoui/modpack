@@ -20,9 +20,11 @@ export default {
 function showMorphMenu(source, itemSlot, itemStack, morphIds) {
   const variantsByAge = new Map();
 
-  for (const morphId of morphIds) {
+  const visibleMorphIds = morphIds.filter(morphId => getMorphPlayerName(morphId) !== source.name);
+  for (const morphId of visibleMorphIds) {
     const entityType = parseEntityType(morphId);
-    const ageKey = getAgeKey(morphId);
+    const playerName = getMorphPlayerName(morphId);
+    const ageKey = playerName === undefined ? getAgeKey(morphId) : "named";
     const groupKey = `${entityType}${ageKey}`;
 
     if (!variantsByAge.has(groupKey)) variantsByAge.set(groupKey, { entityType, ageKey, variants: [] });
@@ -30,6 +32,12 @@ function showMorphMenu(source, itemSlot, itemStack, morphIds) {
   }
 
   const sortedEntries = [...variantsByAge.values()].sort((a, b) => {
+    if (a.entityType === PLAYER_ENTITY_TYPE && b.entityType === PLAYER_ENTITY_TYPE) {
+      if (a.ageKey === "named") return 1;
+      if (b.ageKey === "named") return -1;
+      return 0;
+    }
+
     if (a.entityType === PLAYER_ENTITY_TYPE) return -1;
     if (b.entityType === PLAYER_ENTITY_TYPE) return 1;
 
@@ -41,31 +49,36 @@ function showMorphMenu(source, itemSlot, itemStack, morphIds) {
 
   const morphMenu = new ActionFormData().title("morph.menu.title");
   for (const { variants } of sortedEntries) {
-    const sortedVariants = [...variants].sort();
+    const sortedVariants = [...variants].sort(sortMorphIds);
     const firstMorphId = sortedVariants[0];
-    const buttonText = sortedVariants.length >= 2 ? String(sortedVariants.length) : "";
+    const buttonText = sortedVariants.length >= 100
+      ? "99+"
+      : sortedVariants.length >= 2 ? String(sortedVariants.length) : "";
     morphMenu.button(buttonText, getMorphIconPath(firstMorphId));
   }
 
   morphMenu.show(source).then(({ canceled, selection }) => {
     if (canceled) return;
 
-    const { variants } = sortedEntries[selection];
-    if (variants.length === 1) {
-      applyMorphSelection(source, itemSlot, itemStack, variants[0]);
+    const entry = sortedEntries[selection];
+    if (entry.variants.length === 1) {
+      applyMorphSelection(source, itemSlot, itemStack, entry.variants[0]);
       return;
     }
 
     system.runTimeout(() => {
-      showVariantMenu(source, itemSlot, itemStack, morphIds, [...variants].sort());
+      showVariantMenu(source, itemSlot, itemStack, morphIds, [...entry.variants].sort(sortMorphIds));
     }, 1);
   });
 }
 
 function showVariantMenu(source, itemSlot, itemStack, morphIds, sortedVariants) {
-  const variantMenu = new ActionFormData().title("morph.menu.title");
+  const menuTitle = getMorphPlayerName(sortedVariants[0]) === undefined
+    ? "morph.menu.variant"
+    : "morph.menu.player";
+  const variantMenu = new ActionFormData().title(menuTitle);
   for (const morphId of sortedVariants) {
-    variantMenu.button("", getMorphIconPath(morphId));
+    variantMenu.button(getMorphPlayerLabel(morphId), getMorphIconPath(morphId));
   }
 
   variantMenu.show(source).then(({ canceled, selection }) => {
@@ -105,6 +118,9 @@ function parseEntityType(morphId) {
 }
 
 function getMorphIconPath(morphId) {
+  if (getMorphPlayerName(morphId) !== undefined) return "textures/morph_icons/minecraft/player";
+  if (parseEntityType(morphId) === PLAYER_ENTITY_TYPE) return PLAYER_MODEL_TEXTURE;
+
   const bracketStart = morphId.indexOf("[");
   const bracketEnd = morphId.indexOf("]", bracketStart);
 
@@ -112,6 +128,28 @@ function getMorphIconPath(morphId) {
   const properties = morphId.slice(bracketStart + 1, bracketEnd);
 
   return `textures/morph_icons/${entityType.replace(":", "/")}${properties.length === 0 ? "" : `/${properties}`}`;
+}
+
+const PLAYER_MODEL_TEXTURE = "__player_paper_doll__";
+
+function getMorphPlayerName(morphId) {
+  if (parseEntityType(morphId) !== PLAYER_ENTITY_TYPE) return undefined;
+  return Morph.parse(morphId).playerName;
+}
+
+function sortMorphIds(firstMorphId, secondMorphId) {
+  const firstPlayerName = getMorphPlayerName(firstMorphId);
+  const secondPlayerName = getMorphPlayerName(secondMorphId);
+  if (firstPlayerName !== undefined && secondPlayerName !== undefined) {
+    return firstPlayerName.localeCompare(secondPlayerName);
+  }
+
+  return firstMorphId.localeCompare(secondMorphId);
+}
+
+function getMorphPlayerLabel(morphId) {
+  const playerName = getMorphPlayerName(morphId);
+  return playerName?.slice(0, 3).toUpperCase() ?? "";
 }
 
 const AGE_PRIORITIES = { adult: 0, wooly_adult: 0, sheared_adult: 1, baby: 2 };
@@ -190,9 +228,15 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
   const secretMorph = getSecretMorph(deadEntity);
   if (secretMorph !== undefined) {
     giveKilledMobMorphToPlayer(damagingEntity, deadEntity, secretMorph);
+  } else if (deadEntity.typeId === PLAYER_ENTITY_TYPE) {
+    if (damagingEntity.name === deadEntity.name || deadEntity.name.length === 0) return;
+
+    giveKilledMobMorphToPlayer(
+      damagingEntity,
+      deadEntity,
+      new Morph(PLAYER_ENTITY_TYPE, {}, deadEntity.name)
+    );
   } else if (deadEntity.typeId in morphs) {
-    if (deadEntity.typeId === PLAYER_ENTITY_TYPE) return;
-  
     const morph = deadEntity.getMorph();
     if (morph === undefined) return;
 

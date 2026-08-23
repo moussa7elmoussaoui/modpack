@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=WAILA ayarlarınız %s tarafından günce
 waila.settings.feedback.updatedOther=%s'nin WAILA ayarları güncellendi.	## %s is where the player name would be
 
 morph.menu.title=Dönüşüm Menüsü
+morph.menu.player=Oyuncu Morf Menüsü
+morph.menu.variant=Varyant Morf Menüsü
 morph.item.attached_to=Bağlı:
 morph.shulker.invalid_location=Bu konum geçersiz, sağlam bir blok üzerinde durduğundan emin ol!
 morph.bee.dying=§c%ss§r içinde ölüyor

@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=あなたのWAILAの設定は%sによっ�
 waila.settings.feedback.updatedOther=%sのWAILA設定を更新しました。	## %s is where the player name would be
 
 morph.menu.title=モーフメニュー
+morph.menu.player=プレイヤーモーフメニュー
+morph.menu.variant=バリアントモーフメニュー
 morph.item.attached_to=装着先:
 morph.shulker.invalid_location=この場所は無効です。固体ブロックの上に立っていることを確認してください！
 morph.bee.dying=あと§c%ss§rで死亡

@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=Le tue impostazioni WAILA sono state aggi
 waila.settings.feedback.updatedOther=Impostazioni WAILA di %s aggiornate.	## %s is where the player name would be
 
 morph.menu.title=Menu di metamorfosi
+morph.menu.player=Menu metamorfosi giocatore
+morph.menu.variant=Menu metamorfosi variante
 morph.item.attached_to=Collegato a:
 morph.shulker.invalid_location=Questa posizione non è valida, assicurati di essere su un blocco solido!
 morph.bee.dying=Muore in §c%ss§r

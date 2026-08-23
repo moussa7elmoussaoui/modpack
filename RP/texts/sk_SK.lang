@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=Vaše nastavenia WAILA boli aktualizovan�
 waila.settings.feedback.updatedOther=Aktualizované nastavenia WAILA používateľa %s.	## %s is where the player name would be
 
 morph.menu.title=Ponuka premien
+morph.menu.player=Menu morfa hráča
+morph.menu.variant=Menu morfa variantu
 morph.item.attached_to=Pripojené k:
 morph.shulker.invalid_location=Toto miesto je neplatné, uisti sa, že stojíš na pevnom bloku!
 morph.bee.dying=Umiera o §c%ss§r

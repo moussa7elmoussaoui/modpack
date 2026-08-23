@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=您的WAILA設定已由 %s 更新。	## %
 waila.settings.feedback.updatedOther=已更新 %s 的WAILA設定。	## %s is where the player name would be
 
 morph.menu.title=變身選單
+morph.menu.player=玩家變形選單
+morph.menu.variant=變體變形選單
 morph.item.attached_to=附加於:
 morph.shulker.invalid_location=此位置無效，請確保你站在實心方塊上！
 morph.bee.dying=§c%ss§r 後死亡

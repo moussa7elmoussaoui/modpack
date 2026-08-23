@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=WAILA 설정이 %s에 의해 업데이트
 waila.settings.feedback.updatedOther=%s의 WAILA 설정을 업데이트했습니다.	## %s is where the player name would be
 
 morph.menu.title=변신 메뉴
+morph.menu.player=플레이어 모프 메뉴
+morph.menu.variant=변형 모프 메뉴
 morph.item.attached_to=부착 대상:
 morph.shulker.invalid_location=이 위치는 유효하지 않습니다. 단단한 블록 위에 서 있는지 확인하세요!
 morph.bee.dying=§c%ss§r 후 사망

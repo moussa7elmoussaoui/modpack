@@ -3,6 +3,15 @@ import { Morph } from "./class";
 import { evaluateCondition } from "./condition-evaluator";
 import morphs, { morphEntityTypes } from "../data/morphs";
 
+const PLAYER_MORPH_NAME_PROPERTY = "dark7mc:player_morph_name";
+const PLAYER_DISGUISE_ENTITY_INDEX = 83;
+
+function getMorphEntityType(player) {
+  return player.getProperty("dark7mc:entity") === PLAYER_DISGUISE_ENTITY_INDEX
+    ? "minecraft:player"
+    : morphEntityTypes[player.getProperty("dark7mc:entity")];
+}
+
 Entity.prototype.hasProperty = function(identifier) {
   return this.getProperty(identifier) !== undefined;
 };
@@ -11,7 +20,7 @@ Entity.prototype.getMorph = function() {
   let entityType;
 
   if (this instanceof Player) {
-    entityType = morphEntityTypes[this.getProperty("dark7mc:entity")];
+    entityType = getMorphEntityType(this);
   } else {
     entityType = this.typeId;
     if (!(entityType in morphs)) return;
@@ -31,7 +40,10 @@ Entity.prototype.getMorph = function() {
     if (properties[key] === undefined) return;
   }
 
-  return new Morph(entityType, properties);
+  const playerName = this instanceof Player && entityType === "minecraft:player"
+    ? this.getDynamicProperty(PLAYER_MORPH_NAME_PROPERTY)
+    : undefined;
+  return new Morph(entityType, properties, playerName);
 };
 
 const beforeListeners = new Set();
@@ -44,10 +56,11 @@ function callListeners(listeners, options) {
   }
 }
 
-Player.prototype.refreshMorphNameTag = function(entityType = morphEntityTypes[this.getProperty("dark7mc:entity")]) {
+Player.prototype.refreshMorphNameTag = function(entityType = getMorphEntityType(this), playerName) {
   if (entityType === undefined) return false;
 
-  this.nameTag = entityType === "minecraft:player" ? this.name : "";
+  playerName ??= this.getMorph()?.playerName;
+  this.nameTag = entityType === "minecraft:player" ? (playerName ?? this.name) : "";
   return true;
 };
 
@@ -64,8 +77,13 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   morph = eventOptions.morph;
   const { entityType, properties } = morph;
 
+  this.setDynamicProperty(PLAYER_MORPH_NAME_PROPERTY, morph.playerName);
+  const entityIndex = entityType === "minecraft:player" && morph.playerName !== undefined
+    ? PLAYER_DISGUISE_ENTITY_INDEX
+    : morphEntityTypes.indexOf(entityType);
+
   this.triggerEvent("dark7mc:clear_components");
-  this.setProperty("dark7mc:entity", morphEntityTypes.indexOf(entityType));
+  this.setProperty("dark7mc:entity", entityIndex);
   
   const baseTag = `components.${entityType}`;
   this.addTag(baseTag);
@@ -87,7 +105,7 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   this.getComponent("minecraft:rideable")?.ejectRiders();
   this.getComponent("minecraft:riding")?.entityRidingOn.getComponent("minecraft:rideable")?.ejectRider(this);
 
-  this.refreshMorphNameTag(entityType);
+  this.refreshMorphNameTag(entityType, morph.playerName);
 
   if (showEffects) {
     const { dimension } = this;
@@ -134,7 +152,10 @@ Player.prototype.refreshMorphComponents = function() {
 
   this.addTag("morph:refresh_components");
   this.triggerEvent("dark7mc:clear_components");
-  this.setProperty("dark7mc:entity", morphEntityTypes.indexOf(morph.entityType));
+  const entityIndex = morph.entityType === "minecraft:player" && morph.playerName !== undefined
+    ? PLAYER_DISGUISE_ENTITY_INDEX
+    : morphEntityTypes.indexOf(morph.entityType);
+  this.setProperty("dark7mc:entity", entityIndex);
 
   const baseTag = `components.${morph.entityType}`;
   this.addTag(baseTag);

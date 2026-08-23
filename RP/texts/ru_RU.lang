@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=Ваши настройки WAILA был�
 waila.settings.feedback.updatedOther=Обновлены настройки WAILA для %s.	## %s is where the player name would be
 
 morph.menu.title=Меню превращения
+morph.menu.player=Меню морфа игрока
+morph.menu.variant=Меню морфа-варианта
 morph.item.attached_to=Прикреплено к:
 morph.shulker.invalid_location=Это место недействительно, убедитесь, что вы стоите на твёрдом блоке!
 morph.bee.dying=Умирает через §c%ss§r

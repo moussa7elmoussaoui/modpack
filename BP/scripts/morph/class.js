@@ -1,11 +1,15 @@
 import morphs from "../data/morphs";
 
 export class Morph {
-  #entityType; #properties;
+  #entityType; #properties; #playerName;
 
-  constructor(entityType, properties = {}) {
+  constructor(entityType, properties = {}, playerName = undefined) {
     if (!(entityType in morphs)) {
       throw new Error(`'${entityType}' is not a morphable entity type`);
+    }
+
+    if (playerName !== undefined && (entityType !== "minecraft:player" || typeof playerName !== "string" || playerName.length === 0)) {
+      throw new Error("A player morph requires a non-empty player name");
     }
 
     const validProperties = Object.fromEntries(
@@ -34,10 +38,12 @@ export class Morph {
 
     this.#entityType = entityType;
     this.#properties = properties;
+    this.#playerName = playerName;
   }
 
   get entityType() { return this.#entityType; };
   get properties() { return { ...this.#properties }; };
+  get playerName() { return this.#playerName; };
 
   static parse(identifier) {
     if (typeof identifier !== "string") {
@@ -60,20 +66,28 @@ export class Morph {
         })
     ) : {};
 
-    return new Morph(entityType, properties);
+    const playerName = entityType === "minecraft:player" && properties.name !== undefined
+      ? decodeURIComponent(properties.name)
+      : undefined;
+    delete properties.name;
+
+    return new Morph(entityType, properties, playerName);
   }
 
   toString() {
     const properties = Object.entries(this.#properties)
       .map(([key, value]) => `${key}=${value}`)
       .join(",");
+    const playerName = this.#playerName === undefined ? "" : `name=${encodeURIComponent(this.#playerName)}`;
+    const serializedProperties = [ properties, playerName ].filter(Boolean).join(",");
 
-    return `${this.#entityType}[${properties}]`;
+    return `${this.#entityType}[${serializedProperties}]`;
   }
 
   equals(other) {
     if (!(other instanceof Morph)) return false;
     if (this.#entityType !== other.#entityType) return false;
+    if (this.#playerName !== other.#playerName) return false;
 
     const properties = this.#properties;
     const otherProperties = other.#properties;

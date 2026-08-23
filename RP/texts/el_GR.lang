@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=Οι ρυθμίσεις WAILA ενημε�
 waila.settings.feedback.updatedOther=Ενημερώθηκαν οι ρυθμίσεις WAILA του %s.	## %s is where the player name would be
 
 morph.menu.title=Μενού μεταμόρφωσης
+morph.menu.player=Μενού μορφής παίκτη
+morph.menu.variant=Μενού μορφής παραλλαγής
 morph.item.attached_to=Προσαρτημένο σε:
 morph.shulker.invalid_location=Αυτή η τοποθεσία δεν είναι έγκυρη, βεβαιωθείτε ότι στέκεστε σε συμπαγές μπλοκ!
 morph.bee.dying=Πεθαίνει σε §c%ss§r

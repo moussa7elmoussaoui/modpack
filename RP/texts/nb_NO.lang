@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=WAILA-innstillingene dine ble oppdatert a
 waila.settings.feedback.updatedOther=Oppdaterte %ss WAILA-innstillinger.	## %s is where the player name would be
 
 morph.menu.title=Forvandlingsmeny
+morph.menu.player=Spillermorf-meny
+morph.menu.variant=Variantmorf-meny
 morph.item.attached_to=Festet til:
 morph.shulker.invalid_location=Denne plasseringen er ugyldig, sørg for at du står på en solid blokk!
 morph.bee.dying=Dør om §c%ss§r

@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=As tuas definições do WAILA foram atual
 waila.settings.feedback.updatedOther=As definições do WAILA de %s foram atualizadas.	## %s is where the player name would be
 
 morph.menu.title=Menu de metamorfose
+morph.menu.player=Menu de metamorfose do jogador
+morph.menu.variant=Menu de metamorfose de variante
 morph.item.attached_to=Ligado a:
 morph.shulker.invalid_location=Este local é inválido, certifica-te de que estás num bloco sólido!
 morph.bee.dying=A morrer em §c%ss§r

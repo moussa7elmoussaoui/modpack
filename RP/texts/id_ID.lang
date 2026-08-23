@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=Pengaturan WAILA Anda telah diperbarui ol
 waila.settings.feedback.updatedOther=Pengaturan WAILA %s telah diperbarui.	## %s is where the player name would be
 
 morph.menu.title=Menu metamorfosis
+morph.menu.player=Menu Morf Pemain
+morph.menu.variant=Menu Morf Varian
 morph.item.attached_to=Terpasang pada:
 morph.shulker.invalid_location=Lokasi ini tidak valid, pastikan kamu berdiri di atas blok padat!
 morph.bee.dying=Mati dalam §c%ss§r

@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=A WAILA beállításaidat frissítette: %
 waila.settings.feedback.updatedOther=%s WAILA beállításai frissítve.	## %s is where the player name would be
 
 morph.menu.title=Átváltozás menü
+morph.menu.player=Játékos morfmenü
+morph.menu.variant=Variáns morfment
 morph.item.attached_to=Hozzácsatolva:
 morph.shulker.invalid_location=Ez a hely érvénytelen, győződj meg róla, hogy szilárd blokkon állsz!
 morph.bee.dying=Meghal §c%ss§r múlva

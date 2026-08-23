@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=WAILA-asetuksesi päivitettiin pelaajan %
 waila.settings.feedback.updatedOther=Päivitettiin pelaajan %s WAILA-asetukset.	## %s is where the player name would be
 
 morph.menu.title=Muodonmuutosvalikko
+morph.menu.player=Pelaajan morfivalikko
+morph.menu.variant=Varianttimorfivalikko
 morph.item.attached_to=Liitetty:
 morph.shulker.invalid_location=Tämä sijainti on virheellinen, varmista että seisot kiinteällä lohkolla!
 morph.bee.dying=Kuolee §c%ss§r kuluttua

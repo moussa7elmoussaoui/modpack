@@ -36,6 +36,10 @@ world.afterEvents.playerSpawn.subscribe(({ initialSpawn, player }) => {
 
 world.afterEvents.playerGameModeChange.subscribe(({ player, toGameMode }) => {
   if (toGameMode !== GameMode.Spectator) return;
+
+  const currentMorph = player.getMorph();
+  if (currentMorph?.entityType === "minecraft:player" && currentMorph.playerName !== undefined) return;
+
   player.setMorph(humanMorph, { showEffects: false });
 });
 

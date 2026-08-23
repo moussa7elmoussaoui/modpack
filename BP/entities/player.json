@@ -11,7 +11,7 @@
                     "type": "int",
                     "range": [
                         0,
-                        82
+                        83
                     ],
                     "default": 0,
                     "client_sync": true

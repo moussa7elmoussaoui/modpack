@@ -66,6 +66,8 @@ waila.settings.feedback.updatedByOther=Your WAILA settings were updated by %s.
 waila.settings.feedback.updatedOther=Updated %s's WAILA settings.
 
 morph.menu.title=Morph Menu
+morph.menu.player=Player Morph Menu
+morph.menu.variant=Variant Morph Menu
 morph.item.attached_to=Attached to:
 morph.shulker.invalid_location=This location is invalid, make sure you are standing on a solid block!
 morph.bee.dying=Dying in §c%ss§r
