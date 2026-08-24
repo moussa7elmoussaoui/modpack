@@ -15,13 +15,16 @@ export default {
 
     const morph = source.getMorph();
     const entityType = morph.entityType;
-    if (entityType === PLAYER_ENTITY_TYPE) return;
+    if (entityType === PLAYER_ENTITY_TYPE && morph.playerName === undefined) return;
 
     const newItemStack = new ItemStack(convertedItemType);
     newItemStack.setDynamicProperty("morph", morph.toString());
+    const entityTypeDefinition = EntityTypes.get(entityType);
     newItemStack.setLore([{ rawtext: [
       { text: "§r§7" },
-      { translate: EntityTypes.get(entityType).localizationKey },
+      entityTypeDefinition === undefined
+        ? { text: entityType }
+        : { translate: entityTypeDefinition.localizationKey },
       { text: "§r" }
     ]}]);
     source.getComponent("minecraft:inventory").container.setItem(source.selectedSlotIndex, newItemStack);
