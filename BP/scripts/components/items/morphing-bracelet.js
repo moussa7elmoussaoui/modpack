@@ -41,7 +41,7 @@ function showMorphMenu(source, itemSlot, itemStack, morphIds) {
     if (a.entityType === PLAYER_ENTITY_TYPE) return -1;
     if (b.entityType === PLAYER_ENTITY_TYPE) return 1;
 
-    const entityCompare = a.entityType.localeCompare(b.entityType);
+    const entityCompare = typeName(a.entityType).localeCompare(typeName(b.entityType));
     if (entityCompare !== 0) return entityCompare;
 
     return agePriority(a.ageKey) - agePriority(b.ageKey);
@@ -115,6 +115,11 @@ function applyMorphSelection(source, itemSlot, itemStack, morphId) {
 
 function parseEntityType(morphId) {
   return morphId.slice(0, morphId.indexOf("["));
+}
+
+function typeName(entityType) {
+  const separator = entityType.indexOf(":");
+  return separator === -1 ? entityType : entityType.slice(separator + 1);
 }
 
 function getMorphIconPath(morphId) {
@@ -258,7 +263,7 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
 
 function getSecretMorph(deadEntity) {
   if (deadEntity.typeId === "minecraft:bat" && deadEntity.nameTag === "night_fury") {
-    return new Morph("minecraft:night_fury");
+    return new Morph("dark7mc:night_fury");
   }
 }
 

@@ -1617,7 +1617,7 @@ const morphs = {
   "minecraft:breeze": {
     items: [{ id: "dark7mc:wind_charge" }]
   },
-  "minecraft:night_fury": {
+  "dark7mc:night_fury": {
     items: [{ id: "dark7mc:night_fury_fireball" }]
   },
   "minecraft:creaking": {}

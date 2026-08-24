@@ -16092,7 +16092,7 @@
                             "test": "has_tag",
                             "subject": "self",
                             "operator": "equals",
-                            "value": "components.minecraft:night_fury"
+                            "value": "components.dark7mc:night_fury"
                         },
                         "add": {
                             "component_groups": [
@@ -16100,7 +16100,7 @@
                             ]
                         },
                         "queue_command": {
-                            "command": "tag @s remove \"components.minecraft:night_fury\""
+                            "command": "tag @s remove \"components.dark7mc:night_fury\""
                         }
                     },
                     {
