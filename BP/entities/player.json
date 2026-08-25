@@ -584,7 +584,7 @@
                 "minecraft:environment_sensor": {
                     "triggers": [
                         {
-                            "event": "morph:chicken_float"
+                            "event": "morph:float"
                         }
                     ]
                 }
@@ -1386,7 +1386,7 @@
                             "event": "morph:night_vision"
                         },
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         }
                     ]
                 },
@@ -2059,7 +2059,7 @@
                             "event": "morph:fire_immune"
                         },
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         }
                     ]
                 },
@@ -4622,7 +4622,7 @@
                             "event": "morph:fire_immune"
                         },
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         }
                     ]
                 },
@@ -4862,7 +4862,7 @@
                 "minecraft:environment_sensor": {
                     "triggers": [
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         }
                     ]
                 }
@@ -5003,7 +5003,7 @@
                 "minecraft:environment_sensor": {
                     "triggers": [
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         }
                     ]
                 }
@@ -5382,7 +5382,7 @@
                             "event": "morph:fire_immune"
                         },
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         }
                     ]
                 },
@@ -5642,7 +5642,7 @@
                             "event": "morph:fire_immune"
                         },
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         }
                     ]
                 },
@@ -5739,7 +5739,7 @@
                             "event": "morph:phantom_avoid_mob_type"
                         },
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         }
                     ]
                 },
@@ -6107,7 +6107,7 @@
                 "minecraft:environment_sensor": {
                     "triggers": [
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         }
                     ]
                 }
@@ -8509,7 +8509,7 @@
                             "event": "morph:fire_immune"
                         },
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         }
                     ]
                 },
@@ -8865,7 +8865,7 @@
                             "event": "morph:night_vision"
                         },
                         {
-                            "event": "morph:fly"
+                            "event": "morph:float"
                         },
                         {
                             "event": "morph:fire_immune"
@@ -9078,11 +9078,6 @@
             },
             "dark7mc:clear_components": {
                 "sequence": [
-                    {
-                        "queue_command": {
-                            "command": "event entity @s morph:reset"
-                        }
-                    },
                     {
                         "first_valid": [
                             {
@@ -18126,52 +18121,7 @@
                     }
                 ]
             },
-            "morph:fly": {
-                "sequence": [
-                    {
-                        "filters": {
-                            "test": "has_ability",
-                            "subject": "self",
-                            "operator": "not",
-                            "value": "mayfly"
-                        },
-                        "queue_command": {
-                            "command": "execute unless entity @s[m=creative] unless entity @s[m=spectator] run ability @s mayfly true"
-                        }
-                    },
-                    {
-                        "queue_command": {
-                            "command": "effect @s slow_falling 1 0 true"
-                        }
-                    }
-                ]
-            },
-            "morph:reset": {
-                "sequence": [
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_ability",
-                                    "subject": "self",
-                                    "operator": "equals",
-                                    "value": "mayfly"
-                                },
-                                {
-                                    "test": "has_tag",
-                                    "subject": "self",
-                                    "operator": "not",
-                                    "value": "morph:refresh_components"
-                                }
-                            ]
-                        },
-                        "queue_command": {
-                            "command": "execute unless entity @s[m=creative] unless entity @s[m=spectator] run ability @s mayfly false"
-                        }
-                    }
-                ]
-            },
-            "morph:chicken_float": {
+            "morph:float": {
                 "queue_command": {
                     "command": "effect @s slow_falling 1 0 true"
                 }
