@@ -42,7 +42,7 @@ beforeEvents.playerInteractWithBlock.subscribe(data => {
     }));
     block.dimension.playSound("block.creaking_heart.spawn_mob", block.center());
 
-    player.triggerEvent("dark7mc:creaking.invulnerable");
+    player.triggerEvent("morph:creaking.invulnerable");
   });
 });
 
@@ -84,7 +84,7 @@ system.runInterval(() => {
 
   for (const player of world.getPlayers()) {
     if (player.id in data || !isMorphedAsCreaking(player, true)) continue;
-    player.triggerEvent("dark7mc:creaking.vulnerable");
+    player.triggerEvent("morph:creaking.vulnerable");
   }
 });
 
