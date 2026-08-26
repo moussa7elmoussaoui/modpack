@@ -64,6 +64,7 @@ export class UiController {
 		this.scheduleTitleUpdate(player, ' ', options);
 
 		system.run(() => {
+			if (!player.isValid) return;
 			player.runCommand('title @s reset');
 		});
 
