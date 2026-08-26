@@ -2016,6 +2016,60 @@
           },
           {
             "creaking_cancel": "variable.is_first_person && query.property('dark7mc:entity') == 82"
+          },
+          {
+            "player_disguise_first_person_base_pose": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_swap_item": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_attack_controller": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_attack_rotation": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_attack_rotation_item": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_vr_attack_rotation": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_walk": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_map_controller": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_map_hold": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_map_hold_attack": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_map_hold_off_hand": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_map_hold_main_hand": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_melee_spear_controller": "variable.is_first_person && query.property('dark7mc:entity') == 83 && variable.melee_spear_equipped"
+          },
+          {
+            "player_disguise_first_person_crossbow_equipped": "variable.is_first_person && query.property('dark7mc:entity') == 83 && query.get_equipped_item_name == 'crossbow' && variable.item_use_normalized > 0.0 && variable.item_use_normalized < 1.0"
+          },
+          {
+            "player_disguise_first_person_crossbow_hold": "variable.is_first_person && query.property('dark7mc:entity') == 83 && query.get_equipped_item_name == 'crossbow' && query.item_is_charged"
+          },
+          {
+            "player_disguise_first_person_breathing_bob": "variable.is_first_person && query.property('dark7mc:entity') == 83"
+          },
+          {
+            "player_disguise_first_person_shield_block": "variable.is_first_person && query.property('dark7mc:entity') == 83 && query.blocking"
+          },
+          {
+            "player_disguise_first_person_empty_hand": "variable.is_first_person && query.property('dark7mc:entity') == 83"
           }
         ],
         "variables": {
@@ -2098,6 +2152,24 @@
         "first_person_melee_spear_hold": "animation.player.first_person.melee_spear_hold",
         "first_person_melee_spear_attack": "animation.player.first_person.melee_spear_attack",
         "first_person_melee_spear_controller": "controller.animation.player.first_person_melee_spear",
+        "player_disguise_first_person_base_pose": "animation.player.first_person.base_pose",
+        "player_disguise_first_person_swap_item": "animation.player.first_person.swap_item",
+        "player_disguise_first_person_attack_controller": "controller.animation.player.first_person_attack",
+        "player_disguise_first_person_attack_rotation": "animation.player.first_person.attack_rotation",
+        "player_disguise_first_person_attack_rotation_item": "animation.player.first_person.attack_rotation_item",
+        "player_disguise_first_person_vr_attack_rotation": "animation.player.first_person.vr_attack_rotation",
+        "player_disguise_first_person_walk": "animation.player.first_person.walk",
+        "player_disguise_first_person_map_controller": "controller.animation.player.first_person_map",
+        "player_disguise_first_person_map_hold": "animation.player.first_person.map_hold",
+        "player_disguise_first_person_map_hold_attack": "animation.player.first_person.map_hold_attack",
+        "player_disguise_first_person_map_hold_off_hand": "animation.player.first_person.map_hold_off_hand",
+        "player_disguise_first_person_map_hold_main_hand": "animation.player.first_person.map_hold_main_hand",
+        "player_disguise_first_person_melee_spear_controller": "controller.animation.player.first_person_melee_spear",
+        "player_disguise_first_person_crossbow_equipped": "animation.player.first_person.crossbow_equipped",
+        "player_disguise_first_person_crossbow_hold": "animation.player.first_person.crossbow_hold",
+        "player_disguise_first_person_breathing_bob": "animation.player.first_person.breathing_bob",
+        "player_disguise_first_person_shield_block": "animation.player.first_person.shield_block",
+        "player_disguise_first_person_empty_hand": "animation.player.first_person.empty_hand",
         "third_person_melee_spear_use": "animation.humanoid.melee_spear_use",
         "third_person_melee_spear_hold": "animation.humanoid.melee_spear_hold",
         "third_person_melee_spear_attack": "animation.player.melee_spear_attack",
