@@ -1,6 +1,7 @@
-import { BlockPermutation, Player, system, world } from "@minecraft/server";
+import { BlockPermutation, HudElement, HudVisibility, Player, system, world } from "@minecraft/server";
 import { morphEntityTypes } from "../../data/morphs";
 import { renameItemTypeId } from "../../utils/updater";
+import { morphEvents } from "../../morph/entity-methods";
 
 const ENTITY_TYPE = "minecraft:creaking";
 
@@ -10,6 +11,11 @@ const LINKED_CREAKINGS_DATA = "linkedCreakingMorphs";
 const MAX_DISTANCE_FROM_HEART = 34;
 
 const { afterEvents, beforeEvents } = world;
+
+morphEvents.beforeMorph.subscribe(({ player, previousMorph }) => {
+  if (previousMorph.entityType !== ENTITY_TYPE) return;
+  player.onScreenDisplay.setHudVisibility(HudVisibility.Reset, [HudElement.Health, HudElement.Armor]);
+});
 
 afterEvents.playerInventoryItemChange.subscribe(({ itemStack, player, slot }) => {
   if (itemStack?.typeId !== CUSTOM_HEART_BLOCK) return;
