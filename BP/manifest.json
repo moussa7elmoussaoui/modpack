@@ -37,7 +37,15 @@
     ],
     "capabilities": [ "script_eval" ],
     "metadata": {
-        "authors": [ "DARK7MC", "CookieDookie145", "r4isen1920", "Jayly" ],
+        "authors": [
+            "DARK7MC",
+            "ApprenticeNecromancer",
+            "CookieDookie145",
+            "r4isen1920",
+            "Jayly",
+            "TryzzMC",
+            "BedrockForge"
+        ],
         "product_type": "addon"
     }
 }

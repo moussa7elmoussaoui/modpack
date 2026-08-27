@@ -2,6 +2,7 @@ import { Entity, EntityTypes, ItemLockMode, ItemStack, Player, system } from "@m
 import { Morph } from "./class";
 import { evaluateCondition } from "./condition-evaluator";
 import morphs, { morphEntityTypes } from "../data/morphs";
+import { getPlayerSkinIndex, playerSkins } from "../data/player-skins";
 
 const PLAYER_MORPH_NAME_PROPERTY = "dark7mc:player_morph_name";
 const PLAYER_DISGUISE_ENTITY_INDEX = 83;
@@ -76,6 +77,12 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   
   morph = eventOptions.morph;
   const { entityType, properties } = morph;
+
+  if (entityType === "minecraft:player") {
+    const skinIndex = getPlayerSkinIndex(morph.playerName);
+    this.setProperty("dark7mc:player_skin", skinIndex);
+    this.setProperty("dark7mc:player_model", playerSkins[skinIndex].model);
+  }
 
   this.setDynamicProperty(PLAYER_MORPH_NAME_PROPERTY, morph.playerName);
   const entityIndex = entityType === "minecraft:player" && morph.playerName !== undefined
@@ -155,6 +162,10 @@ Player.prototype.refreshMorphComponents = function() {
   const entityIndex = morph.entityType === "minecraft:player" && morph.playerName !== undefined
     ? PLAYER_DISGUISE_ENTITY_INDEX
     : morphEntityTypes.indexOf(morph.entityType);
+  if (morph.entityType === "minecraft:player") {
+    const skinIndex = this.getProperty("dark7mc:player_skin") ?? 0;
+    this.setProperty("dark7mc:player_model", playerSkins[skinIndex]?.model ?? 0);
+  }
   this.setProperty("dark7mc:entity", entityIndex);
 
   const baseTag = `components.${morph.entityType}`;

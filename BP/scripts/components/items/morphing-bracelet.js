@@ -3,6 +3,7 @@ import { ActionFormData } from "@minecraft/server-ui";
 import morphs from "../../data/morphs";
 import { Morph } from "../../morph/class";
 import { morphEvents } from "../../morph/entity-methods";
+import { getPlayerIconPath, getPlayerSkinIndex } from "../../data/player-skins";
 import { namespace } from "../../utils/namespace";
 
 const IDENTIFIER = "morphing_bracelet";
@@ -123,8 +124,9 @@ function typeName(entityType) {
 }
 
 function getMorphIconPath(morphId) {
-  if (getMorphPlayerName(morphId) !== undefined) return "textures/morph_icons/minecraft/player";
-  if (parseEntityType(morphId) === PLAYER_ENTITY_TYPE) return PLAYER_MODEL_TEXTURE;
+  const playerName = getMorphPlayerName(morphId);
+  if (playerName === undefined && parseEntityType(morphId) === PLAYER_ENTITY_TYPE) return PLAYER_MODEL_TEXTURE;
+  if (playerName !== undefined) return getPlayerIconPath(getPlayerSkinIndex(playerName));
 
   const bracketStart = morphId.indexOf("[");
   const bracketEnd = morphId.indexOf("]", bracketStart);

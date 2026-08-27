@@ -1,7 +1,6 @@
 import { system } from "@minecraft/server";
 import { Morph } from "../../morph/class";
 import { namespace } from "../../utils/namespace";
-import morphEnum from "../enums/morph";
 
 export default {
   definition: {
@@ -11,7 +10,7 @@ export default {
     cheatsRequired: true,
     mandatoryParameters: [
       { name: "player", type: "PlayerSelector" },
-      { name: morphEnum.name, type: "Enum" }
+      { name: "morph", type: "String" }
     ],
     optionalParameters: [
       { name: "showEffects", type: "Boolean" }

@@ -25,6 +25,24 @@
                     "default": 0,
                     "client_sync": true
                 },
+                "dark7mc:player_model": {
+                    "type": "int",
+                    "range": [
+                        0,
+                        1
+                    ],
+                    "default": 0,
+                    "client_sync": true
+                },
+                "dark7mc:player_skin": {
+                    "type": "int",
+                    "range": [
+                        0,
+                        172
+                    ],
+                    "default": 0,
+                    "client_sync": true
+                },
                 "dark7mc:color2": {
                     "type": "int",
                     "range": [
