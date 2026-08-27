@@ -2463,19 +2463,37 @@
       "render_controllers": [
         "controller.render.player",
         {
-          "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator && (variable.is_paperdoll || query.any(query.property('dark7mc:entity'), 0, 83))"
+          "controller.render.player_disguise": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
         },
         {
-          "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator && (variable.is_paperdoll || query.any(query.property('dark7mc:entity'), 0, 83))"
+          "controller.render.player_disguise.first_person_spectator": "variable.is_first_person && query.is_spectator && query.property('dark7mc:entity') == 83"
         },
         {
-          "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator && (variable.is_paperdoll || query.any(query.property('dark7mc:entity'), 0, 83))"
+          "controller.render.player_disguise.third_person_spectator": "variable.is_third_person && query.is_spectator && query.property('dark7mc:entity') == 83"
         },
         {
-          "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator && (variable.is_paperdoll || query.any(query.property('dark7mc:entity'), 0, 83))"
+          "controller.render.player_disguise.first_person": "variable.is_first_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
         },
         {
-          "controller.render.player.map": "variable.map_face_icon && query.any(query.property('dark7mc:entity'), 0, 83)"
+          "controller.render.player_disguise.third_person": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
+        },
+        {
+          "controller.render.player_disguise.map": "variable.map_face_icon && query.property('dark7mc:entity') == 83"
+        },
+        {
+          "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
+        },
+        {
+          "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
+        },
+        {
+          "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
+        },
+        {
+          "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
+        },
+        {
+          "controller.render.player.map": "variable.map_face_icon && query.property('dark7mc:entity') == 0"
         },
         {
           "controller.render.morph.zombie": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 1"
