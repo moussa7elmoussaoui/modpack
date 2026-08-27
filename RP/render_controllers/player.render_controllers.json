@@ -2,17 +2,17 @@
   "format_version": "1.8.0",
   "render_controllers": {
     "controller.render.player": {
-      "geometry": "Geometry.default",
+      "geometry": "query.property('dark7mc:entity') == 83 ? Geometry.player_disguise : Geometry.default",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "Texture.default" ],
+      "textures": [ "query.property('dark7mc:entity') == 83 ? Texture.player_disguise : Texture.default" ],
       "part_visibility": [
         { "*": false }
       ]
     },
     "controller.render.player.first_person": {
-      "geometry": "Geometry.default",
+      "geometry": "query.property('dark7mc:entity') == 83 ? Geometry.player_disguise : Geometry.default",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "Texture.default" ],
+      "textures": [ "query.property('dark7mc:entity') == 83 ? Texture.player_disguise : Texture.default" ],
       "part_visibility": [
         { "*": false },
         { "rightArm": "query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'filled_map' || query.equipped_item_any_tag('slot.weapon.mainhand', 'dark7mc:morphing_bracelets')" },
@@ -22,9 +22,9 @@
       ]
     },
     "controller.render.player.third_person": {
-      "geometry": "Geometry.default",
+      "geometry": "query.property('dark7mc:entity') == 83 ? Geometry.player_disguise : Geometry.default",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "Texture.default" ],
+      "textures": [ "query.property('dark7mc:entity') == 83 ? Texture.player_disguise : Texture.default" ],
       "part_visibility": [
         { "*": true },
         { "helmet": "variable.helmet_layer_visible" },
@@ -41,17 +41,17 @@
       ]
     },
     "controller.render.player.first_person_spectator": {
-      "geometry": "Geometry.default",
+      "geometry": "query.property('dark7mc:entity') == 83 ? Geometry.player_disguise : Geometry.default",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "Texture.default" ],
+      "textures": [ "query.property('dark7mc:entity') == 83 ? Texture.player_disguise : Texture.default" ],
       "part_visibility": [
         { "*": false }
       ]
     },
     "controller.render.player.third_person_spectator": {
-      "geometry": "Geometry.default",
+      "geometry": "query.property('dark7mc:entity') == 83 ? Geometry.player_disguise : Geometry.default",
       "materials": [ { "*": "Material.spectator" } ],
-      "textures": [ "Texture.default" ],
+      "textures": [ "query.property('dark7mc:entity') == 83 ? Texture.player_disguise : Texture.default" ],
       "part_visibility": [
         { "*": false },
         { "head": true },
@@ -66,9 +66,9 @@
       }
     },
     "controller.render.player.map": {
-      "geometry": "Geometry.default",
+      "geometry": "query.property('dark7mc:entity') == 83 ? Geometry.player_disguise : Geometry.default",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "Texture.default" ],
+      "textures": [ "query.property('dark7mc:entity') == 83 ? Texture.player_disguise : Texture.default" ],
       "part_visibility": [
         { "*": false },
         { "head": true },

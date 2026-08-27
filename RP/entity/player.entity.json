@@ -1022,7 +1022,7 @@
         ],
         "animate": [
           {
-            "root": "!variable.is_either_person || query.property('dark7mc:entity') == 0"
+            "root": "!variable.is_either_person || query.any(query.property('dark7mc:entity'), 0, 83)"
           },
           {
             "show_items": "variable.is_third_person && query.property('dark7mc:entity') != 0"
@@ -1125,105 +1125,6 @@
           },
           {
             "humanoid_melee_spear_controller": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 3, 15, 25, 41, 79) && variable.melee_spear_equipped"
-          },
-          {
-            "player_disguise_base_pose": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (true)"
-          },
-          {
-            "player_disguise_look_at_target": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (!query.is_sleeping && !query.is_emoting)"
-          },
-          {
-            "player_disguise_move_arms": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (true)"
-          },
-          {
-            "player_disguise_move_legs": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (true)"
-          },
-          {
-            "player_disguise_riding_root": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.is_riding)"
-          },
-          {
-            "player_disguise_riding_arms": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.is_riding)"
-          },
-          {
-            "player_disguise_riding_legs": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.is_riding)"
-          },
-          {
-            "player_disguise_holding": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (true)"
-          },
-          {
-            "player_disguise_brandish_spear": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.is_brandishing_spear)"
-          },
-          {
-            "player_disguise_holding_spyglass": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.is_holding_spyglass)"
-          },
-          {
-            "player_disguise_charging": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.is_charging)"
-          },
-          {
-            "player_disguise_sneaking": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.is_sneaking && !query.is_sleeping)"
-          },
-          {
-            "player_disguise_bob": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (!variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !variable.is_using_brush)"
-          },
-          {
-            "player_disguise_damage_nearby_mobs": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.damage_nearby_mobs)"
-          },
-          {
-            "player_disguise_swimming": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.swim_amount > 0.0 && !variable.melee_spear_equipped)"
-          },
-          {
-            "player_disguise_swimming_no_right_arm": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.swim_amount > 0.0 && variable.melee_spear_equipped)"
-          },
-          {
-            "player_disguise_swimming_legs": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.swim_amount > 0.0)"
-          },
-          {
-            "player_disguise_crawling": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.is_crawling && !variable.melee_spear_equipped)"
-          },
-          {
-            "player_disguise_crawling_no_right_arm": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.is_crawling && variable.melee_spear_equipped)"
-          },
-          {
-            "player_disguise_crawling_legs": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.is_crawling)"
-          },
-          {
-            "player_disguise_use_item_progress": "variable.is_third_person && query.property('dark7mc:entity') == 83 && ((variable.use_item_interval_progress > 0.0) || (variable.use_item_startup_progress > 0.0) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !variable.is_using_brush && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow'))"
-          },
-          {
-            "player_disguise_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.is_sleeping && query.is_alive)"
-          },
-          {
-            "player_disguise_attack_positions": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.attack_time >= 0.0 && !variable.melee_spear_equipped)"
-          },
-          {
-            "player_disguise_attack_rotations": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.attack_time >= 0.0 && !variable.melee_spear_equipped)"
-          },
-          {
-            "player_disguise_shield_block_main_hand": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield')"
-          },
-          {
-            "player_disguise_shield_block_off_hand": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.blocking && query.get_equipped_item_name('off_hand') == 'shield')"
-          },
-          {
-            "player_disguise_crossbow_controller": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.get_equipped_item_name == 'crossbow')"
-          },
-          {
-            "player_disguise_bow_equipped": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))"
-          },
-          {
-            "player_disguise_tooting_goat_horn": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.is_tooting_goat_horn)"
-          },
-          {
-            "player_disguise_holding_brush": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.get_equipped_item_name == 'brush')"
-          },
-          {
-            "player_disguise_brushing": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.is_using_brush)"
-          },
-          {
-            "player_disguise_holding_heavy_core": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (query.is_item_name_any('slot.weapon.mainhand', 'minecraft:heavy_core'))"
-          },
-          {
-            "player_disguise_melee_spear_controller": "variable.is_third_person && query.property('dark7mc:entity') == 83 && (variable.melee_spear_equipped)"
           },
           {
             "quadruped_walk": "variable.is_third_person && (query.any(query.property('dark7mc:entity'), 2, 6, 8, 32, 34, 52, 62, 64) || (query.property('dark7mc:entity') == 12 && !query.is_baby)) && query.modified_move_speed"
@@ -2016,30 +1917,6 @@
           },
           {
             "creaking_cancel": "variable.is_first_person && query.property('dark7mc:entity') == 82"
-          },
-          {
-            "player_disguise_first_person_base_pose": "variable.is_first_person && query.property('dark7mc:entity') == 83"
-          },
-          {
-            "player_disguise_first_person_swap_item": "variable.is_first_person && query.property('dark7mc:entity') == 83"
-          },
-          {
-            "player_disguise_first_person_attack_controller": "variable.is_first_person && query.property('dark7mc:entity') == 83"
-          },
-          {
-            "player_disguise_first_person_map_controller": "variable.is_first_person && query.property('dark7mc:entity') == 83 && (query.get_equipped_item_name(0, 1) == 'filled_map' || query.get_equipped_item_name('off_hand') == 'filled_map')"
-          },
-          {
-            "player_disguise_first_person_melee_spear_controller": "variable.is_first_person && query.property('dark7mc:entity') == 83 && variable.melee_spear_equipped"
-          },
-          {
-            "player_disguise_first_person_crossbow_equipped": "variable.is_first_person && query.property('dark7mc:entity') == 83 && query.get_equipped_item_name == 'crossbow' && variable.item_use_normalized > 0.0 && variable.item_use_normalized < 1.0"
-          },
-          {
-            "player_disguise_first_person_crossbow_hold": "variable.is_first_person && query.property('dark7mc:entity') == 83 && query.get_equipped_item_name == 'crossbow' && query.item_is_charged"
-          },
-          {
-            "player_disguise_first_person_empty_hand": "variable.is_first_person && query.property('dark7mc:entity') == 83"
           }
         ],
         "variables": {
@@ -2122,51 +1999,10 @@
         "first_person_melee_spear_hold": "animation.player.first_person.melee_spear_hold",
         "first_person_melee_spear_attack": "animation.player.first_person.melee_spear_attack",
         "first_person_melee_spear_controller": "controller.animation.player.first_person_melee_spear",
-        "player_disguise_first_person_base_pose": "animation.player.first_person.base_pose",
-        "player_disguise_first_person_swap_item": "animation.player.first_person.swap_item",
-        "player_disguise_first_person_attack_controller": "controller.animation.player.first_person_attack",
-        "player_disguise_first_person_map_controller": "controller.animation.player.first_person_map",
-        "player_disguise_first_person_melee_spear_controller": "controller.animation.player.first_person_melee_spear",
-        "player_disguise_first_person_crossbow_equipped": "animation.player.first_person.crossbow_equipped",
-        "player_disguise_first_person_crossbow_hold": "animation.player.first_person.crossbow_hold",
-        "player_disguise_first_person_empty_hand": "animation.player.first_person.empty_hand",
         "third_person_melee_spear_use": "animation.humanoid.melee_spear_use",
         "third_person_melee_spear_hold": "animation.humanoid.melee_spear_hold",
         "third_person_melee_spear_attack": "animation.player.melee_spear_attack",
         "third_person_melee_spear_controller": "controller.animation.player.melee_spear",
-        "player_disguise_base_pose": "animation.humanoid.base_pose",
-        "player_disguise_look_at_target": "controller.animation.humanoid.look_at_target",
-        "player_disguise_move_arms": "animation.player.move.arms",
-        "player_disguise_move_legs": "animation.player.move.legs",
-        "player_disguise_riding_root": "animation.player.riding.root",
-        "player_disguise_riding_arms": "animation.player.riding.arms",
-        "player_disguise_riding_legs": "animation.player.riding.legs",
-        "player_disguise_holding": "animation.player.holding",
-        "player_disguise_brandish_spear": "animation.humanoid.brandish_spear",
-        "player_disguise_holding_spyglass": "animation.humanoid.holding_spyglass",
-        "player_disguise_charging": "animation.humanoid.charging",
-        "player_disguise_sneaking": "animation.player.sneaking",
-        "player_disguise_bob": "animation.player.bob",
-        "player_disguise_damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs",
-        "player_disguise_swimming": "animation.player.swim",
-        "player_disguise_swimming_no_right_arm": "animation.player.swim.no_right_arm",
-        "player_disguise_swimming_legs": "animation.player.swim.legs",
-        "player_disguise_crawling": "animation.player.crawl",
-        "player_disguise_crawling_no_right_arm": "animation.player.crawl.no_right_arm",
-        "player_disguise_crawling_legs": "animation.player.crawl.legs",
-        "player_disguise_use_item_progress": "animation.humanoid.use_item_progress",
-        "player_disguise_sleeping": "animation.player.sleeping",
-        "player_disguise_attack_positions": "animation.player.attack.positions",
-        "player_disguise_attack_rotations": "animation.player.attack.rotations",
-        "player_disguise_shield_block_main_hand": "animation.player.shield_block_main_hand",
-        "player_disguise_shield_block_off_hand": "animation.player.shield_block_off_hand",
-        "player_disguise_crossbow_controller": "controller.animation.player.crossbow",
-        "player_disguise_bow_equipped": "animation.player.bow_equipped",
-        "player_disguise_tooting_goat_horn": "animation.humanoid.tooting_goat_horn",
-        "player_disguise_holding_brush": "animation.humanoid.holding_brush",
-        "player_disguise_brushing": "animation.humanoid.brushing",
-        "player_disguise_holding_heavy_core": "animation.player.holding_heavy_core",
-        "player_disguise_melee_spear_controller": "controller.animation.player.melee_spear",
         "show_items": "animation.morph.show_items",
         "look_at_target_y": "animation.morph.look_at_target_y",
         "vertical_gliding": "animation.morph.vertical_gliding",
@@ -2627,37 +2463,19 @@
       "render_controllers": [
         "controller.render.player",
         {
-          "controller.render.player_disguise": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
+          "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator && (variable.is_paperdoll || query.any(query.property('dark7mc:entity'), 0, 83))"
         },
         {
-          "controller.render.player_disguise.first_person_spectator": "variable.is_first_person && query.is_spectator && query.property('dark7mc:entity') == 83"
+          "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator && (variable.is_paperdoll || query.any(query.property('dark7mc:entity'), 0, 83))"
         },
         {
-          "controller.render.player_disguise.third_person_spectator": "variable.is_third_person && query.is_spectator && query.property('dark7mc:entity') == 83"
+          "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator && (variable.is_paperdoll || query.any(query.property('dark7mc:entity'), 0, 83))"
         },
         {
-          "controller.render.player_disguise.first_person": "variable.is_first_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
+          "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator && (variable.is_paperdoll || query.any(query.property('dark7mc:entity'), 0, 83))"
         },
         {
-          "controller.render.player_disguise.third_person": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
-        },
-        {
-          "controller.render.player_disguise.map": "variable.map_face_icon && query.property('dark7mc:entity') == 83"
-        },
-        {
-          "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
-        },
-        {
-          "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
-        },
-        {
-          "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
-        },
-        {
-          "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
-        },
-        {
-          "controller.render.player.map": "variable.map_face_icon && query.property('dark7mc:entity') == 0"
+          "controller.render.player.map": "variable.map_face_icon && query.any(query.property('dark7mc:entity'), 0, 83)"
         },
         {
           "controller.render.morph.zombie": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 1"
