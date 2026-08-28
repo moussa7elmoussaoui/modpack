@@ -176,7 +176,8 @@
         "Texture.player_disguise_170",
         "Texture.player_disguise_171",
         "Texture.player_disguise_172",
-        "Texture.player_disguise_173"
+        "Texture.player_disguise_173",
+        "Texture.player_disguise_174"
       ] } },
       "geometry": "Array.geometries[query.property('dark7mc:player_model') == 1]",
       "materials": [ { "*": "Material.default" } ],
@@ -358,7 +359,8 @@
         "Texture.player_disguise_170",
         "Texture.player_disguise_171",
         "Texture.player_disguise_172",
-        "Texture.player_disguise_173"
+        "Texture.player_disguise_173",
+        "Texture.player_disguise_174"
       ] } },
       "geometry": "Array.geometries[query.property('dark7mc:player_model') == 1]",
       "materials": [ { "*": "Material.default" } ],
@@ -546,7 +548,8 @@
         "Texture.player_disguise_170",
         "Texture.player_disguise_171",
         "Texture.player_disguise_172",
-        "Texture.player_disguise_173"
+        "Texture.player_disguise_173",
+        "Texture.player_disguise_174"
       ] } },
       "geometry": "Array.geometries[query.property('dark7mc:player_model') == 1]",
       "materials": [ { "*": "Material.default" } ],
@@ -741,7 +744,8 @@
         "Texture.player_disguise_170",
         "Texture.player_disguise_171",
         "Texture.player_disguise_172",
-        "Texture.player_disguise_173"
+        "Texture.player_disguise_173",
+        "Texture.player_disguise_174"
       ] } },
       "geometry": "Array.geometries[query.property('dark7mc:player_model') == 1]",
       "materials": [ { "*": "Material.default" } ],
@@ -923,7 +927,8 @@
         "Texture.player_disguise_170",
         "Texture.player_disguise_171",
         "Texture.player_disguise_172",
-        "Texture.player_disguise_173"
+        "Texture.player_disguise_173",
+        "Texture.player_disguise_174"
       ] } },
       "geometry": "Array.geometries[query.property('dark7mc:player_model') == 1]",
       "materials": [ { "*": "Material.spectator" } ],
@@ -1111,7 +1116,8 @@
         "Texture.player_disguise_170",
         "Texture.player_disguise_171",
         "Texture.player_disguise_172",
-        "Texture.player_disguise_173"
+        "Texture.player_disguise_173",
+        "Texture.player_disguise_174"
       ] } },
       "geometry": "Array.geometries[query.property('dark7mc:player_model') == 1]",
       "materials": [ { "*": "Material.default" } ],

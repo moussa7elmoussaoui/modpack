@@ -51,14 +51,16 @@ const RANDOM_PLAYER_SKINS = Object.freeze([
 
 export const playerSkins = Object.freeze([
   ...RANDOM_PLAYER_SKINS,
-  { name: "DARK7MC", model: 0, texture: "player_disguise/wide/dark7mc", icon: "player_disguise/wide/dark7mc" }
+  { name: "DARK7MC", model: 0, texture: "player_disguise/wide/dark7mc", icon: "player_disguise/wide/dark7mc" },
+  { name: "URBAN7MC", model: 0, texture: "player_disguise/wide/urban7mc", icon: "player_disguise/wide/urban7mc" }
 ]);
 
 const PLAYER_SKIN_BY_NAME = Object.freeze(Object.fromEntries([
   ["Steve", 0],
   ["Alex", 1],
   ...YOUTUBER_NAMES.map((name, index) => [name, index + 2]),
-  ["DARK7MC", RANDOM_PLAYER_SKINS.length]
+  ["DARK7MC", RANDOM_PLAYER_SKINS.length],
+  ["URBAN7MC", RANDOM_PLAYER_SKINS.length + 1]
 ]));
 
 export function getPlayerSkinIndex(playerName) {
