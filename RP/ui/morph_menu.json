@@ -227,14 +227,15 @@
 
   "player_dynamic_button": {
     "type": "panel",
-    "size": [ 48, 48 ],
+    "size": [ 56, 56 ],
+    "clips_children": true,
     "controls": [
       {
         "image": {
           "type": "image",
           "layer": 2,
           "size": [ 32, 32 ],
-          "offset": [ 0, 1 ],
+          "offset": [ 0, -5 ],
           "bindings": [
             {
               "binding_name": "#form_button_texture",
@@ -254,15 +255,15 @@
       {
         "player_name": {
           "type": "label",
-          "size": [ 26, 14 ],
-          "anchor_from": "bottom_right",
-          "anchor_to": "bottom_right",
-          "offset": [ -3, -1 ],
+          "size": [ "100% - 6px", 10 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "offset": [ 0, -2 ],
           "layer": 5,
           "color": [ 1, 1, 1 ],
           "text": "#player_name_text",
-          "text_alignment": "right",
-          "font_scale_factor": 1.2,
+          "text_alignment": "center",
+          "font_scale_factor": 0.8,
           "bindings": [
             {
               "binding_name": "#form_button_text",
@@ -281,7 +282,7 @@
       {
         "form_button@common.button": {
           "$pressed_button_name": "button.form_button_click",
-          "size": [ 48, 48 ],
+          "size": [ 56, 56 ],
           "controls": [
             {
               "hover@common.focus_border_white": {}

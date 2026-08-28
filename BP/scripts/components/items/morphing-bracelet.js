@@ -156,7 +156,7 @@ function sortMorphIds(firstMorphId, secondMorphId) {
 
 function getMorphPlayerLabel(morphId) {
   const playerName = getMorphPlayerName(morphId);
-  return playerName?.slice(0, 3).toUpperCase() ?? "";
+  return playerName ?? "";
 }
 
 const AGE_PRIORITIES = { adult: 0, wooly_adult: 0, sheared_adult: 1, baby: 2 };
