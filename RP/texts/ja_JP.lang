@@ -89,3 +89,4 @@ commands.waila.noPermission=他のプレイヤーのWAILA設定を編集する�
 commands.waila.success=%s にWAILA UIを表示しました
 commands.waila.version=WAILAは%sで実行中です！(commit: %s)
 commands.waila_version.description=WAILAアドオンの現在のバージョンを表示します。
+morph.self_disguise=You cannot disguise as yourself.

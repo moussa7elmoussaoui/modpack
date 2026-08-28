@@ -89,3 +89,4 @@ commands.waila.noPermission=Du har inte behörighet att redigera andra spelares 
 commands.waila.success=WAILA-gränssnitt visas för %s
 commands.waila.version=WAILA körs på %s! (commit: %s)
 commands.waila_version.description=Visar den aktuella versionen av WAILA-tillägget.
+morph.self_disguise=You cannot disguise as yourself.

@@ -89,3 +89,4 @@ commands.waila.noPermission=Sinulla ei ole oikeutta muokata muiden pelaajien WAI
 commands.waila.success=WAILA-käyttöliittymä näytetty pelaajalle %s
 commands.waila.version=WAILA käynnissä versiolla %s! (commit: %s)
 commands.waila_version.description=Näyttää WAILA-lisäosan nykyisen version.
+morph.self_disguise=You cannot disguise as yourself.

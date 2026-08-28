@@ -89,3 +89,4 @@ commands.waila.noPermission=Vous n'avez pas la permission de modifier les param√
 commands.waila.success=Interface WAILA affich√©e pour %s
 commands.waila.version=WAILA fonctionne sur %s ! (commit : %s)
 commands.waila_version.description=Affiche la version actuelle de l'add-on WAILA.
+morph.self_disguise=You cannot disguise as yourself.

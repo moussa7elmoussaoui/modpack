@@ -89,3 +89,4 @@ commands.waila.noPermission=Nemáte oprávnění upravovat nastavení WAILA jin�
 commands.waila.success=Rozhraní WAILA zobrazeno pro %s
 commands.waila.version=WAILA běží na %s! (commit: %s)
 commands.waila_version.description=Zobrazuje aktuální verzi WAILA Add-On.
+morph.self_disguise=You cannot disguise as yourself.

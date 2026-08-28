@@ -89,3 +89,4 @@ commands.waila.noPermission=Je hebt geen toestemming om de WAILA-instellingen va
 commands.waila.success=WAILA-interface getoond voor %s
 commands.waila.version=WAILA draait op %s! (commit: %s)
 commands.waila_version.description=Toont de huidige versie van de WAILA-add-on.
+morph.self_disguise=You cannot disguise as yourself.

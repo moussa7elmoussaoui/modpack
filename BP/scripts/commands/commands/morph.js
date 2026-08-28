@@ -22,11 +22,7 @@ export default {
 
       system.run(() => {
         for (const player of players) {
-          const isSelfDisguise = morph.entityType === "minecraft:player"
-            && morph.playerName !== undefined
-            && morph.playerName === player.name;
-
-          player.setMorph(isSelfDisguise ? new Morph("minecraft:player") : morph, { showEffects });
+          player.setMorph(morph, { showEffects });
         }
       });
 

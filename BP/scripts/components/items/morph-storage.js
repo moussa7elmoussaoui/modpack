@@ -4,6 +4,12 @@ import { Morph } from "../../morph/class";
 
 const PLAYER_ENTITY_TYPE = "minecraft:player";
 
+const SELF_DISGUISE_MESSAGE = [{ text: "§7" }, { translate: "morph.self_disguise" }, { text: "§r" }];
+
+function isSelfDisguise(morph, player) {
+  return morph.entityType === PLAYER_ENTITY_TYPE && morph.playerName === player.name;
+}
+
 export default {
   id: "morph_storage",
   onUse: ({ source }, { params }) => {
@@ -16,6 +22,10 @@ export default {
     const morph = source.getMorph();
     const entityType = morph.entityType;
     if (entityType === PLAYER_ENTITY_TYPE && morph.playerName === undefined) return;
+    if (isSelfDisguise(morph, source)) {
+      source.sendMessage(SELF_DISGUISE_MESSAGE);
+      return;
+    }
 
     const newItemStack = new ItemStack(convertedItemType);
     newItemStack.setDynamicProperty("morph", morph.toString());
@@ -38,6 +48,11 @@ export default {
     if (onUseAction !== "consume") return;
 
     const morph = Morph.parse(itemStack.getDynamicProperty("morph"));
+    if (isSelfDisguise(morph, source)) {
+      source.sendMessage(SELF_DISGUISE_MESSAGE);
+      return;
+    }
+
     source.setMorph(morph);
 
     const newItemStack = new ItemStack(convertedItemType);

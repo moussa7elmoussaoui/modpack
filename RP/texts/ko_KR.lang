@@ -89,3 +89,4 @@ commands.waila.noPermission=다른 플레이어의 WAILA 설정을 편집할 권
 commands.waila.success=%s 에게 WAILA UI를 표시했습니다
 commands.waila.version=WAILA가 %s에서 실행 중입니다! (commit: %s)
 commands.waila_version.description=WAILA 애드온의 현재 버전을 표시합니다.
+morph.self_disguise=You cannot disguise as yourself.

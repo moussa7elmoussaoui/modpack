@@ -89,3 +89,4 @@ commands.waila.noPermission=Δεν έχετε άδεια να επεξεργασ
 commands.waila.success=Η διεπαφή WAILA εμφανίστηκε για %s
 commands.waila.version=Το WAILA τρέχει σε %s! (commit: %s)
 commands.waila_version.description=Εμφανίζει την τρέχουσα έκδοση του WAILA Add-On.
+morph.self_disguise=You cannot disguise as yourself.

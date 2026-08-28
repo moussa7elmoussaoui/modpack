@@ -89,3 +89,4 @@ commands.waila.noPermission=Kamu tidak memiliki izin untuk mengedit pengaturan W
 commands.waila.success=Antarmuka WAILA ditampilkan untuk %s
 commands.waila.version=WAILA berjalan pada %s! (commit: %s)
 commands.waila_version.description=Menampilkan versi add-on WAILA saat ini.
+morph.self_disguise=You cannot disguise as yourself.

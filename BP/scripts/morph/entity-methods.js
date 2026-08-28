@@ -69,6 +69,10 @@ Player.prototype.refreshMorphNameTag = function(entityType = getMorphEntityType(
 Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = true } = {}) {
   if (!(morph instanceof Morph)) throw new TypeError("Expected argument to be an instance of Morph");
 
+  if (morph.entityType === "minecraft:player" && morph.playerName === this.name) {
+    morph = new Morph("minecraft:player");
+  }
+
   const previousMorph = this.getMorph();
   const eventOptions = { cancel: false, morph, player: this, previousMorph, soulSwitch };
 

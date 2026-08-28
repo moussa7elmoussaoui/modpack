@@ -89,3 +89,4 @@ commands.waila.noPermission=Nincs jogosultságod más játékosok WAILA beállí
 commands.waila.success=WAILA felület megjelenítve: %s
 commands.waila.version=A WAILA fut: %s! (commit: %s)
 commands.waila_version.description=Megjeleníti a WAILA kiegészítő aktuális verzióját.
+morph.self_disguise=You cannot disguise as yourself.

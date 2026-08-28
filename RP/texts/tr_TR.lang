@@ -89,3 +89,4 @@ commands.waila.noPermission=Diğer oyuncuların WAILA ayarlarını düzenleme iz
 commands.waila.success=%s için WAILA arayüzü gösterildi
 commands.waila.version=WAILA %s üzerinde çalışıyor! (commit: %s)
 commands.waila_version.description=WAILA eklentisinin geçerli sürümünü gösterir.
+morph.self_disguise=You cannot disguise as yourself.

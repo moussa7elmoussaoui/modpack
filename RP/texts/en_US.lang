@@ -73,6 +73,7 @@ morph.shulker.invalid_location=This location is invalid, make sure you are stand
 morph.bee.dying=Dying in §c%ss§r
 morph.unavailable.vanilla=This mob is currently in development and has not been added yet.
 morph.unavailable.modded=Mobs from other add-ons are not supported in this add-on.
+morph.self_disguise=You cannot disguise as yourself.
 death.attack.noStinger=%1$s felt the sting of sacrifice
 
 subtitles.entity.player.morph=Player morphs

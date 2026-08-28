@@ -89,3 +89,4 @@ commands.waila.noPermission=Нямате разрешение да редакт�
 commands.waila.success=WAILA интерфейсът е показан за %s
 commands.waila.version=WAILA работи на %s! (commit: %s)
 commands.waila_version.description=Показва текущата версия на WAILA Add-On.
+morph.self_disguise=You cannot disguise as yourself.
