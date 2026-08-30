@@ -8,6 +8,7 @@
 				}
 			},
 			"geometry": "Geometry.frog",
+			"part_visibility": [ { "croaking_body": "variable.frog_eating_duration <= 0.0" } ],
 			"materials": [ { "*": "Material.frog" } ],
 			"textures": [ "Array.skins[query.variant]" ]
 		}
