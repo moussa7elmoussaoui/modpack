@@ -1618,7 +1618,7 @@ const morphs = {
     items: [{ id: "dark7mc:wind_charge" }]
   },
   "dark7mc:night_fury": {
-    items: [{ id: "dark7mc:night_fury_fireball" }]
+    items: [{ id: "dark7mc:fire_blast" }]
   },
   "minecraft:creaking": {}
 };

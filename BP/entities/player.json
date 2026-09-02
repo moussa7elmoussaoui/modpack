@@ -131,7 +131,9 @@
                     "donkey.gallop",
                     "mule.gallop",
                     "skeleton_horse.gallop",
-                    "zombie_horse.gallop"
+                    "zombie_horse.gallop",
+                    "left",
+                    "sneak"
                 ]
             },
             "animations": {
@@ -149,7 +151,9 @@
                 "donkey.gallop": "controller.animation.morph.donkey.gallop",
                 "mule.gallop": "controller.animation.morph.mule.gallop",
                 "skeleton_horse.gallop": "controller.animation.morph.skeleton_horse.gallop",
-                "zombie_horse.gallop": "controller.animation.morph.zombie_horse.gallop"
+                "zombie_horse.gallop": "controller.animation.morph.zombie_horse.gallop",
+                "left": "controller.animation.left",
+                "sneak": "controller.animation.sneak"
             }
         },
         "components": {

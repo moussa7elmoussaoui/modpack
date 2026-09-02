@@ -101,6 +101,26 @@
                "volume" : 0.3
             }
          ]
+      },
+      "night_fury_fire_blast.debris" : {
+         "category" : "ui",
+         "sounds" : [ "sounds/debris" ]
+      },
+      "night_fury_fire_blast.air_woosh" : {
+         "category" : "ui",
+         "sounds" : [ "sounds/air_woosh" ]
+      },
+      "night_fury_fire_blast.fire_blast" : {
+         "category" : "ui",
+         "sounds" : [ "sounds/fire_blast" ]
+      },
+      "night_fury_fire_blast.fire_woosh" : {
+         "category" : "ui",
+         "sounds" : [ "sounds/fire_woosh" ]
+      },
+      "night_fury_fire_blast.fire_swish" : {
+         "category" : "ui",
+         "sounds" : [ "sounds/fire_swish" ]
       }
    }
 }

@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.left": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "left": "variable.attack_time"
+            }
+          ],
+          "on_entry": [
+            "/scriptevent night_fury_fire_blast:left_click_off"
+          ]
+        },
+        "left": {
+          "transitions": [
+            {
+              "default": "!variable.attack_time"
+            }
+          ],
+          "on_entry": [
+            "/scriptevent night_fury_fire_blast:left_click_on"
+          ]
+        }
+      }
+    },
+    "controller.animation.sneak": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "sneak": "query.is_sneaking"
+            }
+          ],
+          "on_entry": [
+            "/scriptevent night_fury_fire_blast:sneak_off"
+          ]
+        },
+        "sneak": {
+          "transitions": [
+            {
+              "default": "!query.is_sneaking"
+            }
+          ],
+          "on_entry": [
+            "/scriptevent night_fury_fire_blast:sneak_on"
+          ]
+        }
+      }
+    }
+  }
+}

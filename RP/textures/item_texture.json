@@ -12,6 +12,9 @@
     "dark7mc:evoker_fangs": {
       "textures": "textures/items/evoker_fangs"
     },
+    "dark7mc:fire_blast": {
+      "textures": "textures/items/fire_blast"
+    },
     "dark7mc:guardian_curse": {
       "textures": "textures/items/guardian_curse"
     },

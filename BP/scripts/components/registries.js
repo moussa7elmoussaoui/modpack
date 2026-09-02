@@ -5,6 +5,7 @@ import effectNearbyPlayers from "./items/effect-nearby-players";
 import infiniteProjectile from "./items/infinite-projectile";
 import morphingBracelet from "./items/morphing-bracelet";
 import morphStorage from "./items/morph-storage";
+import nightFuryFireBlast from "./items/night-fury-fire-blast";
 import sonicBoom from "./items/sonic-boom";
 import summonFangsOnUse from "./items/summon-fangs-on-use";
 import teleportOnUse from "./items/teleport-on-use";
@@ -15,6 +16,7 @@ export default {
     durabilityDamageOnHit,
     effectNearbyPlayers,
     infiniteProjectile,
+    nightFuryFireBlast,
     morphingBracelet,
     morphStorage,
     sonicBoom,
