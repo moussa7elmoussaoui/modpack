@@ -83,7 +83,6 @@
         {
           "name": "rightItem",
           "pivot": [ -6, 15, 1 ],
-          "locators": { "lead_hold": [ -6, 15, 1 ] },
           "parent": "rightArm"
         },
         {
@@ -177,7 +176,6 @@
         {
           "name": "rightItem",
           "pivot": [ -6.0, 14.5, 1.0 ],
-          "locators": { "lead_hold": [ -6.0, 14.5, 1.0 ] },
           "parent": "rightArm"
         },
         {
