@@ -452,28 +452,6 @@ export function formatBlockName(block) {
     return formattedName;
 }
 
-export const enterCombatMode = (player, target) => {
-    const PLAYER_DATA = PLAYER_DATA_MAP[player.id];
-    const TARGET_DATA = PLAYER_DATA_MAP[target.id];
-
-    if (!PLAYER_DATA.combatTimer) {
-        PLAYER_DATA.combatTimer = 600;
-        player.sendMessage([{ text: '§c' }, { translate: 'status_message.combat_timer_down' }]);
-    } else {
-        PLAYER_DATA.combatTimer = 600;
-    }
-
-    if (!TARGET_DATA.combatTimer) {
-        TARGET_DATA.combatTimer = 600;
-        target.sendMessage([{ text: '§c' }, { translate: 'status_message.combat_timer_down' }]);
-    } else {
-        TARGET_DATA.combatTimer = 600;
-    }
-
-    player.setDynamicProperty("combat_timer", PLAYER_DATA.combatTimer);
-    target.setDynamicProperty("combat_timer", TARGET_DATA.combatTimer);
-}
-
 export const isRayClear = (player, start, end) => {
     const PLAYER_DATA = PLAYER_DATA_MAP[player.id];
     if (!PLAYER_DATA) return false;
@@ -758,7 +736,6 @@ export function applyBendingDamage(player, target, damage, knockback, bypass = f
             trueDamage *= resistance;
         }
 
-        enterCombatMode(player, target);
     } else {
         damage = damage * 2.5;
     }

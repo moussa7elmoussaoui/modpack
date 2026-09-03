@@ -31,7 +31,6 @@ function stateFor(player) {
       combo: 0,
       lastHit: Date.now(),
       overflow: 0,
-      combatTimer: 0,
       sneakTimer: 0,
       blockSpamCount: 0,
       lastChatMsg: Date.now()
