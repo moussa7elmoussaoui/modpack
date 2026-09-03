@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=Päivitettiin pelaajan %s WAILA-asetukset.	
 morph.menu.title=Muodonmuutosvalikko
 morph.menu.player=Pelaajan morfivalikko
 morph.menu.variant=Varianttimorfivalikko
+morph.unlock.night_fury=Yökiitäjä-muoto avattu. Se on nyt käytettävissä muodonvaihtorannekkeessasi.
 morph.item.attached_to=Liitetty:
 morph.shulker.invalid_location=Tämä sijainti on virheellinen, varmista että seisot kiinteällä lohkolla!
 morph.bee.dying=Kuolee §c%ss§r kuluttua

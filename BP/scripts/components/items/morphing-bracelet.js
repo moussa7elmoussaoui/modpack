@@ -6,6 +6,7 @@ import { morphEvents } from "../../morph/entity-methods";
 import { getPlayerIconPath, getPlayerSkinIndex } from "../../data/player-skins";
 import { namespace } from "../../utils/namespace";
 
+const NIGHT_FURY_UNLOCK_NOTIFIED = "nightFuryUnlockNotified";
 const IDENTIFIER = "morphing_bracelet";
 const NIGHT_FURY_MORPH_ID = "dark7mc:night_fury[]";
 
@@ -229,13 +230,52 @@ system.runInterval(() => {
   }
 });
 
+function unlockNightFury(player) {
+  const inventory = player.getComponent("minecraft:inventory").container;
+  const nightFury = new Morph("dark7mc:night_fury");
+  let shouldNotify = false;
+
+  for (let slot = 0; slot < inventory.size; slot++) {
+    const itemStack = inventory.getItem(slot);
+    if (!itemStack?.hasComponent(namespacedId)) continue;
+    let itemChanged = false;
+
+    if (itemStack.hasMorph(nightFury)) continue;
+
+    itemStack.addMorph(nightFury);
+    itemChanged = true;
+
+    if (itemStack.getDynamicProperty(NIGHT_FURY_UNLOCK_NOTIFIED) !== true) {
+      itemStack.setDynamicProperty(NIGHT_FURY_UNLOCK_NOTIFIED, true);
+      itemChanged = true;
+      shouldNotify = true;
+    }
+
+    if (itemChanged) inventory.setItem(slot, itemStack);
+  }
+
+  return shouldNotify;
+}
+
 const PLAYER_ENTITY_TYPE = "minecraft:player";
 
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
     if (!isSecretMorphOwner(player)) continue;
 
-    giveMorphToPlayer(player, new Morph("dark7mc:night_fury"));
+    if (!unlockNightFury(player)) continue;
+
+    player.sendMessage([
+      { text: "§b" },
+      { translate: "morph.unlock.night_fury" },
+      { text: "§r" }
+    ]);
+    player.dimension.spawnParticle("dark7mc:morph_unlock_burst", {
+      x: player.location.x,
+      y: player.location.y + 0.5,
+      z: player.location.z
+    });
+    player.dimension.playSound("beacon.activate", player.location);
   }
 }, 20);
 
@@ -273,7 +313,24 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
 });
 
 function isSecretMorphOwner(player) {
-  return player.name === "DARK7MC" && player.level === 100 && isBraceletOwner(player);
+  const morph = player.getMorph();
+  return player.name === "DARK7MC" &&
+    player.level >= 100 &&
+    morph?.entityType === PLAYER_ENTITY_TYPE &&
+    morph.playerName === undefined &&
+    hasBraceletWithoutNightFury(player);
+}
+
+function hasBraceletWithoutNightFury(player) {
+  const inventory = player.getComponent("minecraft:inventory").container;
+  const nightFury = new Morph("dark7mc:night_fury");
+
+  for (let slot = 0; slot < inventory.size; slot++) {
+    const itemStack = inventory.getItem(slot);
+    if (itemStack?.hasComponent(namespacedId) && !itemStack.hasMorph(nightFury)) return true;
+  }
+
+  return false;
 }
 
 function giveKilledMobMorphToPlayer(player, deadEntity, morph) {

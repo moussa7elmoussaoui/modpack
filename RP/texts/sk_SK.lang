@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=Aktualizované nastavenia WAILA používate
 morph.menu.title=Ponuka premien
 morph.menu.player=Menu morfa hráča
 morph.menu.variant=Menu morfa variantu
+morph.unlock.night_fury=Morf Nočná zúrivosť odomknutý. Teraz je dostupný vo vašom morfovacom náramku.
 morph.item.attached_to=Pripojené k:
 morph.shulker.invalid_location=Toto miesto je neplatné, uisti sa, že stojíš na pevnom bloku!
 morph.bee.dying=Umiera o §c%ss§r

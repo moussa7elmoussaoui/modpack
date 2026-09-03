@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=%s WAILA beállításai frissítve.	## %s i
 morph.menu.title=Átváltozás menü
 morph.menu.player=Játékos morfmenü
 morph.menu.variant=Variáns morfment
+morph.unlock.night_fury=Az Éjszakai Fúria átváltozás feloldva. Mostantól elérhető az átváltoztató karkötődben.
 morph.item.attached_to=Hozzácsatolva:
 morph.shulker.invalid_location=Ez a hely érvénytelen, győződj meg róla, hogy szilárd blokkon állsz!
 morph.bee.dying=Meghal §c%ss§r múlva

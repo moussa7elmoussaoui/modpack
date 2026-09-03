@@ -8856,8 +8856,8 @@
                     "emit_flap": true
                 },
                 "minecraft:health": {
-                    "max": 30,
-                    "value": 30
+                    "max": 60,
+                    "value": 60
                 },
                 "minecraft:rideable": {
                     "seat_count": 1,

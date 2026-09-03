@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=Uppdaterade %s WAILA-inställningar.	## %s 
 morph.menu.title=Förvandlingsmeny
 morph.menu.player=Spelarmorfsmeny
 morph.menu.variant=Varianmorf menyn
+morph.unlock.night_fury=Nattfasa-förvandlingen är upplåst. Den är nu tillgänglig i ditt förvandlingsarmband.
 morph.item.attached_to=Fäst vid:
 morph.shulker.invalid_location=Denna plats är ogiltig, se till att du står på ett fast block!
 morph.bee.dying=Dör om §c%ss§r

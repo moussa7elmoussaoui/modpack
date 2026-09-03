@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=Se han actualizado los ajustes de WAILA de 
 morph.menu.title=Menú de transformación
 morph.menu.player=Menú de metamorfosis de jugador
 morph.menu.variant=Menú de metamorfosis de variante
+morph.unlock.night_fury=La metamorfosis Furia Nocturna se ha desbloqueado. Ya está disponible en tu Pulsera de Metamorfosis.
 morph.item.attached_to=Adjunto a:
 morph.shulker.invalid_location=Esta ubicación no es válida, ¡asegúrate de estar sobre un bloque sólido!
 morph.bee.dying=Muriendo en §c%ss§r

@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=Pengaturan WAILA %s telah diperbarui.	## %s
 morph.menu.title=Menu metamorfosis
 morph.menu.player=Menu Morf Pemain
 morph.menu.variant=Menu Morf Varian
+morph.unlock.night_fury=Morf Amukan Malam terbuka. Sekarang tersedia di Gelang Perubahan Anda.
 morph.item.attached_to=Terpasang pada:
 morph.shulker.invalid_location=Lokasi ini tidak valid, pastikan kamu berdiri di atas blok padat!
 morph.bee.dying=Mati dalam §c%ss§r

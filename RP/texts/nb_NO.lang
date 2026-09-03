@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=Oppdaterte %ss WAILA-innstillinger.	## %s i
 morph.menu.title=Forvandlingsmeny
 morph.menu.player=Spillermorf-meny
 morph.menu.variant=Variantmorf-meny
+morph.unlock.night_fury=Nattens raseri-forvandling er låst opp. Den er nå tilgjengelig i forvandlingsarmbåndet ditt.
 morph.item.attached_to=Festet til:
 morph.shulker.invalid_location=Denne plasseringen er ugyldig, sørg for at du står på en solid blokk!
 morph.bee.dying=Dør om §c%ss§r

@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=Актуализирани са WAILA на�
 morph.menu.title=Меню за превръщане
 morph.menu.player=Меню за морф на играча
 morph.menu.variant=Меню за морф на варианта
+morph.unlock.night_fury=Морфът Нощна ярост е отключен. Вече е наличен във вашата гривна за морфиране.
 morph.item.attached_to=Прикрепено към:
 morph.shulker.invalid_location=Това място е невалидно, уверете се, че стоите върху твърд блок!
 morph.bee.dying=Умира след §c%ss§r

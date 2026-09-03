@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=%s's WAILA-instellingen zijn bijgewerkt.	##
 morph.menu.title=Morfmenu
 morph.menu.player=Spelermorfmenu
 morph.menu.variant=Variantmorfmenu
+morph.unlock.night_fury=De Nachtwoede-gedaantewisseling is ontgrendeld. Deze is nu beschikbaar in je gedaantewisselingsarmband.
 morph.item.attached_to=Bevestigd aan:
 morph.shulker.invalid_location=Deze locatie is ongeldig, zorg dat je op een stevig blok staat!
 morph.bee.dying=Sterft over §c%ss§r

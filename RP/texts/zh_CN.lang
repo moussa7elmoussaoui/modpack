@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=已更新 %s 的 WAILA 设置。	## %s is w
 morph.menu.title=变身手环菜单
 morph.menu.player=玩家变形菜单
 morph.menu.variant=变体变形菜单
+morph.unlock.night_fury=夜煞变形已解锁。现在可以在你的变形手环中使用。
 morph.item.attached_to=附着于:
 morph.shulker.invalid_location=此位置无效，请确保你站在实心方块上！
 morph.bee.dying=§c%ss§r 后死亡

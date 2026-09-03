@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=Zaktualizowano ustawienia WAILA %s.	## %s i
 morph.menu.title=Menu metamorfozy
 morph.menu.player=Menu morfy gracza
 morph.menu.variant=Menu morfy wariant
+morph.unlock.night_fury=Przemiana Nocna Furia została odblokowana. Jest teraz dostępna w twojej Bransoletce Przemiany.
 morph.item.attached_to=Dołączone do:
 morph.shulker.invalid_location=Ta lokalizacja jest nieprawidłowa, upewnij się, że stoisz na stałym bloku!
 morph.bee.dying=Umiera za §c%ss§r

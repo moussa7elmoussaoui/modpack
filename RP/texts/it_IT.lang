@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=Impostazioni WAILA di %s aggiornate.	## %s 
 morph.menu.title=Menu di metamorfosi
 morph.menu.player=Menu metamorfosi giocatore
 morph.menu.variant=Menu metamorfosi variante
+morph.unlock.night_fury=La metamorfosi Furia Buia è stata sbloccata. Ora è disponibile nel tuo Bracciale Mutaforma.
 morph.item.attached_to=Collegato a:
 morph.shulker.invalid_location=Questa posizione non è valida, assicurati di essere su un blocco solido!
 morph.bee.dying=Muore in §c%ss§r

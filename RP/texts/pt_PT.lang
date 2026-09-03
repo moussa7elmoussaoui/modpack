@@ -68,6 +68,7 @@ waila.settings.feedback.updatedOther=As definições do WAILA de %s foram atuali
 morph.menu.title=Menu de metamorfose
 morph.menu.player=Menu de metamorfose do jogador
 morph.menu.variant=Menu de metamorfose de variante
+morph.unlock.night_fury=A transformação Fúria da Noite foi desbloqueada. Ela já está disponível na sua Pulseira de Metamorfose.
 morph.item.attached_to=Ligado a:
 morph.shulker.invalid_location=Este local é inválido, certifica-te de que estás num bloco sólido!
 morph.bee.dying=A morrer em §c%ss§r
