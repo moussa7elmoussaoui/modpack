@@ -9,7 +9,6 @@ const YOUTUBER_NAMES = [
   "Stampy",
   "Mumbo Jumbo",
   "Grian",
-  "CaptainSparklez",
   "TommyInnit",
   "Ph1LzA",
   "Sapnap",
@@ -23,14 +22,15 @@ const YOUTUBER_NAMES = [
   "Dr Donut",
   "MrBeast",
   "Chandler",
-  "Grox"
+  "Grox",
+  "PewDiePie"
 ];
 
 const YOUTUBER_SKIN_DATA = YOUTUBER_NAMES.map((name, index) => ({
   name,
-  model: 0,
-  texture: `player_disguise/wide/${name.toLowerCase().replaceAll(" ", "_")}`,
-  icon: `player_disguise/wide/${name.toLowerCase().replaceAll(" ", "_")}`
+  model: ["Grian", "Aphmau", "Fundy"].includes(name) ? 1 : 0,
+  texture: `player_disguise/${["Grian", "Aphmau", "Fundy"].includes(name) ? "slim" : "wide"}/${name.toLowerCase().replaceAll(" ", "_")}`,
+  icon: `player_disguise/${["Grian", "Aphmau", "Fundy"].includes(name) ? "slim" : "wide"}/${name.toLowerCase().replaceAll(" ", "_")}`
 }));
 
 const SLIM_SKINS = Array.from({ length: 150 }, (_, index) => {

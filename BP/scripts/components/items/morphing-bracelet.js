@@ -7,6 +7,7 @@ import { getPlayerIconPath, getPlayerSkinIndex } from "../../data/player-skins";
 import { namespace } from "../../utils/namespace";
 
 const IDENTIFIER = "morphing_bracelet";
+const NIGHT_FURY_MORPH_ID = "dark7mc:night_fury[]";
 
 export default {
   id: IDENTIFIER,
@@ -21,7 +22,10 @@ export default {
 function showMorphMenu(source, itemSlot, itemStack, morphIds) {
   const variantsByAge = new Map();
 
-  const visibleMorphIds = morphIds.filter(morphId => getMorphPlayerName(morphId) !== source.name);
+  const visibleMorphIds = morphIds.filter(morphId =>
+    getMorphPlayerName(morphId) !== source.name &&
+    (morphId !== NIGHT_FURY_MORPH_ID || source.name === "DARK7MC")
+  );
   for (const morphId of visibleMorphIds) {
     const entityType = parseEntityType(morphId);
     const playerName = getMorphPlayerName(morphId);
@@ -227,15 +231,20 @@ system.runInterval(() => {
 
 const PLAYER_ENTITY_TYPE = "minecraft:player";
 
+system.runInterval(() => {
+  for (const player of world.getPlayers()) {
+    if (!isSecretMorphOwner(player)) continue;
+
+    giveMorphToPlayer(player, new Morph("dark7mc:night_fury"));
+  }
+}, 20);
+
 world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
   const { damagingEntity } = damageSource;
 
   if (!(damagingEntity?.typeId === PLAYER_ENTITY_TYPE && isBraceletOwner(damagingEntity))) return;
 
-  const secretMorph = getSecretMorph(deadEntity);
-  if (secretMorph !== undefined) {
-    giveKilledMobMorphToPlayer(damagingEntity, deadEntity, secretMorph);
-  } else if (deadEntity.typeId === PLAYER_ENTITY_TYPE) {
+  if (deadEntity.typeId === PLAYER_ENTITY_TYPE) {
     if (damagingEntity.name === deadEntity.name || deadEntity.name.length === 0) return;
 
     giveKilledMobMorphToPlayer(
@@ -263,10 +272,8 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
   }
 });
 
-function getSecretMorph(deadEntity) {
-  if (deadEntity.typeId === "minecraft:bat" && deadEntity.nameTag === "night_fury") {
-    return new Morph("dark7mc:night_fury");
-  }
+function isSecretMorphOwner(player) {
+  return player.name === "DARK7MC" && player.level === 100 && isBraceletOwner(player);
 }
 
 function giveKilledMobMorphToPlayer(player, deadEntity, morph) {
