@@ -836,6 +836,7 @@ export function applyBendingDamage(player, target, damage, knockback, bypass = f
 export const getEntitiesNearViewDirection = (player, rayDistance = 100, upper = 3, scaleFactor = 0) => {
     const PLAYER_DATA = PLAYER_DATA_MAP[player.id];
     const viewDir = PLAYER_DATA.viewDir;
+    const riderIds = getRiderIds(player);
 
     const totalEntities = [];
     for (let i = 0; i < rayDistance; i++) {
@@ -846,13 +847,23 @@ export const getEntitiesNearViewDirection = (player, rayDistance = 100, upper = 
         const entities = player.dimension.getEntities({ location: pos, maxDistance: sigmoidFalloff, excludeNames: [player.name], excludeTags: ["bending_dmg_off"] });
         if (entities.length > 0) {
             for (const entity of entities) {
-                if (!totalEntities.find(e => e.id === entity.id)) totalEntities.push(entity);
+                if (!riderIds.has(entity.id) && !totalEntities.find(e => e.id === entity.id)) totalEntities.push(entity);
             }
         }
     }
 
     return totalEntities;
 }
+
+const getRiderIds = (player) => {
+    const riders = player.getComponent("minecraft:rideable")?.getRiders() ?? [];
+    return new Set(riders.map(rider => rider.id));
+};
+
+export const excludeRiders = (player, entities) => {
+    const riderIds = getRiderIds(player);
+    return entities.filter(entity => entity.id !== player.id && !riderIds.has(entity.id));
+};
 
 export const findDesireableTarget = (entities) => {
     if (entities.length === 0) return undefined;
@@ -888,7 +899,7 @@ export const findMultipleDesireableTargets = (entities, length, excludeItems = f
 
 export function createShockwave(player, location, strength, range, knockback = 1, setOnFire = false, hitTracker = null, ignoreReflect = false, bypass = false) {
     const PLAYER_DATA = PLAYER_DATA_MAP[player.id];
-    const entities = PLAYER_DATA.dimension.getEntities({ location: location, maxDistance: range, excludeNames: [player.name], excludeFamilies: ["inanimate"], excludeTags: ["bending_dmg_off"], excludeTypes: ["item", "a:dirt_block_small"] });
+    const entities = excludeRiders(player, PLAYER_DATA.dimension.getEntities({ location: location, maxDistance: range, excludeNames: [player.name], excludeFamilies: ["inanimate"], excludeTags: ["bending_dmg_off"], excludeTypes: ["item", "a:dirt_block_small"] }));
 
     entities.forEach(entity => {
         if (hitTracker) {

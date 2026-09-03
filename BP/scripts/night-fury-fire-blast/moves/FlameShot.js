@@ -1,5 +1,5 @@
 import { MolangVariableMap, system } from "@minecraft/server";
-import { calcVectorOffset, applyBendingDamage, calculateDistance, delayedFunc, traceLine } from "../fire-blast-utils.js";
+import { calcVectorOffset, applyBendingDamage, calculateDistance, delayedFunc, traceLine, excludeRiders } from "../fire-blast-utils.js";
 import { DAMAGE_TIERS } from "../fire-blast-damage.js";
 
 import { ALL_PROJECTILES } from "../fire-blast-runtime.js";
@@ -62,7 +62,7 @@ const move = {
                     if (projectile.collision) endRuntime = true;
                 }
 
-                const nearbyEntities = [...PLAYER_DATA.dimension.getEntities({ location: loc, maxDistance: 3, excludeNames: [player.name], excludeFamilies: ["inanimate"], excludeTypes: ["item"], excludeTags: ["bending_dmg_off"] })];
+                const nearbyEntities = excludeRiders(player, [...PLAYER_DATA.dimension.getEntities({ location: loc, maxDistance: 3, excludeNames: [player.name], excludeFamilies: ["inanimate"], excludeTypes: ["item"], excludeTags: ["bending_dmg_off"] })]);
                 nearbyEntities.forEach(entity => applyBendingDamage(player, entity, DAMAGE_TIERS.MEDIUM, 1, false, true));
                 if (nearbyEntities[0] != undefined) endRuntime = true;
 

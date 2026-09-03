@@ -1,5 +1,5 @@
 import { system } from "@minecraft/server";
-import { calcVectorOffset, calculateDistance, delayedFunc, traceLine, createShockwave } from "../fire-blast-utils.js";
+import { calcVectorOffset, calculateDistance, delayedFunc, traceLine, createShockwave, excludeRiders } from "../fire-blast-utils.js";
 import { DAMAGE_TIERS } from "../fire-blast-damage.js";
 
 import { ALL_PROJECTILES } from "../fire-blast-runtime.js";
@@ -54,7 +54,7 @@ const move = {
                     loc = calcVectorOffset(player, 0, 0, distance / 4, travelDir, loc);
                 }
 
-                const nearbyEntities = [...PLAYER_DATA.dimension.getEntities({ location: loc, maxDistance: 3, excludeNames: [player.name], excludeFamilies: ["inanimate"], excludeTypes: ["item"], excludeTags: ["bending_dmg_off"] })];
+                const nearbyEntities = excludeRiders(player, [...PLAYER_DATA.dimension.getEntities({ location: loc, maxDistance: 3, excludeNames: [player.name], excludeFamilies: ["inanimate"], excludeTypes: ["item"], excludeTags: ["bending_dmg_off"] })]);
                 if (nearbyEntities[0] != undefined) endRuntime = true;
 
                 const checkForward = 3;

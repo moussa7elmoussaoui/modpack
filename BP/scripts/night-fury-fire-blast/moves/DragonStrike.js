@@ -1,5 +1,5 @@
 import { system, Player } from "@minecraft/server";
-import { calcVectorOffset, applyBendingDamage, calculateDistance, delayedFunc, getEntitiesNearViewDirection, findDesireableTarget, traceLine } from "../fire-blast-utils.js";
+import { calcVectorOffset, applyBendingDamage, calculateDistance, delayedFunc, getEntitiesNearViewDirection, findDesireableTarget, traceLine, excludeRiders } from "../fire-blast-utils.js";
 import { DAMAGE_TIERS } from "../fire-blast-damage.js";
 
 import { ALL_PROJECTILES } from "../fire-blast-runtime.js";
@@ -55,7 +55,7 @@ function dragonTracer(player, PLAYER_DATA, offset, entity, fireType, fireTypeSec
             if (projectile.collision && projectile.type != 'dragon') endRuntime = true;
         }
 
-        const nearbyEntities = [...PLAYER_DATA.dimension.getEntities({ location: loc, maxDistance: 3, excludeNames: [player.name], excludeFamilies: ["inanimate"], excludeTypes: ["item"], excludeTags: ["bending_dmg_off"] })];
+        const nearbyEntities = excludeRiders(player, [...PLAYER_DATA.dimension.getEntities({ location: loc, maxDistance: 3, excludeNames: [player.name], excludeFamilies: ["inanimate"], excludeTypes: ["item"], excludeTags: ["bending_dmg_off"] })]);
         nearbyEntities.forEach(entity => applyBendingDamage(player, entity, DAMAGE_TIERS.HEAVY, 4, false, true));
         if (nearbyEntities[0] != undefined) endRuntime = true;
 
