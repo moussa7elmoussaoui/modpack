@@ -8,7 +8,7 @@ import BounceBlast from "../../night-fury-fire-blast/moves/BounceBlast.js";
 const ITEM_ID = "dark7mc:fire_blast";
 const MORPH_ID = 81;
 const FIRE_BLAST_ORIGIN_FORWARD = 1.4;
-const FIRE_BLAST_ORIGIN_DROP = 1.2;
+const FIRE_BLAST_ORIGIN_HEIGHT = 0.42;
 const NIGHT_FURY_CRITICAL_HEALTH = 0.3;
 const NIGHT_FURY_NORMAL_LEVEL = 1;
 const NIGHT_FURY_CRITICAL_LEVEL = 100;
@@ -55,11 +55,11 @@ function isNightFury(player) {
 }
 
 function fireBlastOrigin(player, direction) {
-  const head = player.getHeadLocation();
+  const base = player.location;
   return {
-    x: head.x + direction.x * FIRE_BLAST_ORIGIN_FORWARD,
-    y: head.y + direction.y * FIRE_BLAST_ORIGIN_FORWARD - FIRE_BLAST_ORIGIN_DROP,
-    z: head.z + direction.z * FIRE_BLAST_ORIGIN_FORWARD
+    x: base.x + direction.x * FIRE_BLAST_ORIGIN_FORWARD,
+    y: base.y + FIRE_BLAST_ORIGIN_HEIGHT + direction.y * FIRE_BLAST_ORIGIN_FORWARD,
+    z: base.z + direction.z * FIRE_BLAST_ORIGIN_FORWARD
   };
 }
 
