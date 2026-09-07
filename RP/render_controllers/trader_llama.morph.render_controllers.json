@@ -1,0 +1,37 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.trader_llama": {
+      "arrays": {
+        "textures": {
+          "Array.base": [
+            "Texture.trader_llama_creamy",
+            "Texture.trader_llama_white",
+            "Texture.trader_llama_brown",
+            "Texture.trader_llama_gray"
+          ],
+          "Array.baby_base": [
+            "Texture.trader_llama_baby_creamy",
+            "Texture.trader_llama_baby_white",
+            "Texture.trader_llama_baby_brown",
+            "Texture.trader_llama_baby_gray"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.trader_llama_baby : Geometry.trader_llama",
+      "part_visibility": [{ "chest*": "query.is_chested" }],
+      "materials": [{ "*": "Material.trader_llama" }],
+      "textures": [
+        "query.is_baby ? Array.baby_base[query.variant] : Array.base[query.variant]"
+      ]
+    },
+    "controller.render.morph.trader_llama_decor": {
+      "geometry": "query.is_baby ? Geometry.trader_llama_baby : Geometry.trader_llama",
+      "part_visibility": [{ "chest*": "query.is_chested" }],
+      "materials": [{ "*": "Material.trader_llama" }],
+      "textures": [
+        "query.is_baby ? Texture.trader_llama_baby_decor : Texture.trader_llama_decor"
+      ]
+    }
+  }
+}

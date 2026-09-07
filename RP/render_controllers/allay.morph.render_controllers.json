@@ -1,0 +1,11 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.morph.allay": {
+			"geometry": "Geometry.allay",
+			"materials": [ { "*": "Material.allay" } ],
+			"textures": [ "Texture.allay" ],
+			"ignore_lighting": true
+		}
+	}
+}

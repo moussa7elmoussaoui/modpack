@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.cod": {
+      "geometry": "Geometry.cod",
+      "materials": [ { "*": "Material.cod" } ],
+      "textures": [ "Texture.cod" ]
+    }
+  }
+}

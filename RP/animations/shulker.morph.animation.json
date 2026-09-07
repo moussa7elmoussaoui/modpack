@@ -1,0 +1,17 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.shulker.move" : {
+			"loop" : true,
+			"bones" : {
+				"base" : {
+					"rotation" : [ 0.0, "-query.body_y_rotation - this", 0.0 ],
+					"scale" : 0.98
+				},
+				"lid" : {
+					"position" : [ 0.0, "7.2 - math.sin(variable.shulker_lidpositionfactor * 1.16) * 7.5", 0.0 ]
+				}
+			}
+		}
+	}
+}

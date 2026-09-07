@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.omnitrix": {
+      "rebuild_animation_matrices": true,
+      "arrays": {
+        "geometries": {
+          "Array.omnitrix_geometries": [
+            "Geometry.omnitrix",
+            "Geometry.omnitrix_slim"
+          ]
+        }
+      },
+      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:player_model') == 1]",
+      "materials": [
+        {
+          "*": "Material.omnitrix"
+        }
+      ],
+      "textures": [
+        "Texture.omnitrix"
+      ]
+    }
+  }
+}
