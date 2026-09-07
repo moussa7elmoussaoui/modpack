@@ -1,0 +1,49 @@
+{
+  "texture_data": {
+    "missing_tile": {
+      "textures": "textures/blocks/missing_tile"
+    },
+    "dark7mc:blue_wither_skull": {
+      "textures": "textures/items/blue_wither_skull"
+    },
+    "dark7mc:dragon_fireball": {
+      "textures": "textures/items/dragon_fireball"
+    },
+    "dark7mc:evoker_fangs": {
+      "textures": "textures/items/evoker_fangs"
+    },
+    "dark7mc:fire_blast": {
+      "textures": "textures/items/fire_blast"
+    },
+    "dark7mc:guardian_curse": {
+      "textures": "textures/items/guardian_curse"
+    },
+    "dark7mc:llama_spit": {
+      "textures": "textures/items/llama_spit"
+    },
+    "dark7mc:morphing_bracelet": {
+      "textures": "textures/items/morphing_bracelet"
+    },
+    "dark7mc:sonic_boom": {
+      "textures": "textures/items/sonic_boom"
+    },
+    "dark7mc:soul_glass_bottle": {
+      "textures": "textures/items/soul_glass_bottle"
+    },
+    "dark7mc:soul_in_a_bottle": {
+      "textures": "textures/items/soul_in_a_bottle"
+    },
+    "dark7mc:teleporter": {
+      "textures": "textures/items/teleporter"
+    },
+    "dark7mc:vex": {
+      "textures": "textures/items/vex"
+    },
+    "dark7mc:vex_spawned": {
+      "textures": "textures/items/vex_spawned"
+    },
+    "dark7mc:wither_skull": {
+      "textures": "textures/items/wither_skull"
+    }
+  }
+}

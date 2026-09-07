@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.morph.creaking": {
+      "geometry": "Geometry.creaking_",
+      "materials": [
+        {
+          "*": "Material.creaking"
+        }
+      ],
+      "textures": [
+        "Texture.creaking"
+      ],
+      "part_visibility": [
+        {
+          "*": "!query.is_invisible"
+        }
+      ]
+    },
+    "controller.render.morph.creaking_eyes": {
+      "arrays": {
+        "materials": {
+          "Array.materials": [
+            "Material.creaking",
+            "Material.creaking_eyes"
+          ]
+        }
+      },
+      "geometry": "Geometry.creaking_",
+      "materials": [
+        {
+          "*": "Array.materials[query.is_invisible || query.is_in_ui ? 0 : 1]"
+        }
+      ],
+      "textures": [
+        "Texture.creaking_eyes"
+      ],
+      "ignore_lighting": true,
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "_head": "variable.creaking_has_emissive_eyes"
+        }
+      ]
+    }
+  }
+}

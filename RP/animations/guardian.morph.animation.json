@@ -1,0 +1,120 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.guardian.move_eye" : {
+			"loop" : true,
+			"bones" : {
+				"eye" : {
+					"position" : [ "variable.guardian_eye_rotation_x - this", "24 + variable.guardian_eye_rotation_y - this", "-8.25 - this" ]
+				}
+			}
+		},
+		"animation.morph.guardian.setup" : {
+			"loop" : true,
+			"bones" : {
+				"spikepart0" : {
+					"rotation" : [ "-45.0 - this", "0.0 - this", "0.0 - this" ]
+				},
+				"spikepart1" : {
+					"rotation" : [ "45.0 - this", "0.0 - this", "0.0 - this" ]
+				},
+				"spikepart10" : {
+					"rotation" : [ "0.0 - this", "0.0 - this", " 135.0 - this" ]
+				},
+				"spikepart11" : {
+					"rotation" : [ "0.0 - this", "0.0 - this", " -135.0 - this" ]
+				},
+				"spikepart2" : {
+					"rotation" : [ "0.0 - this", "0.0 - this", "45.0 - this" ]
+				},
+				"spikepart3" : {
+					"rotation" : [ "0.0 - this", "0.0  - this", "-45.0 - this" ]
+				},
+				"spikepart4" : {
+					"rotation" : [ "90.0 - this", "45.0 - this", " 0.0 - this" ]
+				},
+				"spikepart5" : {
+					"rotation" : [ "90.0 - this", "-45.0 - this", " 0.0 - this" ]
+				},
+				"spikepart6" : {
+					"rotation" : [ "90.0 - this", "-135.0 - this", "0.0 - this" ]
+				},
+				"spikepart7" : {
+					"rotation" : [ "90.0 - this", "135.0 - this", " 0.0 - this" ]
+				},
+				"spikepart8" : {
+					"rotation" : [ "-135.0 - this", "0.0 - this", " 0.0 - this" ]
+				},
+				"spikepart9" : {
+					"rotation" : [ "135.0 - this", "0.0 - this", " 0.0 - this" ]
+				}
+			}
+		},
+		"animation.morph.guardian.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"root" : {
+					"position" : [ "8.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 8.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 6.0, "8.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 8.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ -90.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.guardian.spikes" : {
+			"loop" : true,
+			"bones" : {
+				"spikepart0" : {
+					"position" : [ "-this", "24 + -8 * (1 + math.cos(query.life_time * 20 * 1.5) * 0.01 + (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "8 * (1 + math.cos(query.life_time * 20 * 1.5) * 0.01 - (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this" ]
+				},
+				"spikepart1" : {
+					"position" : [ "-this", "24 + -8 * (1 + math.cos(query.life_time * 20 * 1.5 + 1) * 0.01 + (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "-8 * (1 + math.cos(query.life_time * 20 * 1.5 + 1) * 0.01 - (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this" ]
+				},
+				"spikepart10" : {
+					"position" : [ "8 * (1 + math.cos(query.life_time * 20 * 1.5 + 10) * 0.01 - (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "-8 + 8 * (1 + math.cos(query.life_time * 20 * 1.5 + 10) * 0.01 + (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "-this" ]
+				},
+				"spikepart11" : {
+					"position" : [ "-8 * (1 + math.cos(query.life_time * 20 * 1.5 + 11) * 0.01 - (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "-8 + 8 * (1 + math.cos(query.life_time * 20 * 1.5 + 11) * 0.01 + (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "-this" ]
+				},
+				"spikepart2" : {
+					"position" : [ "8 * (1 + math.cos(query.life_time * 20 * 1.5 + 2) * 0.01 - (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "24 + -8 * (1 + math.cos(query.life_time * 20 * 1.5 + 2) * 0.01 + (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "-this" ]
+				},
+				"spikepart3" : {
+					"position" : [ "-8 * (1 + math.cos(query.life_time * 20 * 1.5 + 3) * 0.01 - (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "24 + -8 * (1 + math.cos(query.life_time * 20 * 1.5 + 3) * 0.01 + (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", 0.0 ]
+				},
+				"spikepart4" : {
+					"position" : [ "-8 * (1 + math.cos(query.life_time * 20 * 1.5 + 4) * 0.01 - (variable.guardian_spike_extension - variable.guardian_spike_shake)) - this", "8 - this", "-8 * (1 + math.cos(query.life_time * 20 * 1.5 + 4) * 0.01 - (variable.guardian_spike_extension - variable.guardian_spike_shake)) - this" ]
+				},
+				"spikepart5" : {
+					"position" : [ "8 * (1 + math.cos(query.life_time * 20 * 1.5 + 5) * 0.01 - (variable.guardian_spike_extension - variable.guardian_spike_shake)) - this", "8 - this", "-8 * (1 + math.cos(query.life_time * 20 * 1.5 + 5) * 0.01 - (variable.guardian_spike_extension - variable.guardian_spike_shake)) - this" ]
+				},
+				"spikepart6" : {
+					"position" : [ "8 * (1 + math.cos(query.life_time * 20 * 1.5 + 6) * 0.01 - (variable.guardian_spike_extension - variable.guardian_spike_shake)) - this", "8 - this", "8 * (1 + math.cos(query.life_time * 20 * 1.5 + 6) * 0.01 - (variable.guardian_spike_extension - variable.guardian_spike_shake)) - this" ]
+				},
+				"spikepart7" : {
+					"position" : [ "-8 * (1 + math.cos(query.life_time * 20 * 1.5 + 7) * 0.01 - (variable.guardian_spike_extension - variable.guardian_spike_shake)) - this", "8 - this", "8 * (1 + math.cos(query.life_time * 20 * 1.5 + 7) * 0.01 - (variable.guardian_spike_extension - variable.guardian_spike_shake)) - this" ]
+				},
+				"spikepart8" : {
+					"position" : [ "-this", "-8  + 8 * (1 + math.cos(query.life_time * 20 * 1.5 + 8) * 0.01 + (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "8 * (1 + math.cos(query.life_time * 20 * 1.5 + 8) * 0.01 - (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this" ]
+				},
+				"spikepart9" : {
+					"position" : [ "-this", "-8 + 8 * (1 + math.cos(query.life_time * 20 * 1.5 + 9) * 0.01 + (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this", "-8 * (1 + math.cos(query.life_time * 20 * 1.5 + 9) * 0.01 - (variable.guardian_spike_extension + variable.guardian_spike_shake)) - this" ]
+				}
+			}
+		},
+		"animation.morph.guardian.swim" : {
+			"loop" : true,
+			"bones" : {
+				"tailpart0" : {
+					"rotation" : [ 0.0, "variable.guardian_tail_base_angle * 11.6 - this", 0.0 ]
+				},
+				"tailpart1" : {
+					"position" : [ "-1.5 - this", "-0.5 - this", "14.0 - this" ],
+					"rotation" : [ 0.0, "variable.guardian_tail_base_angle * 22.8 - this", 0.0 ]
+				},
+				"tailpart2" : {
+					"position" : [ "0.5 - this", "-0.5 - this", "6.0 - this" ],
+					"rotation" : [ 0.0, "variable.guardian_tail_base_angle * 34.4 - this", 0.0 ]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,100 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.creeper.crawling" : {
+			"anim_time_update": "query.modified_distance_moved / 15.0",
+			"loop" : true,
+			"bones" : {
+				"leg0" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 30.0) * 24.08, variable.swim_amount) - this", 0.1, 0.1 ]
+				},
+				"leg1" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 30.0 + 180.0) * 24.08, variable.swim_amount) - this", -0.1, -0.1 ]
+				},
+				"leg2" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 30.0 + 180.0) * 24.08, variable.swim_amount) - this", -0.1, -0.1 ]
+				},
+				"leg3" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 30.0) * 24.08, variable.swim_amount) - this", 0.1, 0.1 ]
+				},
+				"root" : {
+					"position" : [ 0.0, "5.0 * variable.swim_amount", "14.0 * variable.swim_amount" ],
+					"rotation" : [ "variable.swim_amount * 90", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.creeper.legs" : {
+			"loop" : true,
+			"bones" : {
+				"leg0" : {
+					"rotation" : [ "variable.creeper_leg_rot - this", 0.0, 0.0 ]
+				},
+				"leg1" : {
+					"rotation" : [ "-variable.creeper_leg_rot - this", 0.0, 0.0 ]
+				},
+				"leg2" : {
+					"rotation" : [ "-variable.creeper_leg_rot - this", 0.0, 0.0 ]
+				},
+				"leg3" : {
+					"rotation" : [ "variable.creeper_leg_rot - this", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.creeper.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"_head" : {
+					"rotation" : [ "30.0 - this", "-this", "-this" ]
+				},
+				"root" : {
+					"position" : [ "18.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 18.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 0.0, "18.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 18.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ -90.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.creeper.swelling" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"scale" : [ "variable.creeper_swelling_scale1", "variable.creeper_swelling_scale2", "variable.creeper_swelling_scale1" ]
+				},
+				"_head" : {
+					"scale" : [ "variable.creeper_swelling_scale1", "variable.creeper_swelling_scale2", "variable.creeper_swelling_scale1" ]
+				},
+				"leg0" : {
+					"scale" : [ "variable.creeper_swelling_scale1", "variable.creeper_swelling_scale2", "variable.creeper_swelling_scale1" ]
+				},
+				"leg1" : {
+					"scale" : [ "variable.creeper_swelling_scale1", "variable.creeper_swelling_scale2", "variable.creeper_swelling_scale1" ]
+				},
+				"leg2" : {
+					"scale" : [ "variable.creeper_swelling_scale1", "variable.creeper_swelling_scale2", "variable.creeper_swelling_scale1" ]
+				},
+				"leg3" : {
+					"scale" : [ "variable.creeper_swelling_scale1", "variable.creeper_swelling_scale2", "variable.creeper_swelling_scale1" ]
+				}
+			}
+		},
+		"animation.morph.creeper.swimming" : {
+			"loop" : true,
+			"bones" : {
+				"leg0" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.life_time * 390.0) * 24.08, variable.swim_amount) - this", 0.1, 0.1 ]
+				},
+				"leg1" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.life_time * 390.0 + 180.0) * 24.08, variable.swim_amount) - this", -0.1, -0.1 ]
+				},
+				"leg2" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.life_time * 390.0 + 180.0) * 24.08, variable.swim_amount) - this", -0.1, -0.1 ]
+				},
+				"leg3" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.life_time * 390.0) * 24.08, variable.swim_amount) - this", 0.1, 0.1 ]
+				},
+				"root" : {
+					"position" : [ 0.0, "(math.sin(query.target_x_rotation) * 14.0 + 5.0) * variable.swim_amount", "(math.cos(query.target_x_rotation) * 14.0) * variable.swim_amount" ],
+					"rotation" : [ "variable.swim_amount * (90 + query.target_x_rotation)", 0.0, 0.0 ]
+				}
+			}
+		}
+	}
+}

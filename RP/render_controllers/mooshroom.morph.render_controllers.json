@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.mooshroom": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.mooshroom_red",
+            "Texture.mooshroom_brown"
+          ],
+          "Array.baby_skins": [
+            "Texture.mooshroom_baby_red",
+            "Texture.mooshroom_baby_brown"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.mooshroom_baby : Geometry.mooshroom",
+      "materials": [ { "*": "Material.mooshroom" } ],
+      "textures": [ "query.is_baby ? Array.baby_skins[query.variant] : Array.skins[query.variant]" ]
+    },
+    "controller.render.morph.mooshroom_mushrooms": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.mooshroom_red_mushroom",
+            "Texture.mooshroom_brown_mushroom"
+          ]
+        }
+      },
+      "geometry": "Geometry.mooshroom_mushrooms",
+      "materials": [ { "*": "Material.mooshroom_mushrooms" } ],
+      "textures": [ "Array.skins[query.variant]" ],
+      "part_visibility": [
+        { "*": "!query.is_baby" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "dark7mc:creaking_heart",
+      "states": {
+        "dark7mc:natural": [ false, true ],
+        "dark7mc:pillar_axis": [ "y", "x", "z" ]
+      },
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": true
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 50
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 10
+      },
+      "minecraft:display_name": "tile.creaking_heart.name",
+      "minecraft:geometry": {
+        "identifier": "minecraft:geometry.full_block"
+      },
+      "minecraft:instrument_sound": {
+        "up": "note.bassattack"
+      },
+      "minecraft:item_visual": {
+        "geometry": "minecraft:geometry.full_block",
+        "material_instances": {
+          "down": { "texture": "dark7mc:creaking_heart_top_inactive" },
+          "east": { "texture": "dark7mc:creaking_heart_side_inactive" },
+          "north": { "texture": "dark7mc:creaking_heart_side_inactive" },
+          "south": { "texture": "dark7mc:creaking_heart_side_inactive" },
+          "up": { "texture": "dark7mc:creaking_heart_top_inactive" },
+          "west": { "texture": "dark7mc:creaking_heart_side_inactive" }
+        }
+      },
+      "minecraft:loot": "loot_tables/blocks/creaking_heart.morph.json",
+      "minecraft:map_color": "#D87F33",
+      "minecraft:material_instances": {
+        "down": { "texture": "dark7mc:creaking_heart_top_active" },
+        "east": { "texture": "dark7mc:creaking_heart_side_active" },
+        "north": { "texture": "dark7mc:creaking_heart_side_active" },
+        "south": { "texture": "dark7mc:creaking_heart_side_active" },
+        "up": { "texture": "dark7mc:creaking_heart_top_active" },
+        "west": { "texture": "dark7mc:creaking_heart_side_active" }
+      },
+      "minecraft:movable": {
+        "movement_type": "immovable"
+      },
+      "minecraft:tags": [ "minecraft:is_axe_item_destructible" ],
+      "minecraft:tick": {
+        "interval_range": [ 0, 0 ],
+        "looping": true
+      },
+      "dark7mc:creaking_heart": {}
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state('dark7mc:pillar_axis') == 'x'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [ 0, 0, 270 ]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('dark7mc:pillar_axis') == 'y'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [ 0, 0, 0 ]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('dark7mc:pillar_axis') == 'z'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [ 90, 0, 0 ]
+          }
+        }
+      }
+    ]
+  }
+}

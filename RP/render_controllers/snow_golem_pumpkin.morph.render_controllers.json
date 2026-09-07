@@ -1,0 +1,32 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.snow_golem_pumpkin_face": {
+      "geometry": "Geometry.snow_golem_pumpkin",
+      "materials": [ { "*": "Material.snow_golem_pumpkin" } ],
+      "textures": [ "Texture.snow_golem_pumpkin_face" ],
+      "part_visibility": [
+        { "*": false },
+        { "pumpkin_face": "!query.is_sheared" }
+      ]
+    },
+    "controller.render.morph.snow_golem_pumpkin_side": {
+      "geometry": "Geometry.snow_golem_pumpkin",
+      "materials": [ { "*": "Material.snow_golem_pumpkin" } ],
+      "textures": [ "Texture.snow_golem_pumpkin_side" ],
+      "part_visibility": [
+        { "*": false },
+        { "pumpkin_side": "!query.is_sheared" }
+      ]
+    },
+    "controller.render.morph.snow_golem_pumpkin_top": {
+      "geometry": "Geometry.snow_golem_pumpkin",
+      "materials": [ { "*": "Material.snow_golem_pumpkin" } ],
+      "textures": [ "Texture.snow_golem_pumpkin_top" ],
+      "part_visibility": [
+        { "*": false },
+        { "pumpkin_top": "!query.is_sheared" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.parrot.base" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ "-this", 0.0, 0.0 ],
+					"rotation" : [ "-this", 0.0, 0.0 ]
+				},
+				"feather" : {
+					"rotation" : [ "-this", 0.0, 0.0 ]
+				},
+				"_head" : {
+					"position" : [ "-this", 0.0, 0.0 ],
+					"rotation" : [ 0.0, 0.0, "-this" ]
+				},
+				"leg0" : {
+					"position" : [ 0.0, "-6.0-this", -0.5 ],
+					"rotation" : [ "-16.713-this", 0.0, "-this" ]
+				},
+				"leg1" : {
+					"position" : [ 0.0, "-6.0-this", -0.5 ],
+					"rotation" : [ "-16.713-this", 0.0, "-this" ]
+				},
+				"tail" : {
+					"position" : [ "-this", 0.0, 0.0 ]
+				},
+				"wing0" : {
+					"position" : [ "1.5-this", 0.0, 0.0 ],
+					"rotation" : [ "-40.0-this", "-180.0-this", 0.0 ]
+				},
+				"wing1" : {
+					"position" : [ "-1.5-this", 0.0, 0.0 ],
+					"rotation" : [ "-40.0-this", "-180.0-this", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.parrot.flying" : {
+			"loop" : true,
+			"bones" : {
+				"leg0" : {
+					"rotation" : [ "math.cos(query.anim_time * 38.17) * 80.0 * query.modified_move_speed", 0.0, 0.0 ]
+				},
+				"leg1" : {
+					"rotation" : [ "math.cos(query.anim_time * 38.17) * -80.0 * query.modified_move_speed", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.parrot.moving" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ 0.0, "variable.parrot_wing_flap * 0.3", 0.0 ]
+				},
+				"tail" : {
+					"rotation" : [ "60.0 + math.cos(query.anim_time * 38.17) * 17.0 - this", 0.0, 0.0 ]
+				},
+				"wing0" : {
+					"rotation" : [ 0.0, 0.0, "-5.0 - variable.parrot_wing_flap * 57.3" ]
+				},
+				"wing1" : {
+					"rotation" : [ 0.0, 0.0, "5.0 + variable.parrot_wing_flap * 57.3" ]
+				}
+			}
+		},
+		"animation.morph.parrot.sitting" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ 0.0, -1.9, 0.0 ]
+				},
+				"leg0" : {
+					"rotation" : [ 90.0, 0.0, 0.0 ]
+				},
+				"leg1" : {
+					"rotation" : [ 90.0, 0.0, 0.0 ]
+				},
+				"tail" : {
+					"rotation" : [ "90.0 - this", 0.0, 0.0 ]
+				},
+				"wing0" : {
+					"rotation" : [ 0.0, 0.0, "-5.0-this" ]
+				},
+				"wing1" : {
+					"rotation" : [ 0.0, 0.0, "5.0-this" ]
+				}
+			}
+		},
+		"animation.morph.parrot.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"root" : {
+					"position" : [ "8.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 8.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -1.5, "8.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 8.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ 61.713, "90.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.parrot.standing" : {
+			"loop" : true,
+			"bones" : {
+				"leg0" : {
+					"rotation" : [ "20.0 + (math.cos(query.modified_distance_moved * 38.17) * 80.0 * query.modified_move_speed)", 0.0, 0.0 ]
+				},
+				"leg1" : {
+					"rotation" : [ "20.0 + (math.cos(query.modified_distance_moved * 38.17) * -80.0 * query.modified_move_speed)", 0.0, 0.0 ]
+				}
+			}
+		}
+	}
+}

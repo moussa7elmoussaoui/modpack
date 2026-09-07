@@ -1,0 +1,141 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.creaking.look_at_target": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "creaking_look_at_target_default"
+          ],
+          "transitions": [
+            {
+              "gliding": "query.is_gliding"
+            },
+            {
+              "swimming": "query.is_swimming || query.is_crawling"
+            }
+          ]
+        },
+        "gliding": {
+          "animations": [
+            "creaking_look_at_target_gliding"
+          ],
+          "transitions": [
+            {
+              "swimming": "query.is_swimming || query.is_crawling"
+            },
+            {
+              "default": "!query.is_gliding"
+            }
+          ]
+        },
+        "swimming": {
+          "animations": [
+            "creaking_look_at_target_swimming"
+          ],
+          "transitions": [
+            {
+              "gliding": "query.is_gliding"
+            },
+            {
+              "default": "!query.is_swimming && !query.is_crawling"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.morph.creaking.walk": {
+      "initial_state": "default",
+      "states": {
+        "walking": {
+          "animations": [
+            {
+              "creaking_walk": "1.5 - math.pow(1.5, 1.0 - 015.0 * query.modified_move_speed / variable.gliding_speed_value)"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "!variable.creaking_walking || variable.creaking_attacking"
+            }
+          ],
+          "blend_transition": 0.05
+        },
+        "default": {
+          "transitions": [
+            {
+              "walking": "variable.creaking_walking && !variable.creaking_attacking"
+            }
+          ],
+          "blend_transition": 0.05
+        }
+      }
+    },
+    "controller.animation.morph.creaking.attack": {
+      "initial_state": "default",
+      "states": {
+        "attack": {
+          "animations": [
+            "creaking_attack"
+          ],
+          "transitions": [
+            {
+              "default": "query.all_animations_finished"
+            }
+          ]
+        },
+        "default": {
+          "transitions": [
+            {
+              "attack": "variable.creaking_attacking"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.morph.creaking.sway": {
+      "initial_state": "default",
+      "states": {
+        "sway": {
+          "animations": [
+            "creaking_sway"
+          ],
+          "transitions": [
+            {
+              "default": "!variable.creaking_swaying && query.all_animations_finished"
+            }
+          ]
+        },
+        "default": {
+          "transitions": [
+            {
+              "sway": "variable.creaking_swaying"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.morph.creaking.sway_sound": {
+      "initial_state": "default",
+      "states": {
+        "sway": {
+          "animations": [
+            "creaking_sway_sound"
+          ],
+          "transitions": [
+            {
+              "default": "!variable.creaking_swaying && query.all_animations_finished"
+            }
+          ]
+        },
+        "default": {
+          "transitions": [
+            {
+              "sway": "variable.creaking_swaying"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

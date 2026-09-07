@@ -1,0 +1,23 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morphing_bracelet": {
+      "arrays": {
+        "textures": {
+          "Array.frames": [
+            "Texture.frame_0",
+            "Texture.frame_1",
+            "Texture.frame_2",
+            "Texture.frame_3"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Array.frames[math.mod(math.floor(query.life_time * 6.0), 4.0)]" ],
+      "part_visibility": [
+        { "*": "variable.is_visible" }
+      ]
+    }
+  }
+}

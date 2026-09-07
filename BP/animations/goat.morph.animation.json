@@ -1,0 +1,23 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.morph.goat.long_jump": {
+      "loop": false,
+      "animation_length": 1.1,
+      "timeline": {
+        "1.0": [
+          "/effect @s jump_boost 1000000 9 true"
+        ]
+      }
+    },
+    "animation.morph.goat.long_jump.stop": {
+      "loop": false,
+      "animation_length": 0.6,
+      "timeline": {
+        "0.5": [
+          "/effect @s jump_boost 0"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.warden": {
+      "geometry": "Geometry.warden",
+      "materials": [ { "*": "Material.warden" } ],
+      "textures": [ "Texture.warden" ]
+    },
+    "controller.render.morph.warden_bioluminescent_layer": {
+      "geometry": "Geometry.warden",
+      "materials": [ { "*": "Material.warden_bioluminescent_layer" } ],
+      "textures": [ "Texture.warden_bioluminescent_layer" ],
+      "ignore_lighting": true,
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": "0.7"
+      }
+    },
+    "controller.render.morph.warden_spots_1": {
+      "geometry": "Geometry.warden",
+      "materials": [ { "*": "Material.warden_bioluminescent_layer" } ],
+      "textures": [ "Texture.warden_spots_1" ],
+      "ignore_lighting": true,
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": "variable.warden_spots_1_alpha"
+      }
+    },
+    "controller.render.morph.warden_spots_2": {
+      "geometry": "Geometry.warden",
+      "materials": [ { "*": "Material.warden_bioluminescent_layer" } ],
+      "textures": [ "Texture.warden_spots_2" ],
+      "ignore_lighting": true,
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": "variable.warden_spots_2_alpha"
+      }
+    },
+    "controller.render.morph.warden_heart": {
+      "geometry": "Geometry.warden",
+      "materials": [ { "*": "Material.warden_bioluminescent_layer" } ],
+      "textures": [ "Texture.warden_heart" ],
+      "ignore_lighting": true,
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": "query.hurt_time > 0 ? 0.2 : variable.warden_heart_alpha"
+      }
+    }
+  }
+}

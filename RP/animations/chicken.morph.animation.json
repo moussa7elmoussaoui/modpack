@@ -1,0 +1,50 @@
+{
+	"format_version" : "1.8.0",
+  "animations": {
+    "animation.morph.chicken.general": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [ "-this", 0.0, 0.0 ]
+        },
+        "wing0": {
+          "rotation": [ 0.0, 0.0, "variable.chicken_wing_flap - this" ]
+        },
+        "wing1": {
+          "rotation": [ 0.0, 0.0, "-variable.chicken_wing_flap - this" ]
+        }
+      }
+    },
+    "animation.morph.chicken.move": {
+      "loop": true,
+      "bones": {
+        "leg0": {
+          "rotation": [ "math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed *  80.0", 0.0, 0.0 ]
+        },
+        "leg1": {
+          "rotation": [ "math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed * -80.0", 0.0, 0.0 ]
+        }
+      }
+    },
+    "animation.morph.chicken.sleeping": {
+      "loop": true,
+      "bones": {
+				"_head": {
+					"rotation": [ "35.0 - this", "-this", "-this" ]
+				},
+        "leg0": {
+					"position": [ 0.0, 0.0, -2.0 ],
+					"rotation": [ "-90.0 - this", "30.0 - this", "-this" ]
+        },
+        "leg1": {
+					"position": [ 0.0, 0.0, -2.0 ],
+					"rotation": [ "-90.0 - this", "-30.0 - this", "-this" ]
+        },
+				"root": {
+					"position": [ "4.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 4.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -7.0, "4.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 4.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation": [ 0.0, "90.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+      }
+    }
+  }
+}

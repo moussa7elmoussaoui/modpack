@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.wither_skeleton": {
+      "geometry": "Geometry.wither_skeleton",
+      "materials": [ { "*": "Material.wither_skeleton" } ],
+      "textures": [ "Texture.wither_skeleton" ]
+    }
+  }
+}

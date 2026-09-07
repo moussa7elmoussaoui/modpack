@@ -1,0 +1,34 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.pufferfish.flop" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ "query.variant == 0 ? -1.5 : query.variant == 1 ? -3.5 : query.variant == 2 ? -4.0 : 0.0", 0.0, 0.0 ],
+					"rotation" : [ 0.0, 0.0, 90.0 ]
+				},
+				"tailfin" : {
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 45.0) * -5.75", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.pufferfish.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"root" : {
+                    "position": [ "math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", "query.variant == 0 ? -0.5 : query.variant == 1 ? 0.5 : query.variant == 2 ? 2.0 : 0.0", "math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+                    "rotation": [ -90.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.pufferfish.swim" : {
+			"loop" : true,
+			"bones" : {
+				"tailfin" : {
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 30.0) * -5.75", 0.0 ]
+				}
+			}
+		}
+	}
+}

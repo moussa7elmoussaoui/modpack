@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "dark7mc:morphing_bracelet"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "X X",
+      "XOX"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:soul_soil"
+      },
+      "O": {
+        "item": "dark7mc:soul_glass"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dark7mc:soul_glass"
+      }
+    ],
+    "result": {
+      "item": "dark7mc:morphing_bracelet"
+    }
+  }
+}
