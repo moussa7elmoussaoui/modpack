@@ -1,0 +1,28 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.chicken": {
+      "arrays": {
+        "textures": {
+          "Array.textures": ["Texture.chicken_temperate", "Texture.chicken_warm", "Texture.chicken_cold"],
+          "Array.baby_textures": [
+            "Texture.chicken_baby_temperate",
+            "Texture.chicken_baby_warm",
+            "Texture.chicken_baby_cold"
+          ]
+        },
+        "geometries": {
+          "Array.geos": ["Geometry.chicken_temperate", "Geometry.chicken_warm", "Geometry.chicken_cold"]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.chicken_baby : Array.geos[variable.animal_climate_index]",
+      "materials": [
+        { "*": "variable.animal_climate_index == 2 ? Material.chicken_cold : Material.chicken" },
+        { "leg*": "Material.chicken_legs" }
+      ],
+      "textures": [
+        "query.is_baby ? Array.baby_textures[variable.animal_climate_index] : Array.textures[variable.animal_climate_index]"
+      ]
+    }
+  }
+}

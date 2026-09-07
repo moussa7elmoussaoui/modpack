@@ -1,0 +1,33 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.iron_golem": {
+      "geometry": "Geometry.iron_golem",
+      "materials": [ { "*": "Material.iron_golem" } ],
+      "textures": [ "Texture.iron_golem" ]
+    },
+    "controller.render.morph.iron_golem_cracks": {
+      "arrays": {
+        "textures": {
+          "Array.cracks": [
+            "Texture.iron_golem_cracked_high",
+            "Texture.iron_golem_cracked_med",
+            "Texture.iron_golem_cracked_low",
+            "Texture.iron_golem_cracked_none"
+          ]
+        }
+      },
+      "geometry": "Geometry.iron_golem",
+      "materials": [ { "*": "Material.iron_golem" } ],
+      "textures": [ "Array.cracks[math.clamp(query.health / 25, 0, 3)]" ]
+    },
+    "controller.render.morph.iron_golem_flower": {
+      "geometry": "Geometry.iron_golem_flower",
+      "materials": [ { "*": "Material.iron_golem" } ],
+      "textures": [ "Texture.iron_golem_flower" ],
+      "part_visibility": [
+        { "*": "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:poppy')" }
+      ]
+    }
+  }
+}

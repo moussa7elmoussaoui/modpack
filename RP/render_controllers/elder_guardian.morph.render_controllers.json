@@ -1,0 +1,10 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.morph.elder_guardian": {
+      "geometry": "Geometry.elder_guardian",
+      "materials": [ { "*": "Material.elder_guardian" } ],
+      "textures": [ "Texture.elder_guardian" ]
+    }
+  }
+}

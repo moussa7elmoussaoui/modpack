@@ -1,0 +1,9 @@
+node_modules/
+dist/
+public/assets/base-addon.zip
+public/assets/base-info.json
+public/assets/icon-templates.json
+public/assets/brand-face.png
+public/assets/examples/
+artifacts/
+*.local

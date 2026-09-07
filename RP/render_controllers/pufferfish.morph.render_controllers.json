@@ -1,0 +1,20 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.pufferfish.small": {
+      "geometry": "geometry.pufferfish_small",
+      "materials": [ { "*": "Material.pufferfish" } ],
+      "textures": [ "Texture.pufferfish" ]
+    },
+    "controller.render.morph.pufferfish.medium": {
+      "geometry": "geometry.pufferfish_medium",
+      "materials": [ { "*": "Material.pufferfish" } ],
+      "textures": [ "Texture.pufferfish" ]
+    },
+    "controller.render.morph.pufferfish.large": {
+      "geometry": "geometry.pufferfish_large",
+      "materials": [ { "*": "Material.pufferfish" } ],
+      "textures": [ "Texture.pufferfish" ]
+    }
+  }
+}

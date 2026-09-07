@@ -1,0 +1,39 @@
+{
+  "resource_pack_name": "dark7mc",
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "dark7mc:soul_glass": {
+      "textures": "textures/blocks/soul_glass"
+    },
+    "dark7mc:creaking_heart_side_active": {
+      "textures": "textures/blocks/creaking_heart_side_active"
+    },
+    "dark7mc:creaking_heart_side_inactive": {
+      "textures": "textures/blocks/creaking_heart_side_inactive"
+    },
+    "dark7mc:creaking_heart_top_active": {
+      "textures": "textures/blocks/creaking_heart_top_active"
+    },
+    "dark7mc:creaking_heart_top_inactive": {
+      "textures": "textures/blocks/creaking_heart_top_inactive"
+    },
+    "script_block_left": {
+      "textures": "textures/blocks/script_block_left"
+    },
+    "script_block_right": {
+      "textures": "textures/blocks/script_block_right"
+    },
+    "script_block_front": {
+      "textures": "textures/blocks/script_block_front"
+    },
+    "script_block_back": {
+      "textures": "textures/blocks/script_block_back"
+    },
+    "script_block_top": {
+      "textures": "textures/blocks/script_block_top"
+    },
+    "script_block_bottom": {
+      "textures": "textures/blocks/script_block_bottom"
+    }
+  }
+}

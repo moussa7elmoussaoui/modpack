@@ -1,0 +1,14 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.vex_sword": {
+      "geometry": "Geometry.vex_sword",
+      "materials": [ { "*": "Material.vex" } ],
+      "textures": [ "Texture.vex_sword" ],
+      "part_visibility": [
+        { "*": "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:iron_sword')" }
+      ],
+      "ignore_lighting": true
+    }
+  }
+}

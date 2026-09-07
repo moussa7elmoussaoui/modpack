@@ -1,0 +1,73 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.player": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    },
+    "controller.render.player.first_person": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    },
+    "controller.render.player.third_person": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ],
+      "part_visibility": [
+        { "*": "variable.is_paperdoll" },
+        { "helmet": "variable.is_paperdoll && variable.helmet_layer_visible" },
+        { "leftLegging": "variable.is_paperdoll && variable.leg_layer_visible" },
+        { "rightLegging": "variable.is_paperdoll && variable.leg_layer_visible" },
+        { "leftBoot": "variable.is_paperdoll && variable.boot_layer_visible" },
+        { "rightBoot": "variable.is_paperdoll && variable.boot_layer_visible" },
+        { "leftSock": "variable.is_paperdoll && variable.boot_layer_visible && variable.leg_layer_visible" },
+        { "rightSock": "variable.is_paperdoll && variable.boot_layer_visible && variable.leg_layer_visible" },
+        { "bodyArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.has_cape" },
+        { "leftArmArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.has_cape" },
+        { "rightArmArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.has_cape" },
+        { "belt": "variable.is_paperdoll && variable.chest_layer_visible && variable.leg_layer_visible" }
+      ]
+    },
+    "controller.render.player.first_person_spectator": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    },
+    "controller.render.player.third_person_spectator": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.spectator" } ],
+      "textures": [ "Texture.default" ],
+      "part_visibility": [
+        { "*": false },
+        { "head": "variable.is_paperdoll" },
+        { "hat": "variable.is_paperdoll" },
+        { "helmet": "variable.is_paperdoll && variable.helmet_layer_visible" }
+      ],
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      }
+    },
+    "controller.render.player.map": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    }
+  }
+}

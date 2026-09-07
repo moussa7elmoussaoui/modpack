@@ -1,0 +1,61 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.piglin.crossbow.charge" : {
+			"bones" : {
+				"leftarm" : {
+					"rotation" : [ "math.lerp(-90.0 + 34.38, -90.0, 1.0 - variable.item_use_normalized)  -this", "math.lerp(22.92, 48.70, 1.0 - variable.item_use_normalized) -this", 0.0 ]
+				},
+				"rightarm" : {
+					"rotation" : [ "-90.0 + 34.38 -this", "-45.84 -this", 0.0 ]
+				}
+			},
+			"loop" : true
+		},
+		"animation.morph.piglin.crossbow.hold" : {
+			"bones" : {
+				"leftarm" : {
+					"rotation" : [ "-85.94 + query.target_x_rotation -this", "34.38 + math.clamp(query.target_y_rotation, -45, 25) -this", 0.0 ]
+				},
+				"rightarm" : {
+					"rotation" : [ "-90.0 + 5.73 + query.target_x_rotation -this", "-17.19 + math.clamp(query.target_y_rotation, -25, 45) -this", 0.0 ]
+				}
+			},
+			"loop" : true
+		},
+		"animation.morph.piglin.attack" : {
+			"bones": {
+				"leftarm" : {
+					"rotation" : [ "-(math.sin((1 - math.pow((1 - variable.attack_time), 4)) * 180) * 1.2 + math.sin(variable.attack_time * 180)) * 10.0", 0.0, 0.0 ]
+				},
+				"rightarm" : {
+					"rotation" : [ "-(math.sin((1 - math.pow((1 - variable.attack_time), 4)) * 180) * 1.2 + math.sin(variable.attack_time * 180)) * 30.0", "-(math.sin((1 - math.pow((1 - variable.attack_time), 4)) * 180) ? (-90.0 * math.sin((1 - math.pow((1 - variable.attack_time), 4)) * 180)) + 30.0 : 0.0)", 0.0 ]
+				}
+			},
+			"loop" : true
+		},
+		"animation.morph.piglin.move" : {
+			"loop" : true,
+			"bones": {
+				"leftear": {
+					"rotation" : [ 0.0, 0.0, "variable.humanoid_tcos0 * 0.5" ]
+				},
+				"rightear": {
+					"rotation" : [ 0.0, 0.0, "-variable.humanoid_tcos0 * 0.5" ]
+				},
+				"leftarm" : {
+					"rotation" : [ "variable.humanoid_tcos0", 0.0, 0.0 ]
+				},
+				"leftleg" : {
+					"rotation" : [ "-variable.humanoid_tcos0 * 1.4", 0.0, 0.0 ]
+				},
+				"rightarm" : {
+					"rotation" : [ "-variable.humanoid_tcos0", 0.0, 0.0 ]
+				},
+				"rightleg" : {
+					"rotation" : [ "variable.humanoid_tcos0 * 1.4", 0.0, 0.0 ]
+				}
+			}
+		}
+	}
+}

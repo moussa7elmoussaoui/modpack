@@ -1,0 +1,55 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.morph.iron_golem.flower",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "body",
+					"parent": "root",
+					"pivot": [0, 31, 0]
+				},
+				{
+					"name": "arm0",
+					"parent": "body",
+					"pivot": [0, 31, 0]
+				},
+				{
+					"name": "flower",
+					"parent": "arm0",
+					"pivot": [-11, 6.75, -2],
+					"rotation": [84.68153, -5.29571, -44.75386],
+					"cubes": [
+						{
+							"origin": [-19, 5.5, -3.5],
+							"size": [16, 16, 0],
+							"inflate": -1.5,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [16, 16]}
+							}
+						},
+						{
+							"origin": [-12.5, 5.5, -10],
+							"size": [0, 16, 16],
+							"inflate": -1.5,
+							"uv": {
+								"east": {"uv": [0, 0], "uv_size": [16, 16]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

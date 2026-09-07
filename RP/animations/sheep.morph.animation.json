@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.morph.sheep.grazing": {
+      "loop": true,
+      "bones": {
+        "_head": {
+          "position": [0.0, "query.is_baby ? -2.5 : -9.0", 0.0],
+          "rotation": ["180.0 * (0.2 + 0.07 * math.sin(query.anim_time * 1027.74375)) - this", 0.0, 0.0]
+        }
+      }
+    },
+    "animation.morph.sheep.setup": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": ["query.is_baby ? 0.0 : -this", 0.0, 0.0]
+        },
+        "_head": {
+          "position": [0.0, "query.is_baby ? 0.0 : (18.0 - this)", 0.0]
+        }
+      }
+    },
+    "animation.morph.sheep.sleeping": {
+      "loop": true,
+      "bones": {
+        "_head": {
+          "position": [0.0, 0.0, "-3.0 + query.is_sheared - (5.0 * query.is_baby)"],
+          "rotation": ["90.0 - this", "-this", "-this"]
+        },
+        "root": {
+          "position": ["9.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 9.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 16.0, "9.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 9.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)"],
+          "rotation": [-180.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0]
+        }
+      }
+    }
+  }
+}

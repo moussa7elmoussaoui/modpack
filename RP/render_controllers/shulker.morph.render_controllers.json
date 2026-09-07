@@ -1,0 +1,33 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.shulker": {
+      "arrays": {
+        "textures": {
+          "Array.variants": [
+            "Texture.shulker_black",
+            "Texture.shulker_red",
+            "Texture.shulker_green",
+            "Texture.shulker_brown",
+            "Texture.shulker_blue",
+            "Texture.shulker_purple",
+            "Texture.shulker_cyan",
+            "Texture.shulker_silver",
+            "Texture.shulker_gray",
+            "Texture.shulker_pink",
+            "Texture.shulker_lime",
+            "Texture.shulker_yellow",
+            "Texture.shulker_light_blue",
+            "Texture.shulker_magenta",
+            "Texture.shulker_orange",
+            "Texture.shulker_white",
+            "Texture.shulker_undyed"
+          ]
+        }
+      },
+      "geometry": "Geometry.shulker",
+      "materials": [ { "*": "Material.shulker" } ],
+      "textures": [ "Array.variants[query.variant]" ]
+    }
+  }
+}

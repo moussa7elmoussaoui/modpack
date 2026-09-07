@@ -1,0 +1,32 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.panda": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.panda",
+            "Texture.panda_lazy",
+            "Texture.panda_worried",
+            "Texture.panda_playful",
+            "Texture.panda_brown",
+            "Texture.panda_weak",
+            "Texture.panda_aggressive"
+          ],
+          "Array.baby_skins": [
+            "Texture.panda_baby",
+            "Texture.panda_baby_lazy",
+            "Texture.panda_baby_worried",
+            "Texture.panda_baby_playful",
+            "Texture.panda_baby_brown",
+            "Texture.panda_baby_weak",
+            "Texture.panda_baby_aggressive"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.panda_baby : Geometry.panda",
+      "materials": [ { "*": "Material.panda" } ],
+      "textures": [ "query.is_baby ? Array.baby_skins[query.variant] : Array.skins[query.variant]" ]
+    }
+  }
+}

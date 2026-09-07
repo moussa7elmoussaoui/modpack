@@ -1,0 +1,1429 @@
+{
+  "description": "Captured from the production decoder before lifecycle, bounded-decompression, and shared-decoding fixes.",
+  "cases": {
+    "wide/chandler.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "a38b407b8a6d8b319050a56f2d6ad0633af4cb08f4ab600c8710f16d2e3342dc",
+      "icon": "08f615c199c3e709c3c2eaf30e57d5dfae6f18b8b1d7d0e3cd4bddd622d716de",
+      "face": "b09df005f0acf677ac0eb957683ce4d9ce4be0097eab3cdb31457a32913b6f9a"
+    },
+    "wide/dantdm.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "6240889d464ceff4d288311e492dc2e1083c5b22e7f013826862bee9e8d79de4",
+      "icon": "463c601d0e951256f808b5c1935d2b078699496bde5f8117a7f5d15fd9c75e97",
+      "face": "bf62e051cde63611e370c7675f22bb575b6ff9e7c1bf216bf6df6d677caafc6d"
+    },
+    "wide/dark7mc.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "6be32bfeec970ae28dbc658bb2c76f8932be0207d57d2d556856e3e41dc4566a",
+      "icon": "07f08d1ae8858f7abbcd429c1899590f385ce1c29dccf1ff0d9edcc5b7a4cc49",
+      "face": "ad2195e08243188f7df9168e28382e35aefeaa4829cb795c1263d5648ee93f19"
+    },
+    "wide/dr_donut.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "581c63f11ba196a99c10fb811b5f901941d3114c1dc01aa81ee8c9d510e118fb",
+      "icon": "105a46a7d590926ca43c238ac275c3f271702f5b7165b7dccd69914d51327133",
+      "face": "b3146267136019a4c2a2dd99836baea0ba3658417f3b968be89878beb75096a6"
+    },
+    "wide/dream.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "650cd524a536b907d37052a5ef9d19a381a1b93d8bf04e5bc719d1bf4983415d",
+      "icon": "ac7f0814f5a17da3fe3b87acd4d53a816aefefbf52ca558ac444fd9141339bfe",
+      "face": "6c870ecd50028e6e3afc4fdb38fcaf58f693f58139cfb947eb27f904eb45de4f"
+    },
+    "wide/georgenotfound.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "98b8b814be2bae7bb85e3550ceb47a6e360849176a7aeebedccaa77e4727161b",
+      "icon": "bad82925dce292ce7593bfcf8a38a1374b226f7c287a42d605d7d3c2876f650b",
+      "face": "897b6d0e5c87d5c44c426795b6c12a39f2bb2f5b4ece36b0721b46e064bca520"
+    },
+    "wide/grox.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "14095c7c44666436c4ac4421dfd61e116648933d2af856c05f5945417f8b1fa8",
+      "icon": "dcb12662910f12c524d590e896182d9245fe7054c32a82632462a9043c49c3c5",
+      "face": "2a196cf4c818e48da5a96f1d80fe7dcfe6bb3155fdb579dd0597697016ea2b3b"
+    },
+    "wide/mrbeast.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "9dd0144de119c120482bd1a472e9fdd4905edf073fc5ec0c47ab3d386a538a40",
+      "icon": "06ac4c319f7d901c97a36839f6c9a567d72e9ce91cb7c50c90159b40a9fa2d91",
+      "face": "ea233ee896940fd80991c69a5cb48199864369f64b7145739b7b0d9d9acfde87"
+    },
+    "wide/mumbo_jumbo.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "7d6931186f06834496db256a6c408f9e0a7e10dc78762c72475d27b93049e2da",
+      "icon": "411fad95ec01dd930b96780909d4f4ffafdcf87998ce58f0895740fd66da6f9a",
+      "face": "3b7bd20dd191fd01fdaaa725989162dd979d7360e9248ac11421b95ba03be49b"
+    },
+    "wide/pewdiepie.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "79a0088355c3331fb605ae6a6b2e67ca2074c8b2976dfa77266f5850a49d53b6",
+      "icon": "42690a6a25ef1158e0eee4c0192707a7509446aa3f33d208dcb0c3017685eb49",
+      "face": "8e2dd15c18cb3ba3482cb70d878bb2ad7697df46f992d0adc5e895df168d55ea"
+    },
+    "wide/ph1lza.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "ed8a72f8d405917f8b56c936679f88e85d56882c18c5ac13312bc3f979ae4dd3",
+      "icon": "422e77ed9ec4a5bba401b78a37242cd134827646c0de7f248b37be6f2c068a40",
+      "face": "110c7b9db6a5e27f3aad942b8541182d21666cc7f3c837a902bbb82688e61f2d"
+    },
+    "wide/prestonplayz.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "9c20a264ff45d4ca0ca931d2819c90e486e9339131ce0ef05aae32785c6598e7",
+      "icon": "f6d8a313e59d449cc650a2ca5ff703f61669b43784554ae7b364a2aea25cfcef",
+      "face": "66cfdc6ab4e14ca16fd0efc1828189e8d98bdd771c5c8a8940b1a2c79f5b30bc"
+    },
+    "wide/ramboo.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "ec3508371dce9333ebfd023c5a4e5156da80b6ab4f93d974613505f7f2845de0",
+      "icon": "6adb7e7e53d9e8cd5645cb466a07e002db5e8b3ab833f0ea8bd7b9c94e67a22f",
+      "face": "405c4e0a7ead016ffa052b4de76beae3c652c8916312b903891daebc292cf7f4"
+    },
+    "wide/sapnap.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "5daf9df4e31b913449c68a487d0a6f01ddba04355f1f3c42735df5ff74cf6c1a",
+      "icon": "44f883a39fb9e8eb2804d7223b651e67ce90bb518bffb3692cda40697ff003ba",
+      "face": "4f70f1f186c890dca78f7db1e2d19c92ad1b461013c5bb6bf008deec89cce98c"
+    },
+    "wide/stampy.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "2811eab3005e59563cd355d77d2acbd7d5afa167a3bcdad145ee60953fa10879",
+      "icon": "322ee8cd70d6e5e5d6005d8b2ce8cd9cb37f1375f8cf3c068e9f5ca3285ace26",
+      "face": "3de8472f2b01879f93efa989cf2ad49e8f306386dd5538f3c29f89715f08dbbe"
+    },
+    "wide/steve.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "a86413b4a6c086dd523d8d4f79dcbb2c55df26326367c9c22fa79c0bcb9190a4",
+      "icon": "7227522dd398a5b2afb993dd1afd006ad85239ccd4e1029e75de53beb4213a9e",
+      "face": "4a3372b99795846fc871dc8cb6213f7948c85b5b5ef037ab727be8e988f0f397"
+    },
+    "wide/technoblade.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "bdfa649dcd89dd73d34762313a8d5b57a0012d4e7fe394ff7adc35ebabaa21bb",
+      "icon": "b5be7550d51b729c35a22545189dacd921a8ad903db0afbf5430ceaa48fd0db2",
+      "face": "4d520cdb5642179220857129c7fe5d95719ae818f1f29664df5aaa56fa727ea5"
+    },
+    "wide/tommyinnit.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "d59f81f23749bf704b3caf96f995255b10f2a573f781f9cf7c9a5241dc322df3",
+      "icon": "cd01cb896130b14aaeab02a19769d8e800b501467f3dce6a1817e3233eae575b",
+      "face": "17b158f581880fad510da75a2062f14a9195f2ccaa86b6c6ae38b7663ca14146"
+    },
+    "wide/unspeakable.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "26accc0b2310aad31169a08822aa88e7b712fc21d0e97aa567ff6d1abe7391ed",
+      "icon": "361b533f887154224c25296ad4c2a852fb7b9ed5483717728b6b9516968b4039",
+      "face": "aaa9cb5a4418d33d695acf613c117846985a9b41806ad2b4b482840f0918e75f"
+    },
+    "wide/urban7mc.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "6a395cb88b580d9546267c4035b9a65711e0d724fe08616fb06ed8f1deb84542",
+      "icon": "a91fcd27f8e829216ef80b2ec56e4b19668e5f4f9fb7d1cb54512a73cc69d23d",
+      "face": "cc1ea26ff5bcceac4e57c458d9b4f506982aabe4f5dfc62a264d08eccf583719"
+    },
+    "wide/wemmbu.png": {
+      "model": "wide",
+      "width": 64,
+      "height": 64,
+      "texture": "35fdcb54ff0749d1cb3fb1a883411580c14b9da39be57c1265d2afe678694347",
+      "icon": "ff5ce3c3e01c76dc846cd97cc9c9b17a20b1442b580a2facedb2cc5b4d4606d5",
+      "face": "cd295bdca94d4632283091fdaad0989d8a26c0f8050d70259fdade9a73d45166"
+    },
+    "slim/alex.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "1ce5232edf22f2557f5cd4400485c691747891e603f0a5e8fafef74ecf475d40",
+      "icon": "9b7d817c0df3739ea9fab81480ed1a199975b592fa0b9da43ff6975b0fb7982e",
+      "face": "a42e76bb2051cbe0428f132c9f831b3afc958040928dd50cc58d9eb09d157bbc"
+    },
+    "slim/aphmau.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "438408163c8d49b88065492f85957543b81d1b2be70dd644cba525bb49402ed6",
+      "icon": "50d9354dc1d94947b2ab272ad49fa315b2cb6caf4a740ff236b6c3ce85fa743f",
+      "face": "39266c5f45b5bc8a4a0ca5e5a21acc48e3f1e65b88fd89861b66b85c41f9a8ae"
+    },
+    "slim/fundy.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "da0929092d7f45dbf4ae7266df3fd2feebc9cf379424c37a8bfeb1371def1ad2",
+      "icon": "f577930ffefa03804a2d06aa3771984d4bf1594c935293505a5fdae5211864a6",
+      "face": "6f8815fccfeedb900a3ca337df545dcba11488182507032e6535c2d22596727a"
+    },
+    "slim/grian.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "acf81fa6d7a3c1146e5a8a24f6118fd9a837a280def7742ea56404e63d744818",
+      "icon": "4bc252826787962361f68d6ffcd89ee1d84c05a9f26124f0af99436ef463dbcd",
+      "face": "d32cecddd979b3931afe15d90b1d4b24049b717e92ab4b6b0c1d9fd011c4d3f4"
+    },
+    "slim/s001.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "d60305594798bfedbc6c8f7afc7d6658a3a9c6e0c60559b77725dbc6a8f0ec2f",
+      "icon": "55db8aacc3a32c8b13f18d5bf301e37106ac4b9e09fb56ed42be06fe0e56e786",
+      "face": "c02204c5e9dc60b06e1a10222fe6397fc7886b1a158c8fa28e6cbbb1aec63b1c"
+    },
+    "slim/s002.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "75bfe07b772c72b5463312d5fd74d6f5af5b91b620483ecc5918ba6dd9b7f5c2",
+      "icon": "06de8175b262e1dcf801330607f7fb4e2fc4f2c4c25b758edb7ecb525493e681",
+      "face": "e3d50783929cc76e2d0d86c3d2c4530050967406c105e491cb566cde031e0212"
+    },
+    "slim/s003.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "c7a75f5edb9f42884d492060eed2e73087bd996848183bcf2a5248788d4c1402",
+      "icon": "419c339523f19e4fea2d26ee235dec4360bc7fc59fe78010b8e4e7c2d178bd81",
+      "face": "90cafc680d24f635713fb818a8e687883cc60511e6ffa8e4b41b69ea7ec114c3"
+    },
+    "slim/s004.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "22b51bee861c60dd7e63d99fb1fe411945a6131b273725cef722756ecf973ffb",
+      "icon": "0406e2896b4cb5f8785a2cbfa2048383990b5ce9680537fc0c67c233d58be17a",
+      "face": "1db9fc97543223ee340c8a3ebef94a37751c8c379e6b4280e1fc46cc18bd8f65"
+    },
+    "slim/s005.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "a337c723b09fa143ff8997093787ea12c99e1e56e3bc005fffe0f57ade498a37",
+      "icon": "d8cdb629ade54425addeb116a109c3bdb251ea991d95e3b8af2f0bb3075720e7",
+      "face": "e515923f9770717473cbd91df65285c4c3fbed0fb29ce449a6032bb6aee415cb"
+    },
+    "slim/s006.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "fae10f3f2205d10fcb7c9f9761446b9302998fbd971b4bb85b1ba514149278c8",
+      "icon": "0b18157e31642626444df21be2c71f316a477152f5808c27adcaf713e769d908",
+      "face": "5d183085ac6452c099e36bc785288b490717010e1d8054757ff454fd6bd9aa8a"
+    },
+    "slim/s007.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "e3a504be9a65e1bd7997f34038ca4bafafc0bd5627335111946576aee369d418",
+      "icon": "8472e0a79c7a77f72bf7fcbb433e4aa61b144bd0e2f9d8354f45d08bda1f4afe",
+      "face": "794f7dae91487131f69c9625196a2ac5c3e02706d84bf0a81b55ed9e39b89a96"
+    },
+    "slim/s008.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "160ed90cd013f2c6caf7205f46b90bdb5386f67dfcd3c96eb88863cb23813aa1",
+      "icon": "6ea1f1ae0069cc2007d6f81d94e63e73e8dcbc86ae05b2de4c32e7bf4c6d6268",
+      "face": "aed578be0e97b10747dda1969eecf3603c4ec47f7fe0164350a5dd0aa56fbd04"
+    },
+    "slim/s009.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "1d71ecf64b48f91c6cd164f3ffbcb1884063b43973b3c6e9fbb4c114385ff055",
+      "icon": "a9aced80b6ff48f2c0b9dea73ea1321849a5db2807c4425af17a582cbb9f2ad7",
+      "face": "9cdfbce6c7128468cfade0fc76e2cf8efdd98fab550029ea3543b5c0d703ff9b"
+    },
+    "slim/s010.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "27c5871101b812a224260c0a1380e2b0eca3a07df9d2a3de7642798bee03dd99",
+      "icon": "ceb356fe9cca6d502334e462164b507259362644b3d43dd0ee620507648527af",
+      "face": "68bab2ebf9f8f8aad3d86542d7c05d6648fb8ecef9007e09dafb427f179ccb6a"
+    },
+    "slim/s011.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "83bed986f64320f9baafea80cb562640651a4b99d0723e7e8170332a075a1da3",
+      "icon": "64520d6664efd8ebb53b1c844695ca61a424131fc31dfd8cd63b8e3ae77f582d",
+      "face": "f73e62fbcd3d27467dd5397f20a6673b76033600021ac6e0a13202145d7a0d11"
+    },
+    "slim/s012.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "6f0ab69c2fe55d1fb8400b1b2bdca694e69a6fc3818a47260df7879444e87f1e",
+      "icon": "f428ba77a8d5efddeb316eab798c3301ebc9bb63535085a14d51fa9bf00267d2",
+      "face": "dc5d281a87b009a19e38221968247b3f1a47af4ee8c290a34be45fd9b3d546f0"
+    },
+    "slim/s013.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "6176a2ba72c69e7eb08045600ca1d53b210a152b92104d8ff651ec8fcc2eaf09",
+      "icon": "af162834816611466f78eb1fd80f1215a91137cb66996eb51b60453be92d96d8",
+      "face": "676f224fd48d2cba72f7be393388dca4ae012e517b8729474556c70a07e981af"
+    },
+    "slim/s014.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "c6e0782d4fe0ed3e4b974f80b7ddb59ddc556f3a56d5e3e3ff5148c1048d1eb8",
+      "icon": "c0097550d39d045d3bddf3e69173486d421b79052688865081f85b579effa14d",
+      "face": "3d428374b568bc389892518105cb199360811c140def792d577ba6d86ae34e13"
+    },
+    "slim/s015.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "8c498a50d9276336777bae06ed900b8ff3e037487b01a52c4487fdd6d2593fe0",
+      "icon": "3841db79efa7bc1a69de83df5155f9bfb1413bad3a22546dfb8d2a82c1c98576",
+      "face": "f7461e65f792f50951f234eb845eb37b0ddf835a365d2296213262a9e4051810"
+    },
+    "slim/s016.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "5a2efe3923be007d0c05caf5b6a2fe5b5df7c0b06efe48496b3cfe4231353a93",
+      "icon": "b4f58f811f56bcee5324df518e4d9ec85a3cc2e49c2757d29a268e603cc36527",
+      "face": "cf8520f2321618a06c45fa6575e5fd0dc25fed8a9aa6bd44b1e0ea762b0a8ea0"
+    },
+    "slim/s017.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "6dba72c9c9265ad4cbddec102efd5009357cc202be559893eb95b22684b72203",
+      "icon": "f1bbd3d497a85cf8ff390d92ce3f00252f115c18e350ffdb1d0070f19ec9eb42",
+      "face": "9a97772921b2730738c9eb36afb658eeaa4d42bd71540afecc2e05a994b01493"
+    },
+    "slim/s018.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "fa58de12bed41a78cd31581ba597a50c2326dfb33ecba3ef2db9e127b9175200",
+      "icon": "cb5c874bbf960799f662af9d43669b40842832d8fc4afe54a05709ac1a9c8254",
+      "face": "17ee770778e5927037334bb772464df6287f8c239e398bda9386809e0c52d4e1"
+    },
+    "slim/s019.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "22ab3fc53f3cd777afb1d6a8832c07c16f54d82820e65ed73c7b37160d158143",
+      "icon": "fbab9cf1f2499f84517327970e10ad09bb994d3c5ad91d2c89bebfb69ca3938e",
+      "face": "2dcb6d880dbbbb85d5b57d564443b9ff10fdeb45e909b3f1951f5fab864b6808"
+    },
+    "slim/s020.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "7deadfeed92f486f1996ca8d541bca95ff067a0ac2ab93ddbcbdc01b16659c1f",
+      "icon": "354350d52e7d8764288b3b8333ee824f2f96d487d72c69600b45b7b1ed36cfa9",
+      "face": "78cc568d0a155ba5de12d1061ca8f3a0aeb79745d4f5ed2351e2a9ae66b4c7c3"
+    },
+    "slim/s021.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "7428df7080530a07eb65f84cdc5995db31e3e8e9ffad6184dd73efbc7ea0b68e",
+      "icon": "81fce97a56a7cf331fdaaffc5af4bfbc3334a43bd4ee119cb588fdba3ae19fbc",
+      "face": "ca8bcfa17acf10be55007128337f85411e2bc7365fe152f8ae2cc43c48b5811a"
+    },
+    "slim/s022.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "04d4c442a13e13c733a44a14e0683e62b1c0d3fbf44ef40cdb6b649d39658691",
+      "icon": "0c9365f377d01d303ff7150a63f90daa5496f0720190e5926e9ff719afaece2b",
+      "face": "2fcb471803212f9571d0444911f21909bd8fee1352a348171a459d59dcf8382a"
+    },
+    "slim/s023.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "39aa1946bc93d7018bb9ee3081f47fc6ffee2f8d3b9256f32ccfa99e2a599808",
+      "icon": "15ce1172b2934928dd9b6bbbe2e906e07851b4394a10eb2d67d9d5ef2a3bdfb0",
+      "face": "90c400f78c527e78918ec6225aeff24bfc9f47509ac57dad1be98bba258ee705"
+    },
+    "slim/s024.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "596ca84e2c0c44f1667b8e89bbbc7e43af0a2d5ba2c851eb6c5bba9eef440725",
+      "icon": "c9c58e013ceef6389f3baa61153a56c2c14064dc3b8cb6a24dcb835da1699a64",
+      "face": "4c0f94de478030ca53dd29716dd90113ea41fb487b8fe13b8284995627531172"
+    },
+    "slim/s025.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "fa75f0482deeaf1a2738cf99f0b3fbff9b0819313bda72d576ee05ef08224f47",
+      "icon": "d028419e1eab637d88597c1f7669222c6dfa7cc19a21a24ffe1ff8b2b4fd4e74",
+      "face": "abd8ff0edf2adf95b69463166b111d3135c9b2fef882dde9e264f0fe3837f9f1"
+    },
+    "slim/s026.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "b59afb1c81559237592d749e6a22adcf8deea29f8e36c7197f3494d1b6f7497b",
+      "icon": "949fbe7bfa1914b2e9593009e61cd33ec5f7e25433cc1db0dd394ac9fddfcab0",
+      "face": "2892adb05beeeae2eaa48b69066ca2786436f257490fabf6c9c5a287b228a3b1"
+    },
+    "slim/s027.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "f64160233e005a8dcd4f21cb5ca153cffc6e59f841c107f55af12a39968b8994",
+      "icon": "8d481fb21e11a89b52d947778f22eb79138d526716ee2fd55979b1fa64f4eff0",
+      "face": "fdfb88632ccfce1bb11985744b88037492410177a49c8aeb00af3d3322226616"
+    },
+    "slim/s028.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "c09816d812917e0841933763d089821363d779e4967fccf1400646a52adb9f95",
+      "icon": "5cadee1af03b35a5764e7ee310f7c0ecdf879963354da12729802e09d57dbb41",
+      "face": "3fb4c3f9f7dede3a34f8f9e91cc4e677b749702c3c8554acc85193fdc5b1a578"
+    },
+    "slim/s029.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "865b5bef3208669cc4e0f7bd02be1093384fcead331c24a3caeed5f7f665cb45",
+      "icon": "610aa28f04941298cee84072d88a67cf6160d5b2d94c7be51b73907ce9378faf",
+      "face": "0e852114ebb9204fc81dddae1a8a39081f91ccda14f6eb013bc4bce055b00e08"
+    },
+    "slim/s030.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "d40ea7f661abe5a51936f567a6fb8907d7719d8bd126cd685fa6b9842a02a1ba",
+      "icon": "778abe94e51aa70fe1e0d5dc1a921b615ef9e3fb76e89ad6d3b4f8344e884572",
+      "face": "d4b0d12786aeef0b2a97b39e6bbfb1e38b3c3839367581935a36c366c82aac22"
+    },
+    "slim/s031.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "0490c8dda04ac595f5871c180b452df1610e2e6a8ba4a78fa09a8013363b5c0f",
+      "icon": "860d777680aeff9b80499cc7b2c4a6bbee8f01ddd2cc0a3ab0361f2c080f9697",
+      "face": "7b161fba6f839f8cf3fe570e118e4808e73dd0ea6a2ab8d96726c0f4f4920e74"
+    },
+    "slim/s032.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "76fad302b3a182c2f3e6957f72eb31e4e5daed7cc6672c01d1e6a1516dae0933",
+      "icon": "2a5cd4b5ab2a81c010fff8dcedb4bb87c275d17a255a90fd961513c9c8ebfe7c",
+      "face": "65903853e0b77ff1b891f8e3d3bc63ef95ba26f6312967cbe554631d173b07e9"
+    },
+    "slim/s033.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "7e2a82387c0b63ae8b2c1268f3969371b6ee16f80db20f0e4f96fa2fd38b06f5",
+      "icon": "95c022d09c28a4f34e7d64b08b8a78d394eed61f355e1035738ff60142772eea",
+      "face": "be0daa722c14c57ec6964fa13a9665a1664fcf559f13399bf8651e9d00a36b7e"
+    },
+    "slim/s034.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "38d15c7c8c821bd2b9e31fb0e0337d757981ee5ca6e9589ce9ae45599b9025c1",
+      "icon": "382336d74c4bb5184bb502b59339ea1dc1dca8027096f52d0869ac18a2336999",
+      "face": "ed0c88a68523d4bc7199dc8cf9219411fec0d5d11931ac8842db6bdea1f2359e"
+    },
+    "slim/s035.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "81478701ec50320398e3b9934aa6fcb64959cbe3835ea3e6abd160e6e91c2b11",
+      "icon": "7b4a7c059be85c9a56a159e006dec3625afe5fcfa829368d79cd0dd4609f839b",
+      "face": "c04fa5ab921ac078c9c5eea09ea192a3d1e3b2b605a2c752ef16d3c513b0f42e"
+    },
+    "slim/s036.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "c649d67860d594392997a789d5fedda95f3684e0da5f6c2675d234178adf919e",
+      "icon": "a545e5221bdfa82d529a52ab4386a4041fb97f3dc3bd069a619778c8d31be778",
+      "face": "fe95b5eea8e39749ec5d93edaf0c52926c4291375d831718ec939fa7d6d31079"
+    },
+    "slim/s037.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "ac49f58c760f442fd798a6362cb98ff361a9558e5d8a527e0be44ef446e89d7e",
+      "icon": "9f0d1a7ff29e98bd04cd8bc732be706c4819c63bdcb9545de91c1373f4ae8224",
+      "face": "7f13e1c4c9dc8cce660765ecb59adca9794c15e80be1fe52f0ebbf5dfa435a49"
+    },
+    "slim/s038.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "ddda462b42248173052b556544251cd8052747ca58f23d772e235a08b9110b6c",
+      "icon": "0e33b89e63065c9ecfa974ac43faf62aa961e4166d58252a8c06e39a82a65f77",
+      "face": "f15f62450284c3f30916ec3ef5acee4a42a5c048860593958a1a5d829b91ee66"
+    },
+    "slim/s039.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "e7c10fbd86284991d281ea59c4045e292340ae6b75b8e66816061b1a48fc7d0f",
+      "icon": "ed0d7e4718b27d3a3435c48d4097ddc0f13121778236862cbd2a59ce37ef4118",
+      "face": "8ef30db71e4aafc2e892a1069d730be22e49f0427e57d41374344ba093628c93"
+    },
+    "slim/s040.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "df2808adfb205848e0d394434f6f65394176c6b1ec4c23c1e09ee5144874f61f",
+      "icon": "e1655a61b3be942d4db4ae9b2e6f3a8aebd149fc2db6c622135fa67750db70bb",
+      "face": "6ddd7bac24fb064598270112ece8fbe03f4d2380f2797c59bc1f7a5ba6cb677e"
+    },
+    "slim/s041.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "b0eb7c4907113abbc7a2cf7a8a461bf0b98995cf3d66651506e8e7d88987f34d",
+      "icon": "ad123bb1375cd322136fd28a52ea97eaed91d61d9ae545d8baf84d84fb3d2564",
+      "face": "87da06152374c8cbf35f10890f50f76c6e4fed64ef1589e26b7add8361f098f7"
+    },
+    "slim/s042.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "3d153d1101b8ef46948762581731414163474d1282c76c47d25056bfc0004d8e",
+      "icon": "f5d4f05093c49f1205b83f42c08a5a1a3c132ee9cbe488548f1cb3301fd4d6b0",
+      "face": "7dd7b23a16ac84f3bf47b9a37b669c2455929fbb2c34d0d268a5224113bbbd3d"
+    },
+    "slim/s043.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "b0965dae19931733d59c1dcbcceddf9f9917cf9ed2591361e7269e13cc623eed",
+      "icon": "17f0eb957d114804a28325048b326d1ca300daeb5da877e4ec18632c320e9101",
+      "face": "3a4b1649da290e63167425c7156a30e631981a11c016ea89e22eddcbee82da44"
+    },
+    "slim/s044.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "de9a98cac15fa7b8c69697c43b470520eda011f564ad7d3780ab4ad45486dd16",
+      "icon": "df3ab0bb2285c1e8ecde6fea488eb6c4da3a56de613c5c503c38fa9052edce5b",
+      "face": "6566a6e4ee893b2bb9da71881bad97c084f17fede454072c0ba14d86d3cfb379"
+    },
+    "slim/s045.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "356541517a10b99fb600a1c4bfc6fe86a6e5e5894982b296dc7870f4ce53c7cc",
+      "icon": "4154f1352ae07819d43af0a873bafd6e11807e21b7bfba064f7ddb1f07343d5d",
+      "face": "6ea0c9aa2827edfa4efab9289edc9ee9bc443109071802ec17301b4392c67caf"
+    },
+    "slim/s046.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "a056b43f757a795e8246f27bb57e984fe4309970ffa6cf0389626ad83b470b6e",
+      "icon": "e9e1f1ee5e1386477d4fc6dea956f9e138d2245841dda367d370165b58bd9c0f",
+      "face": "a2d8a2827caa82ba0dcc8525b446ad15b9b531c03f72631d18570ee6ee29f39b"
+    },
+    "slim/s047.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "1121e9cbbf8f1c5340165d17b6216b451692fcaac675a7519212ce75281857f6",
+      "icon": "ba0b380531c1a82b2f08352c428ed4066bbcd82aa5ae018c92cc089524b9470d",
+      "face": "19ab45fb67ad380a3222ddc1074e748217f36f20b52edb016f789b3c8b2f6bea"
+    },
+    "slim/s048.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "de5d219f7b0ede7d1f922d38d2589bb4a99ff5440b0955106110f0b7386a9d58",
+      "icon": "0503c88eb26b4675567a2170716133a571168ca3db2ed5a17fd8eebf8ae97b37",
+      "face": "7871d024052fd92b53b95560847cd3dc2ccc9e95ce35762d7427b9cdc81f0941"
+    },
+    "slim/s049.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "0ca9444a647dd1a41cb45a1e5eab83c782f0fb376d69aa8edc235e8f9d5affb2",
+      "icon": "97095326896ec3942c0a0bb1cc8be8b90ef3f6e4c2159dee7f9a2a5a1546a560",
+      "face": "8852c3c8ac845ff3051d7b03367c72ec6f12bbf777f3c269c85d43fbe35b9d74"
+    },
+    "slim/s050.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "ca975837506275cbd03fc8733322d70dfe241affec8e5cf4a4694ef3ab96475f",
+      "icon": "375f6609d82308ed196bedb556eb80804043a6405137886a0190f5125577d3ad",
+      "face": "0f803e833595e80093e53fd82cc1118e665e792918644799883a93b9784ad30e"
+    },
+    "slim/s051.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "f88d42ccdf14cb6ea28ab33c22b607c16b928001d7f7a981d0956c9af40ffc0d",
+      "icon": "5bf09f7d720c65d90c4ade8f84dfe1e9602ec9cfaad938ebb70620cd4ff1274a",
+      "face": "21541e1ab9dfb13e975482a4d61f0f0ae7a0b468321cd82f482ae4467c714b6d"
+    },
+    "slim/s052.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "4686ee0dcd34d6aeedfd90b43ffdaecb494e9c9e7646617d9d61ecbf73775ec2",
+      "icon": "5b9f9bd7011f088c5678bf68e8a141bd61218cc3a45af7ac138b6a1aa3cdfdee",
+      "face": "05ed915a4ee36b272f19ae96a2a8cc390ac82732a6a2aa8377355e34ebaf6244"
+    },
+    "slim/s053.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "904875a9018293d9bfef81b580cfdbbafcf43ca8342237bbe7da5601143e6909",
+      "icon": "d91bd1a87cb3c1623c1518de7463586f9a39b98918ded4b13d8bd1dd3c8262cd",
+      "face": "9e0d2d99de04500c4bdc309aa399be5582813316c4ae8c1a2c298252c7647545"
+    },
+    "slim/s054.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "21c852e10ae835a166d275478389b808ccc435b0e6d81c8c5297c9e35e71261b",
+      "icon": "080fea4fb416e3df17210f91d402809433c2382d80ce995ead7820113cd29139",
+      "face": "3324df284800a5f732cda66da0a50618b77e72d8dc93f1a81cc6496d238abf10"
+    },
+    "slim/s055.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "345d1e26b64a9231f4978083ce16579b8f505df4457b80e09fead61f243b1447",
+      "icon": "29c39a5ee3e8f79177c4b49af450d81c8d201906490ad6d0ab1e599e38f0210f",
+      "face": "7a834925263ca9b9e0ea673baad71fbf72075f30eda9d545bcc6589a118f4d88"
+    },
+    "slim/s056.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "6371a84c1b55ee38fe3e8b81f54860a74648c83310b8bd2ea099e8b6c92a426e",
+      "icon": "50d805c598a61acf272d8be22ef7878227e499b8acc114120ccadcb2297923ec",
+      "face": "90eb33f6ad2b262594626110ebc51d5feaa6219f5db437480cbba5d880c6c82a"
+    },
+    "slim/s057.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "b03ddbaa8675ad4a2919f5730a3e140bf65667f3e996aafb8fa58bda8551ee9a",
+      "icon": "f4856f7b6c70017c3789637c81f862abefb45dea94be6cb13d074b4fc80ef9e1",
+      "face": "6b85d4e7146af767af431680e6e734df0f27824298c40b986e212c5dfe585f27"
+    },
+    "slim/s058.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "9b59f6ae0c48576f448c4de7fdc89d2d2106a18facf2b74bb59c096faccdc079",
+      "icon": "e3f8d484b3492beb1839a4d15ad6506b4729232e7f65d5dbee9a95daa5b9f1e4",
+      "face": "62d48687e6bbef8df63d8cb9c0e4186d127159ea57c218b8cff982cfecad71dd"
+    },
+    "slim/s059.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "b89d4c344643e4eca6d7e2481dac9d5b00bb9923994aebeb3e289e5548789309",
+      "icon": "c3bf151e1a36f285904e739ff65c46fc0338add54af6351bc2676e6d9114b179",
+      "face": "67acd4c66144012412e685d521436cc59bccbef550b8169d4b82ee047852a6c1"
+    },
+    "slim/s060.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "5adb957dd5af2e7d0bdfb101c70853f8d161edb8bb750b1e1226bd54f3c108b2",
+      "icon": "8494acb68ef5f4ed9fe3bfbe9857d99cdcce32928959e4f7ebe5f33cc6bda5bf",
+      "face": "aa70ba3279d973af898ff1d896ad89eb6193004215e8e93a76b7324c7e1ea266"
+    },
+    "slim/s061.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "8008599f930359b3f3e3e415510b3fc4dd0ffba36b76989bb064b4bed30ef7cc",
+      "icon": "b23afa28f1e5b612b1503392f0eb09a46eb4162464b3d12a3c368cd38f0a381a",
+      "face": "517a05a8b42c10e2e7619afe9e2cd2887d4f5b5954b58c47178413573289b406"
+    },
+    "slim/s062.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "12b28094171dde5d5232307f86ca82cfe8f5708f268958b6781a7dea30a5091e",
+      "icon": "8eb9bf164a87ec25a0d06d82e6110d45509c75c96a395802c245b01c674610ca",
+      "face": "af4fb43279634c3fdf1a5701505a09fc976700a88546724eb743404b204f5160"
+    },
+    "slim/s063.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "5324e434192b0f841851bc0df1e7d6c0a90305dc472392ec367c91383377dd9d",
+      "icon": "9a4feb130fce41329b2abeb91374a52bcd40fef49e9968763c256aecf28d8266",
+      "face": "01dc5efcd296ca5b69e0726193bdde3076d447f714b904970b92630bdaf5f3b9"
+    },
+    "slim/s064.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "f9109440b2bb91ae75cc863427796c16b9e7242c8e9d6b3966e9256e99ec56b8",
+      "icon": "9a78b466d774acebdd487e8e9073760ac6a6896265e2aba9d63e3d31de8fc62a",
+      "face": "e669563220e821734363dd25f8aa940cec799976c2c2f3eae22edff64951a37b"
+    },
+    "slim/s065.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "fdf1c51781999705ec65075ebe054242f1474b1492529f98ad348c5e814f6a5e",
+      "icon": "9b6c00f4f8036a74a04dbef2d60a93d25619921b288128a2843e864670dc61e2",
+      "face": "57bc173ebdc23f202c572fe84390ce1e4cc6b9777b1e69a12605026a363f2a97"
+    },
+    "slim/s066.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "c231153181882d9635a4c58a96bfe2aa449003303ef7c17a02aef91d3ec1337c",
+      "icon": "db45a7bd613853219dc8ef22a31a6769e23c8b51c6c3b354c65a9b9a59f31cea",
+      "face": "b57d234dfaa4ba5164a6bf8ff22104e3a8eeb520aa74bf168bd300004fc8917d"
+    },
+    "slim/s067.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "500163816810eabf1d35e9a02764f4fb88e343126f8073eb95e475e64450ed37",
+      "icon": "517e93c25b9d52440a2aaeb30cd0f5adf6795718da1c9edc919361d74503f312",
+      "face": "a2a69ed6ac452390254494d36ec995704bb5ba89fb40c02e75eb92157f290414"
+    },
+    "slim/s068.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "f36f8a14d49b1c78a4a1719b05bf7abb0a94d6df8fec40fbe9781ebfdd720962",
+      "icon": "7cd55b8aef26d719546fafa5437f74e379164854da7444a80bbdbf5fa5664121",
+      "face": "996b30cb612b6a87f415c04e5d7d715f31f2a6497edad5c4bd3cf1b6e6a62423"
+    },
+    "slim/s069.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "eaeb400d145d28cefd91c93c1826fffdcfd22982ad61c89b3bd62d461b5e321a",
+      "icon": "65afdcd9edd5205a18ab4507efcb6079fb663eaa300dd3d7b7bfe60b56fdaf7e",
+      "face": "36de1ffa20b6264e5b1ae829c1bc14bfb981726af594fd110cbe8145e35bb437"
+    },
+    "slim/s070.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "9cba300d96d14e5a2e1755840865e722ebfa495c735966a3527e465e3790d276",
+      "icon": "7f0c8727919a3221776c86c478a6559b326792a86d585a80f810cd08a1795997",
+      "face": "05f6160464282e56bab4d0e1b85a0a8af0db25d47ceb8a1679a43042bf9f9cc1"
+    },
+    "slim/s071.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "81a13d63da337a87e32dc18bab7a5112620db0e11d45b6f69e308765e41cba3d",
+      "icon": "e9895f08798f8bfb45878e7c60822f709e9bcb2cb77132920b8e3d6a48f19ea8",
+      "face": "8721449abd993319023fce4cacfcfc283cdb3aeeb9bbfc1cc54dc12b6ddfff17"
+    },
+    "slim/s072.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "6815327dd0a9322f03d20f5707f834585c15fcc68ef4346374ce79beda9bb65c",
+      "icon": "b04442ad733b637ab96bdca64363595c24754d23e10f5d4c35dad2800370c93a",
+      "face": "e390318e77f959960a3b0b246be837ec52b5e90ecc04fd4a9a0b7aca5af4c59a"
+    },
+    "slim/s073.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "3a8c285c4f18ba3ead64f736919865689e52afc12b585a1d3bfce9f306233d55",
+      "icon": "03bf9631f3170a54f1208336d9f747cac70443cfe95a65e7745f732d57c07a84",
+      "face": "8d6b170826f36ad2ec96962cd6526b90139b242c6454215a4cec0a3975d9935c"
+    },
+    "slim/s074.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "811c83d1a47a4fb7c259b8cb1909812d1b42b503cbe7bd90e883cae94bef0ffe",
+      "icon": "f62ba59bf9aece5aef898adfa85b80408142441a3a7259b021ddb8a613021a79",
+      "face": "1385cf7d04663f6bf79766c069fe1b3e0a95c10348a38c130cdfd7e8a8ccca7e"
+    },
+    "slim/s075.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "e247b30590a83f9bb10cb0b931a86aece1bc44692e123b5aa2ab76e5e7709af5",
+      "icon": "0fde139f5a25bcbfea66ab67c0363a2042ec1b4de32ce011379edcd4e13aca06",
+      "face": "1f971d7339b3395200de0f1b8d7ba06c92ec4defeb3599b9091208be680209e8"
+    },
+    "slim/s076.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "c1c81638ac67b876f5803225a124e3a8a4cd497e67ed4ba321c8c34ee336aec1",
+      "icon": "d2877604ec0b764bac5512ee5a631ec2d4f08652041fc10be75db722125c000e",
+      "face": "459cc9323bb099274e350e56264cb6f0656d8351bc5f1c445bcda3eedaf1c062"
+    },
+    "slim/s077.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "bcc562aff97a56020cd73db1216e83fb48ea94eb3fce178fd0ec6b277db6c9f3",
+      "icon": "d5e3793f2298b24d412473441440a7ba35f2491d285ee372cfd2e188cbc88213",
+      "face": "7483a364ef2380472487a226cd35e3aedf8617fdc1866c5bf5b9c52b6f951c44"
+    },
+    "slim/s078.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "f0ab915442e3281084cf4ae6170da9921ba2d384b5488a094e4e4227aca67263",
+      "icon": "d27080fff430a5dd3099cd7c35a3c72d92ba9d2a3e52ea4d690a8a788d925d75",
+      "face": "79b37fd4cebc06b91319b34308436bf62bfed65a29bf930b2be65d52ced36fa4"
+    },
+    "slim/s079.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "09c20f276744f1b593b44b946b4fcfb46580f5a353753297006505e28308da80",
+      "icon": "4ffa13f0b82149f29e45b98df9e2d5e1c5aeab2808860fd230ced1b1c075016e",
+      "face": "4400bc7d65df6f6862d1bc3ddf2c09f5b74e904b698a0b3cb73bcc58c3c74259"
+    },
+    "slim/s080.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "1ea4e328fe61932aeb4c7472673e7573063722245824b34ca1b080df25588945",
+      "icon": "d79e80ac3a15b6a30237334109f7140f146140be100069b3c5aaed8f94a504e1",
+      "face": "11ed5f3ec9f62c9ec1c392d127793c35d418b5625cccbd44abb32de157e0b309"
+    },
+    "slim/s081.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "d9b209dd5f3d7ce894a29b15ad40a8363fb7259c8ee52702c112b778f2fcc23d",
+      "icon": "63bcc99c2c6c0d6d9fbc8f07386282d74eb5e4ade849701ea52335abe28fab3b",
+      "face": "dda2f7ecb19062d505b073f0bf5e8628517cfaf57f2df4b7da5427900fc5c487"
+    },
+    "slim/s082.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "ceebd0491121e1d3e13fbcc6ce998f074f9376fe6042978fb657c883952a8690",
+      "icon": "3294b06fbac8771c6ae6d377b39d71dbdd8f4b289091e7e56842f073f5f7fd10",
+      "face": "bb4f07e0fbf1dce3c72c0ea6bfeb119aafdb23ccf99aeac5635d6057fc4afac8"
+    },
+    "slim/s083.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "e86a4942483bd58e3cff8c5b5d65bd9e2ad0b9da714bc59f34f4714047cb7ba6",
+      "icon": "1bf68501ed7568f4c72332006ef2fac9d6890d8572bf3cf8dd420bde571d3112",
+      "face": "0539be88963d69cf9071f2f89ae2009038476e5a70cb9c519d01639fefcc07f5"
+    },
+    "slim/s084.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "8e60a0c9e9e4520482708b713634c02fb710ac5d6f970bb7a35c27c2065af8ff",
+      "icon": "ec9f708e95e8833be9487442e7124843c487aff9e5439fa7485f954d704df371",
+      "face": "a66fff3a39efbeb0ffbe9e5084e8f1e51fd69a7aaa8c0dd10d04ae06d5e0488c"
+    },
+    "slim/s085.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "7a9a30c98a9903d9acab449cba6936031efee38677c0cbd78b017de2dc0c6c76",
+      "icon": "8cc72c6628c3484f6fc69873c9a2e45ecfd1967807e1f3d2c889d8dab8d15a54",
+      "face": "df155a3cc353ced3900a0ed1bcdd9e49dbf05af4b853c49231af7f1acc9c4f13"
+    },
+    "slim/s086.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "502622628a98392eb7b661adff3947db066042bd7a04a37546d8a856ea74db67",
+      "icon": "ef312bfb2889a6a298bdb6f41fca9a3314fe1e7371d1eec4a4f4eec2c36c7dbd",
+      "face": "ee801be4d0ad6cd73a7a6eacff0e3cbf3bc5d4467a70eae3047bc309042ec724"
+    },
+    "slim/s087.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "fbb4efa51a1c6c498f0796d771a4c3f0d3b8e73fa8c9e512dd020c5b66b36b8b",
+      "icon": "88a669351a88029534b7d3df4c2ccb6357dcc9fb053a02803e4c7fa53eee7687",
+      "face": "46d435c7dfe86923e300df17b44575571922ca97e210e2fbd73df9e7ff552ceb"
+    },
+    "slim/s088.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "31d2469d5c8799ded39793984ceec72be271cbd1daabfe117b1f3a6ec271a69b",
+      "icon": "102d2f3c3367a9fdfaf01b87c1ec7af6f52ad262ea0ebbac4e5437f7ce7598e5",
+      "face": "0d5aa7d4f8bcbef737030a215780dd787d4a3afb15642abdcdc0bb3af71a09e1"
+    },
+    "slim/s089.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "4dde00584f10c5c978360026812c63162cf57ff36236b2ae24af42753b12d943",
+      "icon": "ab93801b83d1969712855ac8c922dcd1ac4d2f905cf78d36df8fe0c5df5db821",
+      "face": "6df1e7c6cea262b16b928727a9b2a411a688af518a1fd8c5a1bca2a4aa128bd8"
+    },
+    "slim/s090.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "d987dd939031d25aced739c53cb49bd8c459563602fcc927b6e3828ce0c626b5",
+      "icon": "52dfd5d50d8bda2da113883f3f8bb8fa303ffde16e85dcea3c7174de4ff6f2b6",
+      "face": "f6ad19043ce32b417532772a06f09f31b2fd41f19fb321123ff6d7cf0a8fb022"
+    },
+    "slim/s091.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "0c226c4f68d8a46d2078dcc4a6091a2f3c12bba1ad070c4cbdb305f4bf29cf81",
+      "icon": "89d6a40a019e3ca7cc389ec5a2adcefad8422f7c446e8b300e4961de4556f602",
+      "face": "933362bfe22c08bd9f2c7797e7e69a13debae34408ee7cbea9c97f8e891a2f9a"
+    },
+    "slim/s092.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "e82faccf2e47c7d564b173f45df16f6470a77df13f5215827153bd723a95db43",
+      "icon": "2ef6e867080f6fe9a5c0bc45e972897fd1f30a2c759cc130672c28bab529e084",
+      "face": "79b37fd4cebc06b91319b34308436bf62bfed65a29bf930b2be65d52ced36fa4"
+    },
+    "slim/s093.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "22025f6b2bacfa1e62a2eabf68ee362505fbcb492689da11959fd62c7146522c",
+      "icon": "cd39cd5fc232ea22f750a6ad40ecfaf9d26206e6443fc823e5743271718fb6b1",
+      "face": "1e9cf31af32dccba2a9dc1cce58d3cc1652d03776f24deb63035b3136deafecc"
+    },
+    "slim/s094.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "6798b9f8d5f74b4aa903657333d25b62b7eba39ca9d08f682778dca52eec5f4f",
+      "icon": "ce8b8a6aadd39732261d59027bad4e5614d4c18d0d47a458a859a208c395404e",
+      "face": "7e796dac3f312b920006fdb0d75e1e78fdda5a3dacc3afda930294497d8db99d"
+    },
+    "slim/s095.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "4e00dfdc6e33a1586376687a2d243ea84367e178b6b9ac98ea4b093a97b2fd57",
+      "icon": "b0d0211911bf9887db0eb9adf610957a73a3561ddda75ced243221afe3b5e6e4",
+      "face": "d94a3002e51f8fe7cfcb9e67c60db2469f6a0acbdc7112fe97095719a42f9dc4"
+    },
+    "slim/s096.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "53f672cee80ba960cc79264a08b81fe9c016d1d7394a3b437b91fb2db1b2fce0",
+      "icon": "1d82464debdf9131e0c3acfc32665a423c5da89e98ae391afa2521c3750faf1a",
+      "face": "7fd0f643b6c63c3a3af4325b7b039057fc47150eb941ff8cca63159639bc3e4e"
+    },
+    "slim/s097.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "31737a898b1cdd0c7960b0873e9429259c7882dd6503a6c916bd8831f611d8c1",
+      "icon": "fcb4bb65e33da1e48e4169532ca373541c24fc34070a598cf24a1490517e8e82",
+      "face": "582cc9089c0e557ab079d7a552bf869cc11322557c4812af3a011dbba6366d5c"
+    },
+    "slim/s098.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "1cfa1f2e1a16c41aaae933b7d99adcc08ad23c1c283ed811a4cd18512cc8eb58",
+      "icon": "95c491ddcf4c939d2a69d99ffa54926533f6f2673c8bdd6a2b930573b1b56a5a",
+      "face": "73f61e598acdd72630b61545e5a36e6fdf52cf949b6abb76e7286ab6696c05a7"
+    },
+    "slim/s099.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "f10f629a0ba98ed673db04bab243b3a5bccc802123695c3a0e756748e533de2c",
+      "icon": "f4f3de54cc84a228414c2b0b76f017f99a0608d2db75e80087ea5d6746f512ce",
+      "face": "8f8683d5df36ad2c79c11d1f699057175cc75a72b36aaf21a674a58b1dc1a5b8"
+    },
+    "slim/s100.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "b72725d6d7d12f027339a2b7f485d2b7dded6e4a3987ba1a75ca9d0f38daf645",
+      "icon": "68caecf6f8bd3ec7a39c2e7aa7d1cd631c1acd3e204b47d0cf86014fc71c3f3d",
+      "face": "a229e1ac3413c99bf5e3924c9c9962022bd0f24592ce647c0ca6c9ea954b18de"
+    },
+    "slim/s101.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "2171029f976b807fc2f1d55f8e31d019eebee5817618ff6b87fa64bff96d1205",
+      "icon": "34cffbfbf43d7832424a2f4daf152ed12f6a304e3ae7a22938a3dd9acdf8ff23",
+      "face": "25bb092df700b0b39cd792cbc853557b8bf2f1fc255ff80724b087940c9e8123"
+    },
+    "slim/s102.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "4a8051c3b8ab7496fe6b69c0c54f2ce0a76938ab673da426f206080c083f586b",
+      "icon": "e7b536a4970c7959c11fd12250ae84653140373fb0d0f09a48566a7172f3237b",
+      "face": "aedc224d765dc163fc4e66c50b20cb497452bfadf689851ded4d694b7d18cea4"
+    },
+    "slim/s103.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "984b99c34b59bd75e945b20d3513bea1749f271864f8507c2c88588b005a380d",
+      "icon": "6aa1b328ed1e4e7288488e953047ef4ec1c87cd45e42a7ea3f85ecbc56b26a59",
+      "face": "2de3ec7b0571611cda6e16311db988c9892c0dbf76b543ef46983ccbda3b1708"
+    },
+    "slim/s104.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "78f718a5b2fc51819e19bfcc215b90c3a0076c014dbeb13fa489480427b7233f",
+      "icon": "e86815a4fcb4433bb30bc62084258e169e9c10ac9ac421068f6456568d10809d",
+      "face": "56d059f9a6cc3908c7861853a10f9bf940c2d0c56b1e7c952b5ddc3e41cf4e59"
+    },
+    "slim/s105.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "9f4b417b606c8b81ba6292fff768e248dd84e5d56016fc4733b052e9ef4e8013",
+      "icon": "8f036ae93a3eb4712e2d60b081f66f83c13f57aacb9999d704fd5b6ee76f1fee",
+      "face": "1ba12e6ba221946b667fa1b70e8a64e84a90fd16cae537630beee3ccf90d52da"
+    },
+    "slim/s106.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "46f872f6e38173382e7974679f62c7f94190c22f442a69d9e2469a3991d88be3",
+      "icon": "253b035666a6655db27e8a100b2d30fa61d72ecbc09d6e74949e5a9edf8a951b",
+      "face": "c2cceb06eb6da881a8a93d624042ace65b053662397f613f35d66efb4c8488ce"
+    },
+    "slim/s107.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "abfb0a8a1f0b443ea36f6d653ef61f6681f827559c90f46a1435f8ebe5c2ef26",
+      "icon": "61409b5c152f60c889e5f65cd73b33d05749bb205a6b0785da254d3b204e54a0",
+      "face": "6b36088233cf52dfdbd8350f926a5a9864fae7b61be1d2e21279c293ee92b520"
+    },
+    "slim/s108.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "ce46f6d57f8d9d2adf3939970edfc2ccea360a55a7a2d79efcd0ae48ae5a2f4c",
+      "icon": "5ba214ff96c0bb70a9eb634f337221145bd16b7df640b2959c54d55f9b7ff5ac",
+      "face": "8ef8c57d732ed3d888c4c612a3b601a0b1ff7654c0cd92fe30bac357afc26a8f"
+    },
+    "slim/s109.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "4d7f8a927897551bf614909585e514331d28e55e73c92e0c91f7c7d8b0686444",
+      "icon": "8a2dd73cac204b177b80f4b1f97fc4c912299ff2c503dbd9207208c7b328abc6",
+      "face": "d54e9442a23f865cb4ec04feb83303f4bef2df2d64a6c7810e1ce56d6e7b55a6"
+    },
+    "slim/s110.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "a6e2e82d26c8b7b24708b5af7af74da24e686f01a9bb56e20587c5351286f83c",
+      "icon": "ff14b6defca5aebcfb72957a36afa26594a5465fc3e6c169971a813f2561448d",
+      "face": "c60ff499b9a0bd7f0cd5e77e53ef937690c6b8c10312ca1d51c4773740188444"
+    },
+    "slim/s111.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "e2e3e8a9da939e72610f16b26a45e473695fa9c946a84dfa4376ba24c83156a2",
+      "icon": "f1ef284015f2dc6be7b01175eff25dece7c14e60f074c8865ce7ea94637a5d30",
+      "face": "5e0ccf4b5baabba7614a2b4a5123952879a199329ae5820aeaa0b4df18663d95"
+    },
+    "slim/s112.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "c95e56e142ace716c749c5cace7004518b36afb015c7d1ebb8143614ab24c518",
+      "icon": "fa22ff8a6f46e3bb3e55617572442ebf8bd14c7e46250e2f7be9044240382eb3",
+      "face": "0262a9bd3d48ff975d871b4209b066091b8c66a0ee3369203b3cb75d076ce3c9"
+    },
+    "slim/s113.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "4322d07f7b0315d2afe411fe11b5a7c08d5eb3a34515ae1380cf91276e485a10",
+      "icon": "a77448fc6a7fedb516998323591147a52048b5af1cb689a9f1596078fb206366",
+      "face": "e566cb78bf96bffc7894e3f25e38ad13d9332474763583a4537c7c6d2547e4ba"
+    },
+    "slim/s114.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "0dc85671770a8686d1b7b4b5a13d1d1f0d7890fea8ae599b4135f1bfaaf13ced",
+      "icon": "9416b98726d1c78d09ffa95d1233358500a5a5bfd037d9fd776bc8846c617c15",
+      "face": "59e9c7b1655548ed5f794640e4c0f1607348e918105a6f8dd9fdd1e78edc8cb7"
+    },
+    "slim/s115.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "96f7494c0664422be7c0d626824341bb73e0b4aa9dc21c04b02e891638d027da",
+      "icon": "21412264509fd0a87f77ac98bd97dfeb9f4fef10cfcb6fece542624a3df1e195",
+      "face": "f54fed1e21b8851432950421b02b7545ff2186f1737ea31f53ee3dd5afc5f435"
+    },
+    "slim/s116.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "c28defc9b49f656db276867ca27e195b30ee041ff9e8e41d68139a697be2118e",
+      "icon": "f6624d5a150efc826eadc119fd430138aacd7e7903c07688a46cc76cbee72c12",
+      "face": "a3d1017be93561fc469b649625bb6bc9ec4df1938ad7e3b7823c765adf192db5"
+    },
+    "slim/s117.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "f2d3024d6cfe48d8fe3500c333f6c94e33348213f3f7f4c68b90697192c94a03",
+      "icon": "45ba7104ac01e0a8cb8db89a1925267b3aad8796bd32ce79e757b7e6103f6e03",
+      "face": "11318712215a393501d413135ae1c406bae4cd02b8a4c04f152eabf6026239b2"
+    },
+    "slim/s118.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "7a6f7146babefa532372115864ab54765288639cda34dbc88d49609acbc04e56",
+      "icon": "082298e75789d8f4e36cca42284abef4f28f844be369281c006db70073ee4622",
+      "face": "a4b98cf9586ecd6650b996752d6b79d37af4f1e18a7d1f1d505cf2d716d51590"
+    },
+    "slim/s119.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "27cc1f9fec842e63a896967f5aa268e1e893647b2220f0b054856b4a2b306f35",
+      "icon": "d8ba2bdfdb5fc9f2e4c618d192d3b6514ae1b19451b857c7b2b44672af02c938",
+      "face": "0179c43f537fe48a2688b3e531ee221818001a0fa8b7313f3868324db98fc237"
+    },
+    "slim/s120.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "26492222a59a5c3e04fe03077ef73990830132e8b46d813451ed9118b07e2303",
+      "icon": "dfa5a5dac9ec5f31aa51b630385a28d513164be2fb1cd6a8b88e7618bb10cc59",
+      "face": "e00482092fc340f395348c17626c6815a79b63853c4d67e01d8ca4c92e26c735"
+    },
+    "slim/s121.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "e16d2b45bd5dabda84d163faed0da52bad21fd5ed04490c4cc0d2a7a690086dc",
+      "icon": "eda08b925582200ba270f8ca88c789e81f1d936c126e5a83141e0bc7aba61e37",
+      "face": "bd92e41bd755ee500f7c7759e23dcde43ab37d73cbddc2a249846d175d5f2737"
+    },
+    "slim/s122.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "96614aafe4ce67ab8cf7ff22df1229b54d7b3308da872840cb781a3440baa23b",
+      "icon": "1289bafb3035a3b95a212b82fd0cd77ce362b5c650a0e92fa7b840fe59a91edb",
+      "face": "8ce33cb257d24b87c8dd710d301e8ec73004518ff57d0a21371f2e938f66a147"
+    },
+    "slim/s123.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "10ac694e6bf3112bc1045882034348025468c2090601850d93c9d0981f347d7d",
+      "icon": "a279f4073a89245ca7a140c1e1095893d3ea10c603b9910346323a450a041e8a",
+      "face": "9feb2f03db34fdd2b0a67bdfec67266a3813465c980142b11df306b24329ed32"
+    },
+    "slim/s124.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "859321a09c0691c7d88beebe98bcc23edb575aa4e91ed6d4f2cf3cae9f8cd140",
+      "icon": "b33419658b5778eda4d87489b308a648395b97ae6b84a95a10ca554f92f80390",
+      "face": "17ffea3192e015164ca8412b69192edb203084fdd1e6942fabecbad04e5fd591"
+    },
+    "slim/s125.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "ffa1e2e4aff2ffed645eec20c585ce52b28577481a359618012a1c4dea193dd1",
+      "icon": "06c404b553c5d88dfd7369c2ce7ad40abbee407f8b0e5d6bc82eb3c29cb3dacb",
+      "face": "a2cb5167ee22d12d407590ef32c4865a4d547af844ea87db766b8db51e61cf1b"
+    },
+    "slim/s126.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "585ddaa9e73717586a930d45fc831e2a407b3072ced8012ab78f2e07f79fcd11",
+      "icon": "2f5d5fea7e60428bceebc7ee145bcfe7cc214488c62fda70f37cb428b2e257ab",
+      "face": "87c9391853ec9474a1e18d2406143d28409c2f60825b8684ff4ee5ba20ea4478"
+    },
+    "slim/s127.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "437f6480cca79bebfabe4e068b72b22c25b0c7fd7c6970affb2e6fb75d328090",
+      "icon": "c12b1f811aa78f6b76c2accb7aeebc569ec77008bedf718939bded733df824fa",
+      "face": "c086eabfd24b889463bf4b77f706bd80e09219003b4f78a07075f965456d27dc"
+    },
+    "slim/s128.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "74ae6d354fbfac56fa74022a1cb792a600d2c0ec6a3dce98171f1334c271b220",
+      "icon": "4d9540234cc3a70b09463590f99f427c0842486f03f937e7ebb693b89c1adf46",
+      "face": "f32ae1d95f9a420ef1975daf8076de162e7cd6e293968ed4abc81b25f7da64d2"
+    },
+    "slim/s129.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "df5d9b5675ac63f63c1ebda52b1f2c806b90500667b143ca299c3a0c4e99d3ac",
+      "icon": "05dcd4c6bcc394caf298091a5163f8e06496a3f75201a34456800a0e1b8557f7",
+      "face": "ce23c7004a0546a634757807730dae23bd204ff6c544dad9f97fb10c7c3c1986"
+    },
+    "slim/s130.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "0992f8a1b1c05e2b2ab7321555b958291080cbb4a03a9a1c60cedd7dd17f5551",
+      "icon": "aa2a7a4a2ff14319ec21fd4a4b1a7cb120017fb5791b8c1f5aa725f811767bc6",
+      "face": "72967e3f898cbc64b43778e09de9b3aca5b7e9b5551ef83219bd889be3ca0dd4"
+    },
+    "slim/s131.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "fc6a2f0028b5caae88962591bd331248d67b0fe19ce478a08fa0a4bc6f931e1a",
+      "icon": "dc4bff407a58caebaee94af4ef13b1974631e87f5531e5973a10fd13ae4bc083",
+      "face": "6e90901732963c159d614c6e2256607c7244836a8d065efca7d42b851eb68827"
+    },
+    "slim/s132.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "49f122c903a14e95548320d44d30ebb2feb6ec34e42f20f521970865fceeedb0",
+      "icon": "2b0aa43c1f0cafb94b9248cce839ed7c0df98ea8bae8b1bfa6b31244f2570e73",
+      "face": "b484d6825f3c34c94fcad84e06b71a91747c5838e0fde06d967ada9ea67c7ca0"
+    },
+    "slim/s133.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "256ff29fcda5772d33ae3aa670ff2a56177d204bb1d822d70ef1199405c3ef2d",
+      "icon": "98a86a4c8989ae465bfc9f83738041ee3cab1d15fa58331bf4b7ac209e73c988",
+      "face": "3a1d52ae4d1d7f46e4d5be20745b0ed626b9d07ef2ea4c3c2fc972d16c93fc25"
+    },
+    "slim/s134.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "f04913252d8b3ef5e897052e0f006e280c5d05027280eb671977c3e8dc824e2a",
+      "icon": "31fdf8b2b47a809e3b0836c14d8dbb1376de2b6d8aebcc94c0c7c945cb0e7dba",
+      "face": "a5440242b251fd9d589fe68b3fce2fe13bc022e212cd7f0693eadf4f92ef7a03"
+    },
+    "slim/s135.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "1d6943078d8e405b039c914bf99c82430918c3a6760b978b0e0b06a041865a49",
+      "icon": "d6f00da70852d37a596737c160da308abe61aa8110a0ef247aa7ade0bcf2dfcf",
+      "face": "d3b36b96c9ac1a519f3f9ceeb110012da76c33c4489d3912e43bdf76e8cb1c40"
+    },
+    "slim/s136.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "ed836a11af6d543907b5ed3cff40f6c67aaf2c91b7f5176fb057b72357648199",
+      "icon": "3d83a4a9bb4037eac06524b5c6b170c806c9994b2871baee2e00dcbc4e9876f8",
+      "face": "50596011a695fc4df97afb6a73c5b41362a7acb741db2173cdd5273a8230fe16"
+    },
+    "slim/s137.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "0c5cb044e13f5b6d3e61a8c48a40afa20f05cd0b2ae8fe2a62774df913dece0c",
+      "icon": "4b19ae6d00670d4468bad79140b387dc691bef12c9e1ced026b277cdeb763cce",
+      "face": "9b626b52a347b1dd752df87b60c55f9adeae53bed7adf21a1d763da1ec6946e5"
+    },
+    "slim/s138.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "4f5b482087dc9f415db65302ada77f576a4dac7c01a935e3265b3f14658431dc",
+      "icon": "035c3aa45a19116b7e31dbe8003aba5cb4a46b387b6d0cb981b4690033e888a6",
+      "face": "e5b831746f51dc4849d7bb4bec4b5b1e9827ed80dfad97d598245e940548613e"
+    },
+    "slim/s139.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "03e5e106d304da030963eb585424647f320eef8346c8a6e6d1dc1ad27021c7e9",
+      "icon": "76dc2f6c711d5029fcadc24e4de7b4a722cbe350a0000a283e4d97f08b8a8792",
+      "face": "fa60f8c45d575a79a180e3fcfa5faf2ea7988a601ab49999502d77946c23102d"
+    },
+    "slim/s140.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "1b9692ce0b3ab63571163c68fcf702909f22a48d815b953e089f329ecdc82a5b",
+      "icon": "b7140ab5eff8bcfecfa4f6a2fc37cc3e59b98f10b9ba9cec9f7b821cada1032c",
+      "face": "ccbdc20d94c37ec29e45f20399792c9bdbd5bb8fe2816b0195b9d6dda898f015"
+    },
+    "slim/s141.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "09aa817d0fbb962a74e2942c663b9bead7e1a80d6068331026d8108e201b8577",
+      "icon": "43d0ba1b553d3d3a27e6db74ccdac985551fd60c1f619c60c73f691eb36a14a0",
+      "face": "bd3caaf12a0a2277566e8adbffbe6427c1d393266951dd6b61d5c39e8d4d00dc"
+    },
+    "slim/s142.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "7f21b3c97fc62bde3248587700756c6f1d5ce3960e9bbbd588d46f67ac7f84b1",
+      "icon": "999db4420e404113b80dcdf7c9c6f12eab7242ccc0d3510506fe0c6f67447463",
+      "face": "f41cccc43c3ea4bd20a75eeaf839f1098e01b3f4f4b387d964a6afbb301ea187"
+    },
+    "slim/s143.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "9c75592acec7e4864a0d97a470f446fdb2756e16afe5c9c137057095013d792a",
+      "icon": "a44adf6a728e8fe02fd5c429602505e853377458bbecf465317f4a508ada4359",
+      "face": "e260627165fd5f4a135f8a98f2f131071284b65d81d842c7bf97333cb2e9ae79"
+    },
+    "slim/s144.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "2eaa0651d94ab30253eb5e5f625682e67c8ba125c2ba5fc8ca2fb06f210e299b",
+      "icon": "a60c31e61011fafc8a31e2bbb3a22fc9d9a6b69a4b1622f77574333ab5578f27",
+      "face": "0c1a71df033aa6b60d39a3a8b042ed2b3d665b2a7ee7478e016f3817a3acf643"
+    },
+    "slim/s145.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "c6fb0257ff9d841ed6153d54bc6674a05928f427a94135439e23355f572af8a7",
+      "icon": "0a10f429361db2c73c37cd07b574565d54ae4da6e756e15629cc9b8ffa4d62e8",
+      "face": "820fe766b495fe760185a1af3f3b0e2be9ef3af8f938689961a8d835dcf6c1c4"
+    },
+    "slim/s146.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "8097be08675dfcac0d42fa6f6c8517b113d8cf5ab599a68f3b578494558d1b14",
+      "icon": "8060571e2e5ed0a121d60486b44ddaa1f37318615441fe86bafd187944d4ad55",
+      "face": "68619a593c8680a03933fc816fd27973197b934e6e574dc14320e5143b52bbce"
+    },
+    "slim/s147.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "03a904ebd068986ccea5b112002af9042b6328242572b7340421be5c29840394",
+      "icon": "5a547534a86928c7ea34299db5f2b66a3e82d4d72e8284186f787b4c9a85c0b2",
+      "face": "0bb5849ffac33413119894373cb3d6a9fd127473fb8146ac18bd5105a87e6ad6"
+    },
+    "slim/s148.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "cf7fe63610d3c9978919050b31051b2ea27c9596ea1e94dbb2b3f9d4e1a5cd13",
+      "icon": "0d36efbddfe69afdc9f8bdd523b931258a25233d4df52a8d3a62a6af1feb61ae",
+      "face": "828f4599fd49eab5da3c9b0897c9756b9ecc64bfc1a58b1a226dd6642465b548"
+    },
+    "slim/s149.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "1f2e3f99b076b81cc234e9ae9089b160188bb9cd05b15b7acaeb44500e547d00",
+      "icon": "1d113bf06b2b8d6e00efc0f3c37fac999c773ea5bbe878b4c6d8b3cecef3e600",
+      "face": "fd9d5333f513c6f56965b8eb20c0bb21a4fba8992374cb4af1302b2c56926132"
+    },
+    "slim/s150.png": {
+      "model": "slim",
+      "width": 64,
+      "height": 64,
+      "texture": "e70d4b7a2f89e13b00ffaf04dd8026bba4ef644c9035fb156cf84bf385bc9e76",
+      "icon": "35f8c174b53736df1ea43799903bd2b9e0100de1338060e2465ef96c3588c8a1",
+      "face": "6c068442f04a60e244dd5a055a07ff3b7ce4a5a0e3abb52b17199940369fa870"
+    },
+    "derived/hd-wide": {
+      "model": "wide",
+      "width": 128,
+      "height": 128,
+      "texture": "ac429ca146992869a09bca91268a38866c5b56e5d180ffaad8d458cf7a496d8b",
+      "icon": "07f08d1ae8858f7abbcd429c1899590f385ce1c29dccf1ff0d9edcc5b7a4cc49",
+      "face": "6c375adafbdb275c68e1c62594a9c0c6444865efc71d8b39bb3b0c1518cce648"
+    },
+    "derived/legacy-wide": {
+      "model": "wide",
+      "width": 64,
+      "height": 32,
+      "texture": "072eb31c251cff5d6a519503995044b2486cb2af593fecf078d1b155f6b082b8",
+      "icon": "5e9fcb13f7537291745ea1c4b627d7e1d836739f0b1e36129bb074e0af318438",
+      "face": "ad2195e08243188f7df9168e28382e35aefeaa4829cb795c1263d5648ee93f19"
+    },
+    "derived/hd-slim": {
+      "model": "slim",
+      "width": 128,
+      "height": 128,
+      "texture": "fe28f06e291bc5bbc55c6d89cf683f14d5be74e34ed078fc9b18e60829d70d7f",
+      "icon": "9416b98726d1c78d09ffa95d1233358500a5a5bfd037d9fd776bc8846c617c15",
+      "face": "de9860ad74471837ba3a97dba1f6ba720d1ad71fb55e783e307c69adac000f73"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.night_fury": {
+      "geometry": "Geometry.night_fury",
+      "materials": [ { "*": "Material.night_fury" } ],
+      "textures": [ "Texture.night_fury" ]
+    }
+  }
+}

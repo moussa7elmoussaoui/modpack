@@ -1,0 +1,134 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [{
+    "description": {
+      "identifier": "geometry.dark7mc.morph_transform_vfx",
+      "texture_width": 16,
+      "texture_height": 16,
+      "visible_bounds_width": 1,
+      "visible_bounds_height": 1,
+      "visible_bounds_offset": [0, 0, 0]
+    },
+    "bones": [
+      {
+        "name": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, 0, -180],
+        "locators": {
+          "morph_circle": [0, 3.6, 0]
+        }
+      },
+      {
+        "name": "morph_transform_vfx2",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "locators": { "morph_transform_vfx2": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx3",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, -22.5, 0],
+        "locators": { "morph_transform_vfx3": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx4",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, -45, 0],
+        "locators": { "morph_transform_vfx4": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx5",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, -67.5, 0],
+        "locators": { "morph_transform_vfx5": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx6",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, -90, 0],
+        "locators": { "morph_transform_vfx6": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx8",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, -112.5, 0],
+        "locators": { "morph_transform_vfx8": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx9",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, -135, 0],
+        "locators": { "morph_transform_vfx9": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx10",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, -157.5, 0],
+        "locators": { "morph_transform_vfx10": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx11",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, 180, 0],
+        "locators": { "morph_transform_vfx11": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx12",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, 157.5, 0],
+        "locators": { "morph_transform_vfx12": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx13",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, 135, 0],
+        "locators": { "morph_transform_vfx13": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx14",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, 112.5, 0],
+        "locators": { "morph_transform_vfx14": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx15",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, 90, 0],
+        "locators": { "morph_transform_vfx15": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx16",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, 67.5, 0],
+        "locators": { "morph_transform_vfx16": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx17",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, 45, 0],
+        "locators": { "morph_transform_vfx17": [0, 1.9, -13] }
+      },
+      {
+        "name": "morph_transform_vfx18",
+        "parent": "root",
+        "pivot": [0, 1.9, 0],
+        "rotation": [0, 22.5, 0],
+        "locators": { "morph_transform_vfx18": [0, 1.9, -13] }
+      }
+    ]
+  }]
+}

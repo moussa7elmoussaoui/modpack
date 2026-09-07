@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.ocelot": {
+      "geometry": "query.is_baby ? Geometry.ocelot_baby : Geometry.ocelot",
+      "materials": [{ "*": "Material.ocelot" }],
+      "textures": ["query.is_baby ? Texture.ocelot_baby : Texture.ocelot"]
+    }
+  }
+}

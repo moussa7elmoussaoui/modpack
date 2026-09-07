@@ -1,0 +1,16 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.evoker": {
+      "geometry": "Geometry.evoker",
+      "materials": [ { "*": "Material.evoker" } ],
+      "part_visibility": [
+        { "*": true },
+        { "arms": "!variable.evoker_show_arms" },
+        { "leftarm": "variable.evoker_show_arms" },
+        { "rightarm": "variable.evoker_show_arms" }
+      ],
+      "textures": [ "Texture.evoker" ]
+    }
+  }
+}

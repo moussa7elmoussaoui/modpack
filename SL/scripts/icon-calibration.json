@@ -1,0 +1,12 @@
+{
+  "wide": {
+    "scale": 3.758,
+    "phaseX": -0.003,
+    "phaseY": 0.8365
+  },
+  "slim": {
+    "scale": 3.758,
+    "phaseX": 0,
+    "phaseY": -0.161
+  }
+}

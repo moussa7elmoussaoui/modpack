@@ -1,0 +1,16 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.creeper": {
+      "geometry": "Geometry.creeper",
+      "materials": [ { "*": "Material.creeper" } ],
+      "textures": [ "Texture.creeper" ],
+      "overlay_color": {
+          "r": "(variable.creeper_flash == 0.0 || !query.is_sneaking || variable.creeper_has_exploded) ? this : 1.0",
+          "g": "(variable.creeper_flash == 0.0 || !query.is_sneaking || variable.creeper_has_exploded) ? this : 1.0",
+          "b": "(variable.creeper_flash == 0.0 || !query.is_sneaking || variable.creeper_has_exploded) ? this : 1.0",
+          "a": "(variable.creeper_flash == 0.0 || !query.is_sneaking || variable.creeper_has_exploded) ? this : 0.5"
+      }
+    }
+  }
+}

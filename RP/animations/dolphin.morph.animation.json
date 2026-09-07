@@ -1,0 +1,37 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.dolphin.move" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"rotation" : [ "-2.865 + (-2.865 * math.cos(query.life_time * 343.8))", 0.0, 0.0 ]
+				},
+				"left_fin" : {
+					"rotation" : [ 0.0, 0.0, "17.19 * math.cos(query.life_time * 229.2) + 22.92" ]
+				},
+				"right_fin" : {
+					"rotation" : [ 0.0, 0.0, "-17.19 * math.cos(query.life_time * 229.2) - 22.92" ]
+				},
+				"root" : {
+					"rotation" : [ "query.target_x_rotation * !query.is_gliding", "query.target_y_rotation", 0.0 ]
+				},
+				"tail" : {
+					"rotation" : [ "-5.73 * math.cos(query.life_time * 343.8)", 0.0, 0.0 ]
+				},
+				"tail_fin" : {
+					"rotation" : [ "-11.46 * math.cos(query.life_time * 343.8)", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.dolphin.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"root" : {
+					"position" : [ "math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -2.0, "math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ 0.0, "90.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		}
+	}
+}
