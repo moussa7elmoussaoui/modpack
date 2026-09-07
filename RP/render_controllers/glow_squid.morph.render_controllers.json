@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.glow_squid": {
+      "geometry": "query.is_baby ? Geometry.glow_squid_baby : Geometry.glow_squid",
+      "materials": [{ "*": "Material.glow_squid" }],
+      "textures": ["query.is_baby ? Texture.glow_squid_baby : Texture.glow_squid"]
+    }
+  }
+}

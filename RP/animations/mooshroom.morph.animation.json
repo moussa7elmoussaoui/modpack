@@ -1,0 +1,26 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.mooshroom.setup" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"rotation" : [ "-this", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.mooshroom.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"_head" : {
+					"position" : [ 0.0, 0.0, "-4.0 - (8.0 * query.is_baby)" ],
+					"rotation" : [ "90.0 - this", "-this", "-this" ]
+				},
+				"root" : {
+					"position" : [ "10.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 10.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 18.0, "10.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 10.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ -180.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		}
+	}
+}

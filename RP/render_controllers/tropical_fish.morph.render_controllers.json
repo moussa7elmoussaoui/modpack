@@ -1,0 +1,60 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.tropical_fish_type": {
+      "arrays": {
+        "geometries": {
+          "Array.models": [ "Geometry.tropical_fish_a", "Geometry.tropical_fish_b" ]
+        },
+        "textures": {
+          "Array.types": [ "Texture.tropical_fish_a", "Texture.tropical_fish_b" ]
+        }
+      },
+      "geometry": "Array.models[query.variant]",
+      "materials": [ { "*": "Material.tropical_fish" } ],
+      "textures": [
+        "Array.types[query.variant]"
+      ],
+      "color": {
+        "r": "variable.color.r",
+        "g": "variable.color.g",
+        "b": "variable.color.b",
+        "a": 1.0
+      }
+    },
+    "controller.render.morph.tropical_fish_pattern": {
+      "arrays": {
+        "geometries": {
+          "Array.models": [ "Geometry.tropical_fish_a", "Geometry.tropical_fish_b" ]
+        },
+        "textures": {
+          "Array.patterns": [
+            "Texture.tropical_fish_a_pattern_1",
+            "Texture.tropical_fish_a_pattern_2",
+            "Texture.tropical_fish_a_pattern_3",
+            "Texture.tropical_fish_a_pattern_4",
+            "Texture.tropical_fish_a_pattern_5",
+            "Texture.tropical_fish_a_pattern_6",
+            "Texture.tropical_fish_b_pattern_1",
+            "Texture.tropical_fish_b_pattern_2",
+            "Texture.tropical_fish_b_pattern_3",
+            "Texture.tropical_fish_b_pattern_4",
+            "Texture.tropical_fish_b_pattern_5",
+            "Texture.tropical_fish_b_pattern_6"
+          ]
+        }
+      },
+      "geometry": "Array.models[query.variant]",
+      "materials": [ { "*": "Material.tropical_fish" } ],
+      "textures": [
+        "Array.patterns[query.mark_variant + (query.variant * 6.0)]"
+      ],
+      "color": {
+        "r": "variable.color2.r",
+        "g": "variable.color2.g",
+        "b": "variable.color2.b",
+        "a": 1.0
+      }
+    }
+  }
+}

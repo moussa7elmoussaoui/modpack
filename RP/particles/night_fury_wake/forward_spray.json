@@ -1,0 +1,78 @@
+{
+  "format_version": "1.10.0",
+  "particle_effect": {
+    "description": {
+      "identifier": "dark7mc:night_fury_wake_forward_spray",
+      "basic_render_parameters": {
+        "material": "particles_blend",
+        "texture": "textures/night_fury_wake/splash_foam"
+      }
+    },
+    "components": {
+      "minecraft:emitter_rate_steady": {
+        "spawn_rate": 6,
+        "max_particles": 10
+      },
+      "minecraft:emitter_lifetime_once": {
+        "active_time": 0.3
+      },
+      "minecraft:emitter_shape_point": {
+        "offset": [
+          "-0.5*variable.night_fury_wake_forward.x",
+          "-1.1-(0)",
+          "-0.5*variable.night_fury_wake_forward.z"
+        ],
+        "direction": [
+          "((v.particle_random_1*0.8)-0.4)*variable.night_fury_wake_right.x-variable.night_fury_wake_forward.x",
+          0,
+          "((v.particle_random_1*0.8)-0.4)*variable.night_fury_wake_right.z-variable.night_fury_wake_forward.z"
+        ]
+      },
+      "minecraft:particle_lifetime_expression": {
+        "max_lifetime": 0.75
+      },
+      "minecraft:particle_initial_spin": {
+        "rotation": 180
+      },
+      "minecraft:particle_initial_speed": 1,
+      "minecraft:particle_motion_dynamic": {
+        "linear_drag_coefficient": 0.3
+      },
+      "minecraft:particle_appearance_billboard": {
+        "size": [
+          1,
+          1
+        ],
+        "facing_camera_mode": "direction_y",
+        "uv": {
+          "texture_width": 384,
+          "texture_height": 32,
+          "flipbook": {
+            "base_UV": [
+              0,
+              0
+            ],
+            "size_UV": [
+              32,
+              32
+            ],
+            "step_UV": [
+              32,
+              0
+            ],
+            "max_frame": 12,
+            "stretch_to_lifetime": true
+          }
+        }
+      },
+      "minecraft:particle_appearance_tinting": {
+        "color": [
+          "(255/255+((98/255)-(255/255))*Math.hermite_blend(v.particle_age/v.particle_lifetime))+((111/255+((66/255)-(111/255))*Math.hermite_blend(v.particle_age/v.particle_lifetime)-(255/255+((98/255)-(255/255))*Math.hermite_blend(v.particle_age/v.particle_lifetime)))*(1-Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.2)/0.05,0,1))+Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.76)/0.05,0,1))))",
+          "(255/255+((194/255)-(255/255))*Math.hermite_blend(v.particle_age/v.particle_lifetime))+((121/255+((72/255)-(121/255))*Math.hermite_blend(v.particle_age/v.particle_lifetime)-(255/255+((194/255)-(255/255))*Math.hermite_blend(v.particle_age/v.particle_lifetime)))*(1-Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.2)/0.05,0,1))+Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.76)/0.05,0,1))))",
+          "255/255+((165/255+((114/255)-(165/255))*Math.hermite_blend(v.particle_age/v.particle_lifetime)-255/255)*(1-Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.2)/0.05,0,1))+Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.76)/0.05,0,1))))",
+          "1-Math.pow(v.particle_age/v.particle_lifetime,3)"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.morph.cat.lie_down": {
+      "loop": true,
+      "bones": {
+        "backlegl": {
+          "position": [0.0, -0.7, 0.0],
+          "rotation": [-22.92, 0.0, 0.0]
+        },
+        "backlegr": {
+          "position": [0.1, -1.2, 0.0],
+          "rotation": [28.65, 0.0, -28.65]
+        },
+        "body": {
+          "position": [0.0, -7.0, 0.0],
+          "rotation": [0.0, 0.0, 90.0]
+        },
+        "frontlegl": {
+          "position": [0.0, -1.0, -1.5],
+          "rotation": [-72.81, 0.0, 0.0]
+        },
+        "frontlegr": {
+          "position": [0.2, -0.9, 0.0],
+          "rotation": [-30.0, 0.0, -14.46]
+        },
+        "_head": {
+          "position": [-0.1, 0.0, -0.5],
+          "rotation": [80.0, 75.81, 0.0]
+        },
+        "root": {
+          "position": [
+            "8.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 8.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)",
+            0.0,
+            "8.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 8.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)"
+          ],
+          "rotation": [
+            0.0,
+            "90.0 - query.sleep_rotation - query.body_y_rotation",
+            0.0
+          ]
+        },
+        "tail1": {
+          "position": [0.0, 0.0, 0.0],
+          "rotation": [-33.84, 0.0, 0.0]
+        },
+        "tail2": {
+          "position": [0.0, 0.0, 0.0],
+          "rotation": [-68.92, 0.0, 0.0]
+        }
+      }
+    },
+    "animation.morph.cat.sit": {
+      "loop": true,
+      "bones": {
+        "backlegl": {
+          "position": [0.0, 0.0, 1.0],
+          "rotation": [-45.0, 0.0, 0.0]
+        },
+        "backlegr": {
+          "position": [0.0, 0.0, 1.0],
+          "rotation": [-45.0, 0.0, 0.0]
+        },
+        "body": {
+          "position": [0.0, -1.0, 0.0],
+          "rotation": [-45.0, 0.0, 0.0]
+        },
+        "frontlegl": {
+          "position": [0.0, -4.5, -1.0],
+          "rotation": [42.15, 0.0, 0.0]
+        },
+        "frontlegr": {
+          "position": [0.0, -4.5, -1.0],
+          "rotation": [42.15, 0.0, 0.0]
+        },
+        "tail1": {
+          "position": [0.0, -3.0, 1.0],
+          "rotation": [45.0, 0.0, 0.0]
+        },
+        "tail2": {
+          "position": [0.0, 0.0, 0.0],
+          "rotation": [45.0, 0.0, 0.0]
+        },
+        "_head": {
+          "position": [0.0, -1.25, 0.0]
+        }
+      }
+    },
+    "animation.morph.cat.sneak": {
+      "loop": true,
+      "bones": {
+        "backlegl": {
+          "position": [0.0, 1.0, 0.0],
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "backlegr": {
+          "position": [0.0, 1.0, 0.0],
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17 + 180.0) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "body": {
+          "position": [0.0, -1.0, 0.0]
+        },
+        "frontlegl": {
+          "position": [0.0, 1.0, 0.0],
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17 + 180.0) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "frontlegr": {
+          "position": [0.0, 1.0, 0.0],
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "_head": {
+          "position": [0.0, -1.0, 0.0]
+        },
+        "tail1": {
+          "position": [0.0, 1.0, 0.0],
+          "rotation": [
+            "query.is_baby ? 62.0 + math.cos(query.modified_distance_moved * 57.3) * 27.0 * query.modified_move_speed : 0.0",
+            0.0,
+            0.0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            "62.0 + math.cos(query.modified_distance_moved * 57.3) * 27.0 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "animation.morph.cat.sprint": {
+      "loop": true,
+      "bones": {
+        "backlegl": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "backlegr": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17 + 17.19) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "frontlegl": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17 + 197.19) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "frontlegr": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17 + 180.0) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "tail1": {
+          "rotation": [
+            "query.is_baby ? 62.0 + math.cos(query.modified_distance_moved * 57.3) * 18.0 * query.modified_move_speed : 0.0",
+            0.0,
+            0.0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            "62.0 + math.cos(query.modified_distance_moved * 57.3) * 18.0 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "animation.morph.cat.walk": {
+      "loop": true,
+      "bones": {
+        "backlegl": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "backlegr": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17 + 180.0) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "frontlegl": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17 + 180.0) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "frontlegr": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38.17) * 57.3 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        },
+        "tail1": {
+          "rotation": [
+            "query.is_baby ? 62.0 + math.cos(query.modified_distance_moved * 57.3) * 45.0 * query.modified_move_speed : -51.57",
+            0.0,
+            0.0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            "62.0 + math.cos(query.modified_distance_moved * 57.3) * 45.0 * query.modified_move_speed",
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "animation.morph.cat.baby_lie_down": {
+      "loop": true,
+      "animation_length": 0.0417,
+      "bones": {
+        "backLegL": {
+          "rotation": [-2.9, 0, 0],
+          "position": [0.475, -2.7, -0.85]
+        },
+        "backLegR": {
+          "rotation": [28.5, 21.54, -23.3],
+          "position": [1.625, -2.3, 0.575]
+        },
+        "body": {
+          "rotation": [0, 0, 90],
+          "position": [0, 0, 0]
+        },
+        "frontLegL": {
+          "rotation": [-89.56, 0, 0],
+          "position": [0.475, -1.7, -1.4]
+        },
+        "frontLegR": {
+          "rotation": [-30, 0, -1.2],
+          "position": [2.5, -2.5, 0.2]
+        },
+        "_head": {
+          "rotation": [6.5, 70.51, -74.5],
+          "position": [0.6, -3.45, -0.425]
+        },
+        "root": {
+          "position": [
+            "8.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 8.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)",
+            0,
+            "8.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 8.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)"
+          ],
+          "rotation": [
+            0,
+            "90.0 - query.sleep_rotation - query.body_y_rotation",
+            0
+          ]
+        },
+        "tail1": {
+          "rotation": [-33.01, 17.2, -9.6],
+          "position": [-0.2, -3.9, -0.2]
+        },
+        "tail2": {
+          "rotation": [-68.92, 0, 0],
+          "position": [0, 0, 0]
+        },
+        "belly": {
+          "rotation": [0, 0, 0],
+          "position": [0, -3, 0]
+        }
+      }
+    },
+    "animation.morph.cat.baby_sit": {
+      "loop": true,
+      "animation_length": 0.0417,
+      "bones": {
+        "backLegL": {
+          "rotation": [-45, 0, 0],
+          "position": [0.02, -0.15, -1.96]
+        },
+        "backLegR": {
+          "rotation": [-45, 0, 0],
+          "position": [0, -0.15, -1.96]
+        },
+        "body": {
+          "rotation": [-45, 0, 0],
+          "position": [0, 0, 0]
+        },
+        "frontLegL": {
+          "rotation": [44.65, 0, 0],
+          "position": [0.02, -2.125, -1.35]
+        },
+        "frontLegR": {
+          "rotation": [44.65, 0, 0],
+          "position": [0, -2.1, -1.35]
+        },
+        "tail1": {
+          "rotation": [77.5, 0, 0],
+          "position": [0, -2.6, -2.75]
+        },
+        "tail2": {
+          "rotation": [45, 0, 0],
+          "position": [0, 0, 0]
+        },
+        "_head": {
+          "position": [0, -3.39, -1.92],
+          "scale": 1
+        },
+        "belly": {
+          "rotation": [17.5, 0, 0],
+          "position": [0, -2.16, -2.2]
+        }
+      }
+    }
+  }
+}

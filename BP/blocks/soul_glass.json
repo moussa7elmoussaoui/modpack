@@ -1,0 +1,45 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "dark7mc:soul_glass",
+      "menu_category": {
+        "category": "construction",
+        "group": "minecraft:itemGroup.name.glass"
+      }
+    },
+    "components": {
+      "minecraft:chest_obstruction": {
+        "obstruction_rule": "never"
+      },
+      "minecraft:instrument_sound": {
+        "up": "note.hat"
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 1.5
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.3
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.soul_glass",
+        "culling": "dark7mc:soul_glass"
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:light_emission": 5,
+      "minecraft:loot": "loot_tables/empty.json",
+      "minecraft:map_color": "#6DEDF1",
+      "minecraft:material_instances": {
+        "*": {
+          "ambient_occlusion": 0.0,
+          "face_dimming": false,
+          "render_method": "blend",
+          "texture": "dark7mc:soul_glass"
+        }
+      },
+      "minecraft:precipitation_interactions": {
+        "precipitation_behavior": "obstruct_rain"
+      }
+    }
+  }
+}

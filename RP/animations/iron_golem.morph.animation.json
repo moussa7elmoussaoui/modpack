@@ -1,0 +1,147 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.iron_golem.attack" : {
+			"animation_length" : 0.5,
+			"bones" : {
+				"arm0" : {
+					"rotation" : [ "-114 + ((1.5 * math.abs(math.mod(query.anim_time * 20, 10) - 5) - 2.5) / 5) * 57.3", 0.0, 0.0 ]
+				},
+				"arm1" : {
+					"rotation" : [ "-114 + ((1.5 * math.abs(math.mod(query.anim_time * 20, 10) - 5) - 2.5) / 5) * 57.3", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.iron_golem.crawling" : {
+			"anim_time_update": "query.modified_distance_moved / 15.0",
+			"loop" : true,
+			"bones" : {
+				"arm0" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 30.0 + 180.0) * 12.0, variable.swim_amount) - this", -0.1, -0.1 ]
+				},
+				"arm1" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 30.0) * 12.0, variable.swim_amount) - this", 0.1, 0.1 ]
+				},
+				"body" : {
+					"rotation": [ 0.0, 0.0, "-this" ]
+				},
+				"_head" : {
+					"rotation": [ 0.0, 0.0, "-this" ]
+				},
+				"leg0" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 30.0) * 12.0, variable.swim_amount) - this", 0.1, 0.1 ]
+				},
+				"leg1" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 30.0 + 180.0) * 12.0, variable.swim_amount) - this", -0.1, -0.1 ]
+				},
+				"root" : {
+					"position" : [ 0.0, "5.0 * variable.swim_amount", "22.5 * variable.swim_amount" ],
+					"rotation" : [ "variable.swim_amount * 90", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.iron_golem.flower" : {
+			"loop" : true,
+			"bones" : {
+				"arm0" : {
+					"rotation" : [ "-this * 0.5 + (-45.8 + ((0.25 * math.abs(math.mod(1, 70) - 35) - 17.5) / 35))", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.iron_golem.move" : {
+			"loop" : true,
+			"bones" : {
+				"arm0" : {
+					"rotation": [ "-variable.iron_golem_modified_tcos0 * 2.0", 0.0, 0.0 ]
+				},
+				"arm1" : {
+					"rotation": [ "variable.iron_golem_modified_tcos0 * 2.0", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.iron_golem.move_to_target" : {
+			"loop" : true,
+			"bones" : {
+				"arm0" : {
+					"rotation" : [ "((math.abs(math.mod(query.modified_distance_moved, 13) - 6.5) - 3.25) / 2.25) * 30.0", 0.0, 0.0 ]
+				},
+				"arm1" : {
+					"rotation" : [ "((math.abs(math.mod(query.modified_distance_moved, 13) - 6.5) - 3.25) / 2.25) * -30.0", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.iron_golem.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"_head" : {
+					"rotation" : [ "-30.0 - this", "-this", "-this" ]
+				},
+				"root" : {
+					"position" : [ "24.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 24.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 0.0, "24.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 24.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ -90.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.iron_golem.swimming" : {
+			"loop" : true,
+			"bones" : {
+				"arm0" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.life_time * 390.0 + 180.0) * 12.0, variable.swim_amount) - this", -0.1, -0.1 ]
+				},
+				"arm1" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.life_time * 390.0) * 12.0, variable.swim_amount) - this", 0.1, 0.1 ]
+				},
+				"body" : {
+					"rotation": [ 0.0, 0.0, "-this" ]
+				},
+				"_head" : {
+					"rotation": [ 0.0, 0.0, "-this" ]
+				},
+				"leg0" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.life_time * 390.0) * 12.0, variable.swim_amount) - this", 0.1, 0.1 ]
+				},
+				"leg1" : {
+					"rotation" : [ "math.lerp(0.0, math.cos(query.life_time * 390.0 + 180.0) * 12.0, variable.swim_amount) - this", -0.1, -0.1 ]
+				},
+				"root" : {
+					"position" : [ 0.0, "(math.sin(query.target_x_rotation) * 22.5 + 5.0) * variable.swim_amount", "(math.cos(query.target_x_rotation) * 22.5) * variable.swim_amount" ],
+					"rotation" : [ "variable.swim_amount * (90 + query.target_x_rotation)", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.iron_golem.walk" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"rotation": [ 0.0, 0.0, "(variable.iron_golem_modified_tcos0 / 1.5) * !query.is_gliding" ]
+				},
+				"_head" : {
+					"rotation": [ 0.0, 0.0, "(variable.iron_golem_modified_tcos0 / 1.5) * !query.is_gliding" ]
+				},
+				"leg0" : {
+					"rotation": [ "variable.iron_golem_modified_tcos0 * 6.0", 0.0, 0.0 ]
+				},
+				"leg1" : {
+					"rotation": [ "-variable.iron_golem_modified_tcos0 * 6.0", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.iron_golem.walk_to_target" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"rotation" : [ 0.0, 0.0, "2.0 * (math.abs(math.mod(query.modified_distance_moved + 6, 13.0) - 6.5) - 3.25)" ]
+				},
+				"_head" : {
+					"rotation" : [ 0.0, 0.0, "2.0 * (math.abs(math.mod(query.modified_distance_moved + 6, 13.0) - 6.5) - 3.25)" ]
+				},
+				"leg0" : {
+					"rotation" : [ "(math.cos(query.modified_distance_moved * 38.17) * 40.0)", 0.0, 0.0 ]
+				},
+				"leg1" : {
+					"rotation" : [ "(math.cos(query.modified_distance_moved * 38.17 + 180) * 40.0)", 0.0, 0.0 ]
+				}
+			}
+		}
+	}
+}

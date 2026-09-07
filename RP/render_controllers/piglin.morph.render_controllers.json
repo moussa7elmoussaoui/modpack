@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.piglin": {
+      "geometry": "query.is_baby ? Geometry.piglin_baby : Geometry.piglin",
+      "materials": [ { "*": "Material.piglin" } ],
+      "textures": [ "query.is_baby ? Texture.piglin_baby : Texture.piglin" ]
+    }
+  }
+}

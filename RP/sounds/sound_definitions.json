@@ -1,0 +1,126 @@
+{
+   "format_version" : "1.20.20",
+   "sound_definitions" : {
+      "mob.enderdragon.quiet_flap" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "name" : "sounds/mob/enderdragon/wings1",
+               "volume" : 0.35
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings2",
+               "volume" : 0.35
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings3",
+               "volume" : 0.35
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings4",
+               "volume" : 0.35
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings5",
+               "volume" : 0.35
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings6",
+               "volume" : 0.35
+            }
+         ],
+         "subtitle" : "subtitles.entity.ender_dragon.flap"
+      },
+      "mob.player.morph" : {
+         "category" : "player",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            "sounds/mob/player/morph/morph1",
+            "sounds/mob/player/morph/morph2"
+         ],
+         "subtitle" : "subtitles.entity.player.morph"
+      },
+      "mob.nightfury.flap" : {
+         "category" : "hostile",
+         "sounds" : [
+            {
+               "name" : "sounds/mob/enderdragon/wings1",
+               "volume" : 1.5
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings2",
+               "volume" : 1.5
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings3",
+               "volume" : 1.5
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings4",
+               "volume" : 1.5
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings5",
+               "volume" : 1.5
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings6",
+               "volume" : 1.5
+            }
+         ]
+      },
+      "mob.nightfury.quiet_flap" : {
+         "category" : "hostile",
+         "sounds" : [
+            {
+               "name" : "sounds/mob/enderdragon/wings1",
+               "volume" : 0.3
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings2",
+               "volume" : 0.3
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings3",
+               "volume" : 0.3
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings4",
+               "volume" : 0.3
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings5",
+               "volume" : 0.3
+            },
+            {
+               "name" : "sounds/mob/enderdragon/wings6",
+               "volume" : 0.3
+            }
+         ]
+      },
+      "night_fury_fire_blast.debris" : {
+         "category" : "ui",
+         "sounds" : [ "sounds/debris" ]
+      },
+      "night_fury_fire_blast.air_woosh" : {
+         "category" : "ui",
+         "sounds" : [ "sounds/air_woosh" ]
+      },
+      "night_fury_fire_blast.fire_blast" : {
+         "category" : "ui",
+         "sounds" : [ "sounds/fire_blast" ]
+      },
+      "night_fury_fire_blast.fire_woosh" : {
+         "category" : "ui",
+         "sounds" : [ "sounds/fire_woosh" ]
+      },
+      "night_fury_fire_blast.fire_swish" : {
+         "category" : "ui",
+         "sounds" : [ "sounds/fire_swish" ]
+      }
+   }
+}

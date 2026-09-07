@@ -1,0 +1,21 @@
+{
+  "resource_pack_name": "dark7mc",
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "dark7mc:soul_glass": {
+      "textures": "textures/blocks/soul_glass"
+    },
+    "dark7mc:creaking_heart_side_active": {
+      "textures": "textures/blocks/creaking_heart_side_active"
+    },
+    "dark7mc:creaking_heart_side_inactive": {
+      "textures": "textures/blocks/creaking_heart_side_inactive"
+    },
+    "dark7mc:creaking_heart_top_active": {
+      "textures": "textures/blocks/creaking_heart_top_active"
+    },
+    "dark7mc:creaking_heart_top_inactive": {
+      "textures": "textures/blocks/creaking_heart_top_inactive"
+    }
+  }
+}

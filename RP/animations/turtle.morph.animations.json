@@ -1,0 +1,78 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.morph.turtle.general": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [ "-this", 0.0, 0.0 ]
+        },
+        "eggbelly": {
+          "position": [ 0.0, -0.08, 0.0 ],
+          "rotation": [ "-this", 0.0, 0.0 ],
+          "scale": 0.0
+        }
+      }
+    },
+    "animation.morph.turtle.ground_move": {
+      "loop": true,
+      "bones": {
+        "leg0": {
+          "rotation": [ "-this", "math.clamp(math.cos(query.modified_distance_moved * variable.turtle_timemultiplier * variable.turtle_legspeedmultiplier * 57.3 + 180) * variable.turtle_backlegmultiplier * query.modified_move_speed * 57.3, -90.0, 90.0) - this", "-this" ]
+        },
+        "leg1": {
+          "rotation": [ "-this", "math.clamp(math.cos(query.modified_distance_moved * variable.turtle_timemultiplier * variable.turtle_legspeedmultiplier * 57.3) * variable.turtle_backlegmultiplier * query.modified_move_speed * 57.3, -90.0, 90.0) - this", "-this" ]
+        },
+        "leg2": {
+          "rotation": [ "-this", "math.clamp(math.cos(query.modified_distance_moved * variable.turtle_timemultiplier * variable.turtle_legspeedmultiplier * 57.3 + 180) * variable.turtle_frontlegmultiplier * query.modified_move_speed * 57.3, -90.0, 90.0) - this", "-this" ]
+        },
+        "leg3": {
+          "rotation": [ "-this", "math.clamp(math.cos(query.modified_distance_moved * variable.turtle_timemultiplier * variable.turtle_legspeedmultiplier * 57.3) * variable.turtle_frontlegmultiplier * query.modified_move_speed * 57.3, -90.0, 90.0) - this", "-this" ]
+        }
+      }
+    },
+    "animation.morph.turtle.move": {
+      "loop": true,
+      "bones": {
+        "leg0": {
+          "rotation": [ "math.clamp(math.cos(query.modified_distance_moved * 22.92) * query.modified_move_speed * 28.65, -90.0, 90.0) - this", "-this", "-this" ]
+        },
+        "leg1": {
+          "rotation": [ "math.clamp(math.cos(query.modified_distance_moved * 22.92 + 180) * query.modified_move_speed * 28.65, -90.0, 90.0) - this", "-this", "-this" ]
+        },
+        "leg2": {
+          "rotation": [ "-this", "-this", "math.clamp(math.cos(query.modified_distance_moved * 22.92 + 180) * query.modified_move_speed * 28.65, -90.0, 90.0) - this" ]
+        },
+        "leg3": {
+          "rotation": [ "-this", "-this", "math.clamp(math.cos(query.modified_distance_moved * 22.92) * query.modified_move_speed * 28.65, -90.0, 90.0) - this" ]
+        }
+      }
+    },
+    "animation.morph.turtle.baby_move": {
+      "loop": true,
+      "bones": {
+        "leg0": {
+          "rotation": [ 0.0, 0.0, "math.clamp(math.cos(query.modified_distance_moved * 30 + 180) * query.modified_move_speed * 60, -90.0, 90.0)" ]
+        },
+        "leg1": {
+          "rotation": [ 0.0, 0.0, "math.clamp(math.cos(query.modified_distance_moved * 30) * query.modified_move_speed * 60, -90.0, 90.0)" ]
+        },
+        "leg2": {
+          "rotation": [ 0.0, "math.clamp(math.cos(query.modified_distance_moved * variable.turtle_timemultiplier * variable.turtle_legspeedmultiplier * 5 + 180) * variable.turtle_backlegmultiplier * query.modified_move_speed * 45, -90.0, 90.0)", 0.0 ]
+        },
+        "leg3": {
+          "rotation": [ 0.0, "math.clamp(math.cos(query.modified_distance_moved * variable.turtle_timemultiplier * variable.turtle_legspeedmultiplier * 5) * variable.turtle_backlegmultiplier * query.modified_move_speed * 45, -90.0, 90.0)", 0.0 ]
+        }
+      }
+    },
+    "animation.morph.turtle.sleeping": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [ "5.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 5.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -2.0, "5.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 5.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+          "rotation": [ 0.0, "70.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+        }
+      }
+    }
+  }
+}
