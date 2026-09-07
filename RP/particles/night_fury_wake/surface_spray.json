@@ -1,0 +1,82 @@
+{
+  "format_version": "1.10.0",
+  "particle_effect": {
+    "description": {
+      "identifier": "dark7mc:night_fury_wake_surface_spray",
+      "basic_render_parameters": {
+        "material": "particles_blend",
+        "texture": "textures/night_fury_wake/surface_ripple"
+      }
+    },
+    "curves": {
+      "variable.wake_fade": {
+        "type": "catmull_rom",
+        "input": "v.particle_age",
+        "horizontal_range": "v.particle_lifetime",
+        "nodes": [
+          2,
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    "components": {
+      "minecraft:emitter_rate_steady": {
+        "spawn_rate": 150,
+        "max_particles": 200
+      },
+      "minecraft:emitter_lifetime_once": {
+        "active_time": 0.3
+      },
+      "minecraft:emitter_shape_point": {
+        "offset": [
+          "Math.round(((v.particle_random_1*1.125)-0.5625)/0.0625)*0.0625*variable.night_fury_wake_right.x+Math.round(((v.particle_random_2*1.875)-0.9375)/0.0625)*0.0625*variable.night_fury_wake_forward.x",
+          "-1.1",
+          "Math.round(((v.particle_random_1*1.125)-0.5625)/0.0625)*0.0625*variable.night_fury_wake_right.z+Math.round(((v.particle_random_2*1.875)-0.9375)/0.0625)*0.0625*variable.night_fury_wake_forward.z"
+        ]
+      },
+      "minecraft:particle_lifetime_expression": {
+        "max_lifetime": "Math.random(0.5,1)"
+      },
+      "minecraft:particle_initial_spin": {
+        "rotation": "Math.random_integer(0,3)*90"
+      },
+      "minecraft:particle_appearance_billboard": {
+        "size": [
+          0.5,
+          0.5
+        ],
+        "facing_camera_mode": "emitter_transform_xz",
+        "uv": {
+          "texture_width": 6,
+          "texture_height": 2,
+          "flipbook": {
+            "base_UV": [
+              0,
+              0
+            ],
+            "size_UV": [
+              1,
+              1
+            ],
+            "step_UV": [
+              1,
+              0
+            ],
+            "max_frame": 2,
+            "stretch_to_lifetime": true
+          }
+        }
+      },
+      "minecraft:particle_appearance_tinting": {
+        "color": [
+          "(111/255)+((147/255)-(111/255))*(Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.2)/0.05,0,1))-Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.76)/0.05,0,1)))",
+          "(121/255)+((213/255)-(121/255))*(Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.2)/0.05,0,1))-Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.76)/0.05,0,1)))",
+          "(165/255)+((255/255)-(165/255))*(Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.2)/0.05,0,1))-Math.hermite_blend(Math.clamp((variable.night_fury_wake_time_of_day-0.76)/0.05,0,1)))",
+          1
+        ]
+      }
+    }
+  }
+}

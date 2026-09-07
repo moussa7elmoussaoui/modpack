@@ -1,0 +1,21 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.sheep": {
+      "arrays": {
+        "geometries": {
+          "Array.geos": [ "Geometry.sheep", "Geometry.sheep_sheared" ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.sheep_baby : Array.geos[query.is_sheared]",
+      "materials": [{ "*": "Material.sheep" }],
+      "textures": [ "query.is_baby ? Texture.sheep_baby : Texture.sheep" ],
+      "color": {
+        "r": "query.variant == 1 ? variable.sheep_jeb_color.r : variable.color.r",
+        "g": "query.variant == 1 ? variable.sheep_jeb_color.g : variable.color.g",
+        "b": "query.variant == 1 ? variable.sheep_jeb_color.b : variable.color.b",
+        "a": 1.0
+      }
+    }
+  }
+}

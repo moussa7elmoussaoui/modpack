@@ -1,0 +1,68 @@
+import { Direction } from '@minecraft/server';
+
+export const DirectionHelper = {
+	Opposites: {
+		[Direction.Down]: Direction.Up,
+		[Direction.Up]: Direction.Down,
+		[Direction.North]: Direction.South,
+		[Direction.South]: Direction.North,
+		[Direction.East]: Direction.West,
+		[Direction.West]: Direction.East,
+	},
+	PositivePerpendiculars: {
+		[Direction.Down]: [Direction.East, Direction.North],
+		[Direction.Up]: [Direction.East, Direction.North],
+		[Direction.North]: [Direction.East, Direction.Up],
+		[Direction.South]: [Direction.East, Direction.Up],
+		[Direction.East]: [Direction.North, Direction.Up],
+		[Direction.West]: [Direction.North, Direction.Up],
+	},
+	NegativePerpendiculars: {
+		[Direction.Down]: [Direction.West, Direction.South],
+		[Direction.Up]: [Direction.West, Direction.South],
+		[Direction.North]: [Direction.West, Direction.Down],
+		[Direction.South]: [Direction.West, Direction.Down],
+		[Direction.East]: [Direction.South, Direction.Down],
+		[Direction.West]: [Direction.South, Direction.Down],
+	},
+	ClockwisePerpendiculars: {
+		[Direction.North]: Direction.East,
+		[Direction.East]: Direction.South,
+		[Direction.South]: Direction.West,
+		[Direction.West]: Direction.North,
+		[Direction.Up]: Direction.Down,
+		[Direction.Down]: Direction.Up,
+	},
+	CounterClockwisePerpendiculars: {
+		[Direction.North]: Direction.West,
+		[Direction.East]: Direction.North,
+		[Direction.South]: Direction.East,
+		[Direction.West]: Direction.South,
+		[Direction.Up]: Direction.Down,
+		[Direction.Down]: Direction.Up,
+	},
+	SameAxis: {
+		[Direction.North]: Direction.North,
+		[Direction.South]: Direction.North,
+		[Direction.East]: Direction.East,
+		[Direction.West]: Direction.East,
+		[Direction.Up]: Direction.Up,
+		[Direction.Down]: Direction.Up,
+	},
+	FromString: {
+		north: Direction.North,
+		east: Direction.East,
+		south: Direction.South,
+		west: Direction.West,
+		up: Direction.Up,
+		down: Direction.Down,
+	},
+	Values: [
+		Direction.Down,
+		Direction.Up,
+		Direction.North,
+		Direction.South,
+		Direction.East,
+		Direction.West,
+	],
+};
