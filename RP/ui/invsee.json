@@ -1,0 +1,241 @@
+{
+  "namespace": "invsee",
+  "morph_window": {
+    "type": "panel",
+    "size": [
+      282,
+      200
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "title_bar": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [
+            282,
+            24
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "controls": [
+            {
+              "title_background": {
+                "type": "image",
+                "size": [
+                  "fill",
+                  "100%"
+                ],
+                "texture": "textures/ui/glui/dialog_title_background",
+                "controls": [
+                  {
+                    "title_label": {
+                      "type": "label",
+                      "text": "#title_text",
+                      "localize": false,
+                      "color": [
+                        1,
+                        1,
+                        1
+                      ],
+                      "size": [
+                        "default",
+                        "default"
+                      ],
+                      "max_size": [
+                        "100% - 14px",
+                        "100% - 2px"
+                      ],
+                      "offset": [
+                        0,
+                        -2
+                      ],
+                      "font_type": "MinecraftTen",
+                      "bindings": [
+                        {
+                          "binding_type": "global",
+                          "binding_name": "#title_text"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title_cancel_spacing": {
+                "type": "panel",
+                "size": [
+                  2,
+                  "100%"
+                ]
+              }
+            },
+            {
+              "cancel_button@morph_menu.themed_button": {
+                "$pressed_button_name": "button.menu_exit",
+                "$button_content": "morph_menu.close_icon",
+                "$default_content_offset": [
+                  0,
+                  -1
+                ],
+                "$hover_content_offset": [
+                  0,
+                  -1
+                ],
+                "size": [
+                  "100%y",
+                  "100%"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "menu_frame": {
+          "type": "panel",
+          "size": [
+            282,
+            172
+          ],
+          "offset": [
+            0,
+            26
+          ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "controls": [
+            {
+              "frame_background": {
+                "type": "image",
+                "size": [
+                  "100%",
+                  "100%"
+                ],
+                "texture": "textures/ui/glui/dialog_background"
+              }
+            },
+            {
+              "menu_content@invsee.long_form_panel": {
+                "size": [
+                  268,
+                  158
+                ],
+                "offset": [
+                  7,
+                  7
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#form_text"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "((('%.21s' * #form_text) = 'dark7mc.invsee.morph|') or (('%.24s' * #form_text) = 'dark7mc.invsee.variants|') or (('%.23s' * #form_text) = 'dark7mc.invsee.players|'))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "long_form_panel": {
+    "type": "panel",
+    "size": [
+      268,
+      158
+    ],
+    "layer": 1,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "player_scrolling_panel@morph_menu.avatar_scrollbar": {
+          "anchor_to": "top_left",
+          "anchor_from": "top_left",
+          "$show_background": false,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "$scrolling_content": "morph_menu.player_scrolling_content",
+          "$scroll_size": [
+            5,
+            "100% - 4px"
+          ],
+          "$scrolling_pane_size": [
+            "100% - 4px",
+            "100%"
+          ],
+          "$scrolling_pane_offset": [
+            2,
+            0
+          ],
+          "$scroll_bar_right_padding_size": [
+            0,
+            0
+          ],
+          "bindings": [
+            {
+              "binding_name": "#form_text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(('%.23s' * #form_text) = 'dark7mc.invsee.players|')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "scrolling_panel@morph_menu.avatar_scrollbar": {
+          "anchor_to": "top_left",
+          "anchor_from": "top_left",
+          "$show_background": false,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "$scrolling_content": "morph_menu.long_form_scrolling_content",
+          "$scroll_size": [
+            5,
+            "100% - 4px"
+          ],
+          "$scrolling_pane_size": [
+            "100% - 4px",
+            "100%"
+          ],
+          "$scrolling_pane_offset": [
+            2,
+            0
+          ],
+          "$scroll_bar_right_padding_size": [
+            0,
+            0
+          ],
+          "bindings": [
+            {
+              "binding_name": "#form_text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "((('%.21s' * #form_text) = 'dark7mc.invsee.morph|') or (('%.24s' * #form_text) = 'dark7mc.invsee.variants|'))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

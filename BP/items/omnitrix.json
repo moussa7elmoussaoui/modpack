@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dark7mc:omnitrix",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "dark7mc:omnitrix"
+        }
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "minecraft:tags": {
+        "tags": [
+          "dark7mc:omnitrix"
+        ]
+      },
+      "dark7mc:omnitrix": {},
+      "dark7mc:morph_menu": {},
+      "dark7mc:morph_storage": {}
+    }
+  }
+}

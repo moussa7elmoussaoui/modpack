@@ -1,0 +1,83 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.spider.default_leg_pose" : {
+			"loop" : true,
+			"bones" : {
+				"leg0" : {
+					"rotation" : [ 0.0, "45.0 - this", "-45.0 - this" ]
+				},
+				"leg1" : {
+					"rotation" : [ 0.0, "-45.0 - this", "45.0 - this" ]
+				},
+				"leg2" : {
+					"rotation" : [ 0.0, "22.5 - this", "-33.3 - this" ]
+				},
+				"leg3" : {
+					"rotation" : [ 0.0, "-22.5 - this", "33.3 - this" ]
+				},
+				"leg4" : {
+					"rotation" : [ 0.0, "-22.5 - this", "-33.3 - this" ]
+				},
+				"leg5" : {
+					"rotation" : [ 0.0, "22.5 - this", "33.3 - this" ]
+				},
+				"leg6" : {
+					"rotation" : [ 0.0, "-45.0 - this", "-45.0 - this" ]
+				},
+				"leg7" : {
+					"rotation" : [ 0.0, "45.0 - this", "45.0 - this" ]
+				}
+			}
+		},
+		"animation.morph.spider.look_at_target" : {
+			"loop" : true,
+			"bones" : {
+				"_head" : {
+					"rotation" : [ "query.target_x_rotation * !query.is_gliding", "query.target_y_rotation", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.spider.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"_head" : {
+					"rotation" : [ "20.0 - this", "-this", "-this" ]
+				},
+				"root" : {
+					"position" : [ "5.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 5.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -7.0, "5.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 5.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ 0.0, "90.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.spider.walk" : {
+			"loop" : true,
+			"bones" : {
+				"leg0" : {
+					"rotation" : [ 0.0, "-math.abs(math.cos(query.modified_distance_moved * 76.34 + 90 * 0) * query.modified_move_speed * 22.92)", "math.abs(math.sin(query.modified_distance_moved * 38.17 + 90 * 0) * query.modified_move_speed * 22.92)" ]
+				},
+				"leg1" : {
+					"rotation" : [ 0.0, "math.abs(math.cos(query.modified_distance_moved * 76.34 + 90 * 0) * query.modified_move_speed * 22.92)", "-math.abs(math.sin(query.modified_distance_moved * 38.17 + 90 * 0) * query.modified_move_speed * 22.92)" ]
+				},
+				"leg2" : {
+					"rotation" : [ 0.0, "-math.abs(math.cos(query.modified_distance_moved * 76.34 + 90 * 1) * query.modified_move_speed * 22.92)", "math.abs(math.sin(query.modified_distance_moved * 38.17 + 90 * 1) * query.modified_move_speed * 22.92)" ]
+				},
+				"leg3" : {
+					"rotation" : [ 0.0, "math.abs(math.cos(query.modified_distance_moved * 76.34 + 90 * 1) * query.modified_move_speed * 22.92)", "-math.abs(math.sin(query.modified_distance_moved * 38.17 + 90 * 1) * query.modified_move_speed * 22.92)" ]
+				},
+				"leg4" : {
+					"rotation" : [ 0.0, "-math.abs(math.cos(query.modified_distance_moved * 76.34 + 90 * 2) * query.modified_move_speed * 22.92)", "math.abs(math.sin(query.modified_distance_moved * 38.17 + 90 * 2) * query.modified_move_speed * 22.92)" ]
+				},
+				"leg5" : {
+					"rotation" : [ 0.0, "math.abs(math.cos(query.modified_distance_moved * 76.34 + 90 * 2) * query.modified_move_speed * 22.92)", "-math.abs(math.sin(query.modified_distance_moved * 38.17 + 90 * 2) * query.modified_move_speed * 22.92)" ]
+				},
+				"leg6" : {
+					"rotation" : [ 0.0, "-math.abs(math.cos(query.modified_distance_moved * 76.34 + 90 * 3) * query.modified_move_speed * 22.92)", "math.abs(math.sin(query.modified_distance_moved * 38.17 + 90 * 3) * query.modified_move_speed * 22.92)" ]
+				},
+				"leg7" : {
+					"rotation" : [ 0.0, "math.abs(math.cos(query.modified_distance_moved * 76.34 + 90 * 3) * query.modified_move_speed * 22.92)", "-math.abs(math.sin(query.modified_distance_moved * 38.17 + 90 * 3) * query.modified_move_speed * 22.92)" ]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dark7mc:sonic_boom",
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": true
+      }
+    },
+    "components": {
+      "minecraft:cooldown": {
+        "category": "dark7mc:sonic_boom",
+        "duration": 3.7
+      },
+      "minecraft:glint": {
+        "value": true
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "dark7mc:sonic_boom"
+        }
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "dark7mc:sonic_boom": {
+        "attack_damage": 10,
+        "attack_distance": 30.0,
+        "attack_particles": "minecraft:sonic_explosion",
+        "attack_sound": {
+          "sound": "mob.warden.sonic_boom",
+          "volume": 3.0
+        },
+        "can_pass_through_blocks": true,
+        "charge_animation": "animation.morph.warden.sonic_boom",
+        "charge_duration": 1.7,
+        "charge_sound": {
+          "sound": "mob.warden.sonic_charge",
+          "volume": 3.0
+        },
+        "knockback_horizontal_strength": 2.5,
+        "knockback_vertical_strength": 0.5
+      }
+    }
+  }
+}

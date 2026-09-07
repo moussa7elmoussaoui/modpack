@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.wandering_trader": {
+      "geometry": "Geometry.wandering_trader",
+      "materials": [ { "*": "Material.wandering_trader" } ],
+      "textures": [ "Texture.wandering_trader" ]
+    }
+  }
+}

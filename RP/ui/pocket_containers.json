@@ -1,0 +1,24 @@
+{
+	
+	"namespace": "pocket_containers",
+
+	"header_area/container_header": {
+		"$new_custom_name|default": "$container_title",
+		"$header_label": "$new_custom_name",
+		"$is_invsee_title|default": false,
+		"$invsee_title_prefix|default": "",
+		"$invsee_title_suffix|default": "",
+		"variables": [
+			{ "requires": "$is_invsee_title", "$header_label": "" }
+		],
+		"modifications": [
+			{
+				"array_name": "controls",
+				"operation": "insert_back",
+				"value": [
+					{ "localized_title@dark7mc_invsee_inventory.localized_title": { "ignored": "(not $is_invsee_title)", "$title_text_color": "$pocket_title_text_color", "anchor_from": "center", "anchor_to": "center" } }
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,36 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.dark7mc.morph.transform_vfx": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "morph_transform_vfx13": {
+          "rotation": [0, -360, 0]
+        }
+      },
+      "particle_effects": {
+        "0.0": [
+          { "effect": "morph_transform", "locator": "morph_transform_vfx2" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx3" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx4" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx5" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx6" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx8" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx9" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx10" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx11" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx12" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx13" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx14" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx15" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx16" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx17" },
+          { "effect": "morph_transform", "locator": "morph_transform_vfx18" },
+          { "effect": "morph_circle", "locator": "morph_circle" },
+          { "effect": "morph_pixel" }
+        ]
+      }
+    }
+  }
+}
