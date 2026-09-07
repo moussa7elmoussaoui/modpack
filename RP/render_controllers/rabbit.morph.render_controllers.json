@@ -1,0 +1,16 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.rabbit": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [ "Texture.rabbit_brown", "Texture.rabbit_white", "Texture.rabbit_black", "Texture.rabbit_white_splotched", "Texture.rabbit_gold", "Texture.rabbit_salt", "Texture.rabbit_toast" ],
+           "Array.baby_skins": [ "Texture.rabbit_baby_brown", "Texture.rabbit_baby_white", "Texture.rabbit_baby_black", "Texture.rabbit_baby_white_splotched", "Texture.rabbit_baby_gold", "Texture.rabbit_baby_salt", "Texture.rabbit_baby_toast" ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.rabbit_baby : Geometry.rabbit",
+      "materials": [ { "*": "Material.rabbit" } ],
+      "textures": [ "query.is_baby ? Array.baby_skins[query.variant] : Array.skins[query.variant]" ]
+    }
+  }
+}

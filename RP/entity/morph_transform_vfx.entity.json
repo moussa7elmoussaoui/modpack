@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "dark7mc:morph_transform_vfx",
+      "materials": {
+        "default": "zombie"
+      },
+      "textures": {
+        "default": "textures/entity/zombie/zombie"
+      },
+      "geometry": {
+        "default": "geometry.dark7mc.morph_transform_vfx"
+      },
+      "scripts": {
+        "animate": ["transform_vfx"]
+      },
+      "animations": {
+        "transform_vfx": "animation.dark7mc.morph.transform_vfx"
+      },
+      "particle_effects": {
+        "morph_pixel": "dark7mc:morph_transform_pixel",
+        "morph_circle": "dark7mc:morph_transform_circle",
+        "morph_transform": "dark7mc:morph_transform_barrier"
+      },
+      "render_controllers": ["controller.render.default"]
+    }
+  }
+}

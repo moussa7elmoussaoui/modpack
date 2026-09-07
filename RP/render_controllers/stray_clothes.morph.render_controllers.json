@@ -1,0 +1,11 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.stray_clothes": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.stray_overlay",
+      "materials": [ { "*": "Material.stray_overlay" } ],
+      "textures": [ "Texture.stray_overlay" ]
+    }
+  }
+}

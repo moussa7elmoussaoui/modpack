@@ -1,0 +1,47 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.goat.look_at_target" : {
+			"loop" : true,
+			"bones" : {
+				"_head" : {
+					"rotation" : [ "math.clamp(query.target_x_rotation, -40, 40) * !query.is_gliding", "math.clamp(query.target_y_rotation, -45, 25)", 0 ]
+				}
+			}
+		},
+		"animation.morph.goat.walk" : {
+			"loop" : true,
+			"bones": {
+				"right_back_leg" : {
+					"rotation" : [ "variable.goat_tcos_right_side * 0.5", 0.0, 0.0 ]
+				},
+				"left_back_leg" : {
+					"rotation" : [ "variable.goat_tcos_left_side * 0.5", 0.0, 0.0 ]
+				},
+				"right_front_leg" : {
+					"rotation" : [ "-variable.goat_tcos_right_side * 0.5", 0.0, 0.0 ]
+				},
+				"left_front_leg" : {
+					"rotation" : [ "-variable.goat_tcos_left_side * 0.5", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.goat.attack": {
+			"loop": true,
+			"bones": {
+				"_head" : {
+					"rotation" : [ "variable.goat_attack_head_rot", 0, 0 ]
+				}
+			}
+		},
+		"animation.morph.goat.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"root" : {
+					"position" : [ "8.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 8.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 15.0, "8.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 8.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ -180.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		}
+	}
+}

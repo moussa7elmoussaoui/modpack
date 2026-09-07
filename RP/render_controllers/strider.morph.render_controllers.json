@@ -1,0 +1,26 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.strider": {
+      "arrays": {
+        "textures": {
+          "Array.base": [
+            "Texture.strider",
+            "Texture.strider_suffocated"
+          ],
+          "Array.baby": [
+            "Texture.strider_baby",
+            "Texture.strider_baby_suffocated"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.strider_baby : Geometry.strider",
+      "materials": [
+        { "*": "Material.strider" }
+      ],
+      "textures": [
+        "query.is_baby ? Array.baby[query.is_shaking] : Array.base[query.is_shaking]"
+      ]
+    }
+  }
+}

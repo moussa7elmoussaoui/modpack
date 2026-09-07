@@ -1,0 +1,354 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.morph.fox.pounce": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "position": [0.0, 0.0, 0.0],
+          "rotation": ["query.vertical_speed * -7.0", 0.0, 0.0]
+        },
+        "_head": {
+          "position": [0.0, 0.0, 0.0],
+          "rotation": ["query.vertical_speed * -7.0", 0.0, 0.0]
+        }
+      }
+    },
+    "animation.morph.fox.setup": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": ["-this", 0.0, 0.0]
+        }
+      }
+    },
+    "animation.morph.fox.sleep": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "position": [0.0, -4.8, 0.0],
+          "rotation": [0.0, 0.0, -90.0]
+        },
+        "_head": {
+          "position": [1.8, -0.4, -2.0],
+          "rotation": [
+            0.0,
+            -115.0,
+            "math.cos(query.anim_time * 160.0) + 90 -this"
+          ]
+        },
+        "tail": {
+          "position": [0.0, 0.0, 1.5],
+          "rotation": [-125.0, 0.0, 0.0]
+        },
+        "root": {
+          "position": [
+            "math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)",
+            -3.0,
+            "math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)"
+          ],
+          "rotation": [
+            0.0,
+            "90.0 - query.sleep_rotation - query.body_y_rotation",
+            0.0
+          ]
+        }
+      }
+    },
+    "animation.morph.fox.wiggle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "position": [0.0, -1.8, 0.0],
+          "rotation": [
+            0.0,
+            "math.cos(query.life_time * 20.0 * 53.7) * 5.0 -this",
+            0.0
+          ]
+        },
+        "_head": {
+          "position": [0.0, -0.8, 0.0],
+          "rotation": [
+            "math.clamp(-5.0 * (query.anim_time / 2.0), -5.0, 0)",
+            0.0,
+            "math.clamp(25.0 * (query.anim_time / 2.0), 0, 25.0)"
+          ]
+        },
+        "leg0": {
+          "position": [0.0, 1.6, 0.0],
+          "rotation": [0.0, 0.0, 0.0]
+        },
+        "leg1": {
+          "position": [0.0, 1.6, 0.0],
+          "rotation": [0.0, 0.0, 0.0]
+        },
+        "leg2": {
+          "position": [0.0, 1.6, 0.0],
+          "rotation": [0.0, 0.0, 0.0]
+        },
+        "leg3": {
+          "position": [0.0, 1.6, 0.0],
+          "rotation": [0.0, 0.0, 0.0]
+        },
+        "tail": {
+          "rotation": [
+            0.0,
+            "math.cos(query.life_time * 20.0 * 53.7) * 10.0 -this",
+            0.0
+          ]
+        }
+      }
+    },
+    "animation.morph.fox.baby_walk": {
+      "loop": true,
+      "animation_length": 0.5,
+      "bones": {
+        "body": {
+          "rotation": [0, 0, 0],
+          "position": [0, 0, 0]
+        },
+        "_head": {
+          "rotation": [0, 0, 0],
+          "position": [0, -1.025, 0]
+        },
+        "leg0": {
+          "rotation": {
+            "0.0": {
+              "post": [-35, 0, 0],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": [35, 0, 0],
+            "0.5": {
+              "pre": [-35, 0, 0],
+              "post": [-35, 0, 0],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.0": [0.05, 0.6, -0.02],
+            "0.25": [0.05, 0.6, -0.02],
+            "0.5": [0.05, 0.6, -0.02]
+          },
+          "scale": [1, 1.15, 1]
+        },
+        "leg1": {
+          "rotation": {
+            "0.0": {
+              "post": [35, 0, 0],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": [-35, 0, 0],
+            "0.5": {
+              "pre": [35, 0, 0],
+              "post": [35, 0, 0],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.0": [-0.05, 0.6, -0.02],
+            "0.25": [-0.05, 0.6, -0.02],
+            "0.5": [-0.05, 0.6, -0.02]
+          },
+          "scale": [1, 1.15, 1]
+        },
+        "leg2": {
+          "rotation": {
+            "0.0": {
+              "post": [35, 0, 0],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": [-35, 0, 0],
+            "0.5": {
+              "pre": [35, 0, 0],
+              "post": [35, 0, 0],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": [0.05, 0.6, -0.4],
+          "scale": [1, 1.15, 1]
+        },
+        "leg3": {
+          "rotation": {
+            "0.0": {
+              "post": [-35, 0, 0],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": [35, 0, 0],
+            "0.5": {
+              "pre": [-35, 0, 0],
+              "post": [-35, 0, 0],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": [-0.05, 0.6, -0.4],
+          "scale": [1, 1.15, 1]
+        },
+        "tail": {
+          "rotation": {
+            "0.0": {
+              "post": [-2.5, 0, 0],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.0": {
+              "post": [0, -0.05, 0],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      }
+    },
+    "animation.morph.fox.baby_pounce": {
+      "loop": true,
+      "bones": {
+        "_head": {
+          "position": [0.0, 0.0, 0.0],
+          "rotation": ["query.vertical_speed * -7.0", 0.0, 0.0]
+        },
+        "root": {
+          "position": [0.0, 0.0, 0.0],
+          "rotation": ["query.vertical_speed * -7.0", 0.0, 0.0]
+        }
+      }
+    },
+    "animation.morph.fox.baby_sleep": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 0.7083,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [-5, 0, -90]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.5": [0.3, -1.5, 0.3]
+          }
+        },
+        "_head": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.2083": [26.53, -41.39, -17],
+            "0.5": [181, -55, -180]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.5": [0, -2.9, -2]
+          }
+        },
+        "leg0": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.25": [0, 0, 0.33],
+            "0.4167": [0, 0, -79.89],
+            "0.5": [0, 0, -90]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.25": [2.40143, 0.07357, -0.1],
+            "0.5": [2.4, -0.9, 0]
+          }
+        },
+        "leg1": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.2917": [0, 0, -33.75],
+            "0.4167": [0, 0, -15],
+            "0.5": [0, 0, -90]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.2917": [0.74, 1.1, -0.12],
+            "0.4167": [-0.1, 2.18, -0.17],
+            "0.5": [-1.6, 1.8, -0.2]
+          }
+        },
+        "leg2": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.2917": [0, 0, -1.08],
+            "0.4167": [0, 0, -66.43],
+            "0.5": [0, 0, -90]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.2917": [2.48, 0.1, 0],
+            "0.5": [1.1, -0.8, 0]
+          }
+        },
+        "leg3": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [0, 0, -90]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.25": [-0.57, 1.85, 0],
+            "0.5": [-1.7, 2, 0]
+          }
+        },
+        "tail": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.25": [-25.78, 11.29, -5.4],
+            "0.375": [-64.73768, 8.71051, -14.96403],
+            "0.5": [-119, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.5": [-0.95, -0.21, 0.62]
+          }
+        },
+        "root": {
+          "position": ["math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -3, "math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)"],
+          "rotation": [0, "90 - query.sleep_rotation - query.body_y_rotation", 0]
+        }
+      }
+    },
+    "animation.morph.fox.baby_wiggle": {
+      "loop": true,
+      "bones": {
+        "_head": {
+          "position": [0.0, -0.4, 0.0],
+          "rotation": [
+            "math.clamp(-5.0 * (query.anim_time / 2.0), -5.0, 0)",
+            0.0,
+            "math.clamp(25.0 * (query.anim_time / 2.0), 0, 25.0)"
+          ]
+        },
+        "leg0": {
+          "position": [0.0, 0.8, 0.0],
+          "rotation": [0.0, 0.0, 0.0]
+        },
+        "leg1": {
+          "position": [0.0, 0.8, 0.0],
+          "rotation": [0.0, 0.0, 0.0]
+        },
+        "leg2": {
+          "position": [0.0, 0.8, 0.0],
+          "rotation": [0.0, 0.0, 0.0]
+        },
+        "leg3": {
+          "position": [0.0, 0.8, 0.0],
+          "rotation": [0.0, 0.0, 0.0]
+        },
+        "root": {
+          "position": [0.0, -0.9, 0.0],
+          "rotation": [
+            0.0,
+            "math.cos(query.life_time * 20.0 * 53.7) * 5.0 -this",
+            0.0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            0.0,
+            "math.cos(query.life_time * 20.0 * 53.7) * 10.0 -this",
+            0.0
+          ]
+        }
+      }
+    }
+  }
+}

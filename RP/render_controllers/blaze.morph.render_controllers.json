@@ -1,0 +1,13 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.blaze": {
+      "geometry": "Geometry.blaze",
+      "materials": [
+        { "*": "Material.blaze_body" },
+        { "head": "Material.blaze_head" }
+      ],
+      "textures": [ "Texture.blaze" ]
+    }
+  }
+}

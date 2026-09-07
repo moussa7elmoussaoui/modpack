@@ -1,0 +1,47 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.cod.flop" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ -2.0, 0.0, 0.0 ],
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 45.0) * 2.0", 90.0 ]
+				},
+				"_head" : {
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 45.0) * 4.0", 0.0 ]
+				},
+				"tailfin" : {
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 45.0) * -25.75", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.cod.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ -2.0, 0.0, 0.0 ],
+					"rotation" : [ 0.0, 0.0, 90.0 ]
+				},
+				"root" : {
+					"position" : [ "math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -1.0, "math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ 0.0, "90.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.cod.swim" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 30.0) * 2.0", 0.0 ]
+				},
+				"_head" : {
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 30.0) * 4.0", 0.0 ]
+				},
+				"tailfin" : {
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 30.0) * -25.75", 0.0 ]
+				}
+			}
+		}
+	}
+}

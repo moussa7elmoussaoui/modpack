@@ -1,0 +1,12 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.morph.ender_dragon": {
+      "geometry": "Geometry.ender_dragon",
+      "materials": [
+        { "*": "Material.ender_dragon" }
+      ],
+      "textures": [ "Texture.ender_dragon" ]
+    }
+  }
+}
