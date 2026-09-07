@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.piglin_brute": {
+      "geometry": "Geometry.piglin_brute",
+      "materials": [ { "*": "Material.piglin_brute" } ],
+      "textures": [ "Texture.piglin_brute" ]
+    }
+  }
+}

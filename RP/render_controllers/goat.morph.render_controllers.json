@@ -1,0 +1,14 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.goat": {
+      "geometry": "query.is_baby ? Geometry.goat_baby : Geometry.goat",
+      "part_visibility": [
+        { "right_horn": "!query.is_baby" },
+        { "left_horn": "!query.is_baby" }
+      ],
+      "materials": [{ "*": "Material.goat" }],
+      "textures": ["query.is_baby ? Texture.goat_baby : Texture.goat"]
+    }
+  }
+}

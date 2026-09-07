@@ -1,0 +1,20 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.mule": {
+      "part_visibility": [
+        { "Saddle": "query.is_saddled" },
+        { "Bit*": "query.is_saddled" },
+        { "Bridle": "query.is_saddled" },
+        { "Reins*": "query.is_saddled && query.has_rider" },
+        { "Bag*": "query.is_chested" },
+        { "Ear*": false }
+      ],
+      "geometry": "query.is_baby ? Geometry.mule_baby : Geometry.mule",
+      "materials": [{ "*": "Material.mule" }],
+      "textures": [
+        "query.is_baby ? Texture.mule_baby : Texture.mule"
+      ]
+    }
+  }
+}

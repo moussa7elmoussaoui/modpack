@@ -1,0 +1,17 @@
+{
+  "namespace": "server_form",
+  "main_screen_content": {
+    "size": ["100%", "100%"],
+    "controls": [
+      {
+        "server_form_factory": {
+          "type": "factory",
+          "control_ids": {
+            "long_form": "@script_block.script_block_long_form_switch",
+            "custom_form": "@script_block.custom_form_switch"
+          }
+        }
+      }
+    ]
+  }
+}

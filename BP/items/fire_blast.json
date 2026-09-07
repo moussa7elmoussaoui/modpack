@@ -1,0 +1,30 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dark7mc:fire_blast",
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": true
+      }
+    },
+    "components": {
+      "minecraft:cooldown": {
+        "category": "dark7mc:fire_blast",
+        "duration": 1.0
+      },
+      "minecraft:glint": {
+        "value": true
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "dark7mc:fire_blast"
+        }
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "dark7mc:night_fury_fire_blast": {}
+    }
+  }
+}

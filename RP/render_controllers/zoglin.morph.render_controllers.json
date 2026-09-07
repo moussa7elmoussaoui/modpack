@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.zoglin": {
+      "geometry": "query.is_baby ? Geometry.zoglin_baby : Geometry.zoglin",
+      "materials": [ { "*": "Material.zoglin" } ],
+      "textures": [ "query.is_baby ? Texture.zoglin_baby : Texture.zoglin" ]
+    }
+  }
+}

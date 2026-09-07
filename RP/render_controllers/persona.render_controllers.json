@@ -1,0 +1,141 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.persona_animated_face.first_person": {
+      "geometry": "Geometry.animated_face",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "Texture.animated_face" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    },
+    "controller.render.persona_animated_32x32.first_person": {
+      "geometry": "Geometry.animated_32x32",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "Texture.animated_32x32" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    },
+    "controller.render.persona_animated_128x128.first_person": {
+      "geometry": "Geometry.animated_128x128",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "Texture.animated_128x128" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    },
+    "controller.render.persona_animated_face.third_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_face",
+      "materials": [ { "*": "query.is_spectator ? Material.spectator : Material.animated" } ],
+      "textures": [ "Texture.animated_face" ],
+      "part_visibility": [
+        { "*": "variable.is_paperdoll && !query.is_spectator" },
+        { "head": "variable.is_paperdoll" },
+        { "hat": "variable.is_paperdoll" },
+        { "helmet": "variable.is_paperdoll && variable.helmet_layer_visible" },
+        { "leftLegging": "variable.is_paperdoll && variable.leg_layer_visible && !query.is_spectator" },
+        { "rightLegging": "variable.is_paperdoll && variable.leg_layer_visible && !query.is_spectator" },
+        { "leftBoot": "variable.is_paperdoll && variable.boot_layer_visible && !query.is_spectator" },
+        { "rightBoot": "variable.is_paperdoll && variable.boot_layer_visible && !query.is_spectator" },
+        { "leftSock": "variable.is_paperdoll && variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator" },
+        { "rightSock": "variable.is_paperdoll && variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator" },
+        { "bodyArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.is_spectator" },
+        { "leftArmArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.is_spectator" },
+        { "rightArmArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.is_spectator" },
+        { "belt": "variable.is_paperdoll && variable.chest_layer_visible && variable.leg_layer_visible && !query.is_spectator" },
+        { "cape": "variable.is_paperdoll && query.has_cape && !query.is_spectator" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "variable.use_blinking_animation ? variable.is_blinking * 0.5 : Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_face)/variable.animation_frames_face" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      }
+    },
+    "controller.render.persona_animated_32x32.third_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_32x32",
+      "materials": [ { "*": "query.is_spectator ? Material.spectator : Material.animated" } ],
+      "textures": [ "Texture.animated_32x32" ],
+      "part_visibility": [
+        { "*": "variable.is_paperdoll && !query.is_spectator" },
+        { "head": "variable.is_paperdoll" },
+        { "hat": "variable.is_paperdoll" },
+        { "helmet": "variable.is_paperdoll && variable.helmet_layer_visible" },
+        { "leftLegging": "variable.is_paperdoll && variable.leg_layer_visible && !query.is_spectator" },
+        { "rightLegging": "variable.is_paperdoll && variable.leg_layer_visible && !query.is_spectator" },
+        { "leftBoot": "variable.is_paperdoll && variable.boot_layer_visible && !query.is_spectator" },
+        { "rightBoot": "variable.is_paperdoll && variable.boot_layer_visible && !query.is_spectator" },
+        { "leftSock": "variable.is_paperdoll && variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator" },
+        { "rightSock": "variable.is_paperdoll && variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator" },
+        { "bodyArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.is_spectator" },
+        { "leftArmArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.is_spectator" },
+        { "rightArmArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.is_spectator" },
+        { "belt": "variable.is_paperdoll && variable.chest_layer_visible && variable.leg_layer_visible && !query.is_spectator" },
+        { "cape": "variable.is_paperdoll && query.has_cape && !query.is_spectator" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_32x32)/variable.animation_frames_32x32" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      }
+    },
+    "controller.render.persona_animated_128x128.third_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_128x128",
+      "materials": [ { "*": "query.is_spectator ? Material.spectator : Material.animated" } ],
+      "textures": [ "Texture.animated_128x128" ],
+      "part_visibility": [
+        { "*": "variable.is_paperdoll && !query.is_spectator" },
+        { "head": "variable.is_paperdoll" },
+        { "hat": "variable.is_paperdoll" },
+        { "helmet": "variable.is_paperdoll && variable.helmet_layer_visible" },
+        { "leftLegging": "variable.is_paperdoll && variable.leg_layer_visible && !query.is_spectator" },
+        { "rightLegging": "variable.is_paperdoll && variable.leg_layer_visible && !query.is_spectator" },
+        { "leftBoot": "variable.is_paperdoll && variable.boot_layer_visible && !query.is_spectator" },
+        { "rightBoot": "variable.is_paperdoll && variable.boot_layer_visible && !query.is_spectator" },
+        { "leftSock": "variable.is_paperdoll && variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator" },
+        { "rightSock": "variable.is_paperdoll && variable.boot_layer_visible && variable.leg_layer_visible && !query.is_spectator" },
+        { "bodyArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.is_spectator" },
+        { "leftArmArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.is_spectator" },
+        { "rightArmArmor": "variable.is_paperdoll && variable.chest_layer_visible && !query.is_spectator" },
+        { "belt": "variable.is_paperdoll && variable.chest_layer_visible && variable.leg_layer_visible && !query.is_spectator" },
+        { "cape": "variable.is_paperdoll && query.has_cape && !query.is_spectator" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_128x128)/variable.animation_frames_128x128" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      }
+    },
+    "controller.render.player.map.persona": {
+      "arrays": {
+        "geometries": {
+          "Array.geos": [ "Geometry.default", "Geometry.animated_face" ]
+        }
+      },
+      "geometry": "Array.geos[query.is_persona_or_premium_skin]",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "Texture.animated_face" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    }
+  }
+}

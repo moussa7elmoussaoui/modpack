@@ -1,0 +1,17 @@
+{
+  "format_version": "1.21.40",
+  "dark7mc:soul_glass": {
+    "sound": "glass"
+  },
+  "dark7mc:script_block": {
+    "textures": {
+      "down": "script_block_bottom",
+      "up": "script_block_top",
+      "north": "script_block_back",
+      "south": "script_block_front",
+      "west": "script_block_left",
+      "east": "script_block_right"
+    },
+    "sound": "stone"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.cat": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.cat_white",
+            "Texture.cat_black",
+            "Texture.cat_red",
+            "Texture.cat_siamese",
+            "Texture.cat_british",
+            "Texture.cat_calico",
+            "Texture.cat_persian",
+            "Texture.cat_ragdoll",
+            "Texture.cat_tabby",
+            "Texture.cat_all_black",
+            "Texture.cat_jellie"
+          ],
+          "Array.baby_skins": [
+            "Texture.cat_baby_white",
+            "Texture.cat_baby_black",
+            "Texture.cat_baby_red",
+            "Texture.cat_baby_siamese",
+            "Texture.cat_baby_british",
+            "Texture.cat_baby_calico",
+            "Texture.cat_baby_persian",
+            "Texture.cat_baby_ragdoll",
+            "Texture.cat_baby_tabby",
+            "Texture.cat_baby_all_black",
+            "Texture.cat_baby_jellie"
+          ],
+          "Array.tame": [
+            "Texture.cat_white_tame",
+            "Texture.cat_black_tame",
+            "Texture.cat_red_tame",
+            "Texture.cat_siamese_tame",
+            "Texture.cat_british_tame",
+            "Texture.cat_calico_tame",
+            "Texture.cat_persian_tame",
+            "Texture.cat_ragdoll_tame",
+            "Texture.cat_tabby_tame",
+            "Texture.cat_all_black_tame",
+            "Texture.cat_jellie_tame"
+          ],
+          "Array.baby_tame": [
+            "Texture.cat_baby_white_tame",
+            "Texture.cat_baby_black_tame",
+            "Texture.cat_baby_red_tame",
+            "Texture.cat_baby_siamese_tame",
+            "Texture.cat_baby_british_tame",
+            "Texture.cat_baby_calico_tame",
+            "Texture.cat_baby_persian_tame",
+            "Texture.cat_baby_ragdoll_tame",
+            "Texture.cat_baby_tabby_tame",
+            "Texture.cat_baby_all_black_tame",
+            "Texture.cat_baby_jellie_tame"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.cat_baby : Geometry.cat",
+      "materials": [{ "*": "Material.cat" }],
+      "textures": [
+        "query.is_tamed ?  query.is_baby ? Array.baby_tame[query.variant] : Array.tame[query.variant] : query.is_baby ? Array.baby_skins[query.variant] : Array.skins[query.variant]"
+      ],
+      "color": {
+        "r": "variable.color.r",
+        "g": "variable.color.g",
+        "b": "variable.color.b",
+        "a": 1.0
+      }
+    }
+  }
+}

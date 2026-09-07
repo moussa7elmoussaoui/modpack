@@ -1,0 +1,7 @@
+export default [
+	"minecraft:air",
+	"minecraft:bubble_column",
+	"minecraft:end_portal",
+	"minecraft:portal",
+	"minecraft:unknown"
+];

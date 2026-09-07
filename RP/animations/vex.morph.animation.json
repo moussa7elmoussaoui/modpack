@@ -1,0 +1,66 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.vex.crawling" : {
+			"loop" : true,
+			"bones" : {
+				"root" : {
+					"position" : [ 0.0, "2.0 * variable.swim_amount", "6.5 * variable.swim_amount" ],
+					"rotation" : [ "variable.swim_amount * 90", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.vex.idle" : {
+			"loop" : true,
+			"bones" : {
+				"leftarm" : {
+					"rotation" : {
+						"0.0": [ 0.0, 0.0, -32.34 ],
+						"0.75": [ 0.0, 0.0, -45 ],
+						"2.0": [ 0.0, 0.0, -32.34 ]
+					}
+				},
+				"rightarm" : {
+					"rotation" : {
+						"0.0": [ 0.0, 0.0, 32.34 ],
+						"0.75": [ 0.0, 0.0, 45 ],
+						"2.0": [ 0.0, 0.0, 32.34 ]
+					}
+				},
+				"leftwing" : {
+					"rotation" : [ "27.0 - this", "-(15.0 + math.cos(query.life_time * 916.8) * 9.0) - this", "-45.0 - this" ]
+				},
+				"rightwing" : {
+					"rotation" : [ "27.0 - this", "15.0 + math.cos(query.life_time * 916.8) * 9.0 - this", "45.0 - this" ]
+				},
+				"rightItem" : {
+					"scale": 0.7
+				},
+				"leftItem" : {
+					"scale": 0.7
+				}
+			}
+		},
+		"animation.morph.vex.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"_head" : {
+					"rotation" : [ "30.0 - this", "-this", "-this" ]
+				},
+				"root" : {
+					"position" : [ "6.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 6.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -1.0, "6.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 6.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ -90.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.vex.swimming" : {
+			"loop" : true,
+			"bones" : {
+				"root" : {
+					"position" : [ 0.0, "(math.sin(query.target_x_rotation) * 6.5 + 2.0) * variable.swim_amount", "(math.cos(query.target_x_rotation) * 6.5) * variable.swim_amount" ],
+					"rotation" : [ "variable.swim_amount * (90 + query.target_x_rotation)", 0.0, 0.0 ]
+				}
+			}
+		}
+	}
+}

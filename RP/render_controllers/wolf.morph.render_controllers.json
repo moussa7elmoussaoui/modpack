@@ -1,0 +1,64 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.wolf": {
+      "arrays": {
+        "textures": {
+          "Array.default": [
+            "Texture.wolf_pale_default",
+            "Texture.wolf_ashen_default",
+            "Texture.wolf_black_default",
+            "Texture.wolf_chestnut_default",
+            "Texture.wolf_rusty_default",
+            "Texture.wolf_snowy_default",
+            "Texture.wolf_spotted_default",
+            "Texture.wolf_striped_default",
+            "Texture.wolf_woods_default"
+          ],
+          "Array.baby_default": [
+            "Texture.wolf_baby_pale_default",
+            "Texture.wolf_baby_ashen_default",
+            "Texture.wolf_baby_black_default",
+            "Texture.wolf_baby_chestnut_default",
+            "Texture.wolf_baby_rusty_default",
+            "Texture.wolf_baby_snowy_default",
+            "Texture.wolf_baby_spotted_default",
+            "Texture.wolf_baby_striped_default",
+            "Texture.wolf_baby_woods_default"
+          ],
+          "Array.tame": [
+            "Texture.wolf_pale_tame",
+            "Texture.wolf_ashen_tame",
+            "Texture.wolf_black_tame",
+            "Texture.wolf_chestnut_tame",
+            "Texture.wolf_rusty_tame",
+            "Texture.wolf_snowy_tame",
+            "Texture.wolf_spotted_tame",
+            "Texture.wolf_striped_tame",
+            "Texture.wolf_woods_tame"
+          ],
+          "Array.baby_tame": [
+            "Texture.wolf_baby_pale_tame",
+            "Texture.wolf_baby_ashen_tame",
+            "Texture.wolf_baby_black_tame",
+            "Texture.wolf_baby_chestnut_tame",
+            "Texture.wolf_baby_rusty_tame",
+            "Texture.wolf_baby_snowy_tame",
+            "Texture.wolf_baby_spotted_tame",
+            "Texture.wolf_baby_striped_tame",
+            "Texture.wolf_baby_woods_tame"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.wolf_baby : Geometry.wolf",
+      "materials": [ { "*": "Material.wolf" } ],
+      "textures": [ "query.is_baby ? (query.is_tamed ? Array.baby_tame[query.variant] : Array.baby_default[query.variant]) :  (query.is_tamed ? Array.tame[query.variant] : Array.default[query.variant])" ],
+      "color": {
+        "r": "variable.color.r",
+        "g": "variable.color.g",
+        "b": "variable.color.b",
+        "a": 1.0
+      }
+    }
+  }
+}

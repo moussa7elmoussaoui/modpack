@@ -1,0 +1,17 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.morph.armadillo": {
+      "geometry": "query.is_baby ? Geometry.armadillo_baby : Geometry.armadillo",
+      "materials": [{ "*": "Material.armadillo" }],
+      "textures": ["query.is_baby ? Texture.armadillo_baby : Texture.armadillo"],
+      "part_visibility": [
+        { "body": "!variable.armadillo_use_rolled_up_model" },
+        { "tail": "!variable.armadillo_use_rolled_up_model" },
+        { "left_hind_leg": "!variable.armadillo_use_rolled_up_model" },
+        { "right_hind_leg": "!variable.armadillo_use_rolled_up_model" },
+        { "body_rolled_up": "variable.armadillo_use_rolled_up_model" }
+      ]
+    }
+  }
+}

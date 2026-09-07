@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.magma_cube": {
+      "geometry": "Geometry.magma_cube",
+      "materials": [ { "*": "Material.magma_cube" } ],
+      "textures": [ "Texture.magma_cube" ]
+    }
+  }
+}

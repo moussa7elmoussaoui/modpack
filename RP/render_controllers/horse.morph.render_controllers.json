@@ -1,0 +1,57 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.horse": {
+      "part_visibility": [
+        { "Saddle": "query.is_saddled" },
+        { "Bit*": "query.is_saddled" },
+        { "Bridle": "query.is_saddled" },
+        { "Reins*": "query.is_saddled && query.has_rider" },
+        { "Bag*": false },
+        { "MuleEar*": false }
+      ],
+      "arrays": {
+        "textures": {
+          "Array.base": [
+            "Texture.horse_base_white",
+            "Texture.horse_base_creamy",
+            "Texture.horse_base_chestnut",
+            "Texture.horse_base_brown",
+            "Texture.horse_base_black",
+            "Texture.horse_base_gray",
+            "Texture.horse_base_darkbrown"
+          ],
+          "Array.markings": [
+            "Texture.horse_markings_none",
+            "Texture.horse_markings_white",
+            "Texture.horse_markings_whitefield",
+            "Texture.horse_markings_whitedots",
+            "Texture.horse_markings_blackdots"
+          ],
+          "Array.baby_base": [
+            "Texture.horse_baby_base_white",
+            "Texture.horse_baby_base_creamy",
+            "Texture.horse_baby_base_chestnut",
+            "Texture.horse_baby_base_brown",
+            "Texture.horse_baby_base_black",
+            "Texture.horse_baby_base_gray",
+            "Texture.horse_baby_base_darkbrown"
+          ],
+          "Array.baby_markings": [
+            "Texture.horse_markings_none",
+            "Texture.horse_baby_markings_white",
+            "Texture.horse_baby_markings_whitefield",
+            "Texture.horse_baby_markings_whitedots",
+            "Texture.horse_baby_markings_blackdots"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.horse_baby : Geometry.horse",
+      "materials": [{ "*": "Material.horse" }],
+      "textures": [
+        "query.is_baby ? Array.baby_base[query.variant] : Array.base[query.variant]",
+        "query.is_baby ? Array.baby_markings[query.mark_variant] : Array.markings[query.mark_variant]"
+      ]
+    }
+  }
+}

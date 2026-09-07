@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.dark7mc.invsee.riding_arms": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            { "riding.original.arms": "variable.is_riding_visually" }
+          ]
+        }
+      }
+    },
+    "controller.animation.dark7mc.invsee.riding_legs": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            { "riding.original.legs": "variable.is_riding_visually" }
+          ]
+        }
+      }
+    },
+    "controller.animation.dark7mc.invsee.riding_root": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            { "riding.original.root": "variable.is_riding_visually" }
+          ]
+        }
+      }
+    }
+  }
+}

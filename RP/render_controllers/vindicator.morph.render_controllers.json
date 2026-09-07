@@ -1,0 +1,15 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.vindicator": {
+      "geometry": "Geometry.vindicator",
+      "part_visibility": [
+        { "rightArm": "variable.vindicator_show_arms" },
+        { "leftArm": "variable.vindicator_show_arms" },
+        { "arms": "!variable.vindicator_show_arms" }
+      ],
+      "materials": [ { "*": "Material.vindicator" } ],
+      "textures": [ "Texture.vindicator" ]
+    }
+  }
+}

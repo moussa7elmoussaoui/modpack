@@ -1,0 +1,70 @@
+{
+	"format_version": "1.26.30",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "dark7mc:invsee_inventory",
+
+			"is_summonable": true
+		},
+
+		"component_groups": {
+			"dark7mc:invsee_despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+
+		"components": {
+			"minecraft:type_family": {
+				"family": ["dark7mc_invsee", "inanimate"]
+			},
+
+			"minecraft:rideable": {
+				"seat_count": 1,
+				"family_types": ["player"],
+				"interact_text": "§z",
+				"seats": {
+					"position": [0.0, 0.4, 0.0]
+				}
+			},
+			"minecraft:inventory": {
+				"container_type": "container",
+				"inventory_size": 54,
+				"private": true,
+				"can_be_siphoned_from": false,
+				"restrict_to_owner": false
+			},
+
+			"minecraft:health": {
+				"min": 1,
+				"max": 1,
+				"value": 1
+			},
+			"minecraft:collision_box": {
+				"width": 0.0,
+				"height": 0.0
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": "no"
+				}
+			},
+
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+
+			"minecraft:transient": {},
+			"minecraft:is_hidden_when_invisible": {}
+		},
+
+		"events": {
+			"dark7mc:invsee_despawn": {
+				"add": {
+					"component_groups": ["dark7mc:invsee_despawn"]
+				}
+			}
+		}
+	}
+}

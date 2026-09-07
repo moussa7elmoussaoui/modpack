@@ -1,0 +1,15 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.enderman": {
+      "arrays": {
+        "materials": {
+          "Array.materials": [ "Material.enderman", "Material.enderman_invisible" ]
+        }
+      },
+       "geometry": "Geometry.enderman",
+       "materials": [ { "*": "Array.materials[query.is_invisible]" } ],
+       "textures": [ "Texture.enderman" ]
+    }
+  }
+}

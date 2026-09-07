@@ -1,0 +1,38 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.tropical_fish.flop" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ "query.variant == 0 ? -1.0 : query.variant == 1 ? -2.5 : 0.0", 0.0, 0.0 ],
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 45.0) * 2.0", 90.0 ]
+				},
+				"tailfin" : {
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 45.0) * -25.75", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.tropical_fish.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ "query.variant == 0 ? -1.0 : query.variant == 1 ? -2.5 : 0.0", 0.0, 0.0 ],
+					"rotation" : [ 0.0, 0.0, 90.0 ]
+				},
+				"root" : {
+					"position" : [ "math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -0.5, "math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ 0.0, "90.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.tropical_fish.swim" : {
+			"loop" : true,
+			"bones" : {
+				"tailfin" : {
+					"rotation" : [ 0.0, "math.cos(variable.fish_animationamountblend * 30.0) * -25.75", 0.0 ]
+				}
+			}
+		}
+	}
+}

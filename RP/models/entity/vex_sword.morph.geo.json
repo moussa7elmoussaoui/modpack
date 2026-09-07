@@ -1,0 +1,37 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.morph.vex_sword",
+				"texture_width": 16.0,
+				"texture_height": 16.0
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [ 0.0, 0.0, 0.0 ]
+				},
+				{
+					"name": "body",
+					"parent": "root",
+					"pivot": [ 0.0, 2.0, 0.0 ]
+				},
+				{
+					"name": "rightarm",
+					"parent": "body",
+					"pivot": [ -1.75, 5.75, 0.0 ],
+					"texture_meshes": [
+						{
+							"local_pivot": [ -1.75, 5.75, 0.0 ],
+							"position": [ 3.75, 15.34, -1.57 ],
+							"rotation": [ 0.0, 45.0, -90.0 ],
+							"scale": [ 0.44, 0.44, 0.44 ],
+							"texture": "vex_sword"
+						}
+					]
+				}
+			]
+		}
+	]
+}

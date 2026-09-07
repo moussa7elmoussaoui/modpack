@@ -1,0 +1,8 @@
+{
+  "main_panel_no_title_no_buttons": {
+    "$custom_background|default": "dialog_background_hollow_4"
+  },
+  "main_panel_no_title_no_buttons/common_panel": {
+    "$dialog_background": "$custom_background"
+  }
+}
