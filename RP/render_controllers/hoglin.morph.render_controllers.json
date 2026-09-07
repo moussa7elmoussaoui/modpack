@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.hoglin": {
+      "geometry": "query.is_baby ? Geometry.hoglin_baby : Geometry.hoglin",
+      "materials": [ { "*": "Material.hoglin" } ],
+      "textures": [ "query.is_baby ? Texture.hoglin_baby : Texture.hoglin" ]
+    }
+  }
+}

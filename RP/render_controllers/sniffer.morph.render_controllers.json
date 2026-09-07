@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.sniffer": {
+      "geometry": "query.is_baby ? Geometry.sniffer_baby : Geometry.sniffer",
+      "materials": [ { "*": "Material.sniffer" } ],
+      "textures": [ "query.is_baby ? Texture.sniffer_baby : Texture.sniffer" ]
+    }
+  }
+}

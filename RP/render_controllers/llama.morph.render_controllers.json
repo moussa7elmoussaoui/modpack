@@ -1,0 +1,29 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.llama": {
+      "arrays": {
+        "textures": {
+          "Array.base": [
+            "Texture.llama_creamy",
+            "Texture.llama_white",
+            "Texture.llama_brown",
+            "Texture.llama_gray"
+          ],
+          "Array.baby_base": [
+            "Texture.llama_baby_creamy",
+            "Texture.llama_baby_white",
+            "Texture.llama_baby_brown",
+            "Texture.llama_baby_gray"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.llama_baby : Geometry.llama",
+      "part_visibility": [{ "chest*": "query.is_chested" }],
+      "materials": [{ "*": "Material.llama" }],
+      "textures": [
+        "query.is_baby ? Array.baby_base[query.variant] : Array.base[query.variant]"
+      ]
+    }
+  }
+}

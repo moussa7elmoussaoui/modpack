@@ -1,0 +1,29 @@
+{
+  "format_version": 2,
+  "metadata": {
+    "authors": ["DARK7MC"],
+    "url": "https://jaylydev.github.io/posts/script-interpreter/"
+  },
+  "header": {
+    "name": "Script Block",
+    "description": "Resource pack for Script Block.",
+    "uuid": "5f58bc7f-b99f-4c3d-b569-97eeb2101736",
+    "version": [1, 26, 50],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "description": "Resource pack for Script Block",
+      "type": "resources",
+      "uuid": "7bf127eb-8348-493a-a525-66abfa00812c",
+      "version": [1, 26, 50]
+    }
+  ],
+  "dependencies": [
+    {
+      "description": "dark7mc.behavior_pack",
+      "uuid": "316304e9-c125-4add-9132-ee1241a6fa28",
+      "version": [1, 26, 50]
+    }
+  ]
+}

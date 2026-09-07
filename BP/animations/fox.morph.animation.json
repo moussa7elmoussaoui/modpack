@@ -1,0 +1,33 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.morph.fox.attack": {
+      "loop": false,
+      "animation_length": 1.01,
+      "timeline": {
+        "1.0": [
+          "/effect @s jump_boost 1000000 4 true",
+          "/event entity @s morph:fox_attack"
+        ]
+      }
+    },
+    "animation.morph.fox.attack.stop": {
+      "loop": false,
+      "animation_length": 0.6,
+      "timeline": {
+        "0.5": [
+          "/effect @s jump_boost 0"
+        ]
+      }
+    },
+    "animation.morph.fox.damage": {
+      "loop": true,
+      "animation_length": 0.01,
+      "timeline": {
+        "0.0": [
+          "/damage @e[rm=0.01,r=1] 5 entity_attack entity @s"
+        ]
+      }
+    }
+  }
+}

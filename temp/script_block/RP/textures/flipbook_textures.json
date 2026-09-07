@@ -1,0 +1,16 @@
+[
+  {
+    "flipbook_texture": "textures/blocks/script_block_front",
+    "atlas_tile": "script_block_front",
+    "frames": [0, 1],
+    "ticks_per_frame": 8,
+    "blend_frames": false
+  },
+  {
+    "flipbook_texture": "textures/blocks/script_block_back",
+    "atlas_tile": "script_block_back",
+    "frames": [0, 1, 2],
+    "ticks_per_frame": 2,
+    "blend_frames": true
+  }
+]

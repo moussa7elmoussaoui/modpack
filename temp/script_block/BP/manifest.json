@@ -1,0 +1,44 @@
+{
+  "format_version": 2,
+  "metadata": {
+    "authors": ["DARK7MC"],
+    "url": "https://jaylydev.github.io/posts/script-interpreter/"
+  },
+  "header": {
+    "name": "Script Block",
+    "description": "A script editor block for Minecraft Bedrock.",
+    "uuid": "316304e9-c125-4add-9132-ee1241a6fa28",
+    "version": [1, 26, 50],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "description": "resourcePack.vanilla_server.gametest.description",
+      "uuid": "256ff791-5c1e-453c-b905-e9be2b297966",
+      "version": [1, 26, 50],
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/interpreter.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": [2, 10, 0]
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": [2, 2, 0]
+    },
+    {
+      "module_name": "@minecraft/server-gametest",
+      "version": "1.0.0-beta"
+    },
+    {
+      "description": "dark7mc.resource_pack",
+      "uuid": "5f58bc7f-b99f-4c3d-b569-97eeb2101736",
+      "version": [1, 26, 50]
+    }
+  ],
+  "capabilities": ["script_eval"]
+}

@@ -1,0 +1,87 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.phantom.base_pose" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ 0.0, -20.0, 0.0 ],
+					"rotation" : [ "query.target_x_rotation * (!query.is_sleeping && !query.is_gliding)", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.phantom.cancel" : {
+			"loop" : true,
+			"override_previous_animation" : true,
+			"bones" : {
+				"body" : {
+					"scale" : "this"
+				},
+				"head" : {
+					"scale" : "this"
+				},
+				"root" : {
+					"scale" : "this"
+				},
+				"tail" : {
+					"scale" : "this"
+				},
+				"tailtip" : {
+					"scale" : "this"
+				},
+				"wing0" : {
+					"scale" : "this"
+				},
+				"wing1" : {
+					"scale" : "this"
+				},
+				"wingtip0" : {
+					"scale" : "this"
+				},
+				"wingtip1" : {
+					"scale" : "this"
+				}
+			}
+		},
+		"animation.morph.phantom.move": {
+			"loop": true,
+			"animation_length": 2.417,
+			"bones": {
+				"tail": {
+					"rotation": [ "-5.0 * Math.cos(297.9380535 * query.anim_time) - 5.0", 0.0, 0.0 ]
+				},
+				"tailtip": {
+					"rotation": [ "-5.0 * Math.cos(297.9380535 * query.anim_time) - 5.0", 0.0, 0.0 ]
+				},
+				"wing0": {
+					"rotation": [ 0.0, 0.0, "16.0 * Math.cos(148.9690267 * query.anim_time)" ]
+				},
+				"wing1": {
+					"rotation": [ 0.0, 0.0, "-16.0 * Math.cos(148.9690267 * query.anim_time)" ]
+				},
+				"wingtip0": {
+					"rotation": [ 0.0, 0.0, "16.0 * Math.cos(148.9690267 * query.anim_time)" ]
+				},
+				"wingtip1": {
+					"rotation": [ 0.0, 0.0, "-16.0 * Math.cos(148.9690267 * query.anim_time)" ]
+				}
+			}
+		},
+		"animation.morph.phantom.move_sound": {
+			"loop": true,
+			"animation_length": 2.417,
+			"sound_effects": {
+				"1.4": { "effect": "phantom_flap" }
+			}
+		},
+		"animation.morph.phantom.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"root" : {
+					"position" : [ "8.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 8.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 4.0, "8.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 8.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ -180.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		}
+	}
+}

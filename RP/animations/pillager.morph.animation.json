@@ -1,0 +1,39 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.pillager.crossbow.charge" : {
+			"loop" : true,
+			"bones" : {
+				"leftarm" : {
+					"rotation" : [ "math.lerp(-90.0 + 34.38, -90.0, 1.0 - variable.item_use_normalized)  -this", "math.lerp(22.92, 48.70, 1.0 - variable.item_use_normalized) -this", 0.0 ]
+				},
+				"rightarm" : {
+					"rotation" : [ "-90.0 + 34.38 -this", "-45.84 -this", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.pillager.crossbow.hold" : {
+			"loop" : true,
+			"bones" : {
+				"leftarm" : {
+					"rotation" : [ "-85.94 + query.target_x_rotation -this", "34.38 + math.clamp(query.target_y_rotation, -45, 25) -this", 0.0 ]
+				},
+				"rightarm" : {
+					"rotation" : [ "-90.0 + 5.73 + query.target_x_rotation -this", "-17.19 + math.clamp(query.target_y_rotation, -25, 45) -this", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.pillager.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ 0.0, -15.0, -1.0 ]
+				},
+				"root" : {
+					"position" : [ "10.66667 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 10.66667 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -1.81338, "10.66667 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 10.66667 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ -90.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,55 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.common.look_at_target.default" : {
+			"loop" : true,
+			"bones" : {
+				"head" : {
+					"relative_to" : {
+						"rotation" : "entity"
+					},
+					"rotation" : [ "query.target_x_rotation - this", "query.target_y_rotation - this", 0.0 ]
+				},
+				"_head" : {
+					"relative_to" : {
+						"rotation" : "entity"
+					},
+					"rotation" : [ "query.target_x_rotation - this", "query.target_y_rotation - this", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.common.look_at_target.gliding" : {
+			"loop" : true,
+			"bones" : {
+				"head" : {
+					"rotation" : [ -45.0, "query.target_y_rotation - this", 0.0 ]
+				},
+				"_head" : {
+					"rotation" : [ -45.0, "query.target_y_rotation - this", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.common.look_at_target.swimming" : {
+			"loop" : true,
+			"bones" : {
+				"head" : {
+					"rotation" : [ "math.lerp(query.target_x_rotation - this, -45.0, variable.swim_amount)", "query.target_y_rotation - this", 0.0 ]
+				},
+				"_head" : {
+					"rotation" : [ "math.lerp(query.target_x_rotation - this, -45.0, variable.swim_amount)", "query.target_y_rotation - this", 0.0 ]
+				}
+			}
+		},
+		"animation.morph.common.look_at_target.vertical_gliding" : {
+			"loop" : true,
+			"bones" : {
+				"head" : {
+					"rotation" : [ 0.0, "query.target_y_rotation - this", 0.0 ]
+				},
+				"_head" : {
+					"rotation" : [ 0.0, "query.target_y_rotation - this", 0.0 ]
+				}
+			}
+		}
+	}
+}

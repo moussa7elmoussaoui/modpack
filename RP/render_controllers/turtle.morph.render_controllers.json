@@ -1,0 +1,14 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.turtle": {
+      "geometry": "query.is_baby ? Geometry.turtle_baby : Geometry.turtle",
+      "materials": [{ "*": "Material.turtle" }],
+      "textures": ["query.is_baby ? Texture.turtle_baby : Texture.turtle"],
+      "part_visibility": [
+        { "_head": "!query.is_sleeping" },
+        { "leg*": "!query.is_sleeping" }
+      ]
+    }
+  }
+}
