@@ -1,0 +1,9 @@
+{
+  "materials": {
+    "version": "1.0.0",
+
+    "horse_morph:horse": {
+      "+defines": [ "MULTIPLICATIVE_TINT" ]
+    }
+  }
+}

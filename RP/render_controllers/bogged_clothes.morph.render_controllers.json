@@ -1,0 +1,11 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.bogged_clothes": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.bogged_overlay",
+      "materials": [ { "*": "Material.bogged_overlay" } ],
+      "textures": [ "Texture.bogged_overlay" ]
+    }
+  }
+}

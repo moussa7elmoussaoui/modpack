@@ -1,0 +1,24 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.pig": {
+      "arrays": {
+        "textures": {
+          "Array.default": [
+            "Texture.pig_temperate",
+            "Texture.pig_warm",
+            "Texture.pig_cold"
+          ],
+          "Array.baby": [
+            "Texture.pig_baby_temperate",
+            "Texture.pig_baby_warm",
+            "Texture.pig_baby_cold"
+          ]
+        }
+      },
+      "geometry": "query.is_baby ? Geometry.pig_baby : Geometry.pig",
+      "materials": [ { "*": "Material.pig" } ],
+      "textures": [ "query.is_baby ? Array.baby[variable.animal_climate_index] : Array.default[variable.animal_climate_index]" ]
+    }
+  }
+}

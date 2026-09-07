@@ -1,0 +1,41 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.morph.polar_bear.move" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ 0.0, "15 - 2 * variable.polar_bear_standing_scale - this", 0.0 ],
+					"rotation" : [ "(-(variable.polar_bear_standing_scale) * 63) - this", 0.0, 0.0 ]
+				},
+				"leg0" : {
+					"position" : [ 0.0, "-1 * variable.polar_bear_standing_scale", "6 * variable.polar_bear_standing_scale" ],
+					"rotation" : [ "variable.polar_bear_standing_scale * 63", 0.0, 0.0 ]
+				},
+				"leg1" : {
+					"position" : [ 0.0, "-1 * variable.polar_bear_standing_scale", "6 * variable.polar_bear_standing_scale" ],
+					"rotation" : [ "variable.polar_bear_standing_scale * 63", 0.0, 0.0 ]
+				},
+				"leg2" : {
+					"rotation" : [ "(variable.polar_bear_standing_scale >= 1) ? (variable.polar_bear_standing_scale * 81) - this : 0", 0.0, 0.0 ]
+				},
+				"leg3" : {
+					"rotation" : [ "(variable.polar_bear_standing_scale >= 1) ? (variable.polar_bear_standing_scale * 81) - this : 0", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.morph.polar_bear.sleeping" : {
+			"loop" : true,
+			"bones" : {
+				"_head" : {
+					"position" : [ 0.0, 0.0, "-1.0 - (4.0 * query.is_baby)" ],
+					"rotation" : [ "90.0 - this", "-this", "-this" ]
+				},
+				"root" : {
+					"position" : [ "12.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 12.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 16.0, "12.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 12.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
+					"rotation" : [ -180.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
+				}
+			}
+		}
+	}
+}

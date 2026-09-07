@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.omnitrix_holding": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "transitions": [
+            {
+              "raising": "query.equipped_item_any_tag('slot.weapon.mainhand', 'dark7mc:omnitrix_worn')"
+            }
+          ]
+        },
+        "raising": {
+          "on_entry": [ "variable.omnitrix_raise_enter_time = query.life_time;" ],
+          "animations": [
+            {
+              "omnitrix_raise": "!variable.is_first_person"
+            },
+            {
+              "omnitrix_fp_raise": "variable.is_first_person"
+            }
+          ],
+          "transitions": [
+            {
+              "lowering": "(query.life_time - variable.omnitrix_raise_enter_time > 0.6) && !query.equipped_item_any_tag('slot.weapon.mainhand', 'dark7mc:omnitrix_worn')"
+            }
+          ]
+        },
+        "lowering": {
+          "on_entry": [ "variable.omnitrix_lower_enter_time = query.life_time;" ],
+          "animations": [
+            {
+              "omnitrix_lower": "!variable.is_first_person"
+            },
+            {
+              "omnitrix_fp_lower": "variable.is_first_person"
+            }
+          ],
+          "transitions": [
+            {
+              "raising": "(query.life_time - variable.omnitrix_lower_enter_time > 0.6) && query.equipped_item_any_tag('slot.weapon.mainhand', 'dark7mc:omnitrix_worn')"
+            },
+            {
+              "idle": "query.life_time - variable.omnitrix_lower_enter_time > 0.6"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

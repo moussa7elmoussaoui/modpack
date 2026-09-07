@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.drowned": {
+      "geometry": "query.is_baby ? Geometry.drowned_baby : Geometry.drowned",
+      "materials": [{ "*": "Material.drowned" }],
+      "textures": ["query.is_baby ? Texture.drowned_baby : Texture.drowned"]
+    }
+  }
+}

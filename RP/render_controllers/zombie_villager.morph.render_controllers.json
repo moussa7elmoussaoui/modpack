@@ -1,0 +1,45 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.zombie_villager_base": {
+      "geometry": "query.is_baby? Geometry.zombie_villager_baby : Geometry.zombie_villager",
+      "materials": [
+        { "*": "Material.zombie_villager" }
+      ],
+      "textures": [
+        "query.is_baby? Texture.zombie_villager_baby : Texture.zombie_villager"
+      ]
+    },
+    "controller.render.morph.zombie_villager_biome": {
+      "arrays": {
+        "textures": {
+          "Array.biomes": [
+            "Texture.zombie_villager_plains",
+            "Texture.zombie_villager_desert",
+            "Texture.zombie_villager_jungle",
+            "Texture.zombie_villager_savanna",
+            "Texture.zombie_villager_snow",
+            "Texture.zombie_villager_swamp",
+            "Texture.zombie_villager_taiga"
+          ],
+          "Array.baby_biomes": [
+            "Texture.zombie_villager_baby_plains",
+            "Texture.zombie_villager_baby_desert",
+            "Texture.zombie_villager_baby_jungle",
+            "Texture.zombie_villager_baby_savanna",
+            "Texture.zombie_villager_baby_snow",
+            "Texture.zombie_villager_baby_swamp",
+            "Texture.zombie_villager_baby_taiga"
+          ]
+        }
+      },
+      "geometry": "query.is_baby? Geometry.zombie_villager_baby: Geometry.zombie_villager",
+      "materials": [
+        { "*": "Material.zombie_villager" }
+      ],
+      "textures": [
+        "query.is_baby ? Array.baby_biomes[query.mark_variant] : Array.biomes[query.mark_variant]"
+      ]
+    }
+  }
+}
