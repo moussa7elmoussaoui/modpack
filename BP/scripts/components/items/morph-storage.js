@@ -3,7 +3,7 @@ import morphs from "../../data/morphs";
 import { Morph } from "../../morph/class";
 
 const PLAYER_ENTITY_TYPE = "minecraft:player";
-const NIGHT_FURY_ENTITY_TYPE = "dark7mc:night_fury";
+const STORAGE_BLOCKED_ENTITY_TYPES = new Set([ "dark7mc:night_fury", "dark7mc:ancient_elemental" ]);
 
 const SELF_DISGUISE_MESSAGE = [{ text: "§7" }, { translate: "morph.self_disguise" }, { text: "§r" }];
 const STORAGE_BLOCKED_MESSAGE = [{ text: "§7" }, { translate: "morph.storage_blocked" }, { text: "§r" }];
@@ -23,7 +23,7 @@ export default {
 
     const morph = source.getMorph();
     const entityType = morph.entityType;
-    if (entityType === NIGHT_FURY_ENTITY_TYPE) {
+    if (STORAGE_BLOCKED_ENTITY_TYPES.has(entityType)) {
       source.sendMessage(STORAGE_BLOCKED_MESSAGE);
       return;
     }

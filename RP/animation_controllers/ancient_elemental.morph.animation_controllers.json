@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.ancient_elemental.locomotion": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "on_entry": [],
+          "animations": [ "ancient_elemental_idle" ],
+          "blend_transition": 0.2,
+          "transitions": [
+            { "walking": "query.is_on_ground && query.ground_speed >= 0.1" }
+          ]
+        },
+        "walking": {
+          "on_entry": [ "variable.walk_enter_time = query.life_time;" ],
+          "animations": [ "ancient_elemental_walk" ],
+          "blend_transition": 0.2,
+          "transitions": [
+            { "idle": "(query.life_time - variable.walk_enter_time > 0.3) && query.is_on_ground && query.ground_speed < 0.1" }
+          ]
+        }
+      }
+    },
+    "controller.animation.morph.ancient_elemental.attack": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "attacking": "variable.attack_time > 0.0 && !query.is_sleeping" }
+          ]
+        },
+        "attacking": {
+          "animations": [ "ancient_elemental_attack_anim" ],
+          "transitions": [
+            { "default": "query.all_animations_finished" }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.ancient_elemental.glow": {
+      "geometry": "Geometry.ancient_elemental",
+      "materials": [ { "*": "Material.ancient_elemental_glow" } ],
+      "textures": [ "Texture.ancient_elemental_glow" ],
+      "ignore_lighting": true,
+      "color": {
+        "r": "query.is_in_ui ? 1.0 : this",
+        "g": "query.is_in_ui ? 1.0 : this",
+        "b": "query.is_in_ui ? 1.0 : this",
+        "a": "query.is_in_ui ? 1.0 : this"
+      }
+    }
+  }
+}
