@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Druk op :_input_key.sneak: om af te stappen
 action.hint.exit.ravager=Tik op sluipen om af te stappen
 action.hint.exit.scheme.ravager=Tik op afstappen om af te stappen
 
+item.dark7mc:elemental_charge=Elementaire lading
 item.dark7mc:morphing_bracelet=Metamorfose-armband
 item.dark7mc:fire_blast=Vuurstoot
 item.dark7mc:dragon_fireball=Drakenvuurbal

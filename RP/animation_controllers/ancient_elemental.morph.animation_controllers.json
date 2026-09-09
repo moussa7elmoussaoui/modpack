@@ -1,0 +1,55 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.morph.ancient_elemental.locomotion": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "on_entry": [],
+          "animations": [ "ancient_elemental_idle" ],
+          "blend_transition": 0.2,
+          "transitions": [
+            { "walking": "query.is_on_ground && query.ground_speed >= 0.1" }
+          ]
+        },
+        "walking": {
+          "on_entry": [ "variable.walk_enter_time = query.life_time;" ],
+          "animations": [ "ancient_elemental_walk" ],
+          "blend_transition": 0.2,
+          "transitions": [
+            { "idle": "(query.life_time - variable.walk_enter_time > 0.3) && query.is_on_ground && query.ground_speed < 0.1" }
+          ]
+        }
+      }
+    },
+    "controller.animation.morph.ancient_elemental.punch": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "choose": "variable.attack_time > 0.0 && !query.is_sleeping" }
+          ]
+        },
+        "choose": {
+          "on_entry": [ "variable.ancient_elemental_punch_choice = math.random_integer(1, 2);" ],
+          "transitions": [
+            { "punch_1": "variable.ancient_elemental_punch_choice == 1" },
+            { "punch_2": "variable.ancient_elemental_punch_choice == 2" }
+          ]
+        },
+        "punch_1": {
+          "animations": [ "ancient_elemental_punch_1_anim" ],
+          "transitions": [
+            { "default": "query.all_animations_finished" }
+          ]
+        },
+        "punch_2": {
+          "animations": [ "ancient_elemental_punch_2_anim" ],
+          "transitions": [
+            { "default": "query.all_animations_finished" }
+          ]
+        }
+      }
+    }
+  }
+}

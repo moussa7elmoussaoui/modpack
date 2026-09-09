@@ -7,6 +7,11 @@ import { getPlayerSkinIndex, playerSkins } from "../data/player-skins";
 const PLAYER_MORPH_NAME_PROPERTY = "dark7mc:player_morph_name";
 const PLAYER_DISGUISE_ENTITY_INDEX = 83;
 
+const CUSTOM_ENTITY_TYPE_NAMES = Object.freeze({
+  "dark7mc:night_fury": "Night Fury",
+  "dark7mc:ancient_elemental": "Ancient Elemental"
+});
+
 function getMorphEntityType(player) {
   return player.getProperty("dark7mc:entity") === PLAYER_DISGUISE_ENTITY_INDEX
     ? "minecraft:player"
@@ -145,7 +150,9 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
         { text: "§r§7" },
         { translate: "morph.item.attached_to" },
         { text: " " },
-        entityTypeDefinition === undefined ? { text: "Night Fury" } : { translate: entityTypeDefinition.localizationKey },
+        entityTypeDefinition === undefined
+          ? { text: CUSTOM_ENTITY_TYPE_NAMES[entityType] ?? entityType }
+          : { translate: entityTypeDefinition.localizationKey },
         { text: "§r" }
       ]}]);
 

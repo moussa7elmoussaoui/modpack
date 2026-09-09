@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Nyomd meg a(z) :_input_key.sneak: gombot a lesz
 action.hint.exit.ravager=Koppints a lopakodásra a leszálláshoz
 action.hint.exit.scheme.ravager=Koppints a leszállásra a leszálláshoz
 
+item.dark7mc:elemental_charge=Elemensúly
 item.dark7mc:morphing_bracelet=Átváltoztató karkötő
 item.dark7mc:fire_blast=Tűznyaláb
 item.dark7mc:dragon_fireball=Sárkány tűzgömb

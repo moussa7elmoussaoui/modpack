@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.morph.ancient_elemental": {
+      "geometry": "Geometry.ancient_elemental",
+      "materials": [ { "*": "Material.ancient_elemental" } ],
+      "textures": [ "Texture.ancient_elemental" ]
+    }
+  }
+}

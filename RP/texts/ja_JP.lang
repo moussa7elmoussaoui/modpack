@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=:_input_key.sneak: を押して降りる
 action.hint.exit.ravager=スニークをタップして降りる
 action.hint.exit.scheme.ravager=降りるをタップして降りる
 
+item.dark7mc:elemental_charge=エレメンタルチャージ
 item.dark7mc:morphing_bracelet=モーフィングブレスレット
 item.dark7mc:fire_blast=ファイアブラスト
 item.dark7mc:dragon_fireball=ドラゴンの火球

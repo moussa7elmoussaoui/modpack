@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Trykk :_input_key.sneak: for å stige av
 action.hint.exit.ravager=Trykk på sniking for å stige av
 action.hint.exit.scheme.ravager=Trykk på stig av for å stige av
 
+item.dark7mc:elemental_charge=Elementærladning
 item.dark7mc:morphing_bracelet=Forvandlingsarmbånd
 item.dark7mc:fire_blast=Flammekast
 item.dark7mc:dragon_fireball=Drage-ildkule

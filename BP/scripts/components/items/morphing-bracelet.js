@@ -6,9 +6,27 @@ import { morphEvents } from "../../morph/entity-methods";
 import { getPlayerIconPath, getPlayerSkinIndex } from "../../data/player-skins";
 import { namespace } from "../../utils/namespace";
 
-const NIGHT_FURY_UNLOCK_NOTIFIED = "nightFuryUnlockNotified";
 const IDENTIFIER = "morphing_bracelet";
-const NIGHT_FURY_MORPH_ID = "dark7mc:night_fury[]";
+
+const SPECIAL_MORPH_CONFIGS = Object.freeze({
+  "DARK7MC": Object.freeze({
+    entityType: "dark7mc:night_fury",
+    morphId: "dark7mc:night_fury[]",
+    unlockNotifiedProperty: "nightFuryUnlockNotified"
+  }),
+  "URBAN7MC": Object.freeze({
+    entityType: "dark7mc:ancient_elemental",
+    morphId: "dark7mc:ancient_elemental[]",
+    unlockNotifiedProperty: "ancientElementalUnlockNotified"
+  })
+});
+
+function isHiddenSpecialMorph(morphId, source) {
+  for (const [ownerName, config] of Object.entries(SPECIAL_MORPH_CONFIGS)) {
+    if (morphId === config.morphId && source.name !== ownerName) return true;
+  }
+  return false;
+}
 
 export default {
   id: IDENTIFIER,
@@ -24,8 +42,7 @@ function showMorphMenu(source, itemSlot, itemStack, morphIds) {
   const variantsByAge = new Map();
 
   const visibleMorphIds = morphIds.filter(morphId =>
-    getMorphPlayerName(morphId) !== source.name &&
-    (morphId !== NIGHT_FURY_MORPH_ID || source.name === "DARK7MC")
+    getMorphPlayerName(morphId) !== source.name && !isHiddenSpecialMorph(morphId, source)
   );
   for (const morphId of visibleMorphIds) {
     const entityType = parseEntityType(morphId);
@@ -230,9 +247,9 @@ system.runInterval(() => {
   }
 });
 
-function unlockNightFury(player) {
+function unlockSpecialMorph(player, config) {
   const inventory = player.getComponent("minecraft:inventory").container;
-  const nightFury = new Morph("dark7mc:night_fury");
+  const morph = new Morph(config.entityType);
   let shouldNotify = false;
 
   for (let slot = 0; slot < inventory.size; slot++) {
@@ -240,13 +257,13 @@ function unlockNightFury(player) {
     if (!itemStack?.hasComponent(namespacedId)) continue;
     let itemChanged = false;
 
-    if (itemStack.hasMorph(nightFury)) continue;
+    if (itemStack.hasMorph(morph)) continue;
 
-    itemStack.addMorph(nightFury);
+    itemStack.addMorph(morph);
     itemChanged = true;
 
-    if (itemStack.getDynamicProperty(NIGHT_FURY_UNLOCK_NOTIFIED) !== true) {
-      itemStack.setDynamicProperty(NIGHT_FURY_UNLOCK_NOTIFIED, true);
+    if (itemStack.getDynamicProperty(config.unlockNotifiedProperty) !== true) {
+      itemStack.setDynamicProperty(config.unlockNotifiedProperty, true);
       itemChanged = true;
       shouldNotify = true;
     }
@@ -261,9 +278,12 @@ const PLAYER_ENTITY_TYPE = "minecraft:player";
 
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
-    if (!isSecretMorphOwner(player)) continue;
+    const config = SPECIAL_MORPH_CONFIGS[player.name];
+    if (config === undefined) continue;
 
-    if (!unlockNightFury(player)) continue;
+    if (!isSecretMorphOwner(player, config)) continue;
+
+    if (!unlockSpecialMorph(player, config)) continue;
 
     player.sendMessage([
       { text: "§b" },
@@ -312,22 +332,21 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
   }
 });
 
-function isSecretMorphOwner(player) {
+function isSecretMorphOwner(player, config) {
   const morph = player.getMorph();
-  return player.name === "DARK7MC" &&
-    player.level >= 100 &&
+  return player.level >= 100 &&
     morph?.entityType === PLAYER_ENTITY_TYPE &&
     morph.playerName === undefined &&
-    hasBraceletWithoutNightFury(player);
+    hasBraceletWithoutMorph(player, config);
 }
 
-function hasBraceletWithoutNightFury(player) {
+function hasBraceletWithoutMorph(player, config) {
   const inventory = player.getComponent("minecraft:inventory").container;
-  const nightFury = new Morph("dark7mc:night_fury");
+  const morph = new Morph(config.entityType);
 
   for (let slot = 0; slot < inventory.size; slot++) {
     const itemStack = inventory.getItem(slot);
-    if (itemStack?.hasComponent(namespacedId) && !itemStack.hasMorph(nightFury)) return true;
+    if (itemStack?.hasComponent(namespacedId) && !itemStack.hasMorph(morph)) return true;
   }
 
   return false;

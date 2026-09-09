@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Πατήστε :_input_key.sneak: για να �
 action.hint.exit.ravager=Πατήστε το κρυφό για να ξεκαβαλήσετε
 action.hint.exit.scheme.ravager=Πατήστε το ξεκαβάλημα για να ξεκαβαλήσετε
 
+item.dark7mc:elemental_charge=Στοιχειακό φορτίο
 item.dark7mc:morphing_bracelet=Βραχιόλι μεταμόρφωσης
 item.dark7mc:fire_blast=Έκρηξη φωτιάς
 item.dark7mc:dragon_fireball=Πύρινη σφαίρα δράκου

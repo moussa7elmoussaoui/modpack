@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=İnmek için :_input_key.sneak: tuşuna bas
 action.hint.exit.ravager=İnmek için gizlice yürüye dokun
 action.hint.exit.scheme.ravager=İnmek için inmeye dokun
 
+item.dark7mc:elemental_charge=Element Yükü
 item.dark7mc:morphing_bracelet=Dönüşüm bilekliği
 item.dark7mc:fire_blast=Ateş Patlaması
 item.dark7mc:dragon_fireball=Ejderha Ateş Topu

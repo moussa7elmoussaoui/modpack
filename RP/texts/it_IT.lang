@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Premi :_input_key.sneak: per scendere
 action.hint.exit.ravager=Tocca furtività per scendere
 action.hint.exit.scheme.ravager=Tocca scendi per scendere
 
+item.dark7mc:elemental_charge=Carica elementale
 item.dark7mc:morphing_bracelet=Bracciale di metamorfosi
 item.dark7mc:fire_blast=Raffica di fuoco
 item.dark7mc:dragon_fireball=Palla di fuoco del drago

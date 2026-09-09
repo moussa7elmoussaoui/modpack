@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Натиснете :_input_key.sneak:, за д�
 action.hint.exit.ravager=Докоснете „крадене“, за да слезете
 action.hint.exit.scheme.ravager=Докоснете „слизане“, за да слезете
 
+item.dark7mc:elemental_charge=Елементален заряд
 item.dark7mc:morphing_bracelet=Трансформираща гривна
 item.dark7mc:fire_blast=Огнен взрив
 item.dark7mc:dragon_fireball=Драконова огнена топка
