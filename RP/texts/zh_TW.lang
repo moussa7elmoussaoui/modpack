@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=按下 :_input_key.sneak: 下坐騎
 action.hint.exit.ravager=點擊潛行下坐騎
 action.hint.exit.scheme.ravager=點擊下坐騎下坐騎
 
+item.dark7mc:elemental_charge=元素彈
 item.dark7mc:morphing_bracelet=變身手環
 item.dark7mc:fire_blast=火焰爆發
 item.dark7mc:dragon_fireball=龍火球

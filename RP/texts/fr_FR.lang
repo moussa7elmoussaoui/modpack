@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Appuyez sur :_input_key.sneak: pour descendre
 action.hint.exit.ravager=Appuyez sur s'accroupir pour descendre
 action.hint.exit.scheme.ravager=Appuyez sur descendre pour descendre
 
+item.dark7mc:elemental_charge=Charge élémentaire
 item.dark7mc:morphing_bracelet=Bracelet de métamorphose
 item.dark7mc:fire_blast=Rafale de feu
 item.dark7mc:dragon_fireball=Boule de feu de dragon

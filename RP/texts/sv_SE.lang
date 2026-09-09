@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Tryck på :_input_key.sneak: för att stiga av
 action.hint.exit.ravager=Tryck på smygning för att stiga av
 action.hint.exit.scheme.ravager=Tryck på stig av för att stiga av
 
+item.dark7mc:elemental_charge=Elementarladdning
 item.dark7mc:morphing_bracelet=Metamorfosarmband
 item.dark7mc:fire_blast=Eldsprut
 item.dark7mc:dragon_fireball=Drake-eldklot

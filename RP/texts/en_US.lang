@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Press :_input_key.sneak: to dismount
 action.hint.exit.ravager=Tap sneak to dismount
 action.hint.exit.scheme.ravager=Tap dismount to dismount
 
+item.dark7mc:elemental_charge=Elemental Charge
 item.dark7mc:morphing_bracelet=Morphing Bracelet
 item.dark7mc:fire_blast=Fire Blast
 item.dark7mc:dragon_fireball=Dragon Fireball

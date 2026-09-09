@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Prima :_input_key.sneak: para desmontar
 action.hint.exit.ravager=Toque em agachar para desmontar
 action.hint.exit.scheme.ravager=Toque em desmontar para desmontar
 
+item.dark7mc:elemental_charge=Carga elemental
 item.dark7mc:morphing_bracelet=Bracelete de metamorfose
 item.dark7mc:fire_blast=Rajada de fogo
 item.dark7mc:dragon_fireball=Bola de fogo de dragão

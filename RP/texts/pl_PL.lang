@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Naciśnij :_input_key.sneak:, aby zejść
 action.hint.exit.ravager=Dotknij skradania, aby zejść
 action.hint.exit.scheme.ravager=Dotknij zejścia, aby zejść
 
+item.dark7mc:elemental_charge=Elementarny ładunek
 item.dark7mc:morphing_bracelet=Bransoleta metamorfozy
 item.dark7mc:fire_blast=Ognisty podmuch
 item.dark7mc:dragon_fireball=Smocza kula ognia

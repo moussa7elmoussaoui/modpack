@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Stlačením :_input_key.sneak: zosadnete
 action.hint.exit.ravager=Ťuknutím na plíženie zosadnete
 action.hint.exit.scheme.ravager=Ťuknutím na zosadnutie zosadnete
 
+item.dark7mc:elemental_charge=Elementálny náboj
 item.dark7mc:morphing_bracelet=Náramok premeny
 item.dark7mc:fire_blast=Ohnivý výbuch
 item.dark7mc:dragon_fireball=Dračia ohnivá guľa

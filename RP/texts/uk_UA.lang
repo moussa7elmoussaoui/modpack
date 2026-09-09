@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Натисніть :_input_key.sneak:, щоб �
 action.hint.exit.ravager=Торкніться крадання, щоб злізти
 action.hint.exit.scheme.ravager=Торкніться злізання, щоб злізти
 
+item.dark7mc:elemental_charge=Заряд стихії
 item.dark7mc:morphing_bracelet=Браслет метаморфози
 item.dark7mc:fire_blast=Вогняний залп
 item.dark7mc:dragon_fireball=Вогняна куля дракона

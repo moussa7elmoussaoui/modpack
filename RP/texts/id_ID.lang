@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Tekan :_input_key.sneak: untuk turun
 action.hint.exit.ravager=Ketuk menyelinap untuk turun
 action.hint.exit.scheme.ravager=Ketuk turun untuk turun
 
+item.dark7mc:elemental_charge=Muatan Elemental
 item.dark7mc:morphing_bracelet=Gelang metamorfosis
 item.dark7mc:fire_blast=Semburan Api
 item.dark7mc:dragon_fireball=Bola api naga

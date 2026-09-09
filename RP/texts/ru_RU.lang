@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Нажмите :_input_key.sneak:, чтобы �
 action.hint.exit.ravager=Нажмите «красться», чтобы слезть
 action.hint.exit.scheme.ravager=Нажмите «слезть», чтобы слезть
 
+item.dark7mc:elemental_charge=Заряд стихии
 item.dark7mc:morphing_bracelet=Браслет превращения
 item.dark7mc:fire_blast=Огненный залп
 item.dark7mc:dragon_fireball=Огненный шар дракона

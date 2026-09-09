@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Poistu painamalla :_input_key.sneak:
 action.hint.exit.ravager=Poistu napauttamalla hiipimistä
 action.hint.exit.scheme.ravager=Poistu napauttamalla poistumista
 
+item.dark7mc:elemental_charge=Elementaalivaraus
 item.dark7mc:morphing_bracelet=Muodonmuutosranneke
 item.dark7mc:fire_blast=Tuliräjähdys
 item.dark7mc:dragon_fireball=Lohikäärmeen tulipallo

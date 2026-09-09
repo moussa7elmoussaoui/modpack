@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Drücke :_input_key.sneak:, um abzusteigen
 action.hint.exit.ravager=Tippe auf Schleichen, um abzusteigen
 action.hint.exit.scheme.ravager=Tippe auf Absteigen, um abzusteigen
 
+item.dark7mc:elemental_charge=Elementarladung
 item.dark7mc:morphing_bracelet=Morphing-Armband
 item.dark7mc:fire_blast=Feuerstoß
 item.dark7mc:dragon_fireball=Drachenfeuerball

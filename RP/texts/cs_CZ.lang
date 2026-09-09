@@ -8,6 +8,7 @@ action.hint.exit.console.ravager=Stisknutím :_input_key.sneak: sesednete
 action.hint.exit.ravager=Klepnutím na plížení sesednete
 action.hint.exit.scheme.ravager=Klepnutím na sesednutí sesednete
 
+item.dark7mc:elemental_charge=Elementální náboj
 item.dark7mc:morphing_bracelet=Náramek proměny
 item.dark7mc:fire_blast=Ohnivý výbuch
 item.dark7mc:dragon_fireball=Dračí ohnivá koule
