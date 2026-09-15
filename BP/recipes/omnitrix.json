@@ -2,7 +2,7 @@
   "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "dark7mc:morphing_bracelet"
+      "identifier": "dark7mc:omnitrix"
     },
     "tags": [ "crafting_table" ],
     "pattern": [
@@ -23,7 +23,7 @@
       }
     ],
     "result": {
-      "item": "dark7mc:morphing_bracelet"
+      "item": "dark7mc:omnitrix"
     }
   }
 }

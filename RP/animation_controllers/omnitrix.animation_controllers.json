@@ -1,0 +1,36 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.omnitrix": {
+      "initial_state": "closed",
+      "states": {
+        "closed": {
+          "transitions": [
+            { "opening": "(variable.is_paperdoll || !query.is_in_ui) && query.has_property('dark7mc:omnitrix_state') && query.property('dark7mc:omnitrix_state') == 'opening'" },
+            { "open": "(variable.is_paperdoll || !query.is_in_ui) && query.has_property('dark7mc:omnitrix_state') && query.property('dark7mc:omnitrix_state') == 'open'" },
+            { "closing": "(variable.is_paperdoll || !query.is_in_ui) && query.has_property('dark7mc:omnitrix_state') && query.property('dark7mc:omnitrix_state') == 'closing'" }
+          ]
+        },
+        "opening": {
+          "animations": [ "omnitrix_open" ],
+          "transitions": [
+            { "open": "(variable.is_paperdoll || !query.is_in_ui) && query.has_property('dark7mc:omnitrix_state') && query.property('dark7mc:omnitrix_state') == 'open'" },
+            { "closing": "(variable.is_paperdoll || !query.is_in_ui) && query.has_property('dark7mc:omnitrix_state') && query.property('dark7mc:omnitrix_state') == 'closing'" }
+          ]
+        },
+        "open": {
+          "animations": [ "omnitrix_open" ],
+          "transitions": [
+            { "closing": "(variable.is_paperdoll || !query.is_in_ui) && query.has_property('dark7mc:omnitrix_state') && query.property('dark7mc:omnitrix_state') == 'closing'" }
+          ]
+        },
+        "closing": {
+          "animations": [ "omnitrix_close" ],
+          "transitions": [
+            { "closed": "(variable.is_paperdoll || !query.is_in_ui) && query.has_property('dark7mc:omnitrix_state') && (query.property('dark7mc:omnitrix_state') == 'worn_closed' || query.property('dark7mc:omnitrix_state') == 'unworn')" }
+          ]
+        }
+      }
+    }
+  }
+}

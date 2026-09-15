@@ -43,6 +43,27 @@
                     "default": 0,
                     "client_sync": true
                 },
+                "dark7mc:omnitrix_state": {
+                    "type": "enum",
+                    "values": [
+                        "unworn",
+                        "worn_closed",
+                        "opening",
+                        "open",
+                        "closing"
+                    ],
+                    "default": "unworn",
+                    "client_sync": true
+                },
+                "dark7mc:omnitrix_owner_model": {
+                    "type": "enum",
+                    "values": [
+                        "wide",
+                        "slim"
+                    ],
+                    "default": "wide",
+                    "client_sync": true
+                },
                 "dark7mc:color2": {
                     "type": "int",
                     "range": [

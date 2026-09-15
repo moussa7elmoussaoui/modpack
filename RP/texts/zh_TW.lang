@@ -9,7 +9,7 @@ action.hint.exit.ravager=點擊潛行下坐騎
 action.hint.exit.scheme.ravager=點擊下坐騎下坐騎
 
 item.dark7mc:elemental_charge=元素彈
-item.dark7mc:morphing_bracelet=變身手環
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=火焰爆發
 item.dark7mc:dragon_fireball=龍火球
 item.dark7mc:evoker_fangs=喚魔者尖牙
@@ -78,7 +78,7 @@ morph.bee.dying=§c%ss§r 後死亡
 morph.unavailable.vanilla=此生物正在開發中，尚未加入。
 morph.unavailable.modded=此附加包不支援其他附加包中的生物。
 morph.self_disguise=不能偽裝成自己。
-morph.unlock.special=你的特殊變形已解鎖。現在可以在你的變形手環中使用。
+morph.unlock.special=你的特殊變形已解鎖。現在可以在 Omnitrix 中使用。
 morph.storage_blocked=此變形無法封印在靈魂瓶中。
 morph.fly.requires_education=飛行需要教育版（Education Edition），請在「世界設定」中啟用它，才能以該生物的身份飛行。
 death.attack.noStinger=%1$s 感受到了犧牲之刺

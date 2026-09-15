@@ -3,7 +3,7 @@ import creakingHeart from "./blocks/creaking-heart";
 import durabilityDamageOnHit from "./items/durability-damage-on-hit";
 import effectNearbyPlayers from "./items/effect-nearby-players";
 import infiniteProjectile from "./items/infinite-projectile";
-import morphingBracelet from "./items/morphing-bracelet";
+import omnitrix from "./items/omnitrix";
 import morphStorage from "./items/morph-storage";
 import nightFuryFireBlast from "./items/night-fury-fire-blast";
 import sonicBoom from "./items/sonic-boom";
@@ -17,7 +17,7 @@ export default {
     effectNearbyPlayers,
     infiniteProjectile,
     nightFuryFireBlast,
-    morphingBracelet,
+    omnitrix,
     morphStorage,
     sonicBoom,
     summonFangsOnUse,

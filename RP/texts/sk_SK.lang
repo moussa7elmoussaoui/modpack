@@ -9,7 +9,7 @@ action.hint.exit.ravager=Ťuknutím na plíženie zosadnete
 action.hint.exit.scheme.ravager=Ťuknutím na zosadnutie zosadnete
 
 item.dark7mc:elemental_charge=Elementálny náboj
-item.dark7mc:morphing_bracelet=Náramok premeny
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Ohnivý výbuch
 item.dark7mc:dragon_fireball=Dračia ohnivá guľa
 item.dark7mc:evoker_fangs=Tesáky vyvolávača
@@ -78,7 +78,7 @@ morph.bee.dying=Umiera o §c%ss§r
 morph.unavailable.vanilla=Toto stvorenie je vo vývoji a ešte nebolo pridané.
 morph.unavailable.modded=Stvorenia z iných doplnkov nie sú podporované v tomto doplnku.
 morph.self_disguise=Nemôžete sa prezliecť za seba.
-morph.unlock.special=Váš špeciálny morf bol odomknutý. Teraz je dostupný vo vašom morfovacom náramku.
+morph.unlock.special=Váš špeciálny morf bol odomknutý. Teraz je dostupný vo vašom Omnitrixe.
 morph.storage_blocked=Tento morf sa nedá zapečatiť do fľaše duší.
 morph.fly.requires_education=Lietanie vyžaduje Education Edition - povoľte ju v Nastaveniach sveta, aby ste mohli lietať ako toto stvorenie.
 death.attack.noStinger=%1$s pocítil žihadlo obete

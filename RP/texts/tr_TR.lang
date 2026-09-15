@@ -9,7 +9,7 @@ action.hint.exit.ravager=İnmek için gizlice yürüye dokun
 action.hint.exit.scheme.ravager=İnmek için inmeye dokun
 
 item.dark7mc:elemental_charge=Element Yükü
-item.dark7mc:morphing_bracelet=Dönüşüm bilekliği
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Ateş Patlaması
 item.dark7mc:dragon_fireball=Ejderha Ateş Topu
 item.dark7mc:evoker_fangs=Çağırıcı Dişleri
@@ -78,7 +78,7 @@ morph.bee.dying=§c%ss§r içinde ölüyor
 morph.unavailable.vanilla=Bu yaratık geliştirme aşamasındadır ve henüz eklenmemiştir.
 morph.unavailable.modded=Diğer eklentilerdeki yaratıklar bu eklentide desteklenmez.
 morph.self_disguise=Kendin gibi kılık değiştiremezsin.
-morph.unlock.special=Özel dönüşümünüz açıldı. Artık Dönüşüm Bilekliğinizde kullanılabilir.
+morph.unlock.special=Özel dönüşümünüz açıldı. Artık Omnitrix'inizde kullanılabilir.
 morph.storage_blocked=Bu dönüşüm bir Ruh Şişesine mühürlenemez.
 morph.fly.requires_education=Uçmak Education Edition gerektirir - bu yaratık olarak uçmak için Dünya Ayarları'nda etkinleştirin.
 death.attack.noStinger=%1$s fedakarlığın iğnesini hissetti

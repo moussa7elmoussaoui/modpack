@@ -9,7 +9,7 @@ action.hint.exit.ravager=スニークをタップして降りる
 action.hint.exit.scheme.ravager=降りるをタップして降りる
 
 item.dark7mc:elemental_charge=エレメンタルチャージ
-item.dark7mc:morphing_bracelet=モーフィングブレスレット
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=ファイアブラスト
 item.dark7mc:dragon_fireball=ドラゴンの火球
 item.dark7mc:evoker_fangs=エヴォーカーの牙
@@ -78,7 +78,7 @@ morph.bee.dying=あと§c%ss§rで死亡
 morph.unavailable.vanilla=このモブは開発中で、まだ追加されていません。
 morph.unavailable.modded=他のアドオンのモブはこのアドオンではサポートされていません。
 morph.self_disguise=自分自身には変装できません。
-morph.unlock.special=特別な変身が解除されました。変身ブレスレットで使用できます。
+morph.unlock.special=特別な変身が解除されました。Omnitrixで使用できます。
 morph.storage_blocked=この変身はソウルボトルに封印できません。
 morph.fly.requires_education=飛行にはEducation Editionが必要です。このモブとして飛行するには、ワールド設定で有効にしてください。
 death.attack.noStinger=%1$sは犠牲の針を感じた

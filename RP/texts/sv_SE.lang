@@ -9,7 +9,7 @@ action.hint.exit.ravager=Tryck på smygning för att stiga av
 action.hint.exit.scheme.ravager=Tryck på stig av för att stiga av
 
 item.dark7mc:elemental_charge=Elementarladdning
-item.dark7mc:morphing_bracelet=Metamorfosarmband
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Eldsprut
 item.dark7mc:dragon_fireball=Drake-eldklot
 item.dark7mc:evoker_fangs=Besvärjartänder
@@ -78,7 +78,7 @@ morph.bee.dying=Dör om §c%ss§r
 morph.unavailable.vanilla=Denna varelse är under utveckling och har ännu inte lagts till.
 morph.unavailable.modded=Varelser från andra tillägg stöds inte i detta tillägg.
 morph.self_disguise=Du kan inte förkläda dig till dig själv.
-morph.unlock.special=Din speciella förvandling är upplåst. Den är nu tillgänglig i ditt förvandlingsarmband.
+morph.unlock.special=Din speciella förvandling är upplåst. Den är nu tillgänglig i din Omnitrix.
 morph.storage_blocked=Denna förvandling kan inte förseglas i en själaflaska.
 morph.fly.requires_education=Att flyga kräver Education Edition - aktivera det i Världsinställningarna för att flyga som denna varelse.
 death.attack.noStinger=%1$s kände offrets gadd

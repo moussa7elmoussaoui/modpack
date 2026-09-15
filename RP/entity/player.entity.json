@@ -29,6 +29,8 @@
         "night_fury_glow": "breeze_eyes",
         "ancient_elemental": "entity_alphatest",
         "ancient_elemental_glow": "breeze_eyes",
+        "omnitrix": "entity_alphatest",
+        "omnitrix_glow": "breeze_eyes",
         "zombified_piglin": "zombie",
         "fox": "fox",
         "drowned": "drowned",
@@ -329,6 +331,8 @@
         "night_fury_glow": "textures/entity/night_fury/night_fury_glow",
         "ancient_elemental": "textures/entity/ancient_elemental/ancient_elemental",
         "ancient_elemental_glow": "textures/entity/ancient_elemental/ancient_elemental_glow",
+        "omnitrix": "textures/models/omnitrix/omnitrix",
+        "omnitrix_glow": "textures/models/omnitrix/omnitrix_glow",
         "zombified_piglin": "textures/entity/piglin/zombie_piglin",
         "zombified_piglin_baby": "textures/entity/piglin/zombie_piglin_baby",
         "fox_red": "textures/entity/fox/fox",
@@ -680,6 +684,8 @@
         "default": "geometry.humanoid.custom",
         "player_disguise": "geometry.morph.player",
         "player_disguise_slim": "geometry.morph.player.slim",
+        "omnitrix": "geometry.omnitrix",
+        "omnitrix_slim": "geometry.omnitrix.slim",
         "cape": "geometry.cape",
         "zombie": "geometry.morph.zombie",
         "zombie_baby": "geometry.morph.zombie.baby",
@@ -1207,6 +1213,9 @@
         "animate": [
           {
             "root": "!variable.is_either_person || query.any(query.property('dark7mc:entity'), 0, 83)"
+          },
+          {
+            "omnitrix": "(variable.is_paperdoll || !query.is_in_ui) && query.has_property('dark7mc:omnitrix_state') && query.any(query.property('dark7mc:entity'), 0, 83) && query.property('dark7mc:omnitrix_state') != 'unworn'"
           },
           {
             "show_items": "variable.is_third_person && query.property('dark7mc:entity') != 0"
@@ -2128,6 +2137,9 @@
       },
       "animations": {
         "root": "controller.animation.player.root",
+        "omnitrix": "controller.animation.omnitrix",
+        "omnitrix_open": "animation.omnitrix.open",
+        "omnitrix_close": "animation.omnitrix.close",
         "base_controller": "controller.animation.player.base",
         "hudplayer": "controller.animation.player.hudplayer",
         "humanoid_base_pose": "animation.humanoid.base_pose",
@@ -3040,6 +3052,12 @@
         },
         {
           "controller.render.morph.creaking_eyes": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 82"
+        },
+        {
+          "controller.render.omnitrix": "(variable.is_paperdoll || !query.is_in_ui) && query.has_property('dark7mc:omnitrix_state') && query.any(query.property('dark7mc:entity'), 0, 83) && query.property('dark7mc:omnitrix_state') != 'unworn'"
+        },
+        {
+          "controller.render.omnitrix.glow": "(variable.is_paperdoll || !query.is_in_ui) && query.has_property('dark7mc:omnitrix_state') && query.any(query.property('dark7mc:entity'), 0, 83) && query.property('dark7mc:omnitrix_state') != 'unworn'"
         }
       ],
       "enable_attachables": true

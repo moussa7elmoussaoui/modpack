@@ -9,7 +9,7 @@ action.hint.exit.ravager=Tippe auf Schleichen, um abzusteigen
 action.hint.exit.scheme.ravager=Tippe auf Absteigen, um abzusteigen
 
 item.dark7mc:elemental_charge=Elementarladung
-item.dark7mc:morphing_bracelet=Morphing-Armband
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Feuerstoß
 item.dark7mc:dragon_fireball=Drachenfeuerball
 item.dark7mc:evoker_fangs=Evoker-Fänge
@@ -78,7 +78,7 @@ morph.bee.dying=Stirbt in §c%ss§r
 morph.unavailable.vanilla=Diese Kreatur ist noch in Entwicklung und wurde noch nicht hinzugefügt.
 morph.unavailable.modded=Kreaturen aus anderen Add-ons werden in diesem Add-on nicht unterstützt.
 morph.self_disguise=Du kannst dich nicht als dich selbst verkleiden.
-morph.unlock.special=Dein spezieller Morph wurde freigeschaltet. Er ist jetzt in deinem Morphing-Armband verfügbar.
+morph.unlock.special=Dein spezieller Morph wurde freigeschaltet. Er ist jetzt in deinem Omnitrix verfügbar.
 morph.storage_blocked=Diese Morph kann nicht in einer Seelenflasche versiegelt werden.
 morph.fly.requires_education=Fliegen erfordert Education Edition - aktiviere es in den Welteinstellungen, um als diese Kreatur zu fliegen.
 death.attack.noStinger=%1$s spürte den Stich der Aufopferung

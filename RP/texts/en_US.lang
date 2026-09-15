@@ -9,7 +9,7 @@ action.hint.exit.ravager=Tap sneak to dismount
 action.hint.exit.scheme.ravager=Tap dismount to dismount
 
 item.dark7mc:elemental_charge=Elemental Charge
-item.dark7mc:morphing_bracelet=Morphing Bracelet
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Fire Blast
 item.dark7mc:dragon_fireball=Dragon Fireball
 item.dark7mc:evoker_fangs=Evoker Fangs
@@ -78,7 +78,7 @@ morph.bee.dying=Dying in §c%ss§r
 morph.unavailable.vanilla=This mob is currently in development and has not been added yet.
 morph.unavailable.modded=Mobs from other add-ons are not supported in this add-on.
 morph.self_disguise=You cannot disguise as yourself.
-morph.unlock.special=Your special morph has been unlocked. It is now available in your Morphing Bracelet.
+morph.unlock.special=Your special morph has been unlocked. It is now available in your Omnitrix.
 morph.storage_blocked=This morph cannot be sealed in a Soul Bottle.
 morph.fly.requires_education=Flying requires Education Edition - enable it in the World Settings to fly as this mob.
 death.attack.noStinger=%1$s felt the sting of sacrifice

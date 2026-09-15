@@ -2,18 +2,6 @@ import { world, system, ItemStack, ItemLockMode } from "@minecraft/server";
 
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
-    for (let slot = 0; slot < player.getComponent("minecraft:inventory").container.size; slot++) {
-      const itemStack = player.getComponent("minecraft:inventory").container.getItem(slot);
-      if (itemStack && itemStack.getLore().includes("Morphing Bracelet") && itemStack.hasComponent("minecraft:durability") && itemStack.getComponent("minecraft:durability").damage != 0) {
-        itemStack.getComponent("minecraft:durability").damage = 0;
-        player.getComponent("minecraft:inventory").container.setItem(slot, itemStack);
-      };
-    };
-  };
-});
-
-system.runInterval(() => {
-  for (const player of world.getPlayers()) {
     if (player.getProperty("dark7mc:entity") == 3 || player.getProperty("dark7mc:entity") == 41) {
       player.runCommand('replaceitem entity @s slot.inventory 8 arrow 1 0 {"item_lock":{"mode":"lock_in_slot"},"keep_on_death":{}}');
       system.runTimeout(() => {

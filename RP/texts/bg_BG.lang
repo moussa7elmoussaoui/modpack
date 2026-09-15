@@ -9,7 +9,7 @@ action.hint.exit.ravager=Докоснете „крадене“, за да сл
 action.hint.exit.scheme.ravager=Докоснете „слизане“, за да слезете
 
 item.dark7mc:elemental_charge=Елементален заряд
-item.dark7mc:morphing_bracelet=Трансформираща гривна
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Огнен взрив
 item.dark7mc:dragon_fireball=Драконова огнена топка
 item.dark7mc:evoker_fangs=Зъби на призовавач
@@ -78,7 +78,7 @@ morph.bee.dying=Умира след §c%ss§r
 morph.unavailable.vanilla=Това същество е в процес на разработка и все още не е добавено.
 morph.unavailable.modded=Същества от други добавки не се поддържат в тази добавка.
 morph.self_disguise=Не можете да се дегизирате като себе си.
-morph.unlock.special=Специалният ви морф е отключен. Вече е наличен във вашата гривна за морфиране.
+morph.unlock.special=Специалният ви морф е отключен. Вече е наличен във вашия Omnitrix.
 morph.storage_blocked=Този морф не може да бъде запечатан в бутилка за души.
 morph.fly.requires_education=Летенето изисква Education Edition - активирайте я в Настройките на света, за да летите като това същество.
 death.attack.noStinger=%1$s усети жилото на жертвата
