@@ -9,7 +9,7 @@ action.hint.exit.ravager=Trykk på sniking for å stige av
 action.hint.exit.scheme.ravager=Trykk på stig av for å stige av
 
 item.dark7mc:elemental_charge=Elementærladning
-item.dark7mc:morphing_bracelet=Forvandlingsarmbånd
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Flammekast
 item.dark7mc:dragon_fireball=Drage-ildkule
 item.dark7mc:evoker_fangs=Evoker-tenner
@@ -78,7 +78,7 @@ morph.bee.dying=Dør om §c%ss§r
 morph.unavailable.vanilla=Dette vesenet er under utvikling og er ennå ikke lagt til.
 morph.unavailable.modded=Vesener fra andre tillegg støttes ikke i dette tillegget.
 morph.self_disguise=Du kan ikke forkledde deg som deg selv.
-morph.unlock.special=Den spesielle forvandlingen din er låst opp. Den er nå tilgjengelig i forvandlingsarmbåndet ditt.
+morph.unlock.special=Den spesielle forvandlingen din er låst opp. Den er nå tilgjengelig i Omnitrix-en din.
 morph.storage_blocked=Denne morfen kan ikke forsegles i en sjelflaske.
 morph.fly.requires_education=Flying krever Education Edition - aktiver det i Verdensinnstillingene for å fly som dette vesenet.
 death.attack.noStinger=%1$s følte offerets brodd

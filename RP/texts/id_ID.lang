@@ -9,7 +9,7 @@ action.hint.exit.ravager=Ketuk menyelinap untuk turun
 action.hint.exit.scheme.ravager=Ketuk turun untuk turun
 
 item.dark7mc:elemental_charge=Muatan Elemental
-item.dark7mc:morphing_bracelet=Gelang metamorfosis
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Semburan Api
 item.dark7mc:dragon_fireball=Bola api naga
 item.dark7mc:evoker_fangs=Taring Evoker
@@ -78,7 +78,7 @@ morph.bee.dying=Mati dalam §c%ss§r
 morph.unavailable.vanilla=Makhluk ini sedang dalam pengembangan dan belum ditambahkan.
 morph.unavailable.modded=Makhluk dari add-on lain tidak didukung dalam add-on ini.
 morph.self_disguise=Kamu tidak dapat menyamar sebagai dirimu sendiri.
-morph.unlock.special=Morf spesial Anda terbuka. Sekarang tersedia di Gelang Perubahan Anda.
+morph.unlock.special=Morf spesial Anda terbuka. Sekarang tersedia di Omnitrix Anda.
 morph.storage_blocked=Morf ini tidak dapat disegel dalam Botol Jiwa.
 morph.fly.requires_education=Terbang memerlukan Education Edition - aktifkan di Pengaturan Dunia untuk terbang sebagai makhluk ini.
 death.attack.noStinger=%1$s merasakan sengatan pengorbanan

@@ -2,7 +2,7 @@
   "format_version": "1.21.90",
   "minecraft:item": {
     "description": {
-      "identifier": "dark7mc:morphing_bracelet",
+      "identifier": "dark7mc:omnitrix",
       "menu_category": {
         "category": "equipment"
       }
@@ -13,7 +13,7 @@
       },
       "minecraft:icon": {
         "textures": {
-          "default": "dark7mc:morphing_bracelet"
+          "default": "dark7mc:omnitrix"
         }
       },
       "minecraft:max_stack_size": {
@@ -21,13 +21,13 @@
       },
       "minecraft:tags": {
         "tags": [
-          "dark7mc:morphing_bracelets"
+          "dark7mc:omnitrix"
         ]
       },
       "dark7mc:durability_damage_on_hit": {
         "durability_damage": 0
       },
-      "dark7mc:morphing_bracelet": {}
+      "dark7mc:omnitrix": {}
     }
   }
 }

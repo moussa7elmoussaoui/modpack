@@ -45,11 +45,7 @@ function updateItem(inventory, slot, itemStack) {
     inventory.setItem(slot, renameItemTypeId(itemStack, renamedItems[itemStack.typeId]));
   }
 
-  if (itemStack.getLore().includes("Morphing Bracelet") && itemStack.getDynamicProperty("isAttachedToMorph") !== true) {
-    itemStack.setDynamicProperty("isAttachedToMorph", true);
-  }
-  
-  if (itemStack.hasComponent("dark7mc:morphing_bracelet")) {
+  if (itemStack.hasComponent("dark7mc:omnitrix")) {
     const version = itemStack.getDynamicProperty("version") ?? 0;
     const rawMorphs = itemStack.getDynamicProperty("morphs");
     if (typeof rawMorphs !== "string" || rawMorphs.trim().length === 0) return;

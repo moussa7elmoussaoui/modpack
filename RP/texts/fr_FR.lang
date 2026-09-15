@@ -9,7 +9,7 @@ action.hint.exit.ravager=Appuyez sur s'accroupir pour descendre
 action.hint.exit.scheme.ravager=Appuyez sur descendre pour descendre
 
 item.dark7mc:elemental_charge=Charge élémentaire
-item.dark7mc:morphing_bracelet=Bracelet de métamorphose
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Rafale de feu
 item.dark7mc:dragon_fireball=Boule de feu de dragon
 item.dark7mc:evoker_fangs=Crocs d'évocateur
@@ -78,7 +78,7 @@ morph.bee.dying=Meurt dans §c%ss§r
 morph.unavailable.vanilla=Cette créature est en cours de développement et n'a pas encore été ajoutée.
 morph.unavailable.modded=Les créatures d'autres add-ons ne sont pas prises en charge dans cet add-on.
 morph.self_disguise=Vous ne pouvez pas vous déguiser en vous-même.
-morph.unlock.special=Votre métamorphose spéciale est débloquée. Elle est désormais disponible dans votre bracelet de métamorphose.
+morph.unlock.special=Votre métamorphose spéciale est débloquée. Elle est désormais disponible dans votre Omnitrix.
 morph.storage_blocked=Cette métamorphose ne peut pas être scellée dans une bouteille d’âme.
 morph.fly.requires_education=Voler nécessite l'Education Edition - activez-la dans les Paramètres du monde pour voler comme cette créature.
 death.attack.noStinger=%1$s a ressenti le dard du sacrifice

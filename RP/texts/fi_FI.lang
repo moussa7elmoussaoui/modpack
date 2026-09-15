@@ -9,7 +9,7 @@ action.hint.exit.ravager=Poistu napauttamalla hiipimistä
 action.hint.exit.scheme.ravager=Poistu napauttamalla poistumista
 
 item.dark7mc:elemental_charge=Elementaalivaraus
-item.dark7mc:morphing_bracelet=Muodonmuutosranneke
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Tuliräjähdys
 item.dark7mc:dragon_fireball=Lohikäärmeen tulipallo
 item.dark7mc:evoker_fangs=Manaajan hampaat
@@ -78,7 +78,7 @@ morph.bee.dying=Kuolee §c%ss§r kuluttua
 morph.unavailable.vanilla=Tämä olento on kehitteillä eikä sitä ole vielä lisätty.
 morph.unavailable.modded=Muiden lisäosien olennot eivät ole tuettuja tässä lisäosassa.
 morph.self_disguise=Et voi naamioitua itseksesi.
-morph.unlock.special=Erikoismuotosi on avattu. Se on nyt käytettävissä muodonvaihtorannekkeessasi.
+morph.unlock.special=Erikoismuotosi on avattu. Se on nyt käytettävissä Omnitrixissasi.
 morph.storage_blocked=Tätä morfia ei voi sinetöidä sielupulloon.
 morph.fly.requires_education=Lentäminen vaatii Education Editionin - ota se käyttöön Maailman asetuksissa lentääksesi tämän olennon muodossa.
 death.attack.noStinger=%1$s tunsi uhrauksen piston

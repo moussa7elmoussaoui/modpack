@@ -9,7 +9,7 @@ action.hint.exit.ravager=Торкніться крадання, щоб зліз�
 action.hint.exit.scheme.ravager=Торкніться злізання, щоб злізти
 
 item.dark7mc:elemental_charge=Заряд стихії
-item.dark7mc:morphing_bracelet=Браслет метаморфози
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Вогняний залп
 item.dark7mc:dragon_fireball=Вогняна куля дракона
 item.dark7mc:evoker_fangs=Ікла заклинателя
@@ -78,7 +78,7 @@ morph.bee.dying=Помирає через §c%ss§r
 morph.unavailable.vanilla=Ця істота в розробці і ще не додана.
 morph.unavailable.modded=Істоти з інших аддонів не підтримуються в цьому аддоні.
 morph.self_disguise=Не можна перевтілитися у самого себе.
-morph.unlock.special=Ваше особливе перевтілення розблоковано. Тепер воно доступне у вашому браслеті перевтілень.
+morph.unlock.special=Ваше особливе перевтілення розблоковано. Тепер воно доступне у вашому Omnitrix.
 morph.storage_blocked=Цю морф не можна запечатати в пляшку душ.
 morph.fly.requires_education=Політ вимагає Education Edition - увімкніть її в Налаштуваннях світу, щоб літати як ця істота.
 death.attack.noStinger=%1$s відчув жало жертви

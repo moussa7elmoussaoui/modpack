@@ -9,7 +9,7 @@ action.hint.exit.ravager=Koppints a lopakodásra a leszálláshoz
 action.hint.exit.scheme.ravager=Koppints a leszállásra a leszálláshoz
 
 item.dark7mc:elemental_charge=Elemensúly
-item.dark7mc:morphing_bracelet=Átváltoztató karkötő
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Tűznyaláb
 item.dark7mc:dragon_fireball=Sárkány tűzgömb
 item.dark7mc:evoker_fangs=Idéző agyarai
@@ -78,7 +78,7 @@ morph.bee.dying=Meghal §c%ss§r múlva
 morph.unavailable.vanilla=Ez a lény fejlesztés alatt áll, és még nem lett hozzáadva.
 morph.unavailable.modded=Más kiegészítők lényei nem támogatottak ebben a kiegészítőben.
 morph.self_disguise=Nem álcázhatod magad saját magadnak.
-morph.unlock.special=A különleges átváltozásod fel lett oldva. Mostantól elérhető az átváltoztató karkötődben.
+morph.unlock.special=A különleges átváltozásod fel lett oldva. Mostantól elérhető az Omnitrixodban.
 morph.storage_blocked=Ez az átváltozás nem zárható lélekpalackba.
 morph.fly.requires_education=A repüléshez Education Edition szükséges - engedélyezd a Világ beállításaiban, hogy repülhess, mint ez a lény.
 death.attack.noStinger=%1$s érezte az áldozat fullánkját

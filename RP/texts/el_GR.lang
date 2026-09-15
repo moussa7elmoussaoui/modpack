@@ -9,7 +9,7 @@ action.hint.exit.ravager=Πατήστε το κρυφό για να ξεκαβα
 action.hint.exit.scheme.ravager=Πατήστε το ξεκαβάλημα για να ξεκαβαλήσετε
 
 item.dark7mc:elemental_charge=Στοιχειακό φορτίο
-item.dark7mc:morphing_bracelet=Βραχιόλι μεταμόρφωσης
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Έκρηξη φωτιάς
 item.dark7mc:dragon_fireball=Πύρινη σφαίρα δράκου
 item.dark7mc:evoker_fangs=Κυνόδοντες εξορκιστή
@@ -78,7 +78,7 @@ morph.bee.dying=Πεθαίνει σε §c%ss§r
 morph.unavailable.vanilla=Αυτό το πλάσμα είναι υπό ανάπτυξη και δεν έχει προστεθεί ακόμα.
 morph.unavailable.modded=Πλάσματα από άλλα add-ons δεν υποστηρίζονται σε αυτό το add-on.
 morph.self_disguise=Δεν μπορείτε να μεταμορφωθείτε στον εαυτό σας.
-morph.unlock.special=Η ειδική μορφή σας ξεκλειδώθηκε. Είναι πλέον διαθέσιμη στο Βραχιόλι Μεταμόρφωσης.
+morph.unlock.special=Η ειδική μορφή σας ξεκλειδώθηκε. Είναι πλέον διαθέσιμη στο Omnitrix σας.
 morph.storage_blocked=Αυτή η μορφή δεν μπορεί να σφραγιστεί σε ένα Μπουκάλι Ψυχής.
 morph.fly.requires_education=Η πτήση απαιτεί Education Edition - ενεργοποιήστε το στις Ρυθμίσεις Κόσμου για να πετάξετε ως αυτό το πλάσμα.
 death.attack.noStinger=Ο/Η %1$s ένιωσε το κεντρί της θυσίας

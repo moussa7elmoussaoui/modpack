@@ -1,0 +1,75 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.omnitrix": {
+      "rebuild_animation_matrices": true,
+      "arrays": {
+        "geometries": {
+          "Array.omnitrix_geometries": [
+            "Geometry.omnitrix",
+            "Geometry.omnitrix_slim"
+          ]
+        }
+      },
+      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:entity') == 83 ? query.property('dark7mc:player_model') == 1 : query.property('dark7mc:omnitrix_owner_model') == 'slim']",
+      "materials": [ { "*": "Material.omnitrix" } ],
+      "textures": [ "Texture.omnitrix" ]
+    },
+    "controller.render.omnitrix.paperdoll": {
+      "rebuild_animation_matrices": true,
+      "arrays": {
+        "geometries": {
+          "Array.omnitrix_geometries": [
+            "Geometry.omnitrix",
+            "Geometry.omnitrix_slim"
+          ]
+        }
+      },
+      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:entity') == 83 ? query.property('dark7mc:player_model') == 1 : query.property('dark7mc:omnitrix_owner_model') == 'slim']",
+      "materials": [ { "*": "Material.omnitrix" } ],
+      "textures": [ "Texture.omnitrix" ]
+    },
+    "controller.render.omnitrix.glow": {
+      "rebuild_animation_matrices": true,
+      "arrays": {
+        "geometries": {
+          "Array.omnitrix_geometries": [
+            "Geometry.omnitrix",
+            "Geometry.omnitrix_slim"
+          ]
+        }
+      },
+      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:entity') == 83 ? query.property('dark7mc:player_model') == 1 : query.property('dark7mc:omnitrix_owner_model') == 'slim']",
+      "materials": [ { "*": "Material.omnitrix_glow" } ],
+      "textures": [ "Texture.omnitrix_glow" ],
+      "ignore_lighting": true,
+      "color": {
+        "r": "query.is_in_ui ? 1.0 : this",
+        "g": "query.is_in_ui ? 1.0 : this",
+        "b": "query.is_in_ui ? 1.0 : this",
+        "a": "query.is_in_ui ? 1.0 : this"
+      }
+    },
+    "controller.render.omnitrix.paperdoll.glow": {
+      "rebuild_animation_matrices": true,
+      "arrays": {
+        "geometries": {
+          "Array.omnitrix_geometries": [
+            "Geometry.omnitrix",
+            "Geometry.omnitrix_slim"
+          ]
+        }
+      },
+      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:entity') == 83 ? query.property('dark7mc:player_model') == 1 : query.property('dark7mc:omnitrix_owner_model') == 'slim']",
+      "materials": [ { "*": "Material.omnitrix_glow" } ],
+      "textures": [ "Texture.omnitrix_glow" ],
+      "ignore_lighting": true,
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 1.0
+      }
+    }
+  }
+}

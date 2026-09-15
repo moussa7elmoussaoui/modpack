@@ -5,7 +5,6 @@ export const renamedItems = {
   "morph:fireball": "dark7mc:fireball",
   "morph:guardian_curse": "dark7mc:guardian_curse",
   "morph:llama_spit": "dark7mc:llama_spit",
-  "morph:morphing_bracelet": "dark7mc:morphing_bracelet",
   "morph:scroll_of_souls": "dark7mc:soul_glass_bottle",
   "morph:scroll_of_souls.filled": "dark7mc:soul_in_a_bottle",
   "morph:small_fireball": "dark7mc:small_fireball",

@@ -9,7 +9,7 @@ action.hint.exit.ravager=Toque em agachar para desmontar
 action.hint.exit.scheme.ravager=Toque em desmontar para desmontar
 
 item.dark7mc:elemental_charge=Carga elemental
-item.dark7mc:morphing_bracelet=Bracelete de metamorfose
+item.dark7mc:omnitrix=Omnitrix
 item.dark7mc:fire_blast=Rajada de fogo
 item.dark7mc:dragon_fireball=Bola de fogo de dragão
 item.dark7mc:evoker_fangs=Presas de invocador
@@ -78,7 +78,7 @@ morph.bee.dying=A morrer em §c%ss§r
 morph.unavailable.vanilla=Esta criatura está em desenvolvimento e ainda não foi adicionada.
 morph.unavailable.modded=Criaturas de outros add-ons não são suportadas neste add-on.
 morph.self_disguise=Não podes disfarçar-te como tu próprio.
-morph.unlock.special=A sua metamorfose especial foi desbloqueada. Já está disponível na sua Pulseira de Metamorfose.
+morph.unlock.special=A sua metamorfose especial foi desbloqueada. Já está disponível no seu Omnitrix.
 morph.storage_blocked=Esta transformação não pode ser selada numa Garrafa de Alma.
 morph.fly.requires_education=Voar requer a Education Edition - ativa-a nas Definições do Mundo para voar como esta criatura.
 death.attack.noStinger=%1$s sentiu o ferrão do sacrifício
