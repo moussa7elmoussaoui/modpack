@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Dieser Ort ist ungültig, stelle sicher, dass du 
 morph.bee.dying=Stirbt in §c%ss§r
 morph.unavailable.vanilla=Diese Kreatur ist noch in Entwicklung und wurde noch nicht hinzugefügt.
 morph.unavailable.modded=Kreaturen aus anderen Add-ons werden in diesem Add-on nicht unterstützt.
-morph.self_disguise=Du kannst dich nicht als dich selbst verkleiden.
 morph.unlock.special=Dein spezieller Morph wurde freigeschaltet. Er ist jetzt in deinem Omnitrix verfügbar.
 morph.storage_blocked=Diese Morph kann nicht in einer Seelenflasche versiegelt werden.
+morph.self_seal_blocked=Du kannst deine eigene Morph nicht in einer Seelenflasche versiegeln.
+morph.omnitrix_worn=Du trägst bereits einen Omnitrix.
 morph.fly.requires_education=Fliegen erfordert Education Edition - aktiviere es in den Welteinstellungen, um als diese Kreatur zu fliegen.
 death.attack.noStinger=%1$s spürte den Stich der Aufopferung
 

@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Lokasi ini tidak valid, pastikan kamu berdiri di 
 morph.bee.dying=Mati dalam §c%ss§r
 morph.unavailable.vanilla=Makhluk ini sedang dalam pengembangan dan belum ditambahkan.
 morph.unavailable.modded=Makhluk dari add-on lain tidak didukung dalam add-on ini.
-morph.self_disguise=Kamu tidak dapat menyamar sebagai dirimu sendiri.
 morph.unlock.special=Morf spesial Anda terbuka. Sekarang tersedia di Omnitrix Anda.
 morph.storage_blocked=Morf ini tidak dapat disegel dalam Botol Jiwa.
+morph.self_seal_blocked=Morf pemain sendiri tidak dapat disegel dalam Botol Jiwa.
+morph.omnitrix_worn=Anda sudah memakai Omnitrix.
 morph.fly.requires_education=Terbang memerlukan Education Edition - aktifkan di Pengaturan Dunia untuk terbang sebagai makhluk ini.
 death.attack.noStinger=%1$s merasakan sengatan pengorbanan
 

@@ -1,15 +1,23 @@
 import morphs from "../data/morphs";
 
 export class Morph {
-  #entityType; #properties; #playerName;
+  #entityType; #properties; #playerName; #wearsOmnitrix;
 
-  constructor(entityType, properties = {}, playerName = undefined) {
+  constructor(entityType, properties = {}, playerName = undefined, wearsOmnitrix = false) {
     if (!(entityType in morphs)) {
       throw new Error(`'${entityType}' is not a morphable entity type`);
     }
 
-    if (playerName !== undefined && (entityType !== "minecraft:player" || typeof playerName !== "string" || playerName.length === 0)) {
+    if (entityType === "minecraft:player" && (typeof playerName !== "string" || playerName.length === 0)) {
       throw new Error("A player morph requires a non-empty player name");
+    }
+
+    if (entityType !== "minecraft:player" && playerName !== undefined) {
+      throw new Error("Only a player morph can have a player name");
+    }
+
+    if (entityType !== "minecraft:player" && wearsOmnitrix) {
+      throw new Error("Only a player morph can have an Omnitrix");
     }
 
     const validProperties = Object.fromEntries(
@@ -39,13 +47,15 @@ export class Morph {
     this.#entityType = entityType;
     this.#properties = properties;
     this.#playerName = playerName;
+    this.#wearsOmnitrix = wearsOmnitrix === true;
   }
 
   get entityType() { return this.#entityType; };
   get properties() { return { ...this.#properties }; };
   get playerName() { return this.#playerName; };
+  get wearsOmnitrix() { return this.#wearsOmnitrix; };
 
-  static parse(identifier) {
+  static parse(identifier, { allowOmnitrix = false } = {}) {
     if (typeof identifier !== "string") {
       throw new TypeError("Identifier must be a string");
     }
@@ -69,9 +79,14 @@ export class Morph {
     const playerName = entityType === "minecraft:player" && properties.name !== undefined
       ? decodeURIComponent(properties.name)
       : undefined;
+    if (properties.omnitrix !== undefined && !allowOmnitrix) {
+      throw new Error("The omnitrix morph property is reserved for internal use");
+    }
+    const wearsOmnitrix = entityType === "minecraft:player" && properties.omnitrix === "true";
     delete properties.name;
+    delete properties.omnitrix;
 
-    return new Morph(entityType, properties, playerName);
+    return new Morph(entityType, properties, playerName, wearsOmnitrix);
   }
 
   toString() {
@@ -79,7 +94,8 @@ export class Morph {
       .map(([key, value]) => `${key}=${value}`)
       .join(",");
     const playerName = this.#playerName === undefined ? "" : `name=${encodeURIComponent(this.#playerName)}`;
-    const serializedProperties = [ properties, playerName ].filter(Boolean).join(",");
+    const omnitrix = this.#wearsOmnitrix ? "omnitrix=true" : "";
+    const serializedProperties = [ properties, playerName, omnitrix ].filter(Boolean).join(",");
 
     return `${this.#entityType}[${serializedProperties}]`;
   }
@@ -88,6 +104,7 @@ export class Morph {
     if (!(other instanceof Morph)) return false;
     if (this.#entityType !== other.#entityType) return false;
     if (this.#playerName !== other.#playerName) return false;
+    if (this.#wearsOmnitrix !== other.#wearsOmnitrix) return false;
 
     const properties = this.#properties;
     const otherProperties = other.#properties;

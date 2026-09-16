@@ -14,6 +14,7 @@
         "opening": {
           "animations": [ "omnitrix_open" ],
           "transitions": [
+            { "closed": "((!query.is_in_ui && variable.is_either_person) || (query.is_in_ui && !variable.is_paperdoll)) ? (query.property('dark7mc:omnitrix_state') == 'worn_closed' || query.property('dark7mc:omnitrix_state') == 'unworn') : 0.0" },
             { "open": "((!query.is_in_ui && variable.is_either_person) || (query.is_in_ui && !variable.is_paperdoll)) ? query.property('dark7mc:omnitrix_state') == 'open' : 0.0" },
             { "closing": "((!query.is_in_ui && variable.is_either_person) || (query.is_in_ui && !variable.is_paperdoll)) ? query.property('dark7mc:omnitrix_state') == 'closing' : 0.0" }
           ]
@@ -21,6 +22,7 @@
         "open": {
           "animations": [ "omnitrix_open_idle" ],
           "transitions": [
+            { "closed": "((!query.is_in_ui && variable.is_either_person) || (query.is_in_ui && !variable.is_paperdoll)) ? (query.property('dark7mc:omnitrix_state') == 'worn_closed' || query.property('dark7mc:omnitrix_state') == 'unworn') : 0.0" },
             { "closing": "((!query.is_in_ui && variable.is_either_person) || (query.is_in_ui && !variable.is_paperdoll)) ? query.property('dark7mc:omnitrix_state') == 'closing' : 0.0" }
           ]
         },

@@ -1,0 +1,23 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "dark7mc:omnitrix_worn",
+      "item": {
+        "dark7mc:omnitrix_worn": "1.0"
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/items/omnitrix"
+      },
+      "geometry": {
+        "default": "geometry.omnitrix_worn_hand"
+      },
+      "render_controllers": [
+        "controller.render.omnitrix.hand"
+      ]
+    }
+  }
+}

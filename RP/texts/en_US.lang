@@ -77,9 +77,10 @@ morph.shulker.invalid_location=This location is invalid, make sure you are stand
 morph.bee.dying=Dying in §c%ss§r
 morph.unavailable.vanilla=This mob is currently in development and has not been added yet.
 morph.unavailable.modded=Mobs from other add-ons are not supported in this add-on.
-morph.self_disguise=You cannot disguise as yourself.
 morph.unlock.special=Your special morph has been unlocked. It is now available in your Omnitrix.
 morph.storage_blocked=This morph cannot be sealed in a Soul Bottle.
+morph.self_seal_blocked=You cannot seal your own player morph in a Soul Bottle.
+morph.omnitrix_worn=You are already wearing an Omnitrix.
 morph.fly.requires_education=Flying requires Education Edition - enable it in the World Settings to fly as this mob.
 death.attack.noStinger=%1$s felt the sting of sacrifice
 

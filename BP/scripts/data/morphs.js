@@ -1621,7 +1621,6 @@ const morphs = {
     items: [{ id: "dark7mc:fire_blast" }]
   },
   "minecraft:creaking": {},
-  "dark7mc:player_disguise": {},
   "dark7mc:ancient_elemental": {
     items: [{ id: "dark7mc:elemental_charge" }]
   }

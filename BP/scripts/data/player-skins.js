@@ -26,15 +26,15 @@ const YOUTUBER_NAMES = [
   "PewDiePie"
 ];
 
-const YOUTUBER_SKIN_DATA = YOUTUBER_NAMES.map((name, index) => ({
+const YOUTUBER_SKIN_DATA = YOUTUBER_NAMES.map((name) => ({
   name,
   model: ["Grian", "Aphmau", "Fundy"].includes(name) ? 1 : 0,
-  texture: `player_disguise/${["Grian", "Aphmau", "Fundy"].includes(name) ? "slim" : "wide"}/${name.toLowerCase().replaceAll(" ", "_")}`,
-  icon: `player_disguise/${["Grian", "Aphmau", "Fundy"].includes(name) ? "slim" : "wide"}/${name.toLowerCase().replaceAll(" ", "_")}`
+  texture: `player/${["Grian", "Aphmau", "Fundy"].includes(name) ? "slim" : "wide"}/${name.toLowerCase().replaceAll(" ", "_")}`,
+  icon: `player/${["Grian", "Aphmau", "Fundy"].includes(name) ? "slim" : "wide"}/${name.toLowerCase().replaceAll(" ", "_")}`
 }));
 
 const SLIM_SKINS = Array.from({ length: 150 }, (_, index) => {
-  const skinPath = `player_disguise/slim/s${String(index + 1).padStart(3, "0")}`;
+  const skinPath = `player/slim/s${String(index + 1).padStart(3, "0")}`;
   return {
     model: 1,
     texture: skinPath,
@@ -42,23 +42,27 @@ const SLIM_SKINS = Array.from({ length: 150 }, (_, index) => {
   };
 });
 
+const STEVE_SKIN = Object.freeze({ name: "Steve", model: 0, texture: "player/wide/steve", icon: "player/wide/steve" });
+const ALEX_SKIN = Object.freeze({ name: "Alex", model: 1, texture: "player/slim/alex", icon: "player/slim/alex" });
+
+// Skin index order: Steve 0; s001–s150 1–150; Alex 151; Dream–PewDiePie 152–172.
 const RANDOM_PLAYER_SKINS = Object.freeze([
-  { name: "Steve", model: 0, texture: "player_disguise/wide/steve", icon: "player_disguise/wide/steve" },
-  { name: "Alex", model: 1, texture: "player_disguise/slim/alex", icon: "player_disguise/slim/alex" },
-  ...YOUTUBER_SKIN_DATA,
-  ...SLIM_SKINS
+  STEVE_SKIN,
+  ...SLIM_SKINS,
+  ALEX_SKIN,
+  ...YOUTUBER_SKIN_DATA
 ]);
 
 export const playerSkins = Object.freeze([
   ...RANDOM_PLAYER_SKINS,
-  { name: "DARK7MC", model: 0, texture: "player_disguise/wide/dark7mc", icon: "player_disguise/wide/dark7mc" },
-  { name: "URBAN7MC", model: 0, texture: "player_disguise/wide/urban7mc", icon: "player_disguise/wide/urban7mc" }
+  { name: "DARK7MC", model: 0, texture: "player/wide/dark7mc", icon: "player/wide/dark7mc" },
+  { name: "URBAN7MC", model: 0, texture: "player/wide/urban7mc", icon: "player/wide/urban7mc" }
 ]);
 
 const PLAYER_SKIN_BY_NAME = Object.freeze(Object.fromEntries([
   ["Steve", 0],
-  ["Alex", 1],
-  ...YOUTUBER_NAMES.map((name, index) => [name, index + 2]),
+  ["Alex", 1 + SLIM_SKINS.length],
+  ...YOUTUBER_NAMES.map((name, index) => [name, 2 + SLIM_SKINS.length + index]),
   ["DARK7MC", RANDOM_PLAYER_SKINS.length],
   ["URBAN7MC", RANDOM_PLAYER_SKINS.length + 1]
 ]));
@@ -81,8 +85,8 @@ export function getPlayerSkinIndex(playerName) {
 
 export function getPlayerIconPath(skinIndex) {
   const skin = playerSkins[skinIndex];
-  if (skin?.icon !== undefined) return `textures/morph_icons/dark7mc/${skin.icon}`;
+  if (skin?.icon !== undefined) return `textures/morph_icons/minecraft/${skin.icon}`;
   return skin?.model === 1
-    ? "textures/morph_icons/dark7mc/player_disguise/slim/alex"
-    : "textures/morph_icons/dark7mc/player_disguise/wide/steve";
+    ? "textures/morph_icons/minecraft/player/slim/alex"
+    : "textures/morph_icons/minecraft/player/wide/steve";
 }

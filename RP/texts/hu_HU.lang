@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Ez a hely érvénytelen, győződj meg róla, hog
 morph.bee.dying=Meghal §c%ss§r múlva
 morph.unavailable.vanilla=Ez a lény fejlesztés alatt áll, és még nem lett hozzáadva.
 morph.unavailable.modded=Más kiegészítők lényei nem támogatottak ebben a kiegészítőben.
-morph.self_disguise=Nem álcázhatod magad saját magadnak.
 morph.unlock.special=A különleges átváltozásod fel lett oldva. Mostantól elérhető az Omnitrixodban.
 morph.storage_blocked=Ez az átváltozás nem zárható lélekpalackba.
+morph.self_seal_blocked=Saját átváltozásodat nem zárható lélekpalackba.
+morph.omnitrix_worn=Már kezén van egy Omnitrix.
 morph.fly.requires_education=A repüléshez Education Edition szükséges - engedélyezd a Világ beállításaiban, hogy repülhess, mint ez a lény.
 death.attack.noStinger=%1$s érezte az áldozat fullánkját
 

@@ -1,6 +1,6 @@
 import { BlockPermutation, HudElement, HudVisibility, Player, system, world } from "@minecraft/server";
 import { morphEntityTypes } from "../../data/morphs";
-import { renameItemTypeId } from "../../utils/updater";
+import { renameItemTypeId } from "../../utils/rename-item";
 import { morphEvents } from "../../morph/entity-methods";
 
 const ENTITY_TYPE = "minecraft:creaking";

@@ -11,7 +11,7 @@
                     "type": "int",
                     "range": [
                         0,
-                        84
+                        83
                     ],
                     "default": 0,
                     "client_sync": true
@@ -55,14 +55,10 @@
                     "default": "unworn",
                     "client_sync": true
                 },
-                "dark7mc:omnitrix_owner_model": {
-                    "type": "enum",
-                    "values": [
-                        "wide",
-                        "slim"
-                    ],
-                    "default": "wide",
-                    "client_sync": true
+                "dark7mc:morph_omnitrix": {
+                    "type": "bool",
+                    "client_sync": true,
+                    "default": false
                 },
                 "dark7mc:color2": {
                     "type": "int",
@@ -96,30 +92,6 @@
                     ],
                     "default": "unrolled",
                     "client_sync": true
-                },
-                "morph:entity": {
-                    "type": "int",
-                    "range": [
-                        -1,
-                        82
-                    ],
-                    "default": -1
-                },
-                "morph:color": {
-                    "type": "int",
-                    "range": [
-                        0,
-                        15
-                    ],
-                    "default": 0
-                },
-                "morph:color2": {
-                    "type": "int",
-                    "range": [
-                        0,
-                        15
-                    ],
-                    "default": 0
                 },
                 "minecraft:creaking_swaying_ticks": {
                     "client_sync": true,
@@ -10578,7 +10550,7 @@
                                     "subject": "self",
                                     "domain": "dark7mc:entity",
                                     "operator": "equals",
-                                    "value": 84
+                                    "value": 83
                                 },
                                 "remove": {
                                     "component_groups": [

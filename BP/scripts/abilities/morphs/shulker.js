@@ -49,7 +49,7 @@ system.runInterval(() => {
       isAxisCentered(location.z)
     ) continue;
     
-    player.setMorph(new Morph("minecraft:player"));
+    player.setMorph(new Morph("minecraft:player", {}, player.name));
   }
 });
 

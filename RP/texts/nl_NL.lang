@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Deze locatie is ongeldig, zorg dat je op een stev
 morph.bee.dying=Sterft over §c%ss§r
 morph.unavailable.vanilla=Dit wezen is in ontwikkeling en is nog niet toegevoegd.
 morph.unavailable.modded=Wezens uit andere add-ons worden niet ondersteund in deze add-on.
-morph.self_disguise=Je kunt jezelf niet vermommen.
 morph.unlock.special=Je speciale gedaantewisseling is ontgrendeld. Hij is nu beschikbaar in je Omnitrix.
 morph.storage_blocked=Deze morph kan niet in een zielenfles worden verzegeld.
+morph.self_seal_blocked=Je kunt je eigen spelersmorph niet in een zielenfles verzegelen.
+morph.omnitrix_worn=Je draagt al een Omnitrix.
 morph.fly.requires_education=Vliegen vereist Education Edition - schakel het in de Wereldinstellingen in om als dit wezen te vliegen.
 death.attack.noStinger=%1$s voelde de steek van opoffering
 

@@ -1,0 +1,34 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dark7mc:omnitrix_worn",
+      "menu_category": {
+        "category": "none"
+      }
+    },
+    "components": {
+      "minecraft:durability": {
+        "max_durability": 100
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "dark7mc:omnitrix"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "item.dark7mc:omnitrix"
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "minecraft:tags": {
+        "tags": [
+          "dark7mc:omnitrix",
+          "dark7mc:omnitrix_worn"
+        ]
+      },
+      "dark7mc:omnitrix": {}
+    }
+  }
+}

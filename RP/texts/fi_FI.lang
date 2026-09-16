@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Tämä sijainti on virheellinen, varmista että s
 morph.bee.dying=Kuolee §c%ss§r kuluttua
 morph.unavailable.vanilla=Tämä olento on kehitteillä eikä sitä ole vielä lisätty.
 morph.unavailable.modded=Muiden lisäosien olennot eivät ole tuettuja tässä lisäosassa.
-morph.self_disguise=Et voi naamioitua itseksesi.
 morph.unlock.special=Erikoismuotosi on avattu. Se on nyt käytettävissä Omnitrixissasi.
 morph.storage_blocked=Tätä morfia ei voi sinetöidä sielupulloon.
+morph.self_seal_blocked=Et voi sinetöidä omaa pelaajamorfiasi sielupulloon.
+morph.omnitrix_worn=Sinulla on jo Omnitrix päällä.
 morph.fly.requires_education=Lentäminen vaatii Education Editionin - ota se käyttöön Maailman asetuksissa lentääksesi tämän olennon muodossa.
 death.attack.noStinger=%1$s tunsi uhrauksen piston
 

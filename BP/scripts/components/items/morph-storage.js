@@ -5,10 +5,10 @@ import { Morph } from "../../morph/class";
 const PLAYER_ENTITY_TYPE = "minecraft:player";
 const STORAGE_BLOCKED_ENTITY_TYPES = new Set([ "dark7mc:night_fury", "dark7mc:ancient_elemental" ]);
 
-const SELF_DISGUISE_MESSAGE = [{ text: "§7" }, { translate: "morph.self_disguise" }, { text: "§r" }];
+const SELF_SEAL_BLOCKED_MESSAGE = [{ text: "§7" }, { translate: "morph.self_seal_blocked" }, { text: "§r" }];
 const STORAGE_BLOCKED_MESSAGE = [{ text: "§7" }, { translate: "morph.storage_blocked" }, { text: "§r" }];
 
-function isSelfDisguise(morph, player) {
+function isOwnPlayerMorph(morph, player) {
   return morph.entityType === PLAYER_ENTITY_TYPE && morph.playerName === player.name;
 }
 
@@ -27,9 +27,8 @@ export default {
       source.sendMessage(STORAGE_BLOCKED_MESSAGE);
       return;
     }
-    if (entityType === PLAYER_ENTITY_TYPE && morph.playerName === undefined) return;
-    if (isSelfDisguise(morph, source)) {
-      source.sendMessage(SELF_DISGUISE_MESSAGE);
+    if (isOwnPlayerMorph(morph, source)) {
+      source.sendMessage(SELF_SEAL_BLOCKED_MESSAGE);
       return;
     }
 
@@ -44,7 +43,7 @@ export default {
       { text: "§r" }
     ]}]);
     source.getComponent("minecraft:inventory").container.setItem(source.selectedSlotIndex, newItemStack);
-    source.setMorph(new Morph(PLAYER_ENTITY_TYPE), { soulSwitch: false });
+    source.setMorph(new Morph(PLAYER_ENTITY_TYPE, {}, source.name), { soulSwitch: false });
   },
   onCompleteUse: ({ itemStack, source }, { params }) => {
     const {
@@ -53,13 +52,7 @@ export default {
     } = params;
     if (onUseAction !== "consume") return;
 
-    const morph = Morph.parse(itemStack.getDynamicProperty("morph"));
-    if (isSelfDisguise(morph, source)) {
-      source.sendMessage(SELF_DISGUISE_MESSAGE);
-      return;
-    }
-
-    source.setMorph(morph);
+    source.setMorph(Morph.parse(itemStack.getDynamicProperty("morph"), { allowOmnitrix: true }));
 
     const newItemStack = new ItemStack(convertedItemType);
     newItemStack.getComponent("minecraft:cooldown").startCooldown(source);

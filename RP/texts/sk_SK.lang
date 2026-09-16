@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Toto miesto je neplatné, uisti sa, že stojíš 
 morph.bee.dying=Umiera o §c%ss§r
 morph.unavailable.vanilla=Toto stvorenie je vo vývoji a ešte nebolo pridané.
 morph.unavailable.modded=Stvorenia z iných doplnkov nie sú podporované v tomto doplnku.
-morph.self_disguise=Nemôžete sa prezliecť za seba.
 morph.unlock.special=Váš špeciálny morf bol odomknutý. Teraz je dostupný vo vašom Omnitrixe.
 morph.storage_blocked=Tento morf sa nedá zapečatiť do fľaše duší.
+morph.self_seal_blocked=Nemôžete zapečatiť svoj vlastný morf hráča do fľaše duší.
+morph.omnitrix_worn=Už máte oblečený Omnitrix.
 morph.fly.requires_education=Lietanie vyžaduje Education Edition - povoľte ju v Nastaveniach sveta, aby ste mohli lietať ako toto stvorenie.
 death.attack.noStinger=%1$s pocítil žihadlo obete
 

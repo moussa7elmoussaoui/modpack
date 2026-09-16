@@ -119,185 +119,8 @@
         "creaking": "creaking",
         "creaking_eyes": "creaking_eyes"
       },
-      "textures": {
+                  "textures": {
         "default": "textures/entity/steve",
-        "player_disguise": "textures/entity/player_disguise/wide/steve",
-        "player_disguise_slim": "textures/entity/player_disguise/slim/alex",
-        "player_disguise_0": "textures/entity/player_disguise/wide/steve",
-        "player_disguise_1": "textures/entity/player_disguise/slim/alex",
-        "player_disguise_2": "textures/entity/player_disguise/wide/dream",
-        "player_disguise_3": "textures/entity/player_disguise/wide/technoblade",
-        "player_disguise_4": "textures/entity/player_disguise/wide/dantdm",
-        "player_disguise_5": "textures/entity/player_disguise/wide/stampy",
-        "player_disguise_6": "textures/entity/player_disguise/wide/mumbo_jumbo",
-        "player_disguise_7": "textures/entity/player_disguise/slim/grian",
-        "player_disguise_8": "textures/entity/player_disguise/wide/tommyinnit",
-        "player_disguise_9": "textures/entity/player_disguise/wide/ph1lza",
-        "player_disguise_10": "textures/entity/player_disguise/wide/sapnap",
-        "player_disguise_11": "textures/entity/player_disguise/wide/ramboo",
-        "player_disguise_12": "textures/entity/player_disguise/wide/prestonplayz",
-        "player_disguise_13": "textures/entity/player_disguise/slim/aphmau",
-        "player_disguise_14": "textures/entity/player_disguise/wide/unspeakable",
-        "player_disguise_15": "textures/entity/player_disguise/slim/fundy",
-        "player_disguise_16": "textures/entity/player_disguise/wide/georgenotfound",
-        "player_disguise_17": "textures/entity/player_disguise/wide/wemmbu",
-        "player_disguise_18": "textures/entity/player_disguise/wide/dr_donut",
-        "player_disguise_19": "textures/entity/player_disguise/wide/mrbeast",
-        "player_disguise_20": "textures/entity/player_disguise/wide/chandler",
-        "player_disguise_21": "textures/entity/player_disguise/wide/grox",
-        "player_disguise_22": "textures/entity/player_disguise/wide/pewdiepie",
-        "player_disguise_23": "textures/entity/player_disguise/slim/s001",
-        "player_disguise_24": "textures/entity/player_disguise/slim/s002",
-        "player_disguise_25": "textures/entity/player_disguise/slim/s003",
-        "player_disguise_26": "textures/entity/player_disguise/slim/s004",
-        "player_disguise_27": "textures/entity/player_disguise/slim/s005",
-        "player_disguise_28": "textures/entity/player_disguise/slim/s006",
-        "player_disguise_29": "textures/entity/player_disguise/slim/s007",
-        "player_disguise_30": "textures/entity/player_disguise/slim/s008",
-        "player_disguise_31": "textures/entity/player_disguise/slim/s009",
-        "player_disguise_32": "textures/entity/player_disguise/slim/s010",
-        "player_disguise_33": "textures/entity/player_disguise/slim/s011",
-        "player_disguise_34": "textures/entity/player_disguise/slim/s012",
-        "player_disguise_35": "textures/entity/player_disguise/slim/s013",
-        "player_disguise_36": "textures/entity/player_disguise/slim/s014",
-        "player_disguise_37": "textures/entity/player_disguise/slim/s015",
-        "player_disguise_38": "textures/entity/player_disguise/slim/s016",
-        "player_disguise_39": "textures/entity/player_disguise/slim/s017",
-        "player_disguise_40": "textures/entity/player_disguise/slim/s018",
-        "player_disguise_41": "textures/entity/player_disguise/slim/s019",
-        "player_disguise_42": "textures/entity/player_disguise/slim/s020",
-        "player_disguise_43": "textures/entity/player_disguise/slim/s021",
-        "player_disguise_44": "textures/entity/player_disguise/slim/s022",
-        "player_disguise_45": "textures/entity/player_disguise/slim/s023",
-        "player_disguise_46": "textures/entity/player_disguise/slim/s024",
-        "player_disguise_47": "textures/entity/player_disguise/slim/s025",
-        "player_disguise_48": "textures/entity/player_disguise/slim/s026",
-        "player_disguise_49": "textures/entity/player_disguise/slim/s027",
-        "player_disguise_50": "textures/entity/player_disguise/slim/s028",
-        "player_disguise_51": "textures/entity/player_disguise/slim/s029",
-        "player_disguise_52": "textures/entity/player_disguise/slim/s030",
-        "player_disguise_53": "textures/entity/player_disguise/slim/s031",
-        "player_disguise_54": "textures/entity/player_disguise/slim/s032",
-        "player_disguise_55": "textures/entity/player_disguise/slim/s033",
-        "player_disguise_56": "textures/entity/player_disguise/slim/s034",
-        "player_disguise_57": "textures/entity/player_disguise/slim/s035",
-        "player_disguise_58": "textures/entity/player_disguise/slim/s036",
-        "player_disguise_59": "textures/entity/player_disguise/slim/s037",
-        "player_disguise_60": "textures/entity/player_disguise/slim/s038",
-        "player_disguise_61": "textures/entity/player_disguise/slim/s039",
-        "player_disguise_62": "textures/entity/player_disguise/slim/s040",
-        "player_disguise_63": "textures/entity/player_disguise/slim/s041",
-        "player_disguise_64": "textures/entity/player_disguise/slim/s042",
-        "player_disguise_65": "textures/entity/player_disguise/slim/s043",
-        "player_disguise_66": "textures/entity/player_disguise/slim/s044",
-        "player_disguise_67": "textures/entity/player_disguise/slim/s045",
-        "player_disguise_68": "textures/entity/player_disguise/slim/s046",
-        "player_disguise_69": "textures/entity/player_disguise/slim/s047",
-        "player_disguise_70": "textures/entity/player_disguise/slim/s048",
-        "player_disguise_71": "textures/entity/player_disguise/slim/s049",
-        "player_disguise_72": "textures/entity/player_disguise/slim/s050",
-        "player_disguise_73": "textures/entity/player_disguise/slim/s051",
-        "player_disguise_74": "textures/entity/player_disguise/slim/s052",
-        "player_disguise_75": "textures/entity/player_disguise/slim/s053",
-        "player_disguise_76": "textures/entity/player_disguise/slim/s054",
-        "player_disguise_77": "textures/entity/player_disguise/slim/s055",
-        "player_disguise_78": "textures/entity/player_disguise/slim/s056",
-        "player_disguise_79": "textures/entity/player_disguise/slim/s057",
-        "player_disguise_80": "textures/entity/player_disguise/slim/s058",
-        "player_disguise_81": "textures/entity/player_disguise/slim/s059",
-        "player_disguise_82": "textures/entity/player_disguise/slim/s060",
-        "player_disguise_83": "textures/entity/player_disguise/slim/s061",
-        "player_disguise_84": "textures/entity/player_disguise/slim/s062",
-        "player_disguise_85": "textures/entity/player_disguise/slim/s063",
-        "player_disguise_86": "textures/entity/player_disguise/slim/s064",
-        "player_disguise_87": "textures/entity/player_disguise/slim/s065",
-        "player_disguise_88": "textures/entity/player_disguise/slim/s066",
-        "player_disguise_89": "textures/entity/player_disguise/slim/s067",
-        "player_disguise_90": "textures/entity/player_disguise/slim/s068",
-        "player_disguise_91": "textures/entity/player_disguise/slim/s069",
-        "player_disguise_92": "textures/entity/player_disguise/slim/s070",
-        "player_disguise_93": "textures/entity/player_disguise/slim/s071",
-        "player_disguise_94": "textures/entity/player_disguise/slim/s072",
-        "player_disguise_95": "textures/entity/player_disguise/slim/s073",
-        "player_disguise_96": "textures/entity/player_disguise/slim/s074",
-        "player_disguise_97": "textures/entity/player_disguise/slim/s075",
-        "player_disguise_98": "textures/entity/player_disguise/slim/s076",
-        "player_disguise_99": "textures/entity/player_disguise/slim/s077",
-        "player_disguise_100": "textures/entity/player_disguise/slim/s078",
-        "player_disguise_101": "textures/entity/player_disguise/slim/s079",
-        "player_disguise_102": "textures/entity/player_disguise/slim/s080",
-        "player_disguise_103": "textures/entity/player_disguise/slim/s081",
-        "player_disguise_104": "textures/entity/player_disguise/slim/s082",
-        "player_disguise_105": "textures/entity/player_disguise/slim/s083",
-        "player_disguise_106": "textures/entity/player_disguise/slim/s084",
-        "player_disguise_107": "textures/entity/player_disguise/slim/s085",
-        "player_disguise_108": "textures/entity/player_disguise/slim/s086",
-        "player_disguise_109": "textures/entity/player_disguise/slim/s087",
-        "player_disguise_110": "textures/entity/player_disguise/slim/s088",
-        "player_disguise_111": "textures/entity/player_disguise/slim/s089",
-        "player_disguise_112": "textures/entity/player_disguise/slim/s090",
-        "player_disguise_113": "textures/entity/player_disguise/slim/s091",
-        "player_disguise_114": "textures/entity/player_disguise/slim/s092",
-        "player_disguise_115": "textures/entity/player_disguise/slim/s093",
-        "player_disguise_116": "textures/entity/player_disguise/slim/s094",
-        "player_disguise_117": "textures/entity/player_disguise/slim/s095",
-        "player_disguise_118": "textures/entity/player_disguise/slim/s096",
-        "player_disguise_119": "textures/entity/player_disguise/slim/s097",
-        "player_disguise_120": "textures/entity/player_disguise/slim/s098",
-        "player_disguise_121": "textures/entity/player_disguise/slim/s099",
-        "player_disguise_122": "textures/entity/player_disguise/slim/s100",
-        "player_disguise_123": "textures/entity/player_disguise/slim/s101",
-        "player_disguise_124": "textures/entity/player_disguise/slim/s102",
-        "player_disguise_125": "textures/entity/player_disguise/slim/s103",
-        "player_disguise_126": "textures/entity/player_disguise/slim/s104",
-        "player_disguise_127": "textures/entity/player_disguise/slim/s105",
-        "player_disguise_128": "textures/entity/player_disguise/slim/s106",
-        "player_disguise_129": "textures/entity/player_disguise/slim/s107",
-        "player_disguise_130": "textures/entity/player_disguise/slim/s108",
-        "player_disguise_131": "textures/entity/player_disguise/slim/s109",
-        "player_disguise_132": "textures/entity/player_disguise/slim/s110",
-        "player_disguise_133": "textures/entity/player_disguise/slim/s111",
-        "player_disguise_134": "textures/entity/player_disguise/slim/s112",
-        "player_disguise_135": "textures/entity/player_disguise/slim/s113",
-        "player_disguise_136": "textures/entity/player_disguise/slim/s114",
-        "player_disguise_137": "textures/entity/player_disguise/slim/s115",
-        "player_disguise_138": "textures/entity/player_disguise/slim/s116",
-        "player_disguise_139": "textures/entity/player_disguise/slim/s117",
-        "player_disguise_140": "textures/entity/player_disguise/slim/s118",
-        "player_disguise_141": "textures/entity/player_disguise/slim/s119",
-        "player_disguise_142": "textures/entity/player_disguise/slim/s120",
-        "player_disguise_143": "textures/entity/player_disguise/slim/s121",
-        "player_disguise_144": "textures/entity/player_disguise/slim/s122",
-        "player_disguise_145": "textures/entity/player_disguise/slim/s123",
-        "player_disguise_146": "textures/entity/player_disguise/slim/s124",
-        "player_disguise_147": "textures/entity/player_disguise/slim/s125",
-        "player_disguise_148": "textures/entity/player_disguise/slim/s126",
-        "player_disguise_149": "textures/entity/player_disguise/slim/s127",
-        "player_disguise_150": "textures/entity/player_disguise/slim/s128",
-        "player_disguise_151": "textures/entity/player_disguise/slim/s129",
-        "player_disguise_152": "textures/entity/player_disguise/slim/s130",
-        "player_disguise_153": "textures/entity/player_disguise/slim/s131",
-        "player_disguise_154": "textures/entity/player_disguise/slim/s132",
-        "player_disguise_155": "textures/entity/player_disguise/slim/s133",
-        "player_disguise_156": "textures/entity/player_disguise/slim/s134",
-        "player_disguise_157": "textures/entity/player_disguise/slim/s135",
-        "player_disguise_158": "textures/entity/player_disguise/slim/s136",
-        "player_disguise_159": "textures/entity/player_disguise/slim/s137",
-        "player_disguise_160": "textures/entity/player_disguise/slim/s138",
-        "player_disguise_161": "textures/entity/player_disguise/slim/s139",
-        "player_disguise_162": "textures/entity/player_disguise/slim/s140",
-        "player_disguise_163": "textures/entity/player_disguise/slim/s141",
-        "player_disguise_164": "textures/entity/player_disguise/slim/s142",
-        "player_disguise_165": "textures/entity/player_disguise/slim/s143",
-        "player_disguise_166": "textures/entity/player_disguise/slim/s144",
-        "player_disguise_167": "textures/entity/player_disguise/slim/s145",
-        "player_disguise_168": "textures/entity/player_disguise/slim/s146",
-        "player_disguise_169": "textures/entity/player_disguise/slim/s147",
-        "player_disguise_170": "textures/entity/player_disguise/slim/s148",
-        "player_disguise_171": "textures/entity/player_disguise/slim/s149",
-        "player_disguise_172": "textures/entity/player_disguise/slim/s150",
-        "player_disguise_173": "textures/entity/player_disguise/wide/dark7mc",
-        "player_disguise_174": "textures/entity/player_disguise/wide/urban7mc",
         "cape": "textures/entity/cape_invisible",
         "zombie": "textures/entity/zombie/zombie",
         "zombie_baby": "textures/entity/zombie/zombie_baby",
@@ -678,12 +501,189 @@
         "breeze_wind": "textures/entity/breeze/breeze_wind",
         "breeze_eyes": "textures/entity/breeze/breeze_eyes",
         "creaking": "textures/entity/creaking/creaking",
-        "creaking_eyes": "textures/entity/creaking/creaking_eyes"
+        "creaking_eyes": "textures/entity/creaking/creaking_eyes",
+        "player": "textures/entity/player/wide/steve",
+        "player_slim": "textures/entity/player/slim/alex",
+        "player_0": "textures/entity/player/wide/steve",
+        "player_1": "textures/entity/player/slim/s001",
+        "player_2": "textures/entity/player/slim/s002",
+        "player_3": "textures/entity/player/slim/s003",
+        "player_4": "textures/entity/player/slim/s004",
+        "player_5": "textures/entity/player/slim/s005",
+        "player_6": "textures/entity/player/slim/s006",
+        "player_7": "textures/entity/player/slim/s007",
+        "player_8": "textures/entity/player/slim/s008",
+        "player_9": "textures/entity/player/slim/s009",
+        "player_10": "textures/entity/player/slim/s010",
+        "player_11": "textures/entity/player/slim/s011",
+        "player_12": "textures/entity/player/slim/s012",
+        "player_13": "textures/entity/player/slim/s013",
+        "player_14": "textures/entity/player/slim/s014",
+        "player_15": "textures/entity/player/slim/s015",
+        "player_16": "textures/entity/player/slim/s016",
+        "player_17": "textures/entity/player/slim/s017",
+        "player_18": "textures/entity/player/slim/s018",
+        "player_19": "textures/entity/player/slim/s019",
+        "player_20": "textures/entity/player/slim/s020",
+        "player_21": "textures/entity/player/slim/s021",
+        "player_22": "textures/entity/player/slim/s022",
+        "player_23": "textures/entity/player/slim/s023",
+        "player_24": "textures/entity/player/slim/s024",
+        "player_25": "textures/entity/player/slim/s025",
+        "player_26": "textures/entity/player/slim/s026",
+        "player_27": "textures/entity/player/slim/s027",
+        "player_28": "textures/entity/player/slim/s028",
+        "player_29": "textures/entity/player/slim/s029",
+        "player_30": "textures/entity/player/slim/s030",
+        "player_31": "textures/entity/player/slim/s031",
+        "player_32": "textures/entity/player/slim/s032",
+        "player_33": "textures/entity/player/slim/s033",
+        "player_34": "textures/entity/player/slim/s034",
+        "player_35": "textures/entity/player/slim/s035",
+        "player_36": "textures/entity/player/slim/s036",
+        "player_37": "textures/entity/player/slim/s037",
+        "player_38": "textures/entity/player/slim/s038",
+        "player_39": "textures/entity/player/slim/s039",
+        "player_40": "textures/entity/player/slim/s040",
+        "player_41": "textures/entity/player/slim/s041",
+        "player_42": "textures/entity/player/slim/s042",
+        "player_43": "textures/entity/player/slim/s043",
+        "player_44": "textures/entity/player/slim/s044",
+        "player_45": "textures/entity/player/slim/s045",
+        "player_46": "textures/entity/player/slim/s046",
+        "player_47": "textures/entity/player/slim/s047",
+        "player_48": "textures/entity/player/slim/s048",
+        "player_49": "textures/entity/player/slim/s049",
+        "player_50": "textures/entity/player/slim/s050",
+        "player_51": "textures/entity/player/slim/s051",
+        "player_52": "textures/entity/player/slim/s052",
+        "player_53": "textures/entity/player/slim/s053",
+        "player_54": "textures/entity/player/slim/s054",
+        "player_55": "textures/entity/player/slim/s055",
+        "player_56": "textures/entity/player/slim/s056",
+        "player_57": "textures/entity/player/slim/s057",
+        "player_58": "textures/entity/player/slim/s058",
+        "player_59": "textures/entity/player/slim/s059",
+        "player_60": "textures/entity/player/slim/s060",
+        "player_61": "textures/entity/player/slim/s061",
+        "player_62": "textures/entity/player/slim/s062",
+        "player_63": "textures/entity/player/slim/s063",
+        "player_64": "textures/entity/player/slim/s064",
+        "player_65": "textures/entity/player/slim/s065",
+        "player_66": "textures/entity/player/slim/s066",
+        "player_67": "textures/entity/player/slim/s067",
+        "player_68": "textures/entity/player/slim/s068",
+        "player_69": "textures/entity/player/slim/s069",
+        "player_70": "textures/entity/player/slim/s070",
+        "player_71": "textures/entity/player/slim/s071",
+        "player_72": "textures/entity/player/slim/s072",
+        "player_73": "textures/entity/player/slim/s073",
+        "player_74": "textures/entity/player/slim/s074",
+        "player_75": "textures/entity/player/slim/s075",
+        "player_76": "textures/entity/player/slim/s076",
+        "player_77": "textures/entity/player/slim/s077",
+        "player_78": "textures/entity/player/slim/s078",
+        "player_79": "textures/entity/player/slim/s079",
+        "player_80": "textures/entity/player/slim/s080",
+        "player_81": "textures/entity/player/slim/s081",
+        "player_82": "textures/entity/player/slim/s082",
+        "player_83": "textures/entity/player/slim/s083",
+        "player_84": "textures/entity/player/slim/s084",
+        "player_85": "textures/entity/player/slim/s085",
+        "player_86": "textures/entity/player/slim/s086",
+        "player_87": "textures/entity/player/slim/s087",
+        "player_88": "textures/entity/player/slim/s088",
+        "player_89": "textures/entity/player/slim/s089",
+        "player_90": "textures/entity/player/slim/s090",
+        "player_91": "textures/entity/player/slim/s091",
+        "player_92": "textures/entity/player/slim/s092",
+        "player_93": "textures/entity/player/slim/s093",
+        "player_94": "textures/entity/player/slim/s094",
+        "player_95": "textures/entity/player/slim/s095",
+        "player_96": "textures/entity/player/slim/s096",
+        "player_97": "textures/entity/player/slim/s097",
+        "player_98": "textures/entity/player/slim/s098",
+        "player_99": "textures/entity/player/slim/s099",
+        "player_100": "textures/entity/player/slim/s100",
+        "player_101": "textures/entity/player/slim/s101",
+        "player_102": "textures/entity/player/slim/s102",
+        "player_103": "textures/entity/player/slim/s103",
+        "player_104": "textures/entity/player/slim/s104",
+        "player_105": "textures/entity/player/slim/s105",
+        "player_106": "textures/entity/player/slim/s106",
+        "player_107": "textures/entity/player/slim/s107",
+        "player_108": "textures/entity/player/slim/s108",
+        "player_109": "textures/entity/player/slim/s109",
+        "player_110": "textures/entity/player/slim/s110",
+        "player_111": "textures/entity/player/slim/s111",
+        "player_112": "textures/entity/player/slim/s112",
+        "player_113": "textures/entity/player/slim/s113",
+        "player_114": "textures/entity/player/slim/s114",
+        "player_115": "textures/entity/player/slim/s115",
+        "player_116": "textures/entity/player/slim/s116",
+        "player_117": "textures/entity/player/slim/s117",
+        "player_118": "textures/entity/player/slim/s118",
+        "player_119": "textures/entity/player/slim/s119",
+        "player_120": "textures/entity/player/slim/s120",
+        "player_121": "textures/entity/player/slim/s121",
+        "player_122": "textures/entity/player/slim/s122",
+        "player_123": "textures/entity/player/slim/s123",
+        "player_124": "textures/entity/player/slim/s124",
+        "player_125": "textures/entity/player/slim/s125",
+        "player_126": "textures/entity/player/slim/s126",
+        "player_127": "textures/entity/player/slim/s127",
+        "player_128": "textures/entity/player/slim/s128",
+        "player_129": "textures/entity/player/slim/s129",
+        "player_130": "textures/entity/player/slim/s130",
+        "player_131": "textures/entity/player/slim/s131",
+        "player_132": "textures/entity/player/slim/s132",
+        "player_133": "textures/entity/player/slim/s133",
+        "player_134": "textures/entity/player/slim/s134",
+        "player_135": "textures/entity/player/slim/s135",
+        "player_136": "textures/entity/player/slim/s136",
+        "player_137": "textures/entity/player/slim/s137",
+        "player_138": "textures/entity/player/slim/s138",
+        "player_139": "textures/entity/player/slim/s139",
+        "player_140": "textures/entity/player/slim/s140",
+        "player_141": "textures/entity/player/slim/s141",
+        "player_142": "textures/entity/player/slim/s142",
+        "player_143": "textures/entity/player/slim/s143",
+        "player_144": "textures/entity/player/slim/s144",
+        "player_145": "textures/entity/player/slim/s145",
+        "player_146": "textures/entity/player/slim/s146",
+        "player_147": "textures/entity/player/slim/s147",
+        "player_148": "textures/entity/player/slim/s148",
+        "player_149": "textures/entity/player/slim/s149",
+        "player_150": "textures/entity/player/slim/s150",
+        "player_151": "textures/entity/player/slim/alex",
+        "player_152": "textures/entity/player/wide/dream",
+        "player_153": "textures/entity/player/wide/technoblade",
+        "player_154": "textures/entity/player/wide/dantdm",
+        "player_155": "textures/entity/player/wide/stampy",
+        "player_156": "textures/entity/player/wide/mumbo_jumbo",
+        "player_157": "textures/entity/player/slim/grian",
+        "player_158": "textures/entity/player/wide/tommyinnit",
+        "player_159": "textures/entity/player/wide/ph1lza",
+        "player_160": "textures/entity/player/wide/sapnap",
+        "player_161": "textures/entity/player/wide/ramboo",
+        "player_162": "textures/entity/player/wide/prestonplayz",
+        "player_163": "textures/entity/player/slim/aphmau",
+        "player_164": "textures/entity/player/wide/unspeakable",
+        "player_165": "textures/entity/player/slim/fundy",
+        "player_166": "textures/entity/player/wide/georgenotfound",
+        "player_167": "textures/entity/player/wide/wemmbu",
+        "player_168": "textures/entity/player/wide/dr_donut",
+        "player_169": "textures/entity/player/wide/mrbeast",
+        "player_170": "textures/entity/player/wide/chandler",
+        "player_171": "textures/entity/player/wide/grox",
+        "player_172": "textures/entity/player/wide/pewdiepie",
+        "player_173": "textures/entity/player/wide/dark7mc",
+        "player_174": "textures/entity/player/wide/urban7mc"
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
-        "player_disguise": "geometry.morph.player",
-        "player_disguise_slim": "geometry.morph.player.slim",
+        "player": "geometry.morph.player",
+        "player_slim": "geometry.morph.player.slim",
         "omnitrix": "geometry.omnitrix",
         "omnitrix_slim": "geometry.omnitrix.slim",
         "cape": "geometry.cape",
@@ -833,7 +833,7 @@
         "creaking_": "geometry.morph.creaking"
       },
       "scripts": {
-        "scale": "(variable.map_face_icon || variable.is_paperdoll || query.any(query.property('dark7mc:entity'), 0, 83)) ? 0.9375 : (query.any(query.property('dark7mc:entity'), 1, 2, 4, 6, 8, 11, 12, 13, 14, 19, 20, 21, 24, 26, 29, 30, 32, 34, 35, 36, 39, 40, 44, 50, 62, 71, 74, 75) && query.is_baby ? 2.0 : query.any(query.property('dark7mc:entity'), 14, 27, 47, 57, 60) ? 0.9375 : query.any(query.property('dark7mc:entity'), 18, 64) && query.is_baby ? (1 / 0.4) : query.property('dark7mc:entity') == 33 ? 0.7 : query.property('dark7mc:entity') == 37 ? 2.0 : query.property('dark7mc:entity') == 38 && query.is_baby ? (1 / 0.65) : query.property('dark7mc:entity') == 46 && query.is_baby ? (1 / 0.16) : query.property('dark7mc:entity') == 48 ? (query.is_baby ? (1 / 0.4) : (1 / 0.6)) : query.property('dark7mc:entity') == 49 && query.is_in_ui ? 0.5 : query.property('dark7mc:entity') == 52 ? (query.is_baby ? 2.0 : 1.2) : query.property('dark7mc:entity') == 65 && !query.is_in_ui ? 2.35 : query.any(query.property('dark7mc:entity'), 68, 76) && query.is_baby ? (1 / 0.45) : query.property('dark7mc:entity') == 72 ? (query.is_baby ? 2.0 : 0.87) : query.property('dark7mc:entity') == 73 ? (query.is_baby ? 2.0 : 0.92) : query.property('dark7mc:entity') == 77 && !query.is_sleeping && query.is_in_ui ? 0.25 : query.property('dark7mc:entity') == 78 && query.is_baby ? (1 / 0.6) : query.property('dark7mc:entity') == 81 && !query.is_in_ui ? 0.4 : query.property('dark7mc:entity') == 84 && !query.is_in_ui ? 0.8 : 1.0) * !variable.is_first_person",
+        "scale": "(variable.map_face_icon || variable.is_paperdoll || query.property('dark7mc:entity') == 0) ? 0.9375 : (query.any(query.property('dark7mc:entity'), 1, 2, 4, 6, 8, 11, 12, 13, 14, 19, 20, 21, 24, 26, 29, 30, 32, 34, 35, 36, 39, 40, 44, 50, 62, 71, 74, 75) && query.is_baby ? 2.0 : query.any(query.property('dark7mc:entity'), 14, 27, 47, 57, 60) ? 0.9375 : query.any(query.property('dark7mc:entity'), 18, 64) && query.is_baby ? (1 / 0.4) : query.property('dark7mc:entity') == 33 ? 0.7 : query.property('dark7mc:entity') == 37 ? 2.0 : query.property('dark7mc:entity') == 38 && query.is_baby ? (1 / 0.65) : query.property('dark7mc:entity') == 46 && query.is_baby ? (1 / 0.16) : query.property('dark7mc:entity') == 48 ? (query.is_baby ? (1 / 0.4) : (1 / 0.6)) : query.property('dark7mc:entity') == 49 && query.is_in_ui ? 0.5 : query.property('dark7mc:entity') == 52 ? (query.is_baby ? 2.0 : 1.2) : query.property('dark7mc:entity') == 65 && !query.is_in_ui ? 2.35 : query.any(query.property('dark7mc:entity'), 68, 76) && query.is_baby ? (1 / 0.45) : query.property('dark7mc:entity') == 72 ? (query.is_baby ? 2.0 : 0.87) : query.property('dark7mc:entity') == 73 ? (query.is_baby ? 2.0 : 0.92) : query.property('dark7mc:entity') == 77 && !query.is_sleeping && query.is_in_ui ? 0.25 : query.property('dark7mc:entity') == 78 && query.is_baby ? (1 / 0.6) : query.property('dark7mc:entity') == 81 && !query.is_in_ui ? 0.4 : query.property('dark7mc:entity') == 83 && !query.is_in_ui ? 0.8 : 1.0) * !variable.is_first_person",
         "initialize": [
           "variable.is_holding_right = 0.0;",
           "variable.is_blinking = 0.0;",
@@ -954,7 +954,7 @@
           "variable.is_either_person = variable.is_first_person || variable.is_third_person;",
           "(variable.is_either_person && query.property('dark7mc:entity') != 0) ? {",
           "variable.delta_time = query.delta_time * !query.is_in_ui;",
-          "variable.show_items = query.any(query.property('dark7mc:entity'), 3, 15, 25, 31, 41, 79, 83) || (query.any(query.property('dark7mc:entity'), 1, 11, 13, 19, 21, 35) && !query.is_baby) || (query.property('dark7mc:entity') == 27 && (variable.vindicator_show_arms ?? 0.0)) || (query.property('dark7mc:entity') == 57 && (variable.evoker_show_arms ?? 0.0) && !query.is_powered);",
+          "variable.show_items = query.any(query.property('dark7mc:entity'), 3, 15, 25, 31, 41, 79) || (query.any(query.property('dark7mc:entity'), 1, 11, 13, 19, 21, 35) && !query.is_baby) || (query.property('dark7mc:entity') == 27 && (variable.vindicator_show_arms ?? 0.0)) || (query.property('dark7mc:entity') == 57 && (variable.evoker_show_arms ?? 0.0) && !query.is_powered);",
           "variable.baby_modifier = !query.is_baby * 0.5 + 0.5;",
           "t.c = query.property('dark7mc:color');",
           "variable.color.r = (t.c == 0 ? 255 : t.c == 1 ? 249 : t.c == 2 ? 199 : t.c == 3 ?  58 : t.c == 4 ? 254 : t.c == 5 ? 128 : t.c == 6 ? 243 : t.c == 7 ? 71 : t.c == 8 ? 157 : t.c == 9 ?  22 : t.c == 10 ? 137 : t.c == 11 ?  60 : t.c == 12 ? 131 : t.c == 13 ?  94 : t.c == 14 ? 176 : t.c == 15 ? 29 : 255) / 255;",
@@ -964,10 +964,10 @@
           "variable.color2.r = (t.c2 == 0 ? 255 : t.c2 == 1 ? 249 : t.c2 == 2 ? 199 : t.c2 == 3 ?  58 : t.c2 == 4 ? 254 : t.c2 == 5 ? 128 : t.c2 == 6 ? 243 : t.c2 == 7 ? 71 : t.c2 == 8 ? 157 : t.c2 == 9 ?  22 : t.c2 == 10 ? 137 : t.c2 == 11 ?  60 : t.c2 == 12 ? 131 : t.c2 == 13 ?  94 : t.c2 == 14 ? 176 : t.c2 == 15 ? 29 : 255) / 255;",
           "variable.color2.g = (t.c2 == 0 ? 255 : t.c2 == 1 ? 128 : t.c2 == 2 ?  78 : t.c2 == 3 ? 179 : t.c2 == 4 ? 216 : t.c2 == 5 ? 199 : t.c2 == 6 ? 139 : t.c2 == 7 ? 79 : t.c2 == 8 ? 157 : t.c2 == 9 ? 156 : t.c2 == 10 ?  50 : t.c2 == 11 ?  68 : t.c2 == 12 ?  84 : t.c2 == 13 ? 124 : t.c2 == 14 ?  46 : t.c2 == 15 ? 29 : 255) / 255;",
           "variable.color2.b = (t.c2 == 0 ? 255 : t.c2 == 1 ?  29 : t.c2 == 2 ? 189 : t.c2 == 3 ? 218 : t.c2 == 4 ?  61 : t.c2 == 5 ?  31 : t.c2 == 6 ? 170 : t.c2 == 7 ? 82 : t.c2 == 8 ? 151 : t.c2 == 9 ? 156 : t.c2 == 10 ? 184 : t.c2 == 11 ? 170 : t.c2 == 12 ?  50 : t.c2 == 13 ?  22 : t.c2 == 14 ?  38 : t.c2 == 15 ? 33 : 255) / 255;",
-          "query.any(query.property('dark7mc:entity'), 1, 3, 11, 13, 15, 19, 21, 25, 27, 31, 35, 41, 57, 79, 83) ? {",
+          "query.any(query.property('dark7mc:entity'), 1, 3, 11, 13, 15, 19, 21, 25, 27, 31, 35, 41, 57, 79) ? {",
           "  variable.humanoid_tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
           "  variable.humanoid_riding_y_offset_baby_scaling = query.is_baby ? query.property('dark7mc:entity') == 35 ? 0.4 : 0.1 : 0.0;",
-          "  variable.humanoid_riding_y_offset_with_respect_to_player = (query.any(query.property('dark7mc:entity'), 1, 11, 13, 19, 21, 31, 35, 83) ? 1.0 : query.any(query.property('dark7mc:entity'), 3, 25, 79) ? 0.5 : query.property('dark7mc:entity') == 15 ? -1.0 : query.any(query.property('dark7mc:entity'), 27, 41, 57) ? 1.25 : 0.0) - 1.5;",
+          "  variable.humanoid_riding_y_offset_with_respect_to_player = (query.any(query.property('dark7mc:entity'), 1, 11, 13, 19, 21, 31, 35) ? 1.0 : query.any(query.property('dark7mc:entity'), 3, 25, 79) ? 0.5 : query.property('dark7mc:entity') == 15 ? -1.0 : query.any(query.property('dark7mc:entity'), 27, 41, 57) ? 1.25 : 0.0) - 1.5;",
           "  variable.humanoid_riding_y_offset_on_vehicle_where_other_entites_can_stand = query.is_riding_any_entity_of_type('minecraft:minecart', 'minecraft:boat', 'minecraft:chest_boat', 'minecraft:strider') ? -3.0 : 0.0;",
           "  variable.humanoid_riding_y_offset = variable.humanoid_riding_y_offset_with_respect_to_player + variable.humanoid_riding_y_offset_on_vehicle_where_other_entites_can_stand;",
           "  variable.humanoid_scaled_riding_y_offset = variable.humanoid_riding_y_offset_baby_scaling * math.abs(variable.humanoid_riding_y_offset) + variable.humanoid_riding_y_offset + variable.humanoid_riding_y_offset_baby_scaling * 0.2f;",
@@ -1212,10 +1212,10 @@
         ],
         "animate": [
           {
-            "root": "!variable.is_either_person || query.any(query.property('dark7mc:entity'), 0, 83)"
+            "root": "!variable.is_either_person || query.property('dark7mc:entity') == 0"
           },
           {
-            "omnitrix": "((!query.is_in_ui && variable.is_either_person) || (query.is_in_ui && !variable.is_paperdoll)) ? (query.any(query.property('dark7mc:entity'), 0, 83) && query.property('dark7mc:omnitrix_state') != 'unworn') : 0.0"
+            "omnitrix": "((!query.is_in_ui && variable.is_either_person) || (query.is_in_ui && !variable.is_paperdoll)) ? (query.property('dark7mc:entity') == 0 && query.property('dark7mc:morph_omnitrix') && query.property('dark7mc:omnitrix_state') != 'unworn') : 0.0"
           },
           {
             "show_items": "variable.is_third_person && query.property('dark7mc:entity') != 0"
@@ -1227,7 +1227,7 @@
             "vertical_gliding": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 2, 4, 6, 7, 8, 10, 12, 18, 20, 22, 24, 26, 28, 29, 32, 33, 34, 36, 38, 39, 40, 42, 43, 46, 48, 49, 51, 52, 53, 55, 56, 58, 59, 61, 62, 63, 64, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 77, 78, 81) && query.is_gliding"
           },
           {
-            "common_look_at_target_controller": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 5, 14, 16, 17, 23, 47, 57, 60, 80, 84) && !query.is_sleeping"
+            "common_look_at_target_controller": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 5, 14, 16, 17, 23, 47, 57, 60, 80, 83) && !query.is_sleeping"
           },
           {
             "common_look_at_target_vertical_gliding_controller": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 2, 4, 6, 8, 12, 18, 20, 24, 26, 32, 34, 42, 46, 48, 52, 55, 62, 63, 64, 65, 68) && !query.is_sleeping"
@@ -1446,16 +1446,16 @@
             "night_fury_quiet_flap_sound": "variable.is_first_person && !query.is_in_ui && query.property('dark7mc:entity') == 81 && !query.is_on_ground && !(query.is_sprinting && query.ground_speed >= 10.0 && query.vertical_speed <= 0.1)"
           },
           {
-            "ancient_elemental_locomotion": "variable.is_third_person && query.property('dark7mc:entity') == 84"
+            "ancient_elemental_locomotion": "variable.is_third_person && query.property('dark7mc:entity') == 83"
           },
           {
-            "ancient_elemental_punch": "variable.is_third_person && query.property('dark7mc:entity') == 84 && query.get_equipped_item_name != 'elemental_charge' && !query.is_sleeping"
+            "ancient_elemental_punch": "variable.is_third_person && query.property('dark7mc:entity') == 83 && query.get_equipped_item_name != 'elemental_charge' && !query.is_sleeping"
           },
           {
-            "ancient_elemental_ui_scale": "variable.is_third_person && query.property('dark7mc:entity') == 84 && query.is_in_ui"
+            "ancient_elemental_ui_scale": "variable.is_third_person && query.property('dark7mc:entity') == 83 && query.is_in_ui"
           },
           {
-            "ancient_elemental_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 84 && query.is_sleeping"
+            "ancient_elemental_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 83 && query.is_sleeping"
           },
           {
             "fox_setup": "variable.is_third_person && query.property('dark7mc:entity') == 12"
@@ -2680,37 +2680,37 @@
       "render_controllers": [
         "controller.render.player",
         {
-          "controller.render.player_disguise": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
+          "controller.render.morph.player": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 0"
         },
         {
-          "controller.render.player_disguise.first_person_spectator": "variable.is_first_person && query.is_spectator && query.property('dark7mc:entity') == 83"
+          "controller.render.morph.player.first_person_spectator": "variable.is_first_person && query.is_spectator && query.property('dark7mc:entity') == 0"
         },
         {
-          "controller.render.player_disguise.third_person_spectator": "variable.is_third_person && query.is_spectator && query.property('dark7mc:entity') == 83"
+          "controller.render.morph.player.third_person_spectator": "variable.is_third_person && query.is_spectator && query.property('dark7mc:entity') == 0"
         },
         {
-          "controller.render.player_disguise.first_person": "variable.is_first_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
+          "controller.render.morph.player.first_person": "variable.is_first_person && !query.is_spectator && query.property('dark7mc:entity') == 0"
         },
         {
-          "controller.render.player_disguise.third_person": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
+          "controller.render.morph.player.third_person": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 0"
         },
         {
-          "controller.render.player_disguise.map": "variable.map_face_icon && query.property('dark7mc:entity') == 83"
+          "controller.render.morph.player.map": "variable.map_face_icon && query.property('dark7mc:entity') == 0"
         },
         {
-          "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
+          "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator && variable.is_paperdoll"
         },
         {
-          "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
+          "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator && variable.is_paperdoll"
         },
         {
-          "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
+          "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator && variable.is_paperdoll"
         },
         {
-          "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator && (variable.is_paperdoll || query.property('dark7mc:entity') == 0)"
+          "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator && variable.is_paperdoll"
         },
         {
-          "controller.render.player.map": "variable.map_face_icon && query.property('dark7mc:entity') == 0"
+          "controller.render.player.map": "variable.map_face_icon && variable.is_paperdoll"
         },
         {
           "controller.render.morph.zombie": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 1"
@@ -3043,10 +3043,10 @@
           "controller.render.morph.night_fury.glow": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 81"
         },
         {
-          "controller.render.morph.ancient_elemental": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 84"
+          "controller.render.morph.ancient_elemental": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
         },
         {
-          "controller.render.morph.ancient_elemental.glow": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 84"
+          "controller.render.morph.ancient_elemental.glow": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 83"
         },
         {
           "controller.render.morph.creaking": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 82"
@@ -3055,16 +3055,16 @@
           "controller.render.morph.creaking_eyes": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 82"
         },
         {
-          "controller.render.omnitrix.paperdoll": "query.is_in_ui && !variable.is_paperdoll && query.any(query.property('dark7mc:entity'), 0, 83) && query.property('dark7mc:omnitrix_state') != 'unworn'"
+          "controller.render.omnitrix.paperdoll": "query.is_in_ui && !variable.is_paperdoll && query.property('dark7mc:entity') == 0 && query.property('dark7mc:morph_omnitrix') && query.property('dark7mc:omnitrix_state') != 'unworn'"
         },
         {
-          "controller.render.omnitrix.paperdoll.glow": "query.is_in_ui && !variable.is_paperdoll && query.any(query.property('dark7mc:entity'), 0, 83) && query.property('dark7mc:omnitrix_state') != 'unworn'"
+          "controller.render.omnitrix.paperdoll.glow": "query.is_in_ui && !variable.is_paperdoll && query.property('dark7mc:entity') == 0 && query.property('dark7mc:morph_omnitrix') && query.property('dark7mc:omnitrix_state') != 'unworn'"
         },
         {
-          "controller.render.omnitrix": "variable.is_paperdoll ? 0.0 : ((!query.is_in_ui && variable.is_either_person) ? (query.any(query.property('dark7mc:entity'), 0, 83) && query.property('dark7mc:omnitrix_state') != 'unworn') : 0.0)"
+          "controller.render.omnitrix": "variable.is_paperdoll ? 0.0 : ((!query.is_in_ui && variable.is_either_person) ? (query.property('dark7mc:entity') == 0 && query.property('dark7mc:morph_omnitrix') && query.property('dark7mc:omnitrix_state') != 'unworn') : 0.0)"
         },
         {
-          "controller.render.omnitrix.glow": "variable.is_paperdoll ? 0.0 : ((!query.is_in_ui && variable.is_either_person) ? (query.any(query.property('dark7mc:entity'), 0, 83) && query.property('dark7mc:omnitrix_state') != 'unworn') : 0.0)"
+          "controller.render.omnitrix.glow": "variable.is_paperdoll ? 0.0 : ((!query.is_in_ui && variable.is_either_person) ? (query.property('dark7mc:entity') == 0 && query.property('dark7mc:morph_omnitrix') && query.property('dark7mc:omnitrix_state') != 'unworn') : 0.0)"
         }
       ],
       "enable_attachables": true

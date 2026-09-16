@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Αυτή η τοποθεσία δεν είναι 
 morph.bee.dying=Πεθαίνει σε §c%ss§r
 morph.unavailable.vanilla=Αυτό το πλάσμα είναι υπό ανάπτυξη και δεν έχει προστεθεί ακόμα.
 morph.unavailable.modded=Πλάσματα από άλλα add-ons δεν υποστηρίζονται σε αυτό το add-on.
-morph.self_disguise=Δεν μπορείτε να μεταμορφωθείτε στον εαυτό σας.
 morph.unlock.special=Η ειδική μορφή σας ξεκλειδώθηκε. Είναι πλέον διαθέσιμη στο Omnitrix σας.
 morph.storage_blocked=Αυτή η μορφή δεν μπορεί να σφραγιστεί σε ένα Μπουκάλι Ψυχής.
+morph.self_seal_blocked=Δεν μπορείς να σφραγίσεις τη δική σου μορφή παίκτη σε ένα Μπουκάλι Ψυχής.
+morph.omnitrix_worn=Φοράς ήδη ένα Omnitrix.
 morph.fly.requires_education=Η πτήση απαιτεί Education Edition - ενεργοποιήστε το στις Ρυθμίσεις Κόσμου για να πετάξετε ως αυτό το πλάσμα.
 death.attack.noStinger=Ο/Η %1$s ένιωσε το κεντρί της θυσίας
 

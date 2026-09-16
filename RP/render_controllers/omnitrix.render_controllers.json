@@ -11,9 +11,15 @@
           ]
         }
       },
-      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:entity') == 83 ? query.property('dark7mc:player_model') == 1 : query.property('dark7mc:omnitrix_owner_model') == 'slim']",
-      "materials": [ { "*": "Material.omnitrix" } ],
-      "textures": [ "Texture.omnitrix" ]
+      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:player_model') == 1]",
+      "materials": [
+        {
+          "*": "Material.omnitrix"
+        }
+      ],
+      "textures": [
+        "Texture.omnitrix"
+      ]
     },
     "controller.render.omnitrix.paperdoll": {
       "rebuild_animation_matrices": true,
@@ -25,9 +31,15 @@
           ]
         }
       },
-      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:entity') == 83 ? query.property('dark7mc:player_model') == 1 : query.property('dark7mc:omnitrix_owner_model') == 'slim']",
-      "materials": [ { "*": "Material.omnitrix" } ],
-      "textures": [ "Texture.omnitrix" ]
+      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:player_model') == 1]",
+      "materials": [
+        {
+          "*": "Material.omnitrix"
+        }
+      ],
+      "textures": [
+        "Texture.omnitrix"
+      ]
     },
     "controller.render.omnitrix.glow": {
       "rebuild_animation_matrices": true,
@@ -39,9 +51,15 @@
           ]
         }
       },
-      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:entity') == 83 ? query.property('dark7mc:player_model') == 1 : query.property('dark7mc:omnitrix_owner_model') == 'slim']",
-      "materials": [ { "*": "Material.omnitrix_glow" } ],
-      "textures": [ "Texture.omnitrix_glow" ],
+      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:player_model') == 1]",
+      "materials": [
+        {
+          "*": "Material.omnitrix_glow"
+        }
+      ],
+      "textures": [
+        "Texture.omnitrix_glow"
+      ],
       "ignore_lighting": true,
       "color": {
         "r": "query.is_in_ui ? 1.0 : this",
@@ -60,9 +78,15 @@
           ]
         }
       },
-      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:entity') == 83 ? query.property('dark7mc:player_model') == 1 : query.property('dark7mc:omnitrix_owner_model') == 'slim']",
-      "materials": [ { "*": "Material.omnitrix_glow" } ],
-      "textures": [ "Texture.omnitrix_glow" ],
+      "geometry": "Array.omnitrix_geometries[query.property('dark7mc:player_model') == 1]",
+      "materials": [
+        {
+          "*": "Material.omnitrix_glow"
+        }
+      ],
+      "textures": [
+        "Texture.omnitrix_glow"
+      ],
       "ignore_lighting": true,
       "color": {
         "r": 1.0,

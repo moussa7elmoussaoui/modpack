@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Ta lokalizacja jest nieprawidłowa, upewnij się,
 morph.bee.dying=Umiera za §c%ss§r
 morph.unavailable.vanilla=To stworzenie jest w trakcie rozwoju i nie zostało jeszcze dodane.
 morph.unavailable.modded=Stworzenia z innych dodatków nie są obsługiwane w tym dodatku.
-morph.self_disguise=Nie możesz przebrać się za siebie.
 morph.unlock.special=Twoja specjalna przemiana została odblokowana. Jest teraz dostępna w twoim Omnitrixie.
 morph.storage_blocked=Tej przemiany nie można zapieczętować w Butelce Duszy.
+morph.self_seal_blocked=Nie możesz zapieczętować swojej własnej przemiany gracza w Butelce Duszy.
+morph.omnitrix_worn=Masz już założony Omnitrix.
 morph.fly.requires_education=Latanie wymaga Education Edition - włącz ją w Ustawieniach Świata, aby latać jako to stworzenie.
 death.attack.noStinger=%1$s poczuł żądło poświęcenia
 

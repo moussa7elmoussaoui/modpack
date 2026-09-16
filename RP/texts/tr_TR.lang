@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Bu konum geçersiz, sağlam bir blok üzerinde du
 morph.bee.dying=§c%ss§r içinde ölüyor
 morph.unavailable.vanilla=Bu yaratık geliştirme aşamasındadır ve henüz eklenmemiştir.
 morph.unavailable.modded=Diğer eklentilerdeki yaratıklar bu eklentide desteklenmez.
-morph.self_disguise=Kendin gibi kılık değiştiremezsin.
 morph.unlock.special=Özel dönüşümünüz açıldı. Artık Omnitrix'inizde kullanılabilir.
 morph.storage_blocked=Bu dönüşüm bir Ruh Şişesine mühürlenemez.
+morph.self_seal_blocked=Kendi oyuncu dönüşümünüzü bir Ruh Şişesine mühürleyemezsiniz.
+morph.omnitrix_worn=Zaten bir Omnitrix takıyorsunuz.
 morph.fly.requires_education=Uçmak Education Edition gerektirir - bu yaratık olarak uçmak için Dünya Ayarları'nda etkinleştirin.
 death.attack.noStinger=%1$s fedakarlığın iğnesini hissetti
 

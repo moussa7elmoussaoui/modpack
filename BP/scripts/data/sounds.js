@@ -735,29 +735,8 @@ export default [
     pitch: 1.0
   },
   {
-    hurt: [
-      {
-        conditions: "damageSource.cause != 'drowning' && damageSource.cause != 'fire' && damageSource.cause != 'fireTick' && damageSource.cause != 'freezing'",
-        sound: "game.player.hurt"
-      },
-      {
-        conditions: "damageSource.cause == 'drowning'",
-        sound: "mob.player.hurt_drown",
-        pitch: 1.0
-      },
-      {
-        conditions: "damageSource.cause == 'fire' || damageSource.cause == 'fireTick'",
-        sound: "mob.player.hurt_on_fire",
-        pitch: 1.0
-      },
-      {
-        conditions: "damageSource.cause == 'freezing'",
-        sound: "mob.player.hurt_freeze",
-        pitch: 1.0
-      }
-    ],
-    death: "game.player.die",
+    death: "",
     volume: 1.0,
-    pitch: [ 0.80, 1.20 ]
+    pitch: 1.0
   }
 ];

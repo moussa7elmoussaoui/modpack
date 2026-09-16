@@ -2,6 +2,8 @@ import { system } from "@minecraft/server";
 import { Morph } from "../../morph/class";
 import { namespace } from "../../utils/namespace";
 
+const OWN_PLAYER_MORPH_ID = "minecraft:player[]";
+
 export default {
   definition: {
     name: namespace.toNamespacedId("morph"),
@@ -18,11 +20,11 @@ export default {
   },
   callback: (origin, players, morphId, showEffects = true) => {
     try {
-      const morph = Morph.parse(morphId);
+      const morph = morphId === OWN_PLAYER_MORPH_ID ? undefined : Morph.parse(morphId);
 
       system.run(() => {
         for (const player of players) {
-          player.setMorph(morph, { showEffects });
+          player.setMorph(morph ?? new Morph("minecraft:player", {}, player.name), { showEffects });
         }
       });
 

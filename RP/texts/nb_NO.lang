@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Denne plasseringen er ugyldig, sørg for at du st
 morph.bee.dying=Dør om §c%ss§r
 morph.unavailable.vanilla=Dette vesenet er under utvikling og er ennå ikke lagt til.
 morph.unavailable.modded=Vesener fra andre tillegg støttes ikke i dette tillegget.
-morph.self_disguise=Du kan ikke forkledde deg som deg selv.
 morph.unlock.special=Den spesielle forvandlingen din er låst opp. Den er nå tilgjengelig i Omnitrix-en din.
 morph.storage_blocked=Denne morfen kan ikke forsegles i en sjelflaske.
+morph.self_seal_blocked=Du kan ikke forsegle din egen spillermorf i en sjelflaske.
+morph.omnitrix_worn=Du har allerede en Omnitrix på.
 morph.fly.requires_education=Flying krever Education Edition - aktiver det i Verdensinnstillingene for å fly som dette vesenet.
 death.attack.noStinger=%1$s følte offerets brodd
 

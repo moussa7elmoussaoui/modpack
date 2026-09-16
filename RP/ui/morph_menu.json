@@ -305,7 +305,6 @@
   "dynamic_button": {
     "type": "panel",
     "size": [ 48, 48 ],
-    "$player_model_texture": "__player_paper_doll__",
     "controls": [
       {
         "panel_name": {
@@ -342,7 +341,7 @@
                   },
                   {
                     "binding_type": "view",
-                    "source_property_name": "(not ((#texture = '') or (#texture = 'loading') or (#texture = $player_model_texture)))",
+                    "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
                     "target_property_name": "#visible"
                   }
                 ]
@@ -362,38 +361,6 @@
                   }
                 ]
               }
-            }
-          ]
-        }
-      },
-{
-        "player_model": {
-          "type": "custom",
-          "renderer": "paper_doll_renderer",
-          "camera_tilt_degrees": -30,
-          "layer": 2,
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "rotation": "custom_y",
-          "property_bag": {
-            "#custom_rot_y": 45.0
-          },
-          "size": [ "85%", "85%" ],
-          "offset": [ 0, -6 ],
-          "animation_reset_name": "screen_animation_reset",
-          "anims": [
-            "@common.screen_exit_size_animation_push",
-            "@common.screen_exit_size_animation_pop",
-            "@common.screen_entrance_size_animation_push",
-            "@common.screen_entrance_size_animation_pop"
-          ],
-          "bindings": [
-            {
-              "binding_type": "view",
-              "source_control_name": "image",
-              "resolve_sibling_scope": true,
-              "source_property_name": "(#texture = $player_model_texture)",
-              "target_property_name": "#visible"
             }
           ]
         }

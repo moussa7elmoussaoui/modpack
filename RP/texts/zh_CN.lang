@@ -77,9 +77,10 @@ morph.shulker.invalid_location=此位置无效，请确保你站在实心方块�
 morph.bee.dying=§c%ss§r 后死亡
 morph.unavailable.vanilla=此生物正在开发中，尚未添加。
 morph.unavailable.modded=此附加包不支持其他附加包中的生物。
-morph.self_disguise=不能伪装成自己。
 morph.unlock.special=你的特殊变形已解锁。现在可以在 Omnitrix 中使用。
 morph.storage_blocked=此变形无法封印在灵魂瓶中。
+morph.self_seal_blocked=无法将自己的玩家变形封印在灵魂瓶中。
+morph.omnitrix_worn=你已经佩戴了 Omnitrix。
 morph.fly.requires_education=飞行需要教育版（Education Edition），请在“世界设置”中启用它，才能以该生物的身份飞行。
 death.attack.noStinger=%1$s 感受到了牺牲之刺
 

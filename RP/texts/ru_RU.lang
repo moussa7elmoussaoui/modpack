@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Это место недействительно,
 morph.bee.dying=Умирает через §c%ss§r
 morph.unavailable.vanilla=Это существо находится в разработке и ещё не добавлено.
 morph.unavailable.modded=Существа из других аддонов не поддерживаются в этом аддоне.
-morph.self_disguise=Нельзя замаскироваться под самого себя.
 morph.unlock.special=Ваше особенное превращение разблокировано. Теперь оно доступно в вашем Omnitrix.
 morph.storage_blocked=Эту морф нельзя запечатать в бутылку душ.
+morph.self_seal_blocked=Нельзя запечатать собственный морф игрока в бутылку душ.
+morph.omnitrix_worn=Вы уже носите Omnitrix.
 morph.fly.requires_education=Полёт требует Education Edition - включите её в Настройках мира, чтобы летать как это существо.
 death.attack.noStinger=%1$s почувствовал жало жертвы
 

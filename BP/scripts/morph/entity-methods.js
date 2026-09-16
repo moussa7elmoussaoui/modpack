@@ -1,21 +1,49 @@
-import { Entity, EntityTypes, ItemLockMode, ItemStack, Player, system } from "@minecraft/server";
+import { Entity, EntityTypes, ItemLockMode, ItemStack, Player, system, world } from "@minecraft/server";
 import { Morph } from "./class";
 import { evaluateCondition } from "./condition-evaluator";
 import morphs, { morphEntityTypes } from "../data/morphs";
 import { getPlayerSkinIndex, playerSkins } from "../data/player-skins";
 
 const PLAYER_MORPH_NAME_PROPERTY = "dark7mc:player_morph_name";
-const PLAYER_DISGUISE_ENTITY_INDEX = 83;
+const MORPH_WEARS_OMNITRIX_PROPERTY = "dark7mc:morph_wears_omnitrix";
 
 const CUSTOM_ENTITY_TYPE_NAMES = Object.freeze({
   "dark7mc:night_fury": "Night Fury",
   "dark7mc:ancient_elemental": "Ancient Elemental"
 });
 
+export function playerHasWornOmnitrix(player) {
+  if (player.getDynamicProperty("dark7mc:omnitrix_worn") !== true) return false;
+
+  const inventory = player.getComponent("minecraft:inventory")?.container;
+  if (inventory === undefined) return false;
+
+  for (let slot = 0; slot < inventory.size; slot++) {
+    const itemStack = inventory.getItem(slot);
+    if (itemStack?.hasComponent("dark7mc:omnitrix") &&
+      itemStack.getDynamicProperty("isOmnitrixActive") === true) return true;
+  }
+
+  return false;
+}
+
+function getMorphSourceWearsOmnitrix(morph, player) {
+  if (morph.entityType !== "minecraft:player") return false;
+  if (morph.playerName === player.name) return playerHasWornOmnitrix(player);
+
+  const sourcePlayer = world.getPlayers().find(candidate => candidate.name === morph.playerName);
+  return sourcePlayer === undefined ? morph.wearsOmnitrix : playerHasWornOmnitrix(sourcePlayer);
+}
+
+function getMorphWearsOmnitrix(player) {
+  const wearsOmnitrix = player.getDynamicProperty(MORPH_WEARS_OMNITRIX_PROPERTY);
+  return wearsOmnitrix === undefined
+    ? player.getProperty("dark7mc:morph_omnitrix") === true
+    : wearsOmnitrix === true;
+}
+
 function getMorphEntityType(player) {
-  return player.getProperty("dark7mc:entity") === PLAYER_DISGUISE_ENTITY_INDEX
-    ? "minecraft:player"
-    : morphEntityTypes[player.getProperty("dark7mc:entity")];
+  return morphEntityTypes[player.getProperty("dark7mc:entity")];
 }
 
 Entity.prototype.hasProperty = function(identifier) {
@@ -47,9 +75,14 @@ Entity.prototype.getMorph = function() {
   }
 
   const playerName = this instanceof Player && entityType === "minecraft:player"
-    ? this.getDynamicProperty(PLAYER_MORPH_NAME_PROPERTY)
+    ? this.getDynamicProperty(PLAYER_MORPH_NAME_PROPERTY) ?? this.name
     : undefined;
-  return new Morph(entityType, properties, playerName);
+  const wearsOmnitrix = this instanceof Player && entityType === "minecraft:player"
+    ? playerName === this.name
+      ? playerHasWornOmnitrix(this)
+      : getMorphWearsOmnitrix(this)
+    : false;
+  return new Morph(entityType, properties, playerName, wearsOmnitrix);
 };
 
 const beforeListeners = new Set();
@@ -71,14 +104,15 @@ Player.prototype.refreshMorphNameTag = function(entityType = getMorphEntityType(
 };
 
 // This code will be further improved :)
-Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = true } = {}) {
+Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = true, force = false } = {}) {
   if (!(morph instanceof Morph)) throw new TypeError("Expected argument to be an instance of Morph");
 
   if (morph.entityType === "minecraft:player" && morph.playerName === this.name) {
-    morph = new Morph("minecraft:player");
+    morph = new Morph("minecraft:player", {}, this.name, playerHasWornOmnitrix(this));
   }
 
   const previousMorph = this.getMorph();
+  if (!force && previousMorph !== undefined && previousMorph.equals(morph)) return false;
   const eventOptions = { cancel: false, morph, player: this, previousMorph, soulSwitch };
 
   callListeners(beforeListeners, eventOptions);
@@ -86,6 +120,9 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   
   morph = eventOptions.morph;
   const { entityType, properties } = morph;
+  const currentPlayerHasOmnitrix = playerHasWornOmnitrix(this);
+  const morphWearsOmnitrix = getMorphSourceWearsOmnitrix(morph, this);
+  this.setDynamicProperty(MORPH_WEARS_OMNITRIX_PROPERTY, morphWearsOmnitrix);
 
   if (entityType === "minecraft:player") {
     const skinIndex = getPlayerSkinIndex(morph.playerName);
@@ -94,9 +131,7 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
   }
 
   this.setDynamicProperty(PLAYER_MORPH_NAME_PROPERTY, morph.playerName);
-  const entityIndex = entityType === "minecraft:player" && morph.playerName !== undefined
-    ? PLAYER_DISGUISE_ENTITY_INDEX
-    : morphEntityTypes.indexOf(entityType);
+  const entityIndex = morphEntityTypes.indexOf(entityType);
 
   this.triggerEvent("dark7mc:clear_components");
   this.setProperty("dark7mc:entity", entityIndex);
@@ -107,6 +142,9 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
     this.addTag(`${baseTag}.${key}=${value}`);
   }
   this.triggerEvent("dark7mc:add_components");
+  const shouldRenderOmnitrix = morphWearsOmnitrix && currentPlayerHasOmnitrix;
+  this.setProperty("dark7mc:morph_omnitrix", shouldRenderOmnitrix);
+  this.setProperty("dark7mc:omnitrix_state", currentPlayerHasOmnitrix ? "worn_closed" : "unworn");
 
   if (entityType !== "minecraft:player" && (this.isSneaking || this.isSleeping) && this.hasComponent("minecraft:rideable")) {
     this.triggerEvent("morph:block_riding");
@@ -170,13 +208,12 @@ Player.prototype.refreshMorphComponents = function() {
 
   this.addTag("morph:refresh_components");
   this.triggerEvent("dark7mc:clear_components");
-  const entityIndex = morph.entityType === "minecraft:player" && morph.playerName !== undefined
-    ? PLAYER_DISGUISE_ENTITY_INDEX
-    : morphEntityTypes.indexOf(morph.entityType);
+  const entityIndex = morphEntityTypes.indexOf(morph.entityType);
   if (morph.entityType === "minecraft:player") {
     const skinIndex = this.getProperty("dark7mc:player_skin") ?? 0;
     this.setProperty("dark7mc:player_model", playerSkins[skinIndex]?.model ?? 0);
   }
+    this.setProperty("dark7mc:morph_omnitrix", morph.wearsOmnitrix && playerHasWornOmnitrix(this));
   this.setProperty("dark7mc:entity", entityIndex);
 
   const baseTag = `components.${morph.entityType}`;

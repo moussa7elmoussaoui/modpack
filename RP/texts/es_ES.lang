@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Esta ubicación no es válida, ¡asegúrate de es
 morph.bee.dying=Muriendo en §c%ss§r
 morph.unavailable.vanilla=Esta criatura está en desarrollo y aún no se ha añadido.
 morph.unavailable.modded=Las criaturas de otros add-ons no son compatibles con este add-on.
-morph.self_disguise=No puedes disfrazarte de ti mismo.
 morph.unlock.special=Tu metamorfosis especial se ha desbloqueado. Ya está disponible en tu Omnitrix.
 morph.storage_blocked=Esta metamorfosis no se puede sellar en una Botella de Alma.
+morph.self_seal_blocked=No puedes sellar tu propia metamorfosis de jugador en una Botella de Alma.
+morph.omnitrix_worn=Ya llevas puesto un Omnitrix.
 morph.fly.requires_education=Volar requiere Education Edition - actívala en los Ajustes del Mundo para volar como esta criatura.
 death.attack.noStinger=%1$s sintió el aguijón del sacrificio
 

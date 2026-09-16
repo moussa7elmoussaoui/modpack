@@ -8,7 +8,6 @@ import "./morph/entity-methods";
 import "./abilities/block-morph-riding";
 import "./utils/is-solid";
 import { namespace } from "./utils/namespace";
-import "./utils/updater";
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, customCommandRegistry, itemComponentRegistry }) => {
   for (const blockComponent of components.blocks) { blockComponentRegistry.registerCustomComponent(namespace.toNamespacedId(blockComponent.id), blockComponent); }
@@ -17,7 +16,9 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, customCommandRe
   for (const command of commands.commands) { customCommandRegistry.registerCommand(command.definition, command.callback); }
 });
 
-const humanMorph = new Morph("minecraft:player");
+function createPlayerMorph(player) {
+  return new Morph("minecraft:player", {}, player.name);
+}
 
 world.afterEvents.worldLoad.subscribe(() => {
   if (world.getDynamicProperty("isInitialized") === true) return;
@@ -27,7 +28,7 @@ world.afterEvents.worldLoad.subscribe(() => {
 
 world.afterEvents.playerSpawn.subscribe(({ initialSpawn, player }) => {
   if (initialSpawn && player.getDynamicProperty("isInitialized") !== true) {
-    player.setMorph(humanMorph, { showEffects: false });
+    player.setMorph(createPlayerMorph(player), { showEffects: false, soulSwitch: false, force: true });
     player.setDynamicProperty("isInitialized", true);
   }
 
@@ -38,9 +39,9 @@ world.afterEvents.playerGameModeChange.subscribe(({ player, toGameMode }) => {
   if (toGameMode !== GameMode.Spectator) return;
 
   const currentMorph = player.getMorph();
-  if (currentMorph?.entityType === "minecraft:player" && currentMorph.playerName !== undefined) return;
+  if (currentMorph?.entityType === "minecraft:player") return;
 
-  player.setMorph(humanMorph, { showEffects: false });
+  player.setMorph(createPlayerMorph(player), { showEffects: false });
 });
 
 world.afterEvents.entityDie.subscribe(({ deadEntity }) => {

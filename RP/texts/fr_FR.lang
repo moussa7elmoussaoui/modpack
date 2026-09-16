@@ -77,9 +77,10 @@ morph.shulker.invalid_location=Cet emplacement est invalide, assurez-vous de vou
 morph.bee.dying=Meurt dans §c%ss§r
 morph.unavailable.vanilla=Cette créature est en cours de développement et n'a pas encore été ajoutée.
 morph.unavailable.modded=Les créatures d'autres add-ons ne sont pas prises en charge dans cet add-on.
-morph.self_disguise=Vous ne pouvez pas vous déguiser en vous-même.
 morph.unlock.special=Votre métamorphose spéciale est débloquée. Elle est désormais disponible dans votre Omnitrix.
 morph.storage_blocked=Cette métamorphose ne peut pas être scellée dans une bouteille d’âme.
+morph.self_seal_blocked=Tu ne peux pas sceller ta propre métamorphose de joueur dans une bouteille d’âme.
+morph.omnitrix_worn=Tu portes déjà un Omnitrix.
 morph.fly.requires_education=Voler nécessite l'Education Edition - activez-la dans les Paramètres du monde pour voler comme cette créature.
 death.attack.noStinger=%1$s a ressenti le dard du sacrifice
 
