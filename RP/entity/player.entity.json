@@ -1218,6 +1218,9 @@
             "omnitrix": "((!query.is_in_ui && variable.is_either_person) || (query.is_in_ui && !variable.is_paperdoll)) ? (query.property('dark7mc:entity') == 0 && query.property('dark7mc:morph_omnitrix') && query.property('dark7mc:omnitrix_state') != 'unworn') : 0.0"
           },
           {
+            "omnitrix_holding": "((!query.is_in_ui && variable.is_either_person) || (query.is_in_ui && !variable.is_paperdoll)) ? query.property('dark7mc:entity') == 0 : 0.0"
+          },
+          {
             "show_items": "variable.is_third_person && query.property('dark7mc:entity') != 0"
           },
           {
@@ -2138,6 +2141,11 @@
       "animations": {
         "root": "controller.animation.player.root",
         "omnitrix": "controller.animation.omnitrix",
+        "omnitrix_raise": "animation.player.omnitrix_raise",
+        "omnitrix_lower": "animation.player.omnitrix_lower",
+        "omnitrix_fp_raise": "animation.player.first_person.omnitrix_raise",
+        "omnitrix_fp_lower": "animation.player.first_person.omnitrix_lower",
+        "omnitrix_holding": "controller.animation.player.omnitrix_holding",
         "omnitrix_open": "animation.omnitrix.open",
         "omnitrix_open_idle": "animation.omnitrix.open_idle",
         "omnitrix_close": "animation.omnitrix.close",
