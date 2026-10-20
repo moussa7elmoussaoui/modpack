@@ -18,7 +18,7 @@
       "version": [1, 26, 50],
       "type": "script",
       "language": "javascript",
-      "entry": "scripts/interpreter.js"
+      "entry": "scripts/main.js"
     }
   ],
   "dependencies": [
