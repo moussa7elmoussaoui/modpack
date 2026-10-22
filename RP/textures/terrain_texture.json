@@ -16,6 +16,24 @@
     },
     "dark7mc:creaking_heart_top_inactive": {
       "textures": "textures/blocks/creaking_heart_top_inactive"
+    },
+    "script_block_left": {
+      "textures": "textures/blocks/script_block_left"
+    },
+    "script_block_right": {
+      "textures": "textures/blocks/script_block_right"
+    },
+    "script_block_front": {
+      "textures": "textures/blocks/script_block_front"
+    },
+    "script_block_back": {
+      "textures": "textures/blocks/script_block_back"
+    },
+    "script_block_top": {
+      "textures": "textures/blocks/script_block_top"
+    },
+    "script_block_bottom": {
+      "textures": "textures/blocks/script_block_bottom"
     }
   }
 }

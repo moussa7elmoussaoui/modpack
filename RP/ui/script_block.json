@@ -1,20 +1,11 @@
 {
-  "namespace": "server_form",
-
-  "main_screen_content": {
-    "size": ["100%", "100%"]
-  },
-
-  "main_screen_content/server_form_factory": {
-    "control_ids": {
-      "long_form": "@server_form.script_block_long_form_switch",
-      "custom_form": "@server_form.custom_form_switch"
-    }
-  },
-
+  "namespace": "script_block",
   "script_block_long_form_switch": {
     "type": "panel",
-    "size": ["100%", "100%"],
+    "size": [
+      "100%",
+      "100%"
+    ],
     "controls": [
       {
         "vanilla_form@server_form.long_form": {
@@ -25,16 +16,19 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "((not (#title_text = 'Script Block')) and (not (#title_text = 'Clear Script Block?')))",
+              "source_property_name": "((not (#title_text = 'morph.menu.title')) and (not (#title_text = 'morph.menu.player')) and (not (#title_text = 'morph.menu.variant')) and (not (#title_text = 'Script Block')) and (not (#title_text = 'Clear Script Block?')))",
               "target_property_name": "#visible"
             }
           ]
         }
       },
       {
-        "script_block_preview@server_form.script_block_window": {
-          "$script_block_content": "server_form.script_block_action_panel",
-          "$script_block_actions": "server_form.script_block_action_buttons",
+        "morph_form@morph_menu.long_form": {}
+      },
+      {
+        "script_block_preview@script_block.script_block_window": {
+          "$script_block_content": "script_block.script_block_action_panel",
+          "$script_block_actions": "script_block.script_block_action_buttons",
           "bindings": [
             {
               "binding_name": "#title_text",
@@ -49,10 +43,13 @@
         }
       },
       {
-        "script_block_confirmation@server_form.script_block_window": {
-          "max_size": [260, 120],
-          "$script_block_content": "server_form.script_block_action_panel",
-          "$script_block_actions": "server_form.script_block_action_buttons",
+        "script_block_confirmation@script_block.script_block_window": {
+          "max_size": [
+            260,
+            120
+          ],
+          "$script_block_content": "script_block.script_block_action_panel",
+          "$script_block_actions": "script_block.script_block_action_buttons",
           "bindings": [
             {
               "binding_name": "#title_text",
@@ -68,10 +65,12 @@
       }
     ]
   },
-
   "custom_form_switch": {
     "type": "panel",
-    "size": ["100%", "100%"],
+    "size": [
+      "100%",
+      "100%"
+    ],
     "controls": [
       {
         "custom_form@server_form.custom_form": {
@@ -89,7 +88,7 @@
         }
       },
       {
-        "custom_multiline_form@server_form.custom_multiline_form": {
+        "custom_multiline_form@script_block.custom_multiline_form": {
           "bindings": [
             {
               "binding_name": "#title_text",
@@ -105,22 +104,36 @@
       }
     ]
   },
-
   "script_block_window": {
     "type": "panel",
-    "size": ["90% - 16px", "100% - 32px"],
-    "min_size": [236, 112],
-    "max_size": [720, 440],
+    "size": [
+      "90% - 16px",
+      "100% - 32px"
+    ],
+    "min_size": [
+      236,
+      112
+    ],
+    "max_size": [
+      720,
+      440
+    ],
     "anchor_from": "center",
     "anchor_to": "center",
     "layer": 2,
     "$script_block_content|default": "common.empty_panel",
     "$script_block_actions|default": "common.empty_panel",
-    "$script_block_actions_size|default": [168, 20],
+    "$script_block_actions_size|default": [
+      168,
+      20
+    ],
     "controls": [
       {
-        "bezel@server_form.script_block_frame": {
-          "size": ["100% - 17px", "100%"],
+        "bezel@script_block.script_block_frame": {
+          "size": [
+            "100% - 17px",
+            "100%"
+          ],
           "anchor_from": "top_right",
           "anchor_to": "top_right"
         }
@@ -128,22 +141,38 @@
       {
         "terminal": {
           "type": "panel",
-          "size": ["100% - 41px", "100% - 43px"],
+          "size": [
+            "100% - 41px",
+            "100% - 43px"
+          ],
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "offset": [29, 12],
+          "offset": [
+            29,
+            12
+          ],
           "layer": 1,
           "controls": [
             {
               "title": {
                 "type": "label",
                 "text": "#title_text",
-                "color": [0.862745098, 0.5215686275, 0.3058823529],
+                "color": [
+                  0.862745098,
+                  0.5215686275,
+                  0.3058823529
+                ],
                 "shadow": false,
-                "size": ["100% - 12px", 10],
+                "size": [
+                  "100% - 12px",
+                  10
+                ],
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "offset": [6, 5],
+                "offset": [
+                  6,
+                  5
+                ],
                 "layer": 1,
                 "bindings": [
                   {
@@ -157,21 +186,34 @@
               "title_divider": {
                 "type": "panel",
                 "clips_children": true,
-                "size": ["100% - 12px", 10],
+                "size": [
+                  "100% - 12px",
+                  10
+                ],
                 "anchor_from": "top_middle",
                 "anchor_to": "top_middle",
-                "offset": [0, 15],
+                "offset": [
+                  0,
+                  15
+                ],
                 "layer": 1,
                 "controls": [
                   {
                     "separator_text": {
                       "type": "label",
                       "text": "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
-                      "color": [0.862745098, 0.5215686275, 0.3058823529],
+                      "color": [
+                        0.862745098,
+                        0.5215686275,
+                        0.3058823529
+                      ],
                       "shadow": false,
                       "localize": false,
                       "text_alignment": "left",
-                      "size": ["default", 10],
+                      "size": [
+                        "default",
+                        10
+                      ],
                       "anchor_from": "top_left",
                       "anchor_to": "top_left"
                     }
@@ -181,10 +223,16 @@
             },
             {
               "content@$script_block_content": {
-                "size": ["100% - 12px", "100% - 31px"],
+                "size": [
+                  "100% - 12px",
+                  "100% - 31px"
+                ],
                 "anchor_from": "top_middle",
                 "anchor_to": "top_middle",
-                "offset": [0, 25],
+                "offset": [
+                  0,
+                  25
+                ],
                 "layer": 2
               }
             }
@@ -195,28 +243,43 @@
         "sidebar": {
           "type": "image",
           "texture": "textures/ui/script_block/sidebar_normal",
-          "size": [17, 38],
+          "size": [
+            17,
+            38
+          ],
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "offset": [0, 12],
+          "offset": [
+            0,
+            12
+          ],
           "layer": 3,
           "controls": [
             {
               "power_indicator": {
                 "type": "image",
                 "texture": "textures/ui/script_block/turned_on",
-                "size": [12, 12],
+                "size": [
+                  12,
+                  12
+                ],
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "offset": [4, 5],
+                "offset": [
+                  4,
+                  5
+                ],
                 "layer": 1
               }
             },
             {
-              "close@server_form.script_block_close_button": {
+              "close@script_block.script_block_close_button": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "offset": [4, 21]
+                "offset": [
+                  4,
+                  21
+                ]
               }
             }
           ]
@@ -225,10 +288,16 @@
       {
         "bottom_frame": {
           "type": "panel",
-          "size": ["100% - 41px", 26],
+          "size": [
+            "100% - 41px",
+            26
+          ],
           "anchor_from": "bottom_right",
           "anchor_to": "bottom_right",
-          "offset": [-12, -3],
+          "offset": [
+            -12,
+            -3
+          ],
           "layer": 1,
           "controls": [
             {
@@ -236,7 +305,10 @@
                 "size": "$script_block_actions_size",
                 "anchor_from": "right_middle",
                 "anchor_to": "right_middle",
-                "offset": [2, 0],
+                "offset": [
+                  2,
+                  0
+                ],
                 "layer": 1
               }
             }
@@ -245,7 +317,6 @@
       }
     ]
   },
-
   "script_block_frame_slice": {
     "type": "image",
     "texture": "textures/ui/script_block/border_normal",
@@ -253,159 +324,322 @@
     "keep_ratio": false,
     "bilinear": false
   },
-
   "script_block_frame": {
     "type": "panel",
     "controls": [
       {
-        "top_left@server_form.script_block_frame_slice": {
-          "uv": [0, 0],
-          "uv_size": [12, 12],
-          "size": [12, 12],
+        "top_left@script_block.script_block_frame_slice": {
+          "uv": [
+            0,
+            0
+          ],
+          "uv_size": [
+            12,
+            12
+          ],
+          "size": [
+            12,
+            12
+          ],
           "anchor_from": "top_left",
           "anchor_to": "top_left"
         }
       },
       {
-        "top_middle@server_form.script_block_frame_slice": {
-          "uv": [12, 0],
-          "uv_size": [12, 12],
-          "size": ["100% - 24px", 12],
+        "top_middle@script_block.script_block_frame_slice": {
+          "uv": [
+            12,
+            0
+          ],
+          "uv_size": [
+            12,
+            12
+          ],
+          "size": [
+            "100% - 24px",
+            12
+          ],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle"
         }
       },
       {
-        "top_right@server_form.script_block_frame_slice": {
-          "uv": [24, 0],
-          "uv_size": [12, 12],
-          "size": [12, 12],
+        "top_right@script_block.script_block_frame_slice": {
+          "uv": [
+            24,
+            0
+          ],
+          "uv_size": [
+            12,
+            12
+          ],
+          "size": [
+            12,
+            12
+          ],
           "anchor_from": "top_right",
           "anchor_to": "top_right"
         }
       },
       {
-        "middle_left@server_form.script_block_frame_slice": {
-          "uv": [0, 12],
-          "uv_size": [12, 12],
-          "size": [12, "100% - 43px"],
+        "middle_left@script_block.script_block_frame_slice": {
+          "uv": [
+            0,
+            12
+          ],
+          "uv_size": [
+            12,
+            12
+          ],
+          "size": [
+            12,
+            "100% - 43px"
+          ],
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "offset": [0, 12]
+          "offset": [
+            0,
+            12
+          ]
         }
       },
       {
-        "middle_center@server_form.script_block_frame_slice": {
-          "uv": [12, 12],
-          "uv_size": [12, 12],
-          "size": ["100% - 24px", "100% - 43px"],
+        "middle_center@script_block.script_block_frame_slice": {
+          "uv": [
+            12,
+            12
+          ],
+          "uv_size": [
+            12,
+            12
+          ],
+          "size": [
+            "100% - 24px",
+            "100% - 43px"
+          ],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "offset": [0, 12]
+          "offset": [
+            0,
+            12
+          ]
         }
       },
       {
-        "middle_right@server_form.script_block_frame_slice": {
-          "uv": [24, 12],
-          "uv_size": [12, 12],
-          "size": [12, "100% - 43px"],
+        "middle_right@script_block.script_block_frame_slice": {
+          "uv": [
+            24,
+            12
+          ],
+          "uv_size": [
+            12,
+            12
+          ],
+          "size": [
+            12,
+            "100% - 43px"
+          ],
           "anchor_from": "top_right",
           "anchor_to": "top_right",
-          "offset": [0, 12]
+          "offset": [
+            0,
+            12
+          ]
         }
       },
       {
-        "inner_bevel_left@server_form.script_block_frame_slice": {
-          "uv": [0, 24],
-          "uv_size": [12, 2],
-          "size": [12, 2],
+        "inner_bevel_left@script_block.script_block_frame_slice": {
+          "uv": [
+            0,
+            24
+          ],
+          "uv_size": [
+            12,
+            2
+          ],
+          "size": [
+            12,
+            2
+          ],
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left",
-          "offset": [0, -29]
+          "offset": [
+            0,
+            -29
+          ]
         }
       },
       {
-        "inner_bevel_middle@server_form.script_block_frame_slice": {
-          "uv": [12, 24],
-          "uv_size": [12, 2],
-          "size": ["100% - 24px", 2],
+        "inner_bevel_middle@script_block.script_block_frame_slice": {
+          "uv": [
+            12,
+            24
+          ],
+          "uv_size": [
+            12,
+            2
+          ],
+          "size": [
+            "100% - 24px",
+            2
+          ],
           "anchor_from": "bottom_middle",
           "anchor_to": "bottom_middle",
-          "offset": [0, -29]
+          "offset": [
+            0,
+            -29
+          ]
         }
       },
       {
-        "inner_bevel_right@server_form.script_block_frame_slice": {
-          "uv": [24, 24],
-          "uv_size": [12, 2],
-          "size": [12, 2],
+        "inner_bevel_right@script_block.script_block_frame_slice": {
+          "uv": [
+            24,
+            24
+          ],
+          "uv_size": [
+            12,
+            2
+          ],
+          "size": [
+            12,
+            2
+          ],
           "anchor_from": "bottom_right",
           "anchor_to": "bottom_right",
-          "offset": [0, -29]
+          "offset": [
+            0,
+            -29
+          ]
         }
       },
       {
-        "lower_body_left@server_form.script_block_frame_slice": {
-          "uv": [0, 26],
-          "uv_size": [12, 6],
-          "size": [12, 25],
+        "lower_body_left@script_block.script_block_frame_slice": {
+          "uv": [
+            0,
+            26
+          ],
+          "uv_size": [
+            12,
+            6
+          ],
+          "size": [
+            12,
+            25
+          ],
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left",
-          "offset": [0, -4]
+          "offset": [
+            0,
+            -4
+          ]
         }
       },
       {
-        "lower_body_middle@server_form.script_block_frame_slice": {
-          "uv": [12, 26],
-          "uv_size": [12, 6],
-          "size": ["100% - 24px", 25],
+        "lower_body_middle@script_block.script_block_frame_slice": {
+          "uv": [
+            12,
+            26
+          ],
+          "uv_size": [
+            12,
+            6
+          ],
+          "size": [
+            "100% - 24px",
+            25
+          ],
           "anchor_from": "bottom_middle",
           "anchor_to": "bottom_middle",
-          "offset": [0, -4]
+          "offset": [
+            0,
+            -4
+          ]
         }
       },
       {
-        "lower_body_right@server_form.script_block_frame_slice": {
-          "uv": [24, 26],
-          "uv_size": [12, 6],
-          "size": [12, 25],
+        "lower_body_right@script_block.script_block_frame_slice": {
+          "uv": [
+            24,
+            26
+          ],
+          "uv_size": [
+            12,
+            6
+          ],
+          "size": [
+            12,
+            25
+          ],
           "anchor_from": "bottom_right",
           "anchor_to": "bottom_right",
-          "offset": [0, -4]
+          "offset": [
+            0,
+            -4
+          ]
         }
       },
       {
-        "bottom_left@server_form.script_block_frame_slice": {
-          "uv": [0, 32],
-          "uv_size": [12, 4],
-          "size": [12, 4],
+        "bottom_left@script_block.script_block_frame_slice": {
+          "uv": [
+            0,
+            32
+          ],
+          "uv_size": [
+            12,
+            4
+          ],
+          "size": [
+            12,
+            4
+          ],
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left"
         }
       },
       {
-        "bottom_middle@server_form.script_block_frame_slice": {
-          "uv": [12, 32],
-          "uv_size": [12, 4],
-          "size": ["100% - 24px", 4],
+        "bottom_middle@script_block.script_block_frame_slice": {
+          "uv": [
+            12,
+            32
+          ],
+          "uv_size": [
+            12,
+            4
+          ],
+          "size": [
+            "100% - 24px",
+            4
+          ],
           "anchor_from": "bottom_middle",
           "anchor_to": "bottom_middle"
         }
       },
       {
-        "bottom_right@server_form.script_block_frame_slice": {
-          "uv": [24, 32],
-          "uv_size": [12, 4],
-          "size": [12, 4],
+        "bottom_right@script_block.script_block_frame_slice": {
+          "uv": [
+            24,
+            32
+          ],
+          "uv_size": [
+            12,
+            4
+          ],
+          "size": [
+            12,
+            4
+          ],
           "anchor_from": "bottom_right",
           "anchor_to": "bottom_right"
         }
       }
     ]
   },
-
   "script_block_close_button@common.button": {
-    "size": [12, 12],
+    "size": [
+      12,
+      12
+    ],
     "$pressed_button_name": "button.menu_exit",
     "$button_tts_header": "accessibility.button.close",
     "controls": [
@@ -425,79 +659,122 @@
         "pressed": {
           "type": "image",
           "texture": "textures/ui/script_block/terminate_hover",
-          "color": [0.75, 0.75, 0.75]
+          "color": [
+            0.75,
+            0.75,
+            0.75
+          ]
         }
       }
     ]
   },
-
   "script_block_text_button@common_buttons.light_text_button": {
-    "size": [80, 20],
-    "$button_type_panel": "server_form.script_block_button_label",
+    "size": [
+      80,
+      20
+    ],
+    "$button_type_panel": "script_block.script_block_button_label",
     "$default_button_texture": "textures/ui/script_block/button_normal",
     "$hover_button_texture": "textures/ui/script_block/button_hover",
     "$pressed_button_texture": "textures/ui/script_block/button_pressed",
     "$locked_button_texture": "textures/ui/script_block/button_normal",
-    "$default_text_color": [0.062745098, 0.078431373, 0.062745098],
-    "$hover_text_color": [0.062745098, 0.078431373, 0.062745098],
-    "$pressed_text_color": [0.062745098, 0.078431373, 0.062745098],
-    "$locked_text_color": [0.062745098, 0.078431373, 0.062745098],
+    "$default_text_color": [
+      0.062745098,
+      0.078431373,
+      0.062745098
+    ],
+    "$hover_text_color": [
+      0.062745098,
+      0.078431373,
+      0.062745098
+    ],
+    "$pressed_text_color": [
+      0.062745098,
+      0.078431373,
+      0.062745098
+    ],
+    "$locked_text_color": [
+      0.062745098,
+      0.078431373,
+      0.062745098
+    ],
     "$locked_alpha": 0.8,
     "$border_visible": false,
-    "$button_image_size": ["100%", "100%"],
-    "$button_content_size": ["100% - 10px", "100% - 6px"]
+    "$button_image_size": [
+      "100%",
+      "100%"
+    ],
+    "$button_content_size": [
+      "100% - 10px",
+      "100% - 6px"
+    ]
   },
-
   "script_block_button_label@common_buttons.new_ui_binding_button_label": {
     "$anchor": "center",
     "$text_alignment": "center",
-    "$new_ui_label_offset": [0, -1.5],
-    "$button_text_max_size": ["100%", "100%"],
+    "$new_ui_label_offset": [
+      0,
+      -1.5
+    ],
+    "$button_text_max_size": [
+      "100%",
+      "100%"
+    ],
     "$font_type": "MinecraftTen"
   },
-
   "script_block_scrolling_panel@common.scrolling_panel": {
     "$show_background": false,
-    "$scroll_box_mouse_image_control": "server_form.script_block_scroll_handle",
-    "$scroll_box_touch_image_control": "server_form.script_block_scroll_handle",
-    "$scroll_track_image_control": "server_form.script_block_scroll_track",
-    "$scroll_size": [5, "100% - 4px"],
-    "$scrolling_pane_size": ["100% - 4px", "100%"],
-    "$scrolling_pane_offset": [2, 0],
-    "$scroll_bar_right_padding_size": [0, 0]
+    "$scroll_box_mouse_image_control": "script_block.script_block_scroll_handle",
+    "$scroll_box_touch_image_control": "script_block.script_block_scroll_handle",
+    "$scroll_track_image_control": "script_block.script_block_scroll_track",
+    "$scroll_size": [
+      5,
+      "100% - 4px"
+    ],
+    "$scrolling_pane_size": [
+      "100% - 4px",
+      "100%"
+    ],
+    "$scrolling_pane_offset": [
+      2,
+      0
+    ],
+    "$scroll_bar_right_padding_size": [
+      0,
+      0
+    ]
   },
-
   "script_block_scroll_handle": {
     "type": "image",
     "texture": "textures/ui/script_block/scroll_handle"
   },
-
   "script_block_scroll_track": {
     "type": "image",
     "texture": "textures/ui/script_block/scroll_track"
   },
-
   "script_block_action_panel": {
     "type": "panel",
     "controls": [
       {
-        "code_scroll@server_form.script_block_scrolling_panel": {
-          "size": ["100%", "100%"],
+        "code_scroll@script_block.script_block_scrolling_panel": {
+          "size": [
+            "100%",
+            "100%"
+          ],
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "$scrolling_content": "server_form.script_block_form_text"
+          "$scrolling_content": "script_block.script_block_form_text"
         }
       }
     ]
   },
-
   "script_block_action_buttons": {
     "type": "stack_panel",
     "orientation": "horizontal",
     "factory": {
       "name": "buttons",
       "control_ids": {
-        "button": "server_form.script_block_action_button"
+        "button": "script_block.script_block_action_button"
       }
     },
     "collection_name": "form_buttons",
@@ -508,14 +785,20 @@
       }
     ]
   },
-
   "script_block_form_text": {
     "type": "label",
-    "size": ["100% - 2px", "default"],
+    "size": [
+      "100% - 2px",
+      "default"
+    ],
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "text": "#form_text",
-    "color": [0.9, 0.9, 0.9],
+    "color": [
+      0.9,
+      0.9,
+      0.9
+    ],
     "shadow": false,
     "localize": false,
     "hide_hyphen": true,
@@ -526,13 +809,15 @@
       }
     ]
   },
-
   "script_block_action_button": {
     "type": "panel",
-    "size": [84, 20],
+    "size": [
+      84,
+      20
+    ],
     "controls": [
       {
-        "button@server_form.script_block_text_button": {
+        "button@script_block.script_block_text_button": {
           "anchor_from": "center",
           "anchor_to": "center",
           "$pressed_button_name": "button.form_button_click",
@@ -549,34 +834,39 @@
       }
     ]
   },
-
-  "custom_multiline_form@server_form.script_block_window": {
-    "$script_block_content": "server_form.custom_multiline_form_panel",
-    "$script_block_actions": "server_form.custom_multiline_form_actions",
-    "$script_block_actions_size": [84, 20]
+  "custom_multiline_form@script_block.script_block_window": {
+    "$script_block_content": "script_block.custom_multiline_form_panel",
+    "$script_block_actions": "script_block.custom_multiline_form_actions",
+    "$script_block_actions_size": [
+      84,
+      20
+    ]
   },
-
   "custom_multiline_form_panel": {
     "type": "panel",
     "anchor_to": "top_left",
     "anchor_from": "top_left",
-    "size": ["100%", "100%"],
+    "size": [
+      "100%",
+      "100%"
+    ],
     "controls": [
       {
         "generated_contents": {
           "type": "stack_panel",
-          "size": ["100%", "100%"],
+          "size": [
+            "100%",
+            "100%"
+          ],
           "orientation": "vertical",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-
           "factory": {
             "name": "buttons",
             "control_ids": {
-              "input": "@server_form.custom_multiline_input"
+              "input": "@script_block.custom_multiline_input"
             }
           },
-
           "collection_name": "custom_form",
           "bindings": [
             {
@@ -588,19 +878,17 @@
       }
     ]
   },
-
   "custom_multiline_form_actions": {
     "type": "panel",
     "controls": [
       {
-        "submit_button@server_form.script_block_text_button": {
+        "submit_button@script_block.script_block_text_button": {
           "$pressed_button_name": "button.submit_custom_form",
           "anchor_from": "center",
           "anchor_to": "center",
           "$button_text": "#submit_text",
           "$button_text_binding_type": "global",
           "$button_binding_condition": "once",
-
           "bindings": [
             {
               "binding_name": "#submit_button_visible",
@@ -611,8 +899,7 @@
       }
     ]
   },
-
-  "custom_multiline_input@server_form.option_multiline_text_edit": {
+  "custom_multiline_input@script_block.option_multiline_text_edit": {
     "$option_label": "#custom_text",
     "$option_place_holder_text": "#custom_placeholder_text",
     "$text_edit_box_placeholder_content_binding_name": "$option_place_holder_text",
@@ -620,15 +907,15 @@
     "$text_edit_box_grid_collection_name": "custom_form",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-
     "$max_text_edit_length": 32767,
-    "size": ["100%", "100%"],
-
+    "size": [
+      "100%",
+      "100%"
+    ],
     "$text_edit_box_content_binding_type": "collection",
     "$option_binding_name": "#custom_input_text",
     "$text_box_name": "custom_input"
   },
-
   "option_multiline_text_edit@settings_common.option_generic": {
     "$option_place_holder_text|default": "",
     "$max_text_edit_length|default": 30,
@@ -636,20 +923,29 @@
       {
         "dialog_bubble": {
           "type": "panel",
-          "size": ["100%", "100%"],
+          "size": [
+            "100%",
+            "100%"
+          ],
           "controls": [
             {
               "dialog_panel": {
                 "type": "panel",
-                "size": ["100%", "100%"],
+                "size": [
+                  "100%",
+                  "100%"
+                ],
                 "$virtual_keyboard_buffer_control": "text_scroll",
                 "controls": [
                   {
-                    "text_scroll@server_form.script_block_scrolling_panel": {
-                      "size": ["100%", "100%"],
+                    "text_scroll@script_block.script_block_scrolling_panel": {
+                      "size": [
+                        "100%",
+                        "100%"
+                      ],
                       "$always_handle_scrolling": true,
                       "$jump_to_bottom_on_update": true,
-                      "$scrolling_content": "server_form.multiline_dialog_text_edit",
+                      "$scrolling_content": "script_block.multiline_dialog_text_edit",
                       "$scroll_box_visible_touch": true
                     }
                   }
@@ -661,14 +957,24 @@
       }
     ]
   },
-
   "multiline_dialog_text_edit@npc_interact.multiline_text_edit_control": {
-    "size": ["100%", "100%cm"],
+    "size": [
+      "100%",
+      "100%cm"
+    ],
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "$hide_hyphen": true,
-    "$text_box_text_color": [0.9, 0.9, 0.9],
-    "$color": [0.9, 0.9, 0.9],
+    "$text_box_text_color": [
+      0.9,
+      0.9,
+      0.9
+    ],
+    "$color": [
+      0.9,
+      0.9,
+      0.9
+    ],
     "$disabled_alpha": 1,
     "max_length": "$max_text_edit_length",
     "constrain_to_rect": false,
@@ -689,28 +995,37 @@
       {
         "label@common.text_edit_box_label": {
           "layer": 1,
-          "size": ["100%", "default"],
+          "size": [
+            "100%",
+            "default"
+          ],
           "anchor_from": "top_left",
-          "anchor_to": "top_left"
+          "anchor_to": "top_left",
+          "hide_hyphen": true
         }
       },
       {
         "visibility_panel": {
           "type": "panel",
-          "size": ["100%", "100%c"],
+          "size": [
+            "100%",
+            "100%c"
+          ],
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "controls": [
             {
               "place_holder@common.text_edit_box_place_holder_label": {
                 "layer": 1,
-                "size": ["100%", "default"],
+                "size": [
+                  "100%",
+                  "default"
+                ],
                 "anchor_from": "top_left",
                 "anchor_to": "top_left"
               }
             }
           ],
-
           "bindings": [
             {
               "binding_type": "view",
@@ -722,7 +1037,14 @@
           ]
         }
       },
-      { "background@common.empty_panel": { "size": ["100%", "100%sm"] } }
+      {
+        "background@common.empty_panel": {
+          "size": [
+            "100%",
+            "100%sm"
+          ]
+        }
+      }
     ]
   }
 }

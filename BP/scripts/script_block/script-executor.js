@@ -2,6 +2,7 @@ import * as timers from "./timers.js";
 import * as util from "./utils/inspect.js";
 import * as vanillaData from "./vanilla-data/index.js";
 import { reportError } from "./error-reporter.js";
+import { scriptJson } from "./utils/script-json.js";
 
 const OPTIONAL_MODULE_LOADERS = [
   () => import("@minecraft/server-gametest"),
@@ -31,7 +32,7 @@ async function buildScriptScope() {
     } catch {}
   }
 
-  return scope;
+  return { ...scope, JSON: scriptJson };
 }
 
 export async function executeScript(code, player) {

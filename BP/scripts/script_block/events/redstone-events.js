@@ -11,8 +11,8 @@ export function registerPressurePlateHandler() {
 
     for (const candidate of candidateBlocks) {
       candidate?.typeId === SCRIPT_BLOCK_TYPE_ID &&
-        executeScript(ScriptBlockStorage.fromBlock(candidate).code).catch((error) => {
-          source instanceof Player && reportError(error, false, source);
+        executeScript(ScriptBlockStorage.fromBlock(candidate).code, source instanceof Player ? source : undefined).catch((error) => {
+          reportError(error, false, source instanceof Player ? source : undefined);
         });
     }
   });
@@ -25,8 +25,8 @@ export function registerButtonHandler() {
     for (const candidate of candidateBlocks) {
       candidate &&
         candidate.typeId === SCRIPT_BLOCK_TYPE_ID &&
-        executeScript(ScriptBlockStorage.fromBlock(candidate).code).catch((error) => {
-          source instanceof Player && reportError(error, false, source);
+        executeScript(ScriptBlockStorage.fromBlock(candidate).code, source instanceof Player ? source : undefined).catch((error) => {
+          reportError(error, false, source instanceof Player ? source : undefined);
         });
     }
   });
@@ -40,7 +40,7 @@ export function registerLeverHandler() {
       candidate &&
         candidate.typeId === SCRIPT_BLOCK_TYPE_ID &&
         isPowered &&
-        executeScript(ScriptBlockStorage.fromBlock(candidate).code).catch((error) => {
+        executeScript(ScriptBlockStorage.fromBlock(candidate).code, player).catch((error) => {
           reportError(error, false, player);
         });
     }

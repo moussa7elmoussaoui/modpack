@@ -72,3 +72,6 @@ import "./waila/main.js";
 
 // Speedometer addon integration
 import "./speedometer/index.js";
+
+// Script Block addon integration
+import "./script_block/main.js";

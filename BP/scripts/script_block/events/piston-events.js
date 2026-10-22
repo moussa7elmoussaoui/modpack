@@ -50,14 +50,23 @@ export function registerPistonHandler() {
     const pushDirection = getPistonPushDirection(facing, isExpanding);
     if (!pushDirection) return;
 
-    for (const location of piston.getAttachedBlocks()) {
+    const moves = [];
+    for (const location of piston.getAttachedBlocksLocations()) {
       const sourceBlock = dimension.getBlock(location);
       const destinationBlock = dimension.getBlock(Vec3.add(Vec3.from(location), pushDirection));
       if (!sourceBlock || !destinationBlock) continue;
 
       const sourceStorage = ScriptBlockStorage.fromBlock(sourceBlock);
-      ScriptBlockStorage.fromBlock(destinationBlock).write(sourceStorage.code);
-      sourceStorage.remove();
+      if (!sourceStorage.code) continue;
+      moves.push({
+        sourceStorage,
+        destinationStorage: ScriptBlockStorage.fromBlock(destinationBlock),
+        code: sourceStorage.code,
+      });
     }
+
+    // Snapshot the entire chain before clearing or writing overlapping positions.
+    for (const { sourceStorage } of moves) sourceStorage.remove();
+    for (const { destinationStorage, code } of moves) destinationStorage.write(code);
   });
 }
