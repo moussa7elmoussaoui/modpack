@@ -12,8 +12,10 @@
       },
       {
         "script_block_preview@script_block.script_block_window": {
+          "min_size": [309, 244],
           "$script_block_content": "script_block.script_block_action_panel",
-          "$script_block_actions": "script_block.script_block_action_buttons",
+          "$script_block_actions": "script_block.script_block_preview_buttons",
+          "$script_block_actions_size": ["100%", 20],
           "bindings": [
             {
               "binding_name": "#title_text",
@@ -28,14 +30,7 @@
         }
       },
       {
-        "script_block_confirmation@script_block.script_block_window": {
-          "min_size": [205, 166],
-          "max_size": [
-            205,
-            166
-          ],
-          "$script_block_content": "script_block.script_block_action_panel",
-          "$script_block_actions": "script_block.script_block_action_buttons",
+        "script_block_confirmation@script_block.script_block_dialog": {
           "bindings": [
             {
               "binding_name": "#title_text",
@@ -44,6 +39,22 @@
             {
               "binding_type": "view",
               "source_property_name": "(#title_text = 'Clear Script Block?')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "script_block_format_result@script_block.script_block_dialog": {
+          "$script_block_actions_size": [84, 20],
+          "bindings": [
+            {
+              "binding_name": "#title_text",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#title_text = 'Format Script Block')",
               "target_property_name": "#visible"
             }
           ]
@@ -96,6 +107,12 @@
         }
       }
     ]
+  },
+  "script_block_dialog@script_block.script_block_window": {
+    "min_size": [205, 166],
+    "max_size": [205, 166],
+    "$script_block_content": "script_block.script_block_action_panel",
+    "$script_block_actions": "script_block.script_block_action_buttons"
   },
   "script_block_window": {
     "type": "panel",
@@ -779,6 +796,36 @@
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "$scrolling_content": "script_block.script_block_form_text"
+        }
+      }
+    ]
+  },
+  "script_block_preview_buttons": {
+    "type": "panel",
+    "controls": [
+      {
+        "clear@script_block.script_block_action_button": {
+          "collection_name": "form_buttons",
+          "collection_index": 0,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle"
+        }
+      },
+      {
+        "format@script_block.script_block_action_button": {
+          "collection_name": "form_buttons",
+          "collection_index": 1,
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [-84, 0]
+        }
+      },
+      {
+        "edit@script_block.script_block_action_button": {
+          "collection_name": "form_buttons",
+          "collection_index": 2,
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle"
         }
       }
     ]

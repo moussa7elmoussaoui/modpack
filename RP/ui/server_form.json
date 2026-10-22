@@ -45,7 +45,7 @@
           },
           {
             "binding_type": "view",
-            "source_property_name": "((#title_text != 'morph.menu.title') and (#title_text != 'morph.menu.player') and (#title_text != 'morph.menu.variant') and (#title_text != 'Script Block') and (#title_text != 'Clear Script Block?'))",
+            "source_property_name": "((#title_text != 'morph.menu.title') and (#title_text != 'morph.menu.player') and (#title_text != 'morph.menu.variant') and (#title_text != 'Script Block') and (#title_text != 'Clear Script Block?') and (#title_text != 'Format Script Block'))",
             "target_property_name": "#visible"
           }
         ]

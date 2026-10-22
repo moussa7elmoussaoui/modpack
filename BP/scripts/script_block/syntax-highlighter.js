@@ -1,145 +1,134 @@
+import { tokenizer } from "./vendor/acorn.js";
 import { MinecraftColor } from "./utils/minecraft-color.js";
 
 const MAX_FORM_TEXT_LENGTH = 32767;
+const TRUNCATED_MESSAGE = "\n... Preview shortened. Open Edit to see the full code.";
 
-const NUMBER_PATTERN =
-  /^(?:0[xX][\da-fA-F]+|0[bB][01]+|0[oO][0-7]+|\d+(?:\.\d*)?(?:[eE][+-]?\d+)?n?|\.\d+(?:[eE][+-]?\d+)?)/;
+const COLORS = {
+  comment: MinecraftColor.materialEmerald,
+  string: MinecraftColor.materialCopper,
+  number: MinecraftColor.green,
+  keyword: MinecraftColor.blue,
+  control: MinecraftColor.materialAmethyst,
+  function: MinecraftColor.yellow,
+  type: MinecraftColor.materialDiamond,
+  variable: MinecraftColor.aqua,
+};
 
-const KEYWORDS = new Set([
-  "async",
-  "await",
-  "break",
-  "case",
-  "catch",
-  "class",
-  "const",
-  "continue",
-  "debugger",
-  "default",
-  "delete",
-  "do",
-  "else",
-  "export",
-  "extends",
-  "finally",
-  "for",
-  "from",
-  "function",
-  "if",
-  "import",
-  "in",
-  "instanceof",
-  "let",
-  "new",
-  "of",
-  "return",
-  "static",
-  "super",
-  "switch",
-  "this",
-  "throw",
-  "try",
-  "typeof",
-  "var",
-  "void",
-  "while",
-  "with",
-  "yield",
+const CONTROL_KEYWORDS = new Set([
+  "async", "await", "break", "case", "catch", "continue", "debugger",
+  "default", "do", "else", "export", "finally", "for", "from", "if",
+  "import", "of", "return", "switch", "throw", "try", "while", "yield",
+]);
+const CONTEXT_KEYWORDS = new Set(["as", "async", "await", "from", "of"]);
+const BUILTIN_TYPES = new Set([
+  "Array", "ArrayBuffer", "BigInt", "Boolean", "Date", "Error", "EvalError",
+  "Float32Array", "Float64Array", "Function", "Int8Array", "Int16Array",
+  "Int32Array", "Map", "Number", "Object", "Promise", "Proxy", "RangeError",
+  "ReferenceError", "RegExp", "Set", "String", "Symbol", "SyntaxError",
+  "TypeError", "Uint8Array", "Uint16Array", "Uint32Array", "WeakMap", "WeakSet",
+  "Dimension", "Entity", "ItemStack", "Player", "BlockPermutation",
+  "ActionFormData", "ModalFormData", "MessageFormData", "SimulatedPlayer",
 ]);
 
-const LITERALS = new Set(["false", "Infinity", "NaN", "null", "true", "undefined"]);
+export function escapeViewerText(text) {
 
-const BUILTIN_GLOBALS = new Set([
-  "Array",
-  "Boolean",
-  "Date",
-  "Error",
-  "JSON",
-  "Map",
-  "Math",
-  "Number",
-  "Object",
-  "Promise",
-  "Set",
-  "String",
-  "console",
-  "system",
-  "world",
-]);
+  return text.replace(/\u00a7/g, "\u0019");
+}
 
-export function highlightCode(source) {
-  let result = "";
-  let index = 0;
+function plainPreview(source) {
+  const text = escapeViewerText(source);
+  if (text.length <= MAX_FORM_TEXT_LENGTH) return text;
+  const length = MAX_FORM_TEXT_LENGTH - TRUNCATED_MESSAGE.length;
 
-  const colorize = (text, color) => `${color}${text}${MinecraftColor.reset}`;
+  const end = /[\ud800-\udbff]/.test(text[length - 1]) ? length - 1 : length;
+  return text.slice(0, end) + TRUNCATED_MESSAGE;
+}
 
-  while (index < source.length) {
-    const current = source[index];
-    const next = source[index + 1];
+function readTokens(source) {
+  const tokens = [];
+  const comments = [];
+  const reader = tokenizer(source, { ecmaVersion: "latest", onComment: comments });
+  try {
+    for (;;) {
+      const token = reader.getToken();
+      if (token.type.label === "eof") break;
+      tokens.push(token);
+    }
+  } catch {
 
-    if (/\s/.test(current)) {
-      
-      let end = index + 1;
-      while (end < source.length && /\s/.test(source[end])) end++;
-      result += source.slice(index, end);
-      index = end;
-    } else if (current === "/" && next === "/") {
-      
-      let end = source.indexOf("\n", index);
-      if (end === -1) end = source.length;
-      result += colorize(source.slice(index, end), MinecraftColor.darkGray);
-      index = end;
-    } else if (current === "/" && next === "*") {
-      
-      let end = source.indexOf("*/", index + 2);
-      if (end === -1) end = source.length - 2;
-      end += 2;
-      result += colorize(source.slice(index, end), MinecraftColor.darkGray);
-      index = end;
-    } else if (current === "'" || current === '"' || current === "`") {
-      
-      const quote = current;
-      let end = index + 1;
-      for (; end < source.length; end++) {
-        if (source[end] === "\\") {
-          end++;
-        } else if (source[end] === quote) {
-          end++;
-          break;
-        }
-      }
-      result += colorize(source.slice(index, end), MinecraftColor.green);
-      index = end;
-    } else if (/\d/.test(current) || (current === "." && /\d/.test(next))) {
-      
-      const number = source.slice(index).match(NUMBER_PATTERN)[0];
-      result += colorize(number, MinecraftColor.gold);
-      index += number.length;
-    } else if (/[A-Za-z_$]/.test(current)) {
-      
-      const identifier = source.slice(index).match(/^[A-Za-z_$][\w$]*/)[0];
+  }
+  return { tokens, comments };
+}
 
-      let lookahead = index + identifier.length;
-      while (/\s/.test(source[lookahead] ?? "")) lookahead++;
-
-      const color = KEYWORDS.has(identifier)
-        ? MinecraftColor.red
-        : LITERALS.has(identifier)
-          ? MinecraftColor.lightPurple
-          : BUILTIN_GLOBALS.has(identifier)
-            ? MinecraftColor.aqua
-            : source[lookahead] === "("
-              ? MinecraftColor.yellow
-              : "";
-
-      result += color ? colorize(identifier, color) : identifier;
-      index += identifier.length;
-    } else {
-      
-      result += current;
-      index++;
+function isFunctionAssignment(tokens, index) {
+  if (tokens[index + 1]?.value !== "=") return false;
+  let cursor = index + 2;
+  if (tokens[cursor]?.value === "async") cursor++;
+  if (tokens[cursor]?.value === "function" || tokens[cursor + 1]?.type.label === "=>") return true;
+  if (tokens[cursor]?.type.label !== "(") return false;
+  let depth = 0;
+  for (; cursor < tokens.length; cursor++) {
+    if (tokens[cursor].type.label === "(") depth++;
+    if (tokens[cursor].type.label === ")" && --depth === 0) {
+      return tokens[cursor + 1]?.type.label === "=>";
     }
   }
+  return false;
+}
 
-  return result.length <= MAX_FORM_TEXT_LENGTH ? result : source;
+function tokenColor(tokens, index) {
+  const token = tokens[index];
+  const previous = tokens[index - 1];
+  const next = tokens[index + 1];
+  const label = token.type.label;
+  const word = token.value;
+  const property = previous?.type.label === "." || previous?.type.label === "?.";
+
+  if (label === "string" || label === "template" || label === "`") return COLORS.string;
+  if (label === "regexp") return MinecraftColor.red;
+  if (label === "num" || word === "Infinity" || word === "NaN") return COLORS.number;
+  if (label === "${") return COLORS.keyword;
+  if (property && (label === "name" || token.type.keyword)) {
+    return next?.type.label === "(" ? COLORS.function : COLORS.variable;
+  }
+  if (token.type.keyword || CONTEXT_KEYWORDS.has(word)) {
+    return CONTROL_KEYWORDS.has(word) ? COLORS.control : COLORS.keyword;
+  }
+  if (label !== "name" && label !== "privateId") return "";
+  if (word === "undefined") return COLORS.keyword;
+  if (previous?.value === "class" || previous?.value === "new" || BUILTIN_TYPES.has(word)) return COLORS.type;
+  if (next?.type.label === "(" || next?.type.label === "=>" || isFunctionAssignment(tokens, index)) {
+    return COLORS.function;
+  }
+  return COLORS.variable;
+}
+
+export function highlightCode(source) {
+  const { tokens, comments } = readTokens(source);
+  const spans = tokens.map((token, index) => ({
+    start: token.start,
+    end: token.end,
+    color: tokenColor(tokens, index),
+  }));
+  for (const comment of comments) spans.push({ ...comment, color: COLORS.comment });
+  spans.sort((a, b) => a.start - b.start);
+
+  const parts = [];
+  let length = 0;
+  let index = 0;
+  for (const span of spans) {
+    if (span.start === span.end) continue;
+    const gap = escapeViewerText(source.slice(index, span.start));
+    const text = escapeViewerText(source.slice(span.start, span.end));
+    const rendered = span.color ? span.color + text + MinecraftColor.reset : text;
+    length += gap.length + rendered.length;
+    if (length > MAX_FORM_TEXT_LENGTH) return plainPreview(source);
+    parts.push(gap, rendered);
+    index = span.end;
+  }
+  const tail = escapeViewerText(source.slice(index));
+  if (length + tail.length > MAX_FORM_TEXT_LENGTH) return plainPreview(source);
+  parts.push(tail);
+  return parts.join("");
 }
