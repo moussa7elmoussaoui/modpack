@@ -31,6 +31,8 @@
       },
       {
         "script_block_confirmation@script_block.script_block_dialog": {
+          "$script_block_actions": "script_block.script_block_confirmation_buttons",
+          "$script_block_actions_size": ["100%", 20],
           "bindings": [
             {
               "binding_name": "#title_text",
@@ -321,7 +323,7 @@
         "bottom_frame": {
           "type": "panel",
           "size": [
-            "100% - 41px",
+            "100% - 37px",
             26
           ],
           "anchor_from": "bottom_right",
@@ -802,10 +804,10 @@
   },
   "script_block_preview_buttons": {
     "type": "panel",
+    "collection_name": "form_buttons",
     "controls": [
       {
         "clear@script_block.script_block_action_button": {
-          "collection_name": "form_buttons",
           "collection_index": 0,
           "anchor_from": "left_middle",
           "anchor_to": "left_middle"
@@ -813,7 +815,6 @@
       },
       {
         "format@script_block.script_block_action_button": {
-          "collection_name": "form_buttons",
           "collection_index": 1,
           "anchor_from": "right_middle",
           "anchor_to": "right_middle",
@@ -822,8 +823,27 @@
       },
       {
         "edit@script_block.script_block_action_button": {
-          "collection_name": "form_buttons",
           "collection_index": 2,
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle"
+        }
+      }
+    ]
+  },
+  "script_block_confirmation_buttons": {
+    "type": "panel",
+    "collection_name": "form_buttons",
+    "controls": [
+      {
+        "clear@script_block.script_block_action_button": {
+          "collection_index": 0,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle"
+        }
+      },
+      {
+        "cancel@script_block.script_block_action_button": {
+          "collection_index": 1,
           "anchor_from": "right_middle",
           "anchor_to": "right_middle"
         }
