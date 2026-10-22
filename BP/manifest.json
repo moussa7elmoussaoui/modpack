@@ -33,6 +33,10 @@
         {
             "module_name": "@minecraft/server-ui",
             "version": [ 2, 2, 0 ]
+        },
+        {
+            "module_name": "@minecraft/server-gametest",
+            "version": "1.0.0-beta"
         }
     ],
     "capabilities": [ "script_eval" ],
@@ -44,6 +48,7 @@
             "r4isen1920",
             "KonaDolomite",
             "GlitchyTurtle",
+            "End_Rage",
             "JaylyMC",
             "TryzzMC",
             "BedrockForge"

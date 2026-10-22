@@ -8,21 +8,6 @@
     ],
     "controls": [
       {
-        "vanilla_form@server_form.long_form": {
-          "bindings": [
-            {
-              "binding_name": "#title_text",
-              "binding_type": "global"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "((not (#title_text = 'morph.menu.title')) and (not (#title_text = 'morph.menu.player')) and (not (#title_text = 'morph.menu.variant')) and (not (#title_text = 'Script Block')) and (not (#title_text = 'Clear Script Block?')))",
-              "target_property_name": "#visible"
-            }
-          ]
-        }
-      },
-      {
         "morph_form@morph_menu.long_form": {}
       },
       {
@@ -44,9 +29,10 @@
       },
       {
         "script_block_confirmation@script_block.script_block_window": {
+          "min_size": [205, 166],
           "max_size": [
-            260,
-            120
+            205,
+            166
           ],
           "$script_block_content": "script_block.script_block_action_panel",
           "$script_block_actions": "script_block.script_block_action_buttons",
@@ -73,7 +59,9 @@
     ],
     "controls": [
       {
-        "custom_form@server_form.custom_form": {
+        "vanilla_modal_container": {
+          "type": "panel",
+          "size": ["100%", "100%"],
           "bindings": [
             {
               "binding_name": "#title_text",
@@ -83,6 +71,11 @@
               "binding_type": "view",
               "source_property_name": "(not (#title_text = 'Script Block'))",
               "target_property_name": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "vanilla_modal@server_form.custom_form": {}
             }
           ]
         }
@@ -111,8 +104,8 @@
       "100% - 32px"
     ],
     "min_size": [
-      236,
-      112
+      237,
+      190
     ],
     "max_size": [
       720,
@@ -127,6 +120,28 @@
       168,
       20
     ],
+    "controls": [
+      {
+        "screen_ratio_fit": {
+          "type": "panel",
+          "size": ["100%", "100%"],
+          "max_size": ["100%", "75%x + 12.25px"],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "window_frame@script_block.script_block_window_frame": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "script_block_window_frame": {
+    "type": "panel",
+    "size": ["133.333333%y - 16.333333px", "100%"],
+    "anchor_from": "center",
+    "anchor_to": "center",
     "controls": [
       {
         "bezel@script_block.script_block_frame": {
@@ -201,7 +216,7 @@
                   {
                     "separator_text": {
                       "type": "label",
-                      "text": "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+                      "text": "----------------------------------------------------------------------------------------------------------------------------------------------------------------",
                       "color": [
                         0.862745098,
                         0.5215686275,

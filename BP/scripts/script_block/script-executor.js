@@ -5,7 +5,6 @@ import { reportError } from "./error-reporter.js";
 import { scriptJson } from "./utils/script-json.js";
 
 const OPTIONAL_MODULE_LOADERS = [
-  () => import("@minecraft/server-gametest"),
   () => import("@minecraft/server-editor-bindings"),
   () => import("@minecraft/server-editor-private-bindings"),
   () => import("@minecraft/server-editor"),
@@ -24,6 +23,7 @@ async function buildScriptScope() {
     ...(await import("@minecraft/common")),
     ...(await import("@minecraft/server")),
     ...(await import("@minecraft/server-ui")),
+    ...(await import("@minecraft/server-gametest")),
   };
 
   for (const loadModule of OPTIONAL_MODULE_LOADERS) {

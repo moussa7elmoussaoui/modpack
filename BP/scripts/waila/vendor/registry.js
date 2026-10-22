@@ -32,6 +32,7 @@ export const Registry = {
 	cc_re: { name: 'Realism Effects Add-On', creator: 'Cubed Creations' },
 	cubc_we_fu: { name: 'Weapons Fusion Add-On', creator: 'Cubed Creations' },
 	cc_vd: { name: 'Villager Dweller Add-On', creator: 'Cubed Creations' },
+	dark7mc: { name: 'DARK7MC' },
 	darkosto_elemental_crops: { name: 'Elemental Crops', creator: 'Darkosto' },
 	float_fc: { name: 'Forest Craft', creator: 'Float Studios' },
 	float_fca: { name: 'Fur Craft', creator: 'Float Studios' },
