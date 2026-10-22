@@ -12,7 +12,6 @@
       },
       {
         "script_block_preview@script_block.script_block_window": {
-          "min_size": [309, 244],
           "$script_block_content": "script_block.script_block_action_panel",
           "$script_block_actions": "script_block.script_block_preview_buttons",
           "$script_block_actions_size": ["100%", 20],
@@ -119,16 +118,16 @@
   "script_block_window": {
     "type": "panel",
     "size": [
-      "90% - 16px",
-      "100% - 32px"
+      289,
+      229
     ],
     "min_size": [
-      237,
-      190
+      289,
+      229
     ],
     "max_size": [
-      720,
-      440
+      289,
+      229
     ],
     "anchor_from": "center",
     "anchor_to": "center",
@@ -803,49 +802,52 @@
     ]
   },
   "script_block_preview_buttons": {
-    "type": "panel",
+    "type": "stack_panel",
+    "orientation": "horizontal",
     "collection_name": "form_buttons",
     "controls": [
       {
+        "spacing": {
+          "type": "panel",
+          "size": ["fill", 20]
+        }
+      },
+      {
         "clear@script_block.script_block_action_button": {
-          "collection_index": 0,
-          "anchor_from": "left_middle",
-          "anchor_to": "left_middle"
+          "collection_index": 0
         }
       },
       {
         "format@script_block.script_block_action_button": {
-          "collection_index": 1,
-          "anchor_from": "right_middle",
-          "anchor_to": "right_middle",
-          "offset": [-84, 0]
+          "collection_index": 1
         }
       },
       {
         "edit@script_block.script_block_action_button": {
-          "collection_index": 2,
-          "anchor_from": "right_middle",
-          "anchor_to": "right_middle"
+          "collection_index": 2
         }
       }
     ]
   },
   "script_block_confirmation_buttons": {
-    "type": "panel",
+    "type": "stack_panel",
+    "orientation": "horizontal",
     "collection_name": "form_buttons",
     "controls": [
       {
+        "spacing": {
+          "type": "panel",
+          "size": ["fill", 20]
+        }
+      },
+      {
         "clear@script_block.script_block_action_button": {
-          "collection_index": 0,
-          "anchor_from": "left_middle",
-          "anchor_to": "left_middle"
+          "collection_index": 0
         }
       },
       {
         "cancel@script_block.script_block_action_button": {
-          "collection_index": 1,
-          "anchor_from": "right_middle",
-          "anchor_to": "right_middle"
+          "collection_index": 1
         }
       }
     ]

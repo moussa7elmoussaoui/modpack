@@ -30,7 +30,7 @@ export function confirmClearCode(block, player) {
   return new ActionFormData()
     .title("Clear Script Block?")
     .body("Clear the saved code for this block? This cannot be undone.")
-    .button("Clear code")
+    .button("Clear")
     .button("Cancel")
     .show(player)
     .then((response) => {
