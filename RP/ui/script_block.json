@@ -32,7 +32,6 @@
         "script_block_confirmation@script_block.script_block_dialog": {
           "$script_block_actions": "script_block.script_block_action_buttons",
           "$script_block_actions_size": [144, 20],
-          "$script_block_actions_anchor": "center",
           "bindings": [
             {
               "binding_name": "#title_text",
