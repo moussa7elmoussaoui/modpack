@@ -694,9 +694,11 @@
       "100% - 4px"
     ],
     "$scrolling_pane_size": [
-      "100% - 4px",
+      "100% + 4px",
       "100%"
     ],
+    "$scroll_view_port_size": ["100% - 8px", "100%"],
+    "$scroll_view_port_size_touch": ["100% - 8px", "100%"],
     "$scrolling_pane_offset": [
       2,
       0
