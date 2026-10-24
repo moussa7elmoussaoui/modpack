@@ -686,24 +686,57 @@
     ],
     "$font_type": "MinecraftTen"
   },
+  "script_block_scroll_handle": {
+    "type": "image",
+    "texture": "textures/ui/White",
+    "size": [5, "100%"],
+    "color": [0.2, 0.2, 0.2],
+    "nineslice_size": 0,
+    "keep_ratio": false,
+    "bilinear": false,
+    "layer": 4
+  },
+  "script_block_scroll_track@script_block.script_block_scroll_handle": {
+    "color": [0.066666667, 0.066666667, 0.066666667],
+    "layer": 3
+  },
   "script_block_scrolling_panel@common.scrolling_panel": {
     "$show_background": false,
+    "$scroll_box_mouse_image_control": "script_block.script_block_scroll_handle",
+    "$scroll_box_touch_image_control": "script_block.script_block_scroll_handle",
+    "$scroll_track_image_control": "script_block.script_block_scroll_track",
+    "$scroll_box_visible_touch": true,
     "$scroll_bar_contained": true,
+    "$scroll_bar_contained_touch": true,
     "$scroll_size": [
       5,
-      "100% - 4px"
+      "100%"
+    ],
+    "$scroll_size_touch": [
+      5,
+      "100%"
     ],
     "$scrolling_pane_size": [
       "100% + 4px",
-      "100%"
+      "100% + 12px"
     ],
-    "$scroll_view_port_size": ["100% - 5px", "100%"],
-    "$scroll_view_port_size_touch": ["100% - 5px", "100%"],
+    "$scrolling_pane_size_touch": [
+      "100% + 4px",
+      "100% + 12px"
+    ],
+    "$scroll_view_port_size": ["100% - 13px", "100% - 12px"],
+    "$scroll_view_port_size_touch": ["100% - 13px", "100% - 12px"],
+    "$scroll_view_port_offset": [0, 6],
+    "$scroll_view_port_offset_touch": [0, 6],
     "$scrolling_pane_offset": [
       2,
-      0
+      -6
     ],
     "$scroll_bar_right_padding_size": [
+      0,
+      0
+    ],
+    "$scroll_bar_right_padding_size_touch": [
       0,
       0
     ]
