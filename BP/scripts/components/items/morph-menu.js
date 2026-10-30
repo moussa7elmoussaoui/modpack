@@ -3,7 +3,8 @@ import { ActionFormData, uiManager } from "@minecraft/server-ui";
 import { Morph } from "../../morph/class";
 import { playerHasWornOmnitrix } from "../../morph/entity-methods";
 import { getPlayerIconPath, getPlayerSkinIndex } from "../../data/player-skins";
-import { mergeStoredPlayerMorphs } from "./morph-storage";
+import { mergeStoredPlayerMorphs, readStoredMorphIds } from "./morph-storage";
+import { isOwnedOmnitrix } from "../../utils/omnitrix-ownership";
 
 const PLAYER_ENTITY_TYPE = "minecraft:player";
 const openMorphMenus = new Set();
@@ -30,9 +31,15 @@ export function closeMorphMenuForms(player) {
   uiManager.closeAllForms(player);
 }
 
-export function showMorphMenu(source, itemSlot, itemStack, morphIds, menuActions) {
+export function showMorphMenu(source, itemSlot, menuActions) {
+  const itemStack = itemSlot.getItem();
+  if (!isOwnedOmnitrix(itemStack, source)) {
+    menuActions.close();
+    return;
+  }
+
   openMorphMenus.add(source);
-  morphIds = normalizeMorphIdsForMenu(source, itemSlot, itemStack, morphIds);
+  const morphIds = normalizeMorphIdsForMenu(source, itemSlot, itemStack, readStoredMorphIds(itemStack));
   const variantsByAge = new Map();
   const ownerMorphId = new Morph(PLAYER_ENTITY_TYPE, {}, source.name).toString();
 
@@ -79,14 +86,14 @@ export function showMorphMenu(source, itemSlot, itemStack, morphIds, menuActions
 
   morphMenu.show(source).then(({ canceled, selection }) => {
     openMorphMenus.delete(source);
-    if (canceled) {
+    if (canceled || !menuActions.isWorn()) {
       menuActions.close();
       return;
     }
 
     const entry = sortedEntries[selection];
     if (entry?.variants.length === 1) {
-      applyMorphSelection(source, itemSlot, itemStack, entry.variants[0]);
+      applyMorphSelection(source, itemSlot, entry.variants[0]);
       menuActions.close();
       return;
     }
@@ -94,7 +101,7 @@ export function showMorphMenu(source, itemSlot, itemStack, morphIds, menuActions
     if (entry !== undefined) {
       system.runTimeout(() => {
         if (menuActions.isWorn()) {
-          showVariantMenu(source, itemSlot, itemStack, morphIds, [...entry.variants].sort(sortMorphIds), menuActions);
+          showVariantMenu(source, itemSlot, [...entry.variants].sort(sortMorphIds), menuActions);
         }
       }, 1);
     } else {
@@ -155,7 +162,12 @@ function normalizeMorphIdsForMenu(source, itemSlot, itemStack, morphIds) {
   return normalizedMorphIds;
 }
 
-function showVariantMenu(source, itemSlot, itemStack, morphIds, sortedVariants, menuActions) {
+function showVariantMenu(source, itemSlot, sortedVariants, menuActions) {
+  if (!isOwnedOmnitrix(itemSlot.getItem(), source)) {
+    menuActions.close();
+    return;
+  }
+
   openMorphMenus.add(source);
   const menuTitle = getMorphPlayerName(sortedVariants[0]) === undefined
     ? "morph.menu.variant"
@@ -169,15 +181,19 @@ function showVariantMenu(source, itemSlot, itemStack, morphIds, sortedVariants, 
 
   variantMenu.show(source).then(({ canceled, selection }) => {
     openMorphMenus.delete(source);
+    if (!menuActions.isWorn()) {
+      menuActions.close();
+      return;
+    }
     if (canceled) {
       system.runTimeout(() => {
-        if (menuActions.isWorn()) showMorphMenu(source, itemSlot, itemStack, morphIds, menuActions);
+        if (menuActions.isWorn()) showMorphMenu(source, itemSlot, menuActions);
       }, 1);
       return;
     }
 
     const morphId = sortedVariants[selection];
-    if (morphId !== undefined) applyMorphSelection(source, itemSlot, itemStack, morphId);
+    if (morphId !== undefined) applyMorphSelection(source, itemSlot, morphId);
     menuActions.close();
   }).catch(() => {
     openMorphMenus.delete(source);
@@ -185,9 +201,19 @@ function showVariantMenu(source, itemSlot, itemStack, morphIds, sortedVariants, 
   });
 }
 
-function applyMorphSelection(source, itemSlot, itemStack, morphId) {
+function applyMorphSelection(source, itemSlot, morphId) {
+  const itemStack = itemSlot.getItem();
+  if (!isOwnedOmnitrix(itemStack, source)) return;
+
+  const morphIds = normalizeMorphIdsForMenu(source, itemSlot, itemStack, readStoredMorphIds(itemStack));
+  const playerName = getMorphPlayerName(morphId);
+  const selectedMorphId = morphIds.find(storedMorphId => playerName === undefined
+    ? storedMorphId === morphId
+    : getMorphPlayerName(storedMorphId) === playerName);
+  if (selectedMorphId === undefined) return;
+
   const currentMorph = source.getMorph();
-  const selectedMorph = Morph.parse(morphId, { allowOmnitrix: true });
+  const selectedMorph = Morph.parse(selectedMorphId, { allowOmnitrix: true });
 
   const isMorphingSuccessful = source.setMorph(selectedMorph, { soulSwitch: false });
   if (!isMorphingSuccessful) return;

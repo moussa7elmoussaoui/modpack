@@ -4,13 +4,13 @@ import {
   agePriority, applyMorphSelection, getAgeKey, getMorphIconPath, getMorphPlayerName, getMorphVariantTitle,
   normalizeMorphIdsForMenu, sortMorphIds
 } from "../components/items/morph-menu";
-import { findActiveOmnitrix, hasWornOmnitrix, isHiddenSpecialMorph } from "../components/items/omnitrix";
+import { findActiveOmnitrix, isHiddenSpecialMorph } from "../components/items/omnitrix";
 import { readStoredMorphIds } from "../components/items/morph-storage";
 import { displayName, localizedMenuTitle, MARKERS } from "./titles";
 import { LocalizedError } from "../utils/messages";
 
 export function readMorphMenu(target) {
-  const active = hasWornOmnitrix(target) ? findActiveOmnitrix(target) : undefined;
+  const active = findActiveOmnitrix(target);
   if (!active) throw new LocalizedError("invsee.error.no_omnitrix");
   const ids = normalizeMorphIdsForMenu(target, { setItem() {} }, active.itemStack, readStoredMorphIds(active.itemStack));
   const owner = new Morph("minecraft:player", {}, target.name).toString();
@@ -64,5 +64,5 @@ export function selectTargetMorph(target, id) {
   if (!current.entries.some(entry => entry.variants.includes(id))) {
     throw new LocalizedError("invsee.error.morph_unavailable");
   }
-  applyMorphSelection(target, current.inventory.getSlot(current.slot), current.itemStack, id);
+  applyMorphSelection(target, current.inventory.getSlot(current.slot), id);
 }

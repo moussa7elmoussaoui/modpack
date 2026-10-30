@@ -5,6 +5,7 @@ import { morphEvents, playerHasWornOmnitrix } from "../../morph/entity-methods";
 import { namespace } from "../../utils/pack-data";
 import { feedback } from "../../utils/messages";
 import { renameItemTypeId } from "../../utils/rename-item";
+import { isActiveOmnitrix, isOwnedOmnitrix, OMNITRIX_ACTIVE_PROPERTY, OMNITRIX_OWNER_NAME_PROPERTY } from "../../utils/omnitrix-ownership";
 import { initializeStoredMorphs, readStoredMorphIds } from "./morph-storage";
 import { closeMorphMenuForms, registerOmnitrixUseHandler, showMorphMenu } from "./morph-menu";
 
@@ -12,8 +13,6 @@ const IDENTIFIER = "omnitrix";
 const namespacedId = namespace.toNamespacedId(IDENTIFIER);
 const WORN_ITEM_ID = "dark7mc:omnitrix_worn";
 const PLAYER_ENTITY_TYPE = "minecraft:player";
-const ACTIVE_ITEM_PROPERTY = "isOmnitrixActive";
-const WORN_PLAYER_PROPERTY = "dark7mc:omnitrix_worn";
 const STATE_PROPERTY = "dark7mc:omnitrix_state";
 const STATES = Object.freeze({
   unworn: "unworn",
@@ -34,7 +33,6 @@ const OMNITRIX_SOUNDS = Object.freeze({
   raise: "item.omnitrix.raise",
   lower: "item.omnitrix.lower"
 });
-const MORPH_STORAGE_COMPONENT_ID = namespace.toNamespacedId("morph_storage");
 
 const OMNITRIX_WORN_MESSAGE = feedback("morph.omnitrix_worn");
 
@@ -64,23 +62,15 @@ function initializeOmnitrix(itemStack, owner) {
   return initializeStoredMorphs(itemStack, owner.name);
 }
 
-function isActiveOmnitrix(itemStack) {
-  return itemStack?.hasComponent(namespacedId) === true &&
-    itemStack.hasComponent(MORPH_STORAGE_COMPONENT_ID) &&
-    itemStack.getDynamicProperty(ACTIVE_ITEM_PROPERTY) === true;
-}
-
 function findActiveOmnitrix(player) {
   const inventory = player.getComponent("minecraft:inventory").container;
   for (let slot = 0; slot < inventory.size; slot++) {
     const itemStack = inventory.getItem(slot);
-    if (isActiveOmnitrix(itemStack)) return { inventory, slot, itemStack };
+    if (isOwnedOmnitrix(itemStack, player)) return { inventory, slot, itemStack };
   }
 }
 
 export function removeMorphFromActiveOmnitrix(player, morph) {
-  if (!hasWornOmnitrix(player)) return false;
-
   const activeOmnitrix = findActiveOmnitrix(player);
   if (activeOmnitrix === undefined || !activeOmnitrix.itemStack.hasMorph(morph)) return false;
 
@@ -89,14 +79,8 @@ export function removeMorphFromActiveOmnitrix(player, morph) {
   return true;
 }
 
-function hasActiveCursorOmnitrix(player) {
-  const cursorItem = player.getComponent(EntityComponentTypes.CursorInventory)?.item;
-  return isActiveOmnitrix(cursorItem);
-}
-
 function hasWornOmnitrix(player) {
-  return player.getDynamicProperty(WORN_PLAYER_PROPERTY) === true &&
-    (findActiveOmnitrix(player) !== undefined || hasActiveCursorOmnitrix(player));
+  return playerHasWornOmnitrix(player);
 }
 
 function clearOffhandForWornOmnitrix(player) {
@@ -177,17 +161,23 @@ function updateHoldingAnimationOffhandLock(player, isHoldingWornOmnitrix) {
   holdingAnimationStates.delete(player.id);
 }
 
-function synchronizeWornItemVisibility(player, shouldHideItem) {
-  const activeOmnitrix = findActiveOmnitrix(player);
-  if (activeOmnitrix === undefined) return;
+function synchronizeOmnitrixItems(player, shouldHideItem) {
+  const inventory = player.getComponent("minecraft:inventory").container;
+  for (let slot = 0; slot < inventory.size; slot++) {
+    const itemStack = inventory.getItem(slot);
+    if (!isActiveOmnitrix(itemStack)) continue;
 
-  const targetItemId = shouldHideItem ? WORN_ITEM_ID : namespacedId;
-  if (activeOmnitrix.itemStack.typeId === targetItemId) return;
+    const isOwner = isOwnedOmnitrix(itemStack, player);
+    const targetItemId = shouldHideItem && isOwner ? WORN_ITEM_ID : namespacedId;
+    const targetLockMode = isOwner ? ItemLockMode.inventory : ItemLockMode.none;
+    if (itemStack.typeId === targetItemId && itemStack.lockMode === targetLockMode) continue;
 
-  activeOmnitrix.inventory.setItem(
-    activeOmnitrix.slot,
-    renameItemTypeId(activeOmnitrix.itemStack, targetItemId)
-  );
+    const updatedItemStack = itemStack.typeId === targetItemId
+      ? itemStack
+      : renameItemTypeId(itemStack, targetItemId);
+    updatedItemStack.lockMode = targetLockMode;
+    inventory.setItem(slot, updatedItemStack);
+  }
 }
 
 function setOmnitrixState(player, state) {
@@ -199,16 +189,17 @@ function isOmnitrixVisible(player) {
 }
 
 function bindOmnitrix(player, slot, itemStack) {
-  if (findActiveOmnitrix(player) !== undefined) return false;
+  if (hasWornOmnitrix(player)) return false;
 
   initializeOmnitrix(itemStack, player);
-  itemStack.setDynamicProperty(ACTIVE_ITEM_PROPERTY, true);
+  itemStack.setDynamicProperty(OMNITRIX_OWNER_NAME_PROPERTY, player.name);
+  itemStack.setDynamicProperty(OMNITRIX_ACTIVE_PROPERTY, true);
+  itemStack.setLore([feedback("morph.omnitrix.bound_to", [player.name])]);
   itemStack.lockMode = ItemLockMode.inventory;
   itemStack.keepOnDeath = true;
 
   const inventory = player.getComponent("minecraft:inventory").container;
   inventory.setItem(slot, renameItemTypeId(itemStack, WORN_ITEM_ID));
-  player.setDynamicProperty(WORN_PLAYER_PROPERTY, true);
   setOmnitrixState(player, STATES.closed);
   return true;
 }
@@ -284,7 +275,12 @@ export function handleOmnitrixUse({ source }) {
     return;
   }
 
-  if (!hasWornOmnitrix(source)) return;
+  if (!isOwnedOmnitrix(itemStack, source)) {
+    source.sendMessage(feedback("morph.omnitrix.not_owner", [itemStack.getDynamicProperty(OMNITRIX_OWNER_NAME_PROPERTY)]));
+    return;
+  }
+
+  if (source.getProperty(STATE_PROPERTY) === STATES.unworn) setOmnitrixState(source, STATES.closed);
 
   openOmnitrixMenu(source, () => {
     const activeOmnitrix = findActiveOmnitrix(source);
@@ -296,8 +292,6 @@ export function handleOmnitrixUse({ source }) {
     showMorphMenu(
       source,
       activeOmnitrix.inventory.getSlot(activeOmnitrix.slot),
-      activeOmnitrix.itemStack,
-      readStoredMorphIds(activeOmnitrix.itemStack),
       {
         close: () => closeOmnitrixMenu(source),
         isWorn: () => hasWornOmnitrix(source),
@@ -347,7 +341,7 @@ system.runInterval(() => {
       player.setProperty("dark7mc:morph_omnitrix", shouldRenderMorphOmnitrix);
     }
 
-    synchronizeWornItemVisibility(player, shouldRenderMorphOmnitrix);
+    synchronizeOmnitrixItems(player, shouldRenderMorphOmnitrix);
 
     if (!hasWornOmnitrixItem) {
       closeMorphMenuForms(player);
@@ -355,20 +349,22 @@ system.runInterval(() => {
         stopOmnitrixIdleSound(player);
         setOmnitrixState(player, STATES.unworn);
       }
+    } else if (player.getProperty(STATE_PROPERTY) === STATES.unworn) {
+      setOmnitrixState(player, STATES.closed);
     }
 
     const inventory = player.getComponent("minecraft:inventory").container;
     const selectedItemStack = inventory.getItem(player.selectedSlotIndex);
     const isHoldingWornOmnitrix = hasWornOmnitrixItem &&
       selectedItemStack?.typeId === WORN_ITEM_ID &&
-      isActiveOmnitrix(selectedItemStack);
+      isOwnedOmnitrix(selectedItemStack, player);
     updateHoldingAnimationOffhandLock(player, isHoldingWornOmnitrix);
   }
 });
 
 function unlockSpecialMorph(player, config) {
   const activeOmnitrix = findActiveOmnitrix(player);
-  if (activeOmnitrix === undefined || !hasWornOmnitrix(player)) return false;
+  if (activeOmnitrix === undefined) return false;
 
   const { inventory, slot, itemStack } = activeOmnitrix;
   const morph = new Morph(config.entityType);
@@ -434,7 +430,7 @@ function isSecretMorphOwner(player, config) {
 
 function hasOmnitrixWithoutMorph(player, config) {
   const activeOmnitrix = findActiveOmnitrix(player);
-  return hasWornOmnitrix(player) && activeOmnitrix !== undefined && !activeOmnitrix.itemStack.hasMorph(new Morph(config.entityType));
+  return activeOmnitrix !== undefined && !activeOmnitrix.itemStack.hasMorph(new Morph(config.entityType));
 }
 
 function giveKilledMobMorphToPlayer(player, deadEntity, morph) {
@@ -465,7 +461,7 @@ function giveMorphToPlayer(player, morph) {
   if (!(morph instanceof Morph)) throw new TypeError("Expected argument to be an instance of Morph");
 
   const activeOmnitrix = findActiveOmnitrix(player);
-  if (!hasWornOmnitrix(player) || activeOmnitrix === undefined) return false;
+  if (activeOmnitrix === undefined) return false;
 
   const previousMorphIds = readStoredMorphIds(activeOmnitrix.itemStack);
   activeOmnitrix.itemStack.addMorph(morph);

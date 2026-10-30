@@ -9,7 +9,7 @@ export function renameItemTypeId(itemStack, identifier) {
   newItemStack.nameTag = itemStack.nameTag;
   newItemStack.setCanDestroy(itemStack.getCanDestroy());
   newItemStack.setCanPlaceOn(itemStack.getCanPlaceOn());
-  newItemStack.setLore(itemStack.getLore());
+  newItemStack.setLore(itemStack.getRawLore());
 
   if (newItemStack.hasComponent("minecraft:durability") && itemStack.hasComponent("minecraft:durability")) {
     newItemStack.getComponent("minecraft:durability").damage = itemStack.getComponent("minecraft:durability").damage;

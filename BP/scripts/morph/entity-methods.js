@@ -5,25 +5,22 @@ import morphs, { morphEntityTypes } from "../data/morphs";
 import { getPlayerSkinIndex, playerSkins } from "../data/player-skins";
 import { emitMorphEvent, morphEvents } from "./events";
 import { refreshMorphNameTag } from "./name-visibility";
+import { isOwnedOmnitrix } from "../utils/omnitrix-ownership";
 
 const PLAYER_MORPH_NAME_PROPERTY = "dark7mc:player_morph_name";
 const MORPH_WEARS_OMNITRIX_PROPERTY = "dark7mc:morph_wears_omnitrix";
 
 export function playerHasWornOmnitrix(player) {
-  if (player.getDynamicProperty("dark7mc:omnitrix_worn") !== true) return false;
-
   const inventory = player.getComponent("minecraft:inventory")?.container;
   if (inventory === undefined) return false;
 
   for (let slot = 0; slot < inventory.size; slot++) {
     const itemStack = inventory.getItem(slot);
-    if (itemStack?.hasComponent("dark7mc:omnitrix") &&
-      itemStack.getDynamicProperty("isOmnitrixActive") === true) return true;
+    if (isOwnedOmnitrix(itemStack, player)) return true;
   }
 
   const cursorItem = player.getComponent(EntityComponentTypes.CursorInventory)?.item;
-  return cursorItem?.hasComponent("dark7mc:omnitrix") === true &&
-    cursorItem.getDynamicProperty("isOmnitrixActive") === true;
+  return isOwnedOmnitrix(cursorItem, player);
 }
 
 function getMorphSourceWearsOmnitrix(morph, player) {
