@@ -1,0 +1,2458 @@
+{
+  "version": 1,
+  "description": "Pixel measurements of all original Blockbench icons. Original = front faces only, floor padding, initial calibration. Improved = double-sided, nearest-even padding, refined calibration.",
+  "original": [
+    {
+      "key": "wide/chandler",
+      "fingerprint": "fe3537a24586c6a1e41955db48d70804cb2bbfbdc8d16c1fa4801ffbe2f80438",
+      "silhouetteOverlap": 0.966749474488821,
+      "exactVisiblePixelFraction": 0.6353907892222435,
+      "pixelError": 307533
+    },
+    {
+      "key": "wide/dantdm",
+      "fingerprint": "ade3f94bb29afdee6e9786bc5aef5a35babf4c9921ccc3800cb9e14754ac0620",
+      "silhouetteOverlap": 0.9987846870569171,
+      "exactVisiblePixelFraction": 0.9817703058537574,
+      "pixelError": 9128
+    },
+    {
+      "key": "wide/dark7mc",
+      "fingerprint": "78eb6c0fd568c02e0cc998c91a82e0574de3e8de9ba11f07cfd935122e4cd23a",
+      "silhouetteOverlap": 0.9972072611210852,
+      "exactVisiblePixelFraction": 0.9896269698783163,
+      "pixelError": 14910
+    },
+    {
+      "key": "wide/dr_donut",
+      "fingerprint": "2fb0c96772ef0272efcfc216329c7d437fc997a514e1ff207aef71253cb1655c",
+      "silhouetteOverlap": 0.9997959600081616,
+      "exactVisiblePixelFraction": 0.9869414405223423,
+      "pixelError": 3654
+    },
+    {
+      "key": "wide/dream",
+      "fingerprint": "84147784cbf89e984cc504637de22a09838c690d229b08eb74bd8953f27e990a",
+      "silhouetteOverlap": 0.9997959600081616,
+      "exactVisiblePixelFraction": 0.9987757600489696,
+      "pixelError": 1906
+    },
+    {
+      "key": "wide/georgenotfound",
+      "fingerprint": "6dc1e319965feefa0c6937469a6ccc94bcb7498a02ac121d3fb7a23c49ff690e",
+      "silhouetteOverlap": 0.9989818774180411,
+      "exactVisiblePixelFraction": 0.9947057625738139,
+      "pixelError": 7914
+    },
+    {
+      "key": "wide/grox",
+      "fingerprint": "584168b5983f9a5939d58d5bea944887b2e3041c6f46e806c67546c747529797",
+      "silhouetteOverlap": 0.9997959600081616,
+      "exactVisiblePixelFraction": 0.9906141603754336,
+      "pixelError": 5849
+    },
+    {
+      "key": "wide/mrbeast",
+      "fingerprint": "ef0130a0e0e5b40b8e14e118ccd98b27ccc4e72634ab7d491904c8bc139cb9f6",
+      "silhouetteOverlap": 0.9945883262466177,
+      "exactVisiblePixelFraction": 0.9833784306146115,
+      "pixelError": 34676
+    },
+    {
+      "key": "wide/mumbo_jumbo",
+      "fingerprint": "09a1da5ea5e889817da3d2e1da622283081403e3daa40b57197eb24000805b6d",
+      "silhouetteOverlap": 0.9997959600081616,
+      "exactVisiblePixelFraction": 0.9879616404815343,
+      "pixelError": 3689
+    },
+    {
+      "key": "wide/pewdiepie",
+      "fingerprint": "5c3b417d70eb8230a7cd91d9088ac82e017e8808a418d888c18643b54f50f534",
+      "silhouetteOverlap": 0.9885189437428243,
+      "exactVisiblePixelFraction": 0.9841178721775736,
+      "pixelError": 62164
+    },
+    {
+      "key": "wide/ph1lza",
+      "fingerprint": "014a97f849e838a12b97a97271d4635d2ac0c986675348afad9b491b6ae1cdec",
+      "silhouetteOverlap": 0.9979879275653923,
+      "exactVisiblePixelFraction": 0.9879275653923542,
+      "pixelError": 12117
+    },
+    {
+      "key": "wide/prestonplayz",
+      "fingerprint": "1b738e203da5a706a5c422f57f8ac23643ddf8f40f27dffef8c7c5dc6d84047f",
+      "silhouetteOverlap": 0.9987878787878788,
+      "exactVisiblePixelFraction": 0.9937373737373737,
+      "pixelError": 8264
+    },
+    {
+      "key": "wide/ramboo",
+      "fingerprint": "251ad74e4a97b5e7a8175c6d433a7b69798c0afda2465c1049bc1517dba61929",
+      "silhouetteOverlap": 0.9667584579071598,
+      "exactVisiblePixelFraction": 0.6774193548387096,
+      "pixelError": 286172
+    },
+    {
+      "key": "wide/sapnap",
+      "fingerprint": "228693eb1f6f3d130dfaabaa987d75095a9c7edf19079c31ff05fb27defe8ac1",
+      "silhouetteOverlap": 0.9694524495677234,
+      "exactVisiblePixelFraction": 0.8282420749279539,
+      "pixelError": 264150
+    },
+    {
+      "key": "wide/stampy",
+      "fingerprint": "ee44cb11ec1bcb706f5f5be356153e6378a82fa44309ea70192bcc8a4fd41a89",
+      "silhouetteOverlap": 0.9694656488549618,
+      "exactVisiblePixelFraction": 0.6936778234488158,
+      "pixelError": 267916
+    },
+    {
+      "key": "wide/steve",
+      "fingerprint": "ce3b935c8ecdd50da1847f3f6ca491ad1882be14d4841ab106be643e3b2b5e10",
+      "silhouetteOverlap": 0.9995925850478713,
+      "exactVisiblePixelFraction": 0.9918517009574251,
+      "pixelError": 3468
+    },
+    {
+      "key": "wide/technoblade",
+      "fingerprint": "d7f0cdb2dc518ed5cdede4ec21670839b115a89b2e85def3dbe9e76a70b13299",
+      "silhouetteOverlap": 0.9518142801404604,
+      "exactVisiblePixelFraction": 0.4855637924307452,
+      "pixelError": 526424
+    },
+    {
+      "key": "wide/tommyinnit",
+      "fingerprint": "d763b391d2368153a3796268b9c9e18874c419be76deba403c048055c470935f",
+      "silhouetteOverlap": 0.9698482811599769,
+      "exactVisiblePixelFraction": 0.7244094488188977,
+      "pixelError": 305885
+    },
+    {
+      "key": "wide/unspeakable",
+      "fingerprint": "a7712f5a2c95ae161418a23150d28b183c7112354f90257fd186379fe55c6c0a",
+      "silhouetteOverlap": 0.9997975708502024,
+      "exactVisiblePixelFraction": 0.9912955465587044,
+      "pixelError": 3234
+    },
+    {
+      "key": "wide/urban7mc",
+      "fingerprint": "d4f9f4845ef503ea1a999ce3ac3d06c2d74b8636451cb332819743a44591aed0",
+      "silhouetteOverlap": 0.9997959600081616,
+      "exactVisiblePixelFraction": 0.98979800040808,
+      "pixelError": 5682
+    },
+    {
+      "key": "wide/wemmbu",
+      "fingerprint": "870dc83faea71efd957226d24c18484d336610adc8bd4ccbf78d17f39465a434",
+      "silhouetteOverlap": 0.9989829129373474,
+      "exactVisiblePixelFraction": 0.9971521562245729,
+      "pixelError": 5111
+    },
+    {
+      "key": "slim/alex",
+      "fingerprint": "5043665f4a7e68e7af57dfef81fe9cd317dd1a6bfd8f80126b65cc83d1952c96",
+      "silhouetteOverlap": 0.998933219543418,
+      "exactVisiblePixelFraction": 0.9908256880733946,
+      "pixelError": 7817
+    },
+    {
+      "key": "slim/aphmau",
+      "fingerprint": "e10bc96c4f959dee45822e4d38f4dedc35f62b6e6d05682daad6fb53a1638ad0",
+      "silhouetteOverlap": 0.9983040067839729,
+      "exactVisiblePixelFraction": 0.9910960356158576,
+      "pixelError": 11430
+    },
+    {
+      "key": "slim/fundy",
+      "fingerprint": "7de1990b3acb7e8615abd4c8682423f84974ef5bcc59c4f272ea307f0786b6c3",
+      "silhouetteOverlap": 0.9954032595068951,
+      "exactVisiblePixelFraction": 0.9820309235269536,
+      "pixelError": 30837
+    },
+    {
+      "key": "slim/grian",
+      "fingerprint": "34a1ec4320382e96ffd23858a08f9c169ac966e103cfa435095b4e2d0498cc90",
+      "silhouetteOverlap": 0.9978969505783386,
+      "exactVisiblePixelFraction": 0.9840168243953733,
+      "pixelError": 13566
+    },
+    {
+      "key": "slim/s001",
+      "fingerprint": "051187b67b96e25c5bc7ffa21bef2cd05001850ca3c0db54c5b6bb798c6d012a",
+      "silhouetteOverlap": 0.995440414507772,
+      "exactVisiblePixelFraction": 0.9854922279792746,
+      "pixelError": 30407
+    },
+    {
+      "key": "slim/s002",
+      "fingerprint": "746d977ce139e3dbb59ae5bc93ec53b6c34ebb7f2f7895af83f18a9257172180",
+      "silhouetteOverlap": 0.992171405026782,
+      "exactVisiblePixelFraction": 0.988257107540173,
+      "pixelError": 41107
+    },
+    {
+      "key": "slim/s003",
+      "fingerprint": "84ace8211d4a1f4a723b555646f8417e5acb9d446ae5cbc8123609ec656748f5",
+      "silhouetteOverlap": 0.9952820512820513,
+      "exactVisiblePixelFraction": 0.9827692307692307,
+      "pixelError": 22932
+    },
+    {
+      "key": "slim/s004",
+      "fingerprint": "f082b484a36e2d0c9bc36c6a85a8b8076b9ff78fdcc9c7cfdbc5982f54bfeb11",
+      "silhouetteOverlap": 0.9961033634126333,
+      "exactVisiblePixelFraction": 0.9881050041017228,
+      "pixelError": 20689
+    },
+    {
+      "key": "slim/s005",
+      "fingerprint": "7da67653464cd56578f97bcb43832c3c0c99c363038f34a620e0a78d25413e8f",
+      "silhouetteOverlap": 0.9704513256425825,
+      "exactVisiblePixelFraction": 0.7870876340821696,
+      "pixelError": 279142
+    },
+    {
+      "key": "slim/s006",
+      "fingerprint": "c2c206e8ee8edb2232d47349baaa111e8e4249c857fdf9056248fc8f3d6ae5eb",
+      "silhouetteOverlap": 0.9964487152705244,
+      "exactVisiblePixelFraction": 0.9866304574890328,
+      "pixelError": 18981
+    },
+    {
+      "key": "slim/s007",
+      "fingerprint": "ad6f90969db04d46823fae1dcf04d2fc2a2fb88d2fffb4f06acc71adb46a2554",
+      "silhouetteOverlap": 0.9960217755443886,
+      "exactVisiblePixelFraction": 0.9822026800670016,
+      "pixelError": 23380
+    },
+    {
+      "key": "slim/s008",
+      "fingerprint": "da3d5ab3eb68b0bd9e4dc5b7b151dc4cc540e1541d8ac49fbb21fd39a6aa999f",
+      "silhouetteOverlap": 0.9930141771111568,
+      "exactVisiblePixelFraction": 0.9839737004314772,
+      "pixelError": 42103
+    },
+    {
+      "key": "slim/s009",
+      "fingerprint": "ad6e1216f8fd6dc0d916752439ba3994f3f14179da013fdffacb68fc739a5905",
+      "silhouetteOverlap": 0.9968886123210952,
+      "exactVisiblePixelFraction": 0.9753163244140219,
+      "pixelError": 23949
+    },
+    {
+      "key": "slim/s010",
+      "fingerprint": "1120eaf32c5d0109d55b414172e6b1bac09193825736cbc523e6a103a671e9c1",
+      "silhouetteOverlap": 0.9958454507685917,
+      "exactVisiblePixelFraction": 0.9825508932280848,
+      "pixelError": 21139
+    },
+    {
+      "key": "slim/s011",
+      "fingerprint": "27c4a08f8c1e71be79ed1b8b560f2bd703a367b6705127aa5255608f61921d35",
+      "silhouetteOverlap": 0.9972797656413476,
+      "exactVisiblePixelFraction": 0.9861895794099184,
+      "pixelError": 20863
+    },
+    {
+      "key": "slim/s012",
+      "fingerprint": "06c1df55c1e7ddde65275fa979190c8fb15b475a6fa524071226feda6523e384",
+      "silhouetteOverlap": 0.9976861590239798,
+      "exactVisiblePixelFraction": 0.987379049221708,
+      "pixelError": 12281
+    },
+    {
+      "key": "slim/s013",
+      "fingerprint": "d99c85188d272a7ca2912689940c3a914ce9dd8b553a190cd6159e750a84e4a2",
+      "silhouetteOverlap": 0.9698855651475607,
+      "exactVisiblePixelFraction": 0.8002409154788195,
+      "pixelError": 236066
+    },
+    {
+      "key": "slim/s014",
+      "fingerprint": "65a3bd6b3ecbc2d1e4a40a12ac52709559d7482cc6dfa744b2a469e273119b95",
+      "silhouetteOverlap": 0.9960100797984041,
+      "exactVisiblePixelFraction": 0.9865602687946241,
+      "pixelError": 24909
+    },
+    {
+      "key": "slim/s015",
+      "fingerprint": "dd574030719886da5ec67f78e5c66187314c4b44b1c1b4263ed29e1b3206157b",
+      "silhouetteOverlap": 0.9962350972599875,
+      "exactVisiblePixelFraction": 0.9893327755699645,
+      "pixelError": 21811
+    },
+    {
+      "key": "slim/s016",
+      "fingerprint": "11244a44e51bf380d6beef01b34914dd5116c7e9f44a1a4449734bb60d9ff03e",
+      "silhouetteOverlap": 0.9962647852251505,
+      "exactVisiblePixelFraction": 0.9833990454451131,
+      "pixelError": 20742
+    },
+    {
+      "key": "slim/s017",
+      "fingerprint": "aae9501c144657f067e01b9fe25e2e10b314327f7184e38523003d7f65c0512b",
+      "silhouetteOverlap": 0.9966597077244259,
+      "exactVisiblePixelFraction": 0.9889352818371607,
+      "pixelError": 19452
+    },
+    {
+      "key": "slim/s018",
+      "fingerprint": "2c48a1e4bd0a46f9cb34102a4ae5062bd8f18259ad4c515a70314231f5893637",
+      "silhouetteOverlap": 0.9964323189926547,
+      "exactVisiblePixelFraction": 0.9844700944386149,
+      "pixelError": 26069
+    },
+    {
+      "key": "slim/s019",
+      "fingerprint": "0921e03285910dea4cd7836e20a502708426a8aff87f3a8e46183487ba146752",
+      "silhouetteOverlap": 0.9918467183041174,
+      "exactVisiblePixelFraction": 0.9802282918874847,
+      "pixelError": 46867
+    },
+    {
+      "key": "slim/s020",
+      "fingerprint": "366791c2471e15e00ee2e17228c595c81403c2002ad966db32ad81c8b52b1616",
+      "silhouetteOverlap": 0.9930083899320815,
+      "exactVisiblePixelFraction": 0.9732321214542549,
+      "pixelError": 41598
+    },
+    {
+      "key": "slim/s021",
+      "fingerprint": "a1f3f3ccfe8d19fc1590e8eefee1747559e65e119475191844f35064db82ee4e",
+      "silhouetteOverlap": 0.9964501983712675,
+      "exactVisiblePixelFraction": 0.9872624765086657,
+      "pixelError": 19889
+    },
+    {
+      "key": "slim/s022",
+      "fingerprint": "0f4ff5dd8248c95a514d4d367be01eb250e3d3c4dcb90e3088767a96c336305b",
+      "silhouetteOverlap": 0.9706414639050874,
+      "exactVisiblePixelFraction": 0.7876533279710436,
+      "pixelError": 262504
+    },
+    {
+      "key": "slim/s023",
+      "fingerprint": "9844ab7dd1a310fcec72177226c1ff9e5ee44eaeda136c3a095575bea2ed30de",
+      "silhouetteOverlap": 0.996091339230611,
+      "exactVisiblePixelFraction": 0.9837481999588562,
+      "pixelError": 23615
+    },
+    {
+      "key": "slim/s024",
+      "fingerprint": "686bcf1f06b8e2f2c13a4b047593ba4f427613883348696c4e0a1a0fea9518fa",
+      "silhouetteOverlap": 0.9953907395767861,
+      "exactVisiblePixelFraction": 0.9857531950555206,
+      "pixelError": 27849
+    },
+    {
+      "key": "slim/s025",
+      "fingerprint": "f52c58d75d901316138925bf6eb45e0917d5c0dc1fa5af075aa59aa130c0bc5b",
+      "silhouetteOverlap": 0.9957894736842106,
+      "exactVisiblePixelFraction": 0.9814736842105263,
+      "pixelError": 23888
+    },
+    {
+      "key": "slim/s026",
+      "fingerprint": "d2a74231a64e182d2d09d55de91bbb6eb2ac5189b1aa7a2c2152a5fd6ebe9877",
+      "silhouetteOverlap": 0.9962546816479401,
+      "exactVisiblePixelFraction": 0.9852267998335414,
+      "pixelError": 21767
+    },
+    {
+      "key": "slim/s027",
+      "fingerprint": "5b3f5ff22408098f8b59ba4ced7983250a77516658b05dda725754f3e19dbe91",
+      "silhouetteOverlap": 0.99666874869873,
+      "exactVisiblePixelFraction": 0.9818863210493441,
+      "pixelError": 21626
+    },
+    {
+      "key": "slim/s028",
+      "fingerprint": "f75fa7f420d0ae4a0cabc36c757f235d03bc2fb3133b6a3e01c4d4e38f7b2b0f",
+      "silhouetteOverlap": 0.9914755429267302,
+      "exactVisiblePixelFraction": 0.9833570123807591,
+      "pixelError": 40203
+    },
+    {
+      "key": "slim/s029",
+      "fingerprint": "ac9c26d686062b46f9bfc288c5498f829b76b407ec4e539fafed91fe4fac92fb",
+      "silhouetteOverlap": 0.9970544918998527,
+      "exactVisiblePixelFraction": 0.986955606985062,
+      "pixelError": 18456
+    },
+    {
+      "key": "slim/s030",
+      "fingerprint": "1c466cbfaffa8b9e4552e9550a87e1c50b8b6858aa6c3b73f87bfebaadeae6b5",
+      "silhouetteOverlap": 0.9964450020911753,
+      "exactVisiblePixelFraction": 0.9907988289418653,
+      "pixelError": 20391
+    },
+    {
+      "key": "slim/s031",
+      "fingerprint": "2277a28eca576e8725642bdd7e9d5764252761531bd5235330ce47a990990c8e",
+      "silhouetteOverlap": 0.9960638077480837,
+      "exactVisiblePixelFraction": 0.9813548788067122,
+      "pixelError": 22648
+    },
+    {
+      "key": "slim/s032",
+      "fingerprint": "4e4a32d43dce10f75f4922939c3fb282f6475c22c0b4cffe7c6d658fc6c5042b",
+      "silhouetteOverlap": 0.9956377233070212,
+      "exactVisiblePixelFraction": 0.9819277108433735,
+      "pixelError": 28826
+    },
+    {
+      "key": "slim/s033",
+      "fingerprint": "c89f1b37c1a0bfa20e7e13b03477c01eeb4f01efb93610d0dba0e0def48828c4",
+      "silhouetteOverlap": 0.9936003303055326,
+      "exactVisiblePixelFraction": 0.985962014863749,
+      "pixelError": 31324
+    },
+    {
+      "key": "slim/s034",
+      "fingerprint": "8625250ffa6e726524362f80b41c77f3a16b6ec3aa751988a88c9e6fd87532d3",
+      "silhouetteOverlap": 0.9954954954954955,
+      "exactVisiblePixelFraction": 0.9871007371007371,
+      "pixelError": 23704
+    },
+    {
+      "key": "slim/s035",
+      "fingerprint": "d050568890e9100e65b89ef58b6f78c8310b39b287a07ba9031ba0623ead9b81",
+      "silhouetteOverlap": 0.9707038930397168,
+      "exactVisiblePixelFraction": 0.7029099488792765,
+      "pixelError": 249143
+    },
+    {
+      "key": "slim/s036",
+      "fingerprint": "e902056ddea72b2ab77406dffb47a4141e84963fde45ad404e6b09b5c19a6228",
+      "silhouetteOverlap": 0.9688629971876256,
+      "exactVisiblePixelFraction": 0.7643631980715146,
+      "pixelError": 280145
+    },
+    {
+      "key": "slim/s037",
+      "fingerprint": "c23f38f56b634d4e59aa6c34923013e11f30d9ec4b751c64f4e68ba98a935b32",
+      "silhouetteOverlap": 0.9966708281315023,
+      "exactVisiblePixelFraction": 0.9858510195588848,
+      "pixelError": 23731
+    },
+    {
+      "key": "slim/s038",
+      "fingerprint": "aad2d4e06390028e15569d7f07f6aa5ff5f624e5988ed2734c3ea0ee3efc3a2b",
+      "silhouetteOverlap": 0.9972956105679218,
+      "exactVisiblePixelFraction": 0.9910547118785105,
+      "pixelError": 15212
+    },
+    {
+      "key": "slim/s039",
+      "fingerprint": "4e28a0f873a5ddbe82eb997d16c6576297c71e92e3bdd42341ce2977c7d2b9a9",
+      "silhouetteOverlap": 0.9972854458133222,
+      "exactVisiblePixelFraction": 0.9883065358112341,
+      "pixelError": 18122
+    },
+    {
+      "key": "slim/s040",
+      "fingerprint": "fe1d15e8d4e721733427662c6597f00918255c3659c6fb070f0a1f0a8b32bf5b",
+      "silhouetteOverlap": 0.9945597420914769,
+      "exactVisiblePixelFraction": 0.9840822083417288,
+      "pixelError": 31987
+    },
+    {
+      "key": "slim/s041",
+      "fingerprint": "8e35a372f10e36063659a567a3514ce58428386eb4bbfe49c629b9b9b32464c1",
+      "silhouetteOverlap": 0.9974858579509742,
+      "exactVisiblePixelFraction": 0.9893148962916405,
+      "pixelError": 14797
+    },
+    {
+      "key": "slim/s042",
+      "fingerprint": "d2ae4aff3beebbb165154104bd46973dc589a3dbe8e47aeef4dc94565bdf4150",
+      "silhouetteOverlap": 0.9968474148802018,
+      "exactVisiblePixelFraction": 0.9861286254728878,
+      "pixelError": 23402
+    },
+    {
+      "key": "slim/s043",
+      "fingerprint": "6fc093d56ca70605593c2eb8ee40e54743277af9fd8844b9b06dd1af82045717",
+      "silhouetteOverlap": 0.9950546053987225,
+      "exactVisiblePixelFraction": 0.9787760148361838,
+      "pixelError": 31260
+    },
+    {
+      "key": "slim/s044",
+      "fingerprint": "7347c987bfa2078592a10c4224d412bd8d0acc032afb764891afe03c9c7ff838",
+      "silhouetteOverlap": 0.9962546816479401,
+      "exactVisiblePixelFraction": 0.9839783603828548,
+      "pixelError": 23134
+    },
+    {
+      "key": "slim/s045",
+      "fingerprint": "ef290612b6dedfaaf6c8db7efc0a9e29f207d44d2701bad6ac955659e56970f3",
+      "silhouetteOverlap": 0.9966358284272497,
+      "exactVisiblePixelFraction": 0.9844407064760303,
+      "pixelError": 21680
+    },
+    {
+      "key": "slim/s046",
+      "fingerprint": "430ceb5f3c6b2ceb1268731ff2710e8955e06104adc14dfa598b15c0dff95569",
+      "silhouetteOverlap": 0.9709526711354864,
+      "exactVisiblePixelFraction": 0.687995124923827,
+      "pixelError": 330487
+    },
+    {
+      "key": "slim/s047",
+      "fingerprint": "908664e2ea751b748d293d810808f4188d2b884befd8fc73e715d3d490e12ad7",
+      "silhouetteOverlap": 0.9688436189334931,
+      "exactVisiblePixelFraction": 0.6780507289794288,
+      "pixelError": 301864
+    },
+    {
+      "key": "slim/s048",
+      "fingerprint": "79b6b20c55b5c5130c283beb8e2fcf7f3ee6274be743058f96b4f4f1daacc181",
+      "silhouetteOverlap": 0.994104492783086,
+      "exactVisiblePixelFraction": 0.9798739581215694,
+      "pixelError": 39874
+    },
+    {
+      "key": "slim/s049",
+      "fingerprint": "d605f00b7e078e8d8b2e2ce74ee1dcac614f598f6054094774d3bcd9f30c2dda",
+      "silhouetteOverlap": 0.9931809065383073,
+      "exactVisiblePixelFraction": 0.9805455274769355,
+      "pixelError": 46779
+    },
+    {
+      "key": "slim/s050",
+      "fingerprint": "498f383422364cb26b5511c0959308750481fc763c27a9420867b71c65247067",
+      "silhouetteOverlap": 0.9713536413153117,
+      "exactVisiblePixelFraction": 0.6877143433528343,
+      "pixelError": 323889
+    },
+    {
+      "key": "slim/s051",
+      "fingerprint": "22dd96e3677cb38649e4c082539c93f234a602bf169d5f245a241f8b7dfe583a",
+      "silhouetteOverlap": 0.9958324650968952,
+      "exactVisiblePixelFraction": 0.9818712231714941,
+      "pixelError": 25020
+    },
+    {
+      "key": "slim/s052",
+      "fingerprint": "0d16bc4d7fdf13d5daa8d23ae161158d701cc27f2136e172d8cd9b09f2fe5a38",
+      "silhouetteOverlap": 0.9968394437420987,
+      "exactVisiblePixelFraction": 0.9860935524652339,
+      "pixelError": 18168
+    },
+    {
+      "key": "slim/s053",
+      "fingerprint": "faf369d7a2c819e2d804ce54edc2c741b85a06f9a809d95b1a4e7a28dad81282",
+      "silhouetteOverlap": 0.9955993294216261,
+      "exactVisiblePixelFraction": 0.9838642078792958,
+      "pixelError": 25517
+    },
+    {
+      "key": "slim/s054",
+      "fingerprint": "eff5a0cc8b8778a6a56c647f4a68a3db862a0998537c3556e76ea0ddbea018cf",
+      "silhouetteOverlap": 0.9962429555416406,
+      "exactVisiblePixelFraction": 0.9876852431642663,
+      "pixelError": 19383
+    },
+    {
+      "key": "slim/s055",
+      "fingerprint": "f12f84b2ee69fea0a1ba62fc2432172618d7c06f039afc4e8b190959abbc8d50",
+      "silhouetteOverlap": 0.9960840890354493,
+      "exactVisiblePixelFraction": 0.982275350370981,
+      "pixelError": 28296
+    },
+    {
+      "key": "slim/s056",
+      "fingerprint": "c1c56ed1fe65ca53d0cfa71434118afb3bfb25389d3801ee637053af94da2fa8",
+      "silhouetteOverlap": 0.9713536413153117,
+      "exactVisiblePixelFraction": 0.6869074036715755,
+      "pixelError": 324420
+    },
+    {
+      "key": "slim/s057",
+      "fingerprint": "c483a3221e12231fbd81f7562723fe8819ff3ded78d6b892602c0bb32192b0b5",
+      "silhouetteOverlap": 0.9958419958419958,
+      "exactVisiblePixelFraction": 0.9858627858627859,
+      "pixelError": 24383
+    },
+    {
+      "key": "slim/s058",
+      "fingerprint": "8b38f1392b059d55b100024ca7c5ac49e4cae0c30624f95845dd9e06b9c95a4b",
+      "silhouetteOverlap": 0.9939843593342691,
+      "exactVisiblePixelFraction": 0.9837577702025265,
+      "pixelError": 34832
+    },
+    {
+      "key": "slim/s059",
+      "fingerprint": "5a2be256961370a0b45a77d4c3b8081fc0818152a65feb628e180470c881fb4a",
+      "silhouetteOverlap": 0.9939721471627521,
+      "exactVisiblePixelFraction": 0.9802535855331532,
+      "pixelError": 40958
+    },
+    {
+      "key": "slim/s060",
+      "fingerprint": "694916250809d9b27c7de4c6ec2b8d5f6e6f0a08dcf01dd9e74a73bff0c91a9a",
+      "silhouetteOverlap": 0.9968866749688667,
+      "exactVisiblePixelFraction": 0.9846409298464093,
+      "pixelError": 25340
+    },
+    {
+      "key": "slim/s061",
+      "fingerprint": "1162618b54b65a2bba17713c3331d4b33db55b7e9f44c022e9f9cf982034937e",
+      "silhouetteOverlap": 0.9954318936877077,
+      "exactVisiblePixelFraction": 0.9848421926910299,
+      "pixelError": 27107
+    },
+    {
+      "key": "slim/s062",
+      "fingerprint": "d588dcde56544ddc3f92d42b10ecc2b11aaea9a36b95fed69a6a3321c0ca94c2",
+      "silhouetteOverlap": 0.9960325746502401,
+      "exactVisiblePixelFraction": 0.9868448527876383,
+      "pixelError": 23923
+    },
+    {
+      "key": "slim/s063",
+      "fingerprint": "87446ef562e991bf4e8618c16f576f53a95b24dc9ea6d4b048eca34673f39d99",
+      "silhouetteOverlap": 0.9974968710888611,
+      "exactVisiblePixelFraction": 0.9895702962035878,
+      "pixelError": 15022
+    },
+    {
+      "key": "slim/s064",
+      "fingerprint": "e38a3e8397a52188639f977037efce23b527e8166daf3ac634c7e81c6f76a41d",
+      "silhouetteOverlap": 0.9968434343434344,
+      "exactVisiblePixelFraction": 0.9827441077441077,
+      "pixelError": 23191
+    },
+    {
+      "key": "slim/s065",
+      "fingerprint": "346917afb6b380b622fa8cf6de808685713a6ce5aef0eac9e791e78a80fd6aa0",
+      "silhouetteOverlap": 0.9964730290456432,
+      "exactVisiblePixelFraction": 0.9858921161825727,
+      "pixelError": 21203
+    },
+    {
+      "key": "slim/s066",
+      "fingerprint": "b365007770f215c0a0d34cf8a5cfb1b6f1439b6cbe026c8d3facebc85508a7f5",
+      "silhouetteOverlap": 0.9980338183248132,
+      "exactVisiblePixelFraction": 0.9825009830908376,
+      "pixelError": 13193
+    },
+    {
+      "key": "slim/s067",
+      "fingerprint": "69eb0f9122eb160aadfd476157cb804ea73a2810255c81330549f55325a3579c",
+      "silhouetteOverlap": 0.9915811088295687,
+      "exactVisiblePixelFraction": 0.9776180698151951,
+      "pixelError": 43024
+    },
+    {
+      "key": "slim/s068",
+      "fingerprint": "e2560d93cb369c1f2dacc2020a7f10e04ed95a48a44e952b4de075fb0196566d",
+      "silhouetteOverlap": 0.9918682659077048,
+      "exactVisiblePixelFraction": 0.9829233584061802,
+      "pixelError": 46309
+    },
+    {
+      "key": "slim/s069",
+      "fingerprint": "1342dbaaee71fe97c47fe52c8c14a3b4944b61d50e3aa11f5af845ed3ebf3015",
+      "silhouetteOverlap": 0.9969033856317093,
+      "exactVisiblePixelFraction": 0.9874071015689513,
+      "pixelError": 20147
+    },
+    {
+      "key": "slim/s070",
+      "fingerprint": "dfd162d5fa1b477441ffbdd965d84bc6b0f92c514ad2c19d6d035a38ddcf4267",
+      "silhouetteOverlap": 0.9979096989966555,
+      "exactVisiblePixelFraction": 0.9843227424749164,
+      "pixelError": 14018
+    },
+    {
+      "key": "slim/s071",
+      "fingerprint": "7022c372e784c065ba0b7a1a344f6ffa1226ad3540486f7ed434fbebcd50e726",
+      "silhouetteOverlap": 0.9958350687213661,
+      "exactVisiblePixelFraction": 0.985630987088713,
+      "pixelError": 21769
+    },
+    {
+      "key": "slim/s072",
+      "fingerprint": "4c396ebe7e8ab0feec2819b1dc6cb52d8af41ba4c1d71a45559c391d9116f589",
+      "silhouetteOverlap": 0.9969727547931383,
+      "exactVisiblePixelFraction": 0.9780020181634712,
+      "pixelError": 23240
+    },
+    {
+      "key": "slim/s073",
+      "fingerprint": "d468ca4ead8b6ea81a3cdff04317ba9a6dde99b149d830e805ae1bba42c04bfd",
+      "silhouetteOverlap": 0.995850622406639,
+      "exactVisiblePixelFraction": 0.9821576763485477,
+      "pixelError": 22678
+    },
+    {
+      "key": "slim/s074",
+      "fingerprint": "beda0b81e51ed44c041a835286a4af83dc8f6998abc642395c3280e0bdaddd3f",
+      "silhouetteOverlap": 0.9950031230480949,
+      "exactVisiblePixelFraction": 0.9862585883822611,
+      "pixelError": 30868
+    },
+    {
+      "key": "slim/s075",
+      "fingerprint": "931ff201b961fcf90fccf174c2e2b32206244f8a31547d9bc465db002265b62f",
+      "silhouetteOverlap": 0.9979096989966555,
+      "exactVisiblePixelFraction": 0.9851588628762542,
+      "pixelError": 11524
+    },
+    {
+      "key": "slim/s076",
+      "fingerprint": "ef8e176af22f897ba662c83e31891e54be63aecdf42d49a24b1c9f556e337958",
+      "silhouetteOverlap": 0.9945432497978981,
+      "exactVisiblePixelFraction": 0.9876717865804365,
+      "pixelError": 30264
+    },
+    {
+      "key": "slim/s077",
+      "fingerprint": "0a464305b0306ac3966ac8d41285ecaa0c8890a16d0d573d75af53416eab5d11",
+      "silhouetteOverlap": 0.9956620532947738,
+      "exactVisiblePixelFraction": 0.9882255732286718,
+      "pixelError": 21061
+    },
+    {
+      "key": "slim/s078",
+      "fingerprint": "bcce61f822587f24ecaf581cbce0e703c42d97d42fdcaeef82473987ab8a4122",
+      "silhouetteOverlap": 0.969503687462627,
+      "exactVisiblePixelFraction": 0.7069962128762208,
+      "pixelError": 307302
+    },
+    {
+      "key": "slim/s079",
+      "fingerprint": "0c2024a9d56902a8ab210d46a2e2b1cb25bb49c6fd8b0f42bc31b193e06819e8",
+      "silhouetteOverlap": 0.970494417862839,
+      "exactVisiblePixelFraction": 0.6786283891547049,
+      "pixelError": 277372.98039215675
+    },
+    {
+      "key": "slim/s080",
+      "fingerprint": "1f37cda7efe9684f84d3ebbd4616026eb7a9fb9f5450eefd01733b826d527841",
+      "silhouetteOverlap": 0.9960961577974111,
+      "exactVisiblePixelFraction": 0.981919046640641,
+      "pixelError": 29724
+    },
+    {
+      "key": "slim/s081",
+      "fingerprint": "478cdcfa3a687389f108921d6eef60e2dab3d59243b3686a51996efab77a36d4",
+      "silhouetteOverlap": 0.9974630021141649,
+      "exactVisiblePixelFraction": 0.9883720930232558,
+      "pixelError": 18387
+    },
+    {
+      "key": "slim/s082",
+      "fingerprint": "cffe10582c75f5d975c81a79544e401ff7ed1054613ca30edd107da0f15624a7",
+      "silhouetteOverlap": 0.9956449605972626,
+      "exactVisiblePixelFraction": 0.9829946080464538,
+      "pixelError": 25541
+    },
+    {
+      "key": "slim/s083",
+      "fingerprint": "7c344b81fd0586627c43cb2166c380fb548f0748c3638520c1c3325fcfb842dc",
+      "silhouetteOverlap": 0.993736108304708,
+      "exactVisiblePixelFraction": 0.9816124469589816,
+      "pixelError": 31454
+    },
+    {
+      "key": "slim/s084",
+      "fingerprint": "c6d622bc47513731ebc1d6122cdb4b37a43c44619fc7f371b6d681bc7564fbbe",
+      "silhouetteOverlap": 0.9939821539738535,
+      "exactVisiblePixelFraction": 0.9809089022618801,
+      "pixelError": 29167
+    },
+    {
+      "key": "slim/s085",
+      "fingerprint": "eb3770c52bf8ccc7eab5e20272cde5663697d3dd58a09c5a994deeada6a56261",
+      "silhouetteOverlap": 0.9958982772764561,
+      "exactVisiblePixelFraction": 0.9827727645611156,
+      "pixelError": 22303
+    },
+    {
+      "key": "slim/s086",
+      "fingerprint": "05c398baf588a096b776ba202581a710689ad04853f6f01e2f4aca5a030a1941",
+      "silhouetteOverlap": 0.9952508775552343,
+      "exactVisiblePixelFraction": 0.985133181912038,
+      "pixelError": 29048
+    },
+    {
+      "key": "slim/s087",
+      "fingerprint": "283a2222d717d8dfdd13a9353a3c354738dc4bece722dfbec9b633e9abcce99f",
+      "silhouetteOverlap": 0.9961839726852781,
+      "exactVisiblePixelFraction": 0.9835308294838321,
+      "pixelError": 22570
+    },
+    {
+      "key": "slim/s088",
+      "fingerprint": "130511ddaf0d393f354dea03670f078ee0a685fe96235781dd095c30cf85a770",
+      "silhouetteOverlap": 0.9925237421701354,
+      "exactVisiblePixelFraction": 0.9787835926449788,
+      "pixelError": 36462
+    },
+    {
+      "key": "slim/s089",
+      "fingerprint": "df3cdc34b8b564f49571fdb3fbfb24faddf1803a803dde622027566f2dbe7cc5",
+      "silhouetteOverlap": 0.9966499162479062,
+      "exactVisiblePixelFraction": 0.9842964824120602,
+      "pixelError": 24106
+    },
+    {
+      "key": "slim/s090",
+      "fingerprint": "18cb6eabcc8b5fb712289c4814f61aacefae538c27b650e83f5a801c8338fb8f",
+      "silhouetteOverlap": 0.9955564532417693,
+      "exactVisiblePixelFraction": 0.986669359725308,
+      "pixelError": 26056
+    },
+    {
+      "key": "slim/s091",
+      "fingerprint": "ba1347b3c7af85b0aead4f8af27b53af70135c57a71839d3689b9ebfd4eda452",
+      "silhouetteOverlap": 0.9735230191661727,
+      "exactVisiblePixelFraction": 0.7921359415135348,
+      "pixelError": 260180
+    },
+    {
+      "key": "slim/s092",
+      "fingerprint": "44e65855d43075a7068f952619a193789b88fd06e167105c88e10746b395381f",
+      "silhouetteOverlap": 0.969582504970179,
+      "exactVisiblePixelFraction": 0.6992047713717694,
+      "pixelError": 321157
+    },
+    {
+      "key": "slim/s093",
+      "fingerprint": "7d81efec54c62c44c12bdb5229b82988e8023eaa83cc9e74940768a945cb4ae4",
+      "silhouetteOverlap": 0.996426319108682,
+      "exactVisiblePixelFraction": 0.9846541938196343,
+      "pixelError": 19505
+    },
+    {
+      "key": "slim/s094",
+      "fingerprint": "3aab5493625471b8b067cd9491bf440bb55f4057114ed3f8867c2942ac61dbe5",
+      "silhouetteOverlap": 0.9937738501707171,
+      "exactVisiblePixelFraction": 0.97911227154047,
+      "pixelError": 38385
+    },
+    {
+      "key": "slim/s095",
+      "fingerprint": "7acdcbb8d1574389689490e52af9b6503b971cb7660f166f282ed046b4800944",
+      "silhouetteOverlap": 0.9946336429308565,
+      "exactVisiblePixelFraction": 0.9826625386996904,
+      "pixelError": 28519
+    },
+    {
+      "key": "slim/s096",
+      "fingerprint": "75eafe3c2f38423e198a767655f1b3c43fe07830e5c2c056b697a7398c418cf8",
+      "silhouetteOverlap": 0.9945509586276489,
+      "exactVisiblePixelFraction": 0.9842583249243189,
+      "pixelError": 27141
+    },
+    {
+      "key": "slim/s097",
+      "fingerprint": "2026b9174e958cc5dec7444c330351562c47a13fb60c89b749086a6f807eaa66",
+      "silhouetteOverlap": 0.9987405541561712,
+      "exactVisiblePixelFraction": 0.9907640638119227,
+      "pixelError": 7268
+    },
+    {
+      "key": "slim/s098",
+      "fingerprint": "6964cebec337b2482cbaf8fae1ca15fa29969e23f445656d566eeda50bdd18f2",
+      "silhouetteOverlap": 0.9953787422141852,
+      "exactVisiblePixelFraction": 0.9881454691581274,
+      "pixelError": 26344
+    },
+    {
+      "key": "slim/s099",
+      "fingerprint": "cf8a55face5356b40d9885a9d3110ba1e9984c39455f9ce9f147b7edba9a2d3c",
+      "silhouetteOverlap": 0.9952538175815105,
+      "exactVisiblePixelFraction": 0.9857614527445315,
+      "pixelError": 29556
+    },
+    {
+      "key": "slim/s100",
+      "fingerprint": "fb9b7fe50a9bb57c1587ac028fd787ff9f0ce8bdb0251eabc28de067ae3aa583",
+      "silhouetteOverlap": 0.9960275977420029,
+      "exactVisiblePixelFraction": 0.9820196529374869,
+      "pixelError": 26376
+    },
+    {
+      "key": "slim/s101",
+      "fingerprint": "58641ac186e7a7da99cf636ce7fc0cc1c623eecb326ac709caa975d7a5d61ad7",
+      "silhouetteOverlap": 0.9696846388606307,
+      "exactVisiblePixelFraction": 0.7586978636826043,
+      "pixelError": 288880
+    },
+    {
+      "key": "slim/s102",
+      "fingerprint": "70fb381eda6c7a195c16faee35b163006998f325dbacaede872f9271466b1757",
+      "silhouetteOverlap": 0.9964708324683413,
+      "exactVisiblePixelFraction": 0.9879593107743408,
+      "pixelError": 19392
+    },
+    {
+      "key": "slim/s103",
+      "fingerprint": "925e3ea3c035609a028c6a6466a1f33ebcffe6b5e75b78d12caead7e9c9c073e",
+      "silhouetteOverlap": 0.9979096989966555,
+      "exactVisiblePixelFraction": 0.9847408026755853,
+      "pixelError": 12566
+    },
+    {
+      "key": "slim/s104",
+      "fingerprint": "227c638edce1431bb4a4548d6bda5eb88d77897a35725311f6f2e23db431dc0d",
+      "silhouetteOverlap": 0.9969306322897483,
+      "exactVisiblePixelFraction": 0.9848577859627583,
+      "pixelError": 20797
+    },
+    {
+      "key": "slim/s105",
+      "fingerprint": "e3e1a3e0e77de397308b26b21ee9349e91cb857ab29230a16670edef8f5afc39",
+      "silhouetteOverlap": 0.9979096989966555,
+      "exactVisiblePixelFraction": 0.9853678929765887,
+      "pixelError": 11479
+    },
+    {
+      "key": "slim/s106",
+      "fingerprint": "1612cdbecc8c5e4134005a853293a5c90fb2655381097a13727c4430f0284462",
+      "silhouetteOverlap": 0.9960050462573591,
+      "exactVisiblePixelFraction": 0.982968881412952,
+      "pixelError": 25422
+    },
+    {
+      "key": "slim/s107",
+      "fingerprint": "e2bcf0f00a58df751edc78791edfe619edb33abb40d3202227dfdde5a1fc8c6e",
+      "silhouetteOverlap": 0.9934453092994674,
+      "exactVisiblePixelFraction": 0.9836132732486685,
+      "pixelError": 31332
+    },
+    {
+      "key": "slim/s108",
+      "fingerprint": "6a5d1b1be0b477d5318a180a4e06fe76382239b10aae5ac6660c283b5e85cd91",
+      "silhouetteOverlap": 0.997489014438167,
+      "exactVisiblePixelFraction": 0.9868173258003766,
+      "pixelError": 17880
+    },
+    {
+      "key": "slim/s109",
+      "fingerprint": "45a4f19baf17d43510f23155a17a530e109bfe0276becca218a76dd2f06b13de",
+      "silhouetteOverlap": 0.9918083145607208,
+      "exactVisiblePixelFraction": 0.9830022527134958,
+      "pixelError": 45364
+    },
+    {
+      "key": "slim/s110",
+      "fingerprint": "09bc911974cba34c5892b210f1ccfa4f400f0dca776ab5010d37b14177a1fe9a",
+      "silhouetteOverlap": 0.9960548172757475,
+      "exactVisiblePixelFraction": 0.9887873754152824,
+      "pixelError": 23390
+    },
+    {
+      "key": "slim/s111",
+      "fingerprint": "9caf07f6ccf3a3e51861c1d53d7d8e1a278fd85fdc686a57f2d3d70259ecedce",
+      "silhouetteOverlap": 0.9968840880764437,
+      "exactVisiblePixelFraction": 0.9819277108433735,
+      "pixelError": 22073
+    },
+    {
+      "key": "slim/s112",
+      "fingerprint": "8ed722629c402bf2c354e6bddd69d69d1de9f329e65caeaff0fa1c7ae6970c10",
+      "silhouetteOverlap": 0.9917763157894737,
+      "exactVisiblePixelFraction": 0.9806743421052632,
+      "pixelError": 40934
+    },
+    {
+      "key": "slim/s113",
+      "fingerprint": "0a787c6c9106214a868d83802a93c1a22bf5103f744a39aeecf3f75a922278c7",
+      "silhouetteOverlap": 0.9906103286384976,
+      "exactVisiblePixelFraction": 0.9816289038579302,
+      "pixelError": 48238
+    },
+    {
+      "key": "slim/s114",
+      "fingerprint": "03fe143a5c9649ff152baace4a49c63790750b360813c14b6a8a59dcd3ce614f",
+      "silhouetteOverlap": 0.9960556362881462,
+      "exactVisiblePixelFraction": 0.9838073489723894,
+      "pixelError": 25960
+    },
+    {
+      "key": "slim/s115",
+      "fingerprint": "7f9d4ab7d6d826277440c552acb3c7c6d15784062d7662f63a6f5a31c159339c",
+      "silhouetteOverlap": 0.9922448979591837,
+      "exactVisiblePixelFraction": 0.9734693877551021,
+      "pixelError": 46394
+    },
+    {
+      "key": "slim/s116",
+      "fingerprint": "6c619c831562878d13bd3a52b296111ee63cebdd4ec27a3736f232cab3da97b7",
+      "silhouetteOverlap": 0.9950269374222959,
+      "exactVisiblePixelFraction": 0.9801077496891836,
+      "pixelError": 29851
+    },
+    {
+      "key": "slim/s117",
+      "fingerprint": "70caf8c67ecd7a1353ef0fea0d5af2ec49385d32e3a37ab581389141f493a5bb",
+      "silhouetteOverlap": 0.9948336433147345,
+      "exactVisiblePixelFraction": 0.9832610043397396,
+      "pixelError": 29688
+    },
+    {
+      "key": "slim/s118",
+      "fingerprint": "c448127c1e71bc471f6763e6bd6c44806c2510f8e3053a9f9d3f3329e3942e02",
+      "silhouetteOverlap": 0.9910895099230458,
+      "exactVisiblePixelFraction": 0.9821790198460916,
+      "pixelError": 41872
+    },
+    {
+      "key": "slim/s119",
+      "fingerprint": "280c2206a0de7a0102cdc953af4f40452ff5dd6862995f1e4a6511ccc7cb27aa",
+      "silhouetteOverlap": 0.9958220179653228,
+      "exactVisiblePixelFraction": 0.9862126592855651,
+      "pixelError": 20496
+    },
+    {
+      "key": "slim/s120",
+      "fingerprint": "b6271a07ec34d491169ca7e8326453adb81c70838f314f53efc2b816890b70fb",
+      "silhouetteOverlap": 0.9954280964256027,
+      "exactVisiblePixelFraction": 0.985453034081463,
+      "pixelError": 28336
+    },
+    {
+      "key": "slim/s121",
+      "fingerprint": "4e19dc1db91733140959dd5febf24aa238a65a889b4e98a9eb6633f0ae51f817",
+      "silhouetteOverlap": 0.9948357777318736,
+      "exactVisiblePixelFraction": 0.9785168353645941,
+      "pixelError": 27878
+    },
+    {
+      "key": "slim/s122",
+      "fingerprint": "c55210b2d22513d7d484003ccaed2e18ff2d5df1ddba084d1176d2c0f2a2ec44",
+      "silhouetteOverlap": 0.9945761349939735,
+      "exactVisiblePixelFraction": 0.984933708316593,
+      "pixelError": 35182
+    },
+    {
+      "key": "slim/s123",
+      "fingerprint": "2dd942b707cd8f88e26a4fdb3228e93737c84b951e3b2736bb26f37223410b80",
+      "silhouetteOverlap": 0.9901860560212635,
+      "exactVisiblePixelFraction": 0.979758740543856,
+      "pixelError": 49724
+    },
+    {
+      "key": "slim/s124",
+      "fingerprint": "6d179b90145cd814082fb19c13ff5c64b70cdbb2d84bb3b665606b0acf6cb118",
+      "silhouetteOverlap": 0.9964605454924006,
+      "exactVisiblePixelFraction": 0.9868831980012492,
+      "pixelError": 23538
+    },
+    {
+      "key": "slim/s125",
+      "fingerprint": "bed0c2984522c8375f9eb7480b7b821bfaa8b91e85678269d59e39fbe721f032",
+      "silhouetteOverlap": 0.9958974358974358,
+      "exactVisiblePixelFraction": 0.9801025641025641,
+      "pixelError": 31906.274509803923
+    },
+    {
+      "key": "slim/s126",
+      "fingerprint": "39d1ff9b3686bdd0d0f3af33ec9e4060c5c8fdab56f489b16572175bcaa84037",
+      "silhouetteOverlap": 0.9687373941105284,
+      "exactVisiblePixelFraction": 0.7131908027430416,
+      "pixelError": 272816
+    },
+    {
+      "key": "slim/s127",
+      "fingerprint": "e6d4a37a8ea700375a0c10b82b45565eb1718553024e5a3c3dfbbea226a27c87",
+      "silhouetteOverlap": 0.9958359358734125,
+      "exactVisiblePixelFraction": 0.9877160108265667,
+      "pixelError": 22155
+    },
+    {
+      "key": "slim/s128",
+      "fingerprint": "4e3a18e85d45692c26fc41df4399d78119011b811718cb57dd1547cdab832cac",
+      "silhouetteOverlap": 0.9956521739130435,
+      "exactVisiblePixelFraction": 0.984472049689441,
+      "pixelError": 22138
+    },
+    {
+      "key": "slim/s129",
+      "fingerprint": "bc50b130d84741d3acb1626bbdac87b2a5c9bb5664bbca1a3d3f617d333243f8",
+      "silhouetteOverlap": 0.9702512562814071,
+      "exactVisiblePixelFraction": 0.76,
+      "pixelError": 290232
+    },
+    {
+      "key": "slim/s130",
+      "fingerprint": "79f13ad096b5f07236b69c2498cb0dc8969ca1a7a99129ea085fe1ad16bbbbd3",
+      "silhouetteOverlap": 0.9909502262443439,
+      "exactVisiblePixelFraction": 0.9829288358700123,
+      "pixelError": 47266
+    },
+    {
+      "key": "slim/s131",
+      "fingerprint": "8e9b52287bf019a1a4b45c0bb81df34e491d09be28c675802f3aadda6edc7346",
+      "silhouetteOverlap": 0.991096721974909,
+      "exactVisiblePixelFraction": 0.9775394577094294,
+      "pixelError": 46638
+    },
+    {
+      "key": "slim/s132",
+      "fingerprint": "aeed0c8816eb3a12c57b4eefab0ef0b509a1fd4908522d08e995adf8a5085741",
+      "silhouetteOverlap": 0.9956530738977437,
+      "exactVisiblePixelFraction": 0.9840612709583937,
+      "pixelError": 39057
+    },
+    {
+      "key": "slim/s133",
+      "fingerprint": "db7611690e9ee452b848a3026495ac54df0c188168d34eae54d2f9a31608edd5",
+      "silhouetteOverlap": 0.9939601369035636,
+      "exactVisiblePixelFraction": 0.9836923696396215,
+      "pixelError": 36947
+    },
+    {
+      "key": "slim/s134",
+      "fingerprint": "17f36151a5802fcdd19a71ab98e165b9378d8b5d8588e5d8d089c92e004a09bc",
+      "silhouetteOverlap": 0.988834754364596,
+      "exactVisiblePixelFraction": 0.9772634997969956,
+      "pixelError": 66609
+    },
+    {
+      "key": "slim/s135",
+      "fingerprint": "44aca2822d691d1a594ca2fded54af5a17da63763a7d26f7da1d5c7d19051006",
+      "silhouetteOverlap": 0.9917238595074687,
+      "exactVisiblePixelFraction": 0.9804198627371821,
+      "pixelError": 52821
+    },
+    {
+      "key": "slim/s136",
+      "fingerprint": "0930682ae8779b8b9a2cd87890527f51e6f838722d1de9756690cc67754d031c",
+      "silhouetteOverlap": 0.9983032873806998,
+      "exactVisiblePixelFraction": 0.9855779427359491,
+      "pixelError": 15520
+    },
+    {
+      "key": "slim/s137",
+      "fingerprint": "883ee0671a3a0c4f4fb916851450bf1a31a3c85654ab7136032fc6db9b04a63a",
+      "silhouetteOverlap": 0.9932349323493235,
+      "exactVisiblePixelFraction": 0.9809348093480935,
+      "pixelError": 35388
+    },
+    {
+      "key": "slim/s138",
+      "fingerprint": "891c693189ed04054d395e7e4e912c9a41c4a0f164d2b236ca71c6dd066a533e",
+      "silhouetteOverlap": 0.9956629491945477,
+      "exactVisiblePixelFraction": 0.9822387443205287,
+      "pixelError": 27145
+    },
+    {
+      "key": "slim/s139",
+      "fingerprint": "772b67f027242dde20c996015b5a10db54d3e7b7ccfdc321893199b084ff413c",
+      "silhouetteOverlap": 0.9966894268570247,
+      "exactVisiblePixelFraction": 0.9809642044278916,
+      "pixelError": 26433
+    },
+    {
+      "key": "slim/s140",
+      "fingerprint": "ad2a2ae6eda7f90775df9b3a1dccd4c97d615d2fdfd2858f68fe272df1812131",
+      "silhouetteOverlap": 0.9966421825813221,
+      "exactVisiblePixelFraction": 0.9813221406086045,
+      "pixelError": 22973
+    },
+    {
+      "key": "slim/s141",
+      "fingerprint": "44661559a9344025d0145a3bb0631e2c98804c19d3610d26d19fe3589870dea9",
+      "silhouetteOverlap": 0.9974916387959866,
+      "exactVisiblePixelFraction": 0.9832775919732442,
+      "pixelError": 22111
+    },
+    {
+      "key": "slim/s142",
+      "fingerprint": "4703b9fd59555a9c2fcbf3e8a3582848ccbe8f6d9e7b642e85706f4026b947aa",
+      "silhouetteOverlap": 0.995427146123467,
+      "exactVisiblePixelFraction": 0.9808771565163168,
+      "pixelError": 30692
+    },
+    {
+      "key": "slim/s143",
+      "fingerprint": "bb70153dd2497aa9c2df7798df0b12dc43a48994daefa9c6d33dda074145bcf2",
+      "silhouetteOverlap": 0.9970735785953178,
+      "exactVisiblePixelFraction": 0.9849498327759197,
+      "pixelError": 19655
+    },
+    {
+      "key": "slim/s144",
+      "fingerprint": "cd7322737ae63944292e1583893834cb27e46c5d033d7b5b666982a78fa6f67d",
+      "silhouetteOverlap": 0.996244523263092,
+      "exactVisiblePixelFraction": 0.9820571667014396,
+      "pixelError": 24161
+    },
+    {
+      "key": "slim/s145",
+      "fingerprint": "41e1fd5798156dbfa20c3fc45f9b27565e49cec07d9317774ffebcebcf97039a",
+      "silhouetteOverlap": 0.9946819390468399,
+      "exactVisiblePixelFraction": 0.9807731642462671,
+      "pixelError": 31364
+    },
+    {
+      "key": "slim/s146",
+      "fingerprint": "0824ba319bd9f3e2367a49666f6b33acffca00543460c98106dfee87e0319c93",
+      "silhouetteOverlap": 0.9904081632653061,
+      "exactVisiblePixelFraction": 0.976530612244898,
+      "pixelError": 52646
+    },
+    {
+      "key": "slim/s147",
+      "fingerprint": "7d88e7b4c4f537db398a809cd6d8f040d732617a598e239b672fffc8af4fabf0",
+      "silhouetteOverlap": 0.9696238181452425,
+      "exactVisiblePixelFraction": 0.7485415409374372,
+      "pixelError": 304178
+    },
+    {
+      "key": "slim/s148",
+      "fingerprint": "fbdbe47b3529148a9a4c5c683e8ad352b380665b0dafac7583734ed0890f517a",
+      "silhouetteOverlap": 0.9964561184073379,
+      "exactVisiblePixelFraction": 0.9866583281217427,
+      "pixelError": 24742
+    },
+    {
+      "key": "slim/s149",
+      "fingerprint": "66f6c59df8f01f06517a06c98b9b00145e796c4f062f3db4bfeb8163c8dcd482",
+      "silhouetteOverlap": 0.9964487152705244,
+      "exactVisiblePixelFraction": 0.9851681637768958,
+      "pixelError": 19436
+    },
+    {
+      "key": "slim/s150",
+      "fingerprint": "11d8fef6dd8634e47f2093a1bbb5aed2b2158049634dd734524b026977798253",
+      "silhouetteOverlap": 0.9935470441298918,
+      "exactVisiblePixelFraction": 0.9856369691923397,
+      "pixelError": 30075
+    }
+  ],
+  "improved": [
+    {
+      "key": "wide/chandler",
+      "fingerprint": "fe3537a24586c6a1e41955db48d70804cb2bbfbdc8d16c1fa4801ffbe2f80438",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9984523118591604,
+      "pixelError": 8
+    },
+    {
+      "key": "wide/dantdm",
+      "fingerprint": "ade3f94bb29afdee6e9786bc5aef5a35babf4c9921ccc3800cb9e14754ac0620",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/dark7mc",
+      "fingerprint": "78eb6c0fd568c02e0cc998c91a82e0574de3e8de9ba11f07cfd935122e4cd23a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/dr_donut",
+      "fingerprint": "2fb0c96772ef0272efcfc216329c7d437fc997a514e1ff207aef71253cb1655c",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/dream",
+      "fingerprint": "84147784cbf89e984cc504637de22a09838c690d229b08eb74bd8953f27e990a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/georgenotfound",
+      "fingerprint": "6dc1e319965feefa0c6937469a6ccc94bcb7498a02ac121d3fb7a23c49ff690e",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/grox",
+      "fingerprint": "584168b5983f9a5939d58d5bea944887b2e3041c6f46e806c67546c747529797",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/mrbeast",
+      "fingerprint": "ef0130a0e0e5b40b8e14e118ccd98b27ccc4e72634ab7d491904c8bc139cb9f6",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9988403556242752,
+      "pixelError": 6
+    },
+    {
+      "key": "wide/mumbo_jumbo",
+      "fingerprint": "09a1da5ea5e889817da3d2e1da622283081403e3daa40b57197eb24000805b6d",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/pewdiepie",
+      "fingerprint": "5c3b417d70eb8230a7cd91d9088ac82e017e8808a418d888c18643b54f50f534",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9965556831228473,
+      "pixelError": 32
+    },
+    {
+      "key": "wide/ph1lza",
+      "fingerprint": "014a97f849e838a12b97a97271d4635d2ac0c986675348afad9b491b6ae1cdec",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/prestonplayz",
+      "fingerprint": "1b738e203da5a706a5c422f57f8ac23643ddf8f40f27dffef8c7c5dc6d84047f",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/ramboo",
+      "fingerprint": "251ad74e4a97b5e7a8175c6d433a7b69798c0afda2465c1049bc1517dba61929",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/sapnap",
+      "fingerprint": "228693eb1f6f3d130dfaabaa987d75095a9c7edf19079c31ff05fb27defe8ac1",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/stampy",
+      "fingerprint": "ee44cb11ec1bcb706f5f5be356153e6378a82fa44309ea70192bcc8a4fd41a89",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/steve",
+      "fingerprint": "ce3b935c8ecdd50da1847f3f6ca491ad1882be14d4841ab106be643e3b2b5e10",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/technoblade",
+      "fingerprint": "d7f0cdb2dc518ed5cdede4ec21670839b115a89b2e85def3dbe9e76a70b13299",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/tommyinnit",
+      "fingerprint": "d763b391d2368153a3796268b9c9e18874c419be76deba403c048055c470935f",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9996108192255303,
+      "pixelError": 149
+    },
+    {
+      "key": "wide/unspeakable",
+      "fingerprint": "a7712f5a2c95ae161418a23150d28b183c7112354f90257fd186379fe55c6c0a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/urban7mc",
+      "fingerprint": "d4f9f4845ef503ea1a999ce3ac3d06c2d74b8636451cb332819743a44591aed0",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "wide/wemmbu",
+      "fingerprint": "870dc83faea71efd957226d24c18484d336610adc8bd4ccbf78d17f39465a434",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "slim/alex",
+      "fingerprint": "5043665f4a7e68e7af57dfef81fe9cd317dd1a6bfd8f80126b65cc83d1952c96",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995730145175064,
+      "pixelError": 82
+    },
+    {
+      "key": "slim/aphmau",
+      "fingerprint": "e10bc96c4f959dee45822e4d38f4dedc35f62b6e6d05682daad6fb53a1638ad0",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995757318625371,
+      "pixelError": 83
+    },
+    {
+      "key": "slim/fundy",
+      "fingerprint": "7de1990b3acb7e8615abd4c8682423f84974ef5bcc59c4f272ea307f0786b6c3",
+      "silhouetteOverlap": 0.999790838736666,
+      "exactVisiblePixelFraction": 0.9976992261033256,
+      "pixelError": 1204
+    },
+    {
+      "key": "slim/grian",
+      "fingerprint": "34a1ec4320382e96ffd23858a08f9c169ac966e103cfa435095b4e2d0498cc90",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9987376393856512,
+      "pixelError": 94
+    },
+    {
+      "key": "slim/s001",
+      "fingerprint": "051187b67b96e25c5bc7ffa21bef2cd05001850ca3c0db54c5b6bb798c6d012a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9987557030277893,
+      "pixelError": 546
+    },
+    {
+      "key": "slim/s002",
+      "fingerprint": "746d977ce139e3dbb59ae5bc93ec53b6c34ebb7f2f7895af83f18a9257172180",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9997939418916134,
+      "pixelError": 132
+    },
+    {
+      "key": "slim/s003",
+      "fingerprint": "84ace8211d4a1f4a723b555646f8417e5acb9d446ae5cbc8123609ec656748f5",
+      "silhouetteOverlap": 0.9997947033463355,
+      "exactVisiblePixelFraction": 0.9989735167316772,
+      "pixelError": 1306
+    },
+    {
+      "key": "slim/s004",
+      "fingerprint": "f082b484a36e2d0c9bc36c6a85a8b8076b9ff78fdcc9c7cfdbc5982f54bfeb11",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993844891259746,
+      "pixelError": 393
+    },
+    {
+      "key": "slim/s005",
+      "fingerprint": "7da67653464cd56578f97bcb43832c3c0c99c363038f34a620e0a78d25413e8f",
+      "silhouetteOverlap": 0.9997950819672131,
+      "exactVisiblePixelFraction": 0.9987704918032787,
+      "pixelError": 2177
+    },
+    {
+      "key": "slim/s006",
+      "fingerprint": "c2c206e8ee8edb2232d47349baaa111e8e4249c857fdf9056248fc8f3d6ae5eb",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993727785908426,
+      "pixelError": 33
+    },
+    {
+      "key": "slim/s007",
+      "fingerprint": "ad6f90969db04d46823fae1dcf04d2fc2a2fb88d2fffb4f06acc71adb46a2554",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991616013414378,
+      "pixelError": 6
+    },
+    {
+      "key": "slim/s008",
+      "fingerprint": "da3d5ab3eb68b0bd9e4dc5b7b151dc4cc540e1541d8ac49fbb21fd39a6aa999f",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995889003083248,
+      "pixelError": 2
+    },
+    {
+      "key": "slim/s009",
+      "fingerprint": "ad6e1216f8fd6dc0d916752439ba3994f3f14179da013fdffacb68fc739a5905",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9914867109634552,
+      "pixelError": 1055
+    },
+    {
+      "key": "slim/s010",
+      "fingerprint": "1120eaf32c5d0109d55b414172e6b1bac09193825736cbc523e6a103a671e9c1",
+      "silhouetteOverlap": 0.9997921862011637,
+      "exactVisiblePixelFraction": 0.9952202826267664,
+      "pixelError": 958
+    },
+    {
+      "key": "slim/s011",
+      "fingerprint": "27c4a08f8c1e71be79ed1b8b560f2bd703a367b6705127aa5255608f61921d35",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995810640971932,
+      "pixelError": 2
+    },
+    {
+      "key": "slim/s012",
+      "fingerprint": "06c1df55c1e7ddde65275fa979190c8fb15b475a6fa524071226feda6523e384",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9997895179962113,
+      "pixelError": 8
+    },
+    {
+      "key": "slim/s013",
+      "fingerprint": "d99c85188d272a7ca2912689940c3a914ce9dd8b553a190cd6159e750a84e4a2",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993897477624084,
+      "pixelError": 131
+    },
+    {
+      "key": "slim/s014",
+      "fingerprint": "65a3bd6b3ecbc2d1e4a40a12ac52709559d7482cc6dfa744b2a469e273119b95",
+      "silhouetteOverlap": 0.9997897834769813,
+      "exactVisiblePixelFraction": 0.998528484338869,
+      "pixelError": 1619
+    },
+    {
+      "key": "slim/s015",
+      "fingerprint": "dd574030719886da5ec67f78e5c66187314c4b44b1c1b4263ed29e1b3206157b",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9981159723675948,
+      "pixelError": 165
+    },
+    {
+      "key": "slim/s016",
+      "fingerprint": "11244a44e51bf380d6beef01b34914dd5116c7e9f44a1a4449734bb60d9ff03e",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9950176458376583,
+      "pixelError": 144
+    },
+    {
+      "key": "slim/s017",
+      "fingerprint": "aae9501c144657f067e01b9fe25e2e10b314327f7184e38523003d7f65c0512b",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "slim/s018",
+      "fingerprint": "2c48a1e4bd0a46f9cb34102a4ae5062bd8f18259ad4c515a70314231f5893637",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.999370012599748,
+      "pixelError": 148
+    },
+    {
+      "key": "slim/s019",
+      "fingerprint": "0921e03285910dea4cd7836e20a502708426a8aff87f3a8e46183487ba146752",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9989800081599347,
+      "pixelError": 55
+    },
+    {
+      "key": "slim/s020",
+      "fingerprint": "366791c2471e15e00ee2e17228c595c81403c2002ad966db32ad81c8b52b1616",
+      "silhouetteOverlap": 0.9998001199280432,
+      "exactVisiblePixelFraction": 0.9982010793523886,
+      "pixelError": 1239
+    },
+    {
+      "key": "slim/s021",
+      "fingerprint": "a1f3f3ccfe8d19fc1590e8eefee1747559e65e119475191844f35064db82ee4e",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995819397993311,
+      "pixelError": 105
+    },
+    {
+      "key": "slim/s022",
+      "fingerprint": "0f4ff5dd8248c95a514d4d367be01eb250e3d3c4dcb90e3088767a96c336305b",
+      "silhouetteOverlap": 0.9997966653111021,
+      "exactVisiblePixelFraction": 0.9985766571777145,
+      "pixelError": 2914
+    },
+    {
+      "key": "slim/s023",
+      "fingerprint": "9844ab7dd1a310fcec72177226c1ff9e5ee44eaeda136c3a095575bea2ed30de",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991767853467791,
+      "pixelError": 89
+    },
+    {
+      "key": "slim/s024",
+      "fingerprint": "686bcf1f06b8e2f2c13a4b047593ba4f427613883348696c4e0a1a0fea9518fa",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993708053691275,
+      "pixelError": 32
+    },
+    {
+      "key": "slim/s025",
+      "fingerprint": "f52c58d75d901316138925bf6eb45e0917d5c0dc1fa5af075aa59aa130c0bc5b",
+      "silhouetteOverlap": 0.9997892962494732,
+      "exactVisiblePixelFraction": 0.9985250737463127,
+      "pixelError": 1325
+    },
+    {
+      "key": "slim/s026",
+      "fingerprint": "d2a74231a64e182d2d09d55de91bbb6eb2ac5189b1aa7a2c2152a5fd6ebe9877",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9997918401332223,
+      "pixelError": 51
+    },
+    {
+      "key": "slim/s027",
+      "fingerprint": "5b3f5ff22408098f8b59ba4ced7983250a77516658b05dda725754f3e19dbe91",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9987497395290685,
+      "pixelError": 126
+    },
+    {
+      "key": "slim/s028",
+      "fingerprint": "f75fa7f420d0ae4a0cabc36c757f235d03bc2fb3133b6a3e01c4d4e38f7b2b0f",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995937436522445,
+      "pixelError": 3
+    },
+    {
+      "key": "slim/s029",
+      "fingerprint": "ac9c26d686062b46f9bfc288c5498f829b76b407ec4e539fafed91fe4fac92fb",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9974726200505476,
+      "pixelError": 12
+    },
+    {
+      "key": "slim/s030",
+      "fingerprint": "1c466cbfaffa8b9e4552e9550a87e1c50b8b6858aa6c3b73f87bfebaadeae6b5",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9997906635963995,
+      "pixelError": 254
+    },
+    {
+      "key": "slim/s031",
+      "fingerprint": "2277a28eca576e8725642bdd7e9d5764252761531bd5235330ce47a990990c8e",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9968899025502799,
+      "pixelError": 17
+    },
+    {
+      "key": "slim/s032",
+      "fingerprint": "4e4a32d43dce10f75f4922939c3fb282f6475c22c0b4cffe7c6d658fc6c5042b",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995841995841996,
+      "pixelError": 177
+    },
+    {
+      "key": "slim/s033",
+      "fingerprint": "c89f1b37c1a0bfa20e7e13b03477c01eeb4f01efb93610d0dba0e0def48828c4",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "slim/s034",
+      "fingerprint": "8625250ffa6e726524362f80b41c77f3a16b6ec3aa751988a88c9e6fd87532d3",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.999180495800041,
+      "pixelError": 58
+    },
+    {
+      "key": "slim/s035",
+      "fingerprint": "d050568890e9100e65b89ef58b6f78c8310b39b287a07ba9031ba0623ead9b81",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.998207171314741,
+      "pixelError": 124
+    },
+    {
+      "key": "slim/s036",
+      "fingerprint": "e902056ddea72b2ab77406dffb47a4141e84963fde45ad404e6b09b5c19a6228",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.99979633401222,
+      "pixelError": 17
+    },
+    {
+      "key": "slim/s037",
+      "fingerprint": "c23f38f56b634d4e59aa6c34923013e11f30d9ec4b751c64f4e68ba98a935b32",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995835068721366,
+      "pixelError": 29
+    },
+    {
+      "key": "slim/s038",
+      "fingerprint": "aad2d4e06390028e15569d7f07f6aa5ff5f624e5988ed2734c3ea0ee3efc3a2b",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9989589839683531,
+      "pixelError": 46
+    },
+    {
+      "key": "slim/s039",
+      "fingerprint": "4e28a0f873a5ddbe82eb997d16c6576297c71e92e3bdd42341ce2977c7d2b9a9",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991644035930646,
+      "pixelError": 52
+    },
+    {
+      "key": "slim/s040",
+      "fingerprint": "fe1d15e8d4e721733427662c6597f00918255c3659c6fb070f0a1f0a8b32bf5b",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991935483870967,
+      "pixelError": 386
+    },
+    {
+      "key": "slim/s041",
+      "fingerprint": "8e35a372f10e36063659a567a3514ce58428386eb4bbfe49c629b9b9b32464c1",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9989520016767973,
+      "pixelError": 151
+    },
+    {
+      "key": "slim/s042",
+      "fingerprint": "d2ae4aff3beebbb165154104bd46973dc589a3dbe8e47aeef4dc94565bdf4150",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993688196928255,
+      "pixelError": 1048
+    },
+    {
+      "key": "slim/s043",
+      "fingerprint": "6fc093d56ca70605593c2eb8ee40e54743277af9fd8844b9b06dd1af82045717",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995875438234687,
+      "pixelError": 91
+    },
+    {
+      "key": "slim/s044",
+      "fingerprint": "7347c987bfa2078592a10c4224d412bd8d0acc032afb764891afe03c9c7ff838",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9987510407993339,
+      "pixelError": 289
+    },
+    {
+      "key": "slim/s045",
+      "fingerprint": "ef290612b6dedfaaf6c8db7efc0a9e29f207d44d2701bad6ac955659e56970f3",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9989475899810566,
+      "pixelError": 314
+    },
+    {
+      "key": "slim/s046",
+      "fingerprint": "430ceb5f3c6b2ceb1268731ff2710e8955e06104adc14dfa598b15c0dff95569",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993828430364122,
+      "pixelError": 45
+    },
+    {
+      "key": "slim/s047",
+      "fingerprint": "908664e2ea751b748d293d810808f4188d2b884befd8fc73e715d3d490e12ad7",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991906110886281,
+      "pixelError": 417
+    },
+    {
+      "key": "slim/s048",
+      "fingerprint": "79b6b20c55b5c5130c283beb8e2fcf7f3ee6274be743058f96b4f4f1daacc181",
+      "silhouetteOverlap": 0.9997966653111021,
+      "exactVisiblePixelFraction": 0.9997966653111021,
+      "pixelError": 1245
+    },
+    {
+      "key": "slim/s049",
+      "fingerprint": "d605f00b7e078e8d8b2e2ce74ee1dcac614f598f6054094774d3bcd9f30c2dda",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9969903691813804,
+      "pixelError": 1022
+    },
+    {
+      "key": "slim/s050",
+      "fingerprint": "498f383422364cb26b5511c0959308750481fc763c27a9420867b71c65247067",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9997959600081616,
+      "pixelError": 17
+    },
+    {
+      "key": "slim/s051",
+      "fingerprint": "22dd96e3677cb38649e4c082539c93f234a602bf169d5f245a241f8b7dfe583a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995830727538044,
+      "pixelError": 31
+    },
+    {
+      "key": "slim/s052",
+      "fingerprint": "0d16bc4d7fdf13d5daa8d23ae161158d701cc27f2136e172d8cd9b09f2fe5a38",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995785036880928,
+      "pixelError": 37
+    },
+    {
+      "key": "slim/s053",
+      "fingerprint": "faf369d7a2c819e2d804ce54edc2c741b85a06f9a809d95b1a4e7a28dad81282",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.999790224459828,
+      "pixelError": 23
+    },
+    {
+      "key": "slim/s054",
+      "fingerprint": "eff5a0cc8b8778a6a56c647f4a68a3db862a0998537c3556e76ea0ddbea018cf",
+      "silhouetteOverlap": 0.9997911008982662,
+      "exactVisiblePixelFraction": 0.9981199080843952,
+      "pixelError": 1264
+    },
+    {
+      "key": "slim/s055",
+      "fingerprint": "f12f84b2ee69fea0a1ba62fc2432172618d7c06f039afc4e8b190959abbc8d50",
+      "silhouetteOverlap": 0.9997938144329896,
+      "exactVisiblePixelFraction": 0.9983505154639175,
+      "pixelError": 1401
+    },
+    {
+      "key": "slim/s056",
+      "fingerprint": "c1c56ed1fe65ca53d0cfa71434118afb3bfb25389d3801ee637053af94da2fa8",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "slim/s057",
+      "fingerprint": "c483a3221e12231fbd81f7562723fe8819ff3ded78d6b892602c0bb32192b0b5",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9983361064891847,
+      "pixelError": 15
+    },
+    {
+      "key": "slim/s058",
+      "fingerprint": "8b38f1392b059d55b100024ca7c5ac49e4cae0c30624f95845dd9e06b9c95a4b",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9981945837512538,
+      "pixelError": 510
+    },
+    {
+      "key": "slim/s059",
+      "fingerprint": "5a2be256961370a0b45a77d4c3b8081fc0818152a65feb628e180470c881fb4a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995841131212311,
+      "pixelError": 53
+    },
+    {
+      "key": "slim/s060",
+      "fingerprint": "694916250809d9b27c7de4c6ec2b8d5f6e6f0a08dcf01dd9e74a73bff0c91a9a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9979231568016614,
+      "pixelError": 45
+    },
+    {
+      "key": "slim/s061",
+      "fingerprint": "1162618b54b65a2bba17713c3331d4b33db55b7e9f44c022e9f9cf982034937e",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995842860112243,
+      "pixelError": 2
+    },
+    {
+      "key": "slim/s062",
+      "fingerprint": "d588dcde56544ddc3f92d42b10ecc2b11aaea9a36b95fed69a6a3321c0ca94c2",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995818523938951,
+      "pixelError": 2
+    },
+    {
+      "key": "slim/s063",
+      "fingerprint": "87446ef562e991bf4e8618c16f576f53a95b24dc9ea6d4b048eca34673f39d99",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995827248070103,
+      "pixelError": 50
+    },
+    {
+      "key": "slim/s064",
+      "fingerprint": "e38a3e8397a52188639f977037efce23b527e8166daf3ac634c7e81c6f76a41d",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9997893850042123,
+      "pixelError": 45
+    },
+    {
+      "key": "slim/s065",
+      "fingerprint": "346917afb6b380b622fa8cf6de808685713a6ce5aef0eac9e791e78a80fd6aa0",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995847176079734,
+      "pixelError": 35
+    },
+    {
+      "key": "slim/s066",
+      "fingerprint": "b365007770f215c0a0d34cf8a5cfb1b6f1439b6cbe026c8d3facebc85508a7f5",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9986231313926043,
+      "pixelError": 24
+    },
+    {
+      "key": "slim/s067",
+      "fingerprint": "69eb0f9122eb160aadfd476157cb804ea73a2810255c81330549f55325a3579c",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995891536565324,
+      "pixelError": 19
+    },
+    {
+      "key": "slim/s068",
+      "fingerprint": "e2560d93cb369c1f2dacc2020a7f10e04ed95a48a44e952b4de075fb0196566d",
+      "silhouetteOverlap": 0.9997966239576977,
+      "exactVisiblePixelFraction": 0.9987797437461867,
+      "pixelError": 1694
+    },
+    {
+      "key": "slim/s069",
+      "fingerprint": "1342dbaaee71fe97c47fe52c8c14a3b4944b61d50e3aa11f5af845ed3ebf3015",
+      "silhouetteOverlap": 0.999793431109275,
+      "exactVisiblePixelFraction": 0.9985540177649246,
+      "pixelError": 944
+    },
+    {
+      "key": "slim/s070",
+      "fingerprint": "dfd162d5fa1b477441ffbdd965d84bc6b0f92c514ad2c19d6d035a38ddcf4267",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.999581764951903,
+      "pixelError": 19
+    },
+    {
+      "key": "slim/s071",
+      "fingerprint": "7022c372e784c065ba0b7a1a344f6ffa1226ad3540486f7ed434fbebcd50e726",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9958333333333333,
+      "pixelError": 109
+    },
+    {
+      "key": "slim/s072",
+      "fingerprint": "4c396ebe7e8ab0feec2819b1dc6cb52d8af41ba4c1d71a45559c391d9116f589",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9957601453664445,
+      "pixelError": 43
+    },
+    {
+      "key": "slim/s073",
+      "fingerprint": "d468ca4ead8b6ea81a3cdff04317ba9a6dde99b149d830e805ae1bba42c04bfd",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9981316171891219,
+      "pixelError": 76
+    },
+    {
+      "key": "slim/s074",
+      "fingerprint": "beda0b81e51ed44c041a835286a4af83dc8f6998abc642395c3280e0bdaddd3f",
+      "silhouetteOverlap": 0.9997915798249271,
+      "exactVisiblePixelFraction": 0.9987494789495623,
+      "pixelError": 1218
+    },
+    {
+      "key": "slim/s075",
+      "fingerprint": "931ff201b961fcf90fccf174c2e2b32206244f8a31547d9bc465db002265b62f",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.999581764951903,
+      "pixelError": 19
+    },
+    {
+      "key": "slim/s076",
+      "fingerprint": "ef8e176af22f897ba662c83e31891e54be63aecdf42d49a24b1c9f556e337958",
+      "silhouetteOverlap": 0.9997977755308393,
+      "exactVisiblePixelFraction": 0.9989888776541962,
+      "pixelError": 1330
+    },
+    {
+      "key": "slim/s077",
+      "fingerprint": "0a464305b0306ac3966ac8d41285ecaa0c8890a16d0d573d75af53416eab5d11",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991730411412032,
+      "pixelError": 141
+    },
+    {
+      "key": "slim/s078",
+      "fingerprint": "bcce61f822587f24ecaf581cbce0e703c42d97d42fdcaeef82473987ab8a4122",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.998587570621469,
+      "pixelError": 88
+    },
+    {
+      "key": "slim/s079",
+      "fingerprint": "0c2024a9d56902a8ab210d46a2e2b1cb25bb49c6fd8b0f42bc31b193e06819e8",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.995766129032258,
+      "pixelError": 782.4431372549019
+    },
+    {
+      "key": "slim/s080",
+      "fingerprint": "1f37cda7efe9684f84d3ebbd4616026eb7a9fb9f5450eefd01733b826d527841",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991776315789473,
+      "pixelError": 534
+    },
+    {
+      "key": "slim/s081",
+      "fingerprint": "478cdcfa3a687389f108921d6eef60e2dab3d59243b3686a51996efab77a36d4",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "slim/s082",
+      "fingerprint": "cffe10582c75f5d975c81a79544e401ff7ed1054613ca30edd107da0f15624a7",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993774642041917,
+      "pixelError": 56
+    },
+    {
+      "key": "slim/s083",
+      "fingerprint": "7c344b81fd0586627c43cb2166c380fb548f0748c3638520c1c3325fcfb842dc",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "slim/s084",
+      "fingerprint": "c6d622bc47513731ebc1d6122cdb4b37a43c44619fc7f371b6d681bc7564fbbe",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995848038198049,
+      "pixelError": 19
+    },
+    {
+      "key": "slim/s085",
+      "fingerprint": "eb3770c52bf8ccc7eab5e20272cde5663697d3dd58a09c5a994deeada6a56261",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9969224456298728,
+      "pixelError": 669
+    },
+    {
+      "key": "slim/s086",
+      "fingerprint": "05c398baf588a096b776ba202581a710689ad04853f6f01e2f4aca5a030a1941",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9981408799834744,
+      "pixelError": 99
+    },
+    {
+      "key": "slim/s087",
+      "fingerprint": "283a2222d717d8dfdd13a9353a3c354738dc4bece722dfbec9b633e9abcce99f",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9987934848180173,
+      "pixelError": 203
+    },
+    {
+      "key": "slim/s088",
+      "fingerprint": "130511ddaf0d393f354dea03670f078ee0a685fe96235781dd095c30cf85a770",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9997978164173069,
+      "pixelError": 1
+    },
+    {
+      "key": "slim/s089",
+      "fingerprint": "df3cdc34b8b564f49571fdb3fbfb24faddf1803a803dde622027566f2dbe7cc5",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995810640971932,
+      "pixelError": 25
+    },
+    {
+      "key": "slim/s090",
+      "fingerprint": "18cb6eabcc8b5fb712289c4814f61aacefae538c27b650e83f5a801c8338fb8f",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 1,
+      "pixelError": 0
+    },
+    {
+      "key": "slim/s091",
+      "fingerprint": "ba1347b3c7af85b0aead4f8af27b53af70135c57a71839d3689b9ebfd4eda452",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9982021574111066,
+      "pixelError": 221
+    },
+    {
+      "key": "slim/s092",
+      "fingerprint": "44e65855d43075a7068f952619a193789b88fd06e167105c88e10746b395381f",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9985915492957746,
+      "pixelError": 85
+    },
+    {
+      "key": "slim/s093",
+      "fingerprint": "7d81efec54c62c44c12bdb5229b82988e8023eaa83cc9e74940768a945cb4ae4",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993689524610854,
+      "pixelError": 159
+    },
+    {
+      "key": "slim/s094",
+      "fingerprint": "3aab5493625471b8b067cd9491bf440bb55f4057114ed3f8867c2942ac61dbe5",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9975893933306549,
+      "pixelError": 353
+    },
+    {
+      "key": "slim/s095",
+      "fingerprint": "7acdcbb8d1574389689490e52af9b6503b971cb7660f166f282ed046b4800944",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9973151590251962,
+      "pixelError": 63
+    },
+    {
+      "key": "slim/s096",
+      "fingerprint": "75eafe3c2f38423e198a767655f1b3c43fe07830e5c2c056b697a7398c418cf8",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991920824075944,
+      "pixelError": 30
+    },
+    {
+      "key": "slim/s097",
+      "fingerprint": "2026b9174e958cc5dec7444c330351562c47a13fb60c89b749086a6f807eaa66",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995799201848351,
+      "pixelError": 47
+    },
+    {
+      "key": "slim/s098",
+      "fingerprint": "6964cebec337b2482cbaf8fae1ca15fa29969e23f445656d566eeda50bdd18f2",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993968636911942,
+      "pixelError": 7
+    },
+    {
+      "key": "slim/s099",
+      "fingerprint": "cf8a55face5356b40d9885a9d3110ba1e9984c39455f9ce9f147b7edba9a2d3c",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995870328308899,
+      "pixelError": 112
+    },
+    {
+      "key": "slim/s100",
+      "fingerprint": "fb9b7fe50a9bb57c1587ac028fd787ff9f0ce8bdb0251eabc28de067ae3aa583",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9976997072354663,
+      "pixelError": 43
+    },
+    {
+      "key": "slim/s101",
+      "fingerprint": "58641ac186e7a7da99cf636ce7fc0cc1c623eecb326ac709caa975d7a5d61ad7",
+      "silhouetteOverlap": 0.9997940691927513,
+      "exactVisiblePixelFraction": 0.9969110378912686,
+      "pixelError": 1175
+    },
+    {
+      "key": "slim/s102",
+      "fingerprint": "70fb381eda6c7a195c16faee35b163006998f325dbacaede872f9271466b1757",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9997923156801661,
+      "pixelError": 370
+    },
+    {
+      "key": "slim/s103",
+      "fingerprint": "925e3ea3c035609a028c6a6466a1f33ebcffe6b5e75b78d12caead7e9c9c073e",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.999581764951903,
+      "pixelError": 19
+    },
+    {
+      "key": "slim/s104",
+      "fingerprint": "227c638edce1431bb4a4548d6bda5eb88d77897a35725311f6f2e23db431dc0d",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991809991809992,
+      "pixelError": 163
+    },
+    {
+      "key": "slim/s105",
+      "fingerprint": "e3e1a3e0e77de397308b26b21ee9349e91cb857ab29230a16670edef8f5afc39",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.999581764951903,
+      "pixelError": 19
+    },
+    {
+      "key": "slim/s106",
+      "fingerprint": "1612cdbecc8c5e4134005a853293a5c90fb2655381097a13727c4430f0284462",
+      "silhouetteOverlap": 0.9997895622895623,
+      "exactVisiblePixelFraction": 0.998526936026936,
+      "pixelError": 1354
+    },
+    {
+      "key": "slim/s107",
+      "fingerprint": "e2bcf0f00a58df751edc78791edfe619edb33abb40d3202227dfdde5a1fc8c6e",
+      "silhouetteOverlap": 0.9997949138638228,
+      "exactVisiblePixelFraction": 0.9997949138638228,
+      "pixelError": 834
+    },
+    {
+      "key": "slim/s108",
+      "fingerprint": "6a5d1b1be0b477d5318a180a4e06fe76382239b10aae5ac6660c283b5e85cd91",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993719907891983,
+      "pixelError": 44
+    },
+    {
+      "key": "slim/s109",
+      "fingerprint": "45a4f19baf17d43510f23155a17a530e109bfe0276becca218a76dd2f06b13de",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9997950819672131,
+      "pixelError": 1
+    },
+    {
+      "key": "slim/s110",
+      "fingerprint": "09bc911974cba34c5892b210f1ccfa4f400f0dca776ab5010d37b14177a1fe9a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995844587575317,
+      "pixelError": 42
+    },
+    {
+      "key": "slim/s111",
+      "fingerprint": "9caf07f6ccf3a3e51861c1d53d7d8e1a278fd85fdc686a57f2d3d70259ecedce",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9945979638479119,
+      "pixelError": 363
+    },
+    {
+      "key": "slim/s112",
+      "fingerprint": "8ed722629c402bf2c354e6bddd69d69d1de9f329e65caeaff0fa1c7ae6970c10",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9975308641975309,
+      "pixelError": 1188
+    },
+    {
+      "key": "slim/s113",
+      "fingerprint": "0a787c6c9106214a868d83802a93c1a22bf5103f744a39aeecf3f75a922278c7",
+      "silhouetteOverlap": 0.9997957099080694,
+      "exactVisiblePixelFraction": 0.9987742594484168,
+      "pixelError": 1356
+    },
+    {
+      "key": "slim/s114",
+      "fingerprint": "03fe143a5c9649ff152baace4a49c63790750b360813c14b6a8a59dcd3ce614f",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.998546511627907,
+      "pixelError": 68
+    },
+    {
+      "key": "slim/s115",
+      "fingerprint": "7f9d4ab7d6d826277440c552acb3c7c6d15784062d7662f63a6f5a31c159339c",
+      "silhouetteOverlap": 0.9997957099080694,
+      "exactVisiblePixelFraction": 0.9944841675178754,
+      "pixelError": 1396
+    },
+    {
+      "key": "slim/s116",
+      "fingerprint": "6c619c831562878d13bd3a52b296111ee63cebdd4ec27a3736f232cab3da97b7",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9944029850746269,
+      "pixelError": 707
+    },
+    {
+      "key": "slim/s117",
+      "fingerprint": "70caf8c67ecd7a1353ef0fea0d5af2ec49385d32e3a37ab581389141f493a5bb",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991726990692864,
+      "pixelError": 58
+    },
+    {
+      "key": "slim/s118",
+      "fingerprint": "c448127c1e71bc471f6763e6bd6c44806c2510f8e3053a9f9d3f3329e3942e02",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9969611021069692,
+      "pixelError": 125
+    },
+    {
+      "key": "slim/s119",
+      "fingerprint": "280c2206a0de7a0102cdc953af4f40452ff5dd6862995f1e4a6511ccc7cb27aa",
+      "silhouetteOverlap": 0.999791013584117,
+      "exactVisiblePixelFraction": 0.999791013584117,
+      "pixelError": 859
+    },
+    {
+      "key": "slim/s120",
+      "fingerprint": "b6271a07ec34d491169ca7e8326453adb81c70838f314f53efc2b816890b70fb",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.998960498960499,
+      "pixelError": 341
+    },
+    {
+      "key": "slim/s121",
+      "fingerprint": "4e19dc1db91733140959dd5febf24aa238a65a889b4e98a9eb6633f0ae51f817",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9898718478710211,
+      "pixelError": 92
+    },
+    {
+      "key": "slim/s122",
+      "fingerprint": "c55210b2d22513d7d484003ccaed2e18ff2d5df1ddba084d1176d2c0f2a2ec44",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9983916365098512,
+      "pixelError": 190
+    },
+    {
+      "key": "slim/s123",
+      "fingerprint": "2dd942b707cd8f88e26a4fdb3228e93737c84b951e3b2736bb26f37223410b80",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9985682143587645,
+      "pixelError": 166
+    },
+    {
+      "key": "slim/s124",
+      "fingerprint": "6d179b90145cd814082fb19c13ff5c64b70cdbb2d84bb3b665606b0acf6cb118",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993748697645343,
+      "pixelError": 545
+    },
+    {
+      "key": "slim/s125",
+      "fingerprint": "bed0c2984522c8375f9eb7480b7b821bfaa8b91e85678269d59e39fbe721f032",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9979478760517135,
+      "pixelError": 46
+    },
+    {
+      "key": "slim/s126",
+      "fingerprint": "39d1ff9b3686bdd0d0f3af33ec9e4060c5c8fdab56f489b16572175bcaa84037",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9973491027732463,
+      "pixelError": 675
+    },
+    {
+      "key": "slim/s127",
+      "fingerprint": "e6d4a37a8ea700375a0c10b82b45565eb1718553024e5a3c3dfbbea226a27c87",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995832465096895,
+      "pixelError": 76
+    },
+    {
+      "key": "slim/s128",
+      "fingerprint": "4e3a18e85d45692c26fc41df4399d78119011b811718cb57dd1547cdab832cac",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993782383419689,
+      "pixelError": 69
+    },
+    {
+      "key": "slim/s129",
+      "fingerprint": "bc50b130d84741d3acb1626bbdac87b2a5c9bb5664bbca1a3d3f617d333243f8",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991858335029513,
+      "pixelError": 150
+    },
+    {
+      "key": "slim/s130",
+      "fingerprint": "79f13ad096b5f07236b69c2498cb0dc8969ca1a7a99129ea085fe1ad16bbbbd3",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9989711934156379,
+      "pixelError": 44
+    },
+    {
+      "key": "slim/s131",
+      "fingerprint": "8e9b52287bf019a1a4b45c0bb81df34e491d09be28c675802f3aadda6edc7346",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.995748987854251,
+      "pixelError": 229
+    },
+    {
+      "key": "slim/s132",
+      "fingerprint": "aeed0c8816eb3a12c57b4eefab0ef0b509a1fd4908522d08e995adf8a5085741",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9997928748964374,
+      "pixelError": 18
+    },
+    {
+      "key": "slim/s133",
+      "fingerprint": "db7611690e9ee452b848a3026495ac54df0c188168d34eae54d2f9a31608edd5",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991941982272361,
+      "pixelError": 275
+    },
+    {
+      "key": "slim/s134",
+      "fingerprint": "17f36151a5802fcdd19a71ab98e165b9378d8b5d8588e5d8d089c92e004a09bc",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9989837398373984,
+      "pixelError": 118
+    },
+    {
+      "key": "slim/s135",
+      "fingerprint": "44aca2822d691d1a594ca2fded54af5a17da63763a7d26f7da1d5c7d19051006",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991919191919192,
+      "pixelError": 329
+    },
+    {
+      "key": "slim/s136",
+      "fingerprint": "0930682ae8779b8b9a2cd87890527f51e6f838722d1de9756690cc67754d031c",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9987266553480475,
+      "pixelError": 45
+    },
+    {
+      "key": "slim/s137",
+      "fingerprint": "883ee0671a3a0c4f4fb916851450bf1a31a3c85654ab7136032fc6db9b04a63a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.998769735493131,
+      "pixelError": 58
+    },
+    {
+      "key": "slim/s138",
+      "fingerprint": "891c693189ed04054d395e7e4e912c9a41c4a0f164d2b236ca71c6dd066a533e",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9975196362133113,
+      "pixelError": 208
+    },
+    {
+      "key": "slim/s139",
+      "fingerprint": "772b67f027242dde20c996015b5a10db54d3e7b7ccfdc321893199b084ff413c",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.998343685300207,
+      "pixelError": 262
+    },
+    {
+      "key": "slim/s140",
+      "fingerprint": "ad2a2ae6eda7f90775df9b3a1dccd4c97d615d2fdfd2858f68fe272df1812131",
+      "silhouetteOverlap": 0.999790004199916,
+      "exactVisiblePixelFraction": 0.99895002099958,
+      "pixelError": 1421
+    },
+    {
+      "key": "slim/s141",
+      "fingerprint": "44661559a9344025d0145a3bb0631e2c98804c19d3610d26d19fe3589870dea9",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9985361773316604,
+      "pixelError": 323
+    },
+    {
+      "key": "slim/s142",
+      "fingerprint": "4703b9fd59555a9c2fcbf3e8a3582848ccbe8f6d9e7b642e85706f4026b947aa",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9977111943404078,
+      "pixelError": 11
+    },
+    {
+      "key": "slim/s143",
+      "fingerprint": "bb70153dd2497aa9c2df7798df0b12dc43a48994daefa9c6d33dda074145bcf2",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9993725162099979,
+      "pixelError": 335
+    },
+    {
+      "key": "slim/s144",
+      "fingerprint": "cd7322737ae63944292e1583893834cb27e46c5d033d7b5b666982a78fa6f67d",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9949895615866389,
+      "pixelError": 90
+    },
+    {
+      "key": "slim/s145",
+      "fingerprint": "41e1fd5798156dbfa20c3fc45f9b27565e49cec07d9317774ffebcebcf97039a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9983623336745138,
+      "pixelError": 141
+    },
+    {
+      "key": "slim/s146",
+      "fingerprint": "0824ba319bd9f3e2367a49666f6b33acffca00543460c98106dfee87e0319c93",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9987737584304108,
+      "pixelError": 72
+    },
+    {
+      "key": "slim/s147",
+      "fingerprint": "7d88e7b4c4f537db398a809cd6d8f040d732617a598e239b672fffc8af4fabf0",
+      "silhouetteOverlap": 0.9997964583757378,
+      "exactVisiblePixelFraction": 0.9987787502544271,
+      "pixelError": 1473
+    },
+    {
+      "key": "slim/s148",
+      "fingerprint": "fbdbe47b3529148a9a4c5c683e8ad352b380665b0dafac7583734ed0890f517a",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9995827248070103,
+      "pixelError": 21
+    },
+    {
+      "key": "slim/s149",
+      "fingerprint": "66f6c59df8f01f06517a06c98b9b00145e796c4f062f3db4bfeb8163c8dcd482",
+      "silhouetteOverlap": 1,
+      "exactVisiblePixelFraction": 0.9991642290012537,
+      "pixelError": 23
+    },
+    {
+      "key": "slim/s150",
+      "fingerprint": "11d8fef6dd8634e47f2093a1bbb5aed2b2158049634dd734524b026977798253",
+      "silhouetteOverlap": 0.9997917534360683,
+      "exactVisiblePixelFraction": 0.9993752603082049,
+      "pixelError": 883
+    }
+  ]
+}

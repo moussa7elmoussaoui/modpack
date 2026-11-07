@@ -1,0 +1,30 @@
+{
+  "name": "skinlink",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Create a personalized Minecraft Bedrock addon from skin PNGs and player names, entirely in your browser.",
+  "scripts": {
+    "prepare:assets": "tsx scripts/prepare-assets.ts",
+    "dev": "npm run prepare:assets && vite --host 127.0.0.1",
+    "build": "npm run prepare:assets && tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "npm run prepare:assets && tsx --test tests/*.test.ts",
+    "calibrate:icons": "tsx scripts/calibrate-icons.ts",
+    "check:icons": "npm run prepare:assets && tsx scripts/check-icons.ts",
+    "example": "npm run prepare:assets && tsx scripts/example-addon.ts"
+  },
+  "dependencies": {
+    "fast-png": "^8.0.0",
+    "fflate": "^0.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/pngjs": "^6.0.5",
+    "happy-dom": "20.8.4",
+    "pngjs": "^7.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0"
+  }
+}

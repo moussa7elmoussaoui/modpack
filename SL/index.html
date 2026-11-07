@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f2f4f5" />
+    <link rel="icon" type="image/png" href="%BASE_URL%assets/brand-face.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%assets/brand-face.png" />
+    <script>
+      // Set the saved theme before styles load to avoid a flash of the other theme.
+      (() => {
+        let preference = 'system';
+        try {
+          const saved = localStorage.getItem('skinlink-theme');
+          if (saved === 'light' || saved === 'dark') preference = saved;
+        } catch { /* A theme can still be selected when storage is unavailable. */ }
+        const theme = preference === 'system'
+          ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : preference;
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#171b1e' : '#f2f4f5');
+      })();
+    </script>
+    <meta name="description" content="Link Minecraft skins to player names and create your personalized addon. SkinLink works entirely in your browser." />
+    <title>SkinLink — Your skin. Your addon.</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
