@@ -131,18 +131,18 @@ test('generates a complete addon with stable old skins, custom aliases, all cont
 
 test('named filenames stay safe and distinct without overwriting existing skins or icons', async () => {
   const extended = { ...files,
-    'RP/textures/morph_icons/minecraft/player/wide/alice.png': icon,
-    'RP/textures/morph_icons/minecraft/player/generated/wide/alice.png': icon,
-    'RP/textures/entity/player/generated/wide/alice_2.png': texture,
+    'RP/textures/morph_icons/minecraft/player/wide/my_player.png': icon,
+    'RP/textures/morph_icons/minecraft/player/generated/wide/my_player.png': icon,
+    'RP/textures/entity/player/generated/wide/my_player_2.png': texture,
   };
   const skins = [
-    input(), input({ id: 'case_variant', names: ['ALICE'] }),
+    input({ names: ['My Player'] }), input({ id: 'normalized_variant', names: ['My_Player'] }),
     input({ id: 'random_filename', names: ['s001'], model: 'slim' }),
     input({ id: 'unsafe_name', names: ['../../escape'] }),
     input({ id: 'spaced_filename', names: ['Mumbo_Jumbo'] }),
   ];
   const generated = unzipSync(await generateAddon(zipSync(extended, { level: 0 }), skins, { uuid: uuidFactory() }));
-  const expectedPaths = ['player/generated/wide/alice_3', 'player/generated/wide/alice_4', 'player/generated/slim/s001', 'player/generated/wide/______escape', 'player/generated/wide/mumbo_jumbo'];
+  const expectedPaths = ['player/generated/wide/my_player_3', 'player/generated/wide/my_player_4', 'player/generated/slim/s001', 'player/generated/wide/______escape', 'player/generated/wide/mumbo_jumbo'];
   const textures = json(generated, 'RP/entity/player.entity.json')['minecraft:client_entity'].description.textures;
   const registrations = JSON.parse(strFromU8(generated['BP/scripts/data/player-skins.js']).match(/const SKINLINK_SKINS = (.*);/)![1]);
   for (const [index, expected] of expectedPaths.entries()) {
@@ -200,6 +200,19 @@ test('protected base identities cannot be overridden, including capitalization v
   await assert.rejects(generateAddon(zipSync(extended, { level: 0 }), [input({ names: ['newprotectedname'] })]), /reserved by the base addon/, 'protection must be derived from the actual archive rather than a fixed list');
 });
 
+test('rejects capitalization variants across skin models without changing entered names', async () => {
+  for (const model of ['wide', 'slim'] as const) {
+    const skins = [
+      input({ names: ['Player'] }),
+      input({ id: 'case_variant', names: ['PlayER'], model }),
+    ];
+    assert.match(validateAssignments(skins).join('\n'), /assigned to both skin 1 and skin 2/);
+    assert.deepEqual(skins.map(skin => skin.names), [['Player'], ['PlayER']], 'validation preserves entered capitalization');
+    await assert.rejects(generateAddon(base, skins), /assigned to both skin 1 and skin 2/);
+    assert.deepEqual(skins.map(skin => skin.names), [['Player'], ['PlayER']], 'a rejected direct export preserves entered capitalization');
+  }
+});
+
 test('rejects duplicate names, unsafe identifiers, absent names, and incorrect images before packaging', async () => {
   assert.deepEqual(parseNames('  Player One  '), ['Player One']);
   assert.deepEqual(parseNames('   '), []);
@@ -214,7 +227,6 @@ test('rejects duplicate names, unsafe identifiers, absent names, and incorrect i
   await assert.rejects(generateAddon(base, [input({ names: ['Alice', 'Alice'] })]), /exactly one player name/);
   await assert.rejects(generateAddon(base, [input({ names: ['Alice, Bob'] })]), /without commas/);
   await assert.rejects(generateAddon(base, [input({ names: ['Alice\nBob'] })]), /control characters/);
-  assert.equal(validateAssignments([input({ names: ['Alice'] }), input({ id: 'second', names: ['alice'] })]).length, 0, 'name matching follows the addon’s case-sensitive behavior');
   await assert.rejects(generateAddon(base, [input(), input({ id: 'second' })]), /assigned to both/);
   await assert.rejects(generateAddon(base, [input(), input({ names: ['Bob'] })]), /identifier is invalid or duplicated/);
   await assert.rejects(generateAddon(base, [input({ texturePng: new Uint8Array([1, 2, 3]) })]), /valid PNG/);

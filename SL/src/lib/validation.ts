@@ -37,11 +37,12 @@ export function validateAssignments(entries: SkinAssignment[], reservedNames: re
       if (isReservedPlayerName(name, reservedNames)) {
         errors.push(`${label}: “${name}” is reserved by the base addon. Choose a different player name.`);
       }
-      const previous = names.get(name);
+      const normalized = name.toLowerCase();
+      const previous = names.get(normalized);
       if (previous !== undefined && previous !== index) {
-        errors.push(`“${name}” is assigned to both skin ${previous + 1} and skin ${index + 1}. Assign each name to one skin.`);
+        errors.push(`“${name}” is assigned to both skin ${previous + 1} and skin ${index + 1}. Assign each name to one skin, regardless of capitalization.`);
       }
-      names.set(name, index);
+      names.set(normalized, index);
     });
   });
   return [...new Set(errors)];
