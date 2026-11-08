@@ -4,7 +4,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import { zlibSync } from 'fflate';
 import { PNG } from 'pngjs';
 import { encode } from 'fast-png';
-import { decodePngRgba, encodePngRgba, needsBrowserPngDecoder, validatePngStructure } from '../src/lib/png';
+import { decodePngRgba, encodePngRgba, needsBrowserPngDecoder, stripPngAnimation, validatePngImageData, validatePngStructure } from '../src/lib/png';
 
 function chunk(type: string, bytes: Uint8Array): Buffer {
   const result = Buffer.alloc(bytes.length + 12);
@@ -122,6 +122,102 @@ test('invalid CRC and oversized PNG headers are rejected', () => {
   const secondHeader = Buffer.concat([png.subarray(0, 33), png.subarray(8)]);
   assert.throws(() => decodePngRgba(secondHeader), /multiple headers/);
   assert.throws(() => decodePngRgba(png.subarray(0, -12)), /incomplete/);
+});
+
+test('small compressed PNGs cannot expand beyond the scanlines declared by IHDR', () => {
+  const expected = (64 * 4 + 1) * 64;
+  const rows = new Uint8Array(expected + 8 * 1024 * 1024);
+  rows.fill(255, 0, expected);
+  for (let y = 0; y < 64; y++) rows[y * (64 * 4 + 1)] = 0;
+  const header = Buffer.alloc(13);
+  header.writeUInt32BE(64); header.writeUInt32BE(64, 4); header[8] = 8; header[9] = 6;
+  const oversized = Buffer.concat([
+    Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', header),
+    chunk('IDAT', zlibSync(rows)), chunk('IEND', new Uint8Array())
+  ]);
+  assert.ok(oversized.length < 16 * 1024, 'the compressed upload is tiny despite its excess inflated data');
+  assert.throws(() => validatePngImageData(oversized), /image data expands beyond/);
+  assert.throws(() => decodePngRgba(oversized), /image data expands beyond/);
+  assert.throws(() => validatePngImageData(fixture(3, 2, 8, 0, [0, 1, 2, 3, 0, 4, 5])), /does not match its dimensions/);
+});
+
+test('bounded validation handles split IDAT, stored blocks, and malformed compressed streams', () => {
+  const image = fixture(3, 2, 8, 0, [0, 1, 2, 3, 0, 4, 5, 6]);
+  const compressed = zlibSync(Uint8Array.from([0, 1, 2, 3, 0, 4, 5, 6]), { level: 0 });
+  const split = Buffer.concat([
+    image.subarray(0, 33),
+    ...Array.from(compressed, value => chunk('IDAT', Uint8Array.from([value]))),
+    chunk('IDAT', new Uint8Array()), chunk('IEND', new Uint8Array())
+  ]);
+  assert.deepEqual(decodePngRgba(split).pixels, decodePngRgba(image).pixels);
+  const badAdler = compressed.slice(); badAdler[badAdler.length - 1] ^= 1;
+  const invalid = (data: Uint8Array) => Buffer.concat([image.subarray(0, 33), chunk('IDAT', data), chunk('IEND', new Uint8Array())]);
+  assert.throws(() => validatePngImageData(invalid(badAdler)), /compressed-data checksum/);
+  assert.throws(() => validatePngImageData(invalid(compressed.subarray(0, -6))));
+});
+
+test('exact bounded scanline sizes include tiny Adam7 passes, odd dimensions, and HD 16-bit pixels', () => {
+  const packed = fixture(1, 1, 1, 0, [0, 0x80], [], 1);
+  assert.doesNotThrow(() => validatePngImageData(packed), 'empty Adam7 passes contribute no filter bytes');
+  assert.throws(() => validatePngImageData(fixture(1, 1, 1, 0, [0, 0x80, 0], [], 1)), /expands beyond/);
+  const oddPixels = Uint8Array.from({ length: 5 * 3 * 4 }, (_, index) => index * 3 % 251);
+  assert.deepEqual(decodePngRgba(encode({ width: 5, height: 3, data: oddPixels, channels: 4 }, { interlace: 'Adam7' })).pixels, new Uint8ClampedArray(oddPixels));
+  const hd = Uint16Array.from({ length: 128 * 128 * 4 }, (_, index) => index * 137 % 65536);
+  const expected = Uint8ClampedArray.from(hd, value => Math.round(value * 255 / 65535));
+  assert.deepEqual(decodePngRgba(encode({ width: 128, height: 128, data: hd, channels: 4, depth: 16 })).pixels, expected);
+});
+
+test('unused compressed metadata is bounded across chunks without changing raw pixels', () => {
+  const profile = Buffer.concat([Buffer.from('profile\0\0'), zlibSync(new Uint8Array(256).fill(123))]);
+  const base = fixture(1, 1, 8, 4, [0, 47, 127]);
+  const withProfile = Buffer.concat([base.subarray(0, 33), chunk('iCCP', profile), base.subarray(33)]);
+  assert.deepEqual(decodePngRgba(withProfile).pixels, decodePngRgba(base).pixels, 'unused ICC profile handling must not color-manage raw samples');
+  const excessiveProfile = Buffer.concat([Buffer.from('profile\0\0'), zlibSync(new Uint8Array(4 * 1024 * 1024 + 1))]);
+  const excessive = Buffer.concat([base.subarray(0, 33), chunk('iCCP', excessiveProfile), base.subarray(33)]);
+  assert.throws(() => validatePngImageData(excessive), /metadata expands beyond/);
+  const text = Buffer.concat([Buffer.from('text\0\0'), zlibSync(new Uint8Array(2 * 1024 * 1024 + 1))]);
+  const combined = Buffer.concat([base.subarray(0, 33), chunk('zTXt', text), chunk('zTXt', text), base.subarray(33)]);
+  assert.throws(() => validatePngImageData(combined), /metadata expands beyond/);
+});
+
+test('browser decoding can use the static default image without APNG animation chunks', () => {
+  const base = fixture(1, 1, 8, 4, [0, 47, 127], [['tEXt', [75, 101, 121, 0, 86]]]);
+  const original = Uint8Array.from(base);
+  assert.equal(stripPngAnimation(base), base, 'static PNGs reuse their existing bytes');
+  const control = Buffer.alloc(8); control.writeUInt32BE(2);
+  const frame = Buffer.alloc(26); frame.writeUInt32BE(1, 4); frame.writeUInt32BE(1, 8);
+  const nextFrame = Buffer.from(frame); nextFrame.writeUInt32BE(1);
+  const frameData = Buffer.concat([Buffer.from([0, 0, 0, 2]), zlibSync(Uint8Array.from([0, 12, 255]))]);
+  const profile = chunk('iCCP', Buffer.concat([Buffer.from('profile\0\0'), zlibSync(new Uint8Array(256))]));
+  const animated = Buffer.concat([
+    base.subarray(0, 33), profile, chunk('acTL', control), chunk('fcTL', frame),
+    base.subarray(33, -12), chunk('fcTL', nextFrame), chunk('fdAT', frameData), base.subarray(-12), Buffer.from([6, 7])
+  ]);
+  const before = Uint8Array.from(animated);
+  validatePngImageData(animated);
+  const stripped = stripPngAnimation(animated);
+  const expected = Buffer.concat([base.subarray(0, 33), profile, base.subarray(33), Buffer.from([6, 7])]);
+  assert.deepEqual(stripped, new Uint8Array(expected), 'static chunks, text, color profile and pixel data remain verbatim');
+  assert.deepEqual(decodePngRgba(stripped).pixels, decodePngRgba(base).pixels);
+  assert.deepEqual(new Uint8Array(animated), before, 'the original uploaded texture keeps its animation bytes');
+  assert.deepEqual(new Uint8Array(base), original);
+});
+
+test('palette and transparency metadata cannot allocate beyond their PNG format bounds', () => {
+  const indexed = (palette: number[]) => fixture(1, 1, 1, 3, [0, 0], [['PLTE', palette]]);
+  for (const palette of [[], [1], new Array(771).fill(1), new Array(9).fill(1)]) {
+    assert.throws(() => validatePngImageData(indexed(palette)), /invalid palette/);
+  }
+  const duplicate = fixture(1, 1, 1, 3, [0, 0], [['PLTE', [1, 2, 3]], ['PLTE', [4, 5, 6]]]);
+  assert.throws(() => validatePngImageData(duplicate), /invalid palette/);
+  assert.throws(() => validatePngImageData(fixture(1, 1, 1, 3, [0, 0])), /missing its palette/);
+  assert.throws(() => validatePngImageData(fixture(1, 1, 8, 0, [0, 1], [['tRNS', [0, 1, 0, 2]]])), /invalid transparency/);
+  assert.throws(() => validatePngImageData(fixture(1, 1, 8, 2, [0, 1, 2, 3], [['tRNS', [0, 1]]])), /invalid transparency/);
+  assert.throws(() => validatePngImageData(fixture(1, 1, 1, 3, [0, 0], [['PLTE', [1, 2, 3]], ['tRNS', [255, 0]]])), /invalid transparency/);
+  const repeatedTransparency = fixture(1, 1, 8, 0, [0, 1], [['tRNS', [0, 1]], ['tRNS', [0, 1]]]);
+  assert.throws(() => validatePngImageData(repeatedTransparency), /invalid transparency/);
+  const maximumPalette = Array.from({ length: 768 }, (_, index) => index % 256);
+  assert.doesNotThrow(() => validatePngImageData(fixture(1, 1, 8, 3, [0, 255], [['PLTE', maximumPalette], ['tRNS', new Array(256).fill(255)]])), 'maximum-size legal palettes remain supported');
 });
 
 test('browser PNG codec agrees with the reference decoder for every bundled skin', async () => {

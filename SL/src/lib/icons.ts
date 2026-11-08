@@ -1,6 +1,6 @@
 import { composeIcon, normalizeLegacySkin, type IconTemplates } from './pixels';
 import { readPngDimensions, validateSkinDimensions } from './validation';
-import { decodePngRgba, encodePngRgba, needsBrowserPngDecoder, validatePngStructure } from './png';
+import { decodePngRgba, encodePngRgba, needsBrowserPngDecoder, stripPngAnimation, validatePngImageData } from './png';
 import { composeSkinFace } from './faces';
 import { detectSkinModel } from './skin-model';
 import type { SkinModel } from './addon';
@@ -21,7 +21,7 @@ export function loadIconTemplates(): Promise<void> {
 }
 
 // Keep support for packed Adam7 PNGs that fast-png 8 does not decode correctly.
-async function decodePackedInterlacedPng(file: File, width: number, height: number): Promise<Uint8ClampedArray> {
+async function decodePackedInterlacedPng(file: Blob, width: number, height: number): Promise<Uint8ClampedArray> {
   const url = URL.createObjectURL(file);
   try {
     const image = new Image();
@@ -36,15 +36,33 @@ async function decodePackedInterlacedPng(file: File, width: number, height: numb
   } finally { URL.revokeObjectURL(url); }
 }
 
-async function readSkin(file: File) {
+// File objects are immutable. Share validated pixels across face/icon requests,
+// including uploads whose icon must wait for the base assets to finish loading.
+const skinReads = new WeakMap<File, ReturnType<typeof readSkinFile>>();
+
+function readSkin(file: File): ReturnType<typeof readSkinFile> {
+  let pending = skinReads.get(file);
+  if (!pending) {
+    pending = readSkinFile(file);
+    skinReads.set(file, pending);
+    const current = pending;
+    void pending.catch(() => { if (skinReads.get(file) === current) skinReads.delete(file); });
+  }
+  return pending;
+}
+
+async function readSkinFile(file: File) {
   if (file.size > 2 * 1024 * 1024) throw new Error('Choose a PNG smaller than 2 MB.');
   const source = new Uint8Array(await file.arrayBuffer());
   const { width, height } = readPngDimensions(source);
   validateSkinDimensions(width, height);
   let pixels: Uint8ClampedArray;
   if (needsBrowserPngDecoder(source)) {
-    validatePngStructure(source);
-    pixels = await decodePackedInterlacedPng(file, width, height);
+    validatePngImageData(source);
+    // Decode the default static image, just like the direct decoder. Do not let
+    // browser animation handling inflate unvalidated APNG frames.
+    const staticImage = new Blob([new Uint8Array(stripPngAnimation(source))], { type: 'image/png' });
+    pixels = await decodePackedInterlacedPng(staticImage, width, height);
   } else pixels = decodePngRgba(source).pixels;
   if (!pixels.some((channel, index) => index % 4 === 3 && channel > 0)) throw new Error('This skin is completely transparent.');
   return { source, width, height, pixels };

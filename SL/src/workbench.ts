@@ -174,6 +174,9 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       q(entry, '.upload-field').classList.toggle('is-invalid', Boolean(errors.file));
       q(entry, '.file-name').textContent = entry.file?.name ?? 'Choose a skin PNG';
       q(entry, '.file-meta').textContent = entry.decoded ? `${entry.decoded.width} × ${entry.decoded.height} · Click to replace` : entry.file ? working(entry) ? 'Checking PNG and detecting model…' : 'Click to replace the PNG' : 'Browse or drop a file here';
+      const clearButton = q<HTMLButtonElement>(entry, '.clear-image');
+      clearButton.hidden = !entry.file;
+      clearButton.disabled = locked;
       const modelSummary = q(entry, '.model-summary');
       modelSummary.hidden = !entry.decoded || working(entry) || Boolean(errors.file);
       modelSummary.textContent = entry.model ? `${entry.model === 'slim' ? 'Slim' : 'Wide'} · ${entry.decoded?.height === 32 ? 'Legacy skin' : 'Automatically selected'}` : '';
@@ -272,6 +275,17 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     if (entry.fileError) { render(); return; }
     await Promise.all([processFace(entry), processEntry(entry)]);
   }
+  function clearImage(entry: SkinEntry) {
+    if (busy || !active(entry)) return;
+    // Invalidate pending face/icon work before releasing the current previews.
+    disposeEntry(entry);
+    entry.file = null; entry.model = null;
+    entry.processing = false; entry.readingFace = false;
+    entry.fileError = ''; entry.iconError = ''; entry.notice = '';
+    const input = q<HTMLInputElement>(entry, 'input[type="file"]');
+    input.value = '';
+    clearExport(); render(); input.focus();
+  }
   function removeEntry(entry: SkinEntry) {
     if (busy || !active(entry)) return;
     const index = entries.indexOf(entry);
@@ -297,7 +311,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     element.innerHTML = `
       <div class="editor-body"><div class="entry-fields">
         <label class="upload-field" for="${id}_file"><span class="upload-icon">${upload}</span><span class="file-label"><strong class="file-name">Choose a skin PNG</strong><span class="file-meta">Browse or drop a file here</span></span><span class="browse-tag">Browse</span><input id="${id}_file" class="file-input" type="file" accept="image/png,.png" aria-label="Skin PNG" aria-describedby="${id}_formats ${id}_file_error"></label>
-        <p id="${id}_formats" class="supported-formats">64 × 64 or 128 × 128 PNG · Legacy 64 × 32 supported · Up to 2 MB</p><p id="${id}_file_error" class="field-error file-error" hidden></p>
+        <div class="upload-details"><p id="${id}_formats" class="supported-formats">64 × 64 or 128 × 128 PNG · Legacy 64 × 32 supported · Up to 2 MB</p><button class="clear-image text-button" type="button" hidden>${close}<span>Clear image</span></button></div><p id="${id}_file_error" class="field-error file-error" hidden></p>
         <p class="model-summary" role="status" hidden></p>
         <div class="names-field"><label for="${id}_names">Player name</label><input id="${id}_names" type="text" placeholder="YourGamertag" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="${id}_names_help ${id}_names_error"><div id="${id}_names_help" class="field-help"><span>Match the in-game spelling and capitalization. To reuse this skin, add another item.</span></div><p id="${id}_names_error" class="field-error names-error" hidden></p></div>
       </div><div class="preview-column"><div class="preview-toolbar"><span>Morph menu icon</span><span>128 × 128 PNG</span></div><div class="preview-stage"><div class="preview-placeholder">${player}</div><img class="skin-preview" alt="Generated morph menu icon on its square canvas" width="128" height="128" hidden></div><p class="preview-caption"></p><a class="download-icon text-button" hidden>${download}Download icon</a></div></div><p class="entry-notice" role="status" hidden></p>`;
@@ -319,6 +333,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     row.querySelector<HTMLButtonElement>('.remove-list-skin')!.addEventListener('click', () => removeEntry(entry));
     const fileInput = q<HTMLInputElement>(entry, 'input[type="file"]');
     fileInput.addEventListener('change', () => { const file = fileInput.files?.[0]; if (file) { fileInput.value = ''; void setFile(entry, file); } });
+    q<HTMLButtonElement>(entry, '.clear-image').addEventListener('click', () => clearImage(entry));
     const names = q<HTMLInputElement>(entry, 'input[type="text"]');
     names.addEventListener('input', () => { if (!busy) { entry.names = names.value; clearExport(); render(); } });
     names.addEventListener('paste', event => {
@@ -372,7 +387,11 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
   }
   byId('add-skin').addEventListener('click', () => { if (!busy) openEditor(addEntry()); });
   byId('close-editor').addEventListener('click', () => closeEditor());
-  dialog.addEventListener('cancel', event => { event.preventDefault(); closeEditor(); });
+  dialog.addEventListener('cancel', event => {
+    // A canceled file picker also bubbles a cancel event through the dialog.
+    if (event.target !== dialog) return;
+    event.preventDefault(); closeEditor();
+  });
   dialog.addEventListener('animationend', event => {
     if (event.target === dialog && dialog.classList.contains('is-closing')) finishClose();
   });
@@ -424,9 +443,13 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     if (dialog.open) dialog.close();
     restorePage();
     allEntries().forEach(disposeEntry);
-    win.removeEventListener('beforeunload', cleanup);
+    win.removeEventListener('pagehide', onPageHide);
   }
-  win.addEventListener('beforeunload', cleanup);
+  function onPageHide(event: PageTransitionEvent) {
+    // Cached pages retain their state and resources when browser history restores them.
+    if (!event.persisted) cleanup();
+  }
+  win.addEventListener('pagehide', onPageHide);
   void loadBase();
   return cleanup;
 }
