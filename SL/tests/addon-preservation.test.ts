@@ -267,6 +267,7 @@ test('the real workbench download controls preserve all original file bytes with
   }
   async function downloadAddon(): Promise<Archive> {
     const next = downloads.length + 1;
+    assert.equal(query<HTMLDialogElement>('#skin-dialog').open, false, 'downloads start from the skin list');
     const button = query<HTMLButtonElement>('#generate');
     assert.equal(button.disabled, false);
     button.click();
@@ -291,8 +292,9 @@ test('the real workbench download controls preserve all original file bytes with
     verifyAndRestoreUuids(empty, original);
     assertOriginalBytes(empty, original);
 
-    query<HTMLButtonElement>('#add-first-skin').click();
     for (const [index, [model, sourceName, name]] of SAMPLE_SKINS.entries()) {
+      query<HTMLButtonElement>('#add-skin').click();
+      assert.equal(query<HTMLDialogElement>('#skin-dialog').open, true);
       const editor = query<HTMLElement>('.skin-editor:not([hidden])');
       const names = query<HTMLInputElement>('input[type="text"]', editor);
       names.value = name; names.dispatchEvent(new dom.Event('input', { bubbles: true }) as unknown as Event);
@@ -304,7 +306,9 @@ test('the real workbench download controls preserve all original file bytes with
       await waitFor(() => !query<HTMLButtonElement>('.commit-skin', editor).disabled, `decoding and validating ${name}`);
       assert.equal(query<HTMLInputElement>(`input[value="${model}"]`, editor).checked, true);
       query<HTMLButtonElement>('.commit-skin', editor).click();
-      assert.equal(document.querySelectorAll('#skin-list .skin-select').length, index + 1);
+      assert.equal(document.querySelectorAll('#skin-list .edit-skin').length, index + 1);
+      assert.equal(query('#skin-dialog').classList.contains('is-closing'), true, 'the popup remains mounted for its exit animation');
+      await waitFor(() => !query<HTMLDialogElement>('#skin-dialog').open, 'closing the skin editor');
     }
     const customized = await downloadAddon();
     verifyAndRestoreUuids(customized, original);

@@ -27,6 +27,8 @@ async function withWorkbench(
     query: <T extends Element = HTMLElement>(selector: string, scope?: ParentNode) => T;
     editors: () => HTMLElement[];
     active: () => HTMLElement;
+    dialog: () => HTMLDialogElement;
+    close: () => void;
     openDraft: () => void;
     select: (index: number) => void;
     names: (value: string, editor?: HTMLElement) => void;
@@ -54,6 +56,13 @@ async function withWorkbench(
   URL.revokeObjectURL = url => { revoked.push(url); };
   // Download clicks should not navigate the test DOM or request any network resource.
   dom.HTMLAnchorElement.prototype.click = () => {};
+  // Exercise modal behavior without waiting for presentation-only exit animations.
+  const matchMedia = dom.matchMedia.bind(dom);
+  dom.matchMedia = media => {
+    const result = matchMedia(media);
+    if (media.includes('prefers-reduced-motion')) Object.defineProperty(result, 'matches', { value: true });
+    return result;
+  };
   const exported: SkinInput[][] = [];
   const services: Partial<WorkbenchServices> = {
     assetRoot: '/',
@@ -72,15 +81,21 @@ async function withWorkbench(
     return found;
   };
   const editors = () => [...document.querySelectorAll<HTMLElement>('#skin-editors .skin-editor')];
+  const dialog = () => query<HTMLDialogElement>('#skin-dialog');
   const active = () => {
+    assert.equal(dialog().open, true, 'the editor must be inside the open popup');
     const visible = editors().filter(editor => !editor.hidden);
     assert.equal(visible.length, 1, 'only the selected skin should be editable');
     return visible[0];
   };
+  const close = () => {
+    if (dialog().open) query<HTMLButtonElement>('#close-editor').click();
+    assert.equal(dialog().open, false, 'closing returns to the skin list');
+  };
   const openDraft = () => {
-    if (!query<HTMLElement>('#editor-empty').hidden) query<HTMLButtonElement>('#add-first-skin').click();
-    else if (!query<HTMLButtonElement>('#continue-skin').hidden) query<HTMLButtonElement>('#continue-skin').click();
-    else assert.equal(query<HTMLElement>('.draft-actions', active()).hidden, false, 'the new-skin form is already selected');
+    close();
+    query<HTMLButtonElement>('#add-skin').click();
+    assert.equal(dialog().open, true, 'Add skin opens the popup');
   };
   const names = (value: string, editor = active()) => {
     const input = query<HTMLInputElement>('input[type="text"]', editor);
@@ -104,20 +119,22 @@ async function withWorkbench(
     await flush();
   };
   const select = (index: number) => {
-    const button = document.querySelectorAll<HTMLButtonElement>('#skin-list .skin-select')[index];
+    close();
+    const button = document.querySelectorAll<HTMLButtonElement>('#skin-list .edit-skin')[index];
     assert.ok(button, `Expected skin list item ${index}`);
     button.click();
   };
   const commit = () => {
     const button = query<HTMLButtonElement>('.commit-skin', active());
-    assert.equal(button.disabled, false, 'a complete valid draft must be addable');
+    assert.equal(button.disabled, false, 'only a complete valid skin can be committed');
     button.click();
+    assert.equal(dialog().open, false, 'committing returns to the skin list');
   };
   let cleanup: (() => void) | undefined;
   try {
     cleanup = mountWorkbench(query('#app'), services);
     await flush();
-    await run({ document, query, editors, active, openDraft, select, names, model, upload, commit, exported, revoked });
+    await run({ document, query, editors, active, dialog, close, openDraft, select, names, model, upload, commit, exported, revoked });
   } finally {
     cleanup?.();
     URL.createObjectURL = oldCreate;
@@ -133,8 +150,9 @@ async function withWorkbench(
 test('the addon can be downloaded with no skins, including while an unfinished draft exists', async () => {
   await withWorkbench(async h => {
     assert.equal(Boolean(h.document.querySelector('#try-example')), false);
-    assert.equal(h.document.querySelector('.skin-sidebar .add-skin'), null, 'the list has no add-skin button');
-    assert.equal(h.document.querySelector('#editor-remove'), null, 'the form has no cancel or remove button');
+    assert.equal(h.dialog().open, false, 'the page starts with only the list and its actions');
+    assert.ok(h.query('#add-skin'));
+    assert.equal(h.document.querySelector('#editor-remove'), null, 'skins are removed from the list');
     const download = h.query<HTMLButtonElement>('#generate');
     assert.equal(download.disabled, false);
     assert.match(download.textContent ?? '', /Download addon/);
@@ -144,10 +162,11 @@ test('the addon can be downloaded with no skins, including while an unfinished d
     assert.equal(h.query<HTMLAnchorElement>('#download-again').download, 'modpack.mcaddon');
     assert.equal(h.editors().length, 0);
     h.openDraft(); h.names('UnfinishedPlayer');
+    h.close();
     assert.equal(download.disabled, false);
     download.click(); await flush();
     assert.deepEqual(h.exported, [[], []]);
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 0);
   });
 });
 
@@ -167,7 +186,7 @@ test('each item accepts one name, rejects typed or pasted lists, and can reuse t
     field.value = '';
     field.dispatchEvent(new win.ClipboardEvent('paste', { clipboardData: clipboard, cancelable: true, bubbles: true }));
     assert.equal(add.disabled, true);
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 0);
     clipboard.setData('text/plain', ' First Player\r\n');
     field.value = '';
     field.dispatchEvent(new win.ClipboardEvent('paste', { clipboardData: clipboard, cancelable: true, bubbles: true }));
@@ -177,7 +196,7 @@ test('each item accepts one name, rejects typed or pasted lists, and can reuse t
     assert.equal(Boolean(h.document.querySelector('.names-count')), false);
     h.openDraft();
     h.names('Second Player'); await h.upload('same-skin.png'); h.commit();
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 2);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 2);
     h.query<HTMLButtonElement>('#generate').click(); await flush();
     assert.deepEqual(h.exported[0].map(skin => skin.names), [['First Player'], ['Second Player']]);
     assert.deepEqual(h.exported[0][0].texturePng, h.exported[0][1].texturePng);
@@ -188,9 +207,9 @@ test('a new skin stays outside the list until every field is valid and Add to li
   const image = deferred<ReturnType<typeof decoded>>();
   await withWorkbench(async h => {
     assert.equal(h.editors().length, 0);
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 0);
     assert.equal(h.query<HTMLButtonElement>('#generate').disabled, false, 'the base addon can be downloaded without added skins');
-    h.query<HTMLButtonElement>('#add-first-skin').click();
+    h.query<HTMLButtonElement>('#add-skin').click();
     assert.equal(h.editors().length, 1);
     const add = h.query<HTMLButtonElement>('.commit-skin', h.active());
     assert.equal(add.disabled, true, 'an empty draft cannot be added');
@@ -198,13 +217,13 @@ test('a new skin stays outside the list until every field is valid and Add to li
     assert.equal(add.disabled, true, 'a name alone is insufficient');
     await h.upload('draft.png');
     assert.equal(add.disabled, true, 'image processing must finish first');
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 0);
     image.resolve(decoded(new File([], 'draft.png'), 'wide'));
     await flush();
     assert.equal(add.disabled, false);
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0, 'finishing the form does not add automatically');
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 0, 'finishing the form does not add automatically');
     h.commit();
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1);
     assert.match(h.query('.skin-row-title').textContent ?? '', /DraftPlayer/);
     h.select(0);
     assert.match(h.query('.preview-toolbar', h.active()).textContent ?? '', /Morph menu icon/);
@@ -212,7 +231,7 @@ test('a new skin stays outside the list until every field is valid and Add to li
   }, { decodeSkin: async () => image.promise });
 });
 
-test('adding a skin opens a fresh upload-focused draft while saved skins remain editable and exportable', async () => {
+test('adding a skin closes the popup without another draft and saved skins open only through Edit', async () => {
   await withWorkbench(async h => {
     h.openDraft();
     h.names('FirstPlayer'); await h.upload('first.png'); await h.model('wide');
@@ -221,62 +240,56 @@ test('adding a skin opens a fresh upload-focused draft while saved skins remain 
     assert.equal(h.query('.advanced-toggle', first).getAttribute('aria-expanded'), 'true');
     h.commit();
 
-    const next = h.active();
-    assert.notEqual(next.id, first.id);
-    assert.equal(first.hidden, true);
-    assert.equal(h.editors().length, 2);
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
+    assert.equal(h.dialog().open, false);
+    assert.equal(h.editors().length, 1, 'adding does not create an unused next draft');
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1);
     assert.equal(h.query('#entry-count').textContent, '1');
     assert.equal(h.query('#summary-skins').textContent, '1');
     assert.equal(h.query('#summary-names').textContent, '1');
-    assert.equal(h.query<HTMLInputElement>('input[type="text"]', next).value, '');
-    const file = h.query<HTMLInputElement>('input[type="file"]', next);
-    assert.equal(file.value, '');
-    assert.equal(file.files?.length, 0);
-    assert.equal(h.document.activeElement, file, 'the next PNG upload receives keyboard focus');
-    assert.equal(h.query('.file-name', next).textContent, 'Choose a skin PNG');
-    assert.equal(h.query<HTMLImageElement>('.skin-preview', next).hidden, true);
-    assert.equal(h.query<HTMLImageElement>('.skin-preview', next).getAttribute('src'), null);
-    assert.equal(h.query('.preview-placeholder', next).hidden, false);
-    assert.equal(h.query<HTMLAnchorElement>('.download-icon', next).hidden, true);
-    assert.equal(h.query('.model-reveal', next).getAttribute('aria-hidden'), 'true');
-    assert.equal(h.query('.advanced-toggle', next).getAttribute('aria-expanded'), 'false');
-    assert.equal(h.query('.advanced-panel', next).hasAttribute('inert'), true);
-    assert.equal(h.query('.model-summary', next).textContent?.trim(), 'Wide · Auto');
-    assert.equal(next.querySelector('.use-automatic'), null);
-    assert.equal([...next.querySelectorAll<HTMLElement>('.detected-badge')].every(badge => badge.hidden), true);
-    assert.equal(h.query<HTMLButtonElement>('.commit-skin', next).disabled, true);
-    assert.equal(h.query<HTMLButtonElement>('#generate').disabled, false);
+    const edit = h.query<HTMLButtonElement>('#skin-list .edit-skin');
+    assert.equal(h.document.activeElement, edit, 'focus moves to the added skin');
+    const rowContent = h.query<HTMLElement>('#skin-list .skin-row-content');
+    rowContent.click();
+    assert.equal(h.dialog().open, false, 'clicking the row does not open the popup');
+    h.query<HTMLElement>('#skin-list .skin-list-item').click();
+    assert.equal(h.dialog().open, false, 'clicking row whitespace is inert');
+    assert.equal(rowContent.hasAttribute('tabindex'), false);
+    assert.equal(h.document.querySelector('#skin-list .skin-select'), null);
     h.query<HTMLButtonElement>('#generate').click(); await flush();
     assert.deepEqual(h.exported[0].map(skin => ({ names: skin.names, model: skin.model })), [{ names: ['FirstPlayer'], model: 'wide' }]);
 
-    h.select(0);
+    edit.click();
+    assert.equal(h.dialog().open, true);
     assert.equal(h.active(), first);
     assert.equal(h.query<HTMLInputElement>('input[type="text"]', first).value, 'FirstPlayer');
     assert.equal(h.query('.file-name', first).textContent, 'first.png');
     assert.equal(h.query<HTMLImageElement>('.skin-preview', first).getAttribute('src'), 'blob:icon-first.png-wide');
     assert.equal(h.query('.model-summary', first).textContent?.trim(), 'Wide · Manual');
     assert.equal(h.query('.advanced-toggle', first).getAttribute('aria-expanded'), 'true');
-    assert.equal(h.query<HTMLButtonElement>('#continue-skin').hidden, false);
-    assert.ok(h.query('.editor-heading').contains(h.query('#continue-skin')), 'draft navigation belongs to the editor');
-    h.openDraft();
-    assert.equal(h.active(), next, 'Continue new skin resumes the same fresh draft');
-    assert.equal(h.document.activeElement, file);
+    assert.equal(h.query('.commit-skin', first).textContent?.trim(), 'Done');
+    h.commit();
+    assert.equal(h.document.activeElement, edit);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1, 'Done does not duplicate a saved skin');
 
+    h.openDraft();
+    const next = h.active();
+    assert.notEqual(next.id, first.id);
+    assert.equal(first.hidden, true);
+    assert.equal(h.editors().length, 2);
+    assert.equal(h.query<HTMLInputElement>('input[type="text"]', next).value, '');
+    const file = h.query<HTMLInputElement>('input[type="file"]', next);
+    assert.equal(h.document.activeElement, file, 'the new popup focuses the upload control');
+    assert.equal(h.query('.file-name', next).textContent, 'Choose a skin PNG');
+    assert.equal(h.query<HTMLImageElement>('.skin-preview', next).hidden, true);
+    assert.equal(h.query('.model-reveal', next).getAttribute('aria-hidden'), 'true');
+    assert.equal(h.query<HTMLButtonElement>('.commit-skin', next).disabled, true);
     h.names('SecondPlayer'); await h.upload('second.png');
-    assert.equal(h.query('.model-summary', next).textContent?.trim(), 'Slim · Auto', 'the next upload uses its own automatic model');
+    assert.equal(h.query('.model-summary', next).textContent?.trim(), 'Slim · Auto');
     assert.equal(h.query('.advanced-toggle', next).getAttribute('aria-expanded'), 'false');
     h.commit();
-    const third = h.active();
-    assert.notEqual(third.id, next.id);
-    assert.equal(h.query<HTMLInputElement>('input[type="text"]', third).value, '');
-    assert.equal(h.query('.file-name', third).textContent, 'Choose a skin PNG');
-    assert.equal(h.document.activeElement, h.query<HTMLInputElement>('input[type="file"]', third));
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 2);
-    assert.equal(h.document.querySelector('#editor-remove'), null);
-    assert.equal(h.query<HTMLButtonElement>('#continue-skin').hidden, true, 'the current draft needs no navigation button');
-    assert.equal(h.editors().length, 3, 'the fresh form stays available alongside both saved editors');
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 2);
+    assert.equal(h.dialog().open, false);
+    assert.equal(h.editors().length, 2, 'both editors belong to saved skins');
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 2);
     assert.equal(h.revoked.includes('blob:icon-first.png-wide'), false);
     assert.equal(h.revoked.includes('blob:icon-second.png-slim'), false);
     h.query<HTMLButtonElement>('#generate').click(); await flush();
@@ -606,7 +619,7 @@ test('an uploaded PNG and model still require a valid nonempty name before addin
     h.names('x'.repeat(65)); assert.equal(add.disabled, true);
     h.names('ValidPlayer'); assert.equal(add.disabled, false);
     h.names(''); assert.equal(add.disabled, true);
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 0);
   });
 });
 
@@ -639,7 +652,7 @@ test('selecting added skins preserves edits and export includes all added entrie
     h.select(1);
     assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'SecondPlayer');
     h.openDraft(); h.names('UnfinishedPlayer');
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 2);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 2);
     h.query<HTMLButtonElement>('#generate').click(); await flush();
     assert.equal(h.exported.length, 1);
     assert.deepEqual(h.exported[0].map(skin => ({ names: skin.names, model: skin.model })), [
@@ -665,7 +678,7 @@ test('reserved existing names are rejected case-insensitively before adding and 
       assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).getAttribute('aria-invalid'), 'true');
       if (expectedMessages[name]) assert.equal(h.query('.names-error', h.active()).textContent, expectedMessages[name]);
     }
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 0);
     h.names('OriginalPlayer'); h.commit();
     h.select(0);
     h.names('URBAN7MC');
@@ -688,7 +701,7 @@ test('duplicate names identify matching entries, follow renames, and block addin
     h.names('skiN');
     assert.equal(h.query<HTMLButtonElement>('.commit-skin', h.active()).disabled, true);
     assert.equal(h.query('.names-error', h.active()).textContent, '“skiN” differs only in capitalization from “skin”, which is already in your list. Choose a different player name.');
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1);
     h.select(0); h.names('renamedSkin');
     h.openDraft();
     assert.equal(h.query<HTMLButtonElement>('.commit-skin', h.active()).disabled, false, 'renaming the existing entry releases its previous name');
@@ -720,7 +733,7 @@ test('case variants block adding and conflicting edits across models while prese
         assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).getAttribute('aria-invalid'), 'true');
         assert.equal(h.query('.names-error', editor).textContent, `“${name}” differs only in capitalization from “Player”, which is already in your list. Choose a different player name.`);
       }
-      assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
+      assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1);
       h.names('OtherPlayer'); h.commit();
       h.select(1);
       h.names('pLaYeR');
@@ -738,36 +751,69 @@ test('case variants block adding and conflicting edits across models while prese
   }
 });
 
-test('editor navigation resumes an unfinished draft without adding it to the list', async () => {
+test('Add resumes an unfinished draft after Close, dismissal, and editing a saved skin', async () => {
   await withWorkbench(async h => {
     h.openDraft(); h.names('SavedPlayer'); await h.upload('saved.png'); h.commit();
+    h.openDraft();
     h.names('DraftInProgress'); await h.upload('draft.png');
     const editor = h.active();
+    const closeDraft = h.query<HTMLButtonElement>('.cancel-editor', editor);
+    assert.equal(closeDraft.textContent?.trim(), 'Close');
+    closeDraft.click();
+    assert.equal(h.dialog().open, false);
+    assert.equal(h.document.activeElement, h.query('#add-skin'));
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1);
+    h.openDraft();
+    assert.equal(h.active(), editor, 'Close preserves the same unfinished draft');
+    h.close();
     h.select(0);
-    assert.equal(h.query<HTMLButtonElement>('#continue-skin').hidden, false);
     h.openDraft();
     assert.equal(h.active().id, editor.id);
     assert.equal(h.editors().length, 2);
     assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'DraftInProgress');
     assert.equal(h.query('.file-name', h.active()).textContent, 'draft.png');
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
-    assert.equal(h.document.querySelector('.skin-sidebar .add-skin'), null);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1);
+    assert.equal(h.document.querySelector('#continue-skin'), null);
+    assert.ok(h.query('#add-skin'));
   });
 });
 
-test('removing the last saved skin from the list releases its images and returns to the fresh form', async () => {
+test('Escape closes the popup and restores focus to the Add or Edit trigger', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-first-skin').click();
-    h.names('RemoveMe'); await h.upload('remove.png'); h.commit();
+    const dismissWithEscape = () => {
+      // Browsers translate Escape into the dialog cancel event; Happy DOM has no native keyboard default actions.
+      const event = new h.document.defaultView!.Event('cancel', { cancelable: true });
+      h.dialog().dispatchEvent(event);
+      assert.equal(event.defaultPrevented, true, 'the popup handles cancellation before its exit animation');
+      assert.equal(h.dialog().open, false);
+    };
+    h.openDraft(); h.names('EscapePlayer');
     const draft = h.active();
+    dismissWithEscape();
+    assert.equal(h.document.activeElement, h.query('#add-skin'));
+    h.openDraft();
+    assert.equal(h.active(), draft);
+    assert.equal(h.query<HTMLInputElement>('input[type="text"]', draft).value, 'EscapePlayer');
+    await h.upload('escape.png'); h.commit();
     h.select(0);
+    const edit = h.query('#skin-list .edit-skin');
+    dismissWithEscape();
+    assert.equal(h.document.activeElement, edit);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1);
+  });
+});
+
+test('removing the last saved skin releases its images and leaves the empty list visible', async () => {
+  await withWorkbench(async h => {
+    h.query<HTMLButtonElement>('#add-skin').click();
+    h.names('RemoveMe'); await h.upload('remove.png'); h.commit();
     assert.equal(h.document.querySelector('#editor-remove'), null);
     h.query<HTMLButtonElement>('#skin-list .remove-list-skin').click();
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
-    assert.equal(h.query<HTMLElement>('#editor-empty').hidden, true);
-    assert.equal(h.editors().length, 1);
-    assert.equal(h.active(), draft);
-    assert.equal(h.document.activeElement, h.query('input[type="file"]', draft));
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 0);
+    assert.equal(h.dialog().open, false, 'removing from the list never opens the editor');
+    assert.equal(h.editors().length, 0);
+    assert.equal(h.document.activeElement, h.query('#add-skin'));
+    assert.equal(h.query<HTMLElement>('#list-empty').hidden, false);
     assert.equal(h.query('#entry-count').textContent, '0');
     assert.equal(h.query<HTMLButtonElement>('#generate').disabled, false);
     assert.equal(Boolean(h.document.querySelector('#editor-empty > svg')), false);
@@ -777,15 +823,18 @@ test('removing the last saved skin from the list releases its images and returns
   });
 });
 
-test('removing an unselected added skin keeps the current editor selected', async () => {
+test('removing another skin keeps saved edits intact without opening the popup', async () => {
   await withWorkbench(async h => {
     h.openDraft(); h.names('FirstPlayer'); await h.upload('one.png'); h.commit();
     h.openDraft(); h.names('SecondPlayer'); await h.upload('two.png'); await h.model('slim'); h.commit();
     h.select(1);
+    h.names('RenamedSecondPlayer'); h.close();
     assert.equal(h.document.querySelector('#editor-remove'), null, 'removal is only available in the list');
     h.query<HTMLButtonElement>('#skin-list .remove-list-skin').click();
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
-    assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'SecondPlayer');
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1);
+    assert.equal(h.dialog().open, false);
+    h.select(0);
+    assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'RenamedSecondPlayer');
   });
 });
 
@@ -801,7 +850,7 @@ test('a late icon result cannot overwrite a replacement skin or prematurely enab
     assert.equal(h.query<HTMLImageElement>('.skin-preview', h.active()).getAttribute('src'), 'blob:icon-new.png-slim');
     assert.equal(h.query<HTMLInputElement>('input[value="slim"]', h.active()).checked, true, 'stale automatic detection must not change the newer model');
     assert.ok(h.revoked.includes('blob:icon-old.png-wide'));
-    h.commit(); assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
+    h.commit(); assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1);
   }, { decodeSkin: async (file, model) => file.name === 'old.png' ? old.promise : decoded(file, model ?? 'slim') });
 });
 
@@ -809,13 +858,13 @@ test('a late face result cannot resurrect a skin removed from the list', async (
   const face = deferred<string>();
   await withWorkbench(async h => {
     h.openDraft(); h.names('RemovedPlayer'); await h.upload('original.png'); h.commit();
-    const draft = h.active();
     h.select(0); await h.upload('removed.png');
+    h.close();
     h.query<HTMLButtonElement>('#skin-list .remove-list-skin').click();
     face.resolve('blob:face-removed.png'); await flush();
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
-    assert.equal(h.editors().length, 1);
-    assert.equal(h.active(), draft);
+    assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 0);
+    assert.equal(h.editors().length, 0);
+    assert.equal(h.dialog().open, false);
     assert.ok(h.revoked.includes('blob:face-removed.png'));
   }, { decodeSkinFace: async file => file.name === 'removed.png' ? face.promise : `blob:face-${file.name}` });
 });

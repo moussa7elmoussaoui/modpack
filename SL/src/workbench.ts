@@ -39,6 +39,8 @@ interface SkinEntry {
 
 const upload = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 16V3m-5 5 5-5 5 5M4 14v6h16v-6"/></svg>';
 const plus = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>';
+const pencil = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5 4 4M4 20l4-1L20 7a2.8 2.8 0 0 0-4-4L4 15z"/></svg>';
+const close = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>';
 const download = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg>';
 const trash = '<svg class="trash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="trash-lid"><path d="M4 7h16M9 7V4h6v3"/></g><g class="trash-body"><path d="M6 7h12l-1 14H7ZM10 10v7m4-7v7"/></g></svg>';
 const face = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16v16H4zM8 9h2v2H8zm6 0h2v2h-2zM8 16h8"/></svg>';
@@ -56,28 +58,27 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     <main class="page-shell">
       <section class="page-intro"><div><p class="eyebrow">YOUR PLAYER SKIN WORKBENCH</p><h1>Your skins. One addon.</h1></div><p class="intro-copy">Build your lineup, link player names, and make it yours.</p></section>
       <div class="workspace">
-        <aside class="skin-sidebar" aria-labelledby="skins-heading">
-          <div class="sidebar-heading"><h2 id="skins-heading">Your skins</h2><span class="count-pill" id="entry-count">0</span></div>
+        <section class="skin-sidebar" aria-labelledby="skins-heading">
+          <div class="sidebar-heading"><div class="list-heading-copy"><h2 id="skins-heading">Your skins</h2><span class="count-pill" id="entry-count">0</span></div><button id="add-skin" class="add-skin" type="button" aria-haspopup="dialog" aria-controls="skin-dialog">${plus}<span>Add skin</span></button></div>
           <ul id="skin-list" class="skin-list" aria-label="Added skins"></ul>
-          <p id="list-empty" class="list-empty" hidden>No skins added yet. Complete a skin, then click Add to list.</p>
-          <p class="sidebar-note">Select a skin to edit it. Your files and player names stay in this browser tab.</p>
-        </aside>
-        <div class="workspace-main">
-          <section class="editor-panel" aria-labelledby="selected-title">
-            <div class="editor-heading"><div><h2 id="selected-title">Skin details</h2><p id="selected-description">Import a skin PNG and enter its player name.</p></div><button id="continue-skin" class="text-button editor-continue" type="button" hidden>Continue new skin</button></div>
-            <div id="skin-editors"></div>
-            <div id="editor-empty" class="editor-empty" hidden><h3>Add your first skin</h3><p>Import a skin PNG and link it to a player name.</p><button id="add-first-skin" class="add-skin" type="button">${plus}Add skin</button></div>
-          </section>
+          <div id="list-empty" class="list-empty"><span class="empty-icon">${face}</span><h3>Your lineup starts here</h3><p>Add a skin PNG and link it to a player name.<br>Your next adventure, a little more you.</p></div>
+          <p class="sidebar-note">Your files and player names stay in this browser tab.</p>
+        </section>
           <section class="export-panel" aria-labelledby="export-heading">
             <div class="export-heading"><h2 id="export-heading">Your addon, ready to play.</h2><p>The complete addon with every skin in your lineup.</p><dl class="pack-summary"><div><dt>Ready skins</dt><dd id="summary-skins">0</dd></div><div><dt>Player names</dt><dd id="summary-names">0</dd></div></dl></div>
             <div class="export-actions"><button id="generate" class="generate-button" type="button" disabled>${download}<span>Download addon</span></button><p id="export-hint" class="export-hint">Download the addon, or add skins to customize it.</p></div>
             <div id="base-status" class="base-status" role="status"><span class="status-dot loading-dot"></span><span id="base-status-text">Preparing the base addon…</span><button id="retry-base" type="button" hidden>Retry</button></div>
             <div id="export-feedback" class="export-feedback" role="status" aria-live="polite" hidden></div><a id="download-again" class="download-again" hidden>Download addon again ${download}</a>
           </section>
-        </div>
       </div>
       <footer class="page-footer"><span>SkinLink · Made for your next adventure.</span><span>For Minecraft Bedrock Edition</span></footer>
-    </main>`;
+    </main>
+    <dialog id="skin-dialog" class="skin-dialog" aria-labelledby="selected-title" aria-describedby="selected-description">
+      <div class="editor-panel">
+        <div class="editor-heading"><div><h2 id="selected-title">Add skin</h2><p id="selected-description">Import a skin PNG and enter its player name.</p></div><button id="close-editor" class="icon-button" type="button" aria-label="Close skin editor">${close}</button></div>
+        <div id="skin-editors"></div>
+      </div>
+    </dialog>`;
   const byId = <T extends HTMLElement = HTMLElement>(id: string) => app.querySelector<T>(`#${id}`)!;
   const cleanupTheme = setupThemeToggle(byId<HTMLSelectElement>('theme-preference'), byId<HTMLButtonElement>('theme-toggle'));
   const entries: SkinEntry[] = [];
@@ -91,6 +92,10 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
   let exportUrl = '';
   const feedback = byId('export-feedback'), again = byId<HTMLAnchorElement>('download-again');
   const generate = byId<HTMLButtonElement>('generate');
+  const dialog = byId<HTMLDialogElement>('skin-dialog');
+  let closeTimer: number | undefined;
+  let focusReturn: HTMLElement | null = null;
+  let previousOverflow: string | null = null;
   const q = <T extends HTMLElement = HTMLElement>(entry: SkinEntry, selector: string) => entry.element.querySelector<T>(selector)!;
   const title = (entry: SkinEntry) => parseNames(entry.names)[0] || entry.file?.name.replace(/\.png$/i, '') || `Skin ${entry.id.slice(3)}`;
   const working = (entry: SkinEntry) => entry.processing || entry.readingFace;
@@ -139,11 +144,10 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     byId('summary-skins').textContent = String(readyCount);
     byId('summary-names').textContent = String(new Set(entries.flatMap(entry => parseNames(entry.names))).size);
     byId('list-empty').hidden = entries.length > 0;
-    byId('editor-empty').hidden = Boolean(selected);
-    byId('selected-title').textContent = selected ? title(selected) : 'Skin details';
-    byId('selected-description').textContent = selected === draft && draft ? 'Complete the details, then click Add to list.' : selected ? 'Changes are kept as you edit. Select another skin whenever you like.' : 'Create a skin to start your lineup.';
-    byId('continue-skin').hidden = !draft || selected === draft;
-    for (const id of ['continue-skin', 'add-first-skin']) byId<HTMLButtonElement>(id).disabled = locked;
+    byId('selected-title').textContent = selected === draft && draft ? 'Add skin' : 'Edit skin';
+    byId('selected-description').textContent = selected === draft && draft ? 'Import a PNG, link a player name, and add it to your lineup.' : 'Changes are kept as you edit. Click Done when you’re ready.';
+    byId<HTMLButtonElement>('add-skin').disabled = locked;
+    byId('add-skin').title = draft ? 'Continue your unfinished skin' : 'Add a new skin';
     byId<HTMLButtonElement>('retry-base').disabled = locked;
     generate.disabled = locked || !base || !templatesReady || entries.some(entry => !ready(entry));
     generate.querySelector('span')!.textContent = busy ? 'Preparing your addon…' : entries.length ? 'Generate addon' : 'Download addon';
@@ -154,10 +158,10 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       entry.element.hidden = entry !== selected;
       entry.element.classList.toggle('is-processing', working(entry));
       entry.element.setAttribute('aria-busy', String(working(entry)));
-      entry.row.classList.toggle('is-selected', entry === selected);
-      const select = entry.row.querySelector<HTMLButtonElement>('.skin-select')!;
-      select.setAttribute('aria-pressed', String(entry === selected));
-      select.setAttribute('aria-label', `Edit ${title(entry)}`);
+      entry.row.classList.toggle('is-selected', dialog.open && entry === selected);
+      const edit = entry.row.querySelector<HTMLButtonElement>('.edit-skin')!;
+      edit.disabled = locked;
+      edit.setAttribute('aria-label', `Edit ${title(entry)}`);
       entry.row.querySelector<HTMLElement>('.skin-row-title')!.textContent = title(entry);
       entry.row.querySelector<HTMLElement>('.skin-row-meta')!.textContent = entry.model ? entry.model === 'wide' ? 'Wide' : 'Slim' : 'Choose model';
       const status = entry.row.querySelector<HTMLElement>('.skin-row-status')!;
@@ -209,14 +213,43 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       else iconLink.removeAttribute('href');
       iconLink.setAttribute('aria-disabled', String(locked)); iconLink.tabIndex = locked ? -1 : 0;
       q(entry, '.entry-notice').hidden = !entry.notice; q(entry, '.entry-notice').textContent = entry.notice;
-      q(entry, '.draft-actions').hidden = entry !== draft;
       q<HTMLButtonElement>(entry, '.commit-skin').disabled = locked || !ready(entry);
-      q(entry, '.draft-hint').textContent = working(entry) ? 'Preparing the skin and its icon…' : !reservedNames ? 'Loading the built-in name rules…' : ready(entry) ? 'Ready to add to your skin list.' : 'Import a PNG and enter one available player name.';
+      q(entry, '.commit-skin span').textContent = entry === draft ? 'Add to list' : 'Done';
+      q(entry, '.commit-skin svg').toggleAttribute('hidden', entry !== draft);
+      q(entry, '.draft-hint').textContent = working(entry) ? 'Preparing the skin and its icon…' : !reservedNames ? 'Loading the built-in name rules…' : ready(entry) ? entry === draft ? 'Ready to add to your skin list.' : 'Your changes are saved in this tab.' : 'Import a PNG and enter one available player name.';
     }
   }
-  function selectEntry(entry: SkinEntry, focus = false) {
-    selected = entry; render();
-    if (focus) entry.row.querySelector<HTMLButtonElement>('.skin-select')!.focus();
+  function restorePage() {
+    if (previousOverflow !== null) { doc.documentElement.style.overflow = previousOverflow; previousOverflow = null; }
+  }
+  function finishClose() {
+    if (closeTimer !== undefined) win.clearTimeout(closeTimer);
+    closeTimer = undefined;
+    dialog.classList.remove('is-closing');
+    if (dialog.open) dialog.close();
+    restorePage(); render();
+    const target = focusReturn?.isConnected ? focusReturn : byId('add-skin');
+    target.focus();
+  }
+  function closeEditor(returnTo?: HTMLElement) {
+    if (!dialog.open || dialog.classList.contains('is-closing')) return;
+    if (returnTo) focusReturn = returnTo;
+    if (win.matchMedia('(prefers-reduced-motion: reduce)').matches) { finishClose(); return; }
+    dialog.classList.add('is-closing');
+    closeTimer = win.setTimeout(finishClose, 240);
+  }
+  function openEditor(entry: SkinEntry, trigger: HTMLElement = byId('add-skin')) {
+    if (busy) return;
+    if (closeTimer !== undefined) win.clearTimeout(closeTimer);
+    closeTimer = undefined; dialog.classList.remove('is-closing');
+    selected = entry; focusReturn = trigger; render();
+    if (!dialog.open) {
+      previousOverflow = doc.documentElement.style.overflow;
+      doc.documentElement.style.overflow = 'hidden';
+      dialog.showModal();
+    }
+    render();
+    q<HTMLInputElement>(entry, entry === draft ? 'input[type="file"]' : 'input[type="text"]').focus();
   }
   async function processEntry(entry: SkinEntry) {
     const revision = ++entry.revision;
@@ -271,19 +304,21 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     if (entry === draft) draft = null;
     else entries.splice(index, 1);
     entry.row.remove(); entry.element.remove();
-    if (selected === entry) selected = entries[Math.max(0, Math.min(index, entries.length - 1))] ?? draft;
+    const removedEditor = selected === entry;
+    if (removedEditor) selected = null;
     clearExport(); render();
-    if (selected && selected !== draft) selected.row.querySelector<HTMLButtonElement>('.skin-select')!.focus();
-    else if (selected) q<HTMLInputElement>(selected, 'input[type="file"]').focus();
-    else byId<HTMLButtonElement>('add-first-skin').focus();
+    const next = entries[Math.max(0, Math.min(index, entries.length - 1))];
+    const target = next?.row.querySelector<HTMLButtonElement>('.edit-skin') ?? byId('add-skin');
+    if (removedEditor && dialog.open) closeEditor(target);
+    else if (!dialog.open) target.focus();
   }
   function addEntry(): SkinEntry {
-    if (draft) { selectEntry(draft); return draft; }
+    if (draft) return draft;
     const id = `sl_${++sequence}`;
     const element = doc.createElement('article'), row = doc.createElement('li');
     element.id = `${id}_editor`; element.className = 'skin-editor'; element.setAttribute('aria-label', `Skin ${sequence} editor`);
     row.className = 'skin-list-item';
-    row.innerHTML = `<button class="skin-select" type="button" aria-controls="${id}_editor" aria-pressed="false"><img class="skin-face" alt="" width="24" height="24" hidden><span class="face-placeholder">${face}</span><span class="skin-row-copy"><strong class="skin-row-title"></strong><span class="skin-row-details"><small class="skin-row-meta"></small><span class="skin-row-status"></span></span></span></button><button class="remove-list-skin icon-button" type="button">${trash}</button>`;
+    row.innerHTML = `<div class="skin-row-content"><img class="skin-face" alt="" width="24" height="24" hidden><span class="face-placeholder">${face}</span><span class="skin-row-copy"><strong class="skin-row-title"></strong><span class="skin-row-details"><small class="skin-row-meta"></small><span class="skin-row-status"></span></span></span></div><div class="skin-row-actions"><button class="edit-skin text-button" type="button" aria-haspopup="dialog" aria-controls="skin-dialog">${pencil}<span>Edit</span></button><button class="remove-list-skin icon-button" type="button">${trash}</button></div>`;
     element.innerHTML = `
       <div class="editor-body"><div class="entry-fields">
         <label class="upload-field" for="${id}_file"><span class="upload-icon">${upload}</span><span class="file-label"><strong class="file-name">Choose a skin PNG</strong><span class="file-meta">Browse or drop a file here</span></span><span class="browse-tag">Browse</span><input id="${id}_file" class="file-input" type="file" accept="image/png,.png" aria-label="Skin PNG" aria-describedby="${id}_formats ${id}_file_error"></label>
@@ -300,20 +335,20 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     const entry: SkinEntry = { id, file: null, model: 'wide', modelReady: false, autoModel: true, detectedModel: null, advancedOpen: false, legacy: false, names: '', faceUrl: '', decoded: null, processing: false, readingFace: false, fileError: '', iconError: '', notice: '', revision: 0, faceRevision: 0, validationShown: false, element, row };
     draft = entry;
     const actions = doc.createElement('div'); actions.className = 'draft-actions';
-    actions.innerHTML = `<p class="draft-hint" id="${id}_draft_hint"></p><button class="add-skin commit-skin" type="button" disabled aria-describedby="${id}_draft_hint">${plus}<span>Add to list</span></button>`;
+    actions.innerHTML = `<p class="draft-hint" id="${id}_draft_hint"></p><button class="cancel-editor text-button" type="button">Close</button><button class="add-skin commit-skin" type="button" disabled aria-describedby="${id}_draft_hint">${plus}<span>Add to list</span></button>`;
     element.append(actions); byId('skin-editors').append(element);
     actions.querySelector<HTMLButtonElement>('.commit-skin')!.addEventListener('click', () => {
-      if (busy || entry !== draft || !ready(entry)) return;
-      draft = null; entries.push(entry); entry.validationShown = true;
-      byId('skin-list').append(row); clearExport(); addAndFocus();
+      if (busy || !active(entry) || !ready(entry)) return;
+      if (entry === draft) {
+        draft = null; entries.push(entry); entry.validationShown = true;
+        byId('skin-list').append(row); clearExport();
+      }
+      render(); closeEditor(row.querySelector<HTMLButtonElement>('.edit-skin')!);
     });
-    row.querySelector<HTMLButtonElement>('.skin-select')!.addEventListener('click', () => selectEntry(entry));
+    actions.querySelector<HTMLButtonElement>('.cancel-editor')!.addEventListener('click', () => closeEditor());
+    const edit = row.querySelector<HTMLButtonElement>('.edit-skin')!;
+    edit.addEventListener('click', () => openEditor(entry, edit));
     row.querySelector<HTMLButtonElement>('.remove-list-skin')!.addEventListener('click', () => removeEntry(entry));
-    row.querySelector<HTMLButtonElement>('.skin-select')!.addEventListener('keydown', event => {
-      const current = entries.indexOf(entry);
-      const index = event.key === 'ArrowDown' ? Math.min(entries.length - 1, current + 1) : event.key === 'ArrowUp' ? Math.max(0, current - 1) : event.key === 'Home' ? 0 : event.key === 'End' ? entries.length - 1 : -1;
-      if (index >= 0) { event.preventDefault(); selectEntry(entries[index], true); }
-    });
     const fileInput = q<HTMLInputElement>(entry, 'input[type="file"]');
     fileInput.addEventListener('change', () => { const file = fileInput.files?.[0]; if (file) { fileInput.value = ''; void setFile(entry, file); } });
     q<HTMLButtonElement>(entry, '.advanced-toggle').addEventListener('click', () => {
@@ -348,7 +383,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       if (files.length > 1) { entry.notice = 'Drop one PNG per skin. Click Add to list before uploading the next skin.'; render(); return; }
       fileInput.value = ''; void setFile(entry, files[0]);
     });
-    selectEntry(entry); clearExport(); return entry;
+    clearExport(); return entry;
   }
   async function loadBase() {
     const revision = ++baseRevision;
@@ -377,16 +412,35 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     }
     render();
   }
-  function addAndFocus() { if (!busy) q<HTMLInputElement>(addEntry(), 'input[type="file"]').focus(); }
-  byId('continue-skin').addEventListener('click', addAndFocus);
-  byId('add-first-skin').addEventListener('click', addAndFocus);
+  byId('add-skin').addEventListener('click', () => { if (!busy) openEditor(addEntry()); });
+  byId('close-editor').addEventListener('click', () => closeEditor());
+  dialog.addEventListener('cancel', event => { event.preventDefault(); closeEditor(); });
+  dialog.addEventListener('animationend', event => {
+    if (event.target === dialog && dialog.classList.contains('is-closing')) finishClose();
+  });
+  let backdropPressed = false;
+  const outsideDialog = (event: PointerEvent | MouseEvent) => {
+    const rect = dialog.getBoundingClientRect();
+    return event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom);
+  };
+  dialog.addEventListener('pointerdown', event => { backdropPressed = outsideDialog(event); });
+  dialog.addEventListener('click', event => {
+    if (backdropPressed && outsideDialog(event)) closeEditor();
+    backdropPressed = false;
+  });
+  dialog.addEventListener('close', () => {
+    if (disposed || dialog.open) return;
+    if (closeTimer !== undefined) win.clearTimeout(closeTimer);
+    closeTimer = undefined; dialog.classList.remove('is-closing');
+    restorePage(); render();
+  });
   byId('retry-base').addEventListener('click', () => { void loadBase(); });
   generate.addEventListener('click', async () => {
     if (busy || !base || !templatesReady || entries.some(working)) return;
     clearExport(); entries.forEach(entry => { entry.validationShown = true; }); render();
     const invalid = entries.find(entry => !ready(entry));
     if (invalid) {
-      selectEntry(invalid);
+      openEditor(invalid, invalid.row.querySelector<HTMLButtonElement>('.edit-skin')!);
       const errors = issues(invalid);
       q<HTMLElement>(invalid, errors.file ? 'input[type="file"]' : errors.model ? 'input[type="radio"]' : 'input[type="text"]').focus();
       setFeedback(`Finish ${title(invalid)} before generating. Check the highlighted fields.`, true); return;
@@ -408,6 +462,9 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
   function cleanup() {
     if (disposed) return;
     disposed = true; baseRevision++; cleanupTheme(); revoke(exportUrl);
+    if (closeTimer !== undefined) win.clearTimeout(closeTimer);
+    if (dialog.open) dialog.close();
+    restorePage();
     allEntries().forEach(disposeEntry);
     win.removeEventListener('beforeunload', cleanup);
   }
