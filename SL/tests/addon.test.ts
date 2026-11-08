@@ -41,8 +41,10 @@ function json(archive: Record<string, Uint8Array>, name: string): any {
 test('generates a complete addon with stable old skins, custom aliases, all controllers, and independent identities', async () => {
   const hostileName = '\");globalThis.INJECTED=true;//';
   const skins = [
-    input({ names: ['Alice', 'Another Alice'] }),
-    input({ id: 'second', names: ['Nova', '__proto__', hostileName], model: 'slim' }),
+    input({ names: ['Alice'] }),
+    input({ id: 'second', names: ['Nova'], model: 'slim' }),
+    input({ id: 'prototype', names: ['__proto__'], model: 'slim' }),
+    input({ id: 'hostile', names: [hostileName], model: 'slim' }),
   ];
   const generated = unzipSync(await generateAddon(base, skins, { uuid: uuidFactory() }));
   const changed = new Set([
@@ -53,7 +55,7 @@ test('generates a complete addon with stable old skins, custom aliases, all cont
     assert.ok(generated[name], `${name} must remain in the generated archive`);
     if (!changed.has(name)) assert.deepEqual(generated[name], bytes, `${name} must remain unchanged`);
   }
-  assert.equal(Object.keys(generated).length, Object.keys(files).length + 4);
+  assert.equal(Object.keys(generated).length, Object.keys(files).length + 8);
   const oldTextures = json(files, 'RP/entity/player.entity.json')['minecraft:client_entity'].description.textures;
   const newTextures = json(generated, 'RP/entity/player.entity.json')['minecraft:client_entity'].description.textures;
   const count = Object.keys(oldTextures).filter((key) => /^player_\d+$/.test(key)).length;
@@ -64,9 +66,9 @@ test('generates a complete addon with stable old skins, custom aliases, all cont
   const controllers = json(generated, 'RP/render_controllers/player.morph.render_controllers.json').render_controllers;
   assert.equal(Object.keys(controllers).length, 4);
   for (const controller of Object.values(controllers) as any[]) {
-    assert.deepEqual(controller.arrays.textures['Array.textures'], Array.from({ length: 177 }, (_, index) => `Texture.player_${index}`));
+    assert.deepEqual(controller.arrays.textures['Array.textures'], Array.from({ length: 179 }, (_, index) => `Texture.player_${index}`));
   }
-  assert.deepEqual(json(generated, 'BP/entities/player.json')['minecraft:entity'].description.properties['dark7mc:player_skin'].range, [0, 176]);
+  assert.deepEqual(json(generated, 'BP/entities/player.json')['minecraft:entity'].description.properties['dark7mc:player_skin'].range, [0, 178]);
   assert.deepEqual(generated['RP/textures/entity/player/generated/wide/alice.png'], texture);
   assert.deepEqual(generated['RP/textures/morph_icons/minecraft/player/generated/slim/nova.png'], icon);
 
@@ -103,18 +105,17 @@ test('generates a complete addon with stable old skins, custom aliases, all cont
     .replace(/^import .*?;\s*/m, '').replace(/^export /gm, '');
   vm.runInContext(`${executable}\nglobalThis.result = { playerSkins, getPlayerSkinIndex, getPlayerIconPath, randomCount: RANDOM_PLAYER_SKINS.length };`, context);
   const result = context.result;
-  assert.equal(result.playerSkins.length, 177);
+  assert.equal(result.playerSkins.length, 179);
   assert.equal(result.randomCount, 173);
   assert.equal(result.getPlayerSkinIndex('Alice'), 175);
-  assert.equal(result.getPlayerSkinIndex('Another Alice'), 175);
   assert.equal(result.getPlayerSkinIndex('DARK7MC'), 173, 'existing special identities retain their original assignments');
   assert.equal(result.getPlayerSkinIndex('URBAN7MC'), 174);
   assert.equal(result.getPlayerSkinIndex('Dream'), 152);
   assert.equal(result.getPlayerSkinIndex('Steve'), 0);
   assert.equal(result.getPlayerSkinIndex('Alex'), 151);
   assert.equal(result.getPlayerSkinIndex('Nova'), 176);
-  assert.equal(result.getPlayerSkinIndex('__proto__'), 176);
-  assert.equal(result.getPlayerSkinIndex(hostileName), 176);
+  assert.equal(result.getPlayerSkinIndex('__proto__'), 177);
+  assert.equal(result.getPlayerSkinIndex(hostileName), 178);
   assert.equal(context.INJECTED, undefined, 'names remain data, never executable source');
   assert.equal(result.getPlayerIconPath(176), 'textures/morph_icons/minecraft/player/generated/slim/nova');
   const unknown = result.getPlayerSkinIndex('Unlisted visitor');
@@ -200,14 +201,19 @@ test('protected base identities cannot be overridden, including capitalization v
 });
 
 test('rejects duplicate names, unsafe identifiers, absent names, and incorrect images before packaging', async () => {
-  assert.deepEqual(parseNames(' Alice, Another Alice\nNova\r\nAlice, '), ['Alice', 'Another Alice', 'Nova']);
+  assert.deepEqual(parseNames('  Player One  '), ['Player One']);
+  assert.deepEqual(parseNames('   '), []);
   assert.equal(validateAssignments([input(), input({ id: 'second' })]).length, 1);
   assert.ok(validateAssignments([input({ id: '../escape' })]).length);
   assert.ok(validateAssignments([input({ names: [] })]).length);
   assert.ok(validateAssignments([input({ names: [' Alice'] })]).length);
   await assert.rejects(generateAddon(base, [input({ model: '' as SkinInput['model'] })]), /choose Wide or Slim/);
   await assert.rejects(generateAddon(base, [input({ model: 'unknown' as SkinInput['model'] })]), /choose Wide or Slim/);
-  await assert.rejects(generateAddon(base, [input({ names: [] })]), /at least one player name/);
+  await assert.rejects(generateAddon(base, [input({ names: [] })]), /exactly one player name/);
+  await assert.rejects(generateAddon(base, [input({ names: ['Alice', 'Bob'] })]), /exactly one player name/);
+  await assert.rejects(generateAddon(base, [input({ names: ['Alice', 'Alice'] })]), /exactly one player name/);
+  await assert.rejects(generateAddon(base, [input({ names: ['Alice, Bob'] })]), /without commas/);
+  await assert.rejects(generateAddon(base, [input({ names: ['Alice\nBob'] })]), /control characters/);
   assert.equal(validateAssignments([input({ names: ['Alice'] }), input({ id: 'second', names: ['alice'] })]).length, 0, 'name matching follows the addon’s case-sensitive behavior');
   await assert.rejects(generateAddon(base, [input(), input({ id: 'second' })]), /assigned to both/);
   await assert.rejects(generateAddon(base, [input(), input({ names: ['Bob'] })]), /identifier is invalid or duplicated/);

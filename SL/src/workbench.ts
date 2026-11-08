@@ -1,7 +1,7 @@
 import { decodeSkin, decodeSkinFace, loadIconTemplates } from './lib/icons';
 import { generateAddon, type SkinInput, type SkinModel } from './lib/addon';
 import { parseNames, validateAssignments } from './lib/validation';
-import { setupThemeMenu } from './theme-menu';
+import { setupThemeToggle } from './theme-toggle';
 import { isReservedPlayerName } from './lib/name-policy';
 import { allocatePlayerAssetPaths } from './lib/player-assets';
 
@@ -47,7 +47,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
   app.innerHTML = `
     <header class="site-header"><div class="header-inner">
       <a class="brand" href="${services.assetRoot}" aria-label="SkinLink home"><img class="brand-face" src="${services.assetRoot}assets/brand-face.png" alt="" width="40" height="40"><span>SkinLink<span class="brand-dot">.</span></span></a>
-      <div class="header-actions"><div class="local-badge"><span class="status-dot"></span>Made in your browser</div><div class="theme-control"><span id="theme-label">Theme</span><div id="theme-dropdown" class="theme-dropdown" data-open="false"><button id="theme-trigger" class="theme-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="theme-menu" aria-labelledby="theme-label theme-current"><span id="theme-current">System</span><svg class="theme-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button><div id="theme-menu" class="theme-menu" role="listbox" aria-labelledby="theme-label" aria-hidden="true" inert>${(['system', 'light', 'dark'] as const).map(value => `<button type="button" role="option" tabindex="-1" data-theme-value="${value}" aria-selected="${value === 'system'}">${value[0].toUpperCase() + value.slice(1)}<span class="theme-check" aria-hidden="true">✓</span></button>`).join('')}</div></div><select id="theme-preference" hidden aria-hidden="true" tabindex="-1"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div>
+      <div class="header-actions"><div class="local-badge"><span class="status-dot"></span>Made in your browser</div><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z"/></svg></button><select id="theme-preference" hidden aria-hidden="true" tabindex="-1"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
     </div></header>
     <main class="page-shell">
       <section class="page-intro"><div><p class="eyebrow">YOUR PLAYER SKIN WORKBENCH</p><h1>Your skins. One addon.</h1></div><p class="intro-copy">Build your lineup, link player names, and make it yours.</p></section>
@@ -63,7 +63,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
           <section class="editor-panel" aria-labelledby="selected-title">
             <div class="editor-heading"><div><h2 id="selected-title">Skin details</h2><p id="selected-description">Choose a PNG, its model, and the player names it belongs to.</p></div><button id="editor-remove" class="text-button editor-remove" type="button">${trash}<span>Remove</span></button></div>
             <div id="skin-editors"></div>
-            <div id="editor-empty" class="editor-empty" hidden><h3>Add your first skin</h3><p>Choose a PNG, then set its player model and linked names.</p><button id="add-first-skin" class="add-skin" type="button">${plus}Add skin</button></div>
+            <div id="editor-empty" class="editor-empty" hidden><h3>Add your first skin</h3><p>Choose a PNG, then set its player model and player name.</p><button id="add-first-skin" class="add-skin" type="button">${plus}Add skin</button></div>
           </section>
           <section class="export-panel" aria-labelledby="export-heading">
             <div class="export-heading"><h2 id="export-heading">Your addon, ready to play.</h2><p>The complete addon with every skin in your lineup.</p><dl class="pack-summary"><div><dt>Ready skins</dt><dd id="summary-skins">0</dd></div><div><dt>Player names</dt><dd id="summary-names">0</dd></div></dl></div>
@@ -76,7 +76,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       <footer class="page-footer"><span>SkinLink · Made for your next adventure.</span><span>For Minecraft Bedrock Edition</span></footer>
     </main>`;
   const byId = <T extends HTMLElement = HTMLElement>(id: string) => app.querySelector<T>(`#${id}`)!;
-  const cleanupTheme = setupThemeMenu(byId<HTMLSelectElement>('theme-preference'), byId('theme-dropdown'));
+  const cleanupTheme = setupThemeToggle(byId<HTMLSelectElement>('theme-preference'), byId<HTMLButtonElement>('theme-toggle'));
   const entries: SkinEntry[] = [];
   let draft: SkinEntry | null = null;
   let selected: SkinEntry | null = null;
@@ -106,7 +106,8 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
   }
   function namesIssue(entry: SkinEntry): string {
     const names = parseNames(entry.names);
-    if (!names.length) return entry.validationShown ? 'Enter at least one player name.' : '';
+    if (!names.length) return entry.validationShown ? 'Enter a player name.' : '';
+    if (/[,\r\n]/.test(entry.names)) return 'Use exactly one player name per item. Add another item to use this skin for another player.';
     if (names.some(name => name.length > 64 || /[\u0000-\u001f\u007f]/.test(name))) return 'Use names with 1–64 characters and no control characters.';
     const reserved = names.find(name => reservedNames && isReservedPlayerName(name, reservedNames));
     if (reserved) return `“${reserved}” belongs to a built-in skin and cannot be reassigned.`;
@@ -146,9 +147,9 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     generate.disabled = locked || !base || !templatesReady || entries.some(entry => !ready(entry));
     generate.querySelector('span')!.textContent = busy ? 'Preparing your addon…' : entries.length ? 'Generate addon' : 'Download addon';
     generate.classList.toggle('is-busy', busy);
-    byId('export-hint').textContent = busy ? 'Keep this tab open while your addon is built.' : draft ? 'Only skins added to your list are included. Click Add to list to include this new skin.' : !entries.length ? 'Download the addon, or add skins to customize it.' : readyCount === entries.length ? `${readyCount} ${readyCount === 1 ? 'skin' : 'skins'} ready. Download and open in Minecraft.` : 'Finish each skin’s PNG, model, and linked names.';
+    byId('export-hint').textContent = busy ? 'Keep this tab open while your addon is built.' : draft ? 'Only skins added to your list are included. Click Add to list to include this new skin.' : !entries.length ? 'Download the addon, or add skins to customize it.' : readyCount === entries.length ? `${readyCount} ${readyCount === 1 ? 'skin' : 'skins'} ready. Download and open in Minecraft.` : 'Finish each skin’s PNG, model, and player name.';
     for (const [index, entry] of displayed.entries()) {
-      const errors = issues(entry), count = parseNames(entry.names).length;
+      const errors = issues(entry);
       entry.element.hidden = entry !== selected;
       entry.element.classList.toggle('is-processing', working(entry));
       entry.element.setAttribute('aria-busy', String(working(entry)));
@@ -157,7 +158,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       select.setAttribute('aria-pressed', String(entry === selected));
       select.setAttribute('aria-label', `Edit ${title(entry)}`);
       entry.row.querySelector<HTMLElement>('.skin-row-title')!.textContent = title(entry);
-      entry.row.querySelector<HTMLElement>('.skin-row-meta')!.textContent = `${entry.model ? entry.model === 'wide' ? 'Wide' : 'Slim' : 'Choose model'} · ${count} ${count === 1 ? 'name' : 'names'}`;
+      entry.row.querySelector<HTMLElement>('.skin-row-meta')!.textContent = entry.model ? entry.model === 'wide' ? 'Wide' : 'Slim' : 'Choose model';
       const status = entry.row.querySelector<HTMLElement>('.skin-row-status')!;
       const hasError = Boolean(errors.file || errors.model || errors.names);
       status.textContent = working(entry) ? 'Preparing…' : hasError ? 'Needs attention' : ready(entry) ? 'Ready' : 'Incomplete';
@@ -180,7 +181,6 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       for (const field of ['file', 'model', 'names'] as const) {
         const error = q(entry, `.${field}-error`); error.hidden = !errors[field]; error.textContent = errors[field];
       }
-      q(entry, '.names-count').textContent = count ? `${count} ${count === 1 ? 'player name' : 'player names'} linked` : 'One skin can belong to several players';
       const preview = q<HTMLImageElement>(entry, '.skin-preview');
       preview.hidden = !entry.decoded;
       if (entry.decoded && preview.getAttribute('src') !== entry.decoded.iconUrl) preview.src = entry.decoded.iconUrl;
@@ -194,7 +194,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       q(entry, '.entry-notice').hidden = !entry.notice; q(entry, '.entry-notice').textContent = entry.notice;
       q(entry, '.draft-actions').hidden = entry !== draft;
       q<HTMLButtonElement>(entry, '.commit-skin').disabled = locked || !ready(entry);
-      q(entry, '.draft-hint').textContent = working(entry) ? 'Preparing the skin and its icon…' : !reservedNames ? 'Loading the built-in name rules…' : ready(entry) ? 'Ready to add to your skin list.' : 'Choose a PNG, a model, and at least one available player name.';
+      q(entry, '.draft-hint').textContent = working(entry) ? 'Preparing the skin and its icon…' : !reservedNames ? 'Loading the built-in name rules…' : ready(entry) ? 'Ready to add to your skin list.' : 'Choose a PNG, a model, and one available player name.';
     }
   }
   function selectEntry(entry: SkinEntry, focus = false) {
@@ -265,7 +265,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
         <label class="upload-field" for="${id}_file"><span class="upload-icon">${upload}</span><span class="file-label"><strong class="file-name">Choose a skin PNG</strong><span class="file-meta">Browse or drop a file here</span></span><span class="browse-tag">Browse</span><input id="${id}_file" class="file-input" type="file" accept="image/png,.png" aria-label="Skin PNG" aria-describedby="${id}_formats ${id}_file_error"></label>
         <p id="${id}_formats" class="supported-formats">64 × 64 or 128 × 128 PNG · Legacy 64 × 32 uses Wide · Up to 2 MB</p><p id="${id}_file_error" class="field-error file-error" hidden></p>
         <fieldset class="model-field" aria-describedby="${id}_model_error"><legend>Player model <span>Required</span></legend><div class="model-options">${(['wide', 'slim'] as const).map(model => `<label><input type="radio" name="${id}_model" value="${model}"><span class="model-choice"><span><strong>${model === 'wide' ? 'Wide' : 'Slim'}</strong><small>${model === 'wide' ? '4' : '3'}-pixel arms</small></span><span class="radio-dot"></span></span></label>`).join('')}</div><p id="${id}_model_error" class="field-error model-error" hidden></p></fieldset>
-        <div class="names-field"><label for="${id}_names">Linked player names</label><input id="${id}_names" type="text" placeholder="YourGamertag, AnotherPlayer" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="${id}_names_help ${id}_names_error"><div id="${id}_names_help" class="field-help"><span>Separate multiple names with commas. Names must match their in-game spelling and capitalization.</span><span class="names-count"></span></div><p id="${id}_names_error" class="field-error names-error" hidden></p></div>
+        <div class="names-field"><label for="${id}_names">Player name</label><input id="${id}_names" type="text" placeholder="YourGamertag" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="${id}_names_help ${id}_names_error"><div id="${id}_names_help" class="field-help"><span>Match the in-game spelling and capitalization. To reuse this skin, add another item.</span></div><p id="${id}_names_error" class="field-error names-error" hidden></p></div>
       </div><div class="preview-column"><div class="preview-toolbar"><span>Morph menu icon</span><span>128 × 128 PNG</span></div><div class="preview-stage"><div class="preview-placeholder">${player}</div><img class="skin-preview" alt="Generated morph menu icon on its square canvas" width="128" height="128" hidden></div><p class="preview-caption"></p><a class="download-icon text-button" hidden>${download}Download icon</a></div></div><p class="entry-notice" role="status" hidden></p>`;
     const entry: SkinEntry = { id, file: null, model: '', names: '', faceUrl: '', decoded: null, processing: false, readingFace: false, fileError: '', iconError: '', notice: '', revision: 0, faceRevision: 0, validationShown: false, element, row };
     draft = entry;
@@ -295,7 +295,8 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       const text = event.clipboardData?.getData('text/plain');
       if (busy || !text || !/[\r\n]/.test(text)) return;
       event.preventDefault();
-      names.setRangeText(text.replace(/[\r\n]+/g, ', '), names.selectionStart ?? names.value.length, names.selectionEnd ?? names.value.length, 'end');
+      // Keep a pasted list visibly invalid instead of joining its names into one.
+      names.setRangeText(text.trim().replace(/[\r\n]+/g, ', '), names.selectionStart ?? names.value.length, names.selectionEnd ?? names.value.length, 'end');
       entry.names = names.value; clearExport(); render();
     });
     q<HTMLAnchorElement>(entry, '.download-icon').addEventListener('click', event => { if (busy) event.preventDefault(); });

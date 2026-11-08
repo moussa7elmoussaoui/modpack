@@ -139,18 +139,36 @@ test('the addon can be downloaded with no skins, including while an unfinished d
   });
 });
 
-test('the compact name field preserves pasted lists as comma-separated player names', async () => {
+test('each item accepts one name, rejects typed or pasted lists, and can reuse the same skin in another item', async () => {
   await withWorkbench(async h => {
     h.query<HTMLButtonElement>('#add-skin').click();
+    h.model('wide'); await h.upload('same-skin.png');
     const field = h.query<HTMLInputElement>('input[type="text"]', h.active());
+    const add = h.query<HTMLButtonElement>('.commit-skin', h.active());
+    for (const text of ['FirstPlayer, SecondPlayer', 'FirstPlayer, FirstPlayer']) {
+      h.names(text); assert.equal(add.disabled, true);
+      assert.equal(field.getAttribute('aria-invalid'), 'true');
+    }
     const win = h.document.defaultView!;
     const clipboard = new win.DataTransfer();
     clipboard.setData('text/plain', 'FirstPlayer\r\nSecondPlayer\nThirdPlayer');
+    field.value = '';
     field.dispatchEvent(new win.ClipboardEvent('paste', { clipboardData: clipboard, cancelable: true, bubbles: true }));
-    assert.equal(field.value, 'FirstPlayer, SecondPlayer, ThirdPlayer');
-    h.model('wide'); await h.upload('names.png'); h.commit();
+    assert.equal(add.disabled, true);
+    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
+    clipboard.setData('text/plain', ' First Player\r\n');
+    field.value = '';
+    field.dispatchEvent(new win.ClipboardEvent('paste', { clipboardData: clipboard, cancelable: true, bubbles: true }));
+    assert.equal(field.value, 'First Player', 'a single copied name may include surrounding whitespace');
+    h.commit();
+    assert.equal(h.query('.skin-row-meta').textContent, 'Wide');
+    assert.equal(Boolean(h.document.querySelector('.names-count')), false);
+    h.query<HTMLButtonElement>('#add-skin').click();
+    h.names('Second Player'); h.model('wide'); await h.upload('same-skin.png'); h.commit();
+    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 2);
     h.query<HTMLButtonElement>('#generate').click(); await flush();
-    assert.deepEqual(h.exported[0][0].names, ['FirstPlayer', 'SecondPlayer', 'ThirdPlayer']);
+    assert.deepEqual(h.exported[0].map(skin => skin.names), [['First Player'], ['Second Player']]);
+    assert.deepEqual(h.exported[0][0].texturePng, h.exported[0][1].texturePng);
   });
 });
 
@@ -186,9 +204,9 @@ test('a new skin stays outside the list until every field is valid and Add to li
 test('individual icon downloads use the same named-file pattern and collision suffixes as the addon', async () => {
   await withWorkbench(async h => {
     h.query<HTMLButtonElement>('#add-skin').click(); h.model('slim'); await h.upload('source.png');
-    h.names('s001, AnotherAlias');
+    h.names('s001');
     assert.equal(h.query<HTMLAnchorElement>('.download-icon', h.active()).download, 's001.png', 'original filenames occupy a separate folder');
-    h.names('My Player, AnotherAlias');
+    h.names('My Player');
     assert.equal(h.query<HTMLAnchorElement>('.download-icon', h.active()).download, 'my_player.png');
     h.commit();
     h.query<HTMLButtonElement>('#add-skin').click(); h.model('slim'); await h.upload('other.png'); h.names('MY_PLAYER');
@@ -228,14 +246,14 @@ test('Add stays disabled until the reserved-name policy has loaded', async () =>
 test('selecting added skins preserves edits and export includes all added entries but excludes an unfinished draft', async () => {
   await withWorkbench(async h => {
     h.query<HTMLButtonElement>('#add-skin').click();
-    h.names('FirstPlayer, SharedLook'); h.model('wide'); await h.upload('first.png'); h.commit();
+    h.names('FirstPlayer'); h.model('wide'); await h.upload('first.png'); h.commit();
     h.query<HTMLButtonElement>('#add-skin').click();
     h.names('SecondPlayer'); h.model('slim'); await h.upload('second.png'); h.commit();
     h.select(0);
-    assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'FirstPlayer, SharedLook');
+    assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'FirstPlayer');
     assert.equal(h.query<HTMLInputElement>('input[value="wide"]', h.active()).checked, true);
     assert.match(h.query('.file-name', h.active()).textContent ?? '', /first\.png/);
-    h.names('RenamedPlayer, SharedLook'); h.model('slim'); await h.upload('replacement.png');
+    h.names('RenamedPlayer'); h.model('slim'); await h.upload('replacement.png');
     h.select(1);
     assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'SecondPlayer');
     h.query<HTMLButtonElement>('#add-skin').click(); h.names('UnfinishedPlayer');
@@ -243,7 +261,7 @@ test('selecting added skins preserves edits and export includes all added entrie
     h.query<HTMLButtonElement>('#generate').click(); await flush();
     assert.equal(h.exported.length, 1);
     assert.deepEqual(h.exported[0].map(skin => ({ names: skin.names, model: skin.model })), [
-      { names: ['RenamedPlayer', 'SharedLook'], model: 'slim' }, { names: ['SecondPlayer'], model: 'slim' }
+      { names: ['RenamedPlayer'], model: 'slim' }, { names: ['SecondPlayer'], model: 'slim' }
     ]);
     assert.deepEqual([...h.exported[0][0].texturePng], [1, 'replacement.png'.length]);
   });

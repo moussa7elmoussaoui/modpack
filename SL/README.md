@@ -1,12 +1,12 @@
 # SkinLink
 
-SkinLink builds a personalized Minecraft Bedrock `.mcaddon` from the addon in the sibling `BP` and `RP` folders. For each skin, upload a PNG, choose Wide or Slim, and enter the exact player names that should use it. Multiple names can share one skin. Names are case-sensitive and can be separated by commas or line breaks.
+SkinLink builds a personalized Minecraft Bedrock `.mcaddon` from the addon in the sibling `BP` and `RP` folders. For each list item, upload a PNG, choose Wide or Slim, and enter exactly one player name. Names are case-sensitive and may contain spaces. To give the same skin to another player, create another list item using the same PNG; comma-separated or pasted lists of names are rejected.
 
 The app uses TypeScript, HTML, and CSS with Vite. Skin processing, icon generation, and addon packaging happen in the browser. Skin files and entered names are not sent to a server. Visitors need neither Node.js nor Blockbench; Node.js is only needed to develop or build the website.
 
-The interface uses the addon's Omnitrix colors: charcoal, metallic grays, and cyan accents. The header's animated Theme menu offers System, Light, and Dark, with keyboard navigation and Escape to close. System follows the device setting; explicit choices are remembered in the browser. Theme changes leave uploaded skins and entered names in place. Controls and panels use subtle transitions that respect the device's reduced-motion setting. Scrollbars use the browser defaults.
+The interface uses the addon's Omnitrix colors: charcoal, metallic grays, and cyan accents. A round sun/moon button in the header switches between light and dark mode, with a smooth color transition and animated icon. The initial appearance follows the device; clicking the toggle saves an explicit choice in the browser. Theme changes leave uploaded skins and entered names in place. Animations respect the device's reduced-motion setting. Scrollbars use the browser defaults.
 
-The lineup starts empty. New skin opens a draft; its Add to list button stays disabled until the PNG, explicit Wide/Slim choice, and linked names are valid and image processing is complete. Only clicking Add to list adds the skin to the lineup. Cancel discards the draft. You can return to an unfinished draft with Continue new skin while editing other entries. Select an added entry to change its PNG, model, or names; those edits are kept as you work. Each added entry shows its face in the list. The selected skin has a square icon preview and an individual PNG download. Generate addon includes only entries already added to the list. Skins are kept in the current tab rather than saved across page reloads. The header and browser icon use DARK7MC's face from the addon.
+The lineup starts empty. New skin opens a draft; its Add to list button stays disabled until the PNG, explicit Wide/Slim choice, and player name are valid and image processing is complete. Only clicking Add to list adds the skin to the lineup. Cancel discards the draft. You can return to an unfinished draft with Continue new skin while editing other entries. Select an added entry to change its PNG, model, or player name; those edits are kept as you work. Each added entry shows its face in the list. The selected skin has a square icon preview and an individual PNG download. Generate addon includes only entries already added to the list. Skins are kept in the current tab rather than saved across page reloads. The header and browser icon use DARK7MC's face from the addon.
 
 Names already assigned by the base addon are protected, including DARK7MC, URBAN7MC, the YouTubers, Steve, and Alex. Protection also rejects capitalization variants. The rules are derived from the bundled addon's actual name mapping during asset preparation and checked again against the archive during generation; custom names otherwise retain the addon's case-sensitive matching.
 
@@ -19,7 +19,7 @@ npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite. Download addon works immediately after the base assets load, even with an empty skin list. To customize it, upload skins, enter their player names, select their models, and click Add to list. Every custom entry needs a skin and at least one name. Each name can appear in only one skin entry. Uploading a file does not infer its arm model: Wide or Slim is always your choice. Unfinished drafts are excluded from downloads.
+Open the local URL printed by Vite. Download addon works immediately after the base assets load, even with an empty skin list. To customize it, upload skins, enter their player names, select their models, and click Add to list. Every custom entry needs a skin and exactly one player name. Each name can appear in only one skin entry. Uploading a file does not infer its arm model: Wide or Slim is always your choice. Unfinished drafts are excluded from downloads.
 
 ```sh
 npm test
@@ -27,7 +27,7 @@ npm run build
 npm run preview
 ```
 
-`npm run example` also generates `artifacts/modpack.mcaddon` without a browser, using the same pack generator and the prepared Steve/Alex examples. Its linked names are `YourGamertag`, `AnotherPlayer`, and `SlimPlayer`.
+`npm run example` also generates `artifacts/modpack.mcaddon` without a browser, using the same pack generator and the prepared Steve/Alex examples. Its two entries are linked to `YourGamertag` and `SlimPlayer`.
 
 Tests cover pixel composition and generation of the full addon, including player-name mappings, texture aliases, render controllers, pack identity, validation, and preservation of other assets. The build runs TypeScript checks and writes the production website to `dist/`. The preview command serves that production build locally.
 
@@ -43,7 +43,7 @@ With no added skins, the download contains the original addon assets and scripts
 
 Website downloads are named `modpack.mcaddon`. The original manifest names and translation files are preserved, so Minecraft shows the names defined by the base addon, currently `DARK7MC Modpack [BP]` and `DARK7MC Modpack [RP]`. Generated player icons belong to the morph menu; the original behavior/resource pack icons are preserved.
 
-Custom skin and morph-icon filenames follow the named-player pattern: the first linked name becomes lowercase with spaces replaced by underscores, such as `My Player` → `my_player.png`. Generated skins go in `RP/textures/entity/player/generated/wide/` or `generated/slim/`, with matching icons under `RP/textures/morph_icons/minecraft/player/generated/wide/` or `generated/slim/`. Original assets keep their existing folders. Other linked names share the same skin files. Characters unsuitable for filenames are replaced with underscores, and a numeric suffix such as `_2` prevents collisions within the generated folders. Individual icon downloads use the same filenames as the addon.
+Custom skin and morph-icon filenames follow the named-player pattern: the linked player name becomes lowercase with spaces replaced by underscores, such as `My Player` → `my_player.png`. Generated skins go in `RP/textures/entity/player/generated/wide/` or `generated/slim/`, with matching icons under `RP/textures/morph_icons/minecraft/player/generated/wide/` or `generated/slim/`. Original assets keep their existing folders. Each list item has its own pair of files, even when the same PNG is reused. Characters unsuitable for filenames are replaced with underscores, and a numeric suffix such as `_2` prevents collisions within the generated folders. Individual icon downloads use the same filenames as the addon.
 
 ## Icon generation
 

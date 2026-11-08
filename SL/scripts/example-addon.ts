@@ -9,7 +9,7 @@ const assets = path.join(app, 'public/assets');
 const base = new Uint8Array(await readFile(path.join(assets, 'base-addon.zip')));
 const skins = await Promise.all((['wide', 'slim'] as const).map(async (model, index) => ({
   id: `example_${model}`,
-  names: index === 0 ? ['YourGamertag', 'AnotherPlayer'] : ['SlimPlayer'],
+  names: index === 0 ? ['YourGamertag'] : ['SlimPlayer'],
   model,
   texturePng: new Uint8Array(await readFile(path.join(assets, `examples/${model}.png`))),
   iconPng: new Uint8Array(await readFile(path.join(assets, `examples/${model}-icon.png`)))

@@ -7,9 +7,10 @@ export interface SkinAssignment {
   model: SkinModel;
 }
 
-/** Player names may contain spaces; commas and line breaks separate aliases. */
+/** Each item has one player name; spaces within that name are preserved. */
 export function parseNames(text: string): string[] {
-  return [...new Set(text.split(/[,\r\n]+/).map((name) => name.trim()).filter(Boolean))];
+  const name = text.trim();
+  return name ? [name] : [];
 }
 
 export function validateAssignments(entries: SkinAssignment[], reservedNames: readonly string[] = []): string[] {
@@ -27,10 +28,10 @@ export function validateAssignments(entries: SkinAssignment[], reservedNames: re
     if (entry.model !== 'wide' && entry.model !== 'slim') {
       errors.push(`${label}: choose Wide or Slim.`);
     }
-    if (entry.names.length === 0) errors.push(`${label}: enter at least one player name.`);
+    if (entry.names.length !== 1) errors.push(`${label}: enter exactly one player name per item. Add another item to use the same skin for another player.`);
     entry.names.forEach((name) => {
-      if (name !== name.trim() || name.length === 0 || name.length > 64 || /[\u0000-\u001f\u007f]/.test(name)) {
-        errors.push(`${label}: player names must contain 1–64 characters without control characters or leading/trailing spaces.`);
+      if (name !== name.trim() || name.length === 0 || name.length > 64 || /[,\u0000-\u001f\u007f]/.test(name)) {
+        errors.push(`${label}: use one player name with 1–64 characters, without commas, control characters, or leading/trailing spaces.`);
         return;
       }
       if (isReservedPlayerName(name, reservedNames)) {

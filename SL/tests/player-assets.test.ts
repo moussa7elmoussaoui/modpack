@@ -12,9 +12,9 @@ test('named player filenames use lowercase and underscores with no application p
   assert.match(playerFileStem('玩家'), /^[a-z0-9_-]+$/);
 });
 
-test('case and normalized-name collisions keep each skin distinct while aliases share one file', () => {
+test('case and normalized-name collisions keep each player’s files distinct', () => {
   const paths = allocatePlayerAssetPaths([
-    { names: ['My Player', 'Second Alias'], model: 'wide' },
+    { names: ['My Player'], model: 'wide' },
     { names: ['MY_PLAYER'], model: 'wide' },
     { names: ['My Player'], model: 'slim' },
   ], []);
