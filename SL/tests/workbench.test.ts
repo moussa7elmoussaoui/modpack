@@ -319,6 +319,7 @@ test('cancelling a draft releases its images and leaves a compact empty state wi
   await withWorkbench(async h => {
     h.query<HTMLButtonElement>('#add-first-skin').click();
     h.names('CancelMe'); h.model('wide'); await h.upload('cancel.png');
+    assert.equal(h.query('#editor-remove').classList.contains('is-removal'), false, 'draft cancellation has its own button style');
     h.query<HTMLButtonElement>('#editor-remove').click();
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
     assert.equal(h.query<HTMLElement>('#editor-empty').hidden, false);
@@ -334,6 +335,7 @@ test('removing an unselected added skin keeps the current editor selected', asyn
   await withWorkbench(async h => {
     h.query<HTMLButtonElement>('#add-skin').click(); h.names('FirstPlayer'); h.model('wide'); await h.upload('one.png'); h.commit();
     h.query<HTMLButtonElement>('#add-skin').click(); h.names('SecondPlayer'); h.model('slim'); await h.upload('two.png'); h.commit();
+    assert.equal(h.query('#editor-remove').classList.contains('is-removal'), true, 'added skins use the transparent removal control');
     h.query<HTMLButtonElement>('#skin-list .remove-list-skin').click();
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
     assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'SecondPlayer');

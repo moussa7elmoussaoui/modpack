@@ -36,7 +36,7 @@ interface SkinEntry {
 const upload = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 16V3m-5 5 5-5 5 5M4 14v6h16v-6"/></svg>';
 const plus = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>';
 const download = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg>';
-const trash = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 10v7m4-7v7"/></svg>';
+const trash = '<svg class="trash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="trash-lid"><path d="M4 7h16M9 7V4h6v3"/></g><g class="trash-body"><path d="M6 7h12l-1 14H7ZM10 10v7m4-7v7"/></g></svg>';
 const face = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16v16H4zM8 9h2v2H8zm6 0h2v2h-2zM8 16h8"/></svg>';
 const player = '<svg class="placeholder-player" viewBox="0 0 64 96" aria-hidden="true"><path fill="currentColor" d="M20 2h24v24H20zM17 29h30v36H17zM3 29h11v36H3zm47 0h11v36H50zM17 68h13v26H17zm17 0h13v26H34z"/></svg>';
 
@@ -141,6 +141,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     byId('selected-description').textContent = selected === draft && draft ? 'Complete the details, then click Add to list.' : selected ? 'Changes are kept as you edit. Select another skin whenever you like.' : 'Create a skin to start your lineup.';
     byId('editor-remove').querySelector('span')!.textContent = selected === draft && draft ? 'Cancel' : 'Remove';
     byId('editor-remove').setAttribute('aria-label', selected === draft && draft ? 'Cancel new skin' : 'Remove selected skin');
+    byId('editor-remove').classList.toggle('is-removal', Boolean(selected && selected !== draft));
     byId('add-skin').querySelector('span')!.textContent = draft ? 'Continue new skin' : 'New skin';
     for (const id of ['add-skin', 'add-first-skin']) byId<HTMLButtonElement>(id).disabled = locked;
     byId<HTMLButtonElement>('retry-base').disabled = locked;
@@ -259,7 +260,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     const element = doc.createElement('article'), row = doc.createElement('li');
     element.id = `${id}_editor`; element.className = 'skin-editor'; element.setAttribute('aria-label', `Skin ${sequence} editor`);
     row.className = 'skin-list-item';
-    row.innerHTML = `<button class="skin-select" type="button" aria-controls="${id}_editor" aria-pressed="false"><img class="skin-face" alt="" width="40" height="40" hidden><span class="face-placeholder">${face}</span><span class="skin-row-copy"><strong class="skin-row-title"></strong><small class="skin-row-meta"></small><span class="skin-row-status"></span></span></button><button class="remove-list-skin icon-button" type="button" title="Remove skin">${trash}</button>`;
+    row.innerHTML = `<button class="skin-select" type="button" aria-controls="${id}_editor" aria-pressed="false"><img class="skin-face" alt="" width="24" height="24" hidden><span class="face-placeholder">${face}</span><span class="skin-row-copy"><strong class="skin-row-title"></strong><span class="skin-row-details"><small class="skin-row-meta"></small><span class="skin-row-status"></span></span></span></button><button class="remove-list-skin icon-button" type="button">${trash}</button>`;
     element.innerHTML = `
       <div class="editor-body"><div class="entry-fields">
         <label class="upload-field" for="${id}_file"><span class="upload-icon">${upload}</span><span class="file-label"><strong class="file-name">Choose a skin PNG</strong><span class="file-meta">Browse or drop a file here</span></span><span class="browse-tag">Browse</span><input id="${id}_file" class="file-input" type="file" accept="image/png,.png" aria-label="Skin PNG" aria-describedby="${id}_formats ${id}_file_error"></label>
