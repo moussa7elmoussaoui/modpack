@@ -27,6 +27,7 @@ async function withWorkbench(
     query: <T extends Element = HTMLElement>(selector: string, scope?: ParentNode) => T;
     editors: () => HTMLElement[];
     active: () => HTMLElement;
+    openDraft: () => void;
     select: (index: number) => void;
     names: (value: string, editor?: HTMLElement) => void;
     model: (value: SkinModel, editor?: HTMLElement) => Promise<void>;
@@ -76,6 +77,11 @@ async function withWorkbench(
     assert.equal(visible.length, 1, 'only the selected skin should be editable');
     return visible[0];
   };
+  const openDraft = () => {
+    if (!query<HTMLElement>('#editor-empty').hidden) query<HTMLButtonElement>('#add-first-skin').click();
+    else if (!query<HTMLButtonElement>('#continue-skin').hidden) query<HTMLButtonElement>('#continue-skin').click();
+    else assert.equal(query<HTMLElement>('.draft-actions', active()).hidden, false, 'the new-skin form is already selected');
+  };
   const names = (value: string, editor = active()) => {
     const input = query<HTMLInputElement>('input[type="text"]', editor);
     input.value = value;
@@ -111,7 +117,7 @@ async function withWorkbench(
   try {
     cleanup = mountWorkbench(query('#app'), services);
     await flush();
-    await run({ document, query, editors, active, select, names, model, upload, commit, exported, revoked });
+    await run({ document, query, editors, active, openDraft, select, names, model, upload, commit, exported, revoked });
   } finally {
     cleanup?.();
     URL.createObjectURL = oldCreate;
@@ -127,6 +133,8 @@ async function withWorkbench(
 test('the addon can be downloaded with no skins, including while an unfinished draft exists', async () => {
   await withWorkbench(async h => {
     assert.equal(Boolean(h.document.querySelector('#try-example')), false);
+    assert.equal(h.document.querySelector('.skin-sidebar .add-skin'), null, 'the list has no add-skin button');
+    assert.equal(h.document.querySelector('#editor-remove'), null, 'the form has no cancel or remove button');
     const download = h.query<HTMLButtonElement>('#generate');
     assert.equal(download.disabled, false);
     assert.match(download.textContent ?? '', /Download addon/);
@@ -135,7 +143,7 @@ test('the addon can be downloaded with no skins, including while an unfinished d
     assert.equal(h.query<HTMLAnchorElement>('#download-again').hidden, false);
     assert.equal(h.query<HTMLAnchorElement>('#download-again').download, 'modpack.mcaddon');
     assert.equal(h.editors().length, 0);
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('UnfinishedPlayer');
+    h.openDraft(); h.names('UnfinishedPlayer');
     assert.equal(download.disabled, false);
     download.click(); await flush();
     assert.deepEqual(h.exported, [[], []]);
@@ -145,7 +153,7 @@ test('the addon can be downloaded with no skins, including while an unfinished d
 
 test('each item accepts one name, rejects typed or pasted lists, and can reuse the same skin in another item', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     await h.upload('same-skin.png');
     const field = h.query<HTMLInputElement>('input[type="text"]', h.active());
     const add = h.query<HTMLButtonElement>('.commit-skin', h.active());
@@ -167,7 +175,7 @@ test('each item accepts one name, rejects typed or pasted lists, and can reuse t
     h.commit();
     assert.equal(h.query('.skin-row-meta').textContent, 'Wide');
     assert.equal(Boolean(h.document.querySelector('.names-count')), false);
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('Second Player'); await h.upload('same-skin.png'); h.commit();
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 2);
     h.query<HTMLButtonElement>('#generate').click(); await flush();
@@ -206,7 +214,7 @@ test('a new skin stays outside the list until every field is valid and Add to li
 
 test('adding a skin opens a fresh upload-focused draft while saved skins remain editable and exportable', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('FirstPlayer'); await h.upload('first.png'); await h.model('wide');
     const first = h.active();
     assert.equal(h.query('.model-summary', first).textContent?.trim(), 'Wide · Manual');
@@ -235,7 +243,7 @@ test('adding a skin opens a fresh upload-focused draft while saved skins remain 
     assert.equal(h.query('.advanced-toggle', next).getAttribute('aria-expanded'), 'false');
     assert.equal(h.query('.advanced-panel', next).hasAttribute('inert'), true);
     assert.equal(h.query('.model-summary', next).textContent?.trim(), 'Wide · Auto');
-    assert.equal(h.query<HTMLButtonElement>('.use-automatic', next).hidden, true);
+    assert.equal(next.querySelector('.use-automatic'), null);
     assert.equal([...next.querySelectorAll<HTMLElement>('.detected-badge')].every(badge => badge.hidden), true);
     assert.equal(h.query<HTMLButtonElement>('.commit-skin', next).disabled, true);
     assert.equal(h.query<HTMLButtonElement>('#generate').disabled, false);
@@ -249,8 +257,9 @@ test('adding a skin opens a fresh upload-focused draft while saved skins remain 
     assert.equal(h.query<HTMLImageElement>('.skin-preview', first).getAttribute('src'), 'blob:icon-first.png-wide');
     assert.equal(h.query('.model-summary', first).textContent?.trim(), 'Wide · Manual');
     assert.equal(h.query('.advanced-toggle', first).getAttribute('aria-expanded'), 'true');
-    assert.match(h.query<HTMLButtonElement>('#add-skin').textContent ?? '', /Continue new skin/);
-    h.query<HTMLButtonElement>('#add-skin').click();
+    assert.equal(h.query<HTMLButtonElement>('#continue-skin').hidden, false);
+    assert.ok(h.query('.editor-heading').contains(h.query('#continue-skin')), 'draft navigation belongs to the editor');
+    h.openDraft();
     assert.equal(h.active(), next, 'Continue new skin resumes the same fresh draft');
     assert.equal(h.document.activeElement, file);
 
@@ -264,8 +273,9 @@ test('adding a skin opens a fresh upload-focused draft while saved skins remain 
     assert.equal(h.query('.file-name', third).textContent, 'Choose a skin PNG');
     assert.equal(h.document.activeElement, h.query<HTMLInputElement>('input[type="file"]', third));
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 2);
-    h.query<HTMLButtonElement>('#editor-remove').click();
-    assert.equal(h.editors().length, 2, 'cancelling the fresh draft keeps both saved editors');
+    assert.equal(h.document.querySelector('#editor-remove'), null);
+    assert.equal(h.query<HTMLButtonElement>('#continue-skin').hidden, true, 'the current draft needs no navigation button');
+    assert.equal(h.editors().length, 3, 'the fresh form stays available alongside both saved editors');
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 2);
     assert.equal(h.revoked.includes('blob:icon-first.png-wide'), false);
     assert.equal(h.revoked.includes('blob:icon-second.png-slim'), false);
@@ -276,11 +286,11 @@ test('adding a skin opens a fresh upload-focused draft while saved skins remain 
   }, { decodeSkin: async (file, model) => decoded(file, model ?? 'slim') });
 });
 
-test('a valid upload reveals collapsed Advanced options with the detected Slim selection', async () => {
+test('a valid upload reveals a collapsed model correction link with the detected Slim selection', async () => {
   const image = deferred<ReturnType<typeof decoded>>();
   const calls: (SkinModel | undefined)[] = [];
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     const editor = h.active();
     const reveal = h.query('.model-reveal', editor);
     const wide = h.query<HTMLInputElement>('input[value="wide"]', editor);
@@ -304,10 +314,13 @@ test('a valid upload reveals collapsed Advanced options with the detected Slim s
     assert.equal(reveal.classList.contains('is-visible'), true);
     const advanced = h.query<HTMLButtonElement>('.advanced-toggle', editor);
     const panel = h.query('.advanced-panel', editor);
+    assert.match(h.query('.model-question', editor).textContent ?? '', /Wrong player model detected\?/);
+    assert.equal(advanced.textContent, 'Click here');
+    assert.doesNotMatch(advanced.textContent ?? '', /Advanced options/);
     assert.equal(advanced.getAttribute('aria-expanded'), 'false');
     assert.equal(panel.getAttribute('aria-hidden'), 'true');
     assert.equal(panel.hasAttribute('inert'), true);
-    assert.equal(wide.disabled, true, 'model inputs stay inaccessible while Advanced options is collapsed');
+    assert.equal(wide.disabled, true, 'model inputs stay inaccessible while the correction panel is collapsed');
     assert.equal(slim.disabled, true);
     assert.equal(wide.checked, false);
     assert.equal(slim.checked, true);
@@ -321,9 +334,9 @@ test('a valid upload reveals collapsed Advanced options with the detected Slim s
   }, { decodeSkin: async (_file, model) => { calls.push(model); return image.promise; } });
 });
 
-test('Advanced options opens and closes accessibly and keeps its state per skin during edits and selection changes', async () => {
+test('the model correction link opens and closes accessibly and keeps its state per skin during edits and selection changes', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('FirstPlayer'); await h.upload('first.png');
+    h.openDraft(); h.names('FirstPlayer'); await h.upload('first.png');
     const first = h.active();
     const toggle = h.query<HTMLButtonElement>('.advanced-toggle', first);
     const panel = h.query('.advanced-panel', first);
@@ -338,7 +351,7 @@ test('Advanced options opens and closes accessibly and keeps its state per skin 
     h.names('RenamedPlayer');
     assert.equal(toggle.getAttribute('aria-expanded'), 'true', 'name edits retain the open panel');
     h.commit();
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('SecondPlayer'); await h.upload('second.png'); h.commit();
+    h.openDraft(); h.names('SecondPlayer'); await h.upload('second.png'); h.commit();
     h.select(1);
     const secondPanel = h.query('.advanced-panel', h.active());
     assert.notEqual(secondPanel.id, panel.id, 'each skin gets its own disclosure target');
@@ -355,32 +368,33 @@ test('Advanced options opens and closes accessibly and keeps its state per skin 
   });
 });
 
-test('the detected badge keeps the original suggestion and Use automatic restores the icon, summary, and export', async () => {
+test('the detected badge keeps the original suggestion and reselecting the detected model restores the icon, summary, and export', async () => {
   const calls: (SkinModel | undefined)[] = [];
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('RestoreAutomatic'); await h.upload('skin.png'); h.commit();
+    h.openDraft(); h.names('RestoreAutomatic'); await h.upload('skin.png'); h.commit();
     h.select(0);
     const editor = h.active();
     const visibleBadges = () => [...editor.querySelectorAll<HTMLElement>('.detected-badge')].filter(badge => !badge.hidden);
     const slimLabel = h.query<HTMLInputElement>('input[value="slim"]', editor).closest('label')!;
     const wideLabel = h.query<HTMLInputElement>('input[value="wide"]', editor).closest('label')!;
     assert.equal(h.query('.model-summary', editor).textContent?.trim(), 'Slim · Auto');
-    assert.equal(h.query<HTMLButtonElement>('.use-automatic', editor).hidden, true);
+    assert.equal(editor.querySelector('.use-automatic'), null);
     await h.model('wide');
     assert.equal(h.query('.model-help', editor).textContent?.trim(), 'Auto-selection is tested for accurate results. Only change the model if you know your skin needs a different one; otherwise, keep the automatic choice.');
+    assert.equal(h.query('.model-help', editor).nextElementSibling, h.query('.model-options', editor), 'the accuracy note appears above Wide and Slim');
     assert.equal(visibleBadges().length, 1);
     assert.equal(h.query('.detected-badge', slimLabel).hidden, false, 'the original Slim suggestion keeps its badge after a Wide override');
     assert.equal(h.query('.detected-badge', wideLabel).hidden, true);
     assert.equal(visibleBadges()[0].textContent?.trim(), 'Detected');
     assert.equal(h.query('.model-summary', editor).textContent?.trim(), 'Wide · Manual');
-    assert.equal(h.query<HTMLButtonElement>('.use-automatic', editor).hidden, false);
+    assert.equal(editor.querySelector('.use-automatic'), null);
     h.query<HTMLButtonElement>('#generate').click(); await flush();
     assert.equal(h.exported[0][0].model, 'wide');
-    h.query<HTMLButtonElement>('.use-automatic', editor).click(); await flush();
+    await h.model('slim');
     assert.equal(h.query('.model-summary', editor).textContent?.trim(), 'Slim · Auto');
     assert.equal(h.query<HTMLInputElement>('input[value="slim"]', editor).checked, true);
     assert.match(h.query<HTMLImageElement>('.skin-preview', editor).src, /skin\.png-slim$/);
-    assert.equal(h.query<HTMLButtonElement>('.use-automatic', editor).hidden, true);
+    assert.equal(editor.querySelector('.use-automatic'), null);
     assert.equal(h.query('.advanced-toggle', editor).getAttribute('aria-expanded'), 'true');
     h.query<HTMLButtonElement>('#generate').click(); await flush();
     assert.equal(h.exported[1][0].model, 'slim');
@@ -389,14 +403,14 @@ test('the detected badge keeps the original suggestion and Use automatic restore
   }, { decodeSkin: async (file, model) => { calls.push(model); return decoded(file, model ?? 'slim'); } });
 });
 
-test('a late Use automatic result cannot overwrite a newer manual selection', async () => {
+test('a late detected-model result cannot overwrite a newer manual selection', async () => {
   const automatic = deferred<ReturnType<typeof decoded>>();
   let automaticCalls = 0;
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('KeepMyChoice'); await h.upload('skin.png'); h.commit();
+    h.openDraft(); h.names('KeepMyChoice'); await h.upload('skin.png'); h.commit();
     h.select(0);
     await h.model('wide');
-    h.query<HTMLButtonElement>('.use-automatic', h.active()).click(); await flush();
+    await h.model('slim');
     assert.equal(h.query<HTMLButtonElement>('#generate').disabled, true, 'export waits for automatic icon processing');
     await h.model('wide');
     assert.equal(h.query<HTMLButtonElement>('#generate').disabled, false);
@@ -412,9 +426,32 @@ test('a late Use automatic result cannot overwrite a newer manual selection', as
   } });
 });
 
-test('legacy skins explain their fixed model without Advanced options and modern replacements start collapsed', async () => {
+test('keeping or reselecting a detected Wide model stays automatic through edits, navigation, and export', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('LegacyPlayer'); await h.upload('legacy.png');
+    h.openDraft(); h.names('AutomaticWide'); await h.upload('wide.png');
+    const editor = h.active();
+    const wide = h.query<HTMLInputElement>('input[value="wide"]', editor);
+    h.query<HTMLButtonElement>('.advanced-toggle', editor).click();
+    wide.click(); await flush();
+    assert.equal(h.query('.model-summary', editor).textContent?.trim(), 'Wide · Auto', 'clicking the selected model keeps automatic mode');
+    await h.model('slim');
+    assert.equal(h.query('.model-summary', editor).textContent?.trim(), 'Slim · Manual');
+    await h.model('wide');
+    assert.equal(h.query('.model-summary', editor).textContent?.trim(), 'Wide · Auto');
+    assert.equal(h.query<HTMLElement>('.detected-badge[data-model="wide"]', editor).hidden, false);
+    assert.equal(h.query<HTMLElement>('.detected-badge[data-model="slim"]', editor).hidden, true);
+    h.commit(); h.select(0); h.names('RenamedWide');
+    assert.equal(h.query('.model-summary', editor).textContent?.trim(), 'Wide · Auto');
+    assert.match(h.query<HTMLImageElement>('.skin-preview', editor).src, /wide\.png-wide$/);
+    h.query<HTMLButtonElement>('#generate').click(); await flush();
+    assert.equal(h.exported[0][0].model, 'wide');
+    assert.deepEqual([...h.exported[0][0].iconPng], [2, 4]);
+  });
+});
+
+test('legacy skins explain their fixed model without model correction controls and modern replacements start collapsed', async () => {
+  await withWorkbench(async h => {
+    h.openDraft(); h.names('LegacyPlayer'); await h.upload('legacy.png');
     const editor = h.active();
     const reveal = h.query('.model-reveal', editor);
     const note = h.query('.legacy-model-note', editor);
@@ -446,7 +483,7 @@ test('legacy skins explain their fixed model without Advanced options and modern
     assert.equal(h.query('.advanced-toggle', editor).getAttribute('aria-expanded'), 'false');
     await h.upload('modern-again.png');
     assert.equal(note.hidden, true);
-    assert.equal(h.query('.advanced-toggle', editor).getAttribute('aria-expanded'), 'false', 'replacement resets an open Advanced panel');
+    assert.equal(h.query('.advanced-toggle', editor).getAttribute('aria-expanded'), 'false', 'replacement resets an open model correction panel');
     assert.equal(h.query('.advanced-panel', editor).hasAttribute('inert'), true);
   }, { decodeSkin: async (file, model) => file.name.startsWith('legacy')
     ? decoded(file, 'wide', 32) : decoded(file, model ?? 'slim') });
@@ -455,7 +492,7 @@ test('legacy skins explain their fixed model without Advanced options and modern
 test('a manual model override remains visible and persists through name edits, selection changes, and export', async () => {
   const calls: { file: string; model: SkinModel | undefined }[] = [];
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('FirstPlayer'); await h.upload('first.png');
     assert.equal(h.query<HTMLInputElement>('input[value="slim"]', h.active()).checked, true);
     await h.model('wide');
@@ -466,7 +503,7 @@ test('a manual model override remains visible and persists through name edits, s
     h.names('RenamedPlayer');
     assert.equal(calls.length, callsBeforeName, 'editing a name must not run detection again');
     h.commit();
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('SecondPlayer'); await h.upload('second.png'); h.commit();
     h.select(0);
     assert.equal(h.query<HTMLInputElement>('input[value="wide"]', h.active()).checked, true);
@@ -490,7 +527,7 @@ test('replacing a skin detects its model again instead of carrying over the manu
   const replacement = deferred<ReturnType<typeof decoded>>();
   const calls: (SkinModel | undefined)[] = [];
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('ReplacementPlayer'); await h.upload('first.png');
     await h.model('wide');
     h.commit();
@@ -513,7 +550,7 @@ test('replacing a skin detects its model again instead of carrying over the manu
 test('a late manual-model icon cannot overwrite a newer manual selection', async () => {
   const previousChoice = deferred<ReturnType<typeof decoded>>();
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('ChangedMyMind'); await h.upload('skin.png');
     await h.model('slim');
     assert.equal(h.query('.model-reveal', h.active()).getAttribute('aria-hidden'), 'false', 'model controls stay visible while rebuilding the icon');
@@ -533,7 +570,7 @@ test('a late manual-model icon cannot overwrite a newer manual selection', async
 
 test('invalid uploads do not reveal model controls or enable Add', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('InvalidUpload');
+    h.openDraft(); h.names('InvalidUpload');
     for (const file of ['not-a-skin.txt', 'corrupt.png']) {
       await h.upload(file);
       const reveal = h.query('.model-reveal', h.active());
@@ -548,20 +585,20 @@ test('invalid uploads do not reveal model controls or enable Add', async () => {
 
 test('individual icon downloads use the same named-file pattern and collision suffixes as the addon', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); await h.upload('source.png'); await h.model('slim');
+    h.openDraft(); await h.upload('source.png'); await h.model('slim');
     h.names('s001');
     assert.equal(h.query<HTMLAnchorElement>('.download-icon', h.active()).download, 's001.png', 'original filenames occupy a separate folder');
     h.names('My Player');
     assert.equal(h.query<HTMLAnchorElement>('.download-icon', h.active()).download, 'my_player.png');
     h.commit();
-    h.query<HTMLButtonElement>('#add-skin').click(); await h.upload('other.png'); await h.model('slim'); h.names('MY_PLAYER');
+    h.openDraft(); await h.upload('other.png'); await h.model('slim'); h.names('MY_PLAYER');
     assert.equal(h.query<HTMLAnchorElement>('.download-icon', h.active()).download, 'my_player_2.png');
   });
 });
 
 test('an uploaded PNG and model still require a valid nonempty name before adding', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     await h.upload('no-name.png'); await h.model('slim');
     const add = h.query<HTMLButtonElement>('.commit-skin', h.active());
     assert.equal(add.disabled, true);
@@ -576,7 +613,7 @@ test('an uploaded PNG and model still require a valid nonempty name before addin
 test('Add stays disabled until the reserved-name policy has loaded', async () => {
   const metadata = deferred<Response>();
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('CustomPlayer'); await h.upload('policy.png');
     const add = h.query<HTMLButtonElement>('.commit-skin', h.active());
     assert.equal(add.disabled, true, 'names cannot be accepted before the protected list is known');
@@ -590,9 +627,9 @@ test('Add stays disabled until the reserved-name policy has loaded', async () =>
 
 test('selecting added skins preserves edits and export includes all added entries but excludes an unfinished draft', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('FirstPlayer'); await h.upload('first.png'); h.commit();
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('SecondPlayer'); await h.upload('second.png'); await h.model('slim'); h.commit();
     h.select(0);
     assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'FirstPlayer');
@@ -601,7 +638,7 @@ test('selecting added skins preserves edits and export includes all added entrie
     h.names('RenamedPlayer'); await h.upload('replacement.png'); await h.model('slim');
     h.select(1);
     assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'SecondPlayer');
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('UnfinishedPlayer');
+    h.openDraft(); h.names('UnfinishedPlayer');
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 2);
     h.query<HTMLButtonElement>('#generate').click(); await flush();
     assert.equal(h.exported.length, 1);
@@ -614,7 +651,7 @@ test('selecting added skins preserves edits and export includes all added entrie
 
 test('reserved existing names are rejected case-insensitively before adding and during edits', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); await h.upload('protected.png');
+    h.openDraft(); await h.upload('protected.png');
     const add = h.query<HTMLButtonElement>('.commit-skin', h.active());
     const expectedMessages: Record<string, string> = {
       DARK7MC: '“DARK7MC” is reserved for a built-in skin. Choose a different player name.',
@@ -642,9 +679,9 @@ test('reserved existing names are rejected case-insensitively before adding and 
 
 test('duplicate names identify matching entries, follow renames, and block adding or exporting', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('skin'); await h.upload('one.png'); h.commit();
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     h.names('skin'); await h.upload('two.png'); await h.model('slim');
     assert.equal(h.query<HTMLButtonElement>('.commit-skin', h.active()).disabled, true);
     assert.equal(h.query('.names-error', h.active()).textContent, '“skin” is already in your list. Choose a different player name.');
@@ -653,7 +690,7 @@ test('duplicate names identify matching entries, follow renames, and block addin
     assert.equal(h.query('.names-error', h.active()).textContent, '“skiN” differs only in capitalization from “skin”, which is already in your list. Choose a different player name.');
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
     h.select(0); h.names('renamedSkin');
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.openDraft();
     assert.equal(h.query<HTMLButtonElement>('.commit-skin', h.active()).disabled, false, 'renaming the existing entry releases its previous name');
     h.names('RENAMEDSKIN');
     assert.equal(h.query<HTMLButtonElement>('.commit-skin', h.active()).disabled, true);
@@ -671,9 +708,9 @@ test('duplicate names identify matching entries, follow renames, and block addin
 test('case variants block adding and conflicting edits across models while preserving entered spelling', async () => {
   for (const model of ['wide', 'slim'] as const) {
     await withWorkbench(async h => {
-      h.query<HTMLButtonElement>('#add-skin').click();
+      h.openDraft();
       h.names('Player'); await h.upload('one.png'); h.commit();
-      h.query<HTMLButtonElement>('#add-skin').click();
+      h.openDraft();
       await h.upload('two.png'); await h.model(model);
       for (const name of ['PlayER', 'PLAYER', 'player']) {
         h.names(name);
@@ -701,40 +738,51 @@ test('case variants block adding and conflicting edits across models while prese
   }
 });
 
-test('new-skin navigation resumes the existing draft rather than creating list entries', async () => {
+test('editor navigation resumes an unfinished draft without adding it to the list', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('DraftInProgress');
+    h.openDraft(); h.names('SavedPlayer'); await h.upload('saved.png'); h.commit();
+    h.names('DraftInProgress'); await h.upload('draft.png');
     const editor = h.active();
-    h.query<HTMLButtonElement>('#add-skin').click();
+    h.select(0);
+    assert.equal(h.query<HTMLButtonElement>('#continue-skin').hidden, false);
+    h.openDraft();
     assert.equal(h.active().id, editor.id);
-    assert.equal(h.editors().length, 1);
+    assert.equal(h.editors().length, 2);
     assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'DraftInProgress');
-    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
+    assert.equal(h.query('.file-name', h.active()).textContent, 'draft.png');
+    assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
+    assert.equal(h.document.querySelector('.skin-sidebar .add-skin'), null);
   });
 });
 
-test('cancelling a draft releases its images and leaves a compact empty state with no Undo', async () => {
+test('removing the last saved skin from the list releases its images and returns to the fresh form', async () => {
   await withWorkbench(async h => {
     h.query<HTMLButtonElement>('#add-first-skin').click();
-    h.names('CancelMe'); await h.upload('cancel.png');
-    assert.equal(h.query('#editor-remove').classList.contains('is-removal'), false, 'draft cancellation has its own button style');
-    h.query<HTMLButtonElement>('#editor-remove').click();
+    h.names('RemoveMe'); await h.upload('remove.png'); h.commit();
+    const draft = h.active();
+    h.select(0);
+    assert.equal(h.document.querySelector('#editor-remove'), null);
+    h.query<HTMLButtonElement>('#skin-list .remove-list-skin').click();
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
-    assert.equal(h.query<HTMLElement>('#editor-empty').hidden, false);
-    assert.equal(h.editors().length, 0);
+    assert.equal(h.query<HTMLElement>('#editor-empty').hidden, true);
+    assert.equal(h.editors().length, 1);
+    assert.equal(h.active(), draft);
+    assert.equal(h.document.activeElement, h.query('input[type="file"]', draft));
+    assert.equal(h.query('#entry-count').textContent, '0');
+    assert.equal(h.query<HTMLButtonElement>('#generate').disabled, false);
     assert.equal(Boolean(h.document.querySelector('#editor-empty > svg')), false);
     assert.equal(Boolean(h.document.querySelector('#undo-remove')), false);
-    assert.ok(h.revoked.includes('blob:face-cancel.png'));
-    assert.ok(h.revoked.includes('blob:icon-cancel.png-wide'));
+    assert.ok(h.revoked.includes('blob:face-remove.png'));
+    assert.ok(h.revoked.includes('blob:icon-remove.png-wide'));
   });
 });
 
 test('removing an unselected added skin keeps the current editor selected', async () => {
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('FirstPlayer'); await h.upload('one.png'); h.commit();
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('SecondPlayer'); await h.upload('two.png'); await h.model('slim'); h.commit();
+    h.openDraft(); h.names('FirstPlayer'); await h.upload('one.png'); h.commit();
+    h.openDraft(); h.names('SecondPlayer'); await h.upload('two.png'); await h.model('slim'); h.commit();
     h.select(1);
-    assert.equal(h.query('#editor-remove').classList.contains('is-removal'), true, 'added skins use the transparent removal control');
+    assert.equal(h.document.querySelector('#editor-remove'), null, 'removal is only available in the list');
     h.query<HTMLButtonElement>('#skin-list .remove-list-skin').click();
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
     assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).value, 'SecondPlayer');
@@ -744,7 +792,7 @@ test('removing an unselected added skin keeps the current editor selected', asyn
 test('a late icon result cannot overwrite a replacement skin or prematurely enable Add', async () => {
   const old = deferred<ReturnType<typeof decoded>>();
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); h.names('LatestSkin');
+    h.openDraft(); h.names('LatestSkin');
     await h.upload('old.png');
     assert.equal(h.query<HTMLButtonElement>('.commit-skin', h.active()).disabled, true);
     await h.upload('new.png');
@@ -757,14 +805,17 @@ test('a late icon result cannot overwrite a replacement skin or prematurely enab
   }, { decodeSkin: async (file, model) => file.name === 'old.png' ? old.promise : decoded(file, model ?? 'slim') });
 });
 
-test('a late face result cannot resurrect a cancelled draft', async () => {
+test('a late face result cannot resurrect a skin removed from the list', async () => {
   const face = deferred<string>();
   await withWorkbench(async h => {
-    h.query<HTMLButtonElement>('#add-skin').click(); await h.upload('cancelled.png');
-    h.query<HTMLButtonElement>('#editor-remove').click();
-    face.resolve('blob:face-cancelled.png'); await flush();
+    h.openDraft(); h.names('RemovedPlayer'); await h.upload('original.png'); h.commit();
+    const draft = h.active();
+    h.select(0); await h.upload('removed.png');
+    h.query<HTMLButtonElement>('#skin-list .remove-list-skin').click();
+    face.resolve('blob:face-removed.png'); await flush();
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
-    assert.equal(h.editors().length, 0);
-    assert.ok(h.revoked.includes('blob:face-cancelled.png'));
-  }, { decodeSkinFace: async () => face.promise });
+    assert.equal(h.editors().length, 1);
+    assert.equal(h.active(), draft);
+    assert.ok(h.revoked.includes('blob:face-removed.png'));
+  }, { decodeSkinFace: async file => file.name === 'removed.png' ? face.promise : `blob:face-${file.name}` });
 });

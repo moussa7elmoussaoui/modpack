@@ -58,14 +58,13 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       <div class="workspace">
         <aside class="skin-sidebar" aria-labelledby="skins-heading">
           <div class="sidebar-heading"><h2 id="skins-heading">Your skins</h2><span class="count-pill" id="entry-count">0</span></div>
-          <button id="add-skin" class="add-skin" type="button">${plus}<span>New skin</span></button>
           <ul id="skin-list" class="skin-list" aria-label="Added skins"></ul>
           <p id="list-empty" class="list-empty" hidden>No skins added yet. Complete a skin, then click Add to list.</p>
           <p class="sidebar-note">Select a skin to edit it. Your files and player names stay in this browser tab.</p>
         </aside>
         <div class="workspace-main">
           <section class="editor-panel" aria-labelledby="selected-title">
-            <div class="editor-heading"><div><h2 id="selected-title">Skin details</h2><p id="selected-description">Import a skin PNG and enter its player name.</p></div><button id="editor-remove" class="text-button editor-remove" type="button">${trash}<span>Remove</span></button></div>
+            <div class="editor-heading"><div><h2 id="selected-title">Skin details</h2><p id="selected-description">Import a skin PNG and enter its player name.</p></div><button id="continue-skin" class="text-button editor-continue" type="button" hidden>Continue new skin</button></div>
             <div id="skin-editors"></div>
             <div id="editor-empty" class="editor-empty" hidden><h3>Add your first skin</h3><p>Import a skin PNG and link it to a player name.</p><button id="add-first-skin" class="add-skin" type="button">${plus}Add skin</button></div>
           </section>
@@ -141,15 +140,10 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     byId('summary-names').textContent = String(new Set(entries.flatMap(entry => parseNames(entry.names))).size);
     byId('list-empty').hidden = entries.length > 0;
     byId('editor-empty').hidden = Boolean(selected);
-    byId<HTMLButtonElement>('editor-remove').disabled = locked || !selected;
-    byId('editor-remove').hidden = !selected;
     byId('selected-title').textContent = selected ? title(selected) : 'Skin details';
     byId('selected-description').textContent = selected === draft && draft ? 'Complete the details, then click Add to list.' : selected ? 'Changes are kept as you edit. Select another skin whenever you like.' : 'Create a skin to start your lineup.';
-    byId('editor-remove').querySelector('span')!.textContent = selected === draft && draft ? 'Cancel' : 'Remove';
-    byId('editor-remove').setAttribute('aria-label', selected === draft && draft ? 'Cancel new skin' : 'Remove selected skin');
-    byId('editor-remove').classList.toggle('is-removal', Boolean(selected && selected !== draft));
-    byId('add-skin').querySelector('span')!.textContent = draft ? 'Continue new skin' : 'New skin';
-    for (const id of ['add-skin', 'add-first-skin']) byId<HTMLButtonElement>(id).disabled = locked;
+    byId('continue-skin').hidden = !draft || selected === draft;
+    for (const id of ['continue-skin', 'add-first-skin']) byId<HTMLButtonElement>(id).disabled = locked;
     byId<HTMLButtonElement>('retry-base').disabled = locked;
     generate.disabled = locked || !base || !templatesReady || entries.some(entry => !ready(entry));
     generate.querySelector('span')!.textContent = busy ? 'Preparing your addon…' : entries.length ? 'Generate addon' : 'Download addon';
@@ -197,9 +191,6 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       advancedPanel.setAttribute('aria-hidden', String(!advancedOpen));
       advancedPanel.inert = !advancedOpen;
       q(entry, '.legacy-model-note').hidden = !entry.modelReady || Boolean(entry.fileError) || !entry.legacy;
-      const automatic = q<HTMLButtonElement>(entry, '.use-automatic');
-      automatic.hidden = entry.autoModel || !modelVisible;
-      automatic.disabled = locked || !advancedOpen;
       entry.element.querySelectorAll<HTMLElement>('.detected-badge').forEach(badge => { badge.hidden = !modelVisible || badge.dataset.model !== entry.detectedModel; });
       q(entry, '.model-field').classList.toggle('is-invalid', Boolean(errors.model));
       entry.element.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach(radio => { radio.checked = radio.value === entry.model; radio.disabled = locked || !advancedOpen; radio.setAttribute('aria-invalid', String(Boolean(errors.model))); });
@@ -283,7 +274,8 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     if (selected === entry) selected = entries[Math.max(0, Math.min(index, entries.length - 1))] ?? draft;
     clearExport(); render();
     if (selected && selected !== draft) selected.row.querySelector<HTMLButtonElement>('.skin-select')!.focus();
-    else byId<HTMLButtonElement>('add-skin').focus();
+    else if (selected) q<HTMLInputElement>(selected, 'input[type="file"]').focus();
+    else byId<HTMLButtonElement>('add-first-skin').focus();
   }
   function addEntry(): SkinEntry {
     if (draft) { selectEntry(draft); return draft; }
@@ -297,10 +289,9 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
         <label class="upload-field" for="${id}_file"><span class="upload-icon">${upload}</span><span class="file-label"><strong class="file-name">Choose a skin PNG</strong><span class="file-meta">Browse or drop a file here</span></span><span class="browse-tag">Browse</span><input id="${id}_file" class="file-input" type="file" accept="image/png,.png" aria-label="Skin PNG" aria-describedby="${id}_formats ${id}_file_error"></label>
         <p id="${id}_formats" class="supported-formats">64 × 64 or 128 × 128 PNG · Legacy 64 × 32 supported · Up to 2 MB</p><p id="${id}_file_error" class="field-error file-error" hidden></p>
         <div class="model-reveal" aria-hidden="true" inert><div class="model-reveal-inner">
-          <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="${id}_advanced" disabled><span>Advanced options</span><span class="model-summary"></span><svg class="advanced-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m5 7.5 5 5 5-5"/></svg></button>
+          <p class="model-question">Wrong player model detected? <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="${id}_advanced" disabled>Click here</button></p>
           <div id="${id}_advanced" class="advanced-panel" aria-hidden="true" inert><div class="advanced-panel-inner">
-            <fieldset class="model-field" aria-describedby="${id}_model_help ${id}_model_error"><legend>Player model</legend><div class="model-options">${(['wide', 'slim'] as const).map(model => `<label><input type="radio" name="${id}_model" value="${model}" disabled${model === 'wide' ? ' checked' : ''}><span class="model-choice"><span><strong>${model === 'wide' ? 'Wide' : 'Slim'} <span class="detected-badge" data-model="${model}" hidden>Detected</span></strong><small>${model === 'wide' ? '4' : '3'}-pixel arms</small></span><span class="radio-dot"></span></span></label>`).join('')}</div><p id="${id}_model_error" class="field-error model-error" hidden></p></fieldset>
-            <p id="${id}_model_help" class="model-help">Auto-selection is tested for accurate results. Only change the model if you know your skin needs a different one; otherwise, keep the automatic choice.</p><button class="use-automatic text-button" type="button" hidden>Use automatic</button>
+            <fieldset class="model-field" aria-describedby="${id}_model_help ${id}_model_error"><legend>Player model <span class="model-summary" aria-live="polite"></span></legend><p id="${id}_model_help" class="model-help">Auto-selection is tested for accurate results. Only change the model if you know your skin needs a different one; otherwise, keep the automatic choice.</p><div class="model-options">${(['wide', 'slim'] as const).map(model => `<label><input type="radio" name="${id}_model" value="${model}" disabled${model === 'wide' ? ' checked' : ''}><span class="model-choice"><span><strong>${model === 'wide' ? 'Wide' : 'Slim'} <span class="detected-badge" data-model="${model}" hidden>Detected</span></strong><small>${model === 'wide' ? '4' : '3'}-pixel arms</small></span><span class="radio-dot"></span></span></label>`).join('')}</div><p id="${id}_model_error" class="field-error model-error" hidden></p></fieldset>
           </div></div>
         </div></div>
         <p class="legacy-model-note" hidden>Legacy 64 × 32 skins use a fixed player model, so model selection isn’t needed.</p>
@@ -329,14 +320,11 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       if (busy || !entry.modelReady || entry.legacy || entry.fileError) return;
       entry.advancedOpen = !entry.advancedOpen; render();
     });
-    q<HTMLButtonElement>(entry, '.use-automatic').addEventListener('click', () => {
-      if (busy || entry.autoModel || !entry.modelReady || entry.legacy || entry.fileError || !entry.advancedOpen) return;
-      entry.autoModel = true; entry.model = entry.detectedModel ?? 'wide';
-      void processEntry(entry);
-      q<HTMLInputElement>(entry, `input[type="radio"][value="${entry.model}"]`).focus();
-    });
     element.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach(radio => radio.addEventListener('change', () => {
-      if (!busy && entry.modelReady && !radio.disabled && radio.checked) { entry.model = radio.value as SkinModel; entry.autoModel = false; void processEntry(entry); }
+      if (!busy && entry.modelReady && !radio.disabled && radio.checked) {
+        entry.model = radio.value as SkinModel; entry.autoModel = entry.model === entry.detectedModel;
+        void processEntry(entry);
+      }
     }));
     const names = q<HTMLInputElement>(entry, 'input[type="text"]');
     names.addEventListener('input', () => { if (!busy) { entry.names = names.value; clearExport(); render(); } });
@@ -357,7 +345,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       if (busy) return;
       const files = event.dataTransfer?.files;
       if (!files?.length) return;
-      if (files.length > 1) { entry.notice = 'Drop one PNG per skin. Use Add skin for another entry.'; render(); return; }
+      if (files.length > 1) { entry.notice = 'Drop one PNG per skin. Click Add to list before uploading the next skin.'; render(); return; }
       fileInput.value = ''; void setFile(entry, files[0]);
     });
     selectEntry(entry); clearExport(); return entry;
@@ -390,9 +378,8 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     render();
   }
   function addAndFocus() { if (!busy) q<HTMLInputElement>(addEntry(), 'input[type="file"]').focus(); }
-  byId('add-skin').addEventListener('click', addAndFocus);
+  byId('continue-skin').addEventListener('click', addAndFocus);
   byId('add-first-skin').addEventListener('click', addAndFocus);
-  byId('editor-remove').addEventListener('click', () => { if (selected) removeEntry(selected); });
   byId('retry-base').addEventListener('click', () => { void loadBase(); });
   generate.addEventListener('click', async () => {
     if (busy || !base || !templatesReady || entries.some(working)) return;
