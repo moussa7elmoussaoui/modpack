@@ -1,8 +1,7 @@
 import { decodeSkin, decodeSkinFace, loadIconTemplates } from './lib/icons';
 import { generateAddon, type SkinInput, type SkinModel } from './lib/addon';
-import { parseNames, validateAssignments } from './lib/validation';
+import { nameConflictMessage, parseNames, validateAssignments } from './lib/validation';
 import { setupThemeToggle } from './theme-toggle';
-import { isReservedPlayerName } from './lib/name-policy';
 import { allocatePlayerAssetPaths } from './lib/player-assets';
 
 export interface WorkbenchServices {
@@ -114,12 +113,12 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     if (!names.length) return entry.validationShown ? 'Enter a player name.' : '';
     if (/[,\r\n]/.test(entry.names)) return 'Use exactly one player name per item. Add another item to use this skin for another player.';
     if (names.some(name => name.length > 64 || /[\u0000-\u001f\u007f]/.test(name))) return 'Use names with 1–64 characters and no control characters.';
-    const reserved = names.find(name => reservedNames && isReservedPlayerName(name, reservedNames));
-    if (reserved) return `“${reserved}” belongs to a built-in skin and cannot be reassigned.`;
-    const duplicate = names.find(name => entries.some(other =>
-      other !== entry && parseNames(other.names).some(otherName => otherName.toLowerCase() === name.toLowerCase())
-    ));
-    return duplicate ? `“${duplicate}” is already linked to another skin. Each name can belong to one skin, regardless of capitalization.` : '';
+    const name = names[0], normalized = name.toLowerCase();
+    const reserved = reservedNames?.find(reservedName => reservedName.toLowerCase() === normalized);
+    if (reserved !== undefined) return nameConflictMessage(name, reserved, 'built-in');
+    const duplicate = entries.filter(other => other !== entry).flatMap(other => parseNames(other.names))
+      .find(otherName => otherName.toLowerCase() === normalized);
+    return duplicate !== undefined ? nameConflictMessage(name, duplicate, 'duplicate') : '';
   }
   function issues(entry: SkinEntry) {
     return {

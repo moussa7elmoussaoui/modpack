@@ -1,5 +1,4 @@
 import type { SkinModel } from './addon';
-import { isReservedPlayerName } from './name-policy';
 
 export interface SkinAssignment {
   id: string;
@@ -13,9 +12,21 @@ export function parseNames(text: string): string[] {
   return name ? [name] : [];
 }
 
+/** Describe the actual conflicting name without treating a capitalization variant as an exact match. */
+export function nameConflictMessage(name: string, existingName: string, kind: 'duplicate' | 'built-in'): string {
+  if (kind === 'built-in') {
+    return name === existingName
+      ? `“${name}” is reserved for a built-in skin. Choose a different player name.`
+      : `“${name}” differs only in capitalization from the built-in name “${existingName}”. This name is reserved regardless of capitalization.`;
+  }
+  return name === existingName
+    ? `“${name}” is already in your list. Choose a different player name.`
+    : `“${name}” differs only in capitalization from “${existingName}”, which is already in your list. Choose a different player name.`;
+}
+
 export function validateAssignments(entries: SkinAssignment[], reservedNames: readonly string[] = []): string[] {
   const errors: string[] = [];
-  const names = new Map<string, number>();
+  const names = new Map<string, { name: string; index: number }>();
   const ids = new Set<string>();
   if (entries.length === 0) errors.push('Add at least one skin before generating your addon.');
 
@@ -34,15 +45,16 @@ export function validateAssignments(entries: SkinAssignment[], reservedNames: re
         errors.push(`${label}: use one player name with 1–64 characters, without commas, control characters, or leading/trailing spaces.`);
         return;
       }
-      if (isReservedPlayerName(name, reservedNames)) {
-        errors.push(`${label}: “${name}” is reserved by the base addon. Choose a different player name.`);
-      }
       const normalized = name.toLowerCase();
-      const previous = names.get(normalized);
-      if (previous !== undefined && previous !== index) {
-        errors.push(`“${name}” is assigned to both skin ${previous + 1} and skin ${index + 1}. Assign each name to one skin, regardless of capitalization.`);
+      const reserved = reservedNames.find(reservedName => reservedName.toLowerCase() === normalized);
+      if (reserved !== undefined) {
+        errors.push(`${label}: ${nameConflictMessage(name, reserved, 'built-in')}`);
       }
-      names.set(normalized, index);
+      const previous = names.get(normalized);
+      if (previous !== undefined && previous.index !== index) {
+        errors.push(`${label}: ${nameConflictMessage(name, previous.name, 'duplicate')}`);
+      }
+      names.set(normalized, { name, index });
     });
   });
   return [...new Set(errors)];

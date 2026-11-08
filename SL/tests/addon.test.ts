@@ -189,15 +189,19 @@ test('protected base identities cannot be overridden, including capitalization v
   const reserved = readReservedPlayerNames(strFromU8(files['BP/scripts/data/player-skins.js']));
   assert.equal(reserved.length, 25);
   for (const name of reserved) {
-    assert.match(validateAssignments([input({ names: [name] })], reserved).join('\n'), /reserved by the base addon/);
-    assert.match(validateAssignments([input({ names: [name.toLowerCase()] })], reserved).join('\n'), /reserved by the base addon/);
+    assert.match(validateAssignments([input({ names: [name] })], reserved).join('\n'), /reserved for a built-in skin/);
+    const variantErrors = validateAssignments([input({ names: [name.toLowerCase()] })], reserved);
+    assert.ok(variantErrors.some(error => error.includes(`from the built-in name “${name}”`)), 'the error must identify the actual reserved spelling');
   }
+  assert.deepEqual(validateAssignments([input({ names: ['DARK7Mc'] })], reserved), [
+    'Skin 1: “DARK7Mc” differs only in capitalization from the built-in name “DARK7MC”. This name is reserved regardless of capitalization.',
+  ]);
   for (const name of ['DARK7MC', 'urban7mc', 'Dream', 'gRiAn', 'Steve', 'alex']) {
-    await assert.rejects(generateAddon(base, [input({ names: [name] })]), /reserved by the base addon/);
+    await assert.rejects(generateAddon(base, [input({ names: [name] })]), /reserved/);
   }
   const extended = { ...files };
   extended['BP/scripts/data/player-skins.js'] = strToU8(strFromU8(extended['BP/scripts/data/player-skins.js']).replace('["Steve", 0]', '["NewProtectedName", 0]'));
-  await assert.rejects(generateAddon(zipSync(extended, { level: 0 }), [input({ names: ['newprotectedname'] })]), /reserved by the base addon/, 'protection must be derived from the actual archive rather than a fixed list');
+  await assert.rejects(generateAddon(zipSync(extended, { level: 0 }), [input({ names: ['newprotectedname'] })]), /from the built-in name “NewProtectedName”/, 'the conflicting spelling must be derived from the actual archive rather than a fixed list');
 });
 
 test('rejects capitalization variants across skin models without changing entered names', async () => {
@@ -206,9 +210,10 @@ test('rejects capitalization variants across skin models without changing entere
       input({ names: ['Player'] }),
       input({ id: 'case_variant', names: ['PlayER'], model }),
     ];
-    assert.match(validateAssignments(skins).join('\n'), /assigned to both skin 1 and skin 2/);
+    const message = 'Skin 2: “PlayER” differs only in capitalization from “Player”, which is already in your list. Choose a different player name.';
+    assert.deepEqual(validateAssignments(skins), [message]);
     assert.deepEqual(skins.map(skin => skin.names), [['Player'], ['PlayER']], 'validation preserves entered capitalization');
-    await assert.rejects(generateAddon(base, skins), /assigned to both skin 1 and skin 2/);
+    await assert.rejects(generateAddon(base, skins), { message });
     assert.deepEqual(skins.map(skin => skin.names), [['Player'], ['PlayER']], 'a rejected direct export preserves entered capitalization');
   }
 });
@@ -227,7 +232,9 @@ test('rejects duplicate names, unsafe identifiers, absent names, and incorrect i
   await assert.rejects(generateAddon(base, [input({ names: ['Alice', 'Alice'] })]), /exactly one player name/);
   await assert.rejects(generateAddon(base, [input({ names: ['Alice, Bob'] })]), /without commas/);
   await assert.rejects(generateAddon(base, [input({ names: ['Alice\nBob'] })]), /control characters/);
-  await assert.rejects(generateAddon(base, [input(), input({ id: 'second' })]), /assigned to both/);
+  await assert.rejects(generateAddon(base, [input(), input({ id: 'second' })]), {
+    message: 'Skin 2: “Alice” is already in your list. Choose a different player name.',
+  });
   await assert.rejects(generateAddon(base, [input(), input({ names: ['Bob'] })]), /identifier is invalid or duplicated/);
   await assert.rejects(generateAddon(base, [input({ texturePng: new Uint8Array([1, 2, 3]) })]), /valid PNG/);
   await assert.rejects(generateAddon(base, [input({ iconPng: texture })]), /128×128/);

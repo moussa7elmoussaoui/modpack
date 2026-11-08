@@ -538,10 +538,17 @@ test('reserved existing names are rejected case-insensitively before adding and 
   await withWorkbench(async h => {
     h.query<HTMLButtonElement>('#add-skin').click(); await h.upload('protected.png');
     const add = h.query<HTMLButtonElement>('.commit-skin', h.active());
-    for (const name of ['DARK7MC', 'dark7mc', 'Urban7mc', 'dReAm', 'STEVE', 'alex', 'NormalPlayer, DREAM']) {
+    const expectedMessages: Record<string, string> = {
+      DARK7MC: '“DARK7MC” is reserved for a built-in skin. Choose a different player name.',
+      DARK7Mc: '“DARK7Mc” differs only in capitalization from the built-in name “DARK7MC”. This name is reserved regardless of capitalization.',
+      Dream: '“Dream” is reserved for a built-in skin. Choose a different player name.',
+      dReAm: '“dReAm” differs only in capitalization from the built-in name “Dream”. This name is reserved regardless of capitalization.',
+    };
+    for (const name of ['DARK7MC', 'DARK7Mc', 'dark7mc', 'Urban7mc', 'Dream', 'dReAm', 'STEVE', 'alex', 'NormalPlayer, DREAM']) {
       h.names(name);
       assert.equal(add.disabled, true, name + ' must not override a bundled special name');
       assert.equal(h.query<HTMLInputElement>('input[type="text"]', h.active()).getAttribute('aria-invalid'), 'true');
+      if (expectedMessages[name]) assert.equal(h.query('.names-error', h.active()).textContent, expectedMessages[name]);
     }
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 0);
     h.names('OriginalPlayer'); h.commit();
@@ -554,17 +561,28 @@ test('reserved existing names are rejected case-insensitively before adding and 
   });
 });
 
-test('duplicate names block adding a draft and block exporting conflicting edits', async () => {
+test('duplicate names identify matching entries, follow renames, and block adding or exporting', async () => {
   await withWorkbench(async h => {
     h.query<HTMLButtonElement>('#add-skin').click();
-    h.names('SamePlayer'); await h.upload('one.png'); h.commit();
+    h.names('skin'); await h.upload('one.png'); h.commit();
     h.query<HTMLButtonElement>('#add-skin').click();
-    h.names('SamePlayer'); await h.upload('two.png'); await h.model('slim');
+    h.names('skin'); await h.upload('two.png'); await h.model('slim');
     assert.equal(h.query<HTMLButtonElement>('.commit-skin', h.active()).disabled, true);
+    assert.equal(h.query('.names-error', h.active()).textContent, '“skin” is already in your list. Choose a different player name.');
+    h.names('skiN');
+    assert.equal(h.query<HTMLButtonElement>('.commit-skin', h.active()).disabled, true);
+    assert.equal(h.query('.names-error', h.active()).textContent, '“skiN” differs only in capitalization from “skin”, which is already in your list. Choose a different player name.');
     assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
+    h.select(0); h.names('renamedSkin');
+    h.query<HTMLButtonElement>('#add-skin').click();
+    assert.equal(h.query<HTMLButtonElement>('.commit-skin', h.active()).disabled, false, 'renaming the existing entry releases its previous name');
+    h.names('RENAMEDSKIN');
+    assert.equal(h.query<HTMLButtonElement>('.commit-skin', h.active()).disabled, true);
+    assert.equal(h.query('.names-error', h.active()).textContent, '“RENAMEDSKIN” differs only in capitalization from “renamedSkin”, which is already in your list. Choose a different player name.');
     h.names('DifferentPlayer'); h.commit();
-    h.names('SamePlayer');
+    h.names('renamedSkin');
     assert.equal(h.query<HTMLButtonElement>('#generate').disabled, true);
+    assert.equal(h.query('.names-error', h.active()).textContent, '“renamedSkin” is already in your list. Choose a different player name.');
     h.names('DifferentPlayer'); h.query<HTMLButtonElement>('#generate').click(); await flush();
     assert.equal(h.exported.length, 1);
   });
@@ -583,7 +601,7 @@ test('case variants block adding and conflicting edits across models while prese
         assert.equal(h.query<HTMLButtonElement>('.commit-skin', editor).disabled, true);
         assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).value, name);
         assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).getAttribute('aria-invalid'), 'true');
-        assert.match(h.query('.names-error', editor).textContent ?? '', /regardless of capitalization/);
+        assert.equal(h.query('.names-error', editor).textContent, `“${name}” differs only in capitalization from “Player”, which is already in your list. Choose a different player name.`);
       }
       assert.equal(h.document.querySelectorAll('#skin-list .skin-select').length, 1);
       h.names('OtherPlayer'); h.commit();
