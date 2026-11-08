@@ -174,9 +174,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       q(entry, '.upload-field').classList.toggle('is-invalid', Boolean(errors.file));
       q(entry, '.file-name').textContent = entry.file?.name ?? 'Choose a skin PNG';
       q(entry, '.file-meta').textContent = entry.decoded ? `${entry.decoded.width} × ${entry.decoded.height} · Click to replace` : entry.file ? working(entry) ? 'Checking PNG and detecting model…' : 'Click to replace the PNG' : 'Browse or drop a file here';
-      const clearButton = q<HTMLButtonElement>(entry, '.clear-image');
-      clearButton.hidden = !entry.file;
-      clearButton.disabled = locked;
+      q<HTMLButtonElement>(entry, '.clear-skin').disabled = locked || (!entry.file && !entry.names);
       const modelSummary = q(entry, '.model-summary');
       modelSummary.hidden = !entry.decoded || working(entry) || Boolean(errors.file);
       modelSummary.textContent = entry.model ? `${entry.model === 'slim' ? 'Slim' : 'Wide'} · ${entry.decoded?.height === 32 ? 'Legacy skin' : 'Automatically selected'}` : '';
@@ -198,7 +196,6 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       q<HTMLButtonElement>(entry, '.commit-skin').disabled = locked || !ready(entry);
       q(entry, '.commit-skin span').textContent = entry === draft ? 'Add to list' : 'Done';
       q(entry, '.commit-skin svg').toggleAttribute('hidden', entry !== draft);
-      q(entry, '.draft-hint').textContent = working(entry) ? 'Preparing the skin and its icon…' : !reservedNames ? 'Loading the built-in name rules…' : ready(entry) ? entry === draft ? 'Ready to add to your skin list.' : 'Your changes are saved in this tab.' : 'Import a PNG and enter one available player name.';
     }
   }
   function restorePage() {
@@ -275,15 +272,17 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     if (entry.fileError) { render(); return; }
     await Promise.all([processFace(entry), processEntry(entry)]);
   }
-  function clearImage(entry: SkinEntry) {
-    if (busy || !active(entry)) return;
+  function clearSkin(entry: SkinEntry) {
+    if (busy || !active(entry) || (!entry.file && !entry.names)) return;
     // Invalidate pending face/icon work before releasing the current previews.
     disposeEntry(entry);
-    entry.file = null; entry.model = null;
+    entry.file = null; entry.model = null; entry.names = '';
     entry.processing = false; entry.readingFace = false;
     entry.fileError = ''; entry.iconError = ''; entry.notice = '';
+    entry.validationShown = false;
     const input = q<HTMLInputElement>(entry, 'input[type="file"]');
     input.value = '';
+    q<HTMLInputElement>(entry, 'input[type="text"]').value = '';
     clearExport(); render(); input.focus();
   }
   function removeEntry(entry: SkinEntry) {
@@ -309,16 +308,16 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     row.className = 'skin-list-item';
     row.innerHTML = `<div class="skin-row-content"><img class="skin-face" alt="" width="24" height="24" hidden><span class="face-placeholder">${face}</span><span class="skin-row-copy"><strong class="skin-row-title"></strong><span class="skin-row-details"><small class="skin-row-meta"></small><span class="skin-row-status"></span></span></span></div><div class="skin-row-actions"><button class="edit-skin text-button" type="button" aria-haspopup="dialog" aria-controls="skin-dialog">${pencil}<span>Edit</span></button><button class="remove-list-skin icon-button" type="button">${trash}</button></div>`;
     element.innerHTML = `
-      <div class="editor-body"><div class="entry-fields">
+      <div class="editor-content"><div class="editor-body"><div class="entry-fields">
         <label class="upload-field" for="${id}_file"><span class="upload-icon">${upload}</span><span class="file-label"><strong class="file-name">Choose a skin PNG</strong><span class="file-meta">Browse or drop a file here</span></span><span class="browse-tag">Browse</span><input id="${id}_file" class="file-input" type="file" accept="image/png,.png" aria-label="Skin PNG" aria-describedby="${id}_formats ${id}_file_error"></label>
-        <div class="upload-details"><p id="${id}_formats" class="supported-formats">64 × 64 or 128 × 128 PNG · Legacy 64 × 32 supported · Up to 2 MB</p><button class="clear-image text-button" type="button" hidden>${close}<span>Clear image</span></button></div><p id="${id}_file_error" class="field-error file-error" hidden></p>
+        <p id="${id}_formats" class="supported-formats">64 × 64 or 128 × 128 PNG · Legacy 64 × 32 supported · Up to 2 MB</p><p id="${id}_file_error" class="field-error file-error" hidden></p>
         <p class="model-summary" role="status" hidden></p>
         <div class="names-field"><label for="${id}_names">Player name</label><input id="${id}_names" type="text" placeholder="YourGamertag" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="${id}_names_help ${id}_names_error"><div id="${id}_names_help" class="field-help"><span>Match the in-game spelling and capitalization. To reuse this skin, add another item.</span></div><p id="${id}_names_error" class="field-error names-error" hidden></p></div>
-      </div><div class="preview-column"><div class="preview-toolbar"><span>Morph menu icon</span><span>128 × 128 PNG</span></div><div class="preview-stage"><div class="preview-placeholder">${player}</div><img class="skin-preview" alt="Generated morph menu icon on its square canvas" width="128" height="128" hidden></div><p class="preview-caption"></p><a class="download-icon text-button" hidden>${download}Download icon</a></div></div><p class="entry-notice" role="status" hidden></p>`;
+      </div><div class="preview-column"><div class="preview-toolbar"><span>Morph menu icon</span><span>128 × 128 PNG</span></div><div class="preview-stage"><div class="preview-placeholder">${player}</div><img class="skin-preview" alt="Generated morph menu icon on its square canvas" width="128" height="128" hidden></div><p class="preview-caption"></p><a class="download-icon text-button" hidden>${download}Download icon</a></div></div><p class="entry-notice" role="status" hidden></p></div>`;
     const entry: SkinEntry = { id, file: null, model: null, names: '', faceUrl: '', decoded: null, processing: false, readingFace: false, fileError: '', iconError: '', notice: '', revision: 0, faceRevision: 0, validationShown: false, element, row };
     draft = entry;
     const actions = doc.createElement('div'); actions.className = 'draft-actions';
-    actions.innerHTML = `<p class="draft-hint" id="${id}_draft_hint"></p><button class="add-skin commit-skin" type="button" disabled aria-describedby="${id}_draft_hint">${plus}<span>Add to list</span></button>`;
+    actions.innerHTML = `<button class="clear-skin text-button" type="button" disabled aria-label="Clear image and player name">Clear</button><button class="add-skin commit-skin" type="button" disabled>${plus}<span>Add to list</span></button>`;
     element.append(actions); byId('skin-editors').append(element);
     actions.querySelector<HTMLButtonElement>('.commit-skin')!.addEventListener('click', () => {
       if (busy || !active(entry) || !ready(entry)) return;
@@ -333,7 +332,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     row.querySelector<HTMLButtonElement>('.remove-list-skin')!.addEventListener('click', () => removeEntry(entry));
     const fileInput = q<HTMLInputElement>(entry, 'input[type="file"]');
     fileInput.addEventListener('change', () => { const file = fileInput.files?.[0]; if (file) { fileInput.value = ''; void setFile(entry, file); } });
-    q<HTMLButtonElement>(entry, '.clear-image').addEventListener('click', () => clearImage(entry));
+    q<HTMLButtonElement>(entry, '.clear-skin').addEventListener('click', () => clearSkin(entry));
     const names = q<HTMLInputElement>(entry, 'input[type="text"]');
     names.addEventListener('input', () => { if (!busy) { entry.names = names.value; clearExport(); render(); } });
     names.addEventListener('paste', event => {

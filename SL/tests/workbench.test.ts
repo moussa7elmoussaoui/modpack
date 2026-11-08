@@ -653,26 +653,56 @@ test('canceling the file picker keeps the popup and its current image open', asy
   });
 });
 
-test('Clear image resets a draft image and upload errors while preserving the name and popup', async () => {
+test('footer Clear is enabled whenever the image or name has content', async () => {
   await withWorkbench(async h => {
-    h.openDraft(); h.names('KeepMyName');
+    h.openDraft();
     const editor = h.active();
-    const clear = h.query<HTMLButtonElement>('.clear-image', editor);
+    const clear = h.query<HTMLButtonElement>('.draft-actions .clear-skin', editor);
+    assert.equal(clear.hidden, false);
+    assert.equal(clear.disabled, true);
+    assert.equal(clear.nextElementSibling, h.query('.commit-skin', editor));
+    assert.equal(editor.querySelector('.clear-image'), null);
+    assert.equal(editor.querySelector('.draft-hint'), null);
+
+    h.names('NameOnly');
+    assert.equal(clear.disabled, false);
+    h.names('');
+    assert.equal(clear.disabled, true);
+    h.names('   ');
+    assert.equal(clear.disabled, false, 'whitespace can also be cleared');
+    clear.click();
+    assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).value, '');
+    assert.equal(clear.disabled, true);
+
+    await h.upload('image-only.png');
+    assert.equal(clear.disabled, false);
+    clear.click();
+    assert.equal(h.query('.file-name', editor).textContent, 'Choose a skin PNG');
+    assert.equal(clear.disabled, true);
+    assert.equal(h.dialog().open, true);
+  });
+});
+
+test('footer Clear resets both fields and upload errors without closing the popup', async () => {
+  await withWorkbench(async h => {
+    h.openDraft(); h.names('ClearMyName');
+    const editor = h.active();
+    const clear = h.query<HTMLButtonElement>('.clear-skin', editor);
     const input = h.query<HTMLInputElement>('input[type="file"]', editor);
-    assert.equal(clear.hidden, true);
+    assert.equal(clear.disabled, false);
     assert.equal(clear.closest('label'), null, 'the clear action must sit outside the file-picker label');
     await h.upload('clear.png');
-    assert.equal(clear.hidden, false);
+    assert.equal(clear.disabled, false);
     let pickerClicks = 0;
     input.addEventListener('click', () => { pickerClicks++; });
     clear.click();
     assert.equal(pickerClicks, 0, 'clearing the image must not reopen the file picker');
     assert.equal(h.dialog().open, true);
     assert.equal(h.document.activeElement, input);
-    assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).value, 'KeepMyName');
+    assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).value, '');
     assert.equal(h.query('.file-name', editor).textContent, 'Choose a skin PNG');
     assert.equal(input.value, '');
-    assert.equal(clear.hidden, true);
+    assert.equal(clear.disabled, true);
     assert.equal(h.query<HTMLImageElement>('.skin-preview', editor).hidden, true);
     assert.equal(h.query('.skin-preview', editor).hasAttribute('src'), false);
     assert.equal(h.query('.model-summary', editor).hidden, true);
@@ -685,16 +715,17 @@ test('Clear image resets a draft image and upload errors while preserving the na
 
     await h.upload('invalid.txt');
     assert.equal(h.query('.file-error', editor).hidden, false);
-    assert.equal(clear.hidden, false, 'invalid uploads can also be cleared');
+    assert.equal(clear.disabled, false, 'invalid uploads can also be cleared');
     clear.click();
     assert.equal(h.query('.file-error', editor).hidden, true);
     assert.equal(h.query('.file-error', editor).textContent, '');
-    assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).value, 'KeepMyName');
+    assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).value, '');
     await h.upload('new.png');
+    h.names('NewPlayer');
     assert.equal(h.query<HTMLButtonElement>('.commit-skin', editor).disabled, false);
     h.commit();
     h.query<HTMLButtonElement>('#generate').click(); await flush();
-    assert.deepEqual(h.exported[0][0].names, ['KeepMyName']);
+    assert.deepEqual(h.exported[0][0].names, ['NewPlayer']);
   });
 });
 
@@ -705,10 +736,13 @@ test('clearing a saved skin removes its previews and blocks export until a repla
     const oldDownload = h.query<HTMLAnchorElement>('#download-again').href;
     h.select(0);
     const editor = h.active();
-    h.query<HTMLButtonElement>('.clear-image', editor).click();
+    h.query<HTMLButtonElement>('.clear-skin', editor).click();
     assert.equal(h.dialog().open, true);
     assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1, 'the entry itself is preserved');
-    assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).value, 'SavedPlayer');
+    assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).value, '');
+    assert.equal(h.query<HTMLButtonElement>('.clear-skin', editor).disabled, true);
+    assert.equal(h.query('.file-error', editor).hidden, true);
+    assert.equal(h.query('.names-error', editor).hidden, true);
     assert.equal(h.query('.skin-face').hidden, true);
     assert.equal(h.query('.skin-face').hasAttribute('src'), false);
     assert.equal(h.query('.face-placeholder').hidden, false);
@@ -721,11 +755,12 @@ test('clearing a saved skin removes its previews and blocks export until a repla
     h.close(); h.select(0);
     assert.equal(h.query('.file-name', h.active()).textContent, 'Choose a skin PNG');
     await h.upload('replacement.png');
+    h.names('ReplacementPlayer');
     assert.equal(h.query('.model-summary', editor).textContent, 'Slim · Automatically selected');
     assert.equal(h.query<HTMLButtonElement>('#generate').disabled, false);
     h.commit();
     h.query<HTMLButtonElement>('#generate').click(); await flush();
-    assert.deepEqual(h.exported[1][0].names, ['SavedPlayer']);
+    assert.deepEqual(h.exported[1][0].names, ['ReplacementPlayer']);
     assert.equal(h.exported[1][0].model, 'slim');
     assert.deepEqual([...h.exported[1][0].texturePng], [1, 'replacement.png'.length]);
   }, { decodeSkin: async file => decoded(file, file.name === 'replacement.png' ? 'slim' : 'wide') });
@@ -737,10 +772,12 @@ test('pending face and icon results cannot restore a cleared image', async () =>
     h.openDraft(); h.names('PendingPlayer'); await h.upload('pending.png');
     const editor = h.active();
     assert.equal(editor.getAttribute('aria-busy'), 'true');
-    const clear = h.query<HTMLButtonElement>('.clear-image', editor);
+    const clear = h.query<HTMLButtonElement>('.clear-skin', editor);
     assert.equal(clear.disabled, false, 'an upload can be cleared while it is processing');
     clear.click();
     assert.equal(editor.getAttribute('aria-busy'), 'false');
+    assert.equal(clear.disabled, true);
+    assert.equal(h.query<HTMLInputElement>('input[type="text"]', editor).value, '');
     icon.resolve(decoded(new File([], 'pending.png'), 'slim'));
     face.resolve('blob:face-pending.png'); await flush();
     assert.equal(h.dialog().open, true);
@@ -754,6 +791,7 @@ test('pending face and icon results cannot restore a cleared image', async () =>
     await h.upload('ready.png');
     assert.equal(h.query('.file-name', editor).textContent, 'ready.png');
     assert.equal(h.query('.model-summary', editor).textContent, 'Wide · Automatically selected');
+    h.names('ReadyPlayer');
     h.commit();
     assert.equal(h.document.querySelectorAll('#skin-list .edit-skin').length, 1);
   }, {
