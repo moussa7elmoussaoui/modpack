@@ -4,7 +4,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import { zlibSync } from 'fflate';
 import { PNG } from 'pngjs';
 import { encode } from 'fast-png';
-import { decodePngRgba, encodePngRgba, needsBrowserPngDecoder } from '../src/lib/png';
+import { decodePngRgba, encodePngRgba, needsBrowserPngDecoder, validatePngStructure } from '../src/lib/png';
 
 function chunk(type: string, bytes: Uint8Array): Buffer {
   const result = Buffer.alloc(bytes.length + 12);
@@ -20,10 +20,10 @@ function chunk(type: string, bytes: Uint8Array): Buffer {
   return result;
 }
 
-function fixture(width: number, height: number, depth: number, type: number, rows: number[], extra: [string, number[]][] = []): Uint8Array {
+function fixture(width: number, height: number, depth: number, type: number, rows: number[], extra: [string, number[]][] = [], interlace = 0): Uint8Array {
   const header = Buffer.alloc(13);
   header.writeUInt32BE(width); header.writeUInt32BE(height, 4);
-  header[8] = depth; header[9] = type;
+  header[8] = depth; header[9] = type; header[12] = interlace;
   return Buffer.concat([
     Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', header),
     ...extra.map(([name, data]) => chunk(name, Uint8Array.from(data))),
@@ -65,9 +65,52 @@ test('eight-bit Adam7 input decodes losslessly; unsupported packed Adam7 is dete
   const pixels = Uint8Array.from({ length: 8 * 8 * 4 }, (_, i) => i % 251);
   const png = encode({ width: 8, height: 8, data: pixels, channels: 4 }, { interlace: 'Adam7' });
   assert.deepEqual(decodePngRgba(png).pixels, new Uint8ClampedArray(pixels));
-  const packed = fixture(1, 1, 1, 0, [0, 0]);
-  packed[28] = 1;
+  const packed = fixture(1, 1, 1, 0, [0, 0], [], 1);
   assert.equal(needsBrowserPngDecoder(packed), true);
+});
+
+test('shared structure validation accepts valid packed Adam7 PNGs without decoding or changing their bytes', () => {
+  // A 1x1 Adam7 image contains only its first pass: one filter byte and one packed sample byte.
+  const packed = fixture(1, 1, 1, 0, [0, 0x80], [['tEXt', [75, 101, 121, 0, 86]]], 1);
+  const before = Uint8Array.from(packed);
+  assert.equal(needsBrowserPngDecoder(packed), true);
+  assert.deepEqual([...PNG.sync.read(Buffer.from(packed)).data], [255, 255, 255, 255], 'the packed fixture must be a decodable image');
+  assert.doesNotThrow(() => validatePngStructure(packed));
+  assert.deepEqual(Uint8Array.from(packed), before);
+  assert.throws(() => decodePngRgba(packed), /needs the browser decoder/);
+  const padded = Buffer.concat([Buffer.from([1, 2, 3]), Buffer.from(packed), Buffer.from([4, 5])]);
+  assert.doesNotThrow(() => validatePngStructure(padded.subarray(3, -2)), 'typed-array offsets must be respected');
+  assert.doesNotThrow(() => validatePngStructure(Buffer.concat([packed, Buffer.from([6, 7])])), 'retain support for bytes after IEND');
+});
+
+test('shared structure validation rejects corrupt packed Adam7 headers, data, ancillary chunks, and end checksums', () => {
+  const packed = fixture(1, 1, 1, 0, [0, 0x80], [['tEXt', [75, 101, 121, 0, 86]]], 1);
+  const view = new DataView(packed.buffer, packed.byteOffset, packed.byteLength);
+  const checked: string[] = [];
+  for (let offset = 8; offset < packed.length;) {
+    const end = offset + view.getUint32(offset) + 12;
+    const name = String.fromCharCode(...packed.subarray(offset + 4, offset + 8));
+    const broken = Uint8Array.from(packed);
+    broken[end - 1] ^= 1;
+    assert.throws(() => validatePngStructure(broken), /CRC/, `${name} CRC must be checked before browser decoding`);
+    checked.push(name); offset = end;
+  }
+  assert.deepEqual(checked, ['IHDR', 'tEXt', 'IDAT', 'IEND']);
+});
+
+test('shared structure validation rejects malformed packed Adam7 containers before browser decoding', () => {
+  const packed = fixture(1, 1, 1, 0, [0, 0x80], [], 1);
+  const signature = Uint8Array.from(packed); signature[0] = 0;
+  assert.throws(() => validatePngStructure(signature), /not a valid PNG/);
+  const invalidHeader = Uint8Array.from(packed); new DataView(invalidHeader.buffer).setUint32(8, 12);
+  assert.throws(() => validatePngStructure(invalidHeader), /invalid header/);
+  const secondHeader = Buffer.concat([packed.subarray(0, 33), packed.subarray(8)]);
+  assert.throws(() => validatePngStructure(secondHeader), /multiple headers/);
+  assert.throws(() => validatePngStructure(packed.subarray(0, -1)), /truncated chunk/);
+  assert.throws(() => validatePngStructure(packed.subarray(0, 37)), /truncated chunk/);
+  assert.throws(() => validatePngStructure(packed.subarray(0, -12)), /incomplete/);
+  const invalidEnd = Buffer.concat([packed.subarray(0, -12), chunk('IEND', Uint8Array.from([0]))]);
+  assert.throws(() => validatePngStructure(invalidEnd), /invalid end chunk/);
 });
 
 test('invalid CRC and oversized PNG headers are rejected', () => {

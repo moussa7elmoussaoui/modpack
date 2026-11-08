@@ -16,12 +16,7 @@ type DecodedSkin = Awaited<ReturnType<typeof decodeSkin>>;
 interface SkinEntry {
   id: string;
   file: File | null;
-  model: SkinModel;
-  modelReady: boolean;
-  autoModel: boolean;
-  detectedModel: SkinModel | null;
-  advancedOpen: boolean;
-  legacy: boolean;
+  model: SkinModel | null;
   names: string;
   faceUrl: string;
   decoded: DecodedSkin | null;
@@ -126,8 +121,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
   }
   function issues(entry: SkinEntry) {
     return {
-      file: entry.fileError || entry.iconError || (entry.validationShown && !entry.file ? 'Choose a skin PNG.' : '') || (entry.validationShown && entry.file && entry.model && !entry.decoded && !working(entry) && templatesReady ? 'The icon is not ready. Choose the skin PNG again.' : ''),
-      model: entry.validationShown && !entry.model ? 'Choose Wide or Slim.' : '',
+      file: entry.fileError || entry.iconError || (entry.validationShown && !entry.file ? 'Choose a skin PNG.' : '') || (entry.validationShown && entry.file && !entry.decoded && !working(entry) && templatesReady ? 'The skin is not ready. Choose the skin PNG again.' : ''),
       names: namesIssue(entry),
     };
   }
@@ -152,7 +146,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     generate.disabled = locked || !base || !templatesReady || entries.some(entry => !ready(entry));
     generate.querySelector('span')!.textContent = busy ? 'Preparing your addon…' : entries.length ? 'Generate addon' : 'Download addon';
     generate.classList.toggle('is-busy', busy);
-    byId('export-hint').textContent = busy ? 'Keep this tab open while your addon is built.' : draft ? 'Only skins added to your list are included. Click Add to list to include this new skin.' : !entries.length ? 'Download the addon, or add skins to customize it.' : readyCount === entries.length ? `${readyCount} ${readyCount === 1 ? 'skin' : 'skins'} ready. Download and open in Minecraft.` : 'Finish each skin’s PNG, model, and player name.';
+    byId('export-hint').textContent = busy ? 'Keep this tab open while your addon is built.' : draft ? 'Only skins added to your list are included. Click Add to list to include this new skin.' : !entries.length ? 'Download the addon, or add skins to customize it.' : readyCount === entries.length ? `${readyCount} ${readyCount === 1 ? 'skin' : 'skins'} ready. Download and open in Minecraft.` : 'Finish each skin’s PNG and player name.';
     for (const [index, entry] of displayed.entries()) {
       const errors = issues(entry);
       entry.element.hidden = entry !== selected;
@@ -163,9 +157,9 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       edit.disabled = locked;
       edit.setAttribute('aria-label', `Edit ${title(entry)}`);
       entry.row.querySelector<HTMLElement>('.skin-row-title')!.textContent = title(entry);
-      entry.row.querySelector<HTMLElement>('.skin-row-meta')!.textContent = entry.model ? entry.model === 'wide' ? 'Wide' : 'Slim' : 'Choose model';
+      entry.row.querySelector<HTMLElement>('.skin-row-meta')!.textContent = entry.model ? entry.model === 'wide' ? 'Wide' : 'Slim' : working(entry) ? 'Detecting model…' : 'Not detected';
       const status = entry.row.querySelector<HTMLElement>('.skin-row-status')!;
-      const hasError = Boolean(errors.file || errors.model || errors.names);
+      const hasError = Boolean(errors.file || errors.names);
       status.textContent = working(entry) ? 'Preparing…' : hasError ? 'Needs attention' : ready(entry) ? 'Ready' : 'Incomplete';
       status.classList.toggle('is-error', hasError); status.classList.toggle('is-ready', ready(entry));
       const thumbnail = entry.row.querySelector<HTMLImageElement>('.skin-face')!;
@@ -179,27 +173,12 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       q<HTMLInputElement>(entry, 'input[type="file"]').setAttribute('aria-invalid', String(Boolean(errors.file)));
       q(entry, '.upload-field').classList.toggle('is-invalid', Boolean(errors.file));
       q(entry, '.file-name').textContent = entry.file?.name ?? 'Choose a skin PNG';
-      q(entry, '.file-meta').textContent = entry.decoded ? `${entry.decoded.width} × ${entry.decoded.height} · Click to replace` : entry.file ? entry.model ? 'Click to replace the PNG' : 'PNG selected · choose a model' : 'Browse or drop a file here';
-      const modelVisible = entry.modelReady && !entry.fileError && !entry.legacy;
-      const advancedOpen = modelVisible && entry.advancedOpen;
-      const modelReveal = q(entry, '.model-reveal');
-      modelReveal.classList.toggle('is-visible', modelVisible);
-      modelReveal.setAttribute('aria-hidden', String(!modelVisible));
-      modelReveal.inert = !modelVisible;
-      const advancedToggle = q<HTMLButtonElement>(entry, '.advanced-toggle');
-      advancedToggle.disabled = locked || !modelVisible;
-      advancedToggle.setAttribute('aria-expanded', String(advancedOpen));
-      q(entry, '.model-summary').textContent = `${entry.model === 'slim' ? 'Slim' : 'Wide'} · ${entry.autoModel ? 'Auto' : 'Manual'}`;
-      const advancedPanel = q(entry, '.advanced-panel');
-      advancedPanel.classList.toggle('is-open', advancedOpen);
-      advancedPanel.setAttribute('aria-hidden', String(!advancedOpen));
-      advancedPanel.inert = !advancedOpen;
-      q(entry, '.legacy-model-note').hidden = !entry.modelReady || Boolean(entry.fileError) || !entry.legacy;
-      entry.element.querySelectorAll<HTMLElement>('.detected-badge').forEach(badge => { badge.hidden = !modelVisible || badge.dataset.model !== entry.detectedModel; });
-      q(entry, '.model-field').classList.toggle('is-invalid', Boolean(errors.model));
-      entry.element.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach(radio => { radio.checked = radio.value === entry.model; radio.disabled = locked || !advancedOpen; radio.setAttribute('aria-invalid', String(Boolean(errors.model))); });
+      q(entry, '.file-meta').textContent = entry.decoded ? `${entry.decoded.width} × ${entry.decoded.height} · Click to replace` : entry.file ? working(entry) ? 'Checking PNG and detecting model…' : 'Click to replace the PNG' : 'Browse or drop a file here';
+      const modelSummary = q(entry, '.model-summary');
+      modelSummary.hidden = !entry.decoded || working(entry) || Boolean(errors.file);
+      modelSummary.textContent = entry.model ? `${entry.model === 'slim' ? 'Slim' : 'Wide'} · ${entry.decoded?.height === 32 ? 'Legacy skin' : 'Automatically selected'}` : '';
       q<HTMLInputElement>(entry, 'input[type="text"]').setAttribute('aria-invalid', String(Boolean(errors.names)));
-      for (const field of ['file', 'model', 'names'] as const) {
+      for (const field of ['file', 'names'] as const) {
         const error = q(entry, `.${field}-error`); error.hidden = !errors[field]; error.textContent = errors[field];
       }
       const preview = q<HTMLImageElement>(entry, '.skin-preview');
@@ -253,16 +232,13 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
   }
   async function processEntry(entry: SkinEntry) {
     const revision = ++entry.revision;
-    clearIcon(entry); entry.iconError = ''; entry.processing = false; clearExport();
-    if (!entry.file || !entry.model || !templatesReady || entry.fileError) { render(); return; }
+    clearIcon(entry); entry.model = null; entry.iconError = ''; entry.processing = false; clearExport();
+    if (!entry.file || !templatesReady || entry.fileError) { render(); return; }
     entry.processing = true; render();
     try {
-      const decoded = await services.decodeSkin(entry.file, entry.autoModel ? undefined : entry.model);
+      const decoded = await services.decodeSkin(entry.file);
       if (!active(entry) || revision !== entry.revision) { revoke(decoded.iconUrl); return; }
       entry.model = decoded.model;
-      if (entry.autoModel) entry.detectedModel = decoded.model;
-      entry.legacy = decoded.height === 32;
-      entry.modelReady = true;
       entry.decoded = decoded;
     } catch (error) {
       if (active(entry) && revision === entry.revision) entry.iconError = error instanceof Error ? error.message : 'Could not create this skin’s icon.';
@@ -288,8 +264,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
   async function setFile(entry: SkinEntry, file: File) {
     if (busy || disposed) return;
     entry.file = file; entry.fileError = ''; entry.iconError = ''; entry.notice = '';
-    entry.model = 'wide'; entry.modelReady = false; entry.autoModel = true;
-    entry.detectedModel = null; entry.advancedOpen = false; entry.legacy = false;
+    entry.model = null;
     entry.revision++; entry.faceRevision++; entry.processing = false; entry.readingFace = false;
     clearIcon(entry); revoke(entry.faceUrl); entry.faceUrl = ''; clearExport();
     if (file.size > 2 * 1024 * 1024) entry.fileError = 'Choose a skin PNG smaller than 2 MB.';
@@ -323,19 +298,13 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       <div class="editor-body"><div class="entry-fields">
         <label class="upload-field" for="${id}_file"><span class="upload-icon">${upload}</span><span class="file-label"><strong class="file-name">Choose a skin PNG</strong><span class="file-meta">Browse or drop a file here</span></span><span class="browse-tag">Browse</span><input id="${id}_file" class="file-input" type="file" accept="image/png,.png" aria-label="Skin PNG" aria-describedby="${id}_formats ${id}_file_error"></label>
         <p id="${id}_formats" class="supported-formats">64 × 64 or 128 × 128 PNG · Legacy 64 × 32 supported · Up to 2 MB</p><p id="${id}_file_error" class="field-error file-error" hidden></p>
-        <div class="model-reveal" aria-hidden="true" inert><div class="model-reveal-inner">
-          <p class="model-question">Wrong player model detected? <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="${id}_advanced" disabled>Click here</button></p>
-          <div id="${id}_advanced" class="advanced-panel" aria-hidden="true" inert><div class="advanced-panel-inner">
-            <fieldset class="model-field" aria-describedby="${id}_model_help ${id}_model_error"><legend>Player model <span class="model-summary" aria-live="polite"></span></legend><p id="${id}_model_help" class="model-help">Auto-selection is tested for accurate results. Only change the model if you know your skin needs a different one; otherwise, keep the automatic choice.</p><div class="model-options">${(['wide', 'slim'] as const).map(model => `<label><input type="radio" name="${id}_model" value="${model}" disabled${model === 'wide' ? ' checked' : ''}><span class="model-choice"><span><strong>${model === 'wide' ? 'Wide' : 'Slim'} <span class="detected-badge" data-model="${model}" hidden>Detected</span></strong><small>${model === 'wide' ? '4' : '3'}-pixel arms</small></span><span class="radio-dot"></span></span></label>`).join('')}</div><p id="${id}_model_error" class="field-error model-error" hidden></p></fieldset>
-          </div></div>
-        </div></div>
-        <p class="legacy-model-note" hidden>Legacy 64 × 32 skins use a fixed player model, so model selection isn’t needed.</p>
+        <p class="model-summary" role="status" hidden></p>
         <div class="names-field"><label for="${id}_names">Player name</label><input id="${id}_names" type="text" placeholder="YourGamertag" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="${id}_names_help ${id}_names_error"><div id="${id}_names_help" class="field-help"><span>Match the in-game spelling and capitalization. To reuse this skin, add another item.</span></div><p id="${id}_names_error" class="field-error names-error" hidden></p></div>
       </div><div class="preview-column"><div class="preview-toolbar"><span>Morph menu icon</span><span>128 × 128 PNG</span></div><div class="preview-stage"><div class="preview-placeholder">${player}</div><img class="skin-preview" alt="Generated morph menu icon on its square canvas" width="128" height="128" hidden></div><p class="preview-caption"></p><a class="download-icon text-button" hidden>${download}Download icon</a></div></div><p class="entry-notice" role="status" hidden></p>`;
-    const entry: SkinEntry = { id, file: null, model: 'wide', modelReady: false, autoModel: true, detectedModel: null, advancedOpen: false, legacy: false, names: '', faceUrl: '', decoded: null, processing: false, readingFace: false, fileError: '', iconError: '', notice: '', revision: 0, faceRevision: 0, validationShown: false, element, row };
+    const entry: SkinEntry = { id, file: null, model: null, names: '', faceUrl: '', decoded: null, processing: false, readingFace: false, fileError: '', iconError: '', notice: '', revision: 0, faceRevision: 0, validationShown: false, element, row };
     draft = entry;
     const actions = doc.createElement('div'); actions.className = 'draft-actions';
-    actions.innerHTML = `<p class="draft-hint" id="${id}_draft_hint"></p><button class="cancel-editor text-button" type="button">Close</button><button class="add-skin commit-skin" type="button" disabled aria-describedby="${id}_draft_hint">${plus}<span>Add to list</span></button>`;
+    actions.innerHTML = `<p class="draft-hint" id="${id}_draft_hint"></p><button class="add-skin commit-skin" type="button" disabled aria-describedby="${id}_draft_hint">${plus}<span>Add to list</span></button>`;
     element.append(actions); byId('skin-editors').append(element);
     actions.querySelector<HTMLButtonElement>('.commit-skin')!.addEventListener('click', () => {
       if (busy || !active(entry) || !ready(entry)) return;
@@ -345,22 +314,11 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       }
       render(); closeEditor(row.querySelector<HTMLButtonElement>('.edit-skin')!);
     });
-    actions.querySelector<HTMLButtonElement>('.cancel-editor')!.addEventListener('click', () => closeEditor());
     const edit = row.querySelector<HTMLButtonElement>('.edit-skin')!;
     edit.addEventListener('click', () => openEditor(entry, edit));
     row.querySelector<HTMLButtonElement>('.remove-list-skin')!.addEventListener('click', () => removeEntry(entry));
     const fileInput = q<HTMLInputElement>(entry, 'input[type="file"]');
     fileInput.addEventListener('change', () => { const file = fileInput.files?.[0]; if (file) { fileInput.value = ''; void setFile(entry, file); } });
-    q<HTMLButtonElement>(entry, '.advanced-toggle').addEventListener('click', () => {
-      if (busy || !entry.modelReady || entry.legacy || entry.fileError) return;
-      entry.advancedOpen = !entry.advancedOpen; render();
-    });
-    element.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach(radio => radio.addEventListener('change', () => {
-      if (!busy && entry.modelReady && !radio.disabled && radio.checked) {
-        entry.model = radio.value as SkinModel; entry.autoModel = entry.model === entry.detectedModel;
-        void processEntry(entry);
-      }
-    }));
     const names = q<HTMLInputElement>(entry, 'input[type="text"]');
     names.addEventListener('input', () => { if (!busy) { entry.names = names.value; clearExport(); render(); } });
     names.addEventListener('paste', event => {
@@ -404,7 +362,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       base = new Uint8Array(bytes); templatesReady = true;
       byId('base-status').classList.add('is-ready');
       byId('base-status-text').textContent = meta?.skinCount ? `Base addon ready · ${meta.skinCount} original skins included` : 'Base addon ready';
-      for (const entry of allEntries()) if (entry.file && entry.model) void processEntry(entry);
+      for (const entry of allEntries()) if (entry.file) void processEntry(entry);
     } catch (error) {
       if (disposed || revision !== baseRevision) return;
       byId('base-status').classList.add('is-error'); byId('base-status-text').textContent = error instanceof Error ? error.message : 'Could not load the addon.';
@@ -442,7 +400,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     if (invalid) {
       openEditor(invalid, invalid.row.querySelector<HTMLButtonElement>('.edit-skin')!);
       const errors = issues(invalid);
-      q<HTMLElement>(invalid, errors.file ? 'input[type="file"]' : errors.model ? 'input[type="radio"]' : 'input[type="text"]').focus();
+      q<HTMLElement>(invalid, errors.file || !invalid.decoded ? 'input[type="file"]' : 'input[type="text"]').focus();
       setFeedback(`Finish ${title(invalid)} before generating. Check the highlighted fields.`, true); return;
     }
     const assignments = entries.map(entry => ({ id: entry.id, names: parseNames(entry.names), model: entry.model as SkinModel }));

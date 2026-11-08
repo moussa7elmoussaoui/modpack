@@ -1,6 +1,6 @@
 import { composeIcon, normalizeLegacySkin, type IconTemplates } from './pixels';
 import { readPngDimensions, validateSkinDimensions } from './validation';
-import { decodePngRgba, encodePngRgba, needsBrowserPngDecoder } from './png';
+import { decodePngRgba, encodePngRgba, needsBrowserPngDecoder, validatePngStructure } from './png';
 import { composeSkinFace } from './faces';
 import { detectSkinModel } from './skin-model';
 import type { SkinModel } from './addon';
@@ -41,9 +41,11 @@ async function readSkin(file: File) {
   const source = new Uint8Array(await file.arrayBuffer());
   const { width, height } = readPngDimensions(source);
   validateSkinDimensions(width, height);
-  const pixels = needsBrowserPngDecoder(source)
-    ? await decodePackedInterlacedPng(file, width, height)
-    : decodePngRgba(source).pixels;
+  let pixels: Uint8ClampedArray;
+  if (needsBrowserPngDecoder(source)) {
+    validatePngStructure(source);
+    pixels = await decodePackedInterlacedPng(file, width, height);
+  } else pixels = decodePngRgba(source).pixels;
   if (!pixels.some((channel, index) => index % 4 === 3 && channel > 0)) throw new Error('This skin is completely transparent.');
   return { source, width, height, pixels };
 }
@@ -56,13 +58,12 @@ export async function decodeSkinFace(file: File): Promise<string> {
   return URL.createObjectURL(new Blob([new Uint8Array(png)], { type: 'image/png' }));
 }
 
-export async function decodeSkin(file: File, model?: SkinModel): Promise<{
+export async function decodeSkin(file: File): Promise<{
   texturePng: Uint8Array; iconPng: Uint8Array; iconUrl: string; width: number; height: number; model: SkinModel;
 }> {
   const skin = await readSkin(file);
   const { source, width, height } = skin;
-  const selectedModel = model ?? detectSkinModel(skin.pixels, width, height);
-  if (height === 32 && selectedModel === 'slim') throw new Error('Legacy 64 × 32 skins use the wide model. Choose Wide.');
+  const selectedModel = detectSkinModel(skin.pixels, width, height);
   await loadIconTemplates();
   let pixels = skin.pixels;
   let texturePng: Uint8Array = source;

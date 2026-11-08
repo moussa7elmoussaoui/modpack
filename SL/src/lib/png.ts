@@ -12,11 +12,15 @@ export function needsBrowserPngDecoder(bytes: Uint8Array): boolean {
   return bytes[24] < 8 && bytes[28] === 1;
 }
 
-/** Decode sample values directly, without color management or alpha premultiplication. */
-export function decodePngRgba(bytes: Uint8Array): RgbaPng {
-  const { width, height } = readPngDimensions(bytes);
-  // Check before the codec allocates image buffers, including callers outside the UI.
-  if (width > 128 || height > 128) throw new Error('PNG dimensions must not exceed 128 × 128.');
+const CRC_TABLE = Uint32Array.from({ length: 256 }, (_, value) => {
+  let crc = value;
+  for (let bit = 0; bit < 8; bit++) crc = (crc >>> 1) ^ (crc & 1 ? 0xedb88320 : 0);
+  return crc >>> 0;
+});
+
+/** Check container integrity before either the direct or browser PNG decoder runs. */
+export function validatePngStructure(bytes: Uint8Array): void {
+  readPngDimensions(bytes);
   const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
   let ended = false;
   for (let offset = 8; offset < bytes.length;) {
@@ -26,6 +30,11 @@ export function decodePngRgba(bytes: Uint8Array): RgbaPng {
     if (end > bytes.length) throw new Error('The PNG contains a truncated chunk.');
     const type = view.getUint32(offset + 4);
     if (type === 0x49484452 && offset !== 8) throw new Error('The PNG contains multiple headers.');
+    let crc = 0xffffffff;
+    for (let index = offset + 4; index < end - 4; index++) {
+      crc = (crc >>> 8) ^ CRC_TABLE[(crc ^ bytes[index]) & 0xff];
+    }
+    if (((crc ^ 0xffffffff) >>> 0) !== view.getUint32(end - 4)) throw new Error('The PNG contains an invalid chunk CRC.');
     if (type === 0x49454e44) {
       if (length !== 0) throw new Error('The PNG contains an invalid end chunk.');
       ended = true; break;
@@ -33,6 +42,14 @@ export function decodePngRgba(bytes: Uint8Array): RgbaPng {
     offset = end;
   }
   if (!ended) throw new Error('The PNG is incomplete.');
+}
+
+/** Decode sample values directly, without color management or alpha premultiplication. */
+export function decodePngRgba(bytes: Uint8Array): RgbaPng {
+  const { width, height } = readPngDimensions(bytes);
+  // Check before the codec allocates image buffers, including callers outside the UI.
+  if (width > 128 || height > 128) throw new Error('PNG dimensions must not exceed 128 × 128.');
+  validatePngStructure(bytes);
   if (needsBrowserPngDecoder(bytes)) throw new Error('This packed interlaced PNG needs the browser decoder.');
   const decoded = decode(bytes, { checkCrc: true });
   if (decoded.width !== width || decoded.height !== height) throw new Error('The PNG contains inconsistent dimensions.');

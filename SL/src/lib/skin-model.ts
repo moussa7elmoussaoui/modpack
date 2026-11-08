@@ -12,8 +12,8 @@ const SLIM_PADDING = [
 /**
  * Estimate the arm model from transparent base-arm padding. A PNG does not
  * authoritatively identify its intended geometry: painted Slim padding or
- * transparent Wide arms can make either choice ambiguous. Keep manual choice
- * available. A transparent majority tolerates stray paint in otherwise Slim
+ * transparent Wide arms can make either choice ambiguous. A transparent
+ * majority tolerates stray paint in otherwise Slim
  * padding; ties and fully painted padding use Wide. RGB values under zero
  * alpha do not affect the result, and partially transparent pixels are visible.
  */

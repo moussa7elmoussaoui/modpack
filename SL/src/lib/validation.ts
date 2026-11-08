@@ -37,7 +37,7 @@ export function validateAssignments(entries: SkinAssignment[], reservedNames: re
     }
     ids.add(entry.id);
     if (entry.model !== 'wide' && entry.model !== 'slim') {
-      errors.push(`${label}: choose Wide or Slim.`);
+      errors.push(`${label}: the skin model could not be detected. Choose the skin PNG again.`);
     }
     if (entry.names.length !== 1) errors.push(`${label}: enter exactly one player name per item. Add another item to use the same skin for another player.`);
     entry.names.forEach((name) => {

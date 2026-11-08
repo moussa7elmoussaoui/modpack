@@ -304,7 +304,8 @@ test('the real workbench download controls preserve all original file bytes with
       Object.defineProperty(upload, 'files', { configurable: true, value: [file] });
       upload.dispatchEvent(new dom.Event('change', { bubbles: true }) as unknown as Event);
       await waitFor(() => !query<HTMLButtonElement>('.commit-skin', editor).disabled, `decoding and validating ${name}`);
-      assert.equal(query<HTMLInputElement>(`input[value="${model}"]`, editor).checked, true);
+      assert.equal(query('.model-summary', editor).textContent?.trim(), `${model === 'wide' ? 'Wide' : 'Slim'} · Automatically selected`);
+      assert.equal(editor.querySelector('input[type="radio"]'), null);
       query<HTMLButtonElement>('.commit-skin', editor).click();
       assert.equal(document.querySelectorAll('#skin-list .edit-skin').length, index + 1);
       assert.equal(query('#skin-dialog').classList.contains('is-closing'), true, 'the popup remains mounted for its exit animation');

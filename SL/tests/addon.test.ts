@@ -225,8 +225,8 @@ test('rejects duplicate names, unsafe identifiers, absent names, and incorrect i
   assert.ok(validateAssignments([input({ id: '../escape' })]).length);
   assert.ok(validateAssignments([input({ names: [] })]).length);
   assert.ok(validateAssignments([input({ names: [' Alice'] })]).length);
-  await assert.rejects(generateAddon(base, [input({ model: '' as SkinInput['model'] })]), /choose Wide or Slim/);
-  await assert.rejects(generateAddon(base, [input({ model: 'unknown' as SkinInput['model'] })]), /choose Wide or Slim/);
+  await assert.rejects(generateAddon(base, [input({ model: '' as SkinInput['model'] })]), /skin model could not be detected/);
+  await assert.rejects(generateAddon(base, [input({ model: 'unknown' as SkinInput['model'] })]), /skin model could not be detected/);
   await assert.rejects(generateAddon(base, [input({ names: [] })]), /exactly one player name/);
   await assert.rejects(generateAddon(base, [input({ names: ['Alice', 'Bob'] })]), /exactly one player name/);
   await assert.rejects(generateAddon(base, [input({ names: ['Alice', 'Alice'] })]), /exactly one player name/);
