@@ -17,7 +17,9 @@ type DecodedSkin = Awaited<ReturnType<typeof decodeSkin>>;
 interface SkinEntry {
   id: string;
   file: File | null;
-  model: SkinModel | '';
+  model: SkinModel;
+  modelReady: boolean;
+  autoModel: boolean;
   names: string;
   faceUrl: string;
   decoded: DecodedSkin | null;
@@ -61,9 +63,9 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
         </aside>
         <div class="workspace-main">
           <section class="editor-panel" aria-labelledby="selected-title">
-            <div class="editor-heading"><div><h2 id="selected-title">Skin details</h2><p id="selected-description">Choose a PNG, its model, and the player names it belongs to.</p></div><button id="editor-remove" class="text-button editor-remove" type="button">${trash}<span>Remove</span></button></div>
+            <div class="editor-heading"><div><h2 id="selected-title">Skin details</h2><p id="selected-description">Import a skin PNG and enter its player name.</p></div><button id="editor-remove" class="text-button editor-remove" type="button">${trash}<span>Remove</span></button></div>
             <div id="skin-editors"></div>
-            <div id="editor-empty" class="editor-empty" hidden><h3>Add your first skin</h3><p>Choose a PNG, then set its player model and player name.</p><button id="add-first-skin" class="add-skin" type="button">${plus}Add skin</button></div>
+            <div id="editor-empty" class="editor-empty" hidden><h3>Add your first skin</h3><p>Import a skin PNG and link it to a player name.</p><button id="add-first-skin" class="add-skin" type="button">${plus}Add skin</button></div>
           </section>
           <section class="export-panel" aria-labelledby="export-heading">
             <div class="export-heading"><h2 id="export-heading">Your addon, ready to play.</h2><p>The complete addon with every skin in your lineup.</p><dl class="pack-summary"><div><dt>Ready skins</dt><dd id="summary-skins">0</dd></div><div><dt>Player names</dt><dd id="summary-names">0</dd></div></dl></div>
@@ -176,8 +178,13 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       q(entry, '.upload-field').classList.toggle('is-invalid', Boolean(errors.file));
       q(entry, '.file-name').textContent = entry.file?.name ?? 'Choose a skin PNG';
       q(entry, '.file-meta').textContent = entry.decoded ? `${entry.decoded.width} × ${entry.decoded.height} · Click to replace` : entry.file ? entry.model ? 'Click to replace the PNG' : 'PNG selected · choose a model' : 'Browse or drop a file here';
+      const modelVisible = entry.modelReady && !entry.fileError;
+      const modelReveal = q(entry, '.model-reveal');
+      modelReveal.classList.toggle('is-visible', modelVisible);
+      modelReveal.setAttribute('aria-hidden', String(!modelVisible));
+      modelReveal.inert = !modelVisible;
       q(entry, '.model-field').classList.toggle('is-invalid', Boolean(errors.model));
-      entry.element.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach(radio => { radio.checked = radio.value === entry.model; radio.setAttribute('aria-invalid', String(Boolean(errors.model))); });
+      entry.element.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach(radio => { radio.checked = radio.value === entry.model; radio.disabled = locked || !modelVisible; radio.setAttribute('aria-invalid', String(Boolean(errors.model))); });
       q<HTMLInputElement>(entry, 'input[type="text"]').setAttribute('aria-invalid', String(Boolean(errors.names)));
       for (const field of ['file', 'model', 'names'] as const) {
         const error = q(entry, `.${field}-error`); error.hidden = !errors[field]; error.textContent = errors[field];
@@ -187,7 +194,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       if (entry.decoded && preview.getAttribute('src') !== entry.decoded.iconUrl) preview.src = entry.decoded.iconUrl;
       if (!entry.decoded) preview.removeAttribute('src');
       q(entry, '.preview-placeholder').hidden = Boolean(entry.decoded);
-      q(entry, '.preview-caption').textContent = working(entry) ? 'Preparing your icon…' : entry.decoded ? 'The icon shown for this skin in the morph menu.' : 'Your icon appears after you choose a PNG and model.';
+      q(entry, '.preview-caption').textContent = working(entry) ? 'Preparing your icon…' : entry.decoded ? 'The icon shown for this skin in the morph menu.' : 'Your icon appears after you import a skin PNG.';
       const iconLink = q<HTMLAnchorElement>(entry, '.download-icon'); iconLink.hidden = !entry.decoded;
       if (entry.decoded) { iconLink.href = entry.decoded.iconUrl; iconLink.download = `${assetPaths[index].split('/').at(-1)}.png`; }
       else iconLink.removeAttribute('href');
@@ -195,7 +202,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       q(entry, '.entry-notice').hidden = !entry.notice; q(entry, '.entry-notice').textContent = entry.notice;
       q(entry, '.draft-actions').hidden = entry !== draft;
       q<HTMLButtonElement>(entry, '.commit-skin').disabled = locked || !ready(entry);
-      q(entry, '.draft-hint').textContent = working(entry) ? 'Preparing the skin and its icon…' : !reservedNames ? 'Loading the built-in name rules…' : ready(entry) ? 'Ready to add to your skin list.' : 'Choose a PNG, a model, and one available player name.';
+      q(entry, '.draft-hint').textContent = working(entry) ? 'Preparing the skin and its icon…' : !reservedNames ? 'Loading the built-in name rules…' : ready(entry) ? 'Ready to add to your skin list.' : 'Import a PNG and enter one available player name.';
     }
   }
   function selectEntry(entry: SkinEntry, focus = false) {
@@ -208,8 +215,10 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     if (!entry.file || !entry.model || !templatesReady || entry.fileError) { render(); return; }
     entry.processing = true; render();
     try {
-      const decoded = await services.decodeSkin(entry.file, entry.model);
+      const decoded = await services.decodeSkin(entry.file, entry.autoModel ? undefined : entry.model);
       if (!active(entry) || revision !== entry.revision) { revoke(decoded.iconUrl); return; }
+      entry.model = decoded.model;
+      entry.modelReady = true;
       entry.decoded = decoded;
     } catch (error) {
       if (active(entry) && revision === entry.revision) entry.iconError = error instanceof Error ? error.message : 'Could not create this skin’s icon.';
@@ -235,6 +244,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
   async function setFile(entry: SkinEntry, file: File) {
     if (busy || disposed) return;
     entry.file = file; entry.fileError = ''; entry.iconError = ''; entry.notice = '';
+    entry.model = 'wide'; entry.modelReady = false; entry.autoModel = true;
     entry.revision++; entry.faceRevision++; entry.processing = false; entry.readingFace = false;
     clearIcon(entry); revoke(entry.faceUrl); entry.faceUrl = ''; clearExport();
     if (file.size > 2 * 1024 * 1024) entry.fileError = 'Choose a skin PNG smaller than 2 MB.';
@@ -265,10 +275,10 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       <div class="editor-body"><div class="entry-fields">
         <label class="upload-field" for="${id}_file"><span class="upload-icon">${upload}</span><span class="file-label"><strong class="file-name">Choose a skin PNG</strong><span class="file-meta">Browse or drop a file here</span></span><span class="browse-tag">Browse</span><input id="${id}_file" class="file-input" type="file" accept="image/png,.png" aria-label="Skin PNG" aria-describedby="${id}_formats ${id}_file_error"></label>
         <p id="${id}_formats" class="supported-formats">64 × 64 or 128 × 128 PNG · Legacy 64 × 32 uses Wide · Up to 2 MB</p><p id="${id}_file_error" class="field-error file-error" hidden></p>
-        <fieldset class="model-field" aria-describedby="${id}_model_error"><legend>Player model <span>Required</span></legend><div class="model-options">${(['wide', 'slim'] as const).map(model => `<label><input type="radio" name="${id}_model" value="${model}"><span class="model-choice"><span><strong>${model === 'wide' ? 'Wide' : 'Slim'}</strong><small>${model === 'wide' ? '4' : '3'}-pixel arms</small></span><span class="radio-dot"></span></span></label>`).join('')}</div><p id="${id}_model_error" class="field-error model-error" hidden></p></fieldset>
+        <div class="model-reveal" aria-hidden="true" inert><div class="model-reveal-inner"><fieldset class="model-field" aria-describedby="${id}_model_error"><legend>Player model <span>Change if needed</span></legend><div class="model-options">${(['wide', 'slim'] as const).map(model => `<label><input type="radio" name="${id}_model" value="${model}" disabled${model === 'wide' ? ' checked' : ''}><span class="model-choice"><span><strong>${model === 'wide' ? 'Wide' : 'Slim'}</strong><small>${model === 'wide' ? '4' : '3'}-pixel arms</small></span><span class="radio-dot"></span></span></label>`).join('')}</div><p id="${id}_model_error" class="field-error model-error" hidden></p></fieldset></div></div>
         <div class="names-field"><label for="${id}_names">Player name</label><input id="${id}_names" type="text" placeholder="YourGamertag" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="${id}_names_help ${id}_names_error"><div id="${id}_names_help" class="field-help"><span>Match the in-game spelling and capitalization. To reuse this skin, add another item.</span></div><p id="${id}_names_error" class="field-error names-error" hidden></p></div>
       </div><div class="preview-column"><div class="preview-toolbar"><span>Morph menu icon</span><span>128 × 128 PNG</span></div><div class="preview-stage"><div class="preview-placeholder">${player}</div><img class="skin-preview" alt="Generated morph menu icon on its square canvas" width="128" height="128" hidden></div><p class="preview-caption"></p><a class="download-icon text-button" hidden>${download}Download icon</a></div></div><p class="entry-notice" role="status" hidden></p>`;
-    const entry: SkinEntry = { id, file: null, model: '', names: '', faceUrl: '', decoded: null, processing: false, readingFace: false, fileError: '', iconError: '', notice: '', revision: 0, faceRevision: 0, validationShown: false, element, row };
+    const entry: SkinEntry = { id, file: null, model: 'wide', modelReady: false, autoModel: true, names: '', faceUrl: '', decoded: null, processing: false, readingFace: false, fileError: '', iconError: '', notice: '', revision: 0, faceRevision: 0, validationShown: false, element, row };
     draft = entry;
     const actions = doc.createElement('div'); actions.className = 'draft-actions';
     actions.innerHTML = `<p class="draft-hint" id="${id}_draft_hint"></p><button class="add-skin commit-skin" type="button" disabled aria-describedby="${id}_draft_hint">${plus}<span>Add to list</span></button>`;
@@ -288,7 +298,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     const fileInput = q<HTMLInputElement>(entry, 'input[type="file"]');
     fileInput.addEventListener('change', () => { const file = fileInput.files?.[0]; if (file) { fileInput.value = ''; void setFile(entry, file); } });
     element.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach(radio => radio.addEventListener('change', () => {
-      if (!busy && radio.checked) { entry.model = radio.value as SkinModel; void processEntry(entry); }
+      if (!busy && entry.modelReady && !radio.disabled && radio.checked) { entry.model = radio.value as SkinModel; entry.autoModel = false; void processEntry(entry); }
     }));
     const names = q<HTMLInputElement>(entry, 'input[type="text"]');
     names.addEventListener('input', () => { if (!busy) { entry.names = names.value; clearExport(); render(); } });

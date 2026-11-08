@@ -2,13 +2,15 @@ import { composeIcon, normalizeLegacySkin, type IconTemplates } from './pixels';
 import { readPngDimensions, validateSkinDimensions } from './validation';
 import { decodePngRgba, encodePngRgba, needsBrowserPngDecoder } from './png';
 import { composeSkinFace } from './faces';
+import { detectSkinModel } from './skin-model';
+import type { SkinModel } from './addon';
 
 let templates: IconTemplates | undefined;
 let loading: Promise<void> | undefined;
 
 export function loadIconTemplates(): Promise<void> {
   if (templates) return Promise.resolve();
-  if (!loading) loading = fetch(`${import.meta.env.BASE_URL}assets/icon-templates.json`)
+  if (!loading) loading = fetch(`${import.meta.env?.BASE_URL ?? '/'}assets/icon-templates.json`)
     .then(async response => {
       if (!response.ok) throw new Error('Icon templates could not be loaded. Refresh the page to try again.');
       const data: IconTemplates = await response.json();
@@ -54,12 +56,13 @@ export async function decodeSkinFace(file: File): Promise<string> {
   return URL.createObjectURL(new Blob([new Uint8Array(png)], { type: 'image/png' }));
 }
 
-export async function decodeSkin(file: File, model: 'wide' | 'slim'): Promise<{
-  texturePng: Uint8Array; iconPng: Uint8Array; iconUrl: string; width: number; height: number;
+export async function decodeSkin(file: File, model?: SkinModel): Promise<{
+  texturePng: Uint8Array; iconPng: Uint8Array; iconUrl: string; width: number; height: number; model: SkinModel;
 }> {
   const skin = await readSkin(file);
   const { source, width, height } = skin;
-  if (height === 32 && model === 'slim') throw new Error('Legacy 64 × 32 skins use the wide model. Choose Wide.');
+  const selectedModel = model ?? detectSkinModel(skin.pixels, width, height);
+  if (height === 32 && selectedModel === 'slim') throw new Error('Legacy 64 × 32 skins use the wide model. Choose Wide.');
   await loadIconTemplates();
   let pixels = skin.pixels;
   let texturePng: Uint8Array = source;
@@ -67,7 +70,7 @@ export async function decodeSkin(file: File, model: 'wide' | 'slim'): Promise<{
     pixels = normalizeLegacySkin(pixels);
     texturePng = encodePngRgba(64, 64, pixels);
   }
-  const output = composeIcon(templates![model], pixels, width);
+  const output = composeIcon(templates![selectedModel], pixels, width);
   const iconPng = encodePngRgba(128, 128, output);
-  return { texturePng, iconPng, iconUrl: URL.createObjectURL(new Blob([new Uint8Array(iconPng)], { type: 'image/png' })), width, height };
+  return { texturePng, iconPng, iconUrl: URL.createObjectURL(new Blob([new Uint8Array(iconPng)], { type: 'image/png' })), width, height, model: selectedModel };
 }

@@ -238,7 +238,10 @@ h1 { margin: 0; font-size: clamp(28px, 3vw, 38px); font-weight: 650; letter-spac
 .browse-tag { flex-shrink: 0; padding: 6px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--accent-ink); font-size: 10px; font-weight: 600; }
 .file-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
 .supported-formats { color: var(--subtle); font-size: 10px; line-height: 1.65; margin: 9px 0 0; }
-.model-field { min-width: 0; border: 0; padding: 0; margin: 24px 0 0; }
+.model-reveal { display: grid; grid-template-rows: 0fr; opacity: 0; visibility: hidden; transition: grid-template-rows 240ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease, visibility 0s linear 240ms; }
+.model-reveal.is-visible { grid-template-rows: 1fr; opacity: 1; visibility: visible; transition: grid-template-rows 240ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease, visibility 0s; }
+.model-reveal-inner { min-height: 0; overflow: hidden; }
+.model-field { min-width: 0; border: 0; padding: 3px; margin: 21px 0 0; }
 .model-field legend { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0; margin-bottom: 10px; font-size: 13px; font-weight: 600; }
 .model-field legend > span { color: var(--subtle); font-size: 10px; font-weight: 400; }
 .model-options { display: flex; gap: 10px; }
