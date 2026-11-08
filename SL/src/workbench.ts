@@ -314,7 +314,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     actions.querySelector<HTMLButtonElement>('.commit-skin')!.addEventListener('click', () => {
       if (busy || entry !== draft || !ready(entry)) return;
       draft = null; entries.push(entry); entry.validationShown = true;
-      byId('skin-list').append(row); clearExport(); selectEntry(entry, true);
+      byId('skin-list').append(row); clearExport(); addAndFocus();
     });
     row.querySelector<HTMLButtonElement>('.skin-select')!.addEventListener('click', () => selectEntry(entry));
     row.querySelector<HTMLButtonElement>('.remove-list-skin')!.addEventListener('click', () => removeEntry(entry));
