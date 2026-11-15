@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/t
 speedometer.unit.mph.short=mph
 entity.dark7mc:night_fury.name=Nattvrede
 entity.dark7mc:ancient_elemental.name=Eldgammelt elementvesen
+morph.item.switch_potion=Snik og bruk gjenstanden for å bytte eliksir.
+morph.witch.potion_cooldown=Du kan bruke en eliksir igjen om %s sekunder.
+morph.witch.selected_potion=Valgt eliksir: %s

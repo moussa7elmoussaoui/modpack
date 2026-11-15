@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=км/ч
 speedometer.unit.mph.short=миль/ч
 entity.dark7mc:night_fury.name=Ночная Фурия
 entity.dark7mc:ancient_elemental.name=Древний элементаль
+morph.item.switch_potion=Крадитесь и используйте предмет, чтобы сменить зелье.
+morph.witch.potion_cooldown=Вы сможете снова использовать зелье через %s сек.
+morph.witch.selected_potion=Выбранное зелье: %s

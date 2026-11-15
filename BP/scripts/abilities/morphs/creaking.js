@@ -21,8 +21,10 @@ afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
   entity.dimension.spawnParticle("minecraft:mob_block_spawn_emitter", entity.location, particleVariables);
 });
 
-morphEvents.beforeMorph.subscribe(({ player, previousMorph }) => {
-  if (previousMorph.entityType !== ENTITY_TYPE) return;
+morphEvents.beforeMorph.subscribe(data => {
+  const { player, previousMorph } = data;
+  cancelEventIfImmobile(player, data);
+  if (data.cancel || previousMorph?.entityType !== ENTITY_TYPE) return;
   player.onScreenDisplay.setHudVisibility(HudVisibility.Reset, [HudElement.Health, HudElement.Armor]);
 });
 
@@ -38,7 +40,7 @@ beforeEvents.playerInteractWithBlock.subscribe(data => {
 
   cancelEventIfImmobile(player, data);
   
-  if (!isFirstEvent || player.isSneaking) return;
+  if (data.cancel || !isFirstEvent || player.isSneaking) return;
 
   const isHeartInactive = block.typeId === VANILLA_HEART_BLOCK && block.permutation.getState("creaking_heart_state") !== "awake";
   if (!isHeartInactive || !isMorphedAsCreaking(player, false)) return;
@@ -46,7 +48,11 @@ beforeEvents.playerInteractWithBlock.subscribe(data => {
   data.cancel = true;
 
   system.run(() => {
-    const data = JSON.parse(world.getDynamicProperty(LINKED_CREAKINGS_DATA));
+    if (!player.isValid || !isMorphedAsCreaking(player, false) ||
+      player.getProperty("minecraft:creaking_state") === "hostile_observed" ||
+      block.typeId !== VANILLA_HEART_BLOCK || block.permutation.getState("creaking_heart_state") === "awake") return;
+
+    const data = JSON.parse(world.getDynamicProperty(LINKED_CREAKINGS_DATA) ?? "{}");
     data[player.id] = { dimension: block.dimension.id, ...block.location };
     world.setDynamicProperty(LINKED_CREAKINGS_DATA, JSON.stringify(data));
 
@@ -75,20 +81,18 @@ system.runInterval(() => {
   let isDataModified = false;
 
   for (const [entityId, blockLocation] of Object.entries(data)) {
-    const dimension = world.getDimension(blockLocation.dimension);
-    const block = dimension.getBlock(blockLocation);
     const entity = world.getEntity(entityId);
 
     if (
-      block?.typeId === CUSTOM_HEART_BLOCK &&
       entity instanceof Player &&
-      entity.dimension.id === dimension.id &&
+      entity.dimension.id === blockLocation.dimension &&
       isMorphedAsCreaking(entity, true) &&
       Math.hypot(
         entity.location.x - (blockLocation.x + 0.5),
         entity.location.y - (blockLocation.y + 0.5),
         entity.location.z - (blockLocation.z + 0.5)
-      ) <= MAX_DISTANCE_FROM_HEART
+      ) <= MAX_DISTANCE_FROM_HEART &&
+      entity.dimension.getBlock(blockLocation)?.typeId === CUSTOM_HEART_BLOCK
     ) continue;
 
     delete data[entityId];

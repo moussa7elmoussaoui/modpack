@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/h
 speedometer.unit.mph.short=mph
 entity.dark7mc:night_fury.name=Furie Nocturne
 entity.dark7mc:ancient_elemental.name=Élémentaire ancien
+morph.item.switch_potion=Accroupissez-vous et utilisez l'objet pour changer de potion.
+morph.witch.potion_cooldown=Vous pourrez réutiliser une potion dans %s secondes.
+morph.witch.selected_potion=Potion sélectionnée : %s

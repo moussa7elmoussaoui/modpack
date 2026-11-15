@@ -3,17 +3,8 @@ import { morphEvents } from "../morph/entity-methods";
 import { feedback } from "../utils/messages";
 
 const FLYING_ENTITY_TYPES = [
-  "minecraft:bat",
-  "minecraft:blaze",
-  "minecraft:wither",
-  "minecraft:bee",
-  "minecraft:parrot",
-  "minecraft:vex",
-  "minecraft:ghast",
-  "minecraft:phantom",
-  "minecraft:allay",
-  "minecraft:ender_dragon",
-  "dark7mc:night_fury"
+  "dark7mc:night_fury",
+  "dark7mc:ancient_elemental"
 ];
 
 const MAYFLY_PROPERTY = "mayfly";
@@ -24,6 +15,12 @@ function isFlyingMorph(player) {
   const morph = player.getMorph();
   return morph !== undefined && FLYING_ENTITY_TYPES.includes(morph.entityType);
 }
+
+system.runInterval(() => {
+  for (const player of world.getPlayers()) {
+    if (isFlyingMorph(player)) player.addEffect("slow_falling", 1, { showParticles: false });
+  }
+}, 1);
 
 function setMayfly(player, enabled) {
   if (educationDisabled) return false;

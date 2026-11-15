@@ -1,45 +1,14 @@
 import { world, system } from "@minecraft/server";
-
-const flowers = [
-  "minecraft:poppy",
-  "minecraft:blue_orchid",
-  "minecraft:allium",
-  "minecraft:azure_bluet",
-  "minecraft:red_tulip",
-  "minecraft:orange_tulip",
-  "minecraft:white_tulip",
-  "minecraft:pink_tulip",
-  "minecraft:oxeye_daisy",
-  "minecraft:cornflower",
-  "minecraft:lily_of_the_valley",
-  "minecraft:dandelion",
-  "minecraft:wither_rose",
-  "minecraft:sunflower",
-  "minecraft:lilac",
-  "minecraft:rose_bush",
-  "minecraft:peony",
-  "minecraft:flowering_azalea",
-  "minecraft:azalea_leaves_flowered",
-  "minecraft:mangrove_propagule",
-  "minecraft:pitcher_plant",
-  "minecraft:torchflower",
-  "minecraft:cherry_leaves",
-  "minecraft:pink_petals",
-  "minecraft:open_eyeblossom",
-  "minecraft:wildflowers",
-  "minecraft:cactus_flower",
-  "minecraft:chorus_flower",
-  "minecraft:spore_blossom"
-];
+import pollinatableFlowers from "../../data/block-groups/pollinatable-flowers";
 
 const duration = {};
 
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
     if (duration[player.id] == undefined) { duration[player.id] = { nectarCollection: 0, noStinger: 200 }; };
-    if (player.getProperty("dark7mc:entity") == 40 && player.location.y >= player.dimension.heightRange.min && player.location.y <= player.dimension.heightRange.max) {
+    if (player.getProperty("dark7mc:entity") == 40 && player.location.y >= player.dimension.heightRange.min && player.location.y < player.dimension.heightRange.max) {
       const block = player.dimension.getBlock(player.location);
-      if (!player.getProperty("minecraft:has_nectar") && player.isSneaking && flowers.includes(block.typeId)) {
+      if (!player.getProperty("minecraft:has_nectar") && player.isSneaking && pollinatableFlowers.includes(block?.typeId)) {
         if (duration[player.id].nectarCollection >= 1) {
           player.triggerEvent("morph:bee_has_nectar");
           player.dimension.playSound("block.beehive.drip", player.location);
@@ -47,7 +16,7 @@ system.runInterval(() => {
         } else { duration[player.id].nectarCollection += 1/200; };
       } else if (duration[player.id].nectarCollection > 0) { duration[player.id].nectarCollection = 0; };
     } else if (duration[player.id].nectarCollection > 0) { duration[player.id].nectarCollection = 0; };
-    if (player.getProperty("dark7mc:entity") == 40 && player.getComponent("minecraft:mark_variant").value == 1) {
+    if (player.getProperty("dark7mc:entity") == 40 && player.getComponent("minecraft:mark_variant")?.value == 1) {
       if (player.getGameMode() == "Creative") { player.triggerEvent("morph:bee_has_stinger"); }
       else {
         if (duration[player.id].noStinger > 0) {
@@ -69,17 +38,20 @@ system.runInterval(() => {
   };
 });
 
-world.beforeEvents.playerInteractWithBlock.subscribe(data => {
-  const { block, isFirstEvent, player } = data;
+world.beforeEvents.playerInteractWithBlock.subscribe(({ block, isFirstEvent, player }) => {
+  if (!isFirstEvent || player.getProperty("dark7mc:entity") !== 40 || !player.getProperty("minecraft:has_nectar") ||
+    !["minecraft:bee_nest", "minecraft:beehive"].includes(block.typeId)) return;
+
   system.run(() => {
-    if (isFirstEvent && player.getProperty("dark7mc:entity") == 40 && player.getProperty("minecraft:has_nectar") && (block.typeId == "minecraft:bee_nest" || block.typeId == "minecraft:beehive")) {
-      player.triggerEvent("morph:bee_no_nectar");
-      block.setPermutation(block.permutation.withState("honey_level", block.permutation.getState("honey_level") < 5 ? block.permutation.getState("honey_level") + 1 : block.permutation.getState("honey_level") + 0));
-      block.dimension.playSound("block.beehive.enter", block.location);
-    };
+    if (!player.isValid || player.getProperty("dark7mc:entity") !== 40 || !player.getProperty("minecraft:has_nectar") ||
+      player.dimension.id !== block.dimension.id || !["minecraft:bee_nest", "minecraft:beehive"].includes(block.typeId)) return;
+    const honey = block.permutation.getState("honey_level");
+    if (honey >= 5) return;
+
+    block.setPermutation(block.permutation.withState("honey_level", honey + 1));
+    player.triggerEvent("morph:bee_no_nectar");
+    block.dimension.playSound("block.beehive.enter", block.location);
   });
 });
 
-export function getFlowers() {
-  return flowers;
-};
+world.afterEvents.playerLeave.subscribe(({ playerId }) => delete duration[playerId]);

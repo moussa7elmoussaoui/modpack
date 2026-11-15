@@ -1,0 +1,1 @@
+{"format_version":"1.10.0","render_controllers":{"controller.render.morph.happy_ghast":{"geometry":"Geometry.happy_ghast","materials":[{"*":"Material.happy_ghast"}],"textures":["query.is_baby ? Texture.ghastling : Texture.happy_ghast"],"part_visibility":[{"*":"!query.is_invisible"}]}}}

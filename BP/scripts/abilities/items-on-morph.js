@@ -1,6 +1,7 @@
-import { EntityComponentTypes, EntityDamageCause, EntityTypes, EquipmentSlot, ItemLockMode, ItemStack, system, world } from "@minecraft/server";
+import { EntityComponentTypes, EntityDamageCause, EntityTypes, EquipmentSlot, ItemLockMode, ItemStack, Potions, system, world } from "@minecraft/server";
 import { InventoryMirror } from "../waila/core/InventoryMirror.js";
 import { ATTACHED_MORPH_TYPE_PROPERTY, ATTACHED_TO_MORPH_PROPERTY, canUseMorphAbility, getMorphAbilityState, isMorphAbilityItem } from "./morph-item-guard";
+import { getWitchPotionEffect, WITCH_ENTITY_TYPE, WITCH_POTIONS } from "../data/witch-potions";
 
 const CUSTOM_ENTITY_TYPE_NAMES = Object.freeze({
   "dark7mc:night_fury": "entity.dark7mc:night_fury.name",
@@ -51,6 +52,8 @@ function reconcileMorphItems(player) {
   function keepAbilityItem(itemStack) {
     if (itemStack.getDynamicProperty(ATTACHED_MORPH_TYPE_PROPERTY) !== entityType ||
       !itemTypes.has(itemStack.typeId) || existingItems.has(itemStack.typeId)) return false;
+    if (entityType === WITCH_ENTITY_TYPE && WITCH_POTIONS[itemStack.typeId] !== undefined &&
+      getWitchPotionEffect(itemStack) === undefined) return false;
     existingItems.add(itemStack.typeId);
     return true;
   }
@@ -101,8 +104,11 @@ function reconcileMorphItems(player) {
   }
 }
 
-function createAttachedMorphItem(itemType, entityType) {
-  const itemStack = new ItemStack(itemType);
+export function createAttachedMorphItem(itemType, entityType, potionEffect) {
+  const potion = entityType === WITCH_ENTITY_TYPE ? WITCH_POTIONS[itemType] : undefined;
+  const itemStack = potion === undefined
+    ? new ItemStack(itemType)
+    : Potions.resolve(potion.effects.includes(potionEffect) ? potionEffect : potion.effects[0], potion.delivery);
   itemStack.lockMode = ItemLockMode.inventory;
   itemStack.keepOnDeath = true;
   itemStack.setDynamicProperty(ATTACHED_TO_MORPH_PROPERTY, true);
@@ -120,6 +126,14 @@ function createAttachedMorphItem(itemType, entityType) {
     },
     { text: "§r" }
   ]}]);
+
+  if (potion !== undefined) {
+    itemStack.setLore([...itemStack.getRawLore(), { rawtext: [
+      { text: "\n\u00a7r\u00a77" },
+      { translate: "morph.item.switch_potion" },
+      { text: "\u00a7r" }
+    ]}]);
+  }
 
   const durabilityComponent = itemStack.getComponent("minecraft:durability");
   if (durabilityComponent !== undefined) durabilityComponent.unbreakable = true;

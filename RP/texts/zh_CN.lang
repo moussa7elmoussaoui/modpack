@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/h
 speedometer.unit.mph.short=mph
 entity.dark7mc:night_fury.name=夜煞
 entity.dark7mc:ancient_elemental.name=远古元素生物
+morph.item.switch_potion=潜行时使用物品可切换药水。
+morph.witch.potion_cooldown=%s 秒后可再次使用药水。
+morph.witch.selected_potion=已选择药水：%s

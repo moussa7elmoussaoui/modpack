@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=км/ч
 speedometer.unit.mph.short=мили/ч
 entity.dark7mc:night_fury.name=Нощен бяс
 entity.dark7mc:ancient_elemental.name=Древен елементал
+morph.item.switch_potion=Приклекнете и използвайте предмета, за да смените отварата.
+morph.witch.potion_cooldown=Ще можете да използвате отвара отново след %s секунди.
+morph.witch.selected_potion=Избрана отвара: %s

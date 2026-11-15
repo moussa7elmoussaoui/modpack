@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/h
 speedometer.unit.mph.short=mph
 entity.dark7mc:night_fury.name=ナイト・フューリー
 entity.dark7mc:ancient_elemental.name=古代の精霊
+morph.item.switch_potion=スニークしながら使うとポーションを切り替えます。
+morph.witch.potion_cooldown=%s 秒後にポーションを再び使用できます。
+morph.witch.selected_potion=選択したポーション: %s

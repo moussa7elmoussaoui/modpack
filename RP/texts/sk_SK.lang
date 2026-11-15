@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/h
 speedometer.unit.mph.short=mph
 entity.dark7mc:night_fury.name=Nočný bes
 entity.dark7mc:ancient_elemental.name=Prastarý elementál
+morph.item.switch_potion=Prikrč sa a použi predmet na zmenu elixíru.
+morph.witch.potion_cooldown=Elixír budeš môcť znova použiť o %s sekúnd.
+morph.witch.selected_potion=Vybraný elixír: %s

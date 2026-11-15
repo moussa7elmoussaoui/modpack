@@ -3,7 +3,7 @@ import { BlockPermutation, world } from "@minecraft/server";
 export default {
   id: "creaking_heart",
   onTick: ({ block, dimension }) => {
-    const data = JSON.parse(world.getDynamicProperty("linkedCreakingMorphs"));
+    const data = JSON.parse(world.getDynamicProperty("linkedCreakingMorphs") ?? "{}");
     let isBlockValid = false;
 
     for (const blockLocation of Object.values(data)) {

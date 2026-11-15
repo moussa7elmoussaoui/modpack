@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/h
 speedometer.unit.mph.short=mph
 entity.dark7mc:night_fury.name=Νυχτερινή Οργή
 entity.dark7mc:ancient_elemental.name=Αρχαίο στοιχειακό
+morph.item.switch_potion=Σκύψε και χρησιμοποίησε το αντικείμενο για να αλλάξεις φίλτρο.
+morph.witch.potion_cooldown=Θα μπορείς να χρησιμοποιήσεις ξανά φίλτρο σε %s δευτερόλεπτα.
+morph.witch.selected_potion=Επιλεγμένο φίλτρο: %s

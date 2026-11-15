@@ -357,45 +357,105 @@
 		"animation.morph.sniffer.sleeping": {
 			"loop": true,
 			"bones": {
-				"root": {
-					"rotation": [ 0, "90 - query.sleep_rotation - query.body_y_rotation", 0 ],
-					"position": [ "8 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 8 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -3, "8 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 8 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ]
-				},
 				"body": {
-					"position": [ 0, -7, 0 ]
+					"position": [
+						0,
+						-7,
+						0
+					]
 				},
 				"_head": {
-					"position": [ 0, 1, 0 ]
+					"position": [
+						0,
+						1,
+						0
+					]
 				},
 				"left_ear": {
-					"rotation": [ 0, 0, -30 ]
+					"rotation": [
+						0,
+						0,
+						-30
+					]
 				},
 				"right_ear": {
-					"rotation": [ 0, 0, 30 ]
+					"rotation": [
+						0,
+						0,
+						30
+					]
 				},
 				"right_front_leg": {
-					"rotation": [ 0, 0, 90 ],
-					"position": [ -4, -5.5, 0 ]
+					"rotation": [
+						0,
+						0,
+						90
+					],
+					"position": [
+						-4,
+						-5.5,
+						0
+					]
 				},
 				"right_mid_leg": {
-					"rotation": [ 0, 0, 90 ],
-					"position": [ -4, -5.5, 0 ]
+					"rotation": [
+						0,
+						0,
+						90
+					],
+					"position": [
+						-4,
+						-5.5,
+						0
+					]
 				},
 				"right_hind_leg": {
-					"rotation": [ 0, 0, 90 ],
-					"position": [ -4, -5.5, 0 ]
+					"rotation": [
+						0,
+						0,
+						90
+					],
+					"position": [
+						-4,
+						-5.5,
+						0
+					]
 				},
 				"left_front_leg": {
-					"rotation": [ 0, 0, -90 ],
-					"position": [ 4, -5.5, 0 ]
+					"rotation": [
+						0,
+						0,
+						-90
+					],
+					"position": [
+						4,
+						-5.5,
+						0
+					]
 				},
 				"left_mid_leg": {
-					"rotation": [ 0, 0, -90 ],
-					"position": [ 4, -5.5, 0 ]
+					"rotation": [
+						0,
+						0,
+						-90
+					],
+					"position": [
+						4,
+						-5.5,
+						0
+					]
 				},
 				"left_hind_leg": {
-					"rotation": [ 0, 0, -90 ],
-					"position": [ 4, -5.5, 0 ]
+					"rotation": [
+						0,
+						0,
+						-90
+					],
+					"position": [
+						4,
+						-5.5,
+						0
+					]
 				}
 			}
 		},

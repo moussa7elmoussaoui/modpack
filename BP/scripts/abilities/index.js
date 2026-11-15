@@ -1,7 +1,11 @@
 import "./health-percentage";
 import "./fly";
+import "./vanilla-flight";
 import "./night-fury-wake";
 import "./morphs/creaking";
+import "./morphs/creeper";
+import "./morphs/ender-dragon";
 import "./morphs/shulker";
+import "./morphs/witch";
 import "./morphs/spiders";
 import "./transient-arrow";

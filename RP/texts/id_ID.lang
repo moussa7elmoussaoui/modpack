@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/jam
 speedometer.unit.mph.short=mil/jam
 entity.dark7mc:night_fury.name=Amukan Malam
 entity.dark7mc:ancient_elemental.name=Elemental Kuno
+morph.item.switch_potion=Mengendap dan gunakan item untuk mengganti ramuan.
+morph.witch.potion_cooldown=Kamu dapat menggunakan ramuan lagi dalam %s detik.
+morph.witch.selected_potion=Ramuan terpilih: %s

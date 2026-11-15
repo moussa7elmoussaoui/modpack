@@ -786,7 +786,9 @@ const morphs = {
       ]
     }
   },
-  "minecraft:witch": {},
+  "minecraft:witch": {
+    items: [{ id: "minecraft:potion" }, { id: "minecraft:splash_potion" }]
+  },
   "minecraft:rabbit": {
     properties: {
       age: [
@@ -1621,6 +1623,14 @@ const morphs = {
   "minecraft:creaking": {},
   "dark7mc:ancient_elemental": {
     items: [{ id: "dark7mc:elemental_charge" }]
+  },
+  "minecraft:happy_ghast": {
+    properties: {
+      age: [
+        { value: "adult", condition: { component: "minecraft:is_baby", method: "has", operator: "!=" } },
+        { value: "baby", condition: { component: "minecraft:is_baby", method: "has", operator: "==" } }
+      ]
+    }
   }
 };
 

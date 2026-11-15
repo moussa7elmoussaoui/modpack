@@ -1,5 +1,5 @@
 import { world, system } from "@minecraft/server";
-import { getFlowers } from "old-scripts/mobs/bee.js";
+import pollinatableFlowers from "../data/block-groups/pollinatable-flowers";
 
 const duration = {};
 
@@ -19,8 +19,8 @@ system.runInterval(() => {
         duration[player.id] = 0;
         progressBar(player, duration[player.id]);
       };
-    } else if (player.getProperty("dark7mc:entity") == 40 && player.location.y >= player.dimension.heightRange.min && player.location.y <= player.dimension.heightRange.max) {
-      if (!player.getProperty("minecraft:has_nectar") && player.isSneaking && (getFlowers().includes(player.dimension.getBlock(player.location).typeId))) {
+    } else if (player.getProperty("dark7mc:entity") == 40 && player.location.y >= player.dimension.heightRange.min && player.location.y < player.dimension.heightRange.max) {
+      if (!player.getProperty("minecraft:has_nectar") && player.isSneaking && (pollinatableFlowers.includes(player.dimension.getBlock(player.location)?.typeId))) {
         duration[player.id] += 1/200;
         progressBar(player, duration[player.id], 10);
       } else if (duration[player.id] > 0) {
@@ -55,3 +55,4 @@ function progressBar(entity, value, count = 5) {
   };
   entity.onScreenDisplay.setActionBar(`${Math.floor(count * value) >= count ? "§a" : "§e"}${bars}§r`);
 };
+world.afterEvents.playerLeave.subscribe(({ playerId }) => delete duration[playerId]);

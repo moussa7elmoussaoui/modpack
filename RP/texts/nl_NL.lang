@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/h
 speedometer.unit.mph.short=mph
 entity.dark7mc:night_fury.name=Helleveeg
 entity.dark7mc:ancient_elemental.name=Oeroude elementaal
+morph.item.switch_potion=Sluip en gebruik het voorwerp om van drank te wisselen.
+morph.witch.potion_cooldown=Je kunt over %s seconden weer een drank gebruiken.
+morph.witch.selected_potion=Geselecteerde drank: %s

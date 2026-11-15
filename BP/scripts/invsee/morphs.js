@@ -12,7 +12,7 @@ import { LocalizedError } from "../utils/messages";
 export function readMorphMenu(target) {
   const active = findActiveOmnitrix(target);
   if (!active) throw new LocalizedError("invsee.error.no_omnitrix");
-  const ids = normalizeMorphIdsForMenu(target, { setItem() {} }, active.itemStack, readStoredMorphIds(active.itemStack));
+  const ids = normalizeMorphIdsForMenu(target, undefined, active.itemStack, readStoredMorphIds(active.itemStack));
   const owner = new Morph("minecraft:player", {}, target.name).toString();
   const visible = ids.filter(id => !isHiddenSpecialMorph(id, target));
   if (!visible.includes(owner)) visible.push(owner);

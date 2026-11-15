@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/sa
 speedometer.unit.mph.short=mil/sa
 entity.dark7mc:night_fury.name=Gecenin Öfkesi
 entity.dark7mc:ancient_elemental.name=Kadim Elemental
+morph.item.switch_potion=İksiri değiştirmek için eğilerek eşyayı kullan.
+morph.witch.potion_cooldown=%s saniye sonra tekrar iksir kullanabilirsin.
+morph.witch.selected_potion=Seçilen iksir: %s

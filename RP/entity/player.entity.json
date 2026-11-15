@@ -115,7 +115,8 @@
         "breeze_eyes": "breeze_eyes",
         "breeze_wind": "breeze_wind",
         "creaking": "creaking",
-        "creaking_eyes": "creaking_eyes"
+        "creaking_eyes": "creaking_eyes",
+        "happy_ghast": "ghast"
       },
                   "textures": {
         "default": "textures/entity/steve",
@@ -673,7 +674,9 @@
         "player_171": "textures/entity/player/wide/grox",
         "player_172": "textures/entity/player/wide/pewdiepie",
         "player_173": "textures/entity/player/wide/dark7mc",
-        "player_174": "textures/entity/player/wide/urban7mc"
+        "player_174": "textures/entity/player/wide/urban7mc",
+        "happy_ghast": "textures/entity/happy_ghast/happy_ghast",
+        "ghastling": "textures/entity/happy_ghast/ghastling"
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
@@ -825,7 +828,8 @@
         "breeze_wind_bottom": "geometry.morph.breeze_wind_bottom",
         "night_fury": "geometry.morph.night_fury",
         "ancient_elemental": "geometry.morph.ancient_elemental",
-        "creaking_": "geometry.morph.creaking"
+        "creaking_": "geometry.morph.creaking",
+        "happy_ghast": "geometry.morph.happy_ghast"
       },
       "scripts": {
         "scale": "(variable.map_face_icon || variable.is_paperdoll || query.property('dark7mc:entity') == 0) ? 0.9375 : (query.any(query.property('dark7mc:entity'), 1, 2, 4, 6, 8, 11, 12, 13, 14, 19, 20, 21, 24, 26, 29, 30, 32, 34, 35, 36, 39, 40, 44, 50, 62, 71, 74, 75) && query.is_baby ? 2.0 : query.any(query.property('dark7mc:entity'), 14, 27, 47, 57, 60) ? 0.9375 : query.any(query.property('dark7mc:entity'), 18, 64) && query.is_baby ? (1 / 0.4) : query.property('dark7mc:entity') == 33 ? 0.7 : query.property('dark7mc:entity') == 37 ? 2.0 : query.property('dark7mc:entity') == 38 && query.is_baby ? (1 / 0.65) : query.property('dark7mc:entity') == 46 && query.is_baby ? (1 / 0.16) : query.property('dark7mc:entity') == 48 ? (query.is_baby ? (1 / 0.4) : (1 / 0.6)) : query.property('dark7mc:entity') == 49 && query.is_in_ui ? 0.5 : query.property('dark7mc:entity') == 52 ? (query.is_baby ? 2.0 : 1.2) : query.property('dark7mc:entity') == 65 && !query.is_in_ui ? 2.35 : query.any(query.property('dark7mc:entity'), 68, 76) && query.is_baby ? (1 / 0.45) : query.property('dark7mc:entity') == 72 ? (query.is_baby ? 2.0 : 0.87) : query.property('dark7mc:entity') == 73 ? (query.is_baby ? 2.0 : 0.92) : query.property('dark7mc:entity') == 77 && !query.is_sleeping && query.is_in_ui ? 0.25 : query.property('dark7mc:entity') == 78 && query.is_baby ? (1 / 0.6) : query.property('dark7mc:entity') == 81 && !query.is_in_ui ? 0.4 : query.property('dark7mc:entity') == 83 && !query.is_in_ui ? 0.8 : 1.0) * !variable.is_first_person",
@@ -975,6 +979,61 @@
           "variable.is_third_person = !variable.is_first_person && !variable.map_face_icon && !variable.is_paperdoll;",
           "variable.is_either_person = variable.is_first_person || variable.is_third_person;",
           "(variable.is_either_person && query.property('dark7mc:entity') != 0) ? {",
+          "query.any(query.property('dark7mc:entity'), 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 82, 84) ? {",
+          "variable.sleep_position.h = 0.0;",
+          "variable.sleep_position.v = 0.0;",
+          "variable.sleep_rotation.x = 0.0;",
+          "variable.sleep_rotation.y = 90.0;",
+          "variable.sleep_head_offset = 0.0;",
+          "variable.sleep_head_rotation = 0.0;",
+          "query.any(query.property('dark7mc:entity'), 1, 3, 5, 9, 10, 11, 13, 15, 16, 17, 19, 21, 23, 25, 31, 35, 37, 43, 44, 45, 49, 53, 54, 63, 65, 69, 70, 79, 80, 82, 84) ? { variable.sleep_rotation.x = -90.0; variable.sleep_rotation.y = 270.0; } : ",
+          "query.any(query.property('dark7mc:entity'), 2, 6, 8, 20, 29, 32, 34, 36, 39, 40, 51, 52, 55, 62, 71, 72, 73, 74, 75) ? { variable.sleep_rotation.x = -180.0; variable.sleep_rotation.y = 270.0; };",
+          "query.any(query.property('dark7mc:entity'), 1, 3, 5, 9, 11, 13, 15, 17, 19, 21, 23, 25, 31, 35, 37, 79, 80) ? { variable.sleep_position.h = query.property('dark7mc:entity') == 5 ? 18.0 : query.property('dark7mc:entity') == 9 ? 35.0 : query.any(query.property('dark7mc:entity'), 17, 37, 80) ? 20.0 : 24.0 / (1.0 + query.is_baby); variable.sleep_position.v = -query.is_baby; variable.sleep_head_rotation = 30.0; } : ",
+          "query.any(query.property('dark7mc:entity'), 2, 34) ? { temp.baby_modifier = 1.0 + query.is_baby; variable.sleep_position.h = 10.0 / temp.baby_modifier; variable.sleep_position.v = 18.0 / temp.baby_modifier; variable.sleep_head_offset = -4.0 / temp.baby_modifier; variable.sleep_head_rotation = 90.0; } : ",
+          "query.property('dark7mc:entity') == 4 ? { variable.sleep_position.h = 4.0 * !query.is_baby; variable.sleep_position.v = -7.0 + (3.0 * query.is_baby); variable.sleep_head_rotation = 35.0; } : ",
+          "query.property('dark7mc:entity') == 6 ? { variable.sleep_position.h = 9.0 - (5.0 * query.is_baby); variable.sleep_position.v = 16.0 - (9.0 * query.is_baby); variable.sleep_head_offset = -3.0 + (query.is_sheared || query.is_baby); variable.sleep_head_rotation = 90.0; } : ",
+          "query.any(query.property('dark7mc:entity'), 7, 33) ? { variable.sleep_position.h = 5.0; variable.sleep_position.v = -7.0; variable.sleep_head_rotation = 20.0; } : ",
+          "query.property('dark7mc:entity') == 8 ? { temp.baby_modifier = 1.0 + query.is_baby; variable.sleep_position.h = 10.0 / temp.baby_modifier; variable.sleep_position.v = 10.0 / temp.baby_modifier; variable.sleep_head_offset = -6.0 / temp.baby_modifier; variable.sleep_head_rotation = 90.0; } : ",
+          "query.property('dark7mc:entity') == 10 ? { variable.sleep_position.h = 7.0; variable.sleep_position.v = -1.0; } : ",
+          "query.property('dark7mc:entity') == 12 ? { variable.sleep_position.v = -3.0 + query.is_baby; } : ",
+          "query.any(query.property('dark7mc:entity'), 14, 27, 41, 47, 57, 60) ? { variable.sleep_position.h = 32.0 / 3.0; variable.sleep_position.v = -1.81338; variable.sleep_rotation.x = query.property('dark7mc:entity') == 41 ? -90.0 : 0.0; variable.sleep_rotation.y = 270.0; } : ",
+          "query.property('dark7mc:entity') == 16 ? { variable.sleep_position.h = 22.0; variable.sleep_position.v = 1.5; } : ",
+          "query.any(query.property('dark7mc:entity'), 18, 26) ? { variable.sleep_position.h = 8.0; } : ",
+          "query.property('dark7mc:entity') == 20 ? { variable.sleep_position.h = 6.0; variable.sleep_position.v = 10.5 - (5.5 * query.is_baby); variable.sleep_head_offset = -2.0 + (0.25 * query.is_baby); variable.sleep_head_rotation = 90.0; } : ",
+          "query.any(query.property('dark7mc:entity'), 22, 28, 66) ? { variable.sleep_position.v = query.property('dark7mc:entity') == 28 ? -1.0 : -0.5; } : ",
+          "query.property('dark7mc:entity') == 24 ? { variable.sleep_position.h = 4.0 / (1.0 + query.is_baby); variable.sleep_position.v = -2.0; } : ",
+          "query.any(query.property('dark7mc:entity'), 29, 39) ? { variable.sleep_position.h = 4.0; variable.sleep_position.v = 23.0 - (11.0 * query.is_baby); } : ",
+          "query.any(query.property('dark7mc:entity'), 30, 50) ? { variable.sleep_position.v = -2.0 - query.is_baby; } : ",
+          "query.any(query.property('dark7mc:entity'), 32, 62) ? { variable.sleep_position.h = 13.0 - (4.0 * query.is_baby); variable.sleep_position.v = 15.0 - (4.0 * query.is_baby); variable.sleep_head_rotation = 90.0; } : ",
+          "query.property('dark7mc:entity') == 36 ? { variable.sleep_position.h = 8.0 - (4.0 * query.is_baby); variable.sleep_position.v = 15.0 - (8.5 * query.is_baby); } : ",
+          "query.property('dark7mc:entity') == 38 ? { variable.sleep_position.h = 4.0 * query.is_baby; variable.sleep_position.v = -2.0; } : ",
+          "query.property('dark7mc:entity') == 40 ? { variable.sleep_position.v = 7.0 - (4.0 * query.is_baby); } : ",
+          "query.property('dark7mc:entity') == 42 ? { variable.sleep_position.h = 8.0; variable.sleep_position.v = -1.5; variable.sleep_rotation.x = 61.713; } : ",
+          "query.any(query.property('dark7mc:entity'), 43, 53) ? { variable.sleep_position.h = (query.variant * 8.0) - 6.0; variable.sleep_position.v = (query.variant * 4.0) - 2.0; } : ",
+          "query.property('dark7mc:entity') == 44 ? { variable.sleep_position.h = 20.0 - (12.0 * query.is_baby); variable.sleep_position.v = -query.is_baby; } : ",
+          "query.property('dark7mc:entity') == 45 ? { variable.sleep_position.h = 6.0; variable.sleep_position.v = -1.0; variable.sleep_head_rotation = 30.0; } : ",
+          "query.property('dark7mc:entity') == 46 ? { variable.sleep_position.h = 5.0 * !query.is_baby; variable.sleep_position.v = -2.0; variable.sleep_rotation.y = 70.0; } : ",
+          "query.property('dark7mc:entity') == 48 ? { variable.sleep_position.h = 6.0; variable.sleep_position.v = 6.0 - (3.4 * query.is_baby); variable.sleep_rotation.x = -157.5 + (7.5 * query.is_baby); variable.sleep_rotation.y = 270.0; variable.sleep_head_offset = -2.87868 + query.is_baby; variable.sleep_head_rotation = 67.5 - (7.5 * query.is_baby); } : ",
+          "query.property('dark7mc:entity') == 49 ? { variable.sleep_position.h = 40.0; variable.sleep_position.v = 34.0; } : ",
+          "query.property('dark7mc:entity') == 51 ? { variable.sleep_position.h = 8.0; variable.sleep_position.v = 4.0; } : ",
+          "query.property('dark7mc:entity') == 52 ? { variable.sleep_position.h = 12.0 / (1.0 + query.is_baby); variable.sleep_position.v = 16.0 / (1.0 + 3.0 * query.is_baby); variable.sleep_head_offset = -1.0 - (0.6 * query.is_baby); variable.sleep_head_rotation = 90.0; } : ",
+          "query.property('dark7mc:entity') == 54 ? { variable.sleep_position.h = 5.0; variable.sleep_position.v = -1.0; } : ",
+          "query.property('dark7mc:entity') == 55 ? { variable.sleep_position.h = 8.0; variable.sleep_position.v = 28.0; variable.sleep_head_offset = -13.0; variable.sleep_head_rotation = 90.0; } : ",
+          "query.property('dark7mc:entity') == 56 ? { variable.sleep_position.v = -3.0; } : ",
+          "query.property('dark7mc:entity') == 58 ? { variable.sleep_position.v = -5.0; } : ",
+          "query.any(query.property('dark7mc:entity'), 59, 61) ? { variable.sleep_position.v = -2.0; } : ",
+          "query.any(query.property('dark7mc:entity'), 63, 65) ? { variable.sleep_position.h = 8.0; variable.sleep_position.v = 6.0; } : ",
+          "query.property('dark7mc:entity') == 64 ? { variable.sleep_position.h = 13.0 - (7.0 * query.is_baby); variable.sleep_position.v = -2.0; variable.sleep_rotation.y = 270.0; } : ",
+          "query.property('dark7mc:entity') == 68 ? { variable.sleep_position.h = 8.0 + (4.0 * query.is_baby); variable.sleep_position.v = -3.0 + (5.0 * query.is_baby); } : ",
+          "query.property('dark7mc:entity') == 69 ? { variable.sleep_position.h = 34.0; variable.sleep_position.v = 1.0; variable.sleep_head_rotation = 30.0; } : ",
+          "query.property('dark7mc:entity') == 70 ? { variable.sleep_position.v = query.variant == 0 ? -0.5 : query.variant == 1 ? 0.5 : query.variant == 2 ? 2.0 : 0.0; } : ",
+          "query.any(query.property('dark7mc:entity'), 71, 72, 73, 74, 75) ? { variable.sleep_position.h = 14.0 - (2.0 * query.is_baby); variable.sleep_position.v = 19.0 - (6.0 * query.is_baby); } : ",
+          "query.property('dark7mc:entity') == 76 ? { variable.sleep_position.h = 11.0; variable.sleep_position.v = -2.5; variable.sleep_head_offset = 1.22 * query.is_baby; variable.sleep_head_rotation = 45.0; } : ",
+          "query.property('dark7mc:entity') == 77 ? { variable.sleep_position.h = 8.0; variable.sleep_position.v = -2.0; } : ",
+          "query.property('dark7mc:entity') == 78 ? { variable.sleep_position.h = 2.0; variable.sleep_position.v = -2.0; variable.sleep_rotation.y = 70.0; } : ",
+          "query.property('dark7mc:entity') == 82 ? { variable.sleep_position.h = 26.0; } : ",
+          "query.property('dark7mc:entity') == 84 ? { variable.sleep_position.h = 40.0; variable.sleep_position.v = 30.0 - ((160/19) * query.is_baby); };",
+          "};",
           "variable.show_items = query.any(query.property('dark7mc:entity'), 3, 15, 25, 31, 41, 79) || (query.any(query.property('dark7mc:entity'), 1, 11, 13, 19, 21, 35) && !query.is_baby) || (query.property('dark7mc:entity') == 27 && (variable.vindicator_show_arms ?? 0.0)) || (query.property('dark7mc:entity') == 57 && (variable.evoker_show_arms ?? 0.0) && !query.is_powered);",
           "variable.baby_modifier = !query.is_baby * 0.5 + 0.5;",
           "t.c = query.property('dark7mc:color');",
@@ -1042,7 +1101,9 @@
           "query.any(query.property('dark7mc:entity'), 30, 50) ? {",
           "  variable.squid_is_swimming = query.is_in_water && !query.is_sleeping;",
           "  variable.squid_tentacle_angle = (query.is_sleeping ? 0.5 : query.is_in_water ? math.hermite_blend(math.mod(query.anim_time * 0.025, 1.0) < 0.4 ? math.mod(query.anim_time * 0.025, 1.0) / 0.4 : math.mod(query.anim_time * 0.025, 1.0) < 0.6 ? 1.0 - ((math.mod(query.anim_time * 0.025, 1.0) - 0.4) / 0.2) : 0.0) : math.abs(math.sin(query.life_time * 90.0))) * 45.0;",
-          "  variable.squid_swim_rotation = variable.squid_is_swimming ? (math.mod(query.anim_time * 0.025, 4.0) < 0.4 ? 0.0 : math.mod(query.anim_time * 0.025, 4.0) < 1.0 ? math.hermite_blend((math.mod(query.anim_time * 0.025, 4.0) - 0.4) / 0.6) * 90.0 : math.mod(query.anim_time * 0.025, 4.0) < 1.4 ? 90.0 : math.mod(query.anim_time * 0.025, 4.0) < 2.0 ? 90.0 + math.hermite_blend((math.mod(query.anim_time * 0.025, 4.0) - 1.4) / 0.6) * 90.0 : math.mod(query.anim_time * 0.025, 4.0) < 2.4 ? 180.0 : math.mod(query.anim_time * 0.025, 4.0) < 3.0 ? 180.0 + math.hermite_blend((math.mod(query.anim_time * 0.025, 4.0) - 2.4) / 0.6) * 90.0 : math.mod(query.anim_time * 0.025, 4.0) < 3.4 ? 270.0 : 270.0 + math.hermite_blend((math.mod(query.anim_time * 0.025, 4.0) - 3.4) / 0.6) * 90.0) : 180.0;",
+          "  variable.squid_spin_rotation = variable.squid_is_swimming ? (math.mod(query.anim_time * 0.025, 4.0) < 0.4 ? 0.0 : math.mod(query.anim_time * 0.025, 4.0) < 1.0 ? math.hermite_blend((math.mod(query.anim_time * 0.025, 4.0) - 0.4) / 0.6) * 90.0 : math.mod(query.anim_time * 0.025, 4.0) < 1.4 ? 90.0 : math.mod(query.anim_time * 0.025, 4.0) < 2.0 ? 90.0 + math.hermite_blend((math.mod(query.anim_time * 0.025, 4.0) - 1.4) / 0.6) * 90.0 : math.mod(query.anim_time * 0.025, 4.0) < 2.4 ? 180.0 : math.mod(query.anim_time * 0.025, 4.0) < 3.0 ? 180.0 + math.hermite_blend((math.mod(query.anim_time * 0.025, 4.0) - 2.4) / 0.6) * 90.0 : math.mod(query.anim_time * 0.025, 4.0) < 3.4 ? 270.0 : 270.0 + math.hermite_blend((math.mod(query.anim_time * 0.025, 4.0) - 3.4) / 0.6) * 90.0) : 180.0;",
+          "  variable.squid_swim_x_rotation = math.atan2(-query.position_delta(1), math.sqrt(math.pow(query.position_delta(0), 2) + math.pow(query.position_delta(2), 2))) + 90.0;",
+          "  variable.squid_swim_y_rotation = math.atan2(query.position_delta(2), query.position_delta(0)) - 90.0 - query.body_y_rotation;",
           "} : ",
           "query.property('dark7mc:entity') == 36 ? {",
           "  variable.goat_tcos_right_side = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed) * 57.3;",
@@ -1248,6 +1309,9 @@
             "look_at_target_y": "variable.is_third_person && (query.any(query.property('dark7mc:entity'), 10, 22, 28, 40, 43, 49, 51, 53, 56, 58, 59, 61, 66, 70, 77) || (query.property('dark7mc:entity') == 4 && query.is_baby)) && !query.is_sleeping && !query.is_gliding"
           },
           {
+            "sleeping_root": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 82, 84) && query.is_sleeping"
+          },
+          {
             "vertical_gliding": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 2, 4, 6, 7, 8, 10, 12, 18, 20, 22, 24, 26, 28, 29, 32, 33, 34, 36, 38, 39, 40, 42, 43, 46, 48, 49, 51, 52, 53, 55, 56, 58, 59, 61, 62, 63, 64, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 77, 78, 81) && query.is_gliding"
           },
           {
@@ -1291,9 +1355,6 @@
           },
           {
             "humanoid_use_item_progress": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 1, 3, 11, 13, 15, 19, 21, 25, 27, 31, 35, 41, 57, 79) && (variable.use_item_interval_progress > 0.0 || variable.use_item_startup_progress > 0.0) && !(query.get_equipped_item_name == 'crossbow' && query.item_remaining_use_duration > 0.0) && !variable.is_tooting_goat_horn"
-          },
-          {
-            "humanoid_sleeping": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 1, 3, 11, 13, 15, 19, 21, 25, 31, 35, 79) && query.is_sleeping"
           },
           {
             "humanoid_crossbow_charge": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 1, 3, 11, 13, 15, 19, 25, 27, 35, 57, 79) && query.get_equipped_item_name == 'crossbow' && query.item_remaining_use_duration > 0.0"
@@ -1368,9 +1429,6 @@
             "cow_setup": "variable.is_third_person && query.property('dark7mc:entity') == 2"
           },
           {
-            "cow_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 2 && query.is_sleeping"
-          },
-          {
             "chicken_move": "variable.is_third_person && query.property('dark7mc:entity') == 4 && query.modified_move_speed"
           },
           {
@@ -1386,22 +1444,16 @@
             "creeper_swelling": "variable.is_third_person && query.property('dark7mc:entity') == 5"
           },
           {
-            "creeper_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 5 && query.is_sleeping"
-          },
-          {
             "creeper_swimming": "variable.is_third_person && query.property('dark7mc:entity') == 5 && variable.swim_amount > 0.0 && !query.is_crawling"
           },
           {
             "creeper_crawling": "variable.is_third_person && query.property('dark7mc:entity') == 5 && query.is_crawling"
           },
           {
-            "sheep_setup": "variable.is_third_person && query.property('dark7mc:entity') == 6"
+            "sheep_setup": "variable.is_third_person && query.property('dark7mc:entity') == 6 && !query.is_sleeping"
           },
           {
             "sheep_grazing_controller": "variable.is_third_person && query.property('dark7mc:entity') == 6"
-          },
-          {
-            "sheep_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 6 && query.is_sleeping"
           },
           {
             "spider_default_leg_pose": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 7, 33)"
@@ -1413,13 +1465,7 @@
             "spider_walk": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 7, 33) && query.modified_move_speed"
           },
           {
-            "spider_sleeping": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 7, 33) && query.is_sleeping"
-          },
-          {
             "pig_setup": "variable.is_third_person && query.property('dark7mc:entity') == 8"
-          },
-          {
-            "pig_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 8 && query.is_sleeping"
           },
           {
             "enderman_move": "variable.is_third_person && query.property('dark7mc:entity') == 9"
@@ -1429,9 +1475,6 @@
           },
           {
             "enderman_arms_legs": "variable.is_third_person && query.property('dark7mc:entity') == 9"
-          },
-          {
-            "enderman_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 9 && query.is_sleeping"
           },
           {
             "enderman_swimming": "variable.is_third_person && query.property('dark7mc:entity') == 9 && variable.swim_amount > 0.0 && !query.is_crawling"
@@ -1444,9 +1487,6 @@
           },
           {
             "bat_flying": "variable.is_third_person && query.property('dark7mc:entity') == 10 && !query.is_on_ground && !query.is_sleeping"
-          },
-          {
-            "bat_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 10 && query.is_sleeping"
           },
           {
             "night_fury_ui_scale": "variable.is_third_person && query.property('dark7mc:entity') == 81 && query.is_in_ui"
@@ -1512,9 +1552,6 @@
             "snow_golem_move": "variable.is_third_person && query.property('dark7mc:entity') == 16 && !query.is_sleeping"
           },
           {
-            "snow_golem_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 16 && query.is_sleeping"
-          },
-          {
             "snow_golem_swimming": "variable.is_third_person && query.property('dark7mc:entity') == 16 && variable.swim_amount > 0.0 && !query.is_crawling"
           },
           {
@@ -1522,9 +1559,6 @@
           },
           {
             "blaze_move": "variable.is_third_person && query.property('dark7mc:entity') == 17"
-          },
-          {
-            "blaze_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 17 && query.is_sleeping"
           },
           {
             "blaze_swimming": "variable.is_third_person && query.property('dark7mc:entity') == 17 && variable.swim_amount > 0.0 && !query.is_crawling"
@@ -1543,9 +1577,6 @@
           },
           {
             "wolf_sitting_controller": "variable.is_third_person && query.property('dark7mc:entity') == 20"
-          },
-          {
-            "wolf_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 20 && query.is_sleeping"
           },
           {
             "piglin_move": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 21, 31)"
@@ -1591,9 +1622,6 @@
           },
           {
             "iron_golem_flower": "variable.is_third_person && query.property('dark7mc:entity') == 23 && query.is_item_name_any('slot.weapon.mainhand', 'minecraft:poppy')"
-          },
-          {
-            "iron_golem_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 23 && query.is_sleeping"
           },
           {
             "iron_golem_swimming": "variable.is_third_person && query.property('dark7mc:entity') == 23 && variable.swim_amount > 0.0 && !query.is_crawling"
@@ -1668,28 +1696,16 @@
             "hoglin_attack": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 29, 39) && variable.attack_time >= 0.0"
           },
           {
-            "hoglin_sleeping": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 29, 39) && query.is_sleeping"
-          },
-          {
             "squid_move": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 30, 50)"
           },
           {
             "squid_rotate": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 30, 50)"
           },
           {
-            "squid_sleeping": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 30, 50) && query.is_sleeping"
-          },
-          {
             "llama_setup": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 32, 62)"
           },
           {
-            "llama_sleeping": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 32, 62) && query.is_sleeping"
-          },
-          {
             "mooshroom_setup": "variable.is_third_person && query.property('dark7mc:entity') == 34"
-          },
-          {
-            "mooshroom_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 34 && query.is_sleeping"
           },
           {
             "goat_walk": "variable.is_third_person && query.property('dark7mc:entity') == 36"
@@ -1699,9 +1715,6 @@
           },
           {
             "goat_attack": "variable.is_third_person && query.property('dark7mc:entity') == 36 && variable.attack_time >= 0.0"
-          },
-          {
-            "goat_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 36 && query.is_sleeping"
           },
           {
             "wither_scale": "variable.is_third_person && query.property('dark7mc:entity') == 37"
@@ -1728,9 +1741,6 @@
             "dolphin_particles": "variable.is_either_person && !query.is_in_ui"
           },
           {
-            "dolphin_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 38 && query.is_sleeping"
-          },
-          {
             "bee_flying": "variable.is_third_person && query.property('dark7mc:entity') == 40 && !query.is_sleeping"
           },
           {
@@ -1744,9 +1754,6 @@
           },
           {
             "bee_fly_bobbing": "variable.is_third_person && query.property('dark7mc:entity') == 40 && !query.is_sleeping"
-          },
-          {
-            "bee_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 40 && query.is_sleeping"
           },
           {
             "pillager_crossbow_hold": "variable.is_third_person && query.property('dark7mc:entity') == 41 && query.get_equipped_item_name == 'crossbow' && query.item_is_charged"
@@ -1764,13 +1771,7 @@
             "parrot_move": "variable.is_third_person && query.property('dark7mc:entity') == 42"
           },
           {
-            "parrot_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 42 && query.is_sleeping"
-          },
-          {
             "slime_scale": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 43, 53)"
-          },
-          {
-            "slime_sleeping": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 43, 53) && query.is_sleeping"
           },
           {
             "strider_look_at_target_controller": "variable.is_third_person && query.property('dark7mc:entity') == 44 && !query.is_sleeping"
@@ -1800,9 +1801,6 @@
             "vex_idle": "variable.is_third_person && query.property('dark7mc:entity') == 45"
           },
           {
-            "vex_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 45 && query.is_sleeping"
-          },
-          {
             "vex_swimming": "variable.is_third_person && query.property('dark7mc:entity') == 45 && variable.swim_amount > 0.0 && !query.is_crawling"
           },
           {
@@ -1815,22 +1813,13 @@
             "turtle_move_controller": "variable.is_third_person && query.property('dark7mc:entity') == 46"
           },
           {
-            "turtle_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 46 && query.is_sleeping"
-          },
-          {
             "witch_general": "variable.is_third_person && query.property('dark7mc:entity') == 47"
           },
           {
             "rabbit_general": "variable.is_third_person && query.property('dark7mc:entity') == 48 && !query.is_sleeping"
           },
           {
-            "rabbit_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 48 && query.is_sleeping"
-          },
-          {
             "ghast_move": "variable.is_third_person && query.property('dark7mc:entity') == 49"
-          },
-          {
-            "ghast_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 49 && query.is_sleeping"
           },
           {
             "phantom_base_pose": "variable.is_either_person && query.property('dark7mc:entity') == 51"
@@ -1845,16 +1834,10 @@
             "phantom_particles": "variable.is_either_person && !query.is_in_ui"
           },
           {
-            "phantom_sleeping": "variable.is_either_person && query.property('dark7mc:entity') == 51 && query.is_sleeping"
-          },
-          {
             "phantom_cancel": "variable.is_first_person && query.property('dark7mc:entity') == 51"
           },
           {
             "polar_bear_move": "variable.is_third_person && query.property('dark7mc:entity') == 52 && !query.is_baby"
-          },
-          {
-            "polar_bear_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 52 && query.is_sleeping"
           },
           {
             "magma_cube_move": "variable.is_third_person && query.property('dark7mc:entity') == 53"
@@ -1879,9 +1862,6 @@
           },
           {
             "ravager_head": "variable.is_third_person && query.property('dark7mc:entity') == 55"
-          },
-          {
-            "ravager_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 55 && query.is_sleeping"
           },
           {
             "frog_general": "variable.is_third_person && query.property('dark7mc:entity') == 56 && !query.is_sleeping"
@@ -1929,13 +1909,7 @@
             "tadpole_swim": "variable.is_third_person && query.property('dark7mc:entity') == 58 && math.min(1.0, query.modified_move_speed * 10) && !query.is_sleeping"
           },
           {
-            "tadpole_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 58 && query.is_sleeping"
-          },
-          {
             "endermite_move": "variable.is_third_person && query.property('dark7mc:entity') == 59 && !query.is_sleeping"
-          },
-          {
-            "endermite_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 59 && query.is_sleeping"
           },
           {
             "silverfish_move": "variable.is_third_person && query.property('dark7mc:entity') == 61 && !query.is_sleeping"
@@ -1954,9 +1928,6 @@
           },
           {
             "guardian_move_eye": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 63, 65)"
-          },
-          {
-            "guardian_sleeping": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 63, 65) && query.is_sleeping"
           },
           {
             "panda_move": "variable.is_third_person && query.property('dark7mc:entity') == 64"
@@ -2016,9 +1987,6 @@
             "pufferfish_swim": "variable.is_third_person && query.property('dark7mc:entity') == 70 && (query.is_in_water || query.is_levitating || query.is_gliding) && !query.is_sleeping"
           },
           {
-            "pufferfish_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 70 && query.is_sleeping"
-          },
-          {
             "horse_walk": "variable.is_third_person && query.any(query.property('dark7mc:entity'), 71, 72, 73, 74, 75)"
           },
           {
@@ -2070,9 +2038,6 @@
             "ender_dragon_quiet_flap_sound": "variable.is_first_person && !query.is_in_ui && query.property('dark7mc:entity') == 77 && !query.is_sleeping"
           },
           {
-            "ender_dragon_sleeping": "variable.is_third_person && query.property('dark7mc:entity') == 77 && query.is_sleeping"
-          },
-          {
             "armadillo_look_at_target": "variable.is_either_person && query.property('dark7mc:entity') == 78 && !variable.armadillo_is_rolled_up"
           },
           {
@@ -2109,9 +2074,6 @@
             "breeze_jump_effects_controller": "variable.is_either_person && !query.is_in_ui && query.property('dark7mc:entity') == 80"
           },
           {
-            "breeze_sleeping": "variable.is_either_person && query.property('dark7mc:entity') == 80 && query.is_sleeping"
-          },
-          {
             "breeze_swimming": "variable.is_either_person && query.property('dark7mc:entity') == 80 && variable.swim_amount > 0.0 && !query.is_crawling"
           },
           {
@@ -2136,9 +2098,6 @@
             "creaking_sway_sound_controller": "variable.is_either_person && !query.is_in_ui && query.property('dark7mc:entity') == 82"
           },
           {
-            "creaking_sleeping": "variable.is_either_person && query.property('dark7mc:entity') == 82 && query.is_sleeping"
-          },
-          {
             "creaking_swimming": "variable.is_either_person && query.property('dark7mc:entity') == 82 && variable.swim_amount > 0.0 && !query.is_crawling"
           },
           {
@@ -2146,6 +2105,12 @@
           },
           {
             "creaking_cancel": "variable.is_first_person && query.property('dark7mc:entity') == 82"
+          },
+          {
+            "happy_ghast_move": "variable.is_third_person && query.property('dark7mc:entity') == 84"
+          },
+          {
+            "happy_ghast_scale": "variable.is_third_person && query.property('dark7mc:entity') == 84"
           }
         ],
         "variables": {
@@ -2268,7 +2233,6 @@
         "humanoid_bob": "animation.morph.humanoid.bob",
         "humanoid_bow_and_arrow": "animation.morph.humanoid.bow_and_arrow",
         "humanoid_use_item_progress": "animation.morph.humanoid.use_item_progress",
-        "humanoid_sleeping": "animation.morph.humanoid.sleeping",
         "humanoid_crossbow_charge": "animation.morph.humanoid.crossbow.charge",
         "humanoid_crossbow_hold": "animation.morph.humanoid.crossbow.hold",
         "humanoid_shield_block_main_hand": "animation.morph.humanoid.shield_block_main_hand",
@@ -2299,34 +2263,27 @@
         "zombie_melee_spear_attack": "animation.morph.zombie.melee_spear_attack",
         "zombie_melee_spear_controller": "controller.animation.morph.zombie.melee_spear",
         "cow_setup": "animation.morph.cow.setup",
-        "cow_sleeping": "animation.morph.cow.sleeping",
         "chicken_move": "animation.morph.chicken.move",
         "chicken_general": "animation.morph.chicken.general",
         "chicken_sleeping": "animation.morph.chicken.sleeping",
         "creeper_legs": "animation.morph.creeper.legs",
         "creeper_swelling": "animation.morph.creeper.swelling",
-        "creeper_sleeping": "animation.morph.creeper.sleeping",
         "creeper_swimming": "animation.morph.creeper.swimming",
         "creeper_crawling": "animation.morph.creeper.crawling",
         "sheep_setup": "animation.morph.sheep.setup",
         "sheep_grazing": "animation.morph.sheep.grazing",
         "sheep_grazing_controller": "controller.animation.morph.sheep.grazing",
-        "sheep_sleeping": "animation.morph.sheep.sleeping",
         "spider_default_leg_pose": "animation.morph.spider.default_leg_pose",
         "spider_look_at_target": "animation.morph.spider.look_at_target",
         "spider_walk": "animation.morph.spider.walk",
-        "spider_sleeping": "animation.morph.spider.sleeping",
         "pig_setup": "animation.morph.pig.setup",
-        "pig_sleeping": "animation.morph.pig.sleeping",
         "enderman_move": "animation.morph.enderman.move",
         "enderman_base_pose": "animation.morph.enderman.base_pose",
         "enderman_arms_legs": "animation.morph.enderman.arms_legs",
-        "enderman_sleeping": "animation.morph.enderman.sleeping",
         "enderman_swimming": "animation.morph.enderman.swimming",
         "enderman_crawling": "animation.morph.enderman.crawling",
         "bat_resting": "animation.morph.bat.resting",
         "bat_flying": "animation.morph.bat.flying",
-        "bat_sleeping": "animation.morph.bat.sleeping",
         "night_fury_idle": "animation.morph.night_fury.idle",
         "night_fury_walk": "animation.morph.night_fury.walk",
         "night_fury_run": "animation.morph.night_fury.run",
@@ -2369,11 +2326,9 @@
         "villager_swimming": "animation.morph.villager.swimming",
         "villager_crawling": "animation.morph.villager.crawling",
         "snow_golem_move": "animation.morph.snow_golem.move",
-        "snow_golem_sleeping": "animation.morph.snow_golem.sleeping",
         "snow_golem_swimming": "animation.morph.snow_golem.swimming",
         "snow_golem_crawling": "animation.morph.snow_golem.crawling",
         "blaze_move": "animation.morph.blaze.move",
-        "blaze_sleeping": "animation.morph.blaze.sleeping",
         "blaze_swimming": "animation.morph.blaze.swimming",
         "blaze_crawling": "animation.morph.blaze.crawling",
         "cat_sneak": "animation.morph.cat.sneak",
@@ -2390,7 +2345,6 @@
         "wolf_leg_default": "animation.morph.wolf.leg_default",
         "wolf_baby_sitting": "animation.morph.wolf.baby_sitting",
         "wolf_sitting_controller": "controller.animation.morph.wolf.sitting",
-        "wolf_sleeping": "animation.morph.wolf.sleeping",
         "piglin_move": "animation.morph.piglin.move",
         "piglin_attack": "animation.morph.piglin.attack",
         "piglin_crossbow_hold": "animation.morph.piglin.crossbow.hold",
@@ -2411,7 +2365,6 @@
         "iron_golem_move_controller": "controller.animation.morph.iron_golem.move",
         "iron_golem_arm_controller": "controller.animation.morph.iron_golem.arm_movement",
         "iron_golem_flower": "animation.morph.iron_golem.flower",
-        "iron_golem_sleeping": "animation.morph.iron_golem.sleeping",
         "iron_golem_swimming": "animation.morph.iron_golem.swimming",
         "iron_golem_crawling": "animation.morph.iron_golem.crawling",
         "axolotl_idle_float": "animation.morph.axolotl.idle_underwater",
@@ -2456,18 +2409,13 @@
         "hoglin_walk": "animation.morph.hoglin.walk",
         "hoglin_look_at_target": "animation.morph.hoglin.look_at_target",
         "hoglin_attack": "animation.morph.hoglin.attack",
-        "hoglin_sleeping": "animation.morph.hoglin.sleeping",
         "squid_move": "animation.morph.squid.move",
         "squid_rotate": "animation.morph.squid.rotate",
-        "squid_sleeping": "animation.morph.squid.sleeping",
         "llama_setup": "animation.morph.llama.setup",
-        "llama_sleeping": "animation.morph.llama.sleeping",
         "mooshroom_setup": "animation.morph.mooshroom.setup",
-        "mooshroom_sleeping": "animation.morph.mooshroom.sleeping",
         "goat_walk": "animation.morph.goat.walk",
         "goat_look_at_target": "animation.morph.goat.look_at_target",
         "goat_attack": "animation.morph.goat.attack",
-        "goat_sleeping": "animation.morph.goat.sleeping",
         "wither_scale": "animation.morph.wither.scale",
         "wither_move": "animation.morph.wither.move",
         "wither_look_at_target_controller": "controller.animation.morph.wither.look_at_target",
@@ -2479,13 +2427,11 @@
         "wither_crawling": "animation.morph.wither.crawling",
         "dolphin_move": "animation.morph.dolphin.move",
         "dolphin_particles": "controller.animation.morph.dolphin.particles",
-        "dolphin_sleeping": "animation.morph.dolphin.sleeping",
         "bee_flying": "animation.morph.bee.flying",
         "bee_drip": "controller.animation.morph.bee.drip",
         "bee_sting": "animation.morph.bee.sting",
         "bee_no_stinger": "animation.morph.bee.no_stinger",
         "bee_fly_bobbing": "animation.morph.bee.fly.bobbing",
-        "bee_sleeping": "animation.morph.bee.sleeping",
         "pillager_crossbow_hold": "animation.morph.pillager.crossbow.hold",
         "pillager_crossbow_charge": "animation.morph.pillager.crossbow.charge",
         "pillager_sleeping": "animation.morph.pillager.sleeping",
@@ -2495,9 +2441,7 @@
         "parrot_flying": "animation.morph.parrot.flying",
         "parrot_standing": "animation.morph.parrot.standing",
         "parrot_move": "controller.animation.morph.parrot.move",
-        "parrot_sleeping": "animation.morph.parrot.sleeping",
         "slime_scale": "animation.morph.slime.scale",
-        "slime_sleeping": "animation.morph.slime.sleeping",
         "strider_look_at_target_controller": "controller.animation.morph.strider.look_at_target",
         "strider_look_at_target_default": "animation.morph.strider.look_at_target.default",
         "strider_look_at_target_gliding": "animation.morph.strider.look_at_target.gliding",
@@ -2510,7 +2454,6 @@
         "strider_swimming": "animation.morph.strider.swimming",
         "strider_crawling": "animation.morph.strider.crawling",
         "vex_idle": "animation.morph.vex.idle",
-        "vex_sleeping": "animation.morph.vex.sleeping",
         "vex_swimming": "animation.morph.vex.swimming",
         "vex_crawling": "animation.morph.vex.crawling",
         "turtle_general": "animation.morph.turtle.general",
@@ -2518,23 +2461,18 @@
         "turtle_ground_move": "animation.morph.turtle.ground_move",
         "turtle_move_baby": "animation.morph.turtle.baby_move",
         "turtle_move_controller": "controller.animation.morph.turtle.move",
-        "turtle_sleeping": "animation.morph.turtle.sleeping",
         "witch_general": "animation.morph.witch.general",
         "rabbit_move": "animation.morph.rabbit.move",
         "rabbit_move_baby": "animation.morph.rabbit.move.baby",
         "rabbit_idle_head_tilt": "animation.morph.rabbit.idle_head_tilt",
         "rabbit_general": "controller.animation.morph.rabbit.general",
-        "rabbit_sleeping": "animation.morph.rabbit.sleeping",
         "ghast_move": "animation.morph.ghast.move",
-        "ghast_sleeping": "animation.morph.ghast.sleeping",
         "phantom_base_pose": "animation.morph.phantom.base_pose",
         "phantom_move": "animation.morph.phantom.move",
         "phantom_move_sound": "animation.morph.phantom.move_sound",
         "phantom_particles": "controller.animation.morph.phantom.particles",
-        "phantom_sleeping": "animation.morph.phantom.sleeping",
         "phantom_cancel": "animation.morph.phantom.cancel",
         "polar_bear_move": "animation.morph.polar_bear.move",
-        "polar_bear_sleeping": "animation.morph.polar_bear.sleeping",
         "magma_cube_move": "animation.morph.magma_cube.move",
         "allay_idle": "animation.morph.allay.idle",
         "allay_fly": "animation.morph.allay.fly",
@@ -2550,7 +2488,6 @@
         "ravager_idle_mouth": "animation.morph.ravager.idle_mouth",
         "ravager_head": "controller.animation.morph.ravager.head_movement",
         "ravager_biting": "animation.morph.ravager.biting",
-        "ravager_sleeping": "animation.morph.ravager.sleeping",
         "frog_croak": "animation.morph.frog.croak",
         "frog_jump": "animation.morph.frog.jump",
         "frog_tongue": "animation.morph.frog.tongue",
@@ -2574,16 +2511,13 @@
         "evoker_crawling.no_right_arm": "animation.morph.evoker.crawling.no_right_arm",
         "evoker_melee_spear_controller": "controller.animation.morph.humanoid.melee_spear",
         "tadpole_swim": "animation.morph.tadpole.swim",
-        "tadpole_sleeping": "animation.morph.tadpole.sleeping",
         "endermite_move": "animation.morph.endermite.move",
-        "endermite_sleeping": "animation.morph.endermite.sleeping",
         "silverfish_move": "animation.morph.silverfish.move",
         "silverfish_sleeping": "animation.morph.silverfish.sleeping",
         "guardian_setup": "animation.morph.guardian.setup",
         "guardian_spikes": "animation.morph.guardian.spikes",
         "guardian_swim": "animation.morph.guardian.swim",
         "guardian_move_eye": "animation.morph.guardian.move_eye",
-        "guardian_sleeping": "animation.morph.guardian.sleeping",
         "panda_sitting": "animation.morph.panda.sitting",
         "panda_lying": "animation.morph.panda.lying",
         "panda_baby_sitting": "animation.morph.panda.baby_sitting",
@@ -2615,7 +2549,6 @@
         "warden_crawling": "animation.morph.warden.crawling",
         "pufferfish_flop": "animation.morph.pufferfish.flop",
         "pufferfish_swim": "animation.morph.pufferfish.swim",
-        "pufferfish_sleeping": "animation.morph.pufferfish.sleeping",
         "horse_walk": "animation.morph.horse.walk",
         "horse_rear": "animation.morph.horse.rear",
         "horse_look_at_player": "animation.morph.horse.look_at_player",
@@ -2626,8 +2559,8 @@
         "camel_baby_moving": "animation.morph.camel.baby_walk",
         "camel_baby_idle": "animation.morph.camel.baby_idle",
         "camel_general_controller": "controller.animation.morph.camel.general",
-        "camel_sleeping": "animation.morph.camel.sleeping",
-        "camel_baby_sleeping": "animation.morph.camel.baby_sleeping",
+        "camel_sleeping": "animation.morph.camel.sit",
+        "camel_baby_sleeping": "animation.morph.camel.baby_sit",
         "ender_dragon_setup": "animation.morph.ender_dragon.setup",
         "ender_dragon_jaw_movement": "animation.morph.ender_dragon.jaw_movement",
         "ender_dragon_neck_head_movement": "animation.morph.ender_dragon.neck_head_movement",
@@ -2635,7 +2568,6 @@
         "ender_dragon_tail_movement": "animation.morph.ender_dragon.tail_movement",
         "ender_dragon_flap_sound": "animation.morph.ender_dragon.flap_sound",
         "ender_dragon_quiet_flap_sound": "animation.morph.ender_dragon.quiet_flap_sound",
-        "ender_dragon_sleeping": "animation.morph.ender_dragon.sleeping",
         "armadillo_look_at_target": "animation.morph.armadillo.look_at_target",
         "armadillo_walk": "animation.morph.armadillo.walk",
         "armadillo_walk_controller": "controller.animation.morph.armadillo.walk",
@@ -2666,7 +2598,6 @@
         "breeze_ground_particles_controller": "controller.animation.morph.breeze.ground_particles",
         "breeze_jump_controller": "controller.animation.morph.breeze.jump",
         "breeze_jump_effects_controller": "controller.animation.morph.breeze.jump_effects",
-        "breeze_sleeping": "animation.morph.breeze.sleeping",
         "breeze_swimming": "animation.morph.breeze.swimming",
         "breeze_crawling": "animation.morph.breeze.crawling",
         "breeze_cancel": "animation.morph.breeze.cancel",
@@ -2682,10 +2613,12 @@
         "creaking_sway_controller": "controller.animation.morph.creaking.sway",
         "creaking_sway_sound": "animation.morph.creaking.sway_sound",
         "creaking_sway_sound_controller": "controller.animation.morph.creaking.sway_sound",
-        "creaking_sleeping": "animation.morph.creaking.sleeping",
         "creaking_swimming": "animation.morph.creaking.swimming",
         "creaking_crawling": "animation.morph.creaking.crawling",
-        "creaking_cancel": "animation.morph.creaking.cancel"
+        "creaking_cancel": "animation.morph.creaking.cancel",
+        "happy_ghast_move": "animation.morph.happy_ghast.move",
+        "happy_ghast_scale": "animation.morph.happy_ghast.scale",
+        "sleeping_root": "animation.morph.sleeping"
       },
       "particle_effects": {
         "dolphin_move_particle": "dark7mc:dolphin_move_particle",
@@ -3067,6 +3000,9 @@
         },
         {
           "controller.render.omnitrix": "variable.is_either_person && query.property('dark7mc:entity') == 0 && query.property('dark7mc:morph_omnitrix') && query.property('dark7mc:omnitrix_state') != 'unworn' && (!variable.is_first_person || variable.omnitrix_holding_visible || (query.get_equipped_item_name(0, 1) == 'filled_map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'filled_map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)))"
+        },
+        {
+          "controller.render.morph.happy_ghast": "variable.is_third_person && !query.is_spectator && query.property('dark7mc:entity') == 84"
         }
       ],
       "enable_attachables": true

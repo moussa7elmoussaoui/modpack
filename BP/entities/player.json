@@ -11,7 +11,7 @@
                     "type": "int",
                     "range": [
                         0,
-                        83
+                        84
                     ],
                     "default": 0,
                     "client_sync": true
@@ -434,10 +434,7 @@
                 },
                 "minecraft:timer": {
                     "looping": false,
-                    "time": [
-                        0.0,
-                        0.0
-                    ],
+                    "time": { "range_min": 0.0, "range_max": 0.0 },
                     "time_down_event": {
                         "event": "morph:player_clear_add_raid_omen",
                         "target": "self"
@@ -717,13 +714,6 @@
                 },
                 "minecraft:game_event_movement_tracking": {
                     "emit_flap": true
-                },
-                "minecraft:environment_sensor": {
-                    "triggers": [
-                        {
-                            "event": "morph:float"
-                        }
-                    ]
                 }
             },
             "morph:chicken_adult": {},
@@ -1332,10 +1322,7 @@
                 "minecraft:is_charged": {},
                 "minecraft:timer": {
                     "looping": false,
-                    "time": [
-                        1.8,
-                        1.8
-                    ],
+                    "time": { "range_min": 1.8, "range_max": 1.8 },
                     "time_down_event": {
                         "event": "morph:sheep_grazed"
                     }
@@ -1524,9 +1511,6 @@
                     "triggers": [
                         {
                             "event": "morph:night_vision"
-                        },
-                        {
-                            "event": "morph:float"
                         }
                     ]
                 },
@@ -1620,6 +1604,7 @@
                 }
             },
             "morph:fox": {
+                "minecraft:can_stand_on_powder_snow": {},
                 "minecraft:type_family": {
                     "family": [
                         "fox",
@@ -1629,8 +1614,8 @@
                     ]
                 },
                 "minecraft:breathable": {
-                    "totalSupply": 15,
-                    "suffocateTime": 0
+                    "total_supply": 15,
+                    "suffocate_time": 0
                 },
                 "minecraft:health": {
                     "value": 10,
@@ -2199,9 +2184,6 @@
                     "triggers": [
                         {
                             "event": "morph:fire_immune"
-                        },
-                        {
-                            "event": "morph:float"
                         }
                     ]
                 },
@@ -3368,7 +3350,7 @@
                 },
                 "minecraft:timer": {
                     "looping": false,
-                    "time": 15,
+                    "time": { "range_min": 15, "range_max": 15 },
                     "time_down_event": {
                         "event": "morph:piglin_become_zombie_event"
                     }
@@ -3867,10 +3849,7 @@
                     "height": 1.4
                 },
                 "minecraft:attack": {
-                    "damage": [
-                        3,
-                        9
-                    ]
+                    "damage": { "min": 3, "max": 9 }
                 }
             },
             "morph:hoglin_baby": {
@@ -3944,7 +3923,7 @@
                 },
                 "minecraft:timer": {
                     "looping": false,
-                    "time": 15,
+                    "time": { "range_min": 15, "range_max": 15 },
                     "time_down_event": {
                         "event": "morph:hoglin_become_zombie_event"
                     }
@@ -4092,7 +4071,7 @@
                 "minecraft:is_shaking": {},
                 "minecraft:timer": {
                     "looping": false,
-                    "time": 15,
+                    "time": { "range_min": 15, "range_max": 15 },
                     "time_down_event": {
                         "event": "morph:piglin_brute_become_zombie_event"
                     }
@@ -4601,10 +4580,7 @@
                 },
                 "minecraft:timer": {
                     "looping": false,
-                    "time": [
-                        80,
-                        200
-                    ],
+                    "time": { "range_min": 80, "range_max": 200 },
                     "time_down_event": {
                         "event": "morph:zombie_villager_become_villager"
                     }
@@ -4769,9 +4745,6 @@
                     "triggers": [
                         {
                             "event": "morph:fire_immune"
-                        },
-                        {
-                            "event": "morph:float"
                         }
                     ]
                 },
@@ -4911,10 +4884,7 @@
             },
             "morph:zoglin_adult": {
                 "minecraft:attack": {
-                    "damage": [
-                        3,
-                        8
-                    ]
+                    "damage": { "min": 3, "max": 8 }
                 },
                 "minecraft:collision_box": {
                     "height": 1.4,
@@ -4956,8 +4926,8 @@
             },
             "morph:bee": {
                 "minecraft:breathable": {
-                    "totalSupply": 0,
-                    "suffocateTime": -1
+                    "total_supply": 0,
+                    "suffocate_time": -1
                 },
                 "minecraft:collision_box": {
                     "width": 0.55,
@@ -5007,13 +4977,6 @@
                 "minecraft:health": {
                     "value": 10,
                     "max": 10
-                },
-                "minecraft:environment_sensor": {
-                    "triggers": [
-                        {
-                            "event": "morph:float"
-                        }
-                    ]
                 }
             },
             "morph:bee_adult": {},
@@ -5147,13 +5110,6 @@
                         "parrot_wild",
                         "mob",
                         "morphed"
-                    ]
-                },
-                "minecraft:environment_sensor": {
-                    "triggers": [
-                        {
-                            "event": "morph:float"
-                        }
                     ]
                 }
             },
@@ -5530,9 +5486,6 @@
                     "triggers": [
                         {
                             "event": "morph:fire_immune"
-                        },
-                        {
-                            "event": "morph:float"
                         }
                     ]
                 },
@@ -5674,6 +5627,7 @@
                 }
             },
             "morph:rabbit": {
+                "minecraft:can_stand_on_powder_snow": {},
                 "minecraft:type_family": {
                     "family": [
                         "rabbit",
@@ -5790,9 +5744,6 @@
                     "triggers": [
                         {
                             "event": "morph:fire_immune"
-                        },
-                        {
-                            "event": "morph:float"
                         }
                     ]
                 },
@@ -5887,9 +5838,6 @@
                     "triggers": [
                         {
                             "event": "morph:phantom_avoid_mob_type"
-                        },
-                        {
-                            "event": "morph:float"
                         }
                     ]
                 },
@@ -6223,8 +6171,8 @@
             },
             "morph:allay": {
                 "minecraft:breathable": {
-                    "suffocateTime": 0,
-                    "totalSupply": 15
+                    "suffocate_time": 0,
+                    "total_supply": 15
                 },
                 "minecraft:collision_box": {
                     "height": 0.6,
@@ -6254,13 +6202,6 @@
                         "allay",
                         "mob",
                         "morphed"
-                    ]
-                },
-                "minecraft:environment_sensor": {
-                    "triggers": [
-                        {
-                            "event": "morph:float"
-                        }
                     ]
                 }
             },
@@ -6496,6 +6437,7 @@
                 "minecraft:is_baby": {}
             },
             "morph:endermite": {
+                "minecraft:can_stand_on_powder_snow": {},
                 "minecraft:attack": {
                     "damage": 2
                 },
@@ -6572,6 +6514,7 @@
                 }
             },
             "morph:silverfish": {
+                "minecraft:can_stand_on_powder_snow": {},
                 "minecraft:attack": {
                     "damage": 1
                 },
@@ -7858,7 +7801,7 @@
                 "minecraft:timer": {
                     "looping": false,
                     "randomInterval": false,
-                    "time": 0.01,
+                    "time": { "range_min": 0.01, "range_max": 0.01 },
                     "time_down_event": {
                         "event": "morph:pufferfish_on_full_puff"
                     }
@@ -7980,7 +7923,7 @@
                 "minecraft:timer": {
                     "looping": false,
                     "randomInterval": false,
-                    "time": 2,
+                    "time": { "range_min": 2, "range_max": 2 },
                     "time_down_event": {
                         "event": "morph:pufferfish_on_half_puff"
                     }
@@ -8039,7 +7982,7 @@
                 "minecraft:timer": {
                     "looping": false,
                     "randomInterval": false,
-                    "time": 2,
+                    "time": { "range_min": 2, "range_max": 2 },
                     "time_down_event": {
                         "event": "morph:pufferfish_on_normal_puff"
                     }
@@ -8052,7 +7995,7 @@
                 "minecraft:timer": {
                     "looping": false,
                     "randomInterval": false,
-                    "time": 3,
+                    "time": { "range_min": 3, "range_max": 3 },
                     "time_down_event": {
                         "event": "morph:pufferfish_on_deflate"
                     }
@@ -8660,9 +8603,6 @@
                     "triggers": [
                         {
                             "event": "morph:fire_immune"
-                        },
-                        {
-                            "event": "morph:float"
                         }
                     ]
                 },
@@ -9018,9 +8958,6 @@
                             "event": "morph:night_vision"
                         },
                         {
-                            "event": "morph:float"
-                        },
-                        {
                             "event": "morph:fire_immune"
                         }
                     ]
@@ -9262,6 +9199,140 @@
                     ]
                 },
                 "minecraft:is_charged": {}
+            },
+            "dark7mc:flight_has_gravity": {
+                "minecraft:physics": {
+                    "has_gravity": true,
+                    "push_towards_closest_space": true
+                }
+            },
+            "dark7mc:flight_no_gravity": {
+                "minecraft:physics": {
+                    "has_gravity": false,
+                    "push_towards_closest_space": true
+                }
+            },
+            "dark7mc:happy_ghast": {
+                "minecraft:type_family": {
+                    "family": [
+                        "happy_ghast",
+                        "mob",
+                        "morphed"
+                    ]
+                },
+                "minecraft:collision_box": {
+                    "width": 4,
+                    "height": 4
+                },
+                "minecraft:is_tamed": {},
+                "minecraft:hurt_on_condition": {
+                    "damage_conditions": [
+                        {
+                            "filters": {
+                                "test": "in_lava"
+                            },
+                            "cause": "lava",
+                            "damage_per_tick": 4
+                        }
+                    ]
+                },
+                "minecraft:damage_sensor": {
+                    "triggers": [
+                        {
+                            "deals_damage": "no",
+                            "on_damage": {
+                                "filters": {
+                                    "test": "has_damage",
+                                    "value": "fall"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "minecraft:renders_when_invisible": {}
+            },
+            "dark7mc:happy_ghast_adult": {
+                "minecraft:health": {
+                    "value": 20,
+                    "max": 20
+                },
+                "minecraft:breathable": {
+                    "total_supply": 5,
+                    "suffocate_time": 0,
+                    "breathes_air": true,
+                    "breathes_water": false
+                },
+                "minecraft:is_collidable": {},
+                "minecraft:rideable": {
+                    "seat_count": 4,
+                    "family_types": [
+                        "player"
+                    ],
+                    "dismount_mode": "on_top_center",
+                    "interact_text": "action.interact.ride.horse",
+                    "seats": [
+                        {
+                            "min_rider_count": 0,
+                            "max_rider_count": 4,
+                            "position": [
+                                0,
+                                2.17,
+                                1.7
+                            ],
+                            "third_person_camera_radius": 8,
+                            "camera_relax_distance_smoothing": 6
+                        },
+                        {
+                            "min_rider_count": 1,
+                            "max_rider_count": 4,
+                            "position": [
+                                -1.7,
+                                2.17,
+                                0
+                            ],
+                            "third_person_camera_radius": 8,
+                            "camera_relax_distance_smoothing": 6
+                        },
+                        {
+                            "min_rider_count": 2,
+                            "max_rider_count": 4,
+                            "position": [
+                                0,
+                                2.17,
+                                -1.7
+                            ],
+                            "third_person_camera_radius": 8,
+                            "camera_relax_distance_smoothing": 6
+                        },
+                        {
+                            "min_rider_count": 3,
+                            "max_rider_count": 4,
+                            "position": [
+                                1.7,
+                                2.17,
+                                0
+                            ],
+                            "third_person_camera_radius": 8,
+                            "camera_relax_distance_smoothing": 6
+                        }
+                    ]
+                }
+            },
+            "dark7mc:happy_ghast_baby": {
+                "minecraft:is_baby": {},
+                "minecraft:scale": {
+                    "value": 0.2375
+                },
+                "minecraft:health": {
+                    "value": 20,
+                    "max": 20
+                },
+                "minecraft:breathable": {
+                    "total_supply": 5,
+                    "suffocate_time": 0,
+                    "breathes_air": true,
+                    "breathes_water": true
+                }
             }
         },
         "events": {
@@ -9335,9 +9406,7 @@
                                 },
                                 "remove": {
                                     "component_groups": [
-                                        "morph:skeleton",
-                                        "morph:skeleton_in_powder_snow",
-                                        "morph:skeleton_out_of_powder_snow"
+                                        "morph:skeleton"
                                     ]
                                 }
                             },
@@ -10423,7 +10492,7 @@
                                         "morph:shulker_lime",
                                         "morph:shulker_pink",
                                         "morph:shulker_gray",
-                                        "morph:shulker_light_gray",
+                                        "morph:shulker_silver",
                                         "morph:shulker_cyan",
                                         "morph:shulker_purple",
                                         "morph:shulker_blue",
@@ -10714,6 +10783,22 @@
                                         "morph:creaking.invulnerable"
                                     ]
                                 }
+                            },
+                            {
+                                "filters": {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "dark7mc:entity",
+                                    "operator": "equals",
+                                    "value": 84
+                                },
+                                "remove": {
+                                    "component_groups": [
+                                        "dark7mc:happy_ghast",
+                                        "dark7mc:happy_ghast_adult",
+                                        "dark7mc:happy_ghast_baby"
+                                    ]
+                                }
                             }
                         ]
                     },
@@ -10735,6 +10820,9 @@
                             "minecraft:has_nectar": false,
                             "minecraft:armadillo_state": "unrolled"
                         }
+                    },
+                    {
+                        "trigger": "dark7mc:flight_has_gravity"
                     }
                 ]
             },
@@ -10911,8 +10999,7 @@
                         },
                         "add": {
                             "component_groups": [
-                                "morph:skeleton",
-                                "morph:skeleton_out_of_powder_snow"
+                                "morph:skeleton"
                             ]
                         },
                         "queue_command": {
@@ -13458,7 +13545,8 @@
                         },
                         "queue_command": {
                             "command": "tag @s remove \"components.minecraft:wither\""
-                        }
+                        },
+                        "trigger": "dark7mc:flight_no_gravity"
                     },
                     {
                         "filters": {
@@ -13869,7 +13957,8 @@
                         },
                         "queue_command": {
                             "command": "tag @s remove \"components.minecraft:vex\""
-                        }
+                        },
+                        "trigger": "dark7mc:flight_no_gravity"
                     },
                     {
                         "filters": {
@@ -14117,7 +14206,8 @@
                         },
                         "queue_command": {
                             "command": "tag @s remove \"components.minecraft:ghast\""
-                        }
+                        },
+                        "trigger": "dark7mc:flight_no_gravity"
                     },
                     {
                         "filters": {
@@ -14185,7 +14275,8 @@
                         },
                         "queue_command": {
                             "command": "tag @s remove \"components.minecraft:phantom\""
-                        }
+                        },
+                        "trigger": "dark7mc:flight_no_gravity"
                     },
                     {
                         "filters": {
@@ -14321,7 +14412,8 @@
                         },
                         "queue_command": {
                             "command": "tag @s remove \"components.minecraft:allay\""
-                        }
+                        },
+                        "trigger": "dark7mc:flight_no_gravity"
                     },
                     {
                         "filters": {
@@ -15415,7 +15507,7 @@
                                 },
                                 "add": {
                                     "component_groups": [
-                                        "morph:shulker_light_gray"
+                                        "morph:shulker_silver"
                                     ]
                                 },
                                 "queue_command": {
@@ -16174,7 +16266,8 @@
                         },
                         "queue_command": {
                             "command": "tag @s remove \"components.minecraft:ender_dragon\""
-                        }
+                        },
+                        "trigger": "dark7mc:flight_no_gravity"
                     },
                     {
                         "filters": {
@@ -16339,6 +16432,59 @@
                         "queue_command": {
                             "command": "tag @s remove \"components.minecraft:creaking\""
                         }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "subject": "self",
+                            "operator": "equals",
+                            "value": "components.minecraft:happy_ghast"
+                        },
+                        "sequence": [
+                            {
+                                "add": {
+                                    "component_groups": [
+                                        "dark7mc:happy_ghast"
+                                    ]
+                                },
+                                "trigger": "dark7mc:flight_no_gravity",
+                                "queue_command": {
+                                    "command": "tag @s remove \"components.minecraft:happy_ghast\""
+                                }
+                            },
+                            {
+                                "filters": {
+                                    "test": "has_tag",
+                                    "subject": "self",
+                                    "operator": "equals",
+                                    "value": "components.minecraft:happy_ghast.age=adult"
+                                },
+                                "add": {
+                                    "component_groups": [
+                                        "dark7mc:happy_ghast_adult"
+                                    ]
+                                },
+                                "queue_command": {
+                                    "command": "tag @s remove \"components.minecraft:happy_ghast.age=adult\""
+                                }
+                            },
+                            {
+                                "filters": {
+                                    "test": "has_tag",
+                                    "subject": "self",
+                                    "operator": "equals",
+                                    "value": "components.minecraft:happy_ghast.age=baby"
+                                },
+                                "add": {
+                                    "component_groups": [
+                                        "dark7mc:happy_ghast_baby"
+                                    ]
+                                },
+                                "queue_command": {
+                                    "command": "tag @s remove \"components.minecraft:happy_ghast.age=baby\""
+                                }
+                            }
+                        ]
                     }
                 ]
             },
@@ -18347,11 +18493,6 @@
                     }
                 ]
             },
-            "morph:float": {
-                "queue_command": {
-                    "command": "effect @s slow_falling 1 0 true"
-                }
-            },
             "morph:creaking.damaged_by_entity": {
                 "trigger": "morph:creaking.increment_swaying_ticks",
                 "emit_vibration": {
@@ -18465,6 +18606,30 @@
                 "remove": {
                     "component_groups": [
                         "morph:creaking.vulnerable"
+                    ]
+                }
+            },
+            "dark7mc:flight_has_gravity": {
+                "remove": {
+                    "component_groups": [
+                        "dark7mc:flight_no_gravity"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "dark7mc:flight_has_gravity"
+                    ]
+                }
+            },
+            "dark7mc:flight_no_gravity": {
+                "remove": {
+                    "component_groups": [
+                        "dark7mc:flight_has_gravity"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "dark7mc:flight_no_gravity"
                     ]
                 }
             }

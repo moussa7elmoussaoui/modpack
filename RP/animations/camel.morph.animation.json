@@ -663,85 +663,178 @@
         }
       }
     },
-		"animation.morph.camel.sleeping": {
-			"loop": true,
-			"bones": {
-				"root": {
-					"position": ["11 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 11 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -2.5, "11 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 11 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)"],
-					"rotation": [0, "90 - query.sleep_rotation - query.body_y_rotation", 0]
-				},
-        "body": {
-          "rotation": [0, 0, 0],
-          "position": [0, -19.9, 0]
-        },
-        "_head": {
-          "rotation": [45, 0, 0]
-        },
-        "right_front_leg": {
-          "rotation": [-90, 10, 0],
-          "position": [0, -20.6, 12]
-        },
-        "left_front_leg": {
-          "rotation": [-90, -10, 0],
-          "position": [0, -20.6, 12]
-        },
-        "left_hind_leg": {
-          "rotation": [-90, -15, 0],
-          "position": [1, -20.5, 5]
-        },
-        "right_hind_leg": {
-          "rotation": [-90, 15, 0],
-          "position": [-1, -20.5, 5]
-        },
-        "tail": {
-          "rotation": [50, 0, 0]
-        }
-			}
+		"animation.morph.camel.sit": {
+		  "loop": true,
+		  "bones": {
+		    "body": {
+		      "rotation": [
+		        0,
+		        0,
+		        0
+		      ],
+		      "position": [
+		        0,
+		        -19.9,
+		        0
+		      ]
+		    },
+		    "right_front_leg": {
+		      "rotation": [
+		        -90,
+		        10,
+		        0
+		      ],
+		      "position": [
+		        0,
+		        -20.6,
+		        12
+		      ]
+		    },
+		    "left_front_leg": {
+		      "rotation": [
+		        -90,
+		        -10,
+		        0
+		      ],
+		      "position": [
+		        0,
+		        -20.6,
+		        12
+		      ]
+		    },
+		    "left_hind_leg": {
+		      "rotation": [
+		        -90,
+		        -15,
+		        0
+		      ],
+		      "position": [
+		        1,
+		        -20.5,
+		        5
+		      ]
+		    },
+		    "right_hind_leg": {
+		      "rotation": [
+		        -90,
+		        15,
+		        0
+		      ],
+		      "position": [
+		        -1,
+		        -20.5,
+		        5
+		      ]
+		    },
+		    "tail": {
+		      "rotation": [
+		        50,
+		        0,
+		        0
+		      ]
+		    }
+		  }
 		},
-		"animation.morph.camel.baby_sleeping": {
-			"loop": true,
-			"bones": {
-        "body": {
-          "rotation": [2.5, 0, 0],
-          "position": [0, -13.25, 0]
-        },
-        "right_front_leg": {
-          "rotation": [-90, 10, 0],
-          "position": [0.1, -11, 6]
-        },
-        "left_front_leg": {
-          "rotation": [-90, -10, 0],
-          "position": [0, -11, 6]
-        },
-        "left_hind_leg": {
-          "rotation": [-90, -11.88, -0.54],
-          "position": [1.4, -10.95, 1.95]
-        },
-        "right_hind_leg": {
-          "rotation": [-90, 11.89, 0.54],
-          "position": [-1.33, -11, 1.95]
-        },
-        "_head": {
-          "rotation": [45, 0, 0],
-          "position": [0, 0, 1.22]
-        },
-        "tail": {
-          "rotation": [52.5, 0, 0],
-          "position": [0, 0, 0]
-        },
-        "left_ear": {
-          "rotation": [0, 0, -22.5],
-          "position": [0, 0, 0]
-        },
-        "right_ear": {
-          "rotation": [0, 0, 15],
-          "position": [0, 0, 0]
-        },
-				"root": {
-					"rotation": [0, "90 - query.sleep_rotation - query.body_y_rotation", 0],
-					"position": ["11 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 11 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -2.5, "11 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 11 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)"]
-				}
-			}
+		"animation.morph.camel.baby_sit": {
+		  "loop": true,
+		  "bones": {
+		    "body": {
+		      "rotation": [
+		        2.5,
+		        0,
+		        0
+		      ],
+		      "position": [
+		        0,
+		        -13.25,
+		        0
+		      ]
+		    },
+		    "right_front_leg": {
+		      "rotation": [
+		        -90,
+		        10,
+		        0
+		      ],
+		      "position": [
+		        0.1,
+		        -11,
+		        6
+		      ]
+		    },
+		    "left_front_leg": {
+		      "rotation": [
+		        -90,
+		        -10,
+		        0
+		      ],
+		      "position": [
+		        0,
+		        -11,
+		        6
+		      ]
+		    },
+		    "left_hind_leg": {
+		      "rotation": [
+		        -90,
+		        -11.88,
+		        -0.54
+		      ],
+		      "position": [
+		        1.4,
+		        -10.95,
+		        1.95
+		      ]
+		    },
+		    "right_hind_leg": {
+		      "rotation": [
+		        -90,
+		        11.89,
+		        0.54
+		      ],
+		      "position": [
+		        -1.33,
+		        -11,
+		        1.95
+		      ]
+		    },
+		    "tail": {
+		      "rotation": [
+		        52.5,
+		        0,
+		        0
+		      ],
+		      "position": [
+		        0,
+		        0,
+		        0
+		      ]
+		    },
+		    "left_ear": {
+		      "rotation": [
+		        0,
+		        0,
+		        -22.5
+		      ],
+		      "position": [
+		        0,
+		        0,
+		        0
+		      ]
+		    },
+		    "right_ear": {
+		      "rotation": [
+		        0,
+		        0,
+		        15
+		      ],
+		      "position": [
+		        0,
+		        0,
+		        0
+		      ]
+		    }
+		  }
 		}
   }
 }

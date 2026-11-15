@@ -166,15 +166,6 @@
 			"sound_effects": {
 				"0.5": { "effect": "ender_dragon_quiet_flap" }
 			}
-		},
-		"animation.morph.ender_dragon.sleeping": {
-			"loop": true,
-			"bones": {
-				"root": {
-					"position": [ "8.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 8.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", -2.0, "8.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 8.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
-					"rotation": [ 0.0, "90.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
-				}
-			}
 		}
 	}
 }

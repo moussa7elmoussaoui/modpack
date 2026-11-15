@@ -85,18 +85,6 @@
 				}
 			}
 		},
-		"animation.morph.enderman.sleeping" : {
-			"loop" : true,
-			"bones" : {
-				"_head" : {
-					"rotation" : [ "30.0 - this", "-this", "-this" ]
-				},
-				"root" : {
-					"position" : [ "35.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 35.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 0.0, "35.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 35.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
-					"rotation" : [ -90.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
-				}
-			}
-		},
 		"animation.morph.enderman.swimming" : {
 			"loop" : true,
 			"bones" : {

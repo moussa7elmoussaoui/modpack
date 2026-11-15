@@ -42,6 +42,17 @@ function getMorphEntityType(player) {
   return morphEntityTypes[player.getProperty("dark7mc:entity")];
 }
 
+function applyMorphComponents(player, entityType, properties) {
+  player.setProperty("dark7mc:entity", morphEntityTypes.indexOf(entityType));
+
+  const baseTag = `components.${entityType}`;
+  player.addTag(baseTag);
+  for (const [key, value] of Object.entries(properties)) {
+    player.addTag(`${baseTag}.${key}=${value}`);
+  }
+  player.triggerEvent("dark7mc:add_components");
+}
+
 Entity.prototype.hasProperty = function(identifier) {
   return this.getProperty(identifier) !== undefined;
 };
@@ -110,17 +121,8 @@ Player.prototype.setMorph = function(morph, { showEffects = true, soulSwitch = t
     }
 
     this.setDynamicProperty(PLAYER_MORPH_NAME_PROPERTY, activeMorph.playerName);
-    const entityIndex = morphEntityTypes.indexOf(entityType);
-
     this.triggerEvent("dark7mc:clear_components");
-    this.setProperty("dark7mc:entity", entityIndex);
-
-    const baseTag = `components.${entityType}`;
-    this.addTag(baseTag);
-    for (const [key, value] of Object.entries(properties)) {
-      this.addTag(`${baseTag}.${key}=${value}`);
-    }
-    this.triggerEvent("dark7mc:add_components");
+    applyMorphComponents(this, entityType, properties);
     const shouldRenderOmnitrix = morphWearsOmnitrix && currentPlayerHasOmnitrix;
     this.setProperty("dark7mc:morph_omnitrix", shouldRenderOmnitrix);
     this.setProperty("dark7mc:omnitrix_state", currentPlayerHasOmnitrix ? "worn_closed" : "unworn");
@@ -154,20 +156,12 @@ Player.prototype.refreshMorphComponents = function() {
 
   this.addTag("morph:refresh_components");
   this.triggerEvent("dark7mc:clear_components");
-  const entityIndex = morphEntityTypes.indexOf(morph.entityType);
   if (morph.entityType === "minecraft:player") {
     const skinIndex = this.getProperty("dark7mc:player_skin") ?? 0;
     this.setProperty("dark7mc:player_model", playerSkins[skinIndex]?.model ?? 0);
   }
-    this.setProperty("dark7mc:morph_omnitrix", morph.wearsOmnitrix && playerHasWornOmnitrix(this));
-  this.setProperty("dark7mc:entity", entityIndex);
-
-  const baseTag = `components.${morph.entityType}`;
-  this.addTag(baseTag);
-  for (const [key, value] of Object.entries(morph.properties)) {
-    this.addTag(`${baseTag}.${key}=${value}`);
-  }
-  this.triggerEvent("dark7mc:add_components");
+  this.setProperty("dark7mc:morph_omnitrix", morph.wearsOmnitrix && playerHasWornOmnitrix(this));
+  applyMorphComponents(this, morph.entityType, morph.properties);
   system.runTimeout(() => this.removeTag("morph:refresh_components"), 1);
 
   return true;

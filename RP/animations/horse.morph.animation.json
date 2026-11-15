@@ -36,17 +36,21 @@
 			}
 		},
 		"animation.morph.horse.sleeping" : {
-			"loop" : true,
-			"bones" : {
+			"loop": true,
+			"bones": {
 				"neck": {
-					"rotation" : [ 60.0, 0.0, 0.0 ]
+					"rotation": [
+						"60.0 - (5.0 * query.is_baby)",
+						0,
+						0
+					]
 				},
-				"root" : {
-					"position" : [ "14.0 * math.cos(query.body_y_rotation) * math.cos(query.sleep_rotation) - 14.0 * math.sin(query.body_y_rotation) * math.sin(query.sleep_rotation)", 18.5, "14.0 * math.cos(query.body_y_rotation) * math.sin(query.sleep_rotation) + 14.0 * math.sin(query.body_y_rotation) * math.cos(query.sleep_rotation)" ],
-					"rotation" : [ -180.0, "270.0 - query.sleep_rotation - query.body_y_rotation", 0.0 ]
-				},
-				"tail" : {
-					"rotation" : [ 135.0, 0.0, 0.0 ]
+				"tail": {
+					"rotation": [
+						"135.0 - (80.0 * query.is_baby)",
+						0,
+						0
+					]
 				}
 			}
 		},

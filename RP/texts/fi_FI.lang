@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/h
 speedometer.unit.mph.short=mph
 entity.dark7mc:night_fury.name=Yön raivo
 entity.dark7mc:ancient_elemental.name=Muinainen elementaali
+morph.item.switch_potion=Hiivi ja käytä esinettä vaihtaaksesi taikajuomaa.
+morph.witch.potion_cooldown=Voit käyttää taikajuomaa uudelleen %s sekunnin kuluttua.
+morph.witch.selected_potion=Valittu taikajuoma: %s

@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/h
 speedometer.unit.mph.short=mph
 entity.dark7mc:night_fury.name=Éjfúria
 entity.dark7mc:ancient_elemental.name=Ősi elementál
+morph.item.switch_potion=Lopakodás közben használd a tárgyat a bájital váltásához.
+morph.witch.potion_cooldown=%s másodperc múlva újra használhatsz bájitalt.
+morph.witch.selected_potion=Kiválasztott bájital: %s

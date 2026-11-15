@@ -738,5 +738,37 @@ export default [
     death: "",
     volume: 1.0,
     pitch: 1.0
+  },
+  {
+    "hurt": [
+      {
+        "conditions": "!this.hasComponent('minecraft:is_baby')",
+        "sound": "mob.happy_ghast.hurt",
+        "volume": 4,
+        "pitch": 1
+      },
+      {
+        "conditions": "this.hasComponent('minecraft:is_baby')",
+        "sound": "mob.ghastling.hurt",
+        "volume": 1,
+        "pitch": 0.5
+      }
+    ],
+    "death": [
+      {
+        "conditions": "!this.hasComponent('minecraft:is_baby')",
+        "sound": "mob.happy_ghast.death",
+        "volume": 4,
+        "pitch": 1
+      },
+      {
+        "conditions": "this.hasComponent('minecraft:is_baby')",
+        "sound": "mob.ghastling.death",
+        "volume": 1,
+        "pitch": 0.5
+      }
+    ],
+    "volume": 1,
+    "pitch": 1
   }
 ];

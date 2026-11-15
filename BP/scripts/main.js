@@ -59,12 +59,10 @@ import "old-scripts/itemAbilities.js";
 import "old-scripts/mobSounds.js";
 import "old-scripts/onHit.js";
 
-import "old-scripts/mobs/creeper.js";
 import "old-scripts/mobs/enderman.js";
 import "old-scripts/mobs/fox.js";
 import "old-scripts/mobs/bee.js";
 import "old-scripts/mobs/frog.js";
-import "old-scripts/mobs/enderDragon.js";
 import "old-scripts/mobs/breeze.js";
 
 import "./waila/main.js";

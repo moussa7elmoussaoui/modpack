@@ -8,7 +8,7 @@ const ENTITY_TYPE = "minecraft:shulker";
 
 morphEvents.beforeMorph.subscribe(data => {
   const { morph, player } = data;
-  if (morph.entityType !== ENTITY_TYPE) return;
+  if (data.cancel || morph.entityType !== ENTITY_TYPE) return;
 
   const location = player.location;
   const block = player.dimension.getBlock(location);

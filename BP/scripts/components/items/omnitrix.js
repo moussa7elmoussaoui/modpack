@@ -14,6 +14,7 @@ const IDENTIFIER = "omnitrix";
 const namespacedId = namespace.toNamespacedId(IDENTIFIER);
 const WORN_ITEM_ID = "dark7mc:omnitrix_worn";
 const PLAYER_ENTITY_TYPE = "minecraft:player";
+const WITHER_ENTITY_TYPE = "minecraft:wither";
 const STATE_PROPERTY = "dark7mc:omnitrix_state";
 const STATES = Object.freeze({
   unworn: "unworn",
@@ -430,6 +431,7 @@ system.runInterval(() => {
 
 world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
   const { damagingEntity } = damageSource;
+  if (deadEntity.typeId === WITHER_ENTITY_TYPE) return;
   if (!(damagingEntity instanceof Player && isOmnitrixOwner(damagingEntity))) return;
 
   if (deadEntity.typeId === PLAYER_ENTITY_TYPE) {
@@ -453,6 +455,20 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
   }
 });
 
+world.afterEvents.entityHurt.subscribe(({ damageSource, hurtEntity }) => {
+  if (hurtEntity.typeId !== WITHER_ENTITY_TYPE || hurtEntity.getComponent("minecraft:health")?.currentValue !== 0) return;
+
+  const player = damageSource.damagingEntity;
+  if (!(player instanceof Player && isOmnitrixOwner(player))) return;
+  giveKilledMobMorphToPlayer(player, hurtEntity, new Morph(WITHER_ENTITY_TYPE));
+});
+
+world.afterEvents.playerBreakBlock.subscribe(({ block, brokenBlockPermutation, player }) => {
+  if (brokenBlockPermutation.type.id !== "minecraft:creaking_heart" ||
+    brokenBlockPermutation.getState("creaking_heart_state") !== "awake" || !isOmnitrixOwner(player)) return;
+  giveKilledMobMorphToPlayer(player, block, new Morph("minecraft:creaking"));
+});
+
 function isSecretMorphOwner(player, config) {
   const morph = player.getMorph();
   return player.level >= 100 &&
@@ -470,7 +486,7 @@ function giveKilledMobMorphToPlayer(player, deadEntity, morph) {
   if (!giveMorphToPlayer(player, morph)) return;
 
   const { location: damagerLocation } = player;
-  const headLocation = deadEntity.getHeadLocation();
+  const headLocation = deadEntity.getHeadLocation?.() ?? deadEntity.center();
   const particleVariables = new MolangVariableMap();
   const particleDirection = {
     x: damagerLocation.x - headLocation.x,

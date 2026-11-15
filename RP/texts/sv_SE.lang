@@ -169,3 +169,6 @@ speedometer.unit.kmh.short=km/h
 speedometer.unit.mph.short=mph
 entity.dark7mc:night_fury.name=Nattfasa
 entity.dark7mc:ancient_elemental.name=Uråldrig elemental
+morph.item.switch_potion=Smyg och använd föremålet för att byta brygd.
+morph.witch.potion_cooldown=Du kan använda en brygd igen om %s sekunder.
+morph.witch.selected_potion=Vald brygd: %s

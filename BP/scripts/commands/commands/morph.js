@@ -1,9 +1,26 @@
 import { system } from "@minecraft/server";
 import { Morph } from "../../morph/class";
+import morphs from "../../data/morphs";
 import { namespace } from "../../utils/pack-data";
+import { LocalizedError } from "../../utils/messages";
 import { commandError, commandFeedback } from "../feedback";
 
-const OWN_PLAYER_MORPH_ID = "minecraft:player[]";
+function resolveMorphId(identifier) {
+  if (typeof identifier !== "string") throw new TypeError("Identifier must be a string");
+
+  const bracketStart = identifier.indexOf("[");
+  const entityType = (bracketStart === -1 ? identifier : identifier.slice(0, bracketStart)).trim();
+  const properties = bracketStart === -1 ? "" : identifier.slice(bracketStart).trim();
+  if (entityType.includes(":")) return entityType + properties;
+
+  const resolvedType = ["minecraft", namespace.value]
+    .map(value => `${value}:${entityType}`)
+    .find(value => Object.prototype.hasOwnProperty.call(morphs, value));
+
+  if (resolvedType === undefined) throw new LocalizedError("morph.error.unsupported", [entityType]);
+
+  return resolvedType + properties;
+}
 
 export default {
   definition: {
@@ -21,9 +38,10 @@ export default {
   },
   callback: (origin, players, morphId, showEffects = true) => {
     try {
-      const morph = morphId === "minecraft:player" || morphId === OWN_PLAYER_MORPH_ID
+      const resolvedMorphId = resolveMorphId(morphId);
+      const morph = /^minecraft:player(?:\[\s*\])?$/.test(resolvedMorphId)
         ? undefined
-        : Morph.parse(morphId);
+        : Morph.parse(resolvedMorphId);
 
       system.run(() => {
         for (const player of players) {

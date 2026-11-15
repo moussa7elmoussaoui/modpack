@@ -160,7 +160,7 @@ function normalizeMorphIdsForMenu(source, itemSlot, itemStack, morphIds) {
 
   if (JSON.stringify(normalizedMorphIds) !== JSON.stringify(morphIds)) {
     itemStack.setDynamicProperty("morphs", JSON.stringify(normalizedMorphIds));
-    itemSlot.setItem(itemStack);
+    itemSlot?.setItem(itemStack);
   }
 
   return normalizedMorphIds;
