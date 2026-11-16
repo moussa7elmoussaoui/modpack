@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Zdravie entity
 waila.settings.alwaysDisplayEntityIntHealth.label=Vždy zobraziť celočíselné zdravie
 waila.settings.alwaysDisplayEntityIntHealth.description=Namiesto toho zobrazuje zdravie entity ako celočíselnú hodnotu.
 waila.settings.entityEffectsVisibility.label=Efekty entity
-waila.settings.packAuthorVisibility.label=Autor balíka
 waila.settings.displayPosition.option.unchanged=Žiadna zmena
 waila.settings.displayPosition.option.top_left=Hore vľavo
 waila.settings.displayPosition.option.top_middle=Hore uprostred

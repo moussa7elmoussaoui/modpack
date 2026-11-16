@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=エンティティの体力
 waila.settings.alwaysDisplayEntityIntHealth.label=常に整数で体力を表示
 waila.settings.alwaysDisplayEntityIntHealth.description=エンティティの体力を整数値で代わりに表示します。
 waila.settings.entityEffectsVisibility.label=エンティティ効果
-waila.settings.packAuthorVisibility.label=パック作者
 waila.settings.displayPosition.option.unchanged=変更なし
 waila.settings.displayPosition.option.top_left=左上
 waila.settings.displayPosition.option.top_middle=上中央

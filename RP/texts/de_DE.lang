@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Entity-Gesundheit
 waila.settings.alwaysDisplayEntityIntHealth.label=Immer ganzzahlige Gesundheit anzeigen
 waila.settings.alwaysDisplayEntityIntHealth.description=Zeigt die Gesundheit der Entity stattdessen als ganzzahligen Wert an.
 waila.settings.entityEffectsVisibility.label=Entity-Effekte
-waila.settings.packAuthorVisibility.label=Pack-Autor
 waila.settings.displayPosition.option.unchanged=Keine Änderung
 waila.settings.displayPosition.option.top_left=Oben links
 waila.settings.displayPosition.option.top_middle=Oben Mitte

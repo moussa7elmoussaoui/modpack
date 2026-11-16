@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Entitás Életerő
 waila.settings.alwaysDisplayEntityIntHealth.label=Mindig Egész Életerő Mutatása
 waila.settings.alwaysDisplayEntityIntHealth.description=Az entitás életerejét egész számként jeleníti meg.
 waila.settings.entityEffectsVisibility.label=Entitás Effektek
-waila.settings.packAuthorVisibility.label=Csomag Szerzője
 waila.settings.displayPosition.option.unchanged=Nincs Változás
 waila.settings.displayPosition.option.top_left=Bal Felső
 waila.settings.displayPosition.option.top_middle=Felső Közép

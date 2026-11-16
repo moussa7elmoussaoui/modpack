@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Zdrowie Jednostki
 waila.settings.alwaysDisplayEntityIntHealth.label=Zawsze Pokazuj Liczbę Całkowitą Zdrowia
 waila.settings.alwaysDisplayEntityIntHealth.description=Wyświetla zdrowie jednostki jako wartość całkowitą.
 waila.settings.entityEffectsVisibility.label=Efekty Jednostki
-waila.settings.packAuthorVisibility.label=Autor Paczki
 waila.settings.displayPosition.option.unchanged=Bez Zmian
 waila.settings.displayPosition.option.top_left=Góra Lewo
 waila.settings.displayPosition.option.top_middle=Góra Środek

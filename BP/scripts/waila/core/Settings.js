@@ -95,7 +95,6 @@ export class WailaSettings {
 			entityHealthVisibility: this.get(player, 'entityHealthVisibility'),
 			alwaysDisplayEntityIntHealth: this.get(player, 'alwaysDisplayEntityIntHealth'),
 			entityEffectsVisibility: this.get(player, 'entityEffectsVisibility'),
-			packAuthorVisibility: this.get(player, 'packAuthorVisibility'),
 		};
 	}
 
@@ -251,13 +250,6 @@ export class WailaSettings {
 			default: 'when_sneaking',
 			options: this.WHEN_TO_SHOW_OPTIONS,
 		});
-		this.addSetting('packAuthorVisibility', {
-			type: 'enum',
-			labelKey: 'waila.settings.packAuthorVisibility.label',
-			category: 'displayContent',
-			default: 'when_sneaking',
-			options: this.WHEN_TO_SHOW_OPTIONS,
-		});
 	}
 
 	static addCategory(category) {
@@ -407,7 +399,7 @@ export class WailaSettingsUI {
 
 	static async showUI(manager, forPlayer) {
 		const target = forPlayer ?? manager;
-		if (!target?.isValid || !manager?.isValid) {
+		if (!this.canEdit(manager, target)) {
 			return;
 		}
 
@@ -531,6 +523,8 @@ export class WailaSettingsUI {
 			return;
 		}
 
+		if (!this.canEdit(manager, target)) return;
+
 		if (response.canceled || !response.formValues?.length) {
 			if (manager.isValid) manager.playSound('note.bass');
 			return;
@@ -539,7 +533,7 @@ export class WailaSettingsUI {
 		const { changesApplied } = await this.handleResponse(
 			manager,
 			target,
-			response.formValues ?? [],
+			response.formValues,
 			renderedSettingKeys,
 			entries,
 		);
@@ -555,6 +549,14 @@ export class WailaSettingsUI {
 		}
 	}
 
+	static canEdit(manager, target) {
+		return (
+			manager?.isValid &&
+			target?.isValid &&
+			(manager.id === target.id || manager.commandPermissionLevel >= CommandPermissionLevel.Admin)
+		);
+	}
+
 	static async handleResponse(
 		manager,
 		target,
@@ -567,6 +569,7 @@ export class WailaSettingsUI {
 		let valueIndex = 0;
 
 		for (const key of renderedSettingKeys) {
+			if (!this.canEdit(manager, target)) break;
 			const setting = entryByKey.get(key);
 			if (!setting) continue;
 
@@ -589,7 +592,7 @@ export class WailaSettingsUI {
 				!WailaSettings.isExperimentalEnabled(setting, previous)
 			) {
 				const confirmed = await this.confirmExperimental(manager, setting, target);
-				if (!confirmed) {
+				if (!confirmed || !this.canEdit(manager, target)) {
 					continue;
 				}
 			}

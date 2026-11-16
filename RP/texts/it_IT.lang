@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Salute dell'entità
 waila.settings.alwaysDisplayEntityIntHealth.label=Mostra sempre la salute come numero intero
 waila.settings.alwaysDisplayEntityIntHealth.description=Visualizza invece la salute dell'entità come un valore intero.
 waila.settings.entityEffectsVisibility.label=Effetti dell'entità
-waila.settings.packAuthorVisibility.label=Autore del pacchetto
 waila.settings.displayPosition.option.unchanged=Nessuna modifica
 waila.settings.displayPosition.option.top_left=In alto a sinistra
 waila.settings.displayPosition.option.top_middle=In alto al centro

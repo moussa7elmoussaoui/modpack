@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Varlık Sağlığı
 waila.settings.alwaysDisplayEntityIntHealth.label=Her Zaman Tamsayı Sağlığını Göster
 waila.settings.alwaysDisplayEntityIntHealth.description=Varlık sağlığını bunun yerine bir tamsayı değeri olarak gösterir.
 waila.settings.entityEffectsVisibility.label=Varlık Efektleri
-waila.settings.packAuthorVisibility.label=Paket Yazarı
 waila.settings.displayPosition.option.unchanged=Değişiklik Yok
 waila.settings.displayPosition.option.top_left=Sol Üst
 waila.settings.displayPosition.option.top_middle=Üst Orta

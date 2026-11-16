@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Enhetens Hälsa
 waila.settings.alwaysDisplayEntityIntHealth.label=Visa alltid heltalshälsa
 waila.settings.alwaysDisplayEntityIntHealth.description=Visar enhetens hälsa som ett heltal i stället.
 waila.settings.entityEffectsVisibility.label=Enhetseffekter
-waila.settings.packAuthorVisibility.label=Paket Skapare
 waila.settings.displayPosition.option.unchanged=Ingen förändring
 waila.settings.displayPosition.option.top_left=Övre vänstra
 waila.settings.displayPosition.option.top_middle=Övre mitten

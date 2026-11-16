@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Здоровье сущности
 waila.settings.alwaysDisplayEntityIntHealth.label=Всегда показывать целочисленное здоровье
 waila.settings.alwaysDisplayEntityIntHealth.description=Вместо этого отображает здоровье сущности как целочисленное значение.
 waila.settings.entityEffectsVisibility.label=Эффекты сущности
-waila.settings.packAuthorVisibility.label=Автор пакета
 waila.settings.displayPosition.option.unchanged=Без изменений
 waila.settings.displayPosition.option.top_left=Сверху слева
 waila.settings.displayPosition.option.top_middle=Сверху посередине

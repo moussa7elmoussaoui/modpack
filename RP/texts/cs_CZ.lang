@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Zdraví Entity
 waila.settings.alwaysDisplayEntityIntHealth.label=Vždy Zobrazit Celé Číslo Zdraví
 waila.settings.alwaysDisplayEntityIntHealth.description=Zobrazuje zdraví entity jako celočíselnou hodnotu.
 waila.settings.entityEffectsVisibility.label=Efekty Entity
-waila.settings.packAuthorVisibility.label=Autor Balíčku
 waila.settings.displayPosition.option.unchanged=Beze Změny
 waila.settings.displayPosition.option.top_left=Vlevo Nahoře
 waila.settings.displayPosition.option.top_middle=Uprostřed Nahoře

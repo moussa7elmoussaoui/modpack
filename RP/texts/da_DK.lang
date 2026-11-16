@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Entity Health
 waila.settings.alwaysDisplayEntityIntHealth.label=Vis altid Integer Health
 waila.settings.alwaysDisplayEntityIntHealth.description=Viser entity health som en integer værdi i stedet.
 waila.settings.entityEffectsVisibility.label=Entity Effects
-waila.settings.packAuthorVisibility.label=Pakke Forfatter
 waila.settings.displayPosition.option.unchanged=Ingen Ændring
 waila.settings.displayPosition.option.top_left=Øverst til venstre
 waila.settings.displayPosition.option.top_middle=Øverst i midten

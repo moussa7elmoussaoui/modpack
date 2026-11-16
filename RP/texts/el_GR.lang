@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Υγεία Οντότητας
 waila.settings.alwaysDisplayEntityIntHealth.label=Να Εμφανίζεται Πάντα η Ακέραια Υγεία
 waila.settings.alwaysDisplayEntityIntHealth.description=Εμφανίζει την υγεία της οντότητας ως ακέραια τιμή.
 waila.settings.entityEffectsVisibility.label=Εφέ Οντότητας
-waila.settings.packAuthorVisibility.label=Δημιουργός Πακέτου
 waila.settings.displayPosition.option.unchanged=Καμία Αλλαγή
 waila.settings.displayPosition.option.top_left=Πάνω Αριστερά
 waila.settings.displayPosition.option.top_middle=Πάνω Κέντρο

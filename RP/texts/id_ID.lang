@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Kesehatan Entitas
 waila.settings.alwaysDisplayEntityIntHealth.label=Selalu Tampilkan Bilangan Bulat Kesehatan
 waila.settings.alwaysDisplayEntityIntHealth.description=Menampilkan kesehatan entitas sebagai nilai bilangan bulat sebagai gantinya.
 waila.settings.entityEffectsVisibility.label=Efek Entitas
-waila.settings.packAuthorVisibility.label=Pembuat Paket
 waila.settings.displayPosition.option.unchanged=Tidak Ada Perubahan
 waila.settings.displayPosition.option.top_left=Kiri Atas
 waila.settings.displayPosition.option.top_middle=Tengah Atas

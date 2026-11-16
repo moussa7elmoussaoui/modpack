@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Enhetshelse
 waila.settings.alwaysDisplayEntityIntHealth.label=Vis alltid heltallshelse
 waila.settings.alwaysDisplayEntityIntHealth.description=Viser enhetshelse som en heltallsverdi i stedet.
 waila.settings.entityEffectsVisibility.label=Enhetseffekter
-waila.settings.packAuthorVisibility.label=Pakkeutvikler
 waila.settings.displayPosition.option.unchanged=Ingen endring
 waila.settings.displayPosition.option.top_left=Øverst til venstre
 waila.settings.displayPosition.option.top_middle=Øverst i midten

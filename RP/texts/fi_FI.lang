@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Entiteetin terveys
 waila.settings.alwaysDisplayEntityIntHealth.label=Näytä aina terveys kokonaislukuna
 waila.settings.alwaysDisplayEntityIntHealth.description=Näyttää entiteetin terveyden kokonaislukuarvona.
 waila.settings.entityEffectsVisibility.label=Entiteettien tehosteet
-waila.settings.packAuthorVisibility.label=Paketin tekijä
 waila.settings.displayPosition.option.unchanged=Ei muutosta
 waila.settings.displayPosition.option.top_left=Ylä vasen
 waila.settings.displayPosition.option.top_middle=Ylä keskellä

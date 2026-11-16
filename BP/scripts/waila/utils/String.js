@@ -34,4 +34,10 @@ String.prototype.abrevCaps = function (threshold = 4) {
 		.join(' ');
 };
 
-export {};
+export function formatNamespace(identifier) {
+	const namespace = identifier.split(':', 1)[0];
+	if (namespace === 'dark7mc') return 'DARK7MC';
+	if (namespace.length < 3) return namespace.toUpperCase();
+
+	return namespace.replace(/_/g, ' ').toTitle().abrevCaps();
+}

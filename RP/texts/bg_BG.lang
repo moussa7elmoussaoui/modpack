@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Здраве на същността
 waila.settings.alwaysDisplayEntityIntHealth.label=Винаги показвай цялочислено здраве
 waila.settings.alwaysDisplayEntityIntHealth.description=Вместо това показва здравето на обекта като цяло число.
 waila.settings.entityEffectsVisibility.label=Ефекти на същности
-waila.settings.packAuthorVisibility.label=Автор на пакет
 waila.settings.displayPosition.option.unchanged=Без промяна
 waila.settings.displayPosition.option.top_left=Горе вляво
 waila.settings.displayPosition.option.top_middle=Горе в средата

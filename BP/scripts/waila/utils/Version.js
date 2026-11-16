@@ -4,7 +4,6 @@ import {
 } from '@minecraft/server';
 
 import Meta from '../Meta.js';
-import { Registry } from '../vendor/registry.js';
 import { CustomCmd, OnWorldLoad } from '../vendor/stylish.js';
 import WailaLogger from './Logger.js';
 import { feedback } from '../../utils/messages.js';
@@ -21,7 +20,6 @@ export default class Version {
 
 	static onWorldLoad() {
 		Version.log.info(`Add-On version: ${Version.get().version}`);
-		Version.log.info(`Add-On namespace registry size: ${Object.keys(Registry).length}`);
 		Version.log.info('WAILA is loaded and running!');
 	}
 

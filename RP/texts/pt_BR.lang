@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Vida da Entidade
 waila.settings.alwaysDisplayEntityIntHealth.label=Sempre Mostrar Vida Inteira
 waila.settings.alwaysDisplayEntityIntHealth.description=Exibe a vida da entidade como um valor inteiro.
 waila.settings.entityEffectsVisibility.label=Efeitos da Entidade
-waila.settings.packAuthorVisibility.label=Autor do Pacote
 waila.settings.displayPosition.option.unchanged=Sem Mudança
 waila.settings.displayPosition.option.top_left=Superior Esquerdo
 waila.settings.displayPosition.option.top_middle=Superior Central

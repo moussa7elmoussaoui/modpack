@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Здоров'я сутності
 waila.settings.alwaysDisplayEntityIntHealth.label=Завжди показувати ціле значення здоров'я
 waila.settings.alwaysDisplayEntityIntHealth.description=Замість цього відображає здоров’я сутності як ціле значення.
 waila.settings.entityEffectsVisibility.label=Ефекти сутності
-waila.settings.packAuthorVisibility.label=Автор паку
 waila.settings.displayPosition.option.unchanged=Без змін
 waila.settings.displayPosition.option.top_left=Вгорі ліворуч
 waila.settings.displayPosition.option.top_middle=Вгорі посередині

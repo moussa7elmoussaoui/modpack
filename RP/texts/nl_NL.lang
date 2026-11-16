@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=Entiteit Gezondheid
 waila.settings.alwaysDisplayEntityIntHealth.label=Altijd Integer Gezondheid Weergeven
 waila.settings.alwaysDisplayEntityIntHealth.description=Geeft de gezondheid van de entiteit weer als een integer waarde.
 waila.settings.entityEffectsVisibility.label=Entiteit Effecten
-waila.settings.packAuthorVisibility.label=Pack Auteur
 waila.settings.displayPosition.option.unchanged=Geen Verandering
 waila.settings.displayPosition.option.top_left=Linksboven
 waila.settings.displayPosition.option.top_middle=Boven Midden

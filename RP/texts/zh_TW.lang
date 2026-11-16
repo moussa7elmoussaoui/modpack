@@ -43,7 +43,6 @@ waila.settings.entityHealthVisibility.label=實體生命值
 waila.settings.alwaysDisplayEntityIntHealth.label=總是顯示整數生命值
 waila.settings.alwaysDisplayEntityIntHealth.description=改為以整數值顯示實體生命值。
 waila.settings.entityEffectsVisibility.label=實體效果
-waila.settings.packAuthorVisibility.label=材質包作者
 waila.settings.displayPosition.option.unchanged=沒有變更
 waila.settings.displayPosition.option.top_left=左上
 waila.settings.displayPosition.option.top_middle=頂部中間

@@ -1,4 +1,3 @@
-import { Registry } from '../../vendor/registry.js';
 import inventoryTokens from '../../datasets/blockInventoryTokens.js';
 import { LookAtObjectTypeEnum } from '../../types/LookAtObjectTypeEnum.js';
 import {
@@ -7,7 +6,7 @@ import {
 } from '../Settings.js';
 import { MAX_TRACKED_EFFECTS } from '../EntityHandler.js';
 
-import '../../utils/String.js';
+import { formatNamespace } from '../../utils/String.js';
 
 export class UiBuilder {
 	static build(player, metadata, settings, extendedInfoActive) {
@@ -145,14 +144,7 @@ export class UiBuilder {
 			}
 		}
 
-		const showPackAuthor = shouldDisplayFeature(
-			settings.packAuthorVisibility,
-			isSneaking,
-		);
-		const namespaceText = UiBuilder.resolveNamespaceText(
-			metadata.namespace,
-			showPackAuthor,
-		);
+		const namespaceText = formatNamespace(metadata.itemContextIdentifier ?? metadata.namespace);
 
 		const titleParts = [
 			{ text: `_r4ui:${prefixType}:` },
@@ -217,25 +209,5 @@ export class UiBuilder {
 			}
 		}
 		return matches;
-	}
-
-	static resolveNamespaceText(namespace, showPackAuthor) {
-		const value = Registry[namespace.replace(':', '')];
-		if (value) {
-			if (showPackAuthor && value.creator) {
-				return `${value.name}\nby ${value.creator}`;
-			}
-			return value.name;
-		}
-
-		if (namespace.length > 3) {
-			return namespace
-				.replace(/_/g, ' ')
-				.replace(':', '')
-				.toTitle()
-				.abrevCaps();
-		}
-
-		return namespace.replace(':', '').toUpperCase();
 	}
 }
