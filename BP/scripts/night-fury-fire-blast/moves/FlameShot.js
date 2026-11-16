@@ -32,7 +32,7 @@ const move = {
 
                 const loc = currentTick === 0
                     ? startPosition
-                    : calcVectorOffset(player, 0, 1, currentTick, travelDir, startPosition);
+                    : calcVectorOffset(player, 0, 0, currentTick, travelDir, startPosition);
                 if (ALL_PROJECTILES[sched_ID] === undefined) {
                     ALL_PROJECTILES[sched_ID] = { id: sched_ID, loc: loc, collision: false, watchForIds: [], type: 'air' };
 

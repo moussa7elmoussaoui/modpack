@@ -13,13 +13,42 @@
     "components": {
       "minecraft:friction": 0.4,
       "minecraft:flammable": false,
-      "minecraft:map_color": "#696962",
+      "minecraft:map_color": "#495669",
       "minecraft:light_dampening": 15,
       "minecraft:light_emission": 4,
       "minecraft:destructible_by_explosion": false,
       "minecraft:destructible_by_mining": false,
       "dark7mc:script_storage": {},
       "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:item_visual": {
+        "geometry": "geometry.script_block_item",
+        "material_instances": {
+          "down": {
+            "texture": "script_block_bottom",
+            "render_method": "opaque"
+          },
+          "up": {
+            "texture": "script_block_top",
+            "render_method": "opaque"
+          },
+          "north": {
+            "texture": "script_block_back",
+            "render_method": "opaque"
+          },
+          "south": {
+            "texture": "script_block_front",
+            "render_method": "opaque"
+          },
+          "west": {
+            "texture": "script_block_left",
+            "render_method": "opaque"
+          },
+          "east": {
+            "texture": "script_block_right",
+            "render_method": "opaque"
+          }
+        }
+      },
       "minecraft:material_instances": {
         "down": {
           "texture": "script_block_bottom",
