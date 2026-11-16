@@ -1,5 +1,5 @@
-pack.name=DARK7MC Modpack [RP]
-pack.description=Kolekcja addonów połączonych w jeden modpack przez DARK7MC.
+pack.name=DARK7MC Addonpack [RP]
+pack.description=Kolekcja addonów połączonych w jeden addonpack przez DARK7MC.
 action.hint.exit.console.player=Naciśnij :_input_key.sneak:, aby zejść
 action.hint.exit.player=Dotknij skradania, aby zejść
 action.hint.exit.scheme.player=Dotknij zejścia, aby zejść

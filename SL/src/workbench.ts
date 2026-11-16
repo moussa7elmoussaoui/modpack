@@ -430,7 +430,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
       const bytes = await services.generateAddon(base, skins, {}, message => { if (!disposed) setFeedback(message); });
       if (disposed) return;
       exportUrl = URL.createObjectURL(new Blob([new Uint8Array(bytes)], { type: 'application/octet-stream' }));
-      again.href = exportUrl; again.download = 'modpack.mcaddon'; again.hidden = false; again.click();
+      again.href = exportUrl; again.download = 'addonpack.mcaddon'; again.hidden = false; again.click();
       setFeedback('Your addon is ready. Open the .mcaddon in Minecraft and activate both packs in your world.');
     } catch (error) { if (!disposed) setFeedback(error instanceof Error ? error.message : 'Could not build the addon. Please try again.', true); }
     finally { busy = false; render(); }

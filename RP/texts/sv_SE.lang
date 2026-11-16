@@ -1,5 +1,5 @@
-pack.name=DARK7MC Modpack [RP]
-pack.description=En samling addons som slagits samman till en modpack av DARK7MC.
+pack.name=DARK7MC Addonpack [RP]
+pack.description=En samling addons som slagits samman till en addonpack av DARK7MC.
 action.hint.exit.console.player=Tryck på :_input_key.sneak: för att stiga av
 action.hint.exit.player=Tryck på smygning för att stiga av
 action.hint.exit.scheme.player=Tryck på stig av för att stiga av

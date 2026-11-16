@@ -1,5 +1,5 @@
-pack.name=DARK7MC Modpack [RP]
-pack.description=Колекция от добавки, обединени в един модпак от DARK7MC.
+pack.name=DARK7MC Addonpack [RP]
+pack.description=Колекция от добавки, обединени в един пакет с добавки от DARK7MC.
 action.hint.exit.console.player=Натиснете :_input_key.sneak:, за да слезете
 action.hint.exit.player=Докоснете „крадене“, за да слезете
 action.hint.exit.scheme.player=Докоснете „слизане“, за да слезете

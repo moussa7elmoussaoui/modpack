@@ -3,36 +3,36 @@
     "header": {
         "description": "pack.description",
         "name": "pack.name",
-        "uuid": "110e29d6-6669-4ef8-a01e-22231760e1e5",
+        "uuid": "ed6b9fd6-8edd-49d1-bd7b-d28c987aadcb",
         "version": [ 1, 0, 0 ],
         "min_engine_version": [ 1, 26, 60 ]
     },
     "modules": [
         {
             "type": "data",
-            "uuid": "ac42a369-ba5e-4217-836e-39ca02ba2619",
-            "version": [0, 0, 1]
+            "uuid": "ad1b0b73-fb6b-45fb-9547-adf110916604",
+            "version": [ 1, 0, 0 ]
         },
         {
             "type": "script",
             "language": "javascript",
-            "uuid": "069c361a-aca7-4672-bcee-0b2eeb1ab779",
-            "version": [0, 0, 1],
+            "uuid": "12e0406e-5b30-44a9-9073-e650ed6848b2",
+            "version": [ 1, 0, 0 ],
             "entry": "scripts/main.js"
         }
     ],
     "dependencies": [
         {
-            "uuid": "f601f51f-e87c-45a6-ad47-7c156825de21",
+            "uuid": "489d1eba-2bf9-4297-8aa5-34405e385063",
             "version": [ 1, 0, 0 ]
         },
         {
             "module_name": "@minecraft/server",
-            "version": [ 2, 11, 0 ]
+            "version": "2.11.0"
         },
         {
             "module_name": "@minecraft/server-ui",
-            "version": [ 2, 2, 0 ]
+            "version": "2.2.0"
         },
         {
             "module_name": "@minecraft/server-gametest",

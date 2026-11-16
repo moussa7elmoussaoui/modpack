@@ -1,5 +1,5 @@
-pack.name=DARK7MC Modpack [RP]
-pack.description=A collection of addons merged into one modpack by DARK7MC.
+pack.name=DARK7MC Addonpack [RP]
+pack.description=A collection of addons merged into one addonpack by DARK7MC.
 action.hint.exit.console.player=Press :_input_key.sneak: to dismount
 action.hint.exit.player=Tap sneak to dismount
 action.hint.exit.scheme.player=Tap dismount to dismount

@@ -1,5 +1,5 @@
-pack.name=DARK7MC Modpack [RP]
-pack.description=Kokoelma addoneita, jotka on yhdistetty yhdeksi modpackiksi DARK7MC:n toimesta.
+pack.name=DARK7MC Addonpack [RP]
+pack.description=Kokoelma addoneita, jotka on yhdistetty yhdeksi addonpackiksi DARK7MC:n toimesta.
 action.hint.exit.console.player=Poistu painamalla :_input_key.sneak:
 action.hint.exit.player=Poistu napauttamalla hiipimistä
 action.hint.exit.scheme.player=Poistu napauttamalla poistumista

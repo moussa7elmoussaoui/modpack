@@ -16,6 +16,6 @@ const skins = await Promise.all((['wide', 'slim'] as const).map(async (model, in
 })));
 const addon = await generateAddon(base, skins, {}, console.log);
 await mkdir(path.join(app, 'artifacts'), { recursive: true });
-const output = path.join(app, 'artifacts/modpack.mcaddon');
+const output = path.join(app, 'artifacts/addonpack.mcaddon');
 await writeFile(output, addon);
 console.log(`Created ${output} (${addon.length.toLocaleString()} bytes).`);

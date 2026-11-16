@@ -157,7 +157,7 @@ test('the addon can be downloaded with no skins, including while an unfinished d
     download.click(); await flush();
     assert.deepEqual(h.exported, [[]]);
     assert.equal(h.query<HTMLAnchorElement>('#download-again').hidden, false);
-    assert.equal(h.query<HTMLAnchorElement>('#download-again').download, 'modpack.mcaddon');
+    assert.equal(h.query<HTMLAnchorElement>('#download-again').download, 'addonpack.mcaddon');
     assert.equal(h.editors().length, 0);
     h.openDraft(); h.names('UnfinishedPlayer');
     h.close();

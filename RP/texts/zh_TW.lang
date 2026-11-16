@@ -1,5 +1,5 @@
-pack.name=DARK7MC Modpack [RP]
-pack.description=由DARK7MC合併為一個整合包的附加元件集合。
+pack.name=DARK7MC Addonpack [RP]
+pack.description=由DARK7MC合併為一個附加元件包的附加元件集合。
 action.hint.exit.console.player=按下 :_input_key.sneak: 下坐騎
 action.hint.exit.player=點擊潛行下坐騎
 action.hint.exit.scheme.player=點擊下坐騎下坐騎

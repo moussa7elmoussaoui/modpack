@@ -1,5 +1,5 @@
-pack.name=DARK7MC Modpack [RP]
-pack.description=Sbírka addonů sloučených do jednoho modpacku od DARK7MC.
+pack.name=DARK7MC Addonpack [RP]
+pack.description=Sbírka addonů sloučených do jednoho addonpacku od DARK7MC.
 action.hint.exit.console.player=Stisknutím :_input_key.sneak: sesednete
 action.hint.exit.player=Klepnutím na plížení sesednete
 action.hint.exit.scheme.player=Klepnutím na sesednutí sesednete

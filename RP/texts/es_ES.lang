@@ -1,5 +1,5 @@
-pack.name=DARK7MC Modpack [RP]
-pack.description=Una colección de addons fusionados en un modpack por DARK7MC.
+pack.name=DARK7MC Addonpack [RP]
+pack.description=Una colección de addons fusionados en un addonpack por DARK7MC.
 action.hint.exit.console.player=Pulsa :_input_key.sneak: para desmontar
 action.hint.exit.player=Toca agacharse para desmontar
 action.hint.exit.scheme.player=Toca desmontar para desmontar

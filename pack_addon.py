@@ -5,7 +5,7 @@ from pathlib import Path
 
 def pack():
     base = Path(__file__).resolve().parent
-    output = base / "modpack.mcaddon"
+    output = base / "addonpack.mcaddon"
     folders = ("BP", "RP")
 
     missing = [f for f in folders if not (base / f).is_dir()]

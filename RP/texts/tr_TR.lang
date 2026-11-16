@@ -1,5 +1,5 @@
-pack.name=DARK7MC Modpack [RP]
-pack.description=DARK7MC tarafından tek bir modpack'te birleştirilen eklenti koleksiyonu.
+pack.name=DARK7MC Addonpack [RP]
+pack.description=DARK7MC tarafından tek bir addonpack'te birleştirilen eklenti koleksiyonu.
 action.hint.exit.console.player=İnmek için :_input_key.sneak: tuşuna bas
 action.hint.exit.player=İnmek için gizlice yürüye dokun
 action.hint.exit.scheme.player=İnmek için inmeye dokun

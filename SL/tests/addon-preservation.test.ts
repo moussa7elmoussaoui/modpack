@@ -272,7 +272,7 @@ test('the real workbench download controls preserve all original file bytes with
     assert.equal(button.disabled, false);
     button.click();
     await waitFor(() => downloads.length === next && !button.classList.contains('is-busy'), 'the addon download');
-    assert.equal(downloads[next - 1].filename, 'modpack.mcaddon');
+    assert.equal(downloads[next - 1].filename, 'addonpack.mcaddon');
     return unzipSync(await downloads[next - 1].bytes);
   }
   try {

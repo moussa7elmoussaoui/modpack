@@ -1,5 +1,5 @@
-pack.name=DARK7MC Modpack [RP]
-pack.description=Μια συλλογή addons συγχωνευμένα σε ένα modpack από τον DARK7MC.
+pack.name=DARK7MC Addonpack [RP]
+pack.description=Μια συλλογή addons συγχωνευμένα σε ένα addonpack από τον DARK7MC.
 action.hint.exit.console.player=Πατήστε :_input_key.sneak: για να ξεκαβαλήσετε
 action.hint.exit.player=Πατήστε το κρυφό για να ξεκαβαλήσετε
 action.hint.exit.scheme.player=Πατήστε το ξεκαβάλημα για να ξεκαβαλήσετε
