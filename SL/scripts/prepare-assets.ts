@@ -6,6 +6,7 @@ import { zipSync } from 'fflate';
 import { PNG } from 'pngjs';
 import { bakeTemplate, type Geometry } from './template';
 import { composeIcon } from '../src/lib/pixels';
+import { encodePngRgba } from '../src/lib/png';
 import { composeSkinFace, enlargeSkinFace } from '../src/lib/faces';
 import { readReservedPlayerNames } from '../src/lib/name-policy';
 
@@ -43,8 +44,7 @@ for (const [model, name] of [['wide', 'steve'], ['slim', 'alex']] as const) {
   const bytes = files[`RP/textures/entity/player/${model}/${name}.png`];
   await writeFile(path.join(output, `examples/${model}.png`), bytes);
   const skin = PNG.sync.read(Buffer.from(bytes));
-  const icon = new PNG({ width: 128, height: 128 });
-  icon.data = Buffer.from(composeIcon(templates[model], skin.data, skin.width));
-  await writeFile(path.join(output, `examples/${model}-icon.png`), PNG.sync.write(icon));
+  const icon = composeIcon(templates[model], skin.data, skin.width);
+  await writeFile(path.join(output, `examples/${model}-icon.png`), encodePngRgba(128, 128, icon));
 }
 console.log(`SkinLink assets ready: ${Object.keys(files).length} addon files, ${skinCount} bundled skins, two fixed icon templates.`);

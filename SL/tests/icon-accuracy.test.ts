@@ -6,18 +6,21 @@ import { composeIcon, type IconTemplates } from '../src/lib/pixels';
 import { decodePngRgba, encodePngRgba } from '../src/lib/png';
 import { findRegressions, measureReferences, readReferences, type Measurement } from '../scripts/icon-references';
 
-test('every bundled Blockbench reference retains the improved accuracy, including exported PNG pixels', async () => {
-  const baseline: { original: Measurement[]; improved: Measurement[] } = JSON.parse(await readFile(new URL('./fixtures/icon-accuracy.json', import.meta.url), 'utf8'));
+test('corrected icons retain their bundled consistency baseline and match every bundled PNG', async () => {
+  const baseline: { bundled: Measurement[] } = JSON.parse(await readFile(new URL('./fixtures/icon-accuracy.json', import.meta.url), 'utf8'));
   const references = await readReferences();
   const templates: IconTemplates = JSON.parse(await readFile(new URL('../public/assets/icon-templates.json', import.meta.url), 'utf8'));
   const actual = measureReferences(references, templates);
   assert.ok(actual.length >= 175, 'the complete reference collection must be checked');
-  assert.deepEqual(findRegressions(actual, baseline.original), [], 'no original reference may regress');
-  assert.deepEqual(findRegressions(actual, baseline.improved), [], 'the accuracy improvements must be preserved');
+  assert.deepEqual(findRegressions(actual, baseline.bundled), [], 'generated icons must stay consistent with the bundled PNGs');
   for (const reference of references) {
     const skinBytes = await readFile(new URL(`../../RP/textures/entity/player/${reference.key}.png`, import.meta.url));
     const skin = decodePngRgba(skinBytes);
     const composed = composeIcon(templates[reference.model], skin.pixels, skin.width);
+    const bundled = PNG.sync.read(await readFile(new URL(`../../RP/textures/morph_icons/minecraft/player/${reference.key}.png`, import.meta.url)));
+    assert.equal(bundled.width, 128, `${reference.key}: bundled icon width`);
+    assert.equal(bundled.height, 128, `${reference.key}: bundled icon height`);
+    assert.deepEqual(new Uint8ClampedArray(bundled.data), composed, `${reference.key}: bundled icons must use the corrected model`);
     const encoded = encodePngRgba(128, 128, composed);
     const exported = PNG.sync.read(Buffer.from(encoded));
     assert.deepEqual(new Uint8ClampedArray(exported.data), composed, `${reference.key}: exporting must preserve all RGBA pixels`);

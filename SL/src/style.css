@@ -38,9 +38,9 @@
   --export-subtle: var(--subtle);
   --export-accent: var(--accent-ink);
   --export-line: var(--line);
-  --button-bg: #40dfff;
-  --button-hover: #80ebff;
-  --button-text: #10252d;
+  --button-bg: #087f9c;
+  --button-hover: #07647b;
+  --button-text: #ffffff;
   --feedback-bg: var(--selected);
   --feedback-text: var(--accent-ink);
   --feedback-line: var(--line);
@@ -78,6 +78,9 @@
   --processing-overlay: #171b1e88;
   --brand-bg: #0e1519;
   --export-bg: #10171c;
+  --button-bg: #40dfff;
+  --button-hover: #80ebff;
+  --button-text: #10252d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -109,6 +112,9 @@
     --processing-overlay: #171b1e88;
     --brand-bg: #0e1519;
     --export-bg: #10171c;
+    --button-bg: #40dfff;
+    --button-hover: #80ebff;
+    --button-text: #10252d;
   }
 }
 
@@ -229,8 +235,10 @@ h1 { margin: 0; font-size: clamp(28px, 3vw, 38px); font-weight: 650; letter-spac
 #skin-editors { min-height: 0; flex: 1 1 auto; display: flex; flex-direction: column; overflow: hidden; }
 .skin-editor { min-width: 0; min-height: 0; flex: 1 1 auto; display: flex; flex-direction: column; }
 .editor-content { min-height: 0; flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain; }
-.draft-actions { flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 18px 26px; border-top: 1px solid var(--line-soft); background: var(--surface-alt); }
-.clear-skin { flex-shrink: 0; min-width: 80px; padding-inline: 16px; }
+.draft-actions { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 26px; border-top: 1px solid var(--line-soft); background: var(--surface-alt); }
+.clear-skin { flex-shrink: 0; min-width: 80px; padding-inline: 16px; border: 0; background: transparent; cursor: pointer; }
+.clear-skin:hover:enabled { background: transparent; }
+.clear-skin:disabled { color: var(--muted); opacity: 1; cursor: not-allowed; }
 .commit-skin { width: auto; flex-shrink: 0; min-width: 136px; }
 .commit-skin:disabled { color: var(--subtle); background: var(--surface-alt); border-color: var(--line); opacity: 1; cursor: not-allowed; }
 .editor-body { display: grid; grid-template-columns: minmax(0, 1fr) 148px; gap: 30px; padding: 28px 26px; align-items: start; }

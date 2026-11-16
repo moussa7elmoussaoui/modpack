@@ -317,7 +317,7 @@ export function mountWorkbench(app: HTMLElement, overrides: Partial<WorkbenchSer
     const entry: SkinEntry = { id, file: null, model: null, names: '', faceUrl: '', decoded: null, processing: false, readingFace: false, fileError: '', iconError: '', notice: '', revision: 0, faceRevision: 0, validationShown: false, element, row };
     draft = entry;
     const actions = doc.createElement('div'); actions.className = 'draft-actions';
-    actions.innerHTML = `<button class="clear-skin text-button" type="button" disabled aria-label="Clear image and player name">Clear</button><button class="add-skin commit-skin" type="button" disabled>${plus}<span>Add to list</span></button>`;
+    actions.innerHTML = `<button class="clear-skin add-skin" type="button" disabled aria-label="Clear image and player name">Clear</button><button class="add-skin commit-skin" type="button" disabled>${plus}<span>Add to list</span></button>`;
     element.append(actions); byId('skin-editors').append(element);
     actions.querySelector<HTMLButtonElement>('.commit-skin')!.addEventListener('click', () => {
       if (busy || !active(entry) || !ready(entry)) return;

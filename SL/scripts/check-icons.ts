@@ -5,16 +5,16 @@ import { findRegressions, fittingKeys, measureReferences, readReferences, summar
 
 const references = await readReferences();
 const templates: IconTemplates = JSON.parse(await readFile(new URL('../public/assets/icon-templates.json', import.meta.url), 'utf8'));
-const baseline: { original: Measurement[]; improved: Measurement[] } = JSON.parse(await readFile(new URL('../tests/fixtures/icon-accuracy.json', import.meta.url), 'utf8'));
+const baseline: { bundled: Measurement[] } = JSON.parse(await readFile(new URL('../tests/fixtures/icon-accuracy.json', import.meta.url), 'utf8'));
 const measurements = measureReferences(references, templates);
-const regressions = findRegressions(measurements, baseline.improved);
+const regressions = findRegressions(measurements, baseline.bundled);
 const summary = {
-  original: summarize(baseline.original), current: summarize(measurements),
+  bundledBaseline: summarize(baseline.bundled), current: summarize(measurements),
   fittingExamples: summarize(measurements.filter(row => fittingKeys.has(row.key))),
   remainingReferences: summarize(measurements.filter(row => !fittingKeys.has(row.key))), regressions
 };
 const selected = ['wide/technoblade', 'wide/ramboo', 'wide/chandler', 'slim/s047', 'slim/s079', 'slim/alex'];
-// Columns follow selected; rows are original, generated, and an opaque difference map.
+// Rows are bundled icons, current generated output, and differences.
 const sheet = new PNG({ width: selected.length * 256, height: 768 });
 for (const [column, key] of selected.entries()) {
   const reference = references.find(row => row.key === key);

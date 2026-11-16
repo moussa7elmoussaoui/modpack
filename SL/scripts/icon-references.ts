@@ -1,4 +1,4 @@
-/** Development-only measurements against the original, unmodified addon icons. */
+/** Development checks against the currently bundled player icons. */
 import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
 import { PNG } from 'pngjs';

@@ -10,7 +10,7 @@ interface Baseline {
   cases: Record<string, { model: string; width: number; height: number; texture: string; icon: string; face: string }>;
 }
 
-test('every bundled, HD, and legacy skin retains its original icon pixels, face pixels, texture bytes, and detected model', async () => {
+test('every bundled, HD, and legacy skin retains its corrected icon pixels, face pixels, texture bytes, and detected model', async () => {
   const baseline: Baseline = JSON.parse(await readFile(new URL('./fixtures/icon-output-baseline.json', import.meta.url), 'utf8'));
   const templates = new Uint8Array(await readFile(new URL('../public/assets/icon-templates.json', import.meta.url)));
   const originalFetch = globalThis.fetch;
@@ -32,7 +32,7 @@ test('every bundled, HD, and legacy skin retains its original icon pixels, face 
           model: icon.model, width: icon.width, height: icon.height,
           texture: hash(icon.texturePng), icon: hash(PNG.sync.read(Buffer.from(icon.iconPng)).data),
           face: hash(PNG.sync.read(Buffer.from(facePng)).data),
-        }, baseline.cases[entry.id], `${entry.id}: output must match the captured pre-fix baseline`);
+        }, baseline.cases[entry.id], `${entry.id}: output must match the reviewed corrected-model baseline`);
       } finally { URL.revokeObjectURL(icon.iconUrl); URL.revokeObjectURL(faceUrl); }
     }
   } finally { globalThis.fetch = originalFetch; }
