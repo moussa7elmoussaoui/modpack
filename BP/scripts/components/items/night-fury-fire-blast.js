@@ -1,6 +1,7 @@
 import { system, world } from "@minecraft/server";
 import { canUseMorphAbility } from "../../abilities/morph-item-guard";
 import { clearSegment, setSegment } from "../../actionbar.js";
+import { FIRE_BLAST_ITEM_ID, getNightFuryMoveIndex, updateNightFuryMoveItem } from "../../data/night-fury-moves";
 import { PLAYER_DATA_MAP } from "../../night-fury-fire-blast/fire-blast-runtime.js";
 import { getNightFuryAimDirection } from "../../night-fury-fire-blast/fire-blast-utils.js";
 import FlameShot from "../../night-fury-fire-blast/moves/FlameShot.js";
@@ -8,7 +9,6 @@ import ScorpionSting from "../../night-fury-fire-blast/moves/ScorpionSting.js";
 import DragonStrike from "../../night-fury-fire-blast/moves/DragonStrike.js";
 import BounceBlast from "../../night-fury-fire-blast/moves/BounceBlast.js";
 
-const ITEM_ID = "dark7mc:fire_blast";
 const FIRE_BLAST_ORIGIN_FORWARD = 1.4;
 const FIRE_BLAST_ORIGIN_HEIGHT = 0.42;
 const NIGHT_FURY_CRITICAL_HEALTH = 0.3;
@@ -17,15 +17,11 @@ const NIGHT_FURY_CRITICAL_LEVEL = 100;
 const NIGHT_FURY_NORMAL_LEVEL_FACTOR = 0.01;
 const NIGHT_FURY_CRITICAL_LEVEL_FACTOR = 1;
 const MOVE_COOLDOWN = 12;
-const DOUBLE_SNEAK_WINDOW = 10;
 const ACTIONBAR_SEGMENT = "night_fury_fire_blast";
 const ACTIONBAR_CLEAR_MARKER = "§r";
 const MOVE_HUD_MARKERS = ["§0§k§r", "§1§k§r", "§2§k§r", "§3§k§r"];
 const MOVES = [
-  { name: "Flame Shot", activate: FlameShot.activate },
-  { name: "Scorpion Sting", activate: ScorpionSting.activate },
-  { name: "Dragon Strike", activate: DragonStrike.activate },
-  { name: "Bounce Blast", activate: BounceBlast.activate }
+  FlameShot, ScorpionSting, DragonStrike, BounceBlast
 ];
 const inputState = new Map();
 
@@ -34,9 +30,6 @@ function inputFor(player) {
   if (!input) {
     input = {
       cooldown: 0,
-      selectedMove: 0,
-      sneakHeld: false,
-      lastSneakPressTick: -Infinity,
       hudSegmentActive: false
     };
     inputState.set(player.id, input);
@@ -63,8 +56,28 @@ function stateFor(player) {
 
 function getHeldFireBlast(player) {
   const item = player.getComponent("minecraft:inventory")?.container?.getItem(player.selectedSlotIndex);
-  return item?.typeId === ITEM_ID ? item : undefined;
+  return item?.typeId === FIRE_BLAST_ITEM_ID ? item : undefined;
 }
+
+world.beforeEvents.itemUse.subscribe(event => {
+  const { source, itemStack } = event;
+  if (event.cancel || itemStack?.typeId !== FIRE_BLAST_ITEM_ID ||
+    !canUseMorphAbility(source, itemStack) || !source.isSneaking) return;
+
+  event.cancel = true;
+  const slotIndex = source.selectedSlotIndex;
+  const moveIndex = getNightFuryMoveIndex(itemStack);
+  system.run(() => {
+    if (!source.isValid || source.selectedSlotIndex !== slotIndex) return;
+    const slot = source.getComponent("minecraft:inventory")?.container?.getSlot(slotIndex);
+    const currentItem = slot?.getItem();
+    if (currentItem?.typeId !== FIRE_BLAST_ITEM_ID || !canUseMorphAbility(source, currentItem) ||
+      getNightFuryMoveIndex(currentItem) !== moveIndex) return;
+
+    updateNightFuryMoveItem(currentItem, (moveIndex + 1) % MOVES.length);
+    slot.setItem(currentItem);
+  });
+});
 
 function fireBlastOrigin(player, direction) {
   const base = player.location;
@@ -93,7 +106,8 @@ system.runInterval(() => {
       state.viewDir = player.getViewDirection();
     }
 
-    const isUsingFireBlast = canUseMorphAbility(player, getHeldFireBlast(player));
+    const heldItem = getHeldFireBlast(player);
+    const isUsingFireBlast = canUseMorphAbility(player, heldItem);
     const input = inputState.get(player.id);
 
     if (!isUsingFireBlast) {
@@ -105,34 +119,22 @@ system.runInterval(() => {
         });
         input.hudSegmentActive = false;
       }
-      input.sneakHeld = false;
-      input.lastSneakPressTick = -Infinity;
       continue;
     }
 
     const activeInput = input ?? inputFor(player);
-    const sneaking = player.isSneaking;
-    if (sneaking && !activeInput.sneakHeld) {
-      if (system.currentTick - activeInput.lastSneakPressTick <= DOUBLE_SNEAK_WINDOW) {
-        activeInput.selectedMove = (activeInput.selectedMove + 1) % MOVES.length;
-        activeInput.lastSneakPressTick = -Infinity;
-      } else {
-        activeInput.lastSneakPressTick = system.currentTick;
-      }
-    }
-
-    activeInput.sneakHeld = sneaking;
+    const moveIndex = getNightFuryMoveIndex(heldItem);
     activeInput.hudSegmentActive = true;
     setSegment(player, ACTIONBAR_SEGMENT, {
       priority: 2,
       isHudMarker: true,
-      getLine: () => MOVE_HUD_MARKERS[activeInput.selectedMove]
+      getLine: () => MOVE_HUD_MARKERS[moveIndex]
     });
   }
 }, 1);
 
 function activate(player, itemStack) {
-  if (!canUseMorphAbility(player, itemStack) || getHeldFireBlast(player) === undefined) return;
+  if (!canUseMorphAbility(player, itemStack) || getHeldFireBlast(player) === undefined || player.isSneaking) return;
 
   const state = stateFor(player);
   const input = inputFor(player);
@@ -145,7 +147,7 @@ function activate(player, itemStack) {
   const blastOrigin = fireBlastOrigin(player, aimDirection);
   player.playAnimation("animation.morph.night_fury.breath");
 
-  MOVES[input.selectedMove].activate(player, state, blastOrigin);
+  MOVES[getNightFuryMoveIndex(itemStack)].activate(player, state, blastOrigin);
   input.cooldown = system.currentTick + MOVE_COOLDOWN;
 }
 

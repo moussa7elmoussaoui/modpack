@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Uralter Elementargeist
 morph.item.switch_potion=Schleichen und benutzen, um den Trank zu wechseln.
 morph.witch.potion_cooldown=Du kannst in %s Sekunden wieder einen Trank benutzen.
 morph.witch.selected_potion=Ausgewählter Trank: %s
+morph.item.switch_move=Schleichen und benutzen, um den Angriff zu wechseln.
+morph.night_fury.current_move=Aktueller Angriff: %s

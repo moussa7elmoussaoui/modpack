@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Ancient Elemental
 morph.item.switch_potion=Sneak and use to switch potions.
 morph.witch.potion_cooldown=You can use a potion again in %s seconds.
 morph.witch.selected_potion=Selected potion: %s
+morph.item.switch_move=Sneak and use to switch moves.
+morph.night_fury.current_move=Current move: %s

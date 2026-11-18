@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Давній елементаль
 morph.item.switch_potion=Крадіться й використайте предмет, щоб змінити зілля.
 morph.witch.potion_cooldown=Ви зможете знову використати зілля через %s с.
 morph.witch.selected_potion=Вибране зілля: %s
+morph.item.switch_move=Крадіться й використайте предмет, щоб змінити прийом.
+morph.night_fury.current_move=Поточний прийом: %s

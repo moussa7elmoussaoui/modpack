@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Eldgammelt elementvesen
 morph.item.switch_potion=Snik og bruk gjenstanden for å bytte eliksir.
 morph.witch.potion_cooldown=Du kan bruke en eliksir igjen om %s sekunder.
 morph.witch.selected_potion=Valgt eliksir: %s
+morph.item.switch_move=Snik og bruk gjenstanden for å bytte angrep.
+morph.night_fury.current_move=Nåværende angrep: %s

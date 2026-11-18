@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Élémentaire ancien
 morph.item.switch_potion=Accroupissez-vous et utilisez l'objet pour changer de potion.
 morph.witch.potion_cooldown=Vous pourrez réutiliser une potion dans %s secondes.
 morph.witch.selected_potion=Potion sélectionnée : %s
+morph.item.switch_move=Accroupissez-vous et utilisez l'objet pour changer de technique.
+morph.night_fury.current_move=Technique actuelle : %s

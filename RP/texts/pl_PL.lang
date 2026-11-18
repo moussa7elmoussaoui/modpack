@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Pradawny żywiołak
 morph.item.switch_potion=Skradaj się i użyj przedmiotu, aby zmienić miksturę.
 morph.witch.potion_cooldown=Możesz ponownie użyć mikstury za %s sekund.
 morph.witch.selected_potion=Wybrana mikstura: %s
+morph.item.switch_move=Skradaj się i użyj przedmiotu, aby zmienić atak.
+morph.night_fury.current_move=Bieżący atak: %s

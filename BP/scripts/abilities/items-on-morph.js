@@ -2,6 +2,7 @@ import { EntityComponentTypes, EntityDamageCause, EntityTypes, EquipmentSlot, It
 import { InventoryMirror } from "../waila/core/InventoryMirror.js";
 import { ATTACHED_MORPH_TYPE_PROPERTY, ATTACHED_TO_MORPH_PROPERTY, canUseMorphAbility, getMorphAbilityState, isMorphAbilityItem } from "./morph-item-guard";
 import { getWitchPotionEffect, WITCH_ENTITY_TYPE, WITCH_POTIONS } from "../data/witch-potions";
+import { updateNightFuryMoveItem } from "../data/night-fury-moves";
 
 const CUSTOM_ENTITY_TYPE_NAMES = Object.freeze({
   "dark7mc:night_fury": "entity.dark7mc:night_fury.name",
@@ -67,10 +68,12 @@ function reconcileMorphItems(player) {
       slot.setItem(undefined);
       return true;
     }
+    let itemChanged = updateNightFuryMoveItem(itemStack);
     if (itemStack.amount > 1) {
       itemStack.amount = 1;
-      slot.setItem(itemStack);
+      itemChanged = true;
     }
+    if (itemChanged) slot.setItem(itemStack);
     return false;
   }
 
@@ -134,6 +137,8 @@ export function createAttachedMorphItem(itemType, entityType, potionEffect) {
       { text: "\u00a7r" }
     ]}]);
   }
+
+  updateNightFuryMoveItem(itemStack);
 
   const durabilityComponent = itemStack.getComponent("minecraft:durability");
   if (durabilityComponent !== undefined) durabilityComponent.unbreakable = true;

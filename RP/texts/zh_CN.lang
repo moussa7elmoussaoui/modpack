@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=远古元素生物
 morph.item.switch_potion=潜行时使用物品可切换药水。
 morph.witch.potion_cooldown=%s 秒后可再次使用药水。
 morph.witch.selected_potion=已选择药水：%s
+morph.item.switch_move=潜行时使用物品可切换招式。
+morph.night_fury.current_move=当前招式：%s

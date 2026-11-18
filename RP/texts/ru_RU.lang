@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Древний элементаль
 morph.item.switch_potion=Крадитесь и используйте предмет, чтобы сменить зелье.
 morph.witch.potion_cooldown=Вы сможете снова использовать зелье через %s сек.
 morph.witch.selected_potion=Выбранное зелье: %s
+morph.item.switch_move=Крадитесь и используйте предмет, чтобы сменить приём.
+morph.night_fury.current_move=Текущий приём: %s

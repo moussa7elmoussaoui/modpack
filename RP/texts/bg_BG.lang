@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Древен елементал
 morph.item.switch_potion=Приклекнете и използвайте предмета, за да смените отварата.
 morph.witch.potion_cooldown=Ще можете да използвате отвара отново след %s секунди.
 morph.witch.selected_potion=Избрана отвара: %s
+morph.item.switch_move=Приклекнете и използвайте предмета, за да смените хода.
+morph.night_fury.current_move=Текущ ход: %s

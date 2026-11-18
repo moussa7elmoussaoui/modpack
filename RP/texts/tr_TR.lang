@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Kadim Elemental
 morph.item.switch_potion=İksiri değiştirmek için eğilerek eşyayı kullan.
 morph.witch.potion_cooldown=%s saniye sonra tekrar iksir kullanabilirsin.
 morph.witch.selected_potion=Seçilen iksir: %s
+morph.item.switch_move=Hareketi değiştirmek için eğilerek eşyayı kullan.
+morph.night_fury.current_move=Geçerli hareket: %s

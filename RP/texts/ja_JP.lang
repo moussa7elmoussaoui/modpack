@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=古代の精霊
 morph.item.switch_potion=スニークしながら使うとポーションを切り替えます。
 morph.witch.potion_cooldown=%s 秒後にポーションを再び使用できます。
 morph.witch.selected_potion=選択したポーション: %s
+morph.item.switch_move=スニークしながら使うと技を切り替えます。
+morph.night_fury.current_move=現在の技: %s

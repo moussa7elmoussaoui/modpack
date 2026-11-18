@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Oeroude elementaal
 morph.item.switch_potion=Sluip en gebruik het voorwerp om van drank te wisselen.
 morph.witch.potion_cooldown=Je kunt over %s seconden weer een drank gebruiken.
 morph.witch.selected_potion=Geselecteerde drank: %s
+morph.item.switch_move=Sluip en gebruik het voorwerp om van aanval te wisselen.
+morph.night_fury.current_move=Huidige aanval: %s

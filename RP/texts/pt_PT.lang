@@ -171,3 +171,5 @@ entity.dark7mc:ancient_elemental.name=Elemental ancestral
 morph.item.switch_potion=Agacha-te e usa o item para mudar de poção.
 morph.witch.potion_cooldown=Poderás voltar a usar uma poção daqui a %s segundos.
 morph.witch.selected_potion=Poção selecionada: %s
+morph.item.switch_move=Agacha-te e usa o item para mudar de golpe.
+morph.night_fury.current_move=Golpe atual: %s
