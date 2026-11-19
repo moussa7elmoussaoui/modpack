@@ -10,6 +10,8 @@ import "./morph/entity-methods";
 import "./abilities/block-morph-riding";
 import "./utils/is-solid";
 import { namespace } from "./utils/pack-data";
+import { CLONE_TAG } from "./clones/model";
+import "./clones/chat";
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, customCommandRegistry, itemComponentRegistry }) => {
   for (const blockComponent of components.blocks) { blockComponentRegistry.registerCustomComponent(namespace.toNamespacedId(blockComponent.id), blockComponent); }
@@ -49,7 +51,7 @@ world.afterEvents.playerGameModeChange.subscribe(({ player, toGameMode }) => {
 });
 
 world.afterEvents.entityDie.subscribe(({ deadEntity }) => {
-  if (deadEntity.typeId !== "minecraft:player") return;
+  if (deadEntity.typeId !== "minecraft:player" || deadEntity.hasTag(CLONE_TAG)) return;
   uiManager.closeAllForms(deadEntity);
 });
 

@@ -3,6 +3,10 @@ import * as util from "./utils/inspect.js";
 import * as vanillaData from "./vanilla-data/index.js";
 import { reportError } from "./error-reporter.js";
 import { scriptJson } from "./utils/script-json.js";
+import {
+  registerSimulatedPlayerChatHandler,
+  simulatedPlayerChat
+} from "../utils/simulated-player-chat.js";
 
 const OPTIONAL_MODULE_LOADERS = [
   () => import("@minecraft/server-editor-bindings"),
@@ -19,6 +23,8 @@ async function buildScriptScope() {
   const scope = {
     ...timers,
     util,
+    registerSimulatedPlayerChatHandler,
+    simulatedPlayerChat,
     ...vanillaData,
     ...(await import("@minecraft/common")),
     ...(await import("@minecraft/server")),
