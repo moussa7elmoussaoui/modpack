@@ -67,6 +67,7 @@ const PLAYER_SKIN_BY_NAME = Object.freeze(Object.fromEntries([
 ]));
 
 export function getPlayerSkinIndex(playerName) {
+  if (/^URBAN7MC (?:[1-9]|10)$/.test(playerName ?? "")) return PLAYER_SKIN_BY_NAME.URBAN7MC;
   if (Object.prototype.hasOwnProperty.call(PLAYER_SKIN_BY_NAME, playerName)) return PLAYER_SKIN_BY_NAME[playerName];
   if (playerName === undefined) return Math.floor(Math.random() * RANDOM_PLAYER_SKINS.length);
 

@@ -1,4 +1,5 @@
 import { CommandPermissionLevel, CustomCommandParamType, CustomCommandStatus, Player, system } from "@minecraft/server";
+import { CLONE_TAG } from "../../clones/model";
 import { isInvseeOpen, openInvsee } from "../../invsee/index";
 import { namespace } from "../../utils/pack-data";
 import { commandFeedback } from "../feedback";
@@ -24,6 +25,7 @@ export default {
       return commandFeedback(origin, CustomCommandStatus.Failure, "invsee.error.player_morph_required");
     }
     if (players?.length !== 1) return commandFeedback(origin, CustomCommandStatus.Failure, "commands.select_one_player");
+    if (players[0].hasTag(CLONE_TAG)) return commandFeedback(origin, CustomCommandStatus.Failure, "clones.error.use_menu");
     if (isInvseeOpen(viewer)) return commandFeedback(origin, CustomCommandStatus.Failure, "invsee.error.already_open");
     system.run(() => { void openInvsee(viewer, players[0], view); });
     return { status: CustomCommandStatus.Success };

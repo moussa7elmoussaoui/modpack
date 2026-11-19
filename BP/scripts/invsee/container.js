@@ -127,7 +127,7 @@ export class InventoryEditor {
 
   refreshTitle() {
     const flags = this.baseline.slice(36).map(value => value ? "a" : "b").join("");
-    const title = (this.view === "enderchest" ? "_dark7mc:enderchest:" : `_dark7mc:invsee:${flags}:`) + fitName(this.target.name, 60);
+    const title = (this.view === "enderchest" ? "_dark7mc:enderchest:" : `_dark7mc:invsee:${flags}:`) + fitName(this.target.name, 64);
     if (this.entity.nameTag !== title) this.entity.nameTag = title;
   }
 
