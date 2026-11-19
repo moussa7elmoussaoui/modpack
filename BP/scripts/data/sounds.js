@@ -735,11 +735,6 @@ export default [
     pitch: 1.0
   },
   {
-    death: "",
-    volume: 1.0,
-    pitch: 1.0
-  },
-  {
     "hurt": [
       {
         "conditions": "!this.hasComponent('minecraft:is_baby')",

@@ -4,7 +4,7 @@ import { removeMorphFromActiveOmnitrix } from "./omnitrix";
 import { feedback } from "../../utils/messages";
 
 const PLAYER_ENTITY_TYPE = "minecraft:player";
-const STORAGE_BLOCKED_ENTITY_TYPES = new Set([ "dark7mc:night_fury", "dark7mc:ancient_elemental" ]);
+const STORAGE_BLOCKED_ENTITY_TYPES = new Set([ "dark7mc:night_fury" ]);
 
 const SELF_SEAL_BLOCKED_MESSAGE = feedback("morph.self_seal_blocked");
 const STORAGE_BLOCKED_MESSAGE = feedback("morph.storage_blocked");

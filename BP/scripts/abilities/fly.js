@@ -2,10 +2,7 @@ import { GameMode, system, world } from "@minecraft/server";
 import { morphEvents } from "../morph/entity-methods";
 import { feedback } from "../utils/messages";
 
-const FLYING_ENTITY_TYPES = [
-  "dark7mc:night_fury",
-  "dark7mc:ancient_elemental"
-];
+const FLYING_ENTITY_TYPES = [ "dark7mc:night_fury" ];
 
 const MAYFLY_PROPERTY = "mayfly";
 const notified = new Set();

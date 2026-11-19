@@ -44,11 +44,6 @@ const SPECIAL_MORPH_CONFIGS = Object.freeze({
     entityType: "dark7mc:night_fury",
     morphId: "dark7mc:night_fury[]",
     unlockNotifiedProperty: "nightFuryUnlockNotified"
-  }),
-  "URBAN7MC": Object.freeze({
-    entityType: "dark7mc:ancient_elemental",
-    morphId: "dark7mc:ancient_elemental[]",
-    unlockNotifiedProperty: "ancientElementalUnlockNotified"
   })
 });
 

@@ -20,7 +20,6 @@ export const MAX_TRACKED_EFFECTS = 4;
 
 const CUSTOM_MORPH_DISPLAY_NAMES = Object.freeze({
 	'dark7mc:night_fury': 'entity.dark7mc:night_fury.name',
-	'dark7mc:ancient_elemental': 'entity.dark7mc:ancient_elemental.name',
 });
 
 const EFFECT_TABLE = [

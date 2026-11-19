@@ -11,7 +11,7 @@
                     "type": "int",
                     "range": [
                         0,
-                        84
+                        83
                     ],
                     "default": 0,
                     "client_sync": true
@@ -8963,48 +8963,6 @@
                     ]
                 }
             },
-            "morph:ancient_elemental": {
-                "minecraft:attack": {
-                    "damage": 7
-                },
-                "minecraft:breathable": {
-                    "suffocate_time": 0,
-                    "total_supply": 15
-                },
-                "minecraft:collision_box": {
-                    "width": 0.9,
-                    "height": 2.0
-                },
-                "minecraft:damage_sensor": {
-                    "triggers": {
-                        "deals_damage": "no",
-                        "on_damage": {
-                            "filters": {
-                                "test": "has_damage",
-                                "value": "fall"
-                            }
-                        }
-                    }
-                },
-                "minecraft:health": {
-                    "max": 60,
-                    "value": 60
-                },
-                "minecraft:environment_sensor": {
-                    "triggers": [
-                        {
-                            "event": "morph:fire_immune"
-                        }
-                    ]
-                },
-                "minecraft:type_family": {
-                    "family": [
-                        "ancient_elemental",
-                        "mob",
-                        "morphed"
-                    ]
-                }
-            },
             "dark7mc:default_component_values": {
                 "minecraft:attack": {
                     "damage": 1
@@ -10760,20 +10718,6 @@
                                     "subject": "self",
                                     "domain": "dark7mc:entity",
                                     "operator": "equals",
-                                    "value": 83
-                                },
-                                "remove": {
-                                    "component_groups": [
-                                        "morph:ancient_elemental"
-                                    ]
-                                }
-                            },
-                            {
-                                "filters": {
-                                    "test": "int_property",
-                                    "subject": "self",
-                                    "domain": "dark7mc:entity",
-                                    "operator": "equals",
                                     "value": 82
                                 },
                                 "remove": {
@@ -10790,7 +10734,7 @@
                                     "subject": "self",
                                     "domain": "dark7mc:entity",
                                     "operator": "equals",
-                                    "value": 84
+                                    "value": 83
                                 },
                                 "remove": {
                                     "component_groups": [
@@ -16399,22 +16343,6 @@
                         },
                         "queue_command": {
                             "command": "tag @s remove \"components.dark7mc:night_fury\""
-                        }
-                    },
-                    {
-                        "filters": {
-                            "test": "has_tag",
-                            "subject": "self",
-                            "operator": "equals",
-                            "value": "components.dark7mc:ancient_elemental"
-                        },
-                        "add": {
-                            "component_groups": [
-                                "morph:ancient_elemental"
-                            ]
-                        },
-                        "queue_command": {
-                            "command": "tag @s remove \"components.dark7mc:ancient_elemental\""
                         }
                     },
                     {

@@ -5,8 +5,7 @@ import { getWitchPotionEffect, WITCH_ENTITY_TYPE, WITCH_POTIONS } from "../data/
 import { updateNightFuryMoveItem } from "../data/night-fury-moves";
 
 const CUSTOM_ENTITY_TYPE_NAMES = Object.freeze({
-  "dark7mc:night_fury": "entity.dark7mc:night_fury.name",
-  "dark7mc:ancient_elemental": "entity.dark7mc:ancient_elemental.name"
+  "dark7mc:night_fury": "entity.dark7mc:night_fury.name"
 });
 
 world.beforeEvents.itemUse.subscribe(event => {
