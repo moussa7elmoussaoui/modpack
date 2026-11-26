@@ -3,7 +3,7 @@ import {
   capacityFor, choosePlanks, countItems, craftOnce, insertStack, inventoryEntries, movable,
   moveItems, neededPickaxe, recipeFor, selectItem, selectTool
 } from "./inventory";
-import { blockPosition, distanceSquared, offset, positionKey, RESOURCES } from "./model";
+import { blockPosition, buildDimensions, distanceSquared, offset, positionKey, RESOURCES } from "./model";
 import { clearTarget, isReserved, reserveBlock } from "./targets";
 import { actionFromHere, approach, blockAt, entityCrowding, isExposed, safeNearby } from "./terrain";
 import { reach, setStatus, stopPlayerMovement } from "./movement";
@@ -226,8 +226,10 @@ function workAreaContains(order, location) {
 }
 
 function nearBlueprint(order, position) {
-  return order.kind === "build" && position.x >= order.anchor.x - 1 && position.x <= order.anchor.x + 5 &&
-    position.z >= order.anchor.z - 1 && position.z <= order.anchor.z + 5;
+  if (order.kind !== "build") return false;
+  const { length, width } = buildDimensions(order);
+  return position.x >= order.anchor.x - 1 && position.x < order.anchor.x + length + 1 &&
+    position.z >= order.anchor.z - 1 && position.z < order.anchor.z + width + 1;
 }
 
 function station(player, brain, inventory, order, itemId, context) {

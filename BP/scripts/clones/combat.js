@@ -4,15 +4,27 @@ import {
   ATTACK_TARGET_RANGE, blockPosition, cloneSlot, CLONE_COUNT, distanceSquared, matchesAttackTarget, offset
 } from "./model";
 import { clearTarget } from "./targets";
-import { safeFeet, safeNearby } from "./terrain";
+import { recentlyDangerous, safeFeet, safeNearby } from "./terrain";
 import {
   pursueTarget, reach, setSneaking, setSprinting, setStatus, stopPlayerMovement, SPRINT_JUMP_COOLDOWN
 } from "./movement";
 import { durabilityScore, enchantmentLevel } from "./equipment";
+import { clonePersonality } from "./personality";
 
 const COMBAT_STRAFE_SPEED = 0.55;
 const COMBAT_STRAFE_TICKS = 3;
 const COMBAT_STRAFE_COOLDOWN = 8;
+const COMBO_HIT_WINDOW = 24;
+const COMBO_HIT_COUNT = 3;
+const COMBO_LAUNCH_IMPULSE = 0.2;
+const COMBO_FOLLOW_SPEED = 0.68;
+const COMBO_FOLLOW_TICKS = 2;
+const COMBO_FOLLOW_COOLDOWN = 4;
+const BOW_MAX_RANGE = 24;
+const BOW_MIN_RANGE = 4.25;
+const BOW_DRAW_TICKS = 20;
+const BOW_RETRY_TICKS = 4;
+const AIM_WAIT_LIMIT = 8;
 const CRITICAL_JUMP_COOLDOWN = 32;
 const JUMP_RESET_COOLDOWN = 12;
 const MACE_SMASH_FALL_DISTANCE = 1.5;
@@ -25,21 +37,76 @@ const MELEE_WEAPON_SCORE = new Map([
   ["minecraft:mace", 18]
 ]);
 
-function weaponScore(item) {
+function weaponScore(item, preferKnockback = false) {
   const base = MELEE_WEAPON_SCORE.get(item.typeId);
   if (base === undefined) return -Infinity;
   return base + enchantmentLevel(item, "minecraft:sharpness") * 4 +
     enchantmentLevel(item, "minecraft:fire_aspect") * 1.5 +
-    enchantmentLevel(item, "minecraft:knockback") * 0.5 + durabilityScore(item);
+    enchantmentLevel(item, "minecraft:knockback") * (preferKnockback ? 6 : 0.5) + durabilityScore(item);
 }
 
-function selectCombatWeapon(player, inventory, preferMace = false) {
+function selectCombatWeapon(player, inventory, preferMace = false, preferKnockback = false) {
   const weapons = inventoryEntries(inventory)
     .filter(({ item }) => movable(item) && MELEE_WEAPON_SCORE.has(item.typeId))
-    .map(entry => ({ ...entry, score: weaponScore(entry.item) }));
+    .map(entry => ({ ...entry, score: weaponScore(entry.item, preferKnockback) }));
   const weapon = (preferMace ? weapons.find(({ item }) => item.typeId === "minecraft:mace") : undefined) ??
     weapons.sort((a, b) => b.score - a.score)[0];
   if (weapon) selectSlot(player, inventory, weapon.slot);
+}
+
+function wrapDegrees(angle) {
+  let result = angle % 360;
+  if (result > 180) result -= 360;
+  if (result < -180) result += 360;
+  return result;
+}
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function humanLookAt(player, brain, target) {
+  if (!player?.isValid || !target?.isValid) return false;
+  const now = system.currentTick;
+  const personality = clonePersonality(cloneSlot(player.name) ?? 1);
+  if (brain.aimTargetId !== target.id) {
+    brain.aimTargetId = target.id;
+    brain.aimReadyAt = now + personality.reactionTicks + Math.floor(Math.random() * 3);
+  }
+  if (now < brain.aimReadyAt) return false;
+
+  try {
+    const head = player.getHeadLocation();
+    const aim = target.getAABB().center;
+    const dx = aim.x - head.x;
+    const dy = aim.y - head.y;
+    const dz = aim.z - head.z;
+    const horizontal = Math.hypot(dx, dz);
+    const desiredYaw = -Math.atan2(dx, dz) * 180 / Math.PI;
+    const desiredPitch = clamp(-Math.atan2(dy, horizontal) * 180 / Math.PI, -89, 89);
+    const rotation = player.getRotation();
+    const yawDelta = wrapDegrees(desiredYaw - rotation.y);
+    const pitchDelta = desiredPitch - rotation.x;
+    const turnFactor = 0.42;
+    const maxTurn = personality.turnSpeed;
+    player.setRotation({
+      x: clamp(rotation.x + clamp(pitchDelta * turnFactor, -maxTurn * 0.7, maxTurn * 0.7), -89, 89),
+      y: wrapDegrees(rotation.y + clamp(yawDelta * turnFactor, -maxTurn, maxTurn))
+    });
+    return Math.abs(yawDelta) <= personality.aimTolerance && Math.abs(pitchDelta) <= personality.aimTolerance;
+  } catch {
+    try {
+      player.lookAtEntity(target);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+}
+
+function aimReadyForAttack(player, brain, target) {
+  const aimed = humanLookAt(player, brain, target);
+  return aimed || (brain.aimReadyAt !== undefined && system.currentTick >= brain.aimReadyAt + AIM_WAIT_LIMIT);
 }
 
 function trackFallDistance(player, brain) {
@@ -76,41 +143,119 @@ function approachCombatAngle(player, brain, target) {
   return pursueTarget(player, brain, target);
 }
 
+function retreatFromTarget(player, brain, target) {
+  const health = player.getComponent(EntityComponentTypes.Health);
+  const lowHealth = health && health.currentValue < health.effectiveMax * 0.3;
+  const creeper = target.typeId === "minecraft:creeper";
+  if ((!lowHealth && !creeper) || distanceSquared(player.location, target.location) > 8 ** 2) {
+    brain.combatRetreatTarget = undefined;
+    return false;
+  }
+
+  const minClearance = creeper ? 7 : 5;
+  const stored = brain.combatRetreatTarget;
+  let safe = stored?.targetId === target.id && stored.untilTick > system.currentTick &&
+    distanceSquared(stored.position, target.location) >= minClearance ** 2 &&
+    safeFeet(player.dimension, blockPosition(stored.position)) &&
+    !recentlyDangerous(brain, player.dimension.id, stored.position) ? stored.position : undefined;
+  if (!safe) {
+    let dx = player.location.x - target.location.x;
+    let dz = player.location.z - target.location.z;
+    let length = Math.hypot(dx, dz);
+    if (length < 0.01) {
+      const yaw = player.getRotation().y * Math.PI / 180;
+      dx = Math.sin(yaw);
+      dz = -Math.cos(yaw);
+      length = 1;
+    }
+
+    const away = offset(blockPosition(player.location), Math.round(dx / length * 6), 0,
+      Math.round(dz / length * 6));
+    safe = safeNearby(player.dimension, away, position =>
+      distanceSquared(position, target.location) < minClearance ** 2 ||
+        recentlyDangerous(brain, player.dimension.id, position), 4) ??
+      safeNearby(player.dimension, away, position =>
+        distanceSquared(position, target.location) < minClearance ** 2, 4);
+  }
+  if (!safe) return false;
+
+  brain.combatRetreatTarget = { targetId: target.id, position: safe, untilTick: system.currentTick + 20 };
+  brain.combatMovementToken = (brain.combatMovementToken ?? 0) + 1;
+  brain.combatMovementMode = undefined;
+  brain.combatMovementTargetId = undefined;
+  if (brain.critJumpPending) {
+    brain.combatActionToken = (brain.combatActionToken ?? 0) + 1;
+    brain.critJumpPending = undefined;
+  }
+  clearCombo(brain);
+  player.stopBreakingBlock();
+  setStatus(brain, creeper ? "Backing away from creeper" : "Recovering before re-engaging");
+  if (reach(player, brain, safe) === "blocked") return "blocked";
+  return true;
+}
+
 export function defend(player, brain, inventory, protect) {
   const hostiles = player.dimension.getEntities({
     families: ["monster"], excludeTypes: ["minecraft:player"], location: player.location, maxDistance: protect ? 10 : 5, closest: 8
   });
-  const target = hostiles.find(entity => !protect || distanceSquared(entity.location, protect.location) <= 75 ||
+  const candidates = hostiles.filter(entity => !protect || distanceSquared(entity.location, protect.location) <= 75 ||
     distanceSquared(entity.location, player.location) <= 16);
+  const target = candidates.sort((a, b) => {
+    const score = entity => distanceSquared(entity.location, player.location) -
+      (entity.id === brain.lastThreatId && system.currentTick - brain.lastThreatAt < 100 ? 1000 : 0) -
+      (entity.typeId === "minecraft:creeper" ? 250 : 0);
+    return score(a) - score(b);
+  })[0];
   if (!target) return false;
-  if (!protect && distanceSquared(player.location, target.location) > 3 ** 2) return false;
   const health = player.getComponent(EntityComponentTypes.Health);
-  if (target.typeId === "minecraft:creeper" || (health && health.currentValue < health.effectiveMax * 0.35)) {
-    const feet = blockPosition(player.location);
-    const away = offset(feet, Math.sign(feet.x - target.location.x) * 5, 0, Math.sign(feet.z - target.location.z) * 5);
-    const safe = safeNearby(player.dimension, away, position => distanceSquared(position, target.location) < 25);
+  const nearbyThreats = candidates.filter(entity => distanceSquared(entity.location, player.location) <= 8 ** 2);
+  const lowHealth = health && health.currentValue < health.effectiveMax * 0.35;
+  const surrounded = nearbyThreats.length >= 3 && health && health.currentValue < health.effectiveMax * 0.7;
+  const shouldRetreat = target.typeId === "minecraft:creeper" || lowHealth || surrounded;
+  if (shouldRetreat) {
+    const threats = nearbyThreats.length ? nearbyThreats : [target];
+    const center = threats.reduce((sum, entity) => ({
+      x: sum.x + entity.location.x / threats.length,
+      y: sum.y + entity.location.y / threats.length,
+      z: sum.z + entity.location.z / threats.length
+    }), { x: 0, y: 0, z: 0 });
+    let dx = player.location.x - center.x;
+    let dz = player.location.z - center.z;
+    let length = Math.hypot(dx, dz);
+    if (length < 0.01) {
+      dx = player.location.x - target.location.x;
+      dz = player.location.z - target.location.z;
+      length = Math.hypot(dx, dz) || 1;
+    }
+    const away = offset(blockPosition(player.location), Math.round(dx / length * 6), 0, Math.round(dz / length * 6));
+    const keepClear = position => threats.some(entity => distanceSquared(position, entity.location) < 5 ** 2);
+    const unsafeMemory = position => recentlyDangerous(brain, player.dimension.id, position);
+    const safe = safeNearby(player.dimension, away, position => keepClear(position) || unsafeMemory(position), 4) ??
+      safeNearby(player.dimension, away, keepClear, 4);
     if (safe) {
-      setStatus(brain, "Taking cover");
+      setStatus(brain, surrounded ? "Escaping a group of enemies" : "Taking cover");
       player.stopBreakingBlock();
       clearTarget(brain);
-      reach(player, brain, safe);
-      return true;
+      return reach(player, brain, safe) === "blocked" ? "blocked" : true;
     }
   }
+  if (!protect && distanceSquared(player.location, target.location) > 3 ** 2) return false;
   setStatus(brain, "Defending");
   player.stopBreakingBlock();
   clearTarget(brain);
   if (distanceSquared(player.location, target.location) > 3 ** 2) {
     if (!protect) return false;
-    pursueTarget(player, brain, target);
-    return true;
+    return pursueTarget(player, brain, target) === "blocked" ? "blocked" : true;
   }
-  if (!attackRayHitsTarget(player, target)) {
+  if (!attackLineClear(player, target)) {
     approachCombatAngle(player, brain, target);
     return true;
   }
   selectCombatWeapon(player, inventory);
-  player.lookAtEntity(target, "Instant");
+  if (!aimReadyForAttack(player, brain, target)) {
+    setStatus(brain, `Facing ${target.nameTag || "enemy"}`);
+    return true;
+  }
   setSprinting(player, true);
   const attacked = attackSpecificTarget(player, target);
   setSprinting(player, false);
@@ -142,7 +287,7 @@ function findAttackTarget(player, brain, order) {
   return candidates.find(target => target.id === brain.attackTargetId) ?? candidates[0];
 }
 
-function attackRayHitsTarget(player, target) {
+function attackRayHitsTarget(player, target, maxDistance = 3.5) {
   try {
     const origin = player.getHeadLocation();
     const bounds = target.getAABB();
@@ -156,7 +301,7 @@ function attackRayHitsTarget(player, target) {
     for (const aim of aims) {
       const direction = { x: aim.x - origin.x, y: aim.y - origin.y, z: aim.z - origin.z };
       const length = Math.hypot(direction.x, direction.y, direction.z);
-      if (length < 0.01 || length > 3.5) continue;
+      if (length < 0.01 || length > maxDistance) continue;
       direction.x /= length;
       direction.y /= length;
       direction.z /= length;
@@ -175,6 +320,95 @@ function attackRayHitsTarget(player, target) {
   }
 }
 
+function attackLineClear(player, target, maxDistance = 3.5) {
+  try {
+    const origin = player.getHeadLocation();
+    const bounds = target.getAABB();
+    const center = bounds.center;
+    const verticalOffset = (bounds.extent?.y ?? 0.45) * 0.5;
+    for (const aim of [
+      center,
+      { x: center.x, y: center.y + verticalOffset, z: center.z },
+      { x: center.x, y: center.y - verticalOffset, z: center.z }
+    ]) {
+      const dx = aim.x - origin.x;
+      const dy = aim.y - origin.y;
+      const dz = aim.z - origin.z;
+      const length = Math.hypot(dx, dy, dz);
+      if (length < 0.01 || length > maxDistance) continue;
+      const blockHit = player.dimension.getBlockFromRay(origin, {
+        x: dx / length, y: dy / length, z: dz / length
+      }, { maxDistance: length, includeLiquidBlocks: false, includePassableBlocks: false });
+      if (!blockHit) return true;
+    }
+  } catch {
+  }
+  return false;
+}
+
+function combatBow(player, brain, inventory, target, order) {
+  if (brain.bowTargetId !== undefined) {
+    humanLookAt(player, brain, target);
+    setStatus(brain, brain.bowReleaseAt > system.currentTick
+      ? `Drawing bow on ${order.targetName}`
+      : `Releasing bow at ${order.targetName}`);
+    return true;
+  }
+  const distance = Math.sqrt(distanceSquared(player.location, target.location));
+  if (distance > BOW_MAX_RANGE || (distance < BOW_MIN_RANGE &&
+    Math.abs(target.location.y - player.location.y) < 2.5)) return false;
+
+  const entries = inventoryEntries(inventory).filter(({ item }) => movable(item));
+  const bow = entries.find(({ item }) => item.typeId === "minecraft:bow");
+  const hasArrow = entries.some(({ item }) => item.typeId.endsWith("arrow"));
+  if (!bow || !hasArrow) return false;
+
+  if (brain.nextBowShotAt > system.currentTick) {
+    setStatus(brain, `Readying bow for ${order.targetName}`);
+    return true;
+  }
+  if (!attackRayHitsTarget(player, target, BOW_MAX_RANGE)) return false;
+  if (!aimReadyForAttack(player, brain, target)) {
+    setStatus(brain, `Taking aim at ${order.targetName}`);
+    return true;
+  }
+
+  const selected = selectSlot(player, inventory, bow.slot);
+  if (selected === undefined) return false;
+  setSprinting(player, false);
+  stopPlayerMovement(player);
+  try {
+    if (!player.useItemInSlot(selected)) {
+      brain.nextBowShotAt = system.currentTick + BOW_RETRY_TICKS;
+      setStatus(brain, `Readying bow for ${order.targetName}`);
+      return true;
+    }
+  } catch {
+    return false;
+  }
+
+  const token = brain.bowActionToken = (brain.bowActionToken ?? 0) + 1;
+  brain.bowTargetId = target.id;
+  brain.bowReleaseAt = system.currentTick + BOW_DRAW_TICKS;
+  setStatus(brain, `Drawing bow on ${order.targetName}`);
+  system.runTimeout(() => {
+    if (!player.isValid || brain.bowActionToken !== token) return;
+    if (brain.eatingUntil > system.currentTick) {
+      brain.bowTargetId = undefined;
+      brain.bowReleaseAt = undefined;
+      return;
+    }
+    try {
+      player.stopUsingItem();
+    } catch {
+    }
+    brain.bowTargetId = undefined;
+    brain.bowReleaseAt = undefined;
+    brain.nextBowShotAt = system.currentTick + BOW_RETRY_TICKS;
+  }, BOW_DRAW_TICKS);
+  return true;
+}
+
 function attackSpecificTarget(player, target) {
   if (typeof player.attackEntity === "function") {
     try {
@@ -188,15 +422,48 @@ function attackSpecificTarget(player, target) {
   }
 }
 
-function combatStrafe(player, brain, target) {
+function clearCombo(brain) {
+  brain.comboTargetId = undefined;
+  brain.comboHitCount = 0;
+  brain.lastComboHitAt = undefined;
+}
+
+function comboHitsFor(brain, target) {
+  if (target.typeId !== "minecraft:player" || brain.comboTargetId !== target.id ||
+    system.currentTick - (brain.lastComboHitAt ?? -Infinity) > COMBO_HIT_WINDOW) {
+    clearCombo(brain);
+    return 0;
+  }
+  return brain.comboHitCount ?? 0;
+}
+
+function recordComboHit(brain, target) {
+  let hitCount = comboHitsFor(brain, target);
+  if (hitCount >= COMBO_HIT_COUNT) hitCount = 0;
+  brain.comboTargetId = target.id;
+  brain.comboHitCount = hitCount + 1;
+  brain.lastComboHitAt = system.currentTick;
+  if (brain.comboHitCount === 2 && target.typeId === "minecraft:player" && !target.isInWater) {
+    try {
+      if (target.getVelocity().y <= 0.08) target.applyImpulse({ x: 0, y: COMBO_LAUNCH_IMPULSE, z: 0 });
+    } catch {
+    }
+  }
+  return brain.comboHitCount;
+}
+
+function combatStrafe(player, brain, target, comboHitCount = 0) {
   if (target.typeId !== "minecraft:player" || brain.nextCombatStrafeAt > system.currentTick) return;
   if (brain.combatMovementMode) return;
+  const comboFollowUp = comboHitCount > 0 && comboHitCount < COMBO_HIT_COUNT;
   const direction = brain.combatStrafeDirection ?? 1;
   const yaw = player.getRotation().y * Math.PI / 180;
   const side = { x: Math.cos(yaw) * direction, z: Math.sin(yaw) * direction };
   const forward = { x: -Math.sin(yaw), z: Math.cos(yaw) };
-  const mode = brain.nextCombatResetMode ?? "w";
+  const mode = comboFollowUp ? "w" : brain.nextCombatResetMode ?? "w";
   const forwardInput = mode === "w" ? 1 : -1;
+  const movementTicks = comboFollowUp ? COMBO_FOLLOW_TICKS : COMBAT_STRAFE_TICKS;
+  const movementSpeed = comboFollowUp ? COMBO_FOLLOW_SPEED : COMBAT_STRAFE_SPEED;
   const destination = offset(player.location,
     side.x * 0.7 + forward.x * forwardInput * 0.7, 0,
     side.z * 0.7 + forward.z * forwardInput * 0.7);
@@ -205,8 +472,9 @@ function combatStrafe(player, brain, target) {
     setSprinting(player, false);
     player.stopMoving();
     brain.combatStrafeDirection = -direction;
-    brain.nextCombatStrafeAt = system.currentTick + COMBAT_STRAFE_COOLDOWN;
-    brain.nextCombatResetMode = mode === "w" ? "s" : "w";
+    brain.nextCombatStrafeAt = system.currentTick +
+      (comboFollowUp ? COMBO_FOLLOW_COOLDOWN : COMBAT_STRAFE_COOLDOWN);
+    if (!comboFollowUp) brain.nextCombatResetMode = mode === "w" ? "s" : "w";
     const token = brain.combatMovementToken = (brain.combatMovementToken ?? 0) + 1;
     brain.combatMovementMode = mode;
     brain.combatMovementTargetId = target.id;
@@ -224,8 +492,8 @@ function combatStrafe(player, brain, target) {
       if (!player.isValid || brain.combatMovementToken !== token || brain.attackTargetId !== target.id) return;
       try {
         setSprinting(player, mode === "w");
-        player.moveRelative(direction, forwardInput, COMBAT_STRAFE_SPEED);
-        system.runTimeout(finish, COMBAT_STRAFE_TICKS);
+        player.moveRelative(direction, forwardInput, movementSpeed);
+        system.runTimeout(finish, movementTicks);
       } catch {
         brain.combatMovementMode = undefined;
         brain.combatMovementTargetId = undefined;
@@ -281,7 +549,7 @@ function blockWithShield(player, brain, target) {
   }
   brain.lastCombatHealth = health?.currentValue;
   if (brain.shieldBlockUntil > system.currentTick) {
-    player.lookAtEntity(target, "Instant");
+    humanLookAt(player, brain, target);
     setSprinting(player, false);
     return setSneaking(player, true);
   }
@@ -319,9 +587,17 @@ function tryCriticalJump(player, brain, target, order) {
       return;
     }
     if (!player.isOnGround && verticalSpeed < -0.03) {
-      if (distanceSquared(player.location, target.location) <= 3 ** 2 && attackRayHitsTarget(player, target)) {
-        player.lookAtEntity(target, "Instant");
-        if (attackSpecificTarget(player, target)) combatStrafe(player, brain, target);
+      const aimed = aimReadyForAttack(player, brain, target);
+      if (distanceSquared(player.location, target.location) <= 3 ** 2 && aimed && attackLineClear(player, target)) {
+        if (attackSpecificTarget(player, target)) {
+          const hits = recordComboHit(brain, target);
+          if (hits > 1) setStatus(brain, `Combo ${hits}/${COMBO_HIT_COUNT} on ${order.targetName}`);
+          combatStrafe(player, brain, target, hits);
+        }
+      }
+      if (system.currentTick < expiresAt) {
+        system.runTimeout(attempt, 1);
+        return;
       }
       brain.critJumpPending = undefined;
       return;
@@ -339,6 +615,7 @@ export function attackNamedTarget(player, brain, inventory, order) {
     stopPlayerMovement(player);
     player.stopBreakingBlock();
     brain.route = undefined;
+    clearCombo(brain);
     brain.combatActionToken = (brain.combatActionToken ?? 0) + 1;
     brain.critJumpPending = undefined;
     brain.shieldBlockUntil = undefined;
@@ -359,6 +636,7 @@ export function attackNamedTarget(player, brain, inventory, order) {
       brain.critJumpPending = undefined;
     }
     brain.attackTargetId = target.id;
+    clearCombo(brain);
     brain.route = undefined;
     brain.lastCombatHealth = undefined;
     brain.shieldBlockUntil = undefined;
@@ -367,14 +645,17 @@ export function attackNamedTarget(player, brain, inventory, order) {
     setStatus(brain, `Blocking ${order.targetName}`);
     return {};
   }
+  const retreat = retreatFromTarget(player, brain, target);
+  if (retreat === "blocked") return { problem: "Can't find a safe route away from the target" };
+  if (retreat) return {};
   if (brain.critJumpPending?.targetId === target.id) {
     setStatus(brain, `Timing a critical hit on ${order.targetName}`);
     return {};
   }
   if (brain.combatMovementMode && brain.combatMovementTargetId === target.id) return {};
+  if (combatBow(player, brain, inventory, target, order)) return {};
   const inAttackRange = distanceSquared(player.location, target.location) <= 3 ** 2;
-  if (inAttackRange) player.lookAtEntity(target, "Instant");
-  const visible = inAttackRange && attackRayHitsTarget(player, target);
+  const visible = inAttackRange && attackLineClear(player, target);
   if (!inAttackRange || !visible) {
     if (brain.attackBlockedUntil?.get(target.id) > system.currentTick) {
       stopPlayerMovement(player);
@@ -388,6 +669,7 @@ export function attackNamedTarget(player, brain, inventory, order) {
     if (movement === "blocked") {
       brain.attackBlockedUntil ??= new Map();
       brain.attackBlockedUntil.set(target.id, system.currentTick + 40);
+      return { problem: `Can't find a path to ${order.targetName}` };
     } else {
       brain.attackBlockedUntil?.delete(target.id);
     }
@@ -395,6 +677,11 @@ export function attackNamedTarget(player, brain, inventory, order) {
   }
 
   brain.attackBlockedUntil?.delete(target.id);
+  const aimed = aimReadyForAttack(player, brain, target);
+  if (!aimed) {
+    setStatus(brain, `Aiming at ${order.targetName}`);
+    return {};
+  }
   setStatus(brain, `Attacking ${order.targetName}`);
   let verticalSpeed = 0;
   try {
@@ -402,12 +689,17 @@ export function attackNamedTarget(player, brain, inventory, order) {
   } catch {
   }
   const maceSmashReady = fallDistance >= MACE_SMASH_FALL_DISTANCE && verticalSpeed < -0.03;
-  selectCombatWeapon(player, inventory, maceSmashReady);
-  player.lookAtEntity(target, "Instant");
-  if (tryCriticalJump(player, brain, target, order)) return {};
+  selectCombatWeapon(player, inventory, maceSmashReady, target.typeId === "minecraft:player");
+  humanLookAt(player, brain, target);
+  const comboHitCount = comboHitsFor(brain, target);
+  if (comboHitCount > 0 && target.isOnGround === false && tryCriticalJump(player, brain, target, order)) return {};
   setSprinting(player, true);
   const attacked = attackSpecificTarget(player, target);
   setSprinting(player, false);
-  if (attacked) combatStrafe(player, brain, target);
+  if (attacked) {
+    const hits = recordComboHit(brain, target);
+    if (hits > 1) setStatus(brain, `Combo ${hits}/${COMBO_HIT_COUNT} on ${order.targetName}`);
+    combatStrafe(player, brain, target, hits);
+  }
   return {};
 }

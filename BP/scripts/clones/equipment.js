@@ -1,7 +1,7 @@
 import { EntityComponentTypes, EquipmentSlot, system } from "@minecraft/server";
 import { inventoryEntries, movable, selectSlot } from "./inventory";
 import { clearTarget } from "./targets";
-import { onDangerousGround, safeNearby } from "./terrain";
+import { onDangerousGround, recentlyDangerous, safeNearby } from "./terrain";
 import { reach, setStatus, stopPlayerMovement } from "./movement";
 
 const GOOD_FOOD = [
@@ -41,12 +41,14 @@ export function armorScore(item) {
 
 export function recover(player, brain, inventory) {
   if (onDangerousGround(player)) {
-    const safe = safeNearby(player.dimension, player.location);
+    const safe = safeNearby(player.dimension, player.location,
+      position => recentlyDangerous(brain, player.dimension.id, position)) ??
+      safeNearby(player.dimension, player.location);
     if (safe) {
       player.stopBreakingBlock();
       clearTarget(brain);
       setStatus(brain, "Getting to safety");
-      reach(player, brain, safe);
+      if (reach(player, brain, safe) === "blocked") return { problem: "Can't find a safe path off this ground" };
       return true;
     }
   }

@@ -1,9 +1,13 @@
 import { EntityComponentTypes, EntityDamageCause, GameMode, Player, system, world } from "@minecraft/server";
 import * as GameTest from "@minecraft/server-gametest";
-import { findActiveOmnitrix, handleOmnitrixUse } from "../components/items/omnitrix";
+import {
+  findActiveOmnitrix, handleOmnitrixUse, isHiddenSpecialMorph, requestSimulatedPlayerMorph
+} from "../components/items/omnitrix";
+import { getMorphMenuMorphIds } from "../components/items/morph-menu";
 import { Morph } from "../morph/class";
 import { LocalizedError } from "../utils/messages";
 import { simulatedPlayerChat } from "../utils/simulated-player-chat.js";
+import { cloneLine } from "./personality";
 import { runCloneTurn } from "./behavior";
 import { tryJumpReset } from "./combat";
 import { newBrain, stopActions } from "./movement";
@@ -20,6 +24,9 @@ const SAVE_KEY = "dark7mc:urban_clones_v1";
 const INVSEE_ACTIVE = "dark7mc:invsee_active";
 const SAVE_INTERVAL = 400;
 const XP_LIMIT = 2 ** 24;
+const DANGER_MEMORY_MS = 3 * 60 * 1000;
+const DANGER_MEMORY_MAX = 6;
+const PAIN_CHAT_COOLDOWN = 14 * 1000;
 const live = new Map();
 const spawnRetries = new Map();
 let state;
@@ -31,9 +38,11 @@ let nextSpawnAt = 0;
 let lastClockTick;
 let turnIndex = 0;
 let lastRuntimeError;
+let nextReturnedGreetingAt = 0;
+let nextReactionChatAt = 0;
 
 function emptyState() {
-  return { unlockedCount: 0, roster: Array.from({ length: CLONE_COUNT }, () => ({ remaining: 0 })) };
+  return { unlockedCount: 0, roster: Array.from({ length: CLONE_COUNT }, () => ({ remaining: 0, dangerSpots: [] })) };
 }
 
 function saveState(nextState = state) {
@@ -49,7 +58,16 @@ function readState() {
     !Number.isInteger(unlockedCount) || unlockedCount < 0 || unlockedCount > CLONE_COUNT) {
     throw new Error("Invalid clone roster.");
   }
-  return { unlockedCount, roster };
+  const now = Date.now();
+  const normalizedRoster = roster.map(record => ({
+    ...record,
+    dangerSpots: (Array.isArray(record?.dangerSpots) ? record.dangerSpots : [])
+      .filter(spot => Number.isFinite(spot?.x) && Number.isFinite(spot?.y) && Number.isFinite(spot?.z) &&
+        typeof spot.dimension === "string" && Number.isFinite(spot.at) &&
+        now - spot.at >= 0 && now - spot.at <= DANGER_MEMORY_MS)
+      .slice(-DANGER_MEMORY_MAX)
+  }));
+  return { unlockedCount, roster: normalizedRoster };
 }
 
 export function isOwner(player) {
@@ -97,7 +115,58 @@ function startStorage() {
 }
 
 function newActor(slot, player) {
-  return { slot, player, brain: newBrain(), saveAt: system.currentTick + SAVE_INTERVAL, nextWarning: 0, paused: false };
+  const brain = newBrain();
+  const now = Date.now();
+  brain.ownerWasNear = false;
+  brain.ownerAwayAt = now;
+  brain.dangerSpots = (getRecord(slot).dangerSpots ?? [])
+    .filter(spot => now - spot.at <= DANGER_MEMORY_MS)
+    .map(spot => ({
+      ...spot,
+      untilTick: system.currentTick + Math.ceil((DANGER_MEMORY_MS - (now - spot.at)) / 50)
+    }));
+  return { slot, player, brain, saveAt: system.currentTick + SAVE_INTERVAL, nextWarning: 0, paused: false };
+}
+
+function rememberDanger(actor) {
+  const { player, slot, brain } = actor;
+  const now = Date.now();
+  const position = blockPosition(player.location);
+  const dimension = player.dimension.id;
+  const memory = (getRecord(slot).dangerSpots ?? []).filter(spot => now - spot.at <= DANGER_MEMORY_MS);
+  const sameArea = memory.findIndex(spot => spot.dimension === dimension && distanceSquared(spot, position) <= 6 ** 2);
+  if (sameArea !== -1) memory.splice(sameArea, 1);
+  memory.push({ ...position, dimension, at: now });
+  const dangerSpots = memory.slice(-DANGER_MEMORY_MAX);
+  getRecord(slot).dangerSpots = dangerSpots;
+  brain.dangerSpots = dangerSpots.map(spot => ({
+    ...spot,
+    untilTick: system.currentTick + Math.ceil((DANGER_MEMORY_MS - (now - spot.at)) / 50)
+  }));
+  saveState();
+}
+
+function noticeOwnerReturn(actor, record, order) {
+  const { player, brain, slot } = actor;
+  const now = Date.now();
+  const near = owner?.isValid && player.dimension.id === owner.dimension.id &&
+    distanceSquared(player.location, owner.location) <= 8 ** 2;
+  if (!near) {
+    brain.ownerWasNear = false;
+    brain.ownerAwayAt ??= now;
+    return;
+  }
+  if (brain.ownerWasNear) return;
+
+  const awayFor = now - (brain.ownerAwayAt ?? now);
+  brain.ownerWasNear = true;
+  brain.ownerAwayAt = undefined;
+  if (order || awayFor < 60_000 || now < nextReturnedGreetingAt || now - (record.lastReturnedGreetingAt ?? 0) < 5 * 60_000) return;
+
+  record.lastReturnedGreetingAt = now;
+  nextReturnedGreetingAt = now + 15_000;
+  saveState();
+  simulatedPlayerChat(player, cloneLine(slot, "returned"));
 }
 
 function getRecord(slot) {
@@ -267,11 +336,20 @@ function updateActor(actor) {
   if (system.currentTick >= actor.saveAt) retryCheckpoint(actor);
   if (system.currentTick < (actor.retryAt ?? 0)) return;
   const record = getRecord(slot);
-  const { complete, problem } = runCloneTurn(player, owner, record.order, brain, {
-    changed: saveState,
-    dirty: () => { actor.saveAt = Math.min(actor.saveAt, system.currentTick + 40); },
-    checkpoint: () => checkpoint(actor)
-  });
+  const orderAtTurnStart = record.order;
+  let result;
+  try {
+    result = runCloneTurn(player, owner, record.order, brain, {
+      changed: saveState,
+      dirty: () => { actor.saveAt = Math.min(actor.saveAt, system.currentTick + 40); },
+      checkpoint: () => checkpoint(actor)
+    });
+  } catch (error) {
+    const detail = String(error?.message ?? error).replace(/\s+/g, " ").slice(0, 120);
+    console.warn(`[Clones] Clone ${slot} order failed: ${detail}`);
+    result = { problem: "I couldn't start moving or working on that order" };
+  }
+  const { complete, problem } = result ?? {};
   brain.problem = problem;
   if (complete) {
     record.order = undefined;
@@ -281,17 +359,18 @@ function updateActor(actor) {
     stopActions(player, brain);
     retryCheckpoint(actor);
     saveState();
-    simulatedPlayerChat(player, `Done. ${complete}.`);
+    simulatedPlayerChat(player, cloneLine(slot, "completed", { text: complete.replace(/[.!?]+$/, "") }));
   } else if (problem) {
     brain.status = problem;
     clearTarget(brain);
     stopActions(player, brain);
     actor.retryAt = system.currentTick + 100;
     if (system.currentTick >= actor.nextWarning) {
-      simulatedPlayerChat(player, `I'm stuck. ${problem}.`);
+      simulatedPlayerChat(player, cloneLine(slot, "stuck", { text: problem.replace(/[.!?]+$/, "") }));
       actor.nextWarning = system.currentTick + 600;
     }
   }
+  noticeOwnerReturn(actor, record, orderAtTurnStart);
 }
 
 function handleDeath(actor) {
@@ -338,12 +417,32 @@ world.afterEvents.entityDie.subscribe(({ deadEntity }) => {
 
 world.afterEvents.entityHurt.subscribe(({ damageSource, hurtEntity }) => {
   const attacker = damageSource.damagingEntity;
-  if (damageSource.cause !== EntityDamageCause.entityAttack || !(attacker instanceof Player)) return;
   for (const actor of live.values()) {
     if (actor.player.id !== hurtEntity.id) continue;
-    const order = getRecord(actor.slot).order;
-    if (order?.kind === "attack" && actor.brain.attackTargetId === attacker.id && matchesAttackTarget(attacker, order)) {
-      tryJumpReset(actor.player, actor.brain);
+    const { brain, player, slot } = actor;
+    brain.lastThreatId = attacker?.id;
+    brain.lastThreatAt = system.currentTick;
+    if (system.currentTick >= (brain.nextDangerMemoryAt ?? 0)) {
+      try {
+        rememberDanger(actor);
+        brain.nextDangerMemoryAt = system.currentTick + 20;
+      } catch (error) {
+        showRuntimeError(error);
+      }
+    }
+    const now = Date.now();
+    if (!actor.paused && now >= (brain.nextPainLineAt ?? 0) && now >= nextReactionChatAt) {
+      const health = player.getComponent(EntityComponentTypes.Health);
+      const badlyHurt = health && health.currentValue <= health.effectiveMax * 0.35;
+      simulatedPlayerChat(player, cloneLine(slot, badlyHurt ? "injured" : "hurt"));
+      brain.nextPainLineAt = now + PAIN_CHAT_COOLDOWN;
+      nextReactionChatAt = now + 1500;
+    }
+    if (damageSource.cause === EntityDamageCause.entityAttack && attacker instanceof Player) {
+      const order = getRecord(slot).order;
+      if (order?.kind === "attack" && brain.attackTargetId === attacker.id && matchesAttackTarget(attacker, order)) {
+        tryJumpReset(player, brain);
+      }
     }
     break;
   }
@@ -372,6 +471,56 @@ function requireActor(viewer, slot) {
   const actor = live.get(slot);
   if (!actor || !isAlive(actor.player)) throw new LocalizedError("clones.error.unavailable");
   return actor;
+}
+
+function normalizeMorphName(value) {
+  return String(value ?? "").trim().toLowerCase().replaceAll("_", " ").replace(/\s+/g, " ");
+}
+
+function singularMorphType(value) {
+  const plurals = { wolves: "wolf", witches: "witch", foxes: "fox" };
+  const normalized = normalizeMorphName(value);
+  return plurals[normalized] ?? (normalized.endsWith("s") && !normalized.endsWith("ss")
+    ? normalized.slice(0, -1)
+    : normalized);
+}
+
+function findRequestedMorphId(morphIds, targetName) {
+  const selector = String(targetName ?? "").trim().toLowerCase();
+  const exactId = morphIds.find(morphId => morphId.toLowerCase() === selector);
+  if (exactId) return exactId;
+
+  const playerRequest = /^(?:player)\s+(?:(?:named|called)\s+)?(.+)$/.exec(selector);
+  const entityRequest = /^(?:mob|entity|creature)\s+(?:(?:named|called)\s+)?(.+)$/.exec(selector);
+  const name = normalizeMorphName(playerRequest?.[1] ?? entityRequest?.[1] ?? selector);
+
+  if (playerRequest) {
+    return morphIds.find(morphId => {
+      const morph = Morph.parse(morphId, { allowOmnitrix: true });
+      return morph.entityType === "minecraft:player" && normalizeMorphName(morph.playerName) === name;
+    });
+  }
+
+  const entityId = morphIds.find(morphId => {
+    const morph = Morph.parse(morphId, { allowOmnitrix: true });
+    if (morph.entityType === "minecraft:player") return false;
+    const entityType = morph.entityType.toLowerCase();
+    if (name.includes(":")) {
+      const separator = name.indexOf(":");
+      const requestedNamespace = name.slice(0, separator);
+      const requestedType = name.slice(separator + 1);
+      const typeSeparator = entityType.indexOf(":");
+      return entityType.slice(0, typeSeparator) === requestedNamespace &&
+        singularMorphType(entityType.slice(typeSeparator + 1)) === singularMorphType(requestedType);
+    }
+    return singularMorphType(entityType.slice(entityType.indexOf(":") + 1)) === singularMorphType(name);
+  });
+  if (entityId || entityRequest) return entityId;
+
+  return morphIds.find(morphId => {
+    const morph = Morph.parse(morphId, { allowOmnitrix: true });
+    return morph.entityType === "minecraft:player" && normalizeMorphName(morph.playerName) === name;
+  });
 }
 
 export function rosterFor(viewer) {
@@ -404,6 +553,29 @@ export function assignOrder(viewer, slot, order) {
   };
   actor.brain.status = record.order ? "Order received" : "Waiting";
   saveState();
+}
+
+export function orderCloneMorph(viewer, slot, targetName) {
+  const actor = requireActor(viewer, slot);
+  if (!canWork(viewer) || actor.player.dimension.id !== OVERWORLD) {
+    throw new LocalizedError("clones.error.overworld");
+  }
+  if (actor.paused || actor.player.getDynamicProperty(INVSEE_ACTIVE) === true) return { status: "busy" };
+
+  const activeOmnitrix = findActiveOmnitrix(actor.player);
+  if (activeOmnitrix === undefined) return { status: "no_omnitrix" };
+
+  const itemSlot = activeOmnitrix.inventory.getSlot(activeOmnitrix.slot);
+  const morphIds = getMorphMenuMorphIds(
+    actor.player,
+    itemSlot,
+    activeOmnitrix.itemStack,
+    morphId => isHiddenSpecialMorph(morphId, actor.player)
+  );
+  const morphId = findRequestedMorphId(morphIds, targetName);
+  if (morphId === undefined) return { status: "unavailable" };
+  if (!requestSimulatedPlayerMorph(actor.player, morphId)) return { status: "busy" };
+  return { status: "started", morphId };
 }
 
 export function replyAsClone(viewer, slot, message) {

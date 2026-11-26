@@ -1,27 +1,21 @@
 import { system, world } from "@minecraft/server";
-import { SimulatedPlayer } from "@minecraft/server-gametest";
-import { openInvsee } from "../invsee/index";
 import { LocalizedError } from "../utils/messages";
 import { registerSimulatedPlayerChatHandler } from "../utils/simulated-player-chat.js";
 import { answerCloneQuestion, describeCloneOrder, parseCloneQuestion } from "./dialogue";
+import { cloneLine } from "./personality";
 import {
   ATTACK_TARGET_RANGE, blockPosition, distanceSquared, entityTargetName, matchesAttackTarget, OVERWORLD, parseOrder, positionKey
 } from "./model";
 import {
-  activateCloneOmnitrix, assignOrder, cloneReport, collectCloneXp, isOwner, replyAsClone, requireCloneAccess, rosterFor, withCloneInventory
+  activateCloneOmnitrix, assignOrder, cloneReport, collectCloneXp, isOwner, orderCloneMorph, replyAsClone, requireCloneAccess, rosterFor
 } from "./service";
 import { findStructuresSite } from "./terrain";
-
-const VIEWS = new Map([
-  ["inventory", "inventory"], ["ender chest", "enderchest"], ["enderchest", "enderchest"],
-  ["morphs", "omnitrix"], ["morph menu", "omnitrix"], ["omnitrix", "omnitrix"]
-]);
 
 export function parseCloneAddress(message) {
   const text = message.trim();
   if (/^clones$/i.test(text)) return { request: "help" };
-  const leading = /^(?:clones|(?:clone|urban7mc)\s+(\d+))\s*[:,]\s*(.*)$/i.exec(text);
-  const trailing = leading ? undefined : /^(.+?)\s*,\s*(?:clones|(?:clone|urban7mc)\s+(\d+))[.!?]*$/i.exec(text);
+  const leading = /^(?:clones|(?:clone|urban7mc)\s*(\d+))\s*[:,]\s*(.*)$/i.exec(text);
+  const trailing = leading ? undefined : /^(.+?)\s*,\s*(?:clones|(?:clone|urban7mc)\s*(\d+))[.!?]*$/i.exec(text);
   if (!leading && !trailing) return;
   const target = leading ? leading[1] : trailing[2];
   const command = leading ? leading[2] : trailing[1];
@@ -40,7 +34,7 @@ function answerQuestion(player, slot, question) {
       return;
     }
     const report = cloneReport(player, slot);
-    const answer = answerCloneQuestion(question, report);
+    const answer = answerCloneQuestion(question, report, slot);
     replyAsClone(player, slot, question.includeXp ? `${answer} I have ${report.xp} XP.` : answer);
     return;
   }
@@ -60,7 +54,7 @@ function answerQuestion(player, slot, question) {
     const xp = ready.reduce((total, clone) => total + cloneReport(player, clone.slot).xp, 0);
     answer = `We have ${xp} XP points between us.`;
   } else if (["hello", "thanks", "capabilities", "unknown"].includes(question.topic)) {
-    answer = answerCloneQuestion(question);
+    answer = answerCloneQuestion(question, undefined, speaker);
   } else {
     answer = `Ask one of us by name for that. Try "Clone ${speaker}, ${question.request}?"`;
   }
@@ -75,8 +69,7 @@ function replyFromAvailableClone(player, message) {
 function genericReply(player) {
   const speaker = rosterFor(player).find(clone => clone.ready);
   if (!speaker) return;
-  const replies = ["I'm here. What do you need?", "I heard you. Give me an order whenever you're ready.", "Right, I'm listening.", "Need anything from me?"];
-  replyAsClone(player, speaker.slot, replies[Math.floor(Math.random() * replies.length)]);
+  replyAsClone(player, speaker.slot, cloneLine(speaker.slot, "generic"));
 }
 
 function cloneErrorMessage(error) {
@@ -89,10 +82,9 @@ function cloneErrorMessage(error) {
     "clones.error.inventory": "Make room in the clone's hotbar.",
     "clones.error.busy": "This clone already has an InvSee session open.",
     "clones.error.order": "I didn't understand that order.",
-    "clones.error.site": "Aim at the top of the northwest corner of a clear building site before giving the build order.",
+    "clones.error.site": "Aim at the top of the northwest corner of a clear, level building site before giving the build order.",
     "clones.error.number": "Choose a clone numbered 1 to 10.",
-    "clones.error.target": "Choose a single clone.",
-    "clones.error.viewer": "Opening an InvSee screen requires a connected client."
+    "clones.error.target": "Choose a single clone."
   };
   let message = messages[error?.localizationKey] ?? "Sorry, something went wrong.";
   for (const value of error?.localizationValues ?? []) message = message.replace("%s", String(value));
@@ -134,16 +126,10 @@ async function handle(player, { slot, request }) {
     return;
   }
 
-  const view = VIEWS.get(request.replace(/^(?:open|show)(?: me)?\s+/, ""));
-  if (view || request === "activate omnitrix") {
+  if (request === "activate omnitrix") {
     if (slot === undefined) throw new LocalizedError("clones.error.target");
-    if (!view) {
-      activateCloneOmnitrix(player, slot);
-      replyAsClone(player, slot, "I activated my Omnitrix.");
-      return;
-    }
-    if (player instanceof SimulatedPlayer) throw new LocalizedError("clones.error.viewer");
-    await withCloneInventory(player, slot, clone => openInvsee(player, clone, view));
+    activateCloneOmnitrix(player, slot);
+    replyAsClone(player, slot, "I activated my Omnitrix.");
     return;
   }
 
@@ -173,13 +159,43 @@ async function handle(player, { slot, request }) {
     ? rosterFor(player).filter(clone => clone.ready).map(clone => clone.slot)
     : [slot];
   if (!slots.length) throw new LocalizedError("clones.error.unavailable");
-  for (const target of slots) assignOrder(player, target, order);
+  if (order.kind === "morph") {
+    for (const target of slots) {
+      const result = orderCloneMorph(player, target, order.targetName);
+      const message = result.status === "started"
+        ? `I'm using my Omnitrix to morph into ${order.targetName}.`
+        : result.status === "unavailable"
+          ? `I don't have ${order.targetName} in my Omnitrix.`
+          : result.status === "no_omnitrix"
+            ? "I don't have an active Omnitrix to morph with."
+            : "My Omnitrix is busy right now.";
+      replyAsClone(player, target, message);
+    }
+    return;
+  }
+  let activeSlots = slots;
+  if (slot === undefined && order.resource) {
+    const perClone = Math.floor(order.amount / slots.length);
+    const remainder = order.amount % slots.length;
+    activeSlots = [];
+    slots.forEach((target, index) => {
+      const amount = perClone + (index < remainder ? 1 : 0);
+      if (amount > 0) {
+        assignOrder(player, target, { ...order, amount });
+        activeSlots.push(target);
+      } else {
+        assignOrder(player, target, { kind: "stop" });
+      }
+    });
+  } else {
+    for (const target of slots) assignOrder(player, target, order);
+  }
 
-  const speaker = Math.min(...slots);
-  const subject = slots.length > 1 ? `${slots.length} of us will` : "I'll";
-  const task = describeCloneOrder(order, slots.length > 1);
+  const speaker = Math.min(...activeSlots);
+  const task = describeCloneOrder(order, activeSlots.length > 1);
   const location = order.anchor ? ` near ${positionKey(order.anchor)}` : "";
-  replyAsClone(player, speaker, `${subject} ${task}${location}.`);
+  const lineType = activeSlots.length > 1 ? "receivedGroup" : "receivedSolo";
+  replyAsClone(player, speaker, cloneLine(speaker, lineType, { task, location }));
 }
 
 function dispatchCloneChat(player, addressed) {

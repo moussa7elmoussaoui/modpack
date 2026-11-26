@@ -246,7 +246,7 @@ function closeOmnitrixMenu(player) {
   }, ANIMATION_TICKS);
 }
 
-function chooseSimulatedPlayerMorph(player) {
+function chooseSimulatedPlayerMorph(player, requestedMorphId) {
   const delayTicks = SIMULATED_MORPH_DELAY_MIN_TICKS + Math.floor(
     Math.random() * (SIMULATED_MORPH_DELAY_MAX_TICKS - SIMULATED_MORPH_DELAY_MIN_TICKS + 1)
   );
@@ -271,14 +271,37 @@ function chooseSimulatedPlayerMorph(player) {
         morphId => isHiddenSpecialMorph(morphId, player)
       );
       if (morphIds.length > 0) {
-        const morphId = morphIds[Math.floor(Math.random() * morphIds.length)];
-        applyMorphSelection(player, itemSlot, morphId);
+        const morphId = requestedMorphId === undefined
+          ? morphIds[Math.floor(Math.random() * morphIds.length)]
+          : morphIds.find(candidate => candidate === requestedMorphId);
+        if (morphId !== undefined) applyMorphSelection(player, itemSlot, morphId);
       }
       closeOmnitrixMenu(player);
     } catch {
       if (player.isValid) closeOmnitrixMenu(player);
     }
   }, delayTicks);
+}
+
+export function requestSimulatedPlayerMorph(player, morphId) {
+  if (!(player instanceof SimulatedPlayer)) return false;
+
+  const activeOmnitrix = findActiveOmnitrix(player);
+  if (activeOmnitrix === undefined ||
+    !isActiveOmnitrix(activeOmnitrix.itemStack) ||
+    !isOwnedOmnitrix(activeOmnitrix.itemStack, player)) return false;
+
+  const itemSlot = activeOmnitrix.inventory.getSlot(activeOmnitrix.slot);
+  const morphIds = getMorphMenuMorphIds(
+    player,
+    itemSlot,
+    activeOmnitrix.itemStack,
+    candidate => isHiddenSpecialMorph(candidate, player)
+  );
+  if (!morphIds.includes(morphId)) return false;
+
+  if (player.getProperty(STATE_PROPERTY) === STATES.unworn) setOmnitrixState(player, STATES.closed);
+  return openOmnitrixMenu(player, () => chooseSimulatedPlayerMorph(player, morphId));
 }
 
 export default { id: IDENTIFIER };

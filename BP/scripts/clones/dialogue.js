@@ -1,5 +1,6 @@
 import { inventoryEntries } from "./inventory";
-import { blockPosition, parseOrder, positionKey, RESOURCES } from "./model";
+import { blockPosition, describeBuildOrder, parseOrder, positionKey, RESOURCES } from "./model";
+import { cloneLine } from "./personality";
 
 const TOPICS = [
   ["hello", /^(?:hi|hey|hello)(?: there)?$/],
@@ -36,10 +37,12 @@ export function parseCloneQuestion(request) {
 
 export function describeCloneOrder(order, group = false) {
   if (order.resource) return `${order.kind} ${order.amount} ${RESOURCES[order.resource].label}`;
+  if (order.kind === "build") return describeBuildOrder(order);
   return {
     attack: order.targetTypeId
       ? `attack ${order.targetIds?.length > 1 ? "all nearby entities" : "the nearest entity"} of type ${order.targetName}`
       : order.targetIds?.length > 1 ? `attack all entities named ${order.targetName}` : `attack ${order.targetName}`,
+    morph: `morph into ${order.targetName}`,
     follow: "follow you", stay: group ? "hold our positions" : "hold this position", defend: "guard you",
     build: "build the starter hut", stop: group ? "stop what we're doing" : "stop what I'm doing"
   }[order.kind];
@@ -87,12 +90,12 @@ function currentActivity(report) {
   return `I’m ${lowerFirst(report.status)}.`;
 }
 
-export function answerCloneQuestion(question, report) {
+export function answerCloneQuestion(question, report, slot = 1) {
   switch (question.topic) {
-    case "hello": return "Hey, what do you need?";
-    case "thanks": return "Anytime.";
-    case "capabilities": return "I can follow you, hold position, defend you, attack a nearby player or named entity, attack nearby mobs by type, gather or mine materials, and build a starter hut. Invisible targets stay hidden, and morphed players match their current mob form or player disguise.";
-    case "roster": return "I’m here and ready to take orders.";
+    case "hello": return cloneLine(slot, "greeting");
+    case "thanks": return cloneLine(slot, "thanks");
+    case "capabilities": return "I can follow you, hold position, defend you, attack a nearby player or named entity, attack nearby mobs by type, morph into a mob or player stored in my Omnitrix, gather or mine materials, and build starter huts, floors, walls, or towers. Invisible targets stay hidden, and morphed players match their current mob form or player disguise.";
+    case "roster": return cloneLine(slot, "generic");
     case "xp": return `I’m level ${report.level} and have ${report.xp} XP points.`;
     case "health": {
       const health = `${Math.round(report.health)}/${Math.round(report.maxHealth)} health`;

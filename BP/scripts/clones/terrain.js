@@ -1,4 +1,4 @@
-import { Direction } from "@minecraft/server";
+import { Direction, system } from "@minecraft/server";
 import { blockPosition, distanceSquared, offset, positionKey } from "./model";
 
 export const MAX_REACH = 4.4;
@@ -55,6 +55,12 @@ export function safeNearby(dimension, location, exclude = () => false, radius = 
     const position = offset(base, x, y, z);
     if (!exclude(position) && safeFeet(dimension, position)) return feetCenter(position);
   }
+}
+
+export function recentlyDangerous(brain, dimensionId, location, radius = 5) {
+  const radiusSquared = radius ** 2;
+  return (brain?.dangerSpots ?? []).some(spot => spot.dimension === dimensionId &&
+    spot.untilTick > system.currentTick && distanceSquared(spot, location) <= radiusSquared);
 }
 
 export function entityCrowding(dimension, origin, player, maxDistance = 8, includeEntity = () => true) {
